@@ -1,0 +1,20 @@
+# main links
+main:
+  - title: "categories"
+    url: /categories/
+  - title: "tags"
+    url: /tags/
+
+menu:
+  - title: "Development"
+    url: /development/
+    category: "Development"
+  - title: "Mathematics"
+    url: /mathematics/
+    category: "Mathematics"
+  - title: "Playground"
+    url: /playground/
+    category: "Playground"
+  - title: "Memo"
+    url: /memo/
+    category: "Memo"
