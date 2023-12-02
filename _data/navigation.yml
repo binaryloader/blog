@@ -9,6 +9,10 @@ menu:
   - title: "Development"
     url: /development/
     category: "Development"
+    children:
+      - title: "CS"
+        url: /development/cs/
+        category: "CS"
   - title: "Mathematics"
     url: /mathematics/
     category: "Mathematics"
@@ -18,3 +22,7 @@ menu:
   - title: "Memo"
     url: /memo/
     category: "Memo"
+    children:
+      - title: "TIL"
+        url: /memo/til/
+        category: "TIL"
