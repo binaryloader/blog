@@ -41,7 +41,7 @@ comments:
     num_posts: # 5 (default)
     colorscheme: # "light" (default), "dark"
   utterances:
-    theme: "github-light"
+    theme: "github-dark"
     issue_term: "title"
   giscus:
     repo_id: # Shown during giscus setup at https://giscus.app
@@ -111,17 +111,17 @@ author:
   stackoverflow: "17120851"
   links:
     - label: "GitHub"
-      icon: "fab fa-fw fa-github icon-black"
+      icon: "fab fa-fw fa-github icon-white"
       url: "https://github.com/binaryloader"
 
 # Site Footer
 footer:
   links:
     - label: "GitHub"
-      icon: "fab fa-fw fa-github icon-black"
+      icon: "fab fa-fw fa-github icon-white"
       url: "https://github.com/binaryloader"
     - label: "stackoverflow"
-      icon: "fab fa-fw fa-stack-overflow icon-black"
+      icon: "fab fa-fw fa-stack-overflow icon-white"
       url: "https://stackoverflow.com/users/17120851/binaryloader"
 
 # Reading Files
