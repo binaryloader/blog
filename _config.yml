@@ -23,7 +23,7 @@ name: "binaryloader"
 description: "알고 있는 지식과 경험을 기록합니다"
 url: "https://blog.binaryloader.com"
 baseurl: # the subpath of your site, e.g. "/blog"
-repository: "binaryloader/blog"
+repository: "binaryloader/blog-comments"
 teaser: # "/assets/image/post/placeholder/teaser.png"
 logo: "/assets/image/logo/logo.png"
 masthead_title: # overrides the website title displayed in the masthead, use " " for no title
