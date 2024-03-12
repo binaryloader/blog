@@ -261,6 +261,7 @@ defaults:
       layout: single
       classes: wide
       author_profile: true
+      published: false
       sidebar:
         nav: "menu"
       header:
@@ -278,7 +279,6 @@ defaults:
       related: true
       toc: true
       toc_sticky: true
-      published: false
 
 jekyll_admin:
   hidden_links:
