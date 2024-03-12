@@ -19,13 +19,3 @@ menu:
   - title: "Playground"
     url: /playground/
     category: "Playground"
-  - title: "Memo"
-    url: /memo/
-    category: "Memo"
-    children:
-      - title: "Diary"
-        url: /memo/diary/
-        category: "Diary"
-      - title: "TIL"
-        url: /memo/til/
-        category: "TIL"
