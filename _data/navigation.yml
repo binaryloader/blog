@@ -13,6 +13,55 @@ menu:
       - title: "CS"
         url: /development/cs/
         category: "CS"
+        children:
+          - title: "Intro to CS"
+            url: /development/cs/intro-to-cs/
+            category: "Intro to CS"
+          - title: "Data Structures"
+            url: /development/cs/ds/
+            category: "Data Structures"
+          - title: "Algorithms"
+            url: /development/cs/algorithms/
+            category: "Algorithms"
+          - title: "Computer Architecture"
+            url: /development/cs/ca/
+            category: "Computer Architecture"
+          - title: "Operating System"
+            url: /development/cs/os/
+            category: "Operating System"
+          - title: "Computer Network"
+            url: /development/cs/cn/
+            category: "Computer Network"
+          - title: "Data Communication"
+            url: /development/cs/dc/
+            category: "Data Communication"
+          - title: "Database"
+            url: /development/cs/db/
+            category: "Database"
+          - title: "Digital Logic Circuit"
+            url: /development/cs/dlc/
+            category: "Digital Logic Circuit"
+          - title: "Compiler"
+            url: /development/cs/compiler/
+            category: "Compiler"
+          - title: "Programming Language"
+            url: /development/cs/pl/
+            category: "Programming Language"
+          - title: "Software Engineering"
+            url: /development/cs/se/
+            category: "Software Engineering"
+          - title: "Computer Graphics"
+            url: /development/cs/cg/
+            category: "Computer Graphics"
+          - title: "Security"
+            url: /development/cs/security/
+            category: "Security"
+          - title: "Digital Signal Processing"
+            url: /development/cs/dsp/
+            category: "Digital Signal Processing"
+          - title: "Embedded System"
+            url: /development/cs/es/
+            category: "Embedded System"
   - title: "Mathematics"
     url: /mathematics/
     category: "Mathematics"
