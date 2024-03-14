@@ -68,3 +68,7 @@ menu:
   - title: "놀이터"
     url: /playground/
     category: "놀이터"
+    children:
+      - title: "사진"
+        url: /playground/photograph/
+        category: "사진"
