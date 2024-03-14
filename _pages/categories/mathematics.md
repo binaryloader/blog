@@ -2,6 +2,6 @@
 layout: category
 classes: wide
 permalink: "/mathematics/"
-title: "Mathematics"
-taxonomy: Mathematics
+title: "수학"
+taxonomy: 수학
 ---

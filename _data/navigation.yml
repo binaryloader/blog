@@ -6,65 +6,65 @@ main:
     url: /tags/
 
 menu:
-  - title: "Development"
+  - title: "개발"
     url: /development/
-    category: "Development"
+    category: "개발"
     children:
-      - title: "CS"
+      - title: "컴퓨터과학"
         url: /development/cs/
-        category: "CS"
+        category: "컴퓨터과학"
         children:
-          - title: "Intro to CS"
-            url: /development/cs/intro-to-cs/
-            category: "Intro to CS"
-          - title: "Data Structures"
+          - title: "컴퓨터개론"
+            url: /development/cs/intro-to-computer/
+            category: "컴퓨터개론"
+          - title: "자료구조"
             url: /development/cs/ds/
-            category: "Data Structures"
-          - title: "Algorithms"
+            category: "자료구조"
+          - title: "알고리듬"
             url: /development/cs/algorithms/
-            category: "Algorithms"
-          - title: "Computer Architecture"
+            category: "알고리듬"
+          - title: "컴퓨터구조"
             url: /development/cs/ca/
-            category: "Computer Architecture"
-          - title: "Operating System"
+            category: "컴퓨터구조"
+          - title: "운영체제"
             url: /development/cs/os/
-            category: "Operating System"
-          - title: "Computer Network"
+            category: "운영체제"
+          - title: "컴퓨터네트워크"
             url: /development/cs/cn/
-            category: "Computer Network"
-          - title: "Data Communication"
+            category: "컴퓨터네트워크"
+          - title: "데이터통신"
             url: /development/cs/dc/
-            category: "Data Communication"
-          - title: "Database"
+            category: "데이터통신"
+          - title: "데이터베이스"
             url: /development/cs/db/
-            category: "Database"
-          - title: "Digital Logic Circuit"
+            category: "데이터베이스"
+          - title: "디지털논리회로"
             url: /development/cs/dlc/
-            category: "Digital Logic Circuit"
-          - title: "Compiler"
+            category: "디지털논리회로"
+          - title: "컴파일러"
             url: /development/cs/compiler/
-            category: "Compiler"
-          - title: "Programming Language"
+            category: "컴파일러"
+          - title: "프로그래밍언어"
             url: /development/cs/pl/
-            category: "Programming Language"
-          - title: "Software Engineering"
+            category: "프로그래밍언어"
+          - title: "소프트웨어공학"
             url: /development/cs/se/
-            category: "Software Engineering"
-          - title: "Computer Graphics"
+            category: "소프트웨어공학"
+          - title: "컴퓨터그래픽스"
             url: /development/cs/cg/
-            category: "Computer Graphics"
-          - title: "Security"
+            category: "컴퓨터그래픽스"
+          - title: "보안"
             url: /development/cs/security/
-            category: "Security"
-          - title: "Digital Signal Processing"
+            category: "보안"
+          - title: "디지털신호처리"
             url: /development/cs/dsp/
-            category: "Digital Signal Processing"
-          - title: "Embedded System"
+            category: "디지털신호처리"
+          - title: "임베디드시스템"
             url: /development/cs/es/
-            category: "Embedded System"
-  - title: "Mathematics"
+            category: "임베디드시스템"
+  - title: "수학"
     url: /mathematics/
-    category: "Mathematics"
-  - title: "Playground"
+    category: "수학"
+  - title: "놀이터"
     url: /playground/
-    category: "Playground"
+    category: "놀이터"

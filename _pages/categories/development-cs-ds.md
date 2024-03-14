@@ -2,6 +2,6 @@
 layout: category
 classes: wide
 permalink: "/development/cs/ds/"
-title: "Development/CS/Data Structures"
-taxonomy: Data Structures
+title: "개발/컴퓨터과학/자료구조"
+taxonomy: 자료구조
 ---

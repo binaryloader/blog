@@ -2,6 +2,6 @@
 layout: category
 classes: wide
 permalink: "/playground/"
-title: "Playground"
-taxonomy: Playground
+title: "놀이터"
+taxonomy: 놀이터
 ---

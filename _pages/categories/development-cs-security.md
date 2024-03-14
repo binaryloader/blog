@@ -2,6 +2,6 @@
 layout: category
 classes: wide
 permalink: "/development/cs/security/"
-title: "Development/CS/Security"
-taxonomy: Security
+title: "개발/컴퓨터과학/보안"
+taxonomy: 보안
 ---

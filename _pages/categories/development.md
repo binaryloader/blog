@@ -2,6 +2,6 @@
 layout: category
 classes: wide
 permalink: "/development/"
-title: "Development"
-taxonomy: Development
+title: "개발"
+taxonomy: 개발
 ---
