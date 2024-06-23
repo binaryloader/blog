@@ -6,3 +6,10 @@ main:
     url: /tags/
 
 menu:
+  - title: "Playground"
+    url: /playground/
+    category: "Playground"
+    children:
+      - title: "macOS"
+        url: /playground/macos/
+        category: "macOS"
