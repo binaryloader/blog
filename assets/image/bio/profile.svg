@@ -45,7 +45,4 @@
   <rect x="90" y="90" width="20" height="20" fill="none" stroke="#2C3E50" stroke-width="2"/>
   <line x1="90" y1="100" x2="110" y2="100" stroke="#2C3E50" stroke-width="2"/>
   <line x1="100" y1="90" x2="100" y2="110" stroke="#2C3E50" stroke-width="2"/>
-  
-  <!-- Logo text -->
-  <text x="100" y="180" font-family="Arial, sans-serif" font-size="14" fill="#00B992" text-anchor="middle" font-weight="bold" filter="url(#glow)">BinaryLoader</text>
 </svg>
