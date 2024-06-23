@@ -22,22 +22,13 @@
     <path d="M40,20 V180 M60,40 V160 M80,60 V140 M100,80 V120 M120,60 V140 M140,40 V160 M160,20 V180" />
   </g>
   
-  <!-- Central loading circle -->
-  <circle cx="100" cy="100" r="60" fill="none" stroke="#00B992" stroke-width="4" stroke-dasharray="10 5">
-    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 100 100" to="360 100 100" dur="10s" repeatCount="indefinite"/>
-  </circle>
-  
-  <!-- Data flow lines -->
-  <g stroke="#00B992" stroke-width="2" opacity="0.7">
-    <path d="M50,50 L150,150">
-      <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite" />
-    </path>
-    <path d="M150,50 L50,150">
-      <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite" />
-    </path>
-    <path d="M100,40 L100,160">
-      <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="2s" repeatCount="indefinite" />
-    </path>
+  <!-- Rotating binary numbers (ASCII for "BinaryLoader") -->
+  <g id="binary-ring">
+    <path id="circle-path" d="M100,50 A50,50 0 0,1 100,150 A50,50 0 0,1 100,50" fill="none" />
+    <text font-family="Courier, monospace" font-size="9" fill="#00B992">
+      <textPath href="#circle-path">0100001001101001011011100110000101110010011110010100110001101111011000010110010001100101011100100100001001101001011011100110000101110010</textPath>
+    </text>
+    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 100 100" to="360 100 100" dur="20s" repeatCount="indefinite"/>
   </g>
   
   <!-- Central chip -->
