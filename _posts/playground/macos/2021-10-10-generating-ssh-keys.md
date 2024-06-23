@@ -26,7 +26,7 @@ depth:
 ## 1. ~/.ssh 경로로 이동
 
 ```zsh
-$ cd ~/.ssh
+cd ~/.ssh
 ```
 
 **경고:** 해당 경로가 존재하지 않는다면 새로 생성한다.
@@ -35,5 +35,5 @@ $ cd ~/.ssh
 ## 2. 키 생성
 
 ```zsh
-$ ssh-keygen -t rsa -b 4096 -C "email@example.com"
+ssh-keygen -t rsa -b 4096 -C "email@example.com"
 ```
