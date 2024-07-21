@@ -32,17 +32,21 @@ code {
   padding: 0.25em 0.5em;
   font-size: 0.8em;
   cursor: pointer;
-  opacity: 0.9;
+  opacity: 0;
   transition: opacity 0.2s, background-color 0.2s;
   display: flex;
   align-items: center;
   gap: 0.3em;
-  color: #e9ecef;  // 버튼 전체의 텍스트 색상을 밝게 설정
+  color: #e9ecef;
 }
 
 .copy-code-button:hover {
   opacity: 1;
   background-color: #23272b;
+}
+
+.copy-code-wrapper:hover .copy-code-button {
+  opacity: 0.9;
 }
 
 .copy-code-button .fa-check {

@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const pre = codeBlock.parentNode;
     const wrapper = document.createElement("div");
+    wrapper.className = "copy-code-wrapper";
     wrapper.style.position = "relative";
     wrapper.style.overflow = "hidden";
 
