@@ -8,7 +8,13 @@ document.addEventListener("DOMContentLoaded", function () {
     button.innerHTML = '<i class="fas fa-copy"></i> 복사';
 
     const pre = codeBlock.parentNode;
-    pre.insertBefore(button, codeBlock);
+    const wrapper = document.createElement("div");
+    wrapper.style.position = "relative";
+    wrapper.style.overflow = "hidden";
+
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+    wrapper.appendChild(button);
 
     button.addEventListener("click", function () {
       const code = codeBlock.innerText;
