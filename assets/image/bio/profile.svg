@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
   <!-- Dark Background -->
-  <rect x="0" y="0" width="240" height="240" fill="#2A4B5D"/>
+  <rect x="0" y="0" width="240" height="240" fill="#1a1a1a"/>
   
   <!-- Background Grid -->
   <path d="M20 0 L20 240 M60 0 L60 240 M100 0 L100 240 M140 0 L140 240 M180 0 L180 240 M220 0 L220 240
            M0 20 L240 20 M0 60 L240 60 M0 100 L240 100 M0 140 L240 140 M0 180 L240 180 M0 220 L240 220" 
-        stroke="#46687A" 
+        stroke="#666666" 
         stroke-width="1" 
-        opacity="0.2"/>
+        opacity="0.3"/>
   
   <!-- CPU Icon with glow effect -->
-  <rect x="95" y="95" width="50" height="50" rx="4" fill="#4AD8B9">
+  <rect x="95" y="95" width="50" height="50" rx="4" fill="#e0e0e0">
     <animate attributeName="opacity"
              values="0.8;1;0.8"
              dur="2s"
@@ -19,20 +19,20 @@
   <!-- CPU Internal Grid -->
   <path d="M105 105 h30 M105 115 h30 M105 125 h30 M105 135 h30
            M105 105 v30 M115 105 v30 M125 105 v30 M135 105 v30" 
-        stroke="#2A4B5D" 
+        stroke="#1a1a1a" 
         stroke-width="1.5"/>
   <!-- CPU Pins -->
   <path d="M90 105 h-8 M90 115 h-8 M90 125 h-8 M90 135 h-8
            M158 105 h-8 M158 115 h-8 M158 125 h-8 M158 135 h-8
            M105 90 v-8 M115 90 v-8 M125 90 v-8 M135 90 v-8
            M105 158 v-8 M115 158 v-8 M125 158 v-8 M135 158 v-8" 
-        stroke="#4AD8B9" 
+        stroke="#e0e0e0" 
         stroke-width="3"
         stroke-linecap="round"/>
   
   <!-- Rotating Dotted Circle -->
   <circle cx="120" cy="120" r="80" 
-          stroke="#4AD8B9" 
+          stroke="#e0e0e0" 
           stroke-width="4"
           stroke-dasharray="10 10"
           fill="none">
@@ -46,8 +46,8 @@
   </circle>
   
   <!-- Diagonal Lines -->
-  <line x1="40" y1="40" x2="95" y2="95" stroke="#4AD8B9" stroke-width="2"/>
-  <line x1="200" y1="40" x2="145" y2="95" stroke="#4AD8B9" stroke-width="2"/>
-  <line x1="40" y1="200" x2="95" y2="145" stroke="#4AD8B9" stroke-width="2"/>
-  <line x1="200" y1="200" x2="145" y2="145" stroke="#4AD8B9" stroke-width="2"/>
+  <line x1="40" y1="40" x2="95" y2="95" stroke="#e0e0e0" stroke-width="2"/>
+  <line x1="200" y1="40" x2="145" y2="95" stroke="#e0e0e0" stroke-width="2"/>
+  <line x1="40" y1="200" x2="95" y2="145" stroke="#e0e0e0" stroke-width="2"/>
+  <line x1="200" y1="200" x2="145" y2="145" stroke="#e0e0e0" stroke-width="2"/>
 </svg>
