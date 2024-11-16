@@ -12,7 +12,7 @@
 
 # theme : "minimal-mistakes-jekyll"
 # remote_theme : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "emerald" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale: "ko-KR"
@@ -41,7 +41,7 @@ comments:
     num_posts: # 5 (default)
     colorscheme: # "light" (default), "dark"
   utterances:
-    theme: "github-dark"
+    theme: "github-light"
     issue_term: "title"
   giscus:
     repo_id: # Shown during giscus setup at https://giscus.app
@@ -111,14 +111,14 @@ author:
   stackoverflow:
   links:
     - label: "GitHub"
-      icon: "fab fa-fw fa-github icon-white"
+      icon: "fab fa-fw fa-github icon-black"
       url: "https://github.com/binaryloader"
 
 # Site Footer
 footer:
   links:
     - label: "GitHub"
-      icon: "fab fa-fw fa-github icon-white"
+      icon: "fab fa-fw fa-github icon-black"
       url: "https://github.com/binaryloader"
 
 # Reading Files
