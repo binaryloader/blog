@@ -44,5 +44,5 @@ java --version
 
 # 참고
 
-- https://adoptium.net/temurin
-- https://formulae.brew.sh/cask/temurin
+- <https://adoptium.net/temurin>
+- <https://formulae.brew.sh/cask/temurin>
