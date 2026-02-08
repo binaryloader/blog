@@ -20,9 +20,13 @@ depth:
     url: /playground/macos/
 ---
 
+# 개요
+
+macOS에서 Eclipse Temurin OpenJDK를 설치하는 방법을 정리한다.
+
 # 정리
 
-## Eclipse Temurin OpenJDK 설치
+## 1. Eclipse Temurin OpenJDK 설치
 
 ### 최신 버전 설치
 
@@ -33,10 +37,10 @@ brew install --cask temurin
 ### 특정 버전 설치
 
 ```zsh
-brew install --cask temurin@17 
+brew install --cask temurin@17
 ```
 
-## 버전 확인
+## 2. 버전 확인
 
 ```zsh
 java --version
