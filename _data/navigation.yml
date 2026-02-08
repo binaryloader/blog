@@ -5,6 +5,24 @@ main:
   - title: "tags"
     url: /tags/
 
+main-en:
+  - title: "categories"
+    url: /en/categories/
+  - title: "tags"
+    url: /en/tags/
+
+main-ja:
+  - title: "categories"
+    url: /ja/categories/
+  - title: "tags"
+    url: /ja/tags/
+
+main-zh:
+  - title: "categories"
+    url: /zh/categories/
+  - title: "tags"
+    url: /zh/tags/
+
 menu:
   - title: "Playground"
     url: /playground/
@@ -12,4 +30,31 @@ menu:
     children:
       - title: "macOS"
         url: /playground/macos/
+        category: "macOS"
+
+menu-en:
+  - title: "Playground"
+    url: /en/playground/
+    category: "Playground"
+    children:
+      - title: "macOS"
+        url: /en/playground/macos/
+        category: "macOS"
+
+menu-ja:
+  - title: "Playground"
+    url: /ja/playground/
+    category: "Playground"
+    children:
+      - title: "macOS"
+        url: /ja/playground/macos/
+        category: "macOS"
+
+menu-zh:
+  - title: "Playground"
+    url: /zh/playground/
+    category: "Playground"
+    children:
+      - title: "macOS"
+        url: /zh/playground/macos/
         category: "macOS"

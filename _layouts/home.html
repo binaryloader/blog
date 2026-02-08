@@ -4,12 +4,21 @@ layout: archive
 
 {{ content }}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+{% assign current_lang = page.lang | default: "ko" %}
+{% if current_lang == "ko-KR" %}{% assign current_lang = "ko" %}{% endif %}
+{% assign ui_locale = page.lang | default: site.locale %}
+<h3 class="archive__subtitle">{{ site.data.ui-text[ui_locale].recent_posts | default: "Recent Posts" }}</h3>
 
 {% if paginator %}
   {% assign posts = paginator.posts %}
 {% else %}
   {% assign posts = site.posts %}
+{% endif %}
+
+{% if current_lang == "ko" %}
+  {% assign posts = posts | where_exp: "p", "p.lang == nil" %}
+{% else %}
+  {% assign posts = posts | where: "lang", current_lang %}
 {% endif %}
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}

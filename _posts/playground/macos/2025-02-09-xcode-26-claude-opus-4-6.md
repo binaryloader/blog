@@ -1,5 +1,6 @@
 ---
 title: "[macOS] Xcode 26.3에서 Claude Opus 4.6 사용하기"
+ref: xcode-26-claude-opus-4-6
 last_modified_at: 2025-02-09T00:30+09:00
 published: true
 header:

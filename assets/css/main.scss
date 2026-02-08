@@ -12,6 +12,7 @@ a {
   text-decoration: none;
 }
 
+
 code {
   font-family: "D2Coding ligature";
   font-size: 1.2em;
@@ -61,4 +62,53 @@ pre {
   position: relative;
   padding-top: 2.5em;
   overflow: auto;
+}
+
+/* Language Dropdown */
+.greedy-nav .visible-links {
+  overflow: visible;
+}
+
+.lang-dropdown {
+  position: relative;
+
+  .lang-dropdown__trigger {
+    cursor: pointer;
+  }
+
+  .lang-dropdown__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0;
+    padding: 5px 0;
+    min-width: 100px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    z-index: 20;
+
+    li a {
+      display: block;
+      padding: 6px 16px;
+      font-size: 0.85em;
+      color: #494e52;
+      white-space: nowrap;
+
+      &:hover {
+        background: #f5f5f5;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  &:hover .lang-dropdown__menu {
+    display: block;
+  }
 }

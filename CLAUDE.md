@@ -1,0 +1,69 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+Jekyll 기반 개인 블로그 (Minimal Mistakes 테마 v4.24.0). 한국어(ko-KR) 블로그이며, GitHub Pages로 `blog.binaryloader.io`에 배포된다.
+
+## Build & Development Commands
+
+```bash
+# 로컬 서버 실행
+bundle exec jekyll serve
+
+# 사이트 빌드
+bundle exec jekyll build
+
+# JavaScript 빌드 (uglify + banner)
+npm run build:js
+
+# JavaScript 변경 감시
+npm run watch:js
+```
+
+## Architecture
+
+- **테마**: Minimal Mistakes (gemspec 기반, `_sass/minimal-mistakes/`에 SCSS 포함)
+- **한국어 포스트**: `_posts/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조
+- **영어 포스트**: `_posts/en/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조
+- **드래프트**: `_draft/` 디렉토리에 카테고리별 하위 폴더
+- **카테고리 페이지**: `_pages/categories/` (한국어), `_pages/en/categories/` (영어)
+- **커스텀 JS**: `assets/js/custom/` (예: copy-code-button.js)
+- **댓글**: Utterances (별도 repo `binaryloader/blog-comments` 사용)
+
+## Post Front Matter Convention
+
+```yaml
+---
+title: "[카테고리] 제목"
+ref: unique-slug        # 한/영 번역 연결용 (같은 ref끼리 매칭)
+last_modified_at: YYYY-MM-DDTHH:MM+09:00
+published: true         # 기본값은 false (_config.yml defaults)
+header:
+  overlay_color: "#202020"
+categories:
+  - 상위카테고리
+  - 하위카테고리
+tags:
+  - 태그1
+  - 태그2
+depth:                  # 커스텀 breadcrumb
+  - title: "상위카테고리"
+    url: /상위카테고리/
+  - title: "하위카테고리"
+    url: /상위카테고리/하위카테고리/
+---
+```
+
+영어 포스트는 추가로 `lang: en`과 `permalink: /en/:categories/:title/` 지정 필요.
+
+`published: true`를 명시하지 않으면 포스트가 게시되지 않는다.
+
+## Multi-language (i18n)
+
+- 한국어(기본)와 영어 지원. URL: 한국어 `/path/`, 영어 `/en/path/`
+- 포스트 간 번역 연결: `ref` 필드로 매칭 (masthead 토글 버튼이 자동 연결)
+- 영어 포스트 추가 시: `_posts/en/` 하위에 생성, `lang: en` + `ref` + `permalink: /en/...` 설정
+- 새 카테고리 추가 시: `_pages/categories/`와 `_pages/en/categories/` 양쪽에 페이지 추가 + `_data/navigation.yml`에 `menu`/`menu-en` 양쪽에 항목 추가
+- permalink 패턴: 한국어 `/:categories/:title/`, 영어 `/en/:categories/:title/`

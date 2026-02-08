@@ -1,5 +1,6 @@
 ---
 title: "[macOS] SSH 키 생성하기"
+ref: generating-ssh-keys
 last_modified_at: 2021-10-10T04:36+09:00
 published: true
 header:

@@ -276,6 +276,30 @@ defaults:
       related: true
       toc: true
       toc_sticky: true
+  # _posts/en (English posts)
+  - scope:
+      path: "_posts/en"
+      type: posts
+    values:
+      lang: en
+      sidebar:
+        nav: "menu-en"
+  # _posts/ja (Japanese posts)
+  - scope:
+      path: "_posts/ja"
+      type: posts
+    values:
+      lang: ja
+      sidebar:
+        nav: "menu-ja"
+  # _posts/zh (Chinese posts)
+  - scope:
+      path: "_posts/zh"
+      type: posts
+    values:
+      lang: zh
+      sidebar:
+        nav: "menu-zh"
 
 jekyll_admin:
   hidden_links:

@@ -1,9 +1,12 @@
 {% assign navigation = site.data.navigation[include.nav] %}
+{% assign current_lang = page.lang | default: "ko" %}
+{% if current_lang == "ko-KR" %}{% assign current_lang = "ko" %}{% endif %}
+{% assign ui_locale = page.lang | default: site.locale %}
 
 <nav class="nav__list">
   {% if page.sidebar.title %}<h3 class="nav__title" style="padding-left: 0;">{{ page.sidebar.title }}</h3>{% endif %}
   <input id="ac-toc" name="accordion-toc" type="checkbox" />
-  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle Menu" }}</label>
+  <label for="ac-toc">{{ site.data.ui-text[ui_locale].menu_label | default: "Toggle Menu" }}</label>
   <ul class="nav__items">
     {% for nav in navigation %}
       <li>
@@ -16,15 +19,27 @@
         {% if nav.children != null %}
         <ul>
           {% for child_depth_1 in nav.children %}
-          {% assign category = site.categories[child_depth_1.category] | where_exp: "item", "item.hidden != true" %}
+          {% if current_lang == "ko" %}
+            {% assign category = site.categories[child_depth_1.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" %}
+          {% else %}
+            {% assign category = site.categories[child_depth_1.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" %}
+          {% endif %}
             <li><a href="{{ child_depth_1.url | relative_url }}"{% if child_depth_1.url == page.url %} class="active"{% endif %}>{% if child_depth_1.icon %}<i class="{{ child_depth_1.icon }}"></i>{% else %}<i class="fa fa-book" style="color: #262626;"></i>{% endif %} {{ child_depth_1.title }} ({{ category.size }})</a></li>
             {% if child_depth_1.children != null %}
               {% for child_depth_2 in child_depth_1.children %}
-                {% assign category = site.categories[child_depth_2.category] | where_exp: "item", "item.hidden != true" %}
+                {% if current_lang == "ko" %}
+                  {% assign category = site.categories[child_depth_2.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" %}
+                {% else %}
+                  {% assign category = site.categories[child_depth_2.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" %}
+                {% endif %}
                 <li><a href="{{ child_depth_2.url | relative_url }}"{% if child_depth_2.url == page.url %} class="active"{% endif %}>&nbsp;&nbsp;&nbsp;&nbsp;{% if child_depth_2.icon %}<i class="{{ child_depth_2.icon }}"></i>{% else %}<i class="fa fa-book" style="color: #262626;"></i>{% endif %} {{ child_depth_2.title }} ({{ category.size }})</a></li>
                 {% if child_depth_2.children != null %}
                   {% for child_depth_3 in child_depth_2.children %}
-                    {% assign category = site.categories[child_depth_3.category] | where_exp: "item", "item.hidden != true" %}
+                    {% if current_lang == "ko" %}
+                      {% assign category = site.categories[child_depth_3.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" %}
+                    {% else %}
+                      {% assign category = site.categories[child_depth_3.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" %}
+                    {% endif %}
                     <li><a href="{{ child_depth_3.url | relative_url }}"{% if child_depth_3.url == page.url %} class="active"{% endif %}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% if child_depth_3.icon %}<i class="{{ child_depth_3.icon }}"></i>{% else %}<i class="fa fa-book" style="color: #262626;"></i>{% endif %} {{ child_depth_3.title }} ({{ category.size }})</a></li>
                   {% endfor %}
                 {% endif %}

@@ -1,5 +1,6 @@
 ---
 title: "[macOS] OpenJDK 설치하기"
+ref: installing-openjdk
 last_modified_at: 2024-11-19T14:12+09:00
 published: true
 header:

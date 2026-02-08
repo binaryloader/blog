@@ -2,6 +2,9 @@
 layout: default
 ---
 
+{% assign current_lang = page.lang | default: site.locale %}
+{% assign ui_text = site.data.ui-text[current_lang] %}
+
 {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% elsif page.header.video.id and page.header.video.provider %}
@@ -48,7 +51,7 @@ layout: default
         {% endif %}
         </div>
       {% endif %}
-      
+
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           {% if page.title %}<h1 id="page-title" class="page__title p-name" itemprop="headline">
@@ -63,7 +66,7 @@ layout: default
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
             <nav class="toc">
               {% if page.toc %}
-              <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
+              <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: ui_text.toc_label | default: "On this page" }}</h4></header>
                 {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" %}
               {% endif %}
             </nav>
@@ -75,12 +78,12 @@ layout: default
           </aside>
         {% endif %}
         {{ content }}
-        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+        {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ ui_text.ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
       <footer class="page__meta">
-        {% if site.data.ui-text[site.locale].meta_label %}
-          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+        {% if ui_text.meta_label %}
+          <h4 class="page__meta-title">{{ ui_text.meta_label }}</h4>
         {% endif %}
         {% include page__taxonomy.html %}
         {% include page__date.html %}
@@ -98,26 +101,43 @@ layout: default
 
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
+    {% assign related_filtered = "" | split: "" %}
+    {% for post in site.related_posts %}
+      {% assign post_lang = post.lang | default: "ko" %}
+      {% if post_lang == "ko-KR" %}{% assign post_lang = "ko" %}{% endif %}
+      {% if post_lang == current_lang %}
+        {% assign related_filtered = related_filtered | push: post %}
+      {% endif %}
+    {% endfor %}
+    {% if related_filtered.size > 0 %}
     <div class="page__related">
-      <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
+      <h2 class="page__related-title">{{ ui_text.related_label | default: "You May Also Enjoy" }}</h2>
       <div class="grid__wrapper">
-        {% for post in site.related_posts limit:4 %}
+        {% for post in related_filtered limit:4 %}
           {% include archive-single.html type="grid" %}
         {% endfor %}
       </div>
     </div>
+    {% endif %}
   {% comment %}<!-- otherwise show recent posts if no related when `related: true` -->{% endcomment %}
   {% elsif page.id and page.related %}
+    {% assign recent_filtered = "" | split: "" %}
+    {% for post in site.posts %}
+      {% assign post_lang = post.lang | default: "ko" %}
+      {% if post_lang == "ko-KR" %}{% assign post_lang = "ko" %}{% endif %}
+      {% if post_lang == current_lang and post.id != page.id %}
+        {% assign recent_filtered = recent_filtered | push: post %}
+      {% endif %}
+    {% endfor %}
+    {% if recent_filtered.size > 0 %}
     <div class="page__related">
-      <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
+      <h2 class="page__related-title">{{ ui_text.related_label | default: "You May Also Enjoy" }}</h2>
       <div class="grid__wrapper">
-        {% for post in site.posts limit:4 %}
-          {% if post.id == page.id %}
-            {% continue %}
-          {% endif %}
+        {% for post in recent_filtered limit:4 %}
           {% include archive-single.html type="grid" %}
         {% endfor %}
       </div>
     </div>
+    {% endif %}
   {% endif %}
 </div>

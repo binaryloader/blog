@@ -1,5 +1,20 @@
+{% assign current_lang = page.lang | default: "ko" %}
+{% if current_lang == "ko-KR" %}{% assign current_lang = "ko" %}{% endif %}
+{% assign i18n = site.data.i18n[current_lang] %}
+
 {% assign cat = page.categories[0] %}
-{% assign cat_list = site.categories[cat] %}
+{% assign cat_list_all = site.categories[cat] %}
+
+{% comment %}<!-- Filter by current language -->{% endcomment %}
+{% assign cat_list = "" | split: "" %}
+{% for p in cat_list_all %}
+  {% assign p_lang = p.lang | default: "ko" %}
+  {% if p_lang == "ko-KR" %}{% assign p_lang = "ko" %}{% endif %}
+  {% if p_lang == current_lang %}
+    {% assign cat_list = cat_list | push: p %}
+  {% endif %}
+{% endfor %}
+
 {% for post in cat_list %}
   {% if post.url == page.url %}
   	{% assign prevIndex = forloop.index0 | minus: 1 %}
@@ -17,19 +32,19 @@
 {% if prev_post or next_post %}
   <nav class="pagination_prev_next">
     {% if prev_post %}
-      <a href="{{ prev_post.url }}" class="pagination_prev_next--pager"><span class="prev_next">이전 글&nbsp;</span>{{ prev_post.title }}</a>
+      <a href="{{ prev_post.url }}" class="pagination_prev_next--pager"><span class="prev_next">{{ i18n.prev_post | default: "이전 글" }}&nbsp;</span>{{ prev_post.title }}</a>
     {% else %}
-      <a href="#" class="pagination_prev_next--pager disabled-first-child">이전 글 없음</a>
+      <a href="#" class="pagination_prev_next--pager disabled-first-child">{{ i18n.no_prev_post | default: "이전 글 없음" }}</a>
     {% endif %}
     {% if next_post %}
-      <a href="{{ next_post.url }}" class="pagination_prev_next--pager"><span class="prev_next">다음 글&nbsp;</span>{{ next_post.title }}</a>
+      <a href="{{ next_post.url }}" class="pagination_prev_next--pager"><span class="prev_next">{{ i18n.next_post | default: "다음 글" }}&nbsp;</span>{{ next_post.title }}</a>
     {% else %}
-      <a href="#" class="pagination_prev_next--pager disabled-last-child">다음 글 없음</a>
+      <a href="#" class="pagination_prev_next--pager disabled-last-child">{{ i18n.no_next_post | default: "다음 글 없음" }}</a>
     {% endif %}
   </nav>
 {% else %}
   <nav class="pagination_prev_next">
-    <a href="#" class="pagination_prev_next--pager disabled-first-child">이전 글 없음</a>
-    <a href="#" class="pagination_prev_next--pager disabled-last-child">다음 글 없음</a>
+    <a href="#" class="pagination_prev_next--pager disabled-first-child">{{ i18n.no_prev_post | default: "이전 글 없음" }}</a>
+    <a href="#" class="pagination_prev_next--pager disabled-last-child">{{ i18n.no_next_post | default: "다음 글 없음" }}</a>
   </nav>
 {% endif %}
