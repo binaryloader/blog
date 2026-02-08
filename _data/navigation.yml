@@ -1,9 +1,9 @@
 # main links
 main:
   - title: "categories"
-    url: /categories/
+    url: /ko/categories/
   - title: "tags"
-    url: /tags/
+    url: /ko/tags/
   - title: "about"
     url: /ko/about/
 
@@ -33,11 +33,11 @@ main-zh:
 
 menu:
   - title: "Playground"
-    url: /playground/
+    url: /ko/playground/
     category: "Playground"
     children:
       - title: "macOS"
-        url: /playground/macos/
+        url: /ko/playground/macos/
         category: "macOS"
 
 menu-en:

@@ -16,9 +16,9 @@ tags:
   - Java
 depth:
   - title: "Playground"
-    url: /playground/
+    url: /ko/playground/
   - title: "macOS"
-    url: /playground/macos/
+    url: /ko/playground/macos/
 ---
 
 # 개요

@@ -25,8 +25,8 @@ npm run watch:js
 ## Architecture
 
 - **테마**: Minimal Mistakes (gemspec 기반, `_sass/minimal-mistakes/`에 SCSS 포함)
-- **한국어 포스트**: `_posts/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조
-- **영어 포스트**: `_posts/en/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조
+- **한국어 포스트**: `_posts/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조 (URL: `/ko/...`)
+- **영어 포스트**: `_posts/en/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조 (URL: `/en/...`)
 - **드래프트**: `_draft/` 디렉토리에 카테고리별 하위 폴더
 - **카테고리 페이지**: `_pages/categories/` (한국어), `_pages/en/categories/` (영어)
 - **커스텀 JS**: `assets/js/custom/` (예: copy-code-button.js)
@@ -60,10 +60,18 @@ depth:                  # 커스텀 breadcrumb
 
 `published: true`를 명시하지 않으면 포스트가 게시되지 않는다.
 
+## Writing Rules
+
+- 한국어 문장에서 쉼표(,)는 연속된 항목을 나열할 때만 사용한다. 접속 부사나 연결 어미 뒤에는 쉼표를 찍지 않는다.
+  - O: "사과, 바나나, 포도를 샀다"
+  - O: "좋아하고 알고 있는 지식을"
+  - X: "좋아하고, 알고 있는 지식을"
+
 ## Multi-language (i18n)
 
-- 한국어(기본)와 영어 지원. URL: 한국어 `/path/`, 영어 `/en/path/`
+- 한국어, 영어, 일본어, 중국어 지원. URL: 한국어 `/ko/path/`, 영어 `/en/path/`, 일본어 `/ja/path/`, 중국어 `/zh/path/`
 - 포스트 간 번역 연결: `ref` 필드로 매칭 (masthead 토글 버튼이 자동 연결)
 - 영어 포스트 추가 시: `_posts/en/` 하위에 생성, `lang: en` + `ref` + `permalink: /en/...` 설정
 - 새 카테고리 추가 시: `_pages/categories/`와 `_pages/en/categories/` 양쪽에 페이지 추가 + `_data/navigation.yml`에 `menu`/`menu-en` 양쪽에 항목 추가
-- permalink 패턴: 한국어 `/:categories/:title/`, 영어 `/en/:categories/:title/`
+- permalink 패턴: 한국어 `/ko/:categories/:title/`, 영어 `/en/:categories/:title/`, 일본어 `/ja/:categories/:title/`, 중국어 `/zh/:categories/:title/`
+- 루트 `/`는 브라우저 언어 감지 후 `/{lang}/`으로 자동 리다이렉트

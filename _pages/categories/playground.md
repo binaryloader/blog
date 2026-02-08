@@ -2,7 +2,7 @@
 layout: category
 ref: playground
 classes: wide
-permalink: "/playground/"
+permalink: "/ko/playground/"
 title: "Playground"
 taxonomy: Playground
 ---
