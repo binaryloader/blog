@@ -6,13 +6,6 @@ permalink: /ko/about/
 author_profile: true
 ---
 
-안녕하세요.<br>
-**binaryloader**입니다.
-
-어떤 것에 대하여 밑바닥까지 파고들어 원리를 이해하는 것을 좋아하고 알고 있는 지식과 경험을 이 블로그에 기록하고 있습니다.
-
----
-
 ## <i class="fas fa-graduation-cap"></i> 전공
 
 - 경영학

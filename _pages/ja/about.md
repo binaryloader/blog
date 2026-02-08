@@ -7,13 +7,6 @@ permalink: /ja/about/
 author_profile: true
 ---
 
-こんにちは。<br>
-**binaryloader**です。
-
-物事の根本まで掘り下げて原理を理解することが好きで、知識と経験をこのブログに記録しています。
-
----
-
 ## <i class="fas fa-graduation-cap"></i> 専攻
 
 - 経営学

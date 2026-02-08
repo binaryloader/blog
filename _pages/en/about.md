@@ -7,13 +7,6 @@ permalink: /en/about/
 author_profile: true
 ---
 
-Hi.<br>
-I'm **binaryloader**.
-
-I enjoy digging deep into things and understanding how they work. I record my knowledge and experience on this blog.
-
----
-
 ## <i class="fas fa-graduation-cap"></i> Major
 
 - Business Administration

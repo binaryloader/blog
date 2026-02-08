@@ -7,13 +7,6 @@ permalink: /zh/about/
 author_profile: true
 ---
 
-你好。<br>
-我是**binaryloader**。
-
-我喜欢对事物刨根问底，深入理解其原理，并将所知的知识与经验记录在这个博客上。
-
----
-
 ## <i class="fas fa-graduation-cap"></i> 专业
 
 - 工商管理
