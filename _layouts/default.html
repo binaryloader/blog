@@ -12,32 +12,6 @@
   <head>
     <link rel="preload" as="style" href="{{ '/assets/css/main.css' | relative_url }}">
 
-    <script>
-    (function() {
-      var supported = ['ko', 'en', 'ja', 'zh'];
-      var path = window.location.pathname;
-
-      function detectLang() {
-        var stored = localStorage.getItem('preferred_lang');
-        if (stored && supported.indexOf(stored) !== -1) return stored;
-
-        var bl = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        if (bl.indexOf('ko') === 0) return 'ko';
-        if (bl.indexOf('ja') === 0) return 'ja';
-        if (bl.indexOf('zh') === 0) return 'zh';
-        if (bl.indexOf('en') === 0) return 'en';
-        return 'en';
-      }
-
-      if (path === '/' || path === '/index.html') {
-        var lang = detectLang();
-        if (lang !== 'ko') {
-          window.location.replace('/' + lang + '/');
-        }
-      }
-    })();
-    </script>
-
     {% include head.html %}
     {% include head/custom.html %}
     

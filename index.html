@@ -1,8 +1,29 @@
 ---
-layout: home
-ref: home
-classes: wide
-author_profile: true
-sidebar:
-  nav: "menu"
+permalink: /
 ---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+  (function() {
+    var supported = ['ko', 'en', 'ja', 'zh'];
+    function detectLang() {
+      var stored = localStorage.getItem('preferred_lang');
+      if (stored && supported.indexOf(stored) !== -1) return stored;
+      var bl = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (bl.indexOf('ko') === 0) return 'ko';
+      if (bl.indexOf('ja') === 0) return 'ja';
+      if (bl.indexOf('zh') === 0) return 'zh';
+      if (bl.indexOf('en') === 0) return 'en';
+      return 'en';
+    }
+    window.location.replace('/' + detectLang() + '/');
+  })();
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=/ko/">
+  </noscript>
+</head>
+<body></body>
+</html>

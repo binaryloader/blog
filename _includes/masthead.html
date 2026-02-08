@@ -17,11 +17,7 @@
 {% assign langs = "ko,en,ja,zh" | split: "," %}
 {% assign lang_labels = "ko,en,ja,zh" | split: "," %}
 
-{% if current_lang == "ko" %}
-  {% assign home_url = "/" %}
-{% else %}
-  {% assign home_url = "/" | append: current_lang | append: "/" %}
-{% endif %}
+{% assign home_url = "/" | append: current_lang | append: "/" %}
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -64,7 +60,7 @@
                   {% if translated %}
                     {% assign toggle_url = translated.url %}
                   {% elsif l == "ko" %}
-                    {% assign toggle_url = "/" %}
+                    {% assign toggle_url = "/ko/" %}
                   {% else %}
                     {% assign toggle_url = "/" | append: l | append: "/" %}
                   {% endif %}
