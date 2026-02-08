@@ -68,7 +68,7 @@
                   {% else %}
                     {% assign toggle_url = "/" | append: l | append: "/" %}
                   {% endif %}
-                  <li><a href="{{ toggle_url | relative_url }}">{{ lang_labels[forloop.index0] }}</a></li>
+                  <li><a href="{{ toggle_url | relative_url }}" onclick="localStorage.setItem('preferred_lang','{{ l }}')">{{ lang_labels[forloop.index0] }}</a></li>
                 {% endunless %}
               {% endfor %}
             </ul>
