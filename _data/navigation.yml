@@ -4,24 +4,32 @@ main:
     url: /categories/
   - title: "tags"
     url: /tags/
+  - title: "about"
+    url: /ko/about/
 
 main-en:
   - title: "categories"
     url: /en/categories/
   - title: "tags"
     url: /en/tags/
+  - title: "about"
+    url: /en/about/
 
 main-ja:
   - title: "categories"
     url: /ja/categories/
   - title: "tags"
     url: /ja/tags/
+  - title: "about"
+    url: /ja/about/
 
 main-zh:
   - title: "categories"
     url: /zh/categories/
   - title: "tags"
     url: /zh/tags/
+  - title: "about"
+    url: /zh/about/
 
 menu:
   - title: "Playground"
