@@ -117,8 +117,13 @@ pre {
     list-style: none;
     z-index: 20;
 
-    li a {
+    li {
       display: block;
+      border-bottom: none;
+    }
+
+    a {
+      margin: 0;
       padding: 6px 16px;
       font-size: 0.85em;
       color: #494e52;
