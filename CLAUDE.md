@@ -28,7 +28,7 @@ npm run watch:js
 - **한국어 포스트**: `_posts/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조 (URL: `/ko/...`)
 - **영어 포스트**: `_posts/en/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조 (URL: `/en/...`)
 - **드래프트**: `_draft/` 디렉토리에 카테고리별 하위 폴더
-- **카테고리 페이지**: `_pages/categories/` (한국어), `_pages/en/categories/` (영어)
+- **카테고리 페이지**: `_pages/categories/` (한국어), `_pages/{lang}/categories/` (타 언어)
 - **커스텀 JS**: `assets/js/custom/` (예: copy-code-button.js)
 - **댓글**: Utterances (별도 repo `binaryloader/blog-comments` 사용)
 
@@ -72,6 +72,6 @@ depth:                  # 커스텀 breadcrumb
 - 한국어, 영어, 일본어, 중국어 지원. URL: 한국어 `/ko/path/`, 영어 `/en/path/`, 일본어 `/ja/path/`, 중국어 `/zh/path/`
 - 포스트 간 번역 연결: `ref` 필드로 매칭 (masthead 토글 버튼이 자동 연결)
 - 영어 포스트 추가 시: `_posts/en/` 하위에 생성, `lang: en` + `ref` + `permalink: /en/...` 설정
-- 새 카테고리 추가 시: `_pages/categories/`와 `_pages/en/categories/` 양쪽에 페이지 추가 + `_data/navigation.yml`에 `menu`/`menu-en` 양쪽에 항목 추가
+- 새 카테고리 추가 시: `_pages/categories/`와 `_pages/{lang}/categories/` 양쪽에 페이지 추가 + `_data/navigation.yml`에 `menu`/`menu-en` 양쪽에 항목 추가
 - permalink 패턴: 한국어 `/ko/:categories/:title/`, 영어 `/en/:categories/:title/`, 일본어 `/ja/:categories/:title/`, 중국어 `/zh/:categories/:title/`
 - 루트 `/`는 브라우저 언어 감지 후 `/{lang}/`으로 자동 리다이렉트
