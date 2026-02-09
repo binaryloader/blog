@@ -150,6 +150,10 @@ exclude:
   - Rakefile
   - README
   - CLAUDE.md
+  - MEMORY.md
+  - banner.js
+  - staticman.yml
+  - "*.gemspec"
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
