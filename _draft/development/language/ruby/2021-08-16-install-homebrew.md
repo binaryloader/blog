@@ -1,5 +1,5 @@
 ---
-title: "[Ruby] HomeBrew 설치하기"
+title: "[Ruby] Homebrew 설치하기"
 last_modified_at: 2021-08-16T07:51+09:00
 header:
   overlay_color: "#202020"
@@ -11,7 +11,7 @@ tags:
   - Development
   - Language
   - Ruby
-  - HomeBrew
+  - Homebrew
   - Package Management
 depth:
   - title: "Development"

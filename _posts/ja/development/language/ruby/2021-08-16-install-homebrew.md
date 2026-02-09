@@ -15,7 +15,7 @@ tags:
   - Development
   - Language
   - Ruby
-  - HomeBrew
+  - Homebrew
   - Package Management
 depth:
   - title: "Development"

@@ -1,5 +1,5 @@
 ---
-title: "[Ruby] HomeBrew 설치하기"
+title: "[Ruby] Homebrew 설치하기"
 ref: install-homebrew
 excerpt: "macOS에서 Homebrew를 설치하는 방법을 정리한다."
 last_modified_at: 2021-08-16T07:51+09:00
@@ -14,7 +14,7 @@ tags:
   - Development
   - Language
   - Ruby
-  - HomeBrew
+  - Homebrew
   - Package Management
 depth:
   - title: "Development"
