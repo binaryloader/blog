@@ -9,8 +9,8 @@ author_profile: true
 
 ## <i class="fas fa-graduation-cap"></i> 专业
 
-- 工商管理
 - 计算机工程
+- 工商管理
 
 ## <i class="fas fa-briefcase"></i> 经历
 

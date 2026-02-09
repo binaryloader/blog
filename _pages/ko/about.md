@@ -8,8 +8,8 @@ author_profile: true
 
 ## <i class="fas fa-graduation-cap"></i> 전공
 
-- 경영학
 - 컴퓨터공학
+- 경영학
 
 ## <i class="fas fa-briefcase"></i> 경력
 

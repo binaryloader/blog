@@ -9,8 +9,8 @@ author_profile: true
 
 ## <i class="fas fa-graduation-cap"></i> Major
 
-- Business Administration
 - Computer Science
+- Business Administration
 
 ## <i class="fas fa-briefcase"></i> Career
 

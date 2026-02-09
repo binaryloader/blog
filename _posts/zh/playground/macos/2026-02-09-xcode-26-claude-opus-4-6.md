@@ -2,7 +2,7 @@
 title: "[macOS] 在Xcode 26.3中使用Claude Opus 4.6"
 lang: zh
 ref: xcode-26-claude-opus-4-6
-last_modified_at: 2025-02-09T00:30+09:00
+last_modified_at: 2026-02-09T00:30+09:00
 published: true
 permalink: /zh/playground/macos/xcode-26-claude-opus-4-6/
 header:

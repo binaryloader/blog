@@ -9,8 +9,8 @@ author_profile: true
 
 ## <i class="fas fa-graduation-cap"></i> 専攻
 
-- 経営学
 - コンピュータ工学
+- 経営学
 
 ## <i class="fas fa-briefcase"></i> 経歴
 
