@@ -20,6 +20,7 @@ depth:
     url: /ko/playground/
   - title: "macOS"
     url: /ko/playground/macos/
+excerpt: "macOS에서 ssh-keygen을 이용하여 SSH 키를 생성하는 방법을 정리한다."
 ---
 
 # 개요

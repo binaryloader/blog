@@ -12,4 +12,16 @@
 
 <script src="{{ '/assets/js/custom/copy-code-button.js' | relative_url }}"></script>
 
+<!-- hreflang for multilingual SEO -->
+{% if page.ref %}
+  {% assign ref_posts = site.posts | where: "ref", page.ref %}
+  {% assign ref_pages = site.pages | where: "ref", page.ref %}
+  {% assign ref_all = ref_posts | concat: ref_pages %}
+  {% for item in ref_all %}
+    {% assign item_lang = item.lang | default: "ko" %}
+    {% if item_lang == "ko-KR" %}{% assign item_lang = "ko" %}{% endif %}
+    <link rel="alternate" hreflang="{{ item_lang }}" href="{{ item.url | absolute_url }}">
+  {% endfor %}
+{% endif %}
+
 <!-- end custom head snippets -->

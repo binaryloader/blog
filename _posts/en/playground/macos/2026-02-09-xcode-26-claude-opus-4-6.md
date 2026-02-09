@@ -23,6 +23,7 @@ depth:
     url: /en/playground/
   - title: "macOS"
     url: /en/playground/macos/
+excerpt: "How to configure Xcode 26.3 to use the Claude Opus 4.6 model as a coding assistant."
 ---
 
 # Overview

@@ -21,6 +21,7 @@ depth:
     url: /en/playground/
   - title: "macOS"
     url: /en/playground/macos/
+excerpt: "How to install Eclipse Temurin OpenJDK on macOS using Homebrew."
 ---
 
 # Overview

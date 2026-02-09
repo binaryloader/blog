@@ -268,7 +268,7 @@ defaults:
       depth:
         - title: "Unclassified"
           url: /ko/unclassified/
-      excerpt: ""
+      excerpt_separator: "<!--more-->"
       read_time: true
       show_date: true
       comments: true

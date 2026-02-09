@@ -22,6 +22,7 @@ depth:
     url: /en/playground/
   - title: "macOS"
     url: /en/playground/macos/
+excerpt: "How to generate SSH keys on macOS using ssh-keygen."
 ---
 
 # Overview

@@ -23,6 +23,7 @@ depth:
     url: /zh/playground/
   - title: "macOS"
     url: /zh/playground/macos/
+excerpt: "介绍如何在Xcode 26.3中将Claude Opus 4.6模型配置为编码助手。"
 ---
 
 # 概述

@@ -21,6 +21,7 @@ depth:
     url: /ko/playground/
   - title: "macOS"
     url: /ko/playground/macos/
+excerpt: "Xcode 26.3에서 Claude Opus 4.6 모델을 코딩 어시스턴트로 설정하는 방법을 정리한다."
 ---
 
 # 개요

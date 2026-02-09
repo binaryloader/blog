@@ -23,6 +23,7 @@ depth:
     url: /ja/playground/
   - title: "macOS"
     url: /ja/playground/macos/
+excerpt: "Xcode 26.3でClaude Opus 4.6モデルをコーディングアシスタントとして設定する方法をまとめる。"
 ---
 
 # 概要
