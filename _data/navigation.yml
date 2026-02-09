@@ -126,9 +126,70 @@ menu-en:
         url: /en/development/apple/
         category: "Apple"
         children:
+          - title: "CocoaPods"
+            url: /en/development/apple/cocoapods/
+            category: "CocoaPods"
+          - title: "Event"
+            url: /en/development/apple/event/
+            category: "Event"
+          - title: "UIKit"
+            url: /en/development/apple/uikit/
+            category: "UIKit"
           - title: "Xcode"
             url: /en/development/apple/xcode/
             category: "Xcode"
+      - title: "Blog"
+        url: /en/development/blog/
+        category: "Blog"
+        children:
+          - title: "Jekyll"
+            url: /en/development/blog/jekyll/
+            category: "Jekyll"
+      - title: "CS"
+        url: /en/development/cs/
+        category: "CS"
+        children:
+          - title: "Software Engineering"
+            url: /en/development/cs/software-engineering/
+            category: "Software-Engineering"
+            children:
+              - title: "CI/CD"
+                url: /en/development/cs/software-engineering/ci-cd/
+                category: "CI-CD"
+      - title: "Language"
+        url: /en/development/language/
+        category: "Language"
+        children:
+          - title: "Objective-C"
+            url: /en/development/language/objective-c/
+            category: "Objective-C"
+          - title: "Python"
+            url: /en/development/language/python/
+            category: "Python"
+          - title: "Ruby"
+            url: /en/development/language/ruby/
+            category: "Ruby"
+      - title: "SCM"
+        url: /en/development/scm/
+        category: "SCM"
+        children:
+          - title: "Git"
+            url: /en/development/scm/git/
+            category: "Git"
+      - title: "Server"
+        url: /en/development/server/
+        category: "Server"
+        children:
+          - title: "Spring"
+            url: /en/development/server/spring/
+            category: "Spring"
+  - title: "Fundamental"
+    url: /en/fundamental/
+    category: "Fundamental"
+    children:
+      - title: "Mathematics"
+        url: /en/fundamental/mathematics/
+        category: "Mathematics"
   - title: "PC"
     url: /en/pc/
     category: "PC"
@@ -136,6 +197,19 @@ menu-en:
       - title: "macOS"
         url: /en/pc/macos/
         category: "macOS"
+  - title: "Playground"
+    url: /en/playground/
+    category: "Playground"
+    children:
+      - title: "Router"
+        url: /en/playground/router/
+        category: "Router"
+      - title: "SmartHome"
+        url: /en/playground/smarthome/
+        category: "SmartHome"
+      - title: "Synology"
+        url: /en/playground/synology/
+        category: "Synology"
 
 menu-ja:
   - title: "Development"
@@ -146,9 +220,70 @@ menu-ja:
         url: /ja/development/apple/
         category: "Apple"
         children:
+          - title: "CocoaPods"
+            url: /ja/development/apple/cocoapods/
+            category: "CocoaPods"
+          - title: "Event"
+            url: /ja/development/apple/event/
+            category: "Event"
+          - title: "UIKit"
+            url: /ja/development/apple/uikit/
+            category: "UIKit"
           - title: "Xcode"
             url: /ja/development/apple/xcode/
             category: "Xcode"
+      - title: "Blog"
+        url: /ja/development/blog/
+        category: "Blog"
+        children:
+          - title: "Jekyll"
+            url: /ja/development/blog/jekyll/
+            category: "Jekyll"
+      - title: "CS"
+        url: /ja/development/cs/
+        category: "CS"
+        children:
+          - title: "Software Engineering"
+            url: /ja/development/cs/software-engineering/
+            category: "Software-Engineering"
+            children:
+              - title: "CI/CD"
+                url: /ja/development/cs/software-engineering/ci-cd/
+                category: "CI-CD"
+      - title: "Language"
+        url: /ja/development/language/
+        category: "Language"
+        children:
+          - title: "Objective-C"
+            url: /ja/development/language/objective-c/
+            category: "Objective-C"
+          - title: "Python"
+            url: /ja/development/language/python/
+            category: "Python"
+          - title: "Ruby"
+            url: /ja/development/language/ruby/
+            category: "Ruby"
+      - title: "SCM"
+        url: /ja/development/scm/
+        category: "SCM"
+        children:
+          - title: "Git"
+            url: /ja/development/scm/git/
+            category: "Git"
+      - title: "Server"
+        url: /ja/development/server/
+        category: "Server"
+        children:
+          - title: "Spring"
+            url: /ja/development/server/spring/
+            category: "Spring"
+  - title: "Fundamental"
+    url: /ja/fundamental/
+    category: "Fundamental"
+    children:
+      - title: "Mathematics"
+        url: /ja/fundamental/mathematics/
+        category: "Mathematics"
   - title: "PC"
     url: /ja/pc/
     category: "PC"
@@ -156,4 +291,17 @@ menu-ja:
       - title: "macOS"
         url: /ja/pc/macos/
         category: "macOS"
+  - title: "Playground"
+    url: /ja/playground/
+    category: "Playground"
+    children:
+      - title: "Router"
+        url: /ja/playground/router/
+        category: "Router"
+      - title: "SmartHome"
+        url: /ja/playground/smarthome/
+        category: "SmartHome"
+      - title: "Synology"
+        url: /ja/playground/synology/
+        category: "Synology"
 

@@ -1,0 +1,44 @@
+---
+title: "[Ruby] Displaying Gem Paths in Bundle"
+ref: bundle-show-paths
+lang: en
+excerpt: "How to check gem paths in Bundler."
+last_modified_at: 2022-07-21T15:58+09:00
+published: true
+header:
+  overlay_color: "#202020"
+categories:
+  - Development
+  - Language
+  - Ruby
+tags:
+  - Development
+  - Language
+  - Ruby
+  - RubyGems
+  - Bundler
+  - Bundle
+depth:
+  - title: "Development"
+    url: /en/development/
+  - title: "Language"
+    url: /en/development/language/
+  - title: "Ruby"
+    url: /en/development/language/ruby/
+---
+
+# Overview
+
+This post covers how to check gem paths in Bundler.
+
+# Guide
+
+## 1. Display Paths
+
+```zsh
+bundle show --paths
+```
+
+# References
+
+- <https://bundler.io/man/bundle-show.1.html>

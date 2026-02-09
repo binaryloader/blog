@@ -1,0 +1,47 @@
+---
+title: "[Git] Git LFS をインストールする"
+ref: install-git-lfs
+lang: ja
+excerpt: "macOS で Git LFS をインストールし設定する方法をまとめる。"
+last_modified_at: 2021-08-16T08:21+09:00
+published: true
+header:
+  overlay_color: "#202020"
+categories:
+  - Development
+  - SCM
+  - Git
+tags:
+  - Development
+  - SCM
+  - Git
+depth:
+  - title: "Development"
+    url: /ja/development/
+  - title: "SCM"
+    url: /ja/development/scm/
+  - title: "Git"
+    url: /ja/development/scm/git/
+---
+
+# 概要
+
+macOS で Git LFS をインストールし設定する方法をまとめる。
+
+# 手順
+
+## 1. インストール
+
+```zsh
+brew install git-lfs
+```
+
+## 2. 特定のリポジトリで LFS を有効にする
+
+```zsh
+git lfs install
+```
+
+# 参考
+
+- <https://git-lfs.github.com/>

@@ -1,0 +1,56 @@
+---
+title: "[Python] PIPをインストールする"
+ref: install-python3-pip
+lang: ja
+excerpt: "Python 3のパッケージマネージャPIPをインストールする方法をまとめる。"
+last_modified_at: 2021-10-16T04:32+09:00
+published: true
+header:
+  overlay_color: "#202020"
+categories:
+  - Development
+  - Language
+  - Python
+tags:
+  - Development
+  - Language
+  - Python
+  - Python3
+  - PIP
+  - Package Management
+depth:
+  - title: "Development"
+    url: /ja/development/
+  - title: "Language"
+    url: /ja/development/language/
+  - title: "Python"
+    url: /ja/development/language/python/
+---
+
+# 概要
+
+Python 3のパッケージマネージャPIPをインストールする方法をまとめる。
+
+# 手順
+
+## 1. get-pip.pyをダウンロードするパスに移動
+
+```zsh
+cd desktop
+```
+
+## 2. get-pip.pyをダウンロード
+
+```zsh
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+```
+
+## 3. Pythonスクリプト実行によるPIPインストール
+
+```zsh
+python3 get-pip.py
+```
+
+# 参考
+
+- <https://pip.pypa.io/en/stable/>
