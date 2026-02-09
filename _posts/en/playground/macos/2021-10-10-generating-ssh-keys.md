@@ -2,6 +2,7 @@
 title: "[macOS] Generating SSH Keys"
 lang: en
 ref: generating-ssh-keys
+excerpt: "How to generate SSH keys on macOS using ssh-keygen."
 last_modified_at: 2021-10-10T04:36+09:00
 published: true
 permalink: /en/playground/macos/generating-ssh-keys/
@@ -22,7 +23,6 @@ depth:
     url: /en/playground/
   - title: "macOS"
     url: /en/playground/macos/
-excerpt: "How to generate SSH keys on macOS using ssh-keygen."
 ---
 
 # Overview

@@ -2,6 +2,7 @@
 title: "[macOS] 生成SSH密钥"
 lang: zh
 ref: generating-ssh-keys
+excerpt: "介绍如何在macOS上使用ssh-keygen生成SSH密钥。"
 last_modified_at: 2021-10-10T04:36+09:00
 published: true
 permalink: /zh/playground/macos/generating-ssh-keys/
@@ -22,7 +23,6 @@ depth:
     url: /zh/playground/
   - title: "macOS"
     url: /zh/playground/macos/
-excerpt: "介绍如何在macOS上使用ssh-keygen生成SSH密钥。"
 ---
 
 # 概述

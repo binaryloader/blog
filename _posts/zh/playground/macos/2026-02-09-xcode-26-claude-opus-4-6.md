@@ -2,6 +2,7 @@
 title: "[macOS] 在Xcode 26.3中使用Claude Opus 4.6"
 lang: zh
 ref: xcode-26-claude-opus-4-6
+excerpt: "介绍如何在Xcode 26.3中将Claude Opus 4.6模型配置为编码助手。"
 last_modified_at: 2026-02-09T00:30+09:00
 published: true
 permalink: /zh/playground/macos/xcode-26-claude-opus-4-6/
@@ -23,7 +24,6 @@ depth:
     url: /zh/playground/
   - title: "macOS"
     url: /zh/playground/macos/
-excerpt: "介绍如何在Xcode 26.3中将Claude Opus 4.6模型配置为编码助手。"
 ---
 
 # 概述

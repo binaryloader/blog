@@ -1,6 +1,7 @@
 ---
 title: "[macOS] Xcode 26.3에서 Claude Opus 4.6 사용하기"
 ref: xcode-26-claude-opus-4-6
+excerpt: "Xcode 26.3에서 Claude Opus 4.6 모델을 코딩 어시스턴트로 설정하는 방법을 정리한다."
 last_modified_at: 2026-02-09T00:30+09:00
 published: true
 header:
@@ -21,7 +22,6 @@ depth:
     url: /ko/playground/
   - title: "macOS"
     url: /ko/playground/macos/
-excerpt: "Xcode 26.3에서 Claude Opus 4.6 모델을 코딩 어시스턴트로 설정하는 방법을 정리한다."
 ---
 
 # 개요

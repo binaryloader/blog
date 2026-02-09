@@ -2,6 +2,7 @@
 title: "[macOS] OpenJDKのインストール"
 lang: ja
 ref: installing-openjdk
+excerpt: "macOSでHomebrewを使ってEclipse Temurin OpenJDKをインストールする方法をまとめる。"
 last_modified_at: 2024-11-19T14:12+09:00
 published: true
 permalink: /ja/playground/macos/installing-openjdk/
@@ -21,7 +22,6 @@ depth:
     url: /ja/playground/
   - title: "macOS"
     url: /ja/playground/macos/
-excerpt: "macOSでHomebrewを使ってEclipse Temurin OpenJDKをインストールする方法をまとめる。"
 ---
 
 # 概要

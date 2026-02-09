@@ -1,6 +1,7 @@
 ---
 title: "[macOS] SSH 키 생성하기"
 ref: generating-ssh-keys
+excerpt: "macOS에서 ssh-keygen을 이용하여 SSH 키를 생성하는 방법을 정리한다."
 last_modified_at: 2021-10-10T04:36+09:00
 published: true
 header:
@@ -20,7 +21,6 @@ depth:
     url: /ko/playground/
   - title: "macOS"
     url: /ko/playground/macos/
-excerpt: "macOS에서 ssh-keygen을 이용하여 SSH 키를 생성하는 방법을 정리한다."
 ---
 
 # 개요

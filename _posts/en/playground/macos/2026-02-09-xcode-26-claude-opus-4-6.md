@@ -2,6 +2,7 @@
 title: "[macOS] Using Claude Opus 4.6 in Xcode 26.3"
 lang: en
 ref: xcode-26-claude-opus-4-6
+excerpt: "How to configure Xcode 26.3 to use the Claude Opus 4.6 model as a coding assistant."
 last_modified_at: 2026-02-09T00:30+09:00
 published: true
 permalink: /en/playground/macos/xcode-26-claude-opus-4-6/
@@ -23,7 +24,6 @@ depth:
     url: /en/playground/
   - title: "macOS"
     url: /en/playground/macos/
-excerpt: "How to configure Xcode 26.3 to use the Claude Opus 4.6 model as a coding assistant."
 ---
 
 # Overview

@@ -2,6 +2,7 @@
 title: "[macOS] SSHキーの生成"
 lang: ja
 ref: generating-ssh-keys
+excerpt: "macOSでssh-keygenを使ってSSHキーを生成する方法をまとめる。"
 last_modified_at: 2021-10-10T04:36+09:00
 published: true
 permalink: /ja/playground/macos/generating-ssh-keys/
@@ -22,7 +23,6 @@ depth:
     url: /ja/playground/
   - title: "macOS"
     url: /ja/playground/macos/
-excerpt: "macOSでssh-keygenを使ってSSHキーを生成する方法をまとめる。"
 ---
 
 # 概要
