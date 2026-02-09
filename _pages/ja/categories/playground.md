@@ -1,11 +1,11 @@
 ---
 layout: category
 lang: ja
-ref: playground
+ref: pc
 classes: wide
-permalink: "/ja/playground/"
-title: "Playground"
-taxonomy: Playground
+permalink: "/ja/pc/"
+title: "PC"
+taxonomy: PC
 sidebar:
   nav: "menu-ja"
 ---

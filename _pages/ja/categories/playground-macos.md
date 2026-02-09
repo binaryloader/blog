@@ -1,9 +1,9 @@
 ---
 layout: category
 lang: ja
-ref: playground-macos
+ref: pc-macos
 classes: wide
-permalink: "/ja/playground/macos/"
+permalink: "/ja/pc/macos/"
 title: "macOS"
 taxonomy: macOS
 sidebar:

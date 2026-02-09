@@ -7,15 +7,13 @@
   {% assign nav_links = site.data.navigation.main-en %}
 {% elsif current_lang == "ja" %}
   {% assign nav_links = site.data.navigation.main-ja %}
-{% elsif current_lang == "zh" %}
-  {% assign nav_links = site.data.navigation.main-zh %}
 {% else %}
   {% assign nav_links = site.data.navigation.main %}
 {% endif %}
 
 {% comment %}<!-- Build language toggle URLs -->{% endcomment %}
-{% assign langs = "ko,en,ja,zh" | split: "," %}
-{% assign lang_labels = "ko,en,ja,zh" | split: "," %}
+{% assign langs = "ko,en,ja" | split: "," %}
+{% assign lang_labels = "ko,en,ja" | split: "," %}
 
 {% assign home_url = "/" | append: current_lang | append: "/" %}
 

@@ -23,46 +23,72 @@ main-ja:
   - title: "about"
     url: /ja/about/
 
-main-zh:
-  - title: "categories"
-    url: /zh/categories/
-  - title: "tags"
-    url: /zh/tags/
-  - title: "about"
-    url: /zh/about/
-
 menu:
+  - title: "PC"
+    url: /ko/pc/
+    category: "PC"
+    children:
+      - title: "macOS"
+        url: /ko/pc/macos/
+        category: "macOS"
+  - title: "Development"
+    url: /ko/development/
+    category: "Development"
+    children:
+      - title: "Apple"
+        url: /ko/development/apple/
+        category: "Apple"
+      - title: "Blog"
+        url: /ko/development/blog/
+        category: "Blog"
+      - title: "CS"
+        url: /ko/development/cs/
+        category: "CS"
+      - title: "Language"
+        url: /ko/development/language/
+        category: "Language"
+      - title: "SCM"
+        url: /ko/development/scm/
+        category: "SCM"
+      - title: "Server"
+        url: /ko/development/server/
+        category: "Server"
+  - title: "Fundamental"
+    url: /ko/fundamental/
+    category: "Fundamental"
+    children:
+      - title: "Mathematics"
+        url: /ko/fundamental/mathematics/
+        category: "Mathematics"
   - title: "Playground"
     url: /ko/playground/
     category: "Playground"
     children:
-      - title: "macOS"
-        url: /ko/playground/macos/
-        category: "macOS"
+      - title: "Router"
+        url: /ko/playground/router/
+        category: "Router"
+      - title: "SmartHome"
+        url: /ko/playground/smarthome/
+        category: "SmartHome"
+      - title: "Synology"
+        url: /ko/playground/synology/
+        category: "Synology"
 
 menu-en:
-  - title: "Playground"
-    url: /en/playground/
-    category: "Playground"
+  - title: "PC"
+    url: /en/pc/
+    category: "PC"
     children:
       - title: "macOS"
-        url: /en/playground/macos/
+        url: /en/pc/macos/
         category: "macOS"
 
 menu-ja:
-  - title: "Playground"
-    url: /ja/playground/
-    category: "Playground"
+  - title: "PC"
+    url: /ja/pc/
+    category: "PC"
     children:
       - title: "macOS"
-        url: /ja/playground/macos/
+        url: /ja/pc/macos/
         category: "macOS"
 
-menu-zh:
-  - title: "Playground"
-    url: /zh/playground/
-    category: "Playground"
-    children:
-      - title: "macOS"
-        url: /zh/playground/macos/
-        category: "macOS"

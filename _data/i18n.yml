@@ -24,12 +24,3 @@ ja:
   next_post: "次の記事"
   no_prev_post: "前の記事なし"
   no_next_post: "次の記事なし"
-
-zh:
-  subtitle: "记录已知的知识与经验"
-  description: "记录已知的知识与经验"
-  author_bio: "喜欢对事物刨根问底，<br />深入理解其原理。"
-  prev_post: "上一篇"
-  next_post: "下一篇"
-  no_prev_post: "没有上一篇"
-  no_next_post: "没有下一篇"

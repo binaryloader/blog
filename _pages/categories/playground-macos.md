@@ -1,8 +1,8 @@
 ---
 layout: category
-ref: playground-macos
+ref: pc-macos
 classes: wide
-permalink: "/ko/playground/macos/"
+permalink: "/ko/pc/macos/"
 title: "macOS"
 taxonomy: macOS
 ---

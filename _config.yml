@@ -302,15 +302,6 @@ defaults:
       permalink: /ja/:categories/:title/
       sidebar:
         nav: "menu-ja"
-  # _posts/zh (Chinese posts)
-  - scope:
-      path: "_posts/zh"
-      type: posts
-    values:
-      lang: zh
-      permalink: /zh/:categories/:title/
-      sidebar:
-        nav: "menu-zh"
 
 jekyll_admin:
   hidden_links:

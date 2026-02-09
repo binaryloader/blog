@@ -10,14 +10,13 @@ sitemap: false
   <link rel="canonical" href="https://blog.binaryloader.io/ko/">
   <script>
   (function() {
-    var supported = ['ko', 'en', 'ja', 'zh'];
+    var supported = ['ko', 'en', 'ja'];
     function detectLang() {
       var stored = localStorage.getItem('preferred_lang');
       if (stored && supported.indexOf(stored) !== -1) return stored;
       var bl = (navigator.language || navigator.userLanguage || '').toLowerCase();
       if (bl.indexOf('ko') === 0) return 'ko';
       if (bl.indexOf('ja') === 0) return 'ja';
-      if (bl.indexOf('zh') === 0) return 'zh';
       if (bl.indexOf('en') === 0) return 'en';
       return 'en';
     }
