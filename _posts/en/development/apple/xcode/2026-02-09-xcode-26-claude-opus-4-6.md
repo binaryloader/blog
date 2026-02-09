@@ -1,40 +1,43 @@
 ---
-title: "[macOS] Using Claude Opus 4.6 in Xcode 26.3"
+title: "[Xcode] Using Claude Opus 4.6 in Xcode 26.3"
 lang: en
 ref: xcode-26-claude-opus-4-6
-excerpt: "How to configure Xcode 26.3 to use the Claude Opus 4.6 model as a coding assistant."
+excerpt: "How to configure Xcode 26.3 to use the Claude Opus 4.6 model as an agentic coding assistant."
 last_modified_at: 2026-02-09T00:30+09:00
 published: true
-permalink: /en/pc/macos/xcode-26-claude-opus-4-6/
+permalink: /en/development/apple/xcode/xcode-26-claude-opus-4-6/
 header:
   overlay_color: "#202020"
 categories:
-  - PC
-  - macOS
+  - Development
+  - Apple
+  - Xcode
 tags:
-  - PC
-  - macOS
+  - Development
+  - Apple
   - Xcode
   - Claude Code
   - Claude Opus
   - AI
-  - Coding Assistant
+  - Agentic Coding Assistant
 depth:
-  - title: "PC"
-    url: /en/pc/
-  - title: "macOS"
-    url: /en/pc/macos/
+  - title: "Development"
+    url: /en/development/
+  - title: "Apple"
+    url: /en/development/apple/
+  - title: "Xcode"
+    url: /en/development/apple/xcode/
 ---
 
 # Overview
 
-Xcode 26 supports Claude Code as a coding assistant. However, the default model may not be the latest version. This guide covers how to configure Xcode 26.3 to use the Claude Opus 4.6 model.
+Xcode 26 supports Claude Code as an agentic coding assistant. However, the default model may not be the latest version. This guide covers how to configure Xcode 26.3 to use the Claude Opus 4.6 model.
 
 # Steps
 
 ## 1. Copy the Claude Code binary
 
-Xcode's coding assistant internally uses a Claude Code binary. Copy the desired version of the binary to the following path.
+Xcode's agentic coding assistant internally uses a Claude Code binary. Copy the desired version of the binary to the following path.
 
 ```zsh
 cp $(which claude) ~/Library/Developer/Xcode/CodingAssistant/Agents/Versions/26.3/claude
@@ -60,7 +63,7 @@ EOF
 
 ## 3. Verify
 
-After the configuration is complete, restart Xcode. The Claude Opus 4.6 model will be applied when using the coding assistant.
+After the configuration is complete, restart Xcode. The Claude Opus 4.6 model will be applied when using the agentic coding assistant.
 
 ### Directory structure
 

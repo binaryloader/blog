@@ -82,6 +82,13 @@ menu-en:
       - title: "macOS"
         url: /en/pc/macos/
         category: "macOS"
+  - title: "Development"
+    url: /en/development/
+    category: "Development"
+    children:
+      - title: "Apple"
+        url: /en/development/apple/
+        category: "Apple"
 
 menu-ja:
   - title: "PC"
@@ -91,4 +98,11 @@ menu-ja:
       - title: "macOS"
         url: /ja/pc/macos/
         category: "macOS"
+  - title: "Development"
+    url: /ja/development/
+    category: "Development"
+    children:
+      - title: "Apple"
+        url: /ja/development/apple/
+        category: "Apple"
 
