@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] Creating a fastlane Action"
+title: "[CI/CD] Creating a fastlane Action"
 ref: create-fastlane-action
 excerpt: "How to create a custom fastlane Action."
 lang: en
@@ -16,7 +16,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
   - Action
 depth:
@@ -26,7 +26,7 @@ depth:
     url: /en/development/cs/
   - title: "Software Engineering"
     url: /en/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /en/development/cs/software-engineering/ci-cd/
 ---
 

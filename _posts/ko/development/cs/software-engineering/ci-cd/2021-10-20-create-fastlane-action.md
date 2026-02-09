@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] fastlane Action 만들기"
+title: "[CI/CD] fastlane Action 만들기"
 ref: create-fastlane-action
 excerpt: "fastlane의 커스텀 Action을 만드는 방법을 정리한다."
 last_modified_at: 2021-10-20T15:02+09:00
@@ -15,7 +15,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
   - Action
 depth:
@@ -25,7 +25,7 @@ depth:
     url: /ko/development/cs/
   - title: "Software Engineering"
     url: /ko/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /ko/development/cs/software-engineering/ci-cd/
 ---
 

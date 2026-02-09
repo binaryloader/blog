@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] fastlane Actionを作成する"
+title: "[CI/CD] fastlane Actionを作成する"
 ref: create-fastlane-action
 excerpt: "fastlaneのカスタムActionを作成する方法をまとめる。"
 lang: ja
@@ -16,7 +16,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
   - Action
 depth:
@@ -26,7 +26,7 @@ depth:
     url: /ja/development/cs/
   - title: "Software Engineering"
     url: /ja/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /ja/development/cs/software-engineering/ci-cd/
 ---
 

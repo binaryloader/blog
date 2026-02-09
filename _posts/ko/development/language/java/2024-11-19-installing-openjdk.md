@@ -1,5 +1,5 @@
 ---
-title: "[macOS] OpenJDK 설치하기"
+title: "[Java] OpenJDK 설치하기"
 ref: installing-openjdk
 excerpt: "macOS에서 Homebrew를 이용하여 Eclipse Temurin OpenJDK를 설치하는 방법을 정리한다."
 last_modified_at: 2024-11-19T14:12+09:00
@@ -7,19 +7,22 @@ published: true
 header:
   overlay_color: "#202020"
 categories:
-  - PC
-  - macOS
+  - Development
+  - Language
+  - Java
 tags:
-  - PC
-  - macOS
+  - Development
+  - Language
+  - Java
   - JDK
   - OpenJDK
-  - Java
 depth:
-  - title: "PC"
-    url: /ko/pc/
-  - title: "macOS"
-    url: /ko/pc/macos/
+  - title: "Development"
+    url: /ko/development/
+  - title: "Language"
+    url: /ko/development/language/
+  - title: "Java"
+    url: /ko/development/language/java/
 ---
 
 # 개요

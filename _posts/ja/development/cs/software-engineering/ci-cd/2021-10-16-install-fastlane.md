@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] fastlaneをインストールする"
+title: "[CI/CD] fastlaneをインストールする"
 ref: install-fastlane
 excerpt: "macOSでfastlaneをインストールする方法をまとめる。"
 lang: ja
@@ -16,7 +16,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
 depth:
   - title: "Development"
@@ -25,7 +25,7 @@ depth:
     url: /ja/development/cs/
   - title: "Software Engineering"
     url: /ja/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /ja/development/cs/software-engineering/ci-cd/
 ---
 

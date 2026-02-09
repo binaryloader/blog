@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] fastlane 업데이트 확인 로그 및 변경사항 로그 끄기"
+title: "[CI/CD] fastlane 업데이트 확인 로그 및 변경사항 로그 끄기"
 ref: fastlane-skip-update-check-log-and-hide-changelog
 excerpt: "fastlane의 업데이트 확인 로그와 변경사항 로그를 끄는 방법을 정리한다."
 last_modified_at: 2022-01-24T15:16+09:00
@@ -15,7 +15,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
   - Log
 depth:
@@ -25,7 +25,7 @@ depth:
     url: /ko/development/cs/
   - title: "Software Engineering"
     url: /ko/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /ko/development/cs/software-engineering/ci-cd/
 ---
 

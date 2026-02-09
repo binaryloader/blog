@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] Creating a fastlane Plugin"
+title: "[CI/CD] Creating a fastlane Plugin"
 ref: create-fastlane-plugin
 excerpt: "How to create and distribute a custom fastlane Plugin."
 lang: en
@@ -16,7 +16,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
   - Plugin
 depth:
@@ -26,7 +26,7 @@ depth:
     url: /en/development/cs/
   - title: "Software Engineering"
     url: /en/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /en/development/cs/software-engineering/ci-cd/
 gallery_plugin-folder-structure:
   - url: /assets/image/post/development/cs/software-engineering/ci-cd/create-fastlane-plugin/plugin-folder-structure.png

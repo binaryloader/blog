@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] fastlane 설치하기"
+title: "[CI/CD] fastlane 설치하기"
 ref: install-fastlane
 excerpt: "macOS에서 fastlane을 설치하는 방법을 정리한다."
 last_modified_at: 2021-10-16T04:32+09:00
@@ -15,7 +15,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
 depth:
   - title: "Development"
@@ -24,7 +24,7 @@ depth:
     url: /ko/development/cs/
   - title: "Software Engineering"
     url: /ko/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /ko/development/cs/software-engineering/ci-cd/
 ---
 

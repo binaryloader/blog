@@ -75,6 +75,9 @@ menu:
           - title: "Ruby"
             url: /ko/development/language/ruby/
             category: "Ruby"
+          - title: "Java"
+            url: /ko/development/language/java/
+            category: "Java"
       - title: "SCM"
         url: /ko/development/scm/
         category: "SCM"
@@ -169,6 +172,9 @@ menu-en:
           - title: "Ruby"
             url: /en/development/language/ruby/
             category: "Ruby"
+          - title: "Java"
+            url: /en/development/language/java/
+            category: "Java"
       - title: "SCM"
         url: /en/development/scm/
         category: "SCM"
@@ -263,6 +269,9 @@ menu-ja:
           - title: "Ruby"
             url: /ja/development/language/ruby/
             category: "Ruby"
+          - title: "Java"
+            url: /ja/development/language/java/
+            category: "Java"
       - title: "SCM"
         url: /ja/development/scm/
         category: "SCM"

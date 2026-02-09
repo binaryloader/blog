@@ -464,10 +464,10 @@
   }
 
   .active {
-    margin-left: -0.5em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    font-weight: bold;
+    font-weight: 600;
+    border-bottom: 1.5px solid currentColor;
+    padding-bottom: 0.1em;
+    width: fit-content;
   }
 
   @include breakpoint(max-width $large - 1px) {

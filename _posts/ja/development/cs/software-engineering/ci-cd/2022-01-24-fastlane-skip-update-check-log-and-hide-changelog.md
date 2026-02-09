@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] fastlaneのアップデート確認ログと変更履歴ログを無効にする"
+title: "[CI/CD] fastlaneのアップデート確認ログと変更履歴ログを無効にする"
 ref: fastlane-skip-update-check-log-and-hide-changelog
 excerpt: "fastlaneのアップデート確認ログと変更履歴ログを無効にする方法をまとめる。"
 lang: ja
@@ -16,7 +16,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
   - Log
 depth:
@@ -26,7 +26,7 @@ depth:
     url: /ja/development/cs/
   - title: "Software Engineering"
     url: /ja/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /ja/development/cs/software-engineering/ci-cd/
 ---
 

@@ -23,6 +23,13 @@ var idx = lunr(function () {
 });
 
 $(document).ready(function() {
+  // Detect current language from URL
+  var currentLangPrefix = '/ko/';
+  var pathParts = window.location.pathname.split('/');
+  if (pathParts.length > 1 && ['en', 'ja', 'ko', 'zh'].indexOf(pathParts[1]) !== -1) {
+    currentLangPrefix = '/' + pathParts[1] + '/';
+  }
+
   $('input#search').on('keyup', function () {
     var resultdiv = $('#results');
     var query = $(this).val().toLowerCase();
@@ -38,10 +45,18 @@ $(document).ready(function() {
           }
         })
       });
+    // Filter results by current language
+    var filteredResult = [];
+    for (var i = 0; i < result.length; i++) {
+      var url = store[result[i].ref].url;
+      if (url && url.indexOf(currentLangPrefix) === 0) {
+        filteredResult.push(result[i]);
+      }
+    }
     resultdiv.empty();
-    resultdiv.prepend('<p class="results__found">'+result.length+' {{ site.data.ui-text[site.locale].results_found | default: "Result(s) found" }}</p>');
-    for (var item in result) {
-      var ref = result[item].ref;
+    resultdiv.prepend('<p class="results__found">'+filteredResult.length+' {{ site.data.ui-text[site.locale].results_found | default: "Result(s) found" }}</p>');
+    for (var item in filteredResult) {
+      var ref = filteredResult[item].ref;
       if(store[ref].teaser){
         var searchitem =
           '<div class="list__item">'+

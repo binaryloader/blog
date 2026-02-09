@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] Using fastlane Plugins"
+title: "[CI/CD] Using fastlane Plugins"
 ref: use-fastlane-plugins
 excerpt: "How to add and manage fastlane plugins."
 lang: en
@@ -16,7 +16,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
   - Plugin
 depth:
@@ -26,7 +26,7 @@ depth:
     url: /en/development/cs/
   - title: "Software Engineering"
     url: /en/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /en/development/cs/software-engineering/ci-cd/
 ---
 

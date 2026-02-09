@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] Disabling fastlane Update Check and Changelog Logs"
+title: "[CI/CD] Disabling fastlane Update Check and Changelog Logs"
 ref: fastlane-skip-update-check-log-and-hide-changelog
 excerpt: "How to disable fastlane's update check log and changelog log."
 lang: en
@@ -16,7 +16,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
   - Log
 depth:
@@ -26,7 +26,7 @@ depth:
     url: /en/development/cs/
   - title: "Software Engineering"
     url: /en/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /en/development/cs/software-engineering/ci-cd/
 ---
 

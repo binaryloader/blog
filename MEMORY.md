@@ -24,7 +24,10 @@
 - `.greedy-nav .visible-links`의 기본 `overflow: hidden`이 드롭다운을 잘라먹음
 - `overflow: visible`로 override 필요
 
+## 다국어 필수 규칙
+- **모든 포스트는 반드시 한국어(ko), 영어(en), 일본어(ja) 3개 언어로 생성해야 함**
+- 새 포스트 생성 시 3개 언어 모두 만들고 `ref` 동일하게 설정
+- 새 카테고리 추가 시 `_pages/categories/` + `_pages/{lang}/categories/` + `navigation.yml`의 `menu`/`menu-en`/`menu-ja` 모두 수정
+
 ## 기타 참고
 - `_config.yml`에서 `published: false`가 기본값 → 새 포스트에 `published: true` 필수
-- 새 포스트 생성 시 4개 언어 모두 만들고 `ref` 동일하게 설정
-- 새 카테고리 추가 시 `_pages/categories/` + `_pages/{lang}/categories/` + `navigation.yml` 모두 수정

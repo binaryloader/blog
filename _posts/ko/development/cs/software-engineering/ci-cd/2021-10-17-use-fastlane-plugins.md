@@ -1,5 +1,5 @@
 ---
-title: "[CI-CD] fastlane Plugin 사용하기"
+title: "[CI/CD] fastlane Plugin 사용하기"
 ref: use-fastlane-plugins
 excerpt: "fastlane Plugin을 추가하고 관리하는 방법을 정리한다."
 last_modified_at: 2021-10-17T04:32+09:00
@@ -15,7 +15,7 @@ tags:
   - Development
   - CS
   - Software Engineering
-  - CI-CD
+  - CI/CD
   - fastlane
   - Plugin
 depth:
@@ -25,7 +25,7 @@ depth:
     url: /ko/development/cs/
   - title: "Software Engineering"
     url: /ko/development/cs/software-engineering/
-  - title: "CI-CD"
+  - title: "CI/CD"
     url: /ko/development/cs/software-engineering/ci-cd/
 ---
 
