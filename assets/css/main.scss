@@ -345,8 +345,10 @@ pre {
 }
 
 .author__urls {
-  left: 0;
-  right: auto !important;
+  &.is--visible {
+    display: flex !important;
+    flex-direction: column;
+  }
   margin-top: 8px !important;
   padding: 5px 0 !important;
   border: 1px solid #e0e0e0 !important;
@@ -399,6 +401,9 @@ pre {
 
   /* Large screen sidebar: revert to original theme style */
   @include breakpoint($large) {
+    &.is--visible {
+      display: block !important;
+    }
     margin-top: 0 !important;
     padding: 0 !important;
     border: 0 !important;
