@@ -18,7 +18,7 @@ minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "n
 locale: "ko-KR"
 title: "BinaryLoader"
 title_separator: "-"
-subtitle: "경험을 기록합니다"
+subtitle: "다양한 경험을 기록합니다"
 name: "binaryloader"
 description: "알고 있는 지식과 경험을 기록합니다"
 url: "https://blog.binaryloader.io"
@@ -78,6 +78,9 @@ bing_site_verification:
 naver_site_verification:
 yandex_site_verification:
 baidu_site_verification:
+
+# Google AdSense
+google_adsense: ca-pub-8018185840014088
 
 # Social Sharing
 twitter:
