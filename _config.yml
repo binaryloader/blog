@@ -276,7 +276,14 @@ defaults:
       related: true
       toc: true
       toc_sticky: true
+  # _posts/ko (Korean posts)
+  - scope:
+      path: "_posts/ko"
+      type: posts
+    values:
       permalink: /ko/:categories/:title/
+      sidebar:
+        nav: "menu"
   # _posts/en (English posts)
   - scope:
       path: "_posts/en"

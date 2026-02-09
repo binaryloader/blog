@@ -25,7 +25,7 @@ npm run watch:js
 ## Architecture
 
 - **테마**: Minimal Mistakes (gemspec 기반, `_sass/minimal-mistakes/`에 SCSS 포함)
-- **한국어 포스트**: `_posts/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조 (URL: `/ko/...`)
+- **한국어 포스트**: `_posts/ko/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조 (URL: `/ko/...`)
 - **영어 포스트**: `_posts/en/{category}/{subcategory}/YYYY-MM-DD-title.md` 구조 (URL: `/en/...`)
 - **드래프트**: `_draft/` 디렉토리에 카테고리별 하위 폴더
 - **카테고리 페이지**: `_pages/categories/` (한국어), `_pages/{lang}/categories/` (타 언어)
