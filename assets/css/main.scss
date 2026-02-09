@@ -681,6 +681,14 @@ pre {
   display: none !important;
 }
 
+/* Hamburger dropdown wrapper - match lang-dropdown positioning */
+.hamburger-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 /* Hamburger toggle - match icon buttons */
 .greedy-nav .greedy-nav__toggle {
   height: auto;
