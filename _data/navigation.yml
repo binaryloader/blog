@@ -58,6 +58,10 @@ menu:
           - title: "Software Engineering"
             url: /ko/development/cs/software-engineering/
             category: "Software-Engineering"
+            children:
+              - title: "CI/CD"
+                url: /ko/development/cs/software-engineering/ci-cd/
+                category: "CI-CD"
       - title: "Language"
         url: /ko/development/language/
         category: "Language"
