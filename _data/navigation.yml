@@ -24,13 +24,6 @@ main-ja:
     url: /ja/about/
 
 menu:
-  - title: "PC"
-    url: /ko/pc/
-    category: "PC"
-    children:
-      - title: "macOS"
-        url: /ko/pc/macos/
-        category: "macOS"
   - title: "Development"
     url: /ko/development/
     category: "Development"
@@ -38,21 +31,60 @@ menu:
       - title: "Apple"
         url: /ko/development/apple/
         category: "Apple"
+        children:
+          - title: "CocoaPods"
+            url: /ko/development/apple/cocoapods/
+            category: "CocoaPods"
+          - title: "Event"
+            url: /ko/development/apple/event/
+            category: "Event"
+          - title: "UIKit"
+            url: /ko/development/apple/uikit/
+            category: "UIKit"
+          - title: "Xcode"
+            url: /ko/development/apple/xcode/
+            category: "Xcode"
       - title: "Blog"
         url: /ko/development/blog/
         category: "Blog"
+        children:
+          - title: "Jekyll"
+            url: /ko/development/blog/jekyll/
+            category: "Jekyll"
       - title: "CS"
         url: /ko/development/cs/
         category: "CS"
+        children:
+          - title: "Software Engineering"
+            url: /ko/development/cs/software-engineering/
+            category: "Software-Engineering"
       - title: "Language"
         url: /ko/development/language/
         category: "Language"
+        children:
+          - title: "Objective-C"
+            url: /ko/development/language/objective-c/
+            category: "Objective-C"
+          - title: "Python"
+            url: /ko/development/language/python/
+            category: "Python"
+          - title: "Ruby"
+            url: /ko/development/language/ruby/
+            category: "Ruby"
       - title: "SCM"
         url: /ko/development/scm/
         category: "SCM"
+        children:
+          - title: "Git"
+            url: /ko/development/scm/git/
+            category: "Git"
       - title: "Server"
         url: /ko/development/server/
         category: "Server"
+        children:
+          - title: "Spring"
+            url: /ko/development/server/spring/
+            category: "Spring"
   - title: "Fundamental"
     url: /ko/fundamental/
     category: "Fundamental"
@@ -60,6 +92,13 @@ menu:
       - title: "Mathematics"
         url: /ko/fundamental/mathematics/
         category: "Mathematics"
+  - title: "PC"
+    url: /ko/pc/
+    category: "PC"
+    children:
+      - title: "macOS"
+        url: /ko/pc/macos/
+        category: "macOS"
   - title: "Playground"
     url: /ko/playground/
     category: "Playground"
@@ -75,13 +114,6 @@ menu:
         category: "Synology"
 
 menu-en:
-  - title: "PC"
-    url: /en/pc/
-    category: "PC"
-    children:
-      - title: "macOS"
-        url: /en/pc/macos/
-        category: "macOS"
   - title: "Development"
     url: /en/development/
     category: "Development"
@@ -89,15 +121,19 @@ menu-en:
       - title: "Apple"
         url: /en/development/apple/
         category: "Apple"
-
-menu-ja:
+        children:
+          - title: "Xcode"
+            url: /en/development/apple/xcode/
+            category: "Xcode"
   - title: "PC"
-    url: /ja/pc/
+    url: /en/pc/
     category: "PC"
     children:
       - title: "macOS"
-        url: /ja/pc/macos/
+        url: /en/pc/macos/
         category: "macOS"
+
+menu-ja:
   - title: "Development"
     url: /ja/development/
     category: "Development"
@@ -105,4 +141,15 @@ menu-ja:
       - title: "Apple"
         url: /ja/development/apple/
         category: "Apple"
+        children:
+          - title: "Xcode"
+            url: /ja/development/apple/xcode/
+            category: "Xcode"
+  - title: "PC"
+    url: /ja/pc/
+    category: "PC"
+    children:
+      - title: "macOS"
+        url: /ja/pc/macos/
+        category: "macOS"
 
