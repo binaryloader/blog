@@ -6,6 +6,86 @@
   <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
 {% endif %}
 
+<script>
+// Override greedy-nav: all-or-nothing (move all nav items at once)
+$(function() {
+  var $nav = $("nav.greedy-nav");
+  var $vlinks = $("nav.greedy-nav .visible-links");
+  var $hlinks = $("nav.greedy-nav .hidden-links");
+  var $btn = $("nav.greedy-nav .greedy-nav__toggle");
+
+  // Remove original greedy-nav resize handler to prevent flicker
+  $(window).off('resize');
+
+  // Move everything back to visible to measure correctly
+  $hlinks.children().appendTo($vlinks);
+
+  var numOfItems = $vlinks.children().length;
+  if (numOfItems === 0) return;
+
+  var totalItemsWidth = 0;
+  $vlinks.children().each(function() {
+    totalItemsWidth += $(this).outerWidth();
+  });
+
+  function fullCheck() {
+    var $logo = $('nav.greedy-nav .site-logo');
+    var $title = $("nav.greedy-nav .site-title");
+    var $search = $('nav.greedy-nav button.search__toggle');
+    var $themeToggle = $('nav.greedy-nav button.theme-toggle');
+    var $langDropdown = $('nav.greedy-nav .lang-dropdown');
+
+    var navWidth = Math.min($nav[0].clientWidth, $(window).width());
+    var availableSpace = navWidth
+      - ($logo.length ? $logo.outerWidth(true) : 0)
+      - $title.outerWidth(true)
+      - ($search.length ? $search.outerWidth(true) : 0)
+      - ($themeToggle.length ? $themeToggle.outerWidth(true) : 0)
+      - ($langDropdown.length ? $langDropdown.outerWidth(true) : 0);
+
+    if (totalItemsWidth > availableSpace) {
+      if ($vlinks.children().length > 0) {
+        $vlinks.children().appendTo($hlinks);
+        $btn.removeClass('hidden');
+        $btn.attr("count", numOfItems);
+      }
+    } else {
+      if ($hlinks.children().length > 0) {
+        $hlinks.children().appendTo($vlinks);
+        $btn.addClass('hidden');
+        $btn.attr("count", 0);
+      }
+    }
+  }
+
+  fullCheck();
+  $(window).on('resize', fullCheck);
+
+  // Language dropdown - click toggle
+  var $langTrigger = $('.lang-dropdown__trigger');
+  var $langMenu = $('.lang-dropdown__menu');
+  $langTrigger.on('click touchend', function(e) {
+    e.preventDefault();
+    $langMenu.toggleClass('is-visible');
+  });
+
+  // Close all dropdowns on outside click (except the one being clicked)
+  $(document).on('click touchend', function(e) {
+    var $target = $(e.target);
+    if (!$target.closest('.lang-dropdown').length) {
+      $langMenu.removeClass('is-visible');
+    }
+    if (!$target.closest('.greedy-nav__toggle').length && !$target.closest('.hidden-links').length) {
+      $hlinks.addClass('hidden');
+    }
+    if (!$target.closest('.author__urls-wrapper').length) {
+      $('.author__urls').removeClass('is--visible');
+      $('.author__urls-wrapper button').removeClass('open');
+    }
+  });
+});
+</script>
+
 {% if site.search == true or page.layout == "search" %}
   {%- assign search_provider = site.search_provider | default: "lunr" -%}
   {%- case search_provider -%}
