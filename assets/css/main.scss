@@ -795,11 +795,7 @@ pre {
 
 .theme-toggle {
   margin-left: 0.5rem;
-  margin-right: 0;
-
-  &:has(~ .hamburger-dropdown .greedy-nav__toggle:not(.hidden)) {
-    margin-right: 0.5rem;
-  }
+  margin-right: 0.5rem;
   border: 0;
   border-radius: 0;
   outline: none;
