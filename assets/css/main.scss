@@ -346,7 +346,7 @@ pre {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   list-style-type: none;
   width: auto;
-  text-align: left;
+  text-align: left !important;
 
   &:before,
   &:after {
@@ -359,10 +359,12 @@ pre {
   }
 
   li {
+    display: block;
     border-bottom: none;
     padding: 0;
     margin: 0;
     white-space: nowrap;
+    text-align: left;
   }
 
   /* location (non-link item) */
