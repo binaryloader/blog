@@ -23,14 +23,29 @@ $(function() {
   var numOfItems = $vlinks.children().length;
   if (numOfItems === 0) return;
 
+  var $title = $("nav.greedy-nav .site-title");
+
+  // Measure menu items total width
   var totalItemsWidth = 0;
   $vlinks.children().each(function() {
     totalItemsWidth += $(this).outerWidth();
   });
 
+  // Measure title's natural (un-truncated) width
+  // Title has flex-shrink:1 + overflow:hidden, so outerWidth returns the
+  // already-shrunken value. Temporarily remove constraints to get true width.
+  function measureTitleNaturalWidth() {
+    $title.css({ 'flex-shrink': '0', 'overflow': 'visible' });
+    $title.find('.site-title__text, .site-subtitle').css('overflow', 'visible');
+    var w = $title.outerWidth(true);
+    $title.css({ 'flex-shrink': '', 'overflow': '' });
+    $title.find('.site-title__text, .site-subtitle').css('overflow', '');
+    return w;
+  }
+  var titleNaturalWidth = measureTitleNaturalWidth();
+
   function fullCheck() {
     var $logo = $('nav.greedy-nav .site-logo');
-    var $title = $("nav.greedy-nav .site-title");
     var $search = $('nav.greedy-nav button.search__toggle');
     var $themeToggle = $('nav.greedy-nav button.theme-toggle');
     var $langDropdown = $('nav.greedy-nav .lang-dropdown');
@@ -38,7 +53,7 @@ $(function() {
     var navWidth = Math.min($nav[0].clientWidth, $(window).width());
     var availableSpace = navWidth
       - ($logo.length ? $logo.outerWidth(true) : 0)
-      - $title.outerWidth(true)
+      - titleNaturalWidth
       - ($search.length ? $search.outerWidth(true) : 0)
       - ($themeToggle.length ? $themeToggle.outerWidth(true) : 0)
       - ($langDropdown.length ? $langDropdown.outerWidth(true) : 0);
@@ -60,6 +75,21 @@ $(function() {
 
   fullCheck();
   $(window).on('resize', fullCheck);
+
+  // Re-measure after fonts fully load for accurate widths
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function() {
+      $nav.css('visibility', 'hidden');
+      $hlinks.children().appendTo($vlinks);
+      totalItemsWidth = 0;
+      $vlinks.children().each(function() {
+        totalItemsWidth += $(this).outerWidth();
+      });
+      titleNaturalWidth = measureTitleNaturalWidth();
+      fullCheck();
+      $nav.css('visibility', '');
+    });
+  }
 
   // Language dropdown - click toggle
   var $langTrigger = $('.lang-dropdown__trigger');
