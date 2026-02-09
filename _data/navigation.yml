@@ -61,7 +61,7 @@ menu:
             children:
               - title: "CI/CD"
                 url: /ko/development/cs/software-engineering/ci-cd/
-                category: "CI-CD"
+                category: "CI/CD"
       - title: "Language"
         url: /ko/development/language/
         category: "Language"
@@ -158,7 +158,7 @@ menu-en:
             children:
               - title: "CI/CD"
                 url: /en/development/cs/software-engineering/ci-cd/
-                category: "CI-CD"
+                category: "CI/CD"
       - title: "Language"
         url: /en/development/language/
         category: "Language"
@@ -255,7 +255,7 @@ menu-ja:
             children:
               - title: "CI/CD"
                 url: /ja/development/cs/software-engineering/ci-cd/
-                category: "CI-CD"
+                category: "CI/CD"
       - title: "Language"
         url: /ja/development/language/
         category: "Language"

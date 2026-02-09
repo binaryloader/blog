@@ -109,6 +109,7 @@ pre {
     margin-top: 8px;
     padding: 5px 0;
     width: auto;
+    text-align: left;
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
@@ -340,6 +341,7 @@ pre {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   list-style-type: none;
   width: auto;
+  text-align: left;
 
   &:before,
   &:after {
@@ -716,6 +718,7 @@ pre {
   background: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: auto;
+  text-align: left;
 
   &:before,
   &:after {

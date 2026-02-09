@@ -40,7 +40,7 @@ Objective-CがサポートするBranch Statementsは以下の通りである。
 
 演算子による意思決定については以下のポストの三項演算子セクションを参照してほしい。
 
-- [[Objective-C] 演算子と式 - Operators and Expressions](https://hacoma.github.io/development/language/objective-c/operators-and-expressions/#7-%EC%82%BC%ED%95%AD-%EC%97%B0%EC%82%B0%EC%9E%90-the-ternary-operators)
+- [[Objective-C] 演算子と式 - Operators and Expressions](/ja/development/language/objective-c/operators-and-expressions/#7-%EC%82%BC%ED%95%AD-%EC%97%B0%EC%82%B0%EC%9E%90-the-ternary-operators)
 
 # まとめ
 

@@ -79,13 +79,13 @@ If I get the chance later, I would also like to translate and organize the remai
 - [iOS App Development Beginner](https://tv.naver.com/v/364932/list/33493)
 - [iOS App Development Problem Solving Intermediate](https://tv.naver.com/v/384067/list/35318)
 
-## 5. Hacoma's Objective-C Series
+## 5. BinaryLoader's Objective-C Series
 
-- [[Objective-C] Primitive Data Types](https://hacoma.github.io/development/language/objective-c/primitive-data-types/)
-- [[Objective-C] Operators and Expressions](https://hacoma.github.io/development/language/objective-c/operators-and-expressions/)
-- [[Objective-C] Loop Statements](https://hacoma.github.io/development/language/objective-c/loop-statements/)
-- [[Objective-C] Branch Statements](https://hacoma.github.io/development/language/objective-c/branch-statements/)
-- [[Objective-C] Class and Method, Instance](https://hacoma.github.io/development/language/objective-c/class-instance-method/)
+- [[Objective-C] Primitive Data Types](/en/development/language/objective-c/primitive-data-types/)
+- [[Objective-C] Operators and Expressions](/en/development/language/objective-c/operators-and-expressions/)
+- [[Objective-C] Loop Statements](/en/development/language/objective-c/loop-statements/)
+- [[Objective-C] Branch Statements](/en/development/language/objective-c/branch-statements/)
+- [[Objective-C] Class and Method, Instance](/en/development/language/objective-c/class-instance-method/)
 - [Objective-C] Inheritance
 - [Objective-C] Polymorphism, Dynamic Typing, and Dynamic Binding
 - [Objective-C] Variables and Access Modifiers

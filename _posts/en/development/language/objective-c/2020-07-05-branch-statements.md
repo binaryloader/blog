@@ -40,7 +40,7 @@ The Branch Statements supported by Objective-C are as follows:
 
 For decision-making using operators, please refer to the ternary operator section in the following post:
 
-- [[Objective-C] Operators and Expressions](https://hacoma.github.io/development/language/objective-c/operators-and-expressions/#7-%EC%82%BC%ED%95%AD-%EC%97%B0%EC%82%B0%EC%9E%90-the-ternary-operators)
+- [[Objective-C] Operators and Expressions](/en/development/language/objective-c/operators-and-expressions/#7-%EC%82%BC%ED%95%AD-%EC%97%B0%EC%82%B0%EC%9E%90-the-ternary-operators)
 
 # Summary
 

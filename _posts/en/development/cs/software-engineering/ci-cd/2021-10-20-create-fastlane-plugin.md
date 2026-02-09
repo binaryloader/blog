@@ -11,7 +11,7 @@ categories:
   - Development
   - CS
   - Software-Engineering
-  - CI-CD
+  - CI/CD
 tags:
   - Development
   - CS
@@ -92,7 +92,7 @@ Please enter a detailed description of this fastlane plugin:
 ### 3.3. lib/fastlane/plugin/plugin_name/actions/plugin_name_action.rb
 
 - Implement the Actions supported by the Plugin in this file.
-- For how to implement Actions, refer to the [[macOS] Creating a fastlane Action](https://hacoma.github.io/pc/macos/create-fastlane-action/) post.
+- For how to implement Actions, refer to the [[CI/CD] Creating a fastlane Action](/en/development/cs/software-engineering/ci-cd/create-fastlane-action/) post.
 - If you want the Plugin to support multiple Actions, add additional files in the same directory.
   - Example: action1.rb, action2.rb, action3.rb, ...
 
@@ -118,7 +118,7 @@ Please enter a detailed description of this fastlane plugin:
 
 ## 4. Using the Plugin
 
-- For how to use Plugins, refer to the [[macOS] Using fastlane Plugins](https://hacoma.github.io/pc/macos/use-fastlane-plugins/) post.
+- For how to use Plugins, refer to the [[CI/CD] Using fastlane Plugins](/en/development/cs/software-engineering/ci-cd/use-fastlane-plugins/) post.
 
 ## 5. Distributing the Plugin
 

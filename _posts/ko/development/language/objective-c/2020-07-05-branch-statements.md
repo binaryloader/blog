@@ -39,7 +39,7 @@ Objective-C가 지원하는 Branch Statements는 아래와 같다.
 
 연산자를 통한 의사결정은 아래 포스트의 삼항 연산자 섹션을 참고하기 바란다.
 
-- [[Objective-C] 연산자와 표현식 - Operators and Expressions](https://hacoma.github.io/development/language/objective-c/operators-and-expressions/#7-%EC%82%BC%ED%95%AD-%EC%97%B0%EC%82%B0%EC%9E%90-the-ternary-operators)
+- [[Objective-C] 연산자와 표현식 - Operators and Expressions](/ko/development/language/objective-c/operators-and-expressions/#7-%EC%82%BC%ED%95%AD-%EC%97%B0%EC%82%B0%EC%9E%90-the-ternary-operators)
 
 # 정리
 

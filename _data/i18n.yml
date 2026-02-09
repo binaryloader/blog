@@ -1,5 +1,5 @@
 ko:
-  subtitle: "알고 있는 지식과 경험을 기록합니다"
+  subtitle: "경험을 기록합니다"
   description: "알고 있는 지식과 경험을 기록합니다"
   author_bio: "어떤 것에 대하여 밑바닥까지 파고들어<br />원리를 이해하는 것을 좋아합니다."
   prev_post: "이전 글"
@@ -8,7 +8,7 @@ ko:
   no_next_post: "다음 글 없음"
 
 en:
-  subtitle: "Recording knowledge and experience"
+  subtitle: "Recording experiences"
   description: "Recording knowledge and experience"
   author_bio: "I enjoy digging deep into things<br />and understanding how they work."
   prev_post: "Previous"
@@ -17,7 +17,7 @@ en:
   no_next_post: "No next post"
 
 ja:
-  subtitle: "知識と経験を記録します"
+  subtitle: "経験を記録します"
   description: "知識と経験を記録します"
   author_bio: "物事の根本まで掘り下げて<br />原理を理解することが好きです。"
   prev_post: "前の記事"

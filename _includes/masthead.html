@@ -25,7 +25,7 @@
           <a class="site-logo" href="{{ home_url | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
         {% endunless %}
         <a class="site-title" href="{{ home_url | relative_url }}">
-          {{ site.masthead_title | default: site.title }}
+          <span class="site-title__text">{{ site.masthead_title | default: site.title }}</span>
           {% if site.data.i18n[current_lang].subtitle %}<span class="site-subtitle">{{ site.data.i18n[current_lang].subtitle }}</span>{% elsif site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
         </a>
         <ul class="visible-links">

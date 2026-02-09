@@ -79,13 +79,13 @@ Objective-C != Foundation
 - [iOS アプリ開発初級](https://tv.naver.com/v/364932/list/33493)
 - [iOS アプリ開発問題解決中級](https://tv.naver.com/v/384067/list/35318)
 
-## 5. Hacoma's Objective-C Series
+## 5. BinaryLoader's Objective-C Series
 
-- [[Objective-C] プリミティブデータ型 - Primitive Data Types](https://hacoma.github.io/development/language/objective-c/primitive-data-types/)
-- [[Objective-C] 演算子と式 - Operators and Expressions](https://hacoma.github.io/development/language/objective-c/operators-and-expressions/)
-- [[Objective-C] ループ文 - Loop Statements](https://hacoma.github.io/development/language/objective-c/loop-statements/)
-- [[Objective-C] 条件分岐文 - Branch Statements](https://hacoma.github.io/development/language/objective-c/branch-statements/)
-- [[Objective-C] クラスとメソッド、インスタンス - Class and Method, Instance](https://hacoma.github.io/development/language/objective-c/class-instance-method/)
+- [[Objective-C] プリミティブデータ型 - Primitive Data Types](/ja/development/language/objective-c/primitive-data-types/)
+- [[Objective-C] 演算子と式 - Operators and Expressions](/ja/development/language/objective-c/operators-and-expressions/)
+- [[Objective-C] ループ文 - Loop Statements](/ja/development/language/objective-c/loop-statements/)
+- [[Objective-C] 条件分岐文 - Branch Statements](/ja/development/language/objective-c/branch-statements/)
+- [[Objective-C] クラスとメソッド、インスタンス - Class and Method, Instance](/ja/development/language/objective-c/class-instance-method/)
 - [Objective-C] 継承
 - [Objective-C] ポリモーフィズムと動的型付け、動的バインディング
 - [Objective-C] 変数とAccess Modifiers

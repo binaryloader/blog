@@ -11,7 +11,7 @@ categories:
   - Development
   - CS
   - Software-Engineering
-  - CI-CD
+  - CI/CD
 tags:
   - Development
   - CS
