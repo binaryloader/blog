@@ -264,6 +264,11 @@ pre {
   }
 }
 
+/* Search toggle - match other icon buttons */
+.search__toggle {
+  padding: 0;
+}
+
 [data-theme="dark"] .search__toggle {
   color: var(--masthead-link);
 
@@ -787,7 +792,7 @@ pre {
   margin-left: 0.5rem;
   margin-right: 0;
 
-  &:has(~ .greedy-nav__toggle:not(.hidden)) {
+  &:has(~ .hamburger-dropdown .greedy-nav__toggle:not(.hidden)) {
     margin-right: 0.5rem;
   }
   border: 0;
