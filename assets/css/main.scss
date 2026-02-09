@@ -322,6 +322,8 @@ pre {
 
 /* Author sidebar - Follow dropdown (match lang/hamburger dropdown style) */
 .author__urls-wrapper {
+  text-align: left;
+
   button {
     border: 1px solid #e0e0e0;
     border-radius: 4px;
@@ -340,6 +342,8 @@ pre {
 .author__urls {
   margin-top: 8px !important;
   padding: 5px 0 !important;
+  -webkit-padding-start: 0 !important;
+  padding-inline-start: 0 !important;
   border: 1px solid #e0e0e0 !important;
   border-radius: 4px !important;
   background: #fff !important;
@@ -364,7 +368,7 @@ pre {
     padding: 0;
     margin: 0;
     white-space: nowrap;
-    text-align: left;
+    text-align: left !important;
   }
 
   /* location (non-link item) */
@@ -374,6 +378,13 @@ pre {
     color: #494e52;
   }
 
+  /* location fallback for browsers without :has() */
+  li > i.fas:first-child {
+    + span {
+      padding: 0;
+    }
+  }
+
   a {
     display: block;
     padding: 6px 16px !important;
@@ -381,6 +392,7 @@ pre {
     color: #494e52;
     white-space: nowrap;
     margin-bottom: 0 !important;
+    text-align: left !important;
     text-decoration: none;
 
     &:hover {
