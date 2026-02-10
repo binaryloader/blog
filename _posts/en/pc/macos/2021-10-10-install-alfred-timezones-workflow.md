@@ -27,7 +27,7 @@ depth:
 
 This post covers how to install and use the Alfred TimeZones Workflow on macOS.
 
-# Guide
+# Steps
 
 ## 1. Check Timezones
 

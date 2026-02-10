@@ -31,7 +31,7 @@ depth:
 
 This post covers how to check gem paths in Bundler.
 
-# Guide
+# Steps
 
 ## 1. Display Paths
 

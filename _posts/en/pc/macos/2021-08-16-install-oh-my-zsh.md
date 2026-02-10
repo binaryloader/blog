@@ -25,7 +25,7 @@ depth:
 
 This post covers how to install Oh My Zsh on macOS.
 
-# Guide
+# Steps
 
 ## 1. Installation
 

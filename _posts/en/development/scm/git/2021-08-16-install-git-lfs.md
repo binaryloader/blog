@@ -28,7 +28,7 @@ depth:
 
 This post covers how to install and set up Git LFS on macOS.
 
-# Guide
+# Steps
 
 ## 1. Installation
 

@@ -31,7 +31,7 @@ depth:
 
 This post covers how to use multiple SSH keys on GitHub.
 
-# Guide
+# Steps
 
 ## 1. Add the Following Lines to ~/.ssh/config
 

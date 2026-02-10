@@ -33,7 +33,7 @@ depth:
 
 This post covers how to install fastlane on macOS.
 
-# Guide
+# Steps
 
 ## 1. Install Xcode Command Line Tools
 

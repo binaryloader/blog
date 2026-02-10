@@ -25,7 +25,7 @@ depth:
 
 This post covers how to install the zsh-autosuggestions plugin on macOS.
 
-# Guide
+# Steps
 
 ## 1. Navigate to the Oh-My-Zsh Plugins Folder
 

@@ -34,7 +34,7 @@ depth:
 
 This post covers how to create a custom fastlane Action.
 
-# Guide
+# Steps
 
 ## 1. Action Example
 

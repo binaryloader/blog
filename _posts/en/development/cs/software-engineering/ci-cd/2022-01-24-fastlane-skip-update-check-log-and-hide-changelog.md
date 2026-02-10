@@ -57,7 +57,7 @@ To see all new releases, open https://github.com/fastlane/fastlane/releases
 Please update using `bundle update fastlane`
 ```
 
-# Guide
+# Steps
 
 ## 1. Disable Only the Changelog Log
 

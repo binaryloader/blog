@@ -28,7 +28,7 @@ depth:
 
 This post covers how to run a Jekyll local server with a specific IP address and port.
 
-# Guide
+# Steps
 
 ## 1. Start the Server
 

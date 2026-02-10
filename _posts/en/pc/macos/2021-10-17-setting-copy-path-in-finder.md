@@ -26,7 +26,7 @@ depth:
 
 This post covers the keyboard shortcut for copying a file or folder path in macOS Finder.
 
-# Guide
+# Steps
 
 ## 1. Select the File or Folder You Want to Copy and Use the Following Shortcut
 

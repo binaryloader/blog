@@ -27,7 +27,7 @@ depth:
 
 This post covers how to open Visual Studio Code from the terminal on macOS.
 
-# Guide
+# Steps
 
 ## 1. Open the Command Palette in Visual Studio Code
 

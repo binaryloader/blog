@@ -28,7 +28,7 @@ depth:
 
 This post covers how to install CocoaPods on macOS.
 
-# Guide
+# Steps
 
 ## 1. Installation
 

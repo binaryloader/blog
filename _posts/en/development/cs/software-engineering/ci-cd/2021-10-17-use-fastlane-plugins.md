@@ -34,7 +34,7 @@ depth:
 
 This post covers how to add and manage fastlane plugins.
 
-# Guide
+# Steps
 
 ## 1. Adding a Plugin Dependency
 

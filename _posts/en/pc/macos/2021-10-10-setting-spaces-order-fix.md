@@ -25,7 +25,7 @@ depth:
 
 This post covers how to fix the order of Spaces in Mission Control on macOS.
 
-# Guide
+# Steps
 
 ## 1. Uncheck the Following Option in Mission Control Settings
 

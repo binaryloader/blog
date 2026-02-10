@@ -24,7 +24,7 @@ depth:
 
 This post covers the concepts of prime numbers and composite numbers.
 
-# Guide
+# Summary
 
 ## 1. Natural Numbers
 

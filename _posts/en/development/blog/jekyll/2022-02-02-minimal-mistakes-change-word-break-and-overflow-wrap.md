@@ -40,7 +40,7 @@ This post covers how to change word break properties in the Minimal Mistakes the
 
 I'm using [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) as the theme for my Jekyll blog. Depending on the words or sentences in the post body, some content renders beyond the device screen width. This causes horizontal scrolling on mobile, which is very annoying, so I looked for a solution.
 
-# Guide
+# Steps
 
 ## 1. Add word-break and overflow-wrap Properties to \_base.scss
 

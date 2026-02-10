@@ -29,7 +29,7 @@ depth:
 
 This post covers how to deploy builds to iOS 15 or iPadOS 15 devices using Xcode 12.
 
-# Guide
+# Steps
 
 ## 1. Download Xcode 13 Beta
 

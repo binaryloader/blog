@@ -37,7 +37,7 @@ gallery_plugin-folder-structure:
 
 This post covers how to create and distribute a custom fastlane Plugin.
 
-# Guide
+# Steps
 
 ## 1. Plugin Example
 
