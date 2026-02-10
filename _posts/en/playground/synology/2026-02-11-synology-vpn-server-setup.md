@@ -104,7 +104,7 @@ If you have a dynamic public IP, it is recommended to use Synology's DDNS featur
 
 On your iPhone, go to **Settings > General > VPN & Device Management > VPN > Add VPN Configuration**.
 
-![iPhone L2TP VPN settings]({{ img_path }}/iphone-vpn-settings.png){: .align-center style="max-width: 400px;"}
+![iPhone L2TP VPN settings]({{ img_path }}/iphone-vpn-settings.png){: .align-center style="max-width: min(400px, 100%);"}
 
 Select **L2TP** as the type and fill in each field:
 

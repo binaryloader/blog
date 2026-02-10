@@ -104,7 +104,7 @@ A RecordのHostに`vpn`を入力すると`vpn.yourdomain.com`の形式でアク�
 
 iPhoneで**設定 > 一般 > VPNとデバイス管理 > VPN > VPN構成を追加**に移動する。
 
-![iPhone L2TP VPN設定画面]({{ img_path }}/iphone-vpn-settings.png){: .align-center style="max-width: 400px;"}
+![iPhone L2TP VPN設定画面]({{ img_path }}/iphone-vpn-settings.png){: .align-center style="max-width: min(400px, 100%);"}
 
 タイプを**L2TP**に選択し各項目を入力する。
 
