@@ -20,4 +20,3 @@ author_profile: true
 ## <i class="fas fa-envelope"></i> 連絡先
 
 - <i class="fab fa-github"></i> <https://github.com/binaryloader>
-- <i class="fas fa-envelope"></i> [](mailto:)
