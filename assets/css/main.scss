@@ -357,7 +357,13 @@ pre {
   background: #fff !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
   list-style-type: none;
-  text-align: left !important;
+
+  /* Mobile: use flex column to bypass table-cell parent alignment quirks */
+  &.is--visible {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
 
   &:before,
   &:after {
@@ -370,7 +376,6 @@ pre {
   }
 
   li {
-    display: block !important;
     border-bottom: none;
     padding: 0;
     margin: 0;
