@@ -16,6 +16,6 @@ author_profile: true
 - WOOWA BROTHERS · 2025년 9월 ~ 현재
 - NAVER · 2017년 12월 ~ 2025년 9월
 
-## <i class="fas fa-envelope"></i> 연락처
+## <i class="fas fa-link"></i> 링크
 
 - <i class="fab fa-github"></i> <https://github.com/binaryloader>
