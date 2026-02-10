@@ -30,7 +30,7 @@ depth:
 
 Synology NASにL2TP/IPSec VPNサーバーを構築し、外部から接続する方法をまとめる。
 
-# まとめ
+# 手順
 
 ## 1. Synology VPNサーバーの設定
 
