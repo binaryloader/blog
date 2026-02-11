@@ -17,6 +17,38 @@
 
 {% assign home_url = "/" | append: current_lang | append: "/" %}
 
+{% comment %}<!-- Build translated URL map for language auto-redirect -->{% endcomment %}
+{% assign lang_urls = "" %}
+{% for l in langs %}
+  {% assign t_url = nil %}
+  {% if l == current_lang %}
+    {% assign t_url = page.url %}
+  {% elsif page.ref %}
+    {% if l == "ko" %}
+      {% assign t_post = site.posts | where: "ref", page.ref | where_exp: "p", "p.lang == nil" | first %}
+      {% unless t_post %}{% assign t_post = site.pages | where: "ref", page.ref | where_exp: "p", "p.lang == nil" | first %}{% endunless %}
+    {% else %}
+      {% assign t_post = site.posts | where: "ref", page.ref | where: "lang", l | first %}
+      {% unless t_post %}{% assign t_post = site.pages | where: "ref", page.ref | where: "lang", l | first %}{% endunless %}
+    {% endif %}
+    {% if t_post %}{% assign t_url = t_post.url %}{% endif %}
+  {% endif %}
+  {% unless t_url %}{% assign t_url = "/" | append: l | append: "/" %}{% endunless %}
+  {% if lang_urls == "" %}
+    {% assign lang_urls = l | append: ":" | append: t_url %}
+  {% else %}
+    {% assign lang_urls = lang_urls | append: "," | append: l | append: ":" | append: t_url %}
+  {% endif %}
+{% endfor %}
+<script>
+(function(){
+  var pref = localStorage.getItem('preferred_lang');
+  if (!pref || pref === '{{ current_lang }}') return;
+  var map = {};
+  '{{ lang_urls }}'.split(',').forEach(function(e){ var p=e.split(':'); map[p[0]]=p.slice(1).join(':'); });
+  if (map[pref]) location.replace(map[pref]);
+})();
+</script>
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
@@ -69,7 +101,7 @@
                 {% else %}
                   {% assign toggle_url = "/" | append: l | append: "/" %}
                 {% endif %}
-                <li><a href="{{ toggle_url | relative_url }}" onclick="localStorage.setItem('preferred_lang','{{ l }}')">{{ lang_labels[forloop.index0] }}</a></li>
+                <li><a href="{{ toggle_url | relative_url }}" onclick="event.preventDefault();localStorage.setItem('preferred_lang','{{ l }}');location.replace(this.href)">{{ lang_labels[forloop.index0] }}</a></li>
               {% endunless %}
             {% endfor %}
           </ul>
