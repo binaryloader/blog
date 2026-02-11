@@ -25,4 +25,47 @@
   {% endfor %}
 {% endif %}
 
+<!-- language redirect on back-navigation -->
+{% assign head_lang = page.lang | default: "ko" %}
+{% if head_lang == "ko-KR" %}{% assign head_lang = "ko" %}{% endif %}
+{% assign head_langs = "ko,en,ja" | split: "," %}
+{% assign head_lang_urls = "" %}
+{% for l in head_langs %}
+  {% assign t_url = nil %}
+  {% if l == head_lang %}
+    {% assign t_url = page.url %}
+  {% elsif page.ref %}
+    {% if l == "ko" %}
+      {% assign t_post = site.posts | where: "ref", page.ref | where_exp: "p", "p.lang == nil" | first %}
+      {% unless t_post %}{% assign t_post = site.pages | where: "ref", page.ref | where_exp: "p", "p.lang == nil" | first %}{% endunless %}
+    {% else %}
+      {% assign t_post = site.posts | where: "ref", page.ref | where: "lang", l | first %}
+      {% unless t_post %}{% assign t_post = site.pages | where: "ref", page.ref | where: "lang", l | first %}{% endunless %}
+    {% endif %}
+    {% if t_post %}{% assign t_url = t_post.url %}{% endif %}
+  {% endif %}
+  {% unless t_url %}{% assign t_url = "/" | append: l | append: "/" %}{% endunless %}
+  {% if head_lang_urls == "" %}
+    {% assign head_lang_urls = l | append: ":" | append: t_url %}
+  {% else %}
+    {% assign head_lang_urls = head_lang_urls | append: "," | append: l | append: ":" | append: t_url %}
+  {% endif %}
+{% endfor %}
+<script>
+(function(){
+  var cur = '{{ head_lang }}';
+  function redirect(){
+    var pref = localStorage.getItem('preferred_lang');
+    if (!pref || pref === cur) return;
+    var map = {};
+    '{{ head_lang_urls }}'.split(',').forEach(function(e){ var p=e.split(':'); map[p[0]]=p.slice(1).join(':'); });
+    if (map[pref]) location.replace(map[pref]);
+  }
+  var nav = performance.getEntriesByType('navigation')[0];
+  if (nav && nav.type === 'back_forward') redirect();
+  else localStorage.setItem('preferred_lang', cur);
+  window.addEventListener('pageshow', function(e){ if (e.persisted) redirect(); });
+})();
+</script>
+
 <!-- end custom head snippets -->
