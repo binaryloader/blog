@@ -2,7 +2,9 @@
 
 Jekyll 기반 개인 블로그 (Minimal Mistakes 테마 v4.24.0). GitHub Pages로 `blog.binaryloader.io`에 배포.
 
-## 빌드
+## 프로젝트
+
+### 빌드
 
 ```bash
 bundle exec jekyll serve      # 로컬 서버
@@ -11,7 +13,7 @@ npm run build:js              # JS 빌드 (uglify + banner)
 npm run watch:js              # JS 변경 감시
 ```
 
-## 아키텍처
+### 아키텍처
 
 - **테마**: Minimal Mistakes (gemspec 기반, `_sass/minimal-mistakes/`에 SCSS 포함)
 - **포스트**: `_posts/{lang}/{category}/{subcategory}/YYYY-MM-DD-title.md`
@@ -77,7 +79,7 @@ depth:                  # 커스텀 breadcrumb
 
 - 이미지에 `max-width`를 지정할 때는 `min(원하는값, 100%)`를 사용한다. (예: `style="max-width: min(400px, 100%);"`)
 
-## 다국어
+### 다국어
 
 - 한국어(`/ko/`), 영어(`/en/`), 일본어(`/ja/`) 지원
 - **모든 포스트는 반드시 한국어, 영어, 일본어 3개 언어 버전을 함께 생성해야 한다.**
