@@ -16,6 +16,8 @@ tags:
   - Command Line
   - Visual Studio Code
   - VSCode
+  - Python
+  - Troubleshooting
 depth:
   - title: "PC"
     url: /ko/pc/

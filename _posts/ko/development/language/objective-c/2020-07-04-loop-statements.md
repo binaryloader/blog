@@ -15,6 +15,8 @@ tags:
   - Development
   - Language
   - Objective-C
+  - Loop
+  - Control Flow
 depth:
   - title: "Development"
     url: /ko/development/

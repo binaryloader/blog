@@ -14,6 +14,10 @@ tags:
   - PC
   - macOS
   - Oh-My-Zsh
+  - Terminal
+  - Zsh
+  - Shell
+  - Plugin
 depth:
   - title: "PC"
     url: /ko/pc/

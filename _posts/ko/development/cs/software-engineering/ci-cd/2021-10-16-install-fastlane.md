@@ -18,6 +18,9 @@ tags:
   - Software Engineering
   - CI/CD
   - fastlane
+  - iOS
+  - Automation
+  - Ruby
 depth:
   - title: "Development"
     url: /ko/development/

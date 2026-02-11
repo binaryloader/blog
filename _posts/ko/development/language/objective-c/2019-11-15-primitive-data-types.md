@@ -15,6 +15,7 @@ tags:
   - Development
   - Language
   - Objective-C
+  - Data Type
 depth:
   - title: "Development"
     url: /ko/development/

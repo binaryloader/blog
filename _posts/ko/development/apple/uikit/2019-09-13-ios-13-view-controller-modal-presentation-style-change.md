@@ -17,6 +17,8 @@ tags:
   - UIKit
   - iOS
   - Modal
+  - iOS 13
+  - Swift
 depth:
   - title: "Development"
     url: /ko/development/

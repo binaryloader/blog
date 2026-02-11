@@ -14,6 +14,7 @@ tags:
   - PC
   - macOS
   - Spaces
+  - Mission Control
 depth:
   - title: "PC"
     url: /ko/pc/

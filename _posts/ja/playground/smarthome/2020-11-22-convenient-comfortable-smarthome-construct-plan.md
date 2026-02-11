@@ -14,6 +14,9 @@ categories:
 tags:
   - Playground
   - SmartHome
+  - IoT
+  - ZigBee
+  - SmartThings
 depth:
   - title: "Playground"
     url: /ja/playground/

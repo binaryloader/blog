@@ -15,6 +15,10 @@ tags:
   - Development
   - Server
   - Spring
+  - Java
+  - Maven
+  - Gradle
+  - Eclipse
 depth:
   - title: "Development"
     url: /ko/development/

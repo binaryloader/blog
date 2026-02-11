@@ -16,6 +16,8 @@ tags:
   - VPN
   - L2TP
   - IPSec
+  - NAS
+  - Network
 depth:
   - title: "Playground"
     url: /ko/playground/

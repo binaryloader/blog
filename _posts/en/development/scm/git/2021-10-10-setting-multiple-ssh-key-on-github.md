@@ -19,6 +19,7 @@ tags:
   - GitHub
   - SSH
   - Key
+  - SSH Config
 depth:
   - title: "Development"
     url: /en/development/

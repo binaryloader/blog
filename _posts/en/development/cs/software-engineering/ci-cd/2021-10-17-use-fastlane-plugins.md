@@ -20,6 +20,9 @@ tags:
   - CI/CD
   - fastlane
   - Plugin
+  - iOS
+  - Automation
+  - Ruby
 depth:
   - title: "Development"
     url: /en/development/

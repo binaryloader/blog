@@ -19,6 +19,8 @@ tags:
   - Java
   - JDK
   - OpenJDK
+  - Homebrew
+  - Temurin
 depth:
   - title: "Development"
     url: /en/development/

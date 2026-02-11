@@ -17,6 +17,8 @@ tags:
   - Apple
   - Xcode
   - iOS
+  - iOS 15
+  - Xcode 12
 depth:
   - title: "Development"
     url: /en/development/

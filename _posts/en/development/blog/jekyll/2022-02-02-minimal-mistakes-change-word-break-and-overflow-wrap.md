@@ -17,6 +17,8 @@ tags:
   - Blog
   - Jekyll
   - Minimal Mistakes
+  - CSS
+  - Responsive
 depth:
   - title: "Development"
     url: /en/development/

@@ -15,6 +15,9 @@ tags:
   - Development
   - Language
   - Objective-C
+  - OOP
+  - Class
+  - Method
 depth:
   - title: "Development"
     url: /ko/development/

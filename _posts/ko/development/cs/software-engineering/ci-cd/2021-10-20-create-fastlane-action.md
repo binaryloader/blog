@@ -19,6 +19,9 @@ tags:
   - CI/CD
   - fastlane
   - Action
+  - iOS
+  - Automation
+  - Ruby
 depth:
   - title: "Development"
     url: /ko/development/

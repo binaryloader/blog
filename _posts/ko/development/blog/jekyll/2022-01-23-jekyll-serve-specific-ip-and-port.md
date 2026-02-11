@@ -15,6 +15,8 @@ tags:
   - Development
   - Blog
   - Jekyll
+  - CLI
+  - Server
 depth:
   - title: "Development"
     url: /ko/development/

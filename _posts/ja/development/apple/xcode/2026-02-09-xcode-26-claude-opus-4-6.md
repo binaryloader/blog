@@ -32,7 +32,7 @@ depth:
 
 # 概要
 
-Xcode 26ではAgentic Coding AssistantとしてClaude Codeをサポートしています。しかし、デフォルトで使用されるモデルが最新バージョンではない場合があります。この記事では、Xcode 26.3でClaude Opus 4.6モデルを使用するための設定方法をまとめます。
+Xcode 26.3ではAgentic Coding AssistantとしてClaude Codeをサポートしています。しかし、デフォルトで使用されるモデルが最新バージョンではない場合があります。この記事では、Xcode 26.3 Release CandidateでClaude Opus 4.6モデルを使用するための設定方法をまとめます。
 
 # 手順
 

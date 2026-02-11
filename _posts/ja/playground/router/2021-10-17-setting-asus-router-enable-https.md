@@ -18,6 +18,8 @@ tags:
   - RT-AX3000
   - HTTPS
   - Certificate
+  - Network
+  - Security
 depth:
   - title: "Playground"
     url: /ja/playground/

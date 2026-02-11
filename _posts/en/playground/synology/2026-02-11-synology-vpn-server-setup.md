@@ -18,6 +18,8 @@ tags:
   - VPN
   - L2TP
   - IPSec
+  - NAS
+  - Network
 depth:
   - title: "Playground"
     url: /en/playground/

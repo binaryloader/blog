@@ -18,6 +18,7 @@ tags:
   - Ruby
   - Homebrew
   - Package Management
+  - macOS
 depth:
   - title: "Development"
     url: /en/development/

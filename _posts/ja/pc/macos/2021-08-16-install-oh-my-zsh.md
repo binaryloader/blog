@@ -15,6 +15,9 @@ tags:
   - PC
   - macOS
   - Oh-My-Zsh
+  - Terminal
+  - Zsh
+  - Shell
 depth:
   - title: "PC"
     url: /ja/pc/

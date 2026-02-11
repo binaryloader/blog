@@ -13,6 +13,8 @@ categories:
 tags:
   - Fundamental
   - Mathematics
+  - Prime Number
+  - Number Theory
 depth:
   - title: "Fundamental"
     url: /ko/fundamental/

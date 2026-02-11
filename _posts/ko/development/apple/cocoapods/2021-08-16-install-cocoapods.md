@@ -15,6 +15,9 @@ tags:
   - Development
   - Apple
   - CocoaPods
+  - iOS
+  - Ruby
+  - Package Management
 depth:
   - title: "Development"
     url: /ko/development/

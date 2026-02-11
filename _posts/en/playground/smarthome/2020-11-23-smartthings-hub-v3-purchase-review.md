@@ -15,6 +15,8 @@ tags:
   - Playground
   - SmartHome
   - SmartThings
+  - IoT
+  - ZigBee
 depth:
   - title: "Playground"
     url: /en/playground/

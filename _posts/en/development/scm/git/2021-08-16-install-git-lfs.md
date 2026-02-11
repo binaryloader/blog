@@ -16,6 +16,8 @@ tags:
   - Development
   - SCM
   - Git
+  - Homebrew
+  - LFS
 depth:
   - title: "Development"
     url: /en/development/

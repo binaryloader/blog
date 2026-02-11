@@ -15,6 +15,9 @@ tags:
   - Synology
   - SSL
   - Certificate
+  - NAS
+  - Let's Encrypt
+  - SSH
 depth:
   - title: "Playground"
     url: /ko/playground/

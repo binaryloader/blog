@@ -15,6 +15,9 @@ tags:
   - Playground
   - Synology
   - PhotoStation
+  - NAS
+  - Nginx
+  - Domain
 depth:
   - title: "Playground"
     url: /ja/playground/

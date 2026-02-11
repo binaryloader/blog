@@ -18,6 +18,7 @@ tags:
   - SSH Key
   - SSH
   - Key
+  - Terminal
 depth:
   - title: "PC"
     url: /ja/pc/

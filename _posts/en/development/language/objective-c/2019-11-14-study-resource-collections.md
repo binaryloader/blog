@@ -16,6 +16,8 @@ tags:
   - Development
   - Language
   - Objective-C
+  - iOS
+  - Learning Resource
 depth:
   - title: "Development"
     url: /en/development/

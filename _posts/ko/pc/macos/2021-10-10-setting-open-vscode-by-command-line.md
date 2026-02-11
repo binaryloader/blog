@@ -16,6 +16,8 @@ tags:
   - Command Line
   - Visual Studio Code
   - VSCode
+  - Terminal
+  - Shell
 depth:
   - title: "PC"
     url: /ko/pc/

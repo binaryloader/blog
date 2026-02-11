@@ -16,6 +16,8 @@ tags:
   - Development
   - Blog
   - Jekyll
+  - CLI
+  - Server
 depth:
   - title: "Development"
     url: /ja/development/

@@ -15,6 +15,8 @@ tags:
   - Development
   - Language
   - Ruby
+  - rbenv
+  - Version Management
 depth:
   - title: "Development"
     url: /ko/development/
