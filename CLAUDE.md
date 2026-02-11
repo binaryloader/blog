@@ -1,6 +1,7 @@
 # 블로그 규칙
 
-Jekyll 기반 개인 블로그 (Minimal Mistakes 테마 v4.24.0). GitHub Pages로 `blog.binaryloader.io`에 배포.
+Jekyll 기반 개인 블로그 (Minimal Mistakes 테마 v4.24.0)
+GitHub Pages로 `blog.binaryloader.io`에 배포
 
 ## 프로젝트
 
