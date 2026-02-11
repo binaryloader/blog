@@ -1,7 +1,7 @@
 ---
-title: "[Xcode] 에이전틱 코딩 어시스턴트에 MCP 서버 연동하기"
+title: "[Xcode] Agentic Coding Assistant에 MCP 서버 연동하기"
 ref: xcode-agentic-coding-assistant-mcp-setup
-excerpt: "Xcode 에이전틱 코딩 어시스턴트에 MCP 서버를 연동하는 방법을 정리한다."
+excerpt: "Xcode Agentic Coding Assistant에 MCP 서버를 연동하는 방법을 정리한다."
 date: 2026-02-11T19:37+09:00
 last_modified_at: 2026-02-11T19:37+09:00
 published: true
@@ -29,7 +29,7 @@ depth:
 
 # 개요
 
-Xcode 에이전틱 코딩 어시스턴트에 MCP 서버를 연동하는 방법을 정리한다.
+Xcode Agentic Coding Assistant에 MCP 서버를 연동하는 방법을 정리한다.
 
 # 정리
 

@@ -2,7 +2,7 @@
 title: "[Xcode] Xcode 26.3でClaude Opus 4.6を使用する"
 lang: ja
 ref: xcode-26-claude-opus-4-6
-excerpt: "Xcode 26.3でClaude Opus 4.6モデルをエージェンティックコーディングアシスタントとして設定する方法をまとめる。"
+excerpt: "Xcode 26.3でClaude Opus 4.6モデルをAgentic Coding Assistantとして設定する方法をまとめる。"
 last_modified_at: 2026-02-09T00:30+09:00
 published: true
 permalink: /ja/development/apple/xcode/xcode-26-claude-opus-4-6/
@@ -31,13 +31,13 @@ depth:
 
 # 概要
 
-Xcode 26ではエージェンティックコーディングアシスタントとしてClaude Codeをサポートしています。しかし、デフォルトで使用されるモデルが最新バージョンではない場合があります。この記事では、Xcode 26.3でClaude Opus 4.6モデルを使用するための設定方法をまとめます。
+Xcode 26ではAgentic Coding AssistantとしてClaude Codeをサポートしています。しかし、デフォルトで使用されるモデルが最新バージョンではない場合があります。この記事では、Xcode 26.3でClaude Opus 4.6モデルを使用するための設定方法をまとめます。
 
 # 手順
 
 ## 1. Claude Codeバイナリのコピー
 
-Xcodeのエージェンティックコーディングアシスタントは内部的にClaude Codeバイナリを使用しています。目的のバージョンのバイナリを以下のパスにコピーします。
+XcodeのAgentic Coding Assistantは内部的にClaude Codeバイナリを使用しています。目的のバージョンのバイナリを以下のパスにコピーします。
 
 ```zsh
 cp $(which claude) ~/Library/Developer/Xcode/CodingAssistant/Agents/Versions/26.3/claude
@@ -63,7 +63,7 @@ EOF
 
 ## 3. 確認
 
-設定が完了したら、Xcodeを再起動してください。エージェンティックコーディングアシスタントを使用する際にClaude Opus 4.6モデルが適用されます。
+設定が完了したら、Xcodeを再起動してください。Agentic Coding Assistantを使用する際にClaude Opus 4.6モデルが適用されます。
 
 ### ディレクトリ構造
 

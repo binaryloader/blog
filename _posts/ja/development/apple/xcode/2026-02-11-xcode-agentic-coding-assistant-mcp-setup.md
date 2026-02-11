@@ -1,9 +1,9 @@
 ---
-title: "[Xcode] エージェンティックコーディングアシスタントにMCPサーバーを連携する"
+title: "[Xcode] Agentic Coding AssistantにMCPサーバーを連携する"
 ref: xcode-agentic-coding-assistant-mcp-setup
 lang: ja
 permalink: /ja/:categories/:title/
-excerpt: "XcodeエージェンティックコーディングアシスタントにMCPサーバーを連携する方法をまとめる。"
+excerpt: "XcodeAgentic Coding AssistantにMCPサーバーを連携する方法をまとめる。"
 date: 2026-02-11T19:37+09:00
 last_modified_at: 2026-02-11T19:37+09:00
 published: true
@@ -31,7 +31,7 @@ depth:
 
 # 概要
 
-XcodeエージェンティックコーディングアシスタントにMCPサーバーを連携する方法をまとめる。
+XcodeAgentic Coding AssistantにMCPサーバーを連携する方法をまとめる。
 
 # 手順
 
