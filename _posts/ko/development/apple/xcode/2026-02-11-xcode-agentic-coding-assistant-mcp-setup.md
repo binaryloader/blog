@@ -61,31 +61,7 @@ MCP 서버는 Claude Code의 설정 파일에서 프로젝트별로 구성한다
 
 MCP 서버는 두 가지 유형으로 설정할 수 있다.
 
-### 3.1. SSE (Server-Sent Events)
-
-로컬에서 실행 중인 MCP 서버에 HTTP로 연결하는 방식이다.
-
-```json
-{
-  "projects": {
-    "/path/to/your/project": {
-      "mcpServers": {
-        "Figma Dev Mode MCP": {
-          "type": "sse",
-          "url": "http://127.0.0.1:3845/sse"
-        }
-      }
-    }
-  }
-}
-```
-
-| 항목 | 설명 |
-|---|---|
-| **type** | `"sse"`를 지정한다. |
-| **url** | MCP 서버의 SSE 엔드포인트 URL을 입력한다. |
-
-### 3.2. stdio
+### 3.1. stdio
 
 CLI 명령어로 MCP 서버 프로세스를 직접 실행하는 방식이다.
 
@@ -112,9 +88,9 @@ CLI 명령어로 MCP 서버 프로세스를 직접 실행하는 방식이다.
 | **args** | 명령어에 전달할 인자 배열이다. |
 | **env** | (선택) 환경 변수를 지정한다. API 토큰 등이 필요한 경우 사용한다. |
 
-## 4. 설정 예시
+### 3.2. SSE (Server-Sent Events)
 
-다양한 MCP 서버를 함께 구성한 예시다.
+로컬에서 실행 중인 MCP 서버에 HTTP로 연결하는 방식이다.
 
 ```json
 {
@@ -124,7 +100,27 @@ CLI 명령어로 MCP 서버 프로세스를 직접 실행하는 방식이다.
         "Figma Dev Mode MCP": {
           "type": "sse",
           "url": "http://127.0.0.1:3845/sse"
-        },
+        }
+      }
+    }
+  }
+}
+```
+
+| 항목 | 설명 |
+|---|---|
+| **type** | `"sse"`를 지정한다. |
+| **url** | MCP 서버의 SSE 엔드포인트 URL을 입력한다. |
+
+## 4. 설정 예시
+
+다양한 MCP 서버를 함께 구성한 예시다.
+
+```json
+{
+  "projects": {
+    "/path/to/your/project": {
+      "mcpServers": {
         "context7": {
           "type": "stdio",
           "command": "/path/to/npx",
@@ -144,6 +140,10 @@ CLI 명령어로 MCP 서버 프로세스를 직접 실행하는 방식이다.
             "JIRA_USERNAME": "your-email@example.com",
             "JIRA_API_TOKEN": "your-api-token"
           }
+        },
+        "Figma Dev Mode MCP": {
+          "type": "sse",
+          "url": "http://127.0.0.1:3845/sse"
         }
       }
     }
@@ -153,10 +153,10 @@ CLI 명령어로 MCP 서버 프로세스를 직접 실행하는 방식이다.
 
 | MCP 서버 | 용도 |
 |---|---|
-| **Figma Dev Mode MCP** | Figma 디자인 파일을 코드에서 참조할 수 있게 한다. |
 | **context7** | 라이브러리 문서를 컨텍스트로 제공한다. |
 | **sequential-thinking** | 복잡한 문제를 단계별로 사고하는 기능을 추가한다. |
 | **mcp-atlassian** | Jira 이슈와 Confluence 문서에 접근할 수 있게 한다. |
+| **Figma Dev Mode MCP** | Figma 디자인 파일을 코드에서 참조할 수 있게 한다. |
 
 ## 5. 주의사항
 

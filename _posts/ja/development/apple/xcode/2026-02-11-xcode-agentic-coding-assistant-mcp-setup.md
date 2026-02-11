@@ -63,31 +63,7 @@ MCPサーバーはClaude Codeの設定ファイルでプロジェクトごとに
 
 MCPサーバーは2つのタイプで設定できる。
 
-### 3.1. SSE (Server-Sent Events)
-
-ローカルで実行中のMCPサーバーにHTTPで接続する方式だ。
-
-```json
-{
-  "projects": {
-    "/path/to/your/project": {
-      "mcpServers": {
-        "Figma Dev Mode MCP": {
-          "type": "sse",
-          "url": "http://127.0.0.1:3845/sse"
-        }
-      }
-    }
-  }
-}
-```
-
-| 項目 | 説明 |
-|---|---|
-| **type** | `"sse"`を指定する。 |
-| **url** | MCPサーバーのSSEエンドポイントURLを入力する。 |
-
-### 3.2. stdio
+### 3.1. stdio
 
 CLIコマンドでMCPサーバープロセスを直接起動する方式だ。
 
@@ -114,9 +90,9 @@ CLIコマンドでMCPサーバープロセスを直接起動する方式だ。
 | **args** | コマンドに渡す引数の配列だ。 |
 | **env** | （任意）環境変数を指定する。APIトークンなどが必要な場合に使用する。 |
 
-## 4. 設定例
+### 3.2. SSE (Server-Sent Events)
 
-複数のMCPサーバーをまとめて構成した例だ。
+ローカルで実行中のMCPサーバーにHTTPで接続する方式だ。
 
 ```json
 {
@@ -126,7 +102,27 @@ CLIコマンドでMCPサーバープロセスを直接起動する方式だ。
         "Figma Dev Mode MCP": {
           "type": "sse",
           "url": "http://127.0.0.1:3845/sse"
-        },
+        }
+      }
+    }
+  }
+}
+```
+
+| 項目 | 説明 |
+|---|---|
+| **type** | `"sse"`を指定する。 |
+| **url** | MCPサーバーのSSEエンドポイントURLを入力する。 |
+
+## 4. 設定例
+
+複数のMCPサーバーをまとめて構成した例だ。
+
+```json
+{
+  "projects": {
+    "/path/to/your/project": {
+      "mcpServers": {
         "context7": {
           "type": "stdio",
           "command": "/path/to/npx",
@@ -146,6 +142,10 @@ CLIコマンドでMCPサーバープロセスを直接起動する方式だ。
             "JIRA_USERNAME": "your-email@example.com",
             "JIRA_API_TOKEN": "your-api-token"
           }
+        },
+        "Figma Dev Mode MCP": {
+          "type": "sse",
+          "url": "http://127.0.0.1:3845/sse"
         }
       }
     }
@@ -155,10 +155,10 @@ CLIコマンドでMCPサーバープロセスを直接起動する方式だ。
 
 | MCPサーバー | 用途 |
 |---|---|
-| **Figma Dev Mode MCP** | Figmaデザインファイルをコードから参照できるようにする。 |
 | **context7** | ライブラリドキュメントをコンテキストとして提供する。 |
 | **sequential-thinking** | 複雑な問題をステップごとに思考する機能を追加する。 |
 | **mcp-atlassian** | JiraイシューとConfluenceドキュメントにアクセスできるようにする。 |
+| **Figma Dev Mode MCP** | Figmaデザインファイルをコードから参照できるようにする。 |
 
 ## 5. 注意事項
 

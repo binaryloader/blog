@@ -63,31 +63,7 @@ Specify the project path as a key inside `projects` and add the MCP servers unde
 
 MCP servers can be configured in two types.
 
-### 3.1. SSE (Server-Sent Events)
-
-Connects to a locally running MCP server via HTTP.
-
-```json
-{
-  "projects": {
-    "/path/to/your/project": {
-      "mcpServers": {
-        "Figma Dev Mode MCP": {
-          "type": "sse",
-          "url": "http://127.0.0.1:3845/sse"
-        }
-      }
-    }
-  }
-}
-```
-
-| Field | Description |
-|---|---|
-| **type** | Set to `"sse"`. |
-| **url** | The SSE endpoint URL of the MCP server. |
-
-### 3.2. stdio
+### 3.1. stdio
 
 Launches the MCP server process directly via a CLI command.
 
@@ -114,9 +90,9 @@ Launches the MCP server process directly via a CLI command.
 | **args** | An array of arguments to pass to the command. |
 | **env** | (Optional) Environment variables. Used when API tokens are required. |
 
-## 4. Configuration Example
+### 3.2. SSE (Server-Sent Events)
 
-An example with multiple MCP servers configured together.
+Connects to a locally running MCP server via HTTP.
 
 ```json
 {
@@ -126,7 +102,27 @@ An example with multiple MCP servers configured together.
         "Figma Dev Mode MCP": {
           "type": "sse",
           "url": "http://127.0.0.1:3845/sse"
-        },
+        }
+      }
+    }
+  }
+}
+```
+
+| Field | Description |
+|---|---|
+| **type** | Set to `"sse"`. |
+| **url** | The SSE endpoint URL of the MCP server. |
+
+## 4. Configuration Example
+
+An example with multiple MCP servers configured together.
+
+```json
+{
+  "projects": {
+    "/path/to/your/project": {
+      "mcpServers": {
         "context7": {
           "type": "stdio",
           "command": "/path/to/npx",
@@ -146,6 +142,10 @@ An example with multiple MCP servers configured together.
             "JIRA_USERNAME": "your-email@example.com",
             "JIRA_API_TOKEN": "your-api-token"
           }
+        },
+        "Figma Dev Mode MCP": {
+          "type": "sse",
+          "url": "http://127.0.0.1:3845/sse"
         }
       }
     }
@@ -155,10 +155,10 @@ An example with multiple MCP servers configured together.
 
 | MCP Server | Purpose |
 |---|---|
-| **Figma Dev Mode MCP** | Allows referencing Figma design files from code. |
 | **context7** | Provides library documentation as context. |
 | **sequential-thinking** | Adds step-by-step reasoning for complex problems. |
 | **mcp-atlassian** | Enables access to Jira issues and Confluence documents. |
+| **Figma Dev Mode MCP** | Allows referencing Figma design files from code. |
 
 ## 5. Notes
 
