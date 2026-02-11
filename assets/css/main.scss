@@ -595,6 +595,12 @@ pre {
   }
 }
 
+/* Text Selection */
+[data-theme="dark"] ::selection {
+  color: #fff;
+  background: var(--primary-color);
+}
+
 /* Copy Code Button */
 [data-theme="dark"] .copy-code-button {
   background-color: #2a2222;
