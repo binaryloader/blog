@@ -136,6 +136,9 @@ CLI 명령어로 MCP 서버 프로세스를 직접 실행하는 방식이다.
           "command": "/path/to/uvx",
           "args": ["mcp-atlassian"],
           "env": {
+            "CONFLUENCE_URL": "https://your-domain.atlassian.net/wiki",
+            "CONFLUENCE_USERNAME": "your-email@example.com",
+            "CONFLUENCE_API_TOKEN": "your-api-token",
             "JIRA_URL": "https://your-domain.atlassian.net",
             "JIRA_USERNAME": "your-email@example.com",
             "JIRA_API_TOKEN": "your-api-token"
