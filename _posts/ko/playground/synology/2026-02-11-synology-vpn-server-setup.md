@@ -2,6 +2,7 @@
 title: "[Synology] L2TP/IPSec VPN 서버 구축하기"
 ref: synology-vpn-server-setup
 excerpt: "Synology NAS에 L2TP/IPSec VPN 서버를 구축하고 외부에서 접속하는 방법을 정리한다."
+date: 2026-02-11T00:00+09:00
 last_modified_at: 2026-02-11T00:00+09:00
 published: true
 header:

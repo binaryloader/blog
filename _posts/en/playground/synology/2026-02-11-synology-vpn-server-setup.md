@@ -4,6 +4,7 @@ ref: synology-vpn-server-setup
 lang: en
 permalink: /en/:categories/:title/
 excerpt: "A guide to setting up an L2TP/IPSec VPN server on a Synology NAS and connecting from outside."
+date: 2026-02-11T00:00+09:00
 last_modified_at: 2026-02-11T00:00+09:00
 published: true
 header:

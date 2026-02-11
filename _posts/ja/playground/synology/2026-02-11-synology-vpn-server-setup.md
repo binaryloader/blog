@@ -4,6 +4,7 @@ ref: synology-vpn-server-setup
 lang: ja
 permalink: /ja/:categories/:title/
 excerpt: "Synology NASにL2TP/IPSec VPNサーバーを構築し、外部から接続する方法をまとめる。"
+date: 2026-02-11T00:00+09:00
 last_modified_at: 2026-02-11T00:00+09:00
 published: true
 header:
