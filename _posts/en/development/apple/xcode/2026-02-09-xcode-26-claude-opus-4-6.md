@@ -1,4 +1,5 @@
 ---
+date: 2026-02-09T00:00+09:00
 title: "[Xcode] Using Claude Opus 4.6 in Xcode 26.3"
 lang: en
 ref: xcode-26-claude-opus-4-6

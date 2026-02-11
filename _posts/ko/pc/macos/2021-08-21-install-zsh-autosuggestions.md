@@ -1,4 +1,5 @@
 ---
+date: 2021-08-21T00:00+09:00
 title: "[macOS] Zsh 자동 완성 플러그인 설치하기"
 ref: install-zsh-autosuggestions
 excerpt: "macOS에서 zsh-autosuggestions 플러그인을 설치하는 방법을 정리한다."

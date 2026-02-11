@@ -1,4 +1,5 @@
 ---
+date: 2021-10-10T00:00+09:00
 title: "[Git] GitHub에서 SSH 키 여러 개 사용하기"
 ref: setting-multiple-ssh-key-on-github
 excerpt: "GitHub에서 여러 SSH 키를 사용하는 방법을 정리한다."

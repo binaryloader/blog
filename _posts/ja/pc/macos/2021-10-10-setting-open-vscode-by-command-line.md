@@ -1,4 +1,5 @@
 ---
+date: 2021-10-10T00:00+09:00
 title: "[macOS] コマンドラインから Visual Studio Code を開く"
 ref: setting-open-vscode-by-command-line
 lang: ja

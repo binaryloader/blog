@@ -1,4 +1,5 @@
 ---
+date: 2020-04-30T00:00+09:00
 title: "[Spring] Spring 5 開発環境を構築する"
 ref: spring-development-environment-establishment
 lang: ja

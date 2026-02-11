@@ -1,4 +1,5 @@
 ---
+date: 2024-11-19T00:00+09:00
 title: "[Java] Installing OpenJDK"
 lang: en
 ref: installing-openjdk

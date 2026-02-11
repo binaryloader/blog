@@ -1,4 +1,5 @@
 ---
+date: 2021-10-10T00:00+09:00
 title: "[macOS] Alfred TimeZones Workflow 설치하기"
 ref: install-alfred-timezones-workflow
 excerpt: "macOS에서 Alfred TimeZones Workflow를 설치하고 사용하는 방법을 정리한다."

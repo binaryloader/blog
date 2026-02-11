@@ -1,4 +1,5 @@
 ---
+date: 2022-07-21T00:00+09:00
 title: "[Ruby] Displaying Gem Paths in Bundle"
 ref: bundle-show-paths
 lang: en

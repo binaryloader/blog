@@ -1,4 +1,5 @@
 ---
+date: 2021-08-15T00:00+09:00
 title: "[Synology] コマンドラインでSSL証明書を手動更新する方法"
 ref: ssl-certificate-manual-renew-with-command-line
 lang: ja

@@ -1,4 +1,5 @@
 ---
+date: 2022-02-02T00:00+09:00
 title: "[Jekyll] Minimal Mistakes 테마에서 줄바꿈 속성 변경하기"
 ref: minimal-mistakes-change-word-break-and-overflow-wrap
 excerpt: "Minimal Mistakes 테마에서 모바일 환경의 가로 스크롤 문제를 해결하기 위한 줄바꿈 속성 변경 방법을 정리한다."

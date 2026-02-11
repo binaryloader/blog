@@ -39,6 +39,7 @@ npm run watch:js
 title: "[카테고리] 제목"
 ref: unique-slug        # 한/영 번역 연결용 (같은 ref끼리 매칭)
 excerpt: "포스트 설명"   # 검색 결과 등에 표시되는 요약
+date: YYYY-MM-DDTHH:MM+09:00
 last_modified_at: YYYY-MM-DDTHH:MM+09:00
 published: true         # 기본값은 false (_config.yml defaults)
 header:

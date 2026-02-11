@@ -1,4 +1,5 @@
 ---
+date: 2021-10-17T00:00+09:00
 title: "[Router] ASUS 라우터 설정 페이지 HTTPS 활성화하기"
 ref: setting-asus-router-enable-https
 excerpt: "ASUS 공유기 설정 페이지의 HTTPS를 활성화하는 방법을 정리한다."

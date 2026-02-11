@@ -1,4 +1,5 @@
 ---
+date: 2024-11-19T00:00+09:00
 title: "[Java] OpenJDK 설치하기"
 ref: installing-openjdk
 excerpt: "macOS에서 Homebrew를 이용하여 Eclipse Temurin OpenJDK를 설치하는 방법을 정리한다."

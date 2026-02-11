@@ -1,4 +1,5 @@
 ---
+date: 2020-11-23T00:00+09:00
 title: "[SmartHome] SmartThings Hub 第3世代 購入レビュー"
 ref: smartthings-hub-v3-purchase-review
 lang: ja

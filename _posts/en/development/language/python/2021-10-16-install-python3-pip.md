@@ -1,4 +1,5 @@
 ---
+date: 2021-10-16T00:00+09:00
 title: "[Python] Installing PIP"
 ref: install-python3-pip
 lang: en

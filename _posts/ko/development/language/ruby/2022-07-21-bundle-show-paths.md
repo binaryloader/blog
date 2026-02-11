@@ -1,4 +1,5 @@
 ---
+date: 2022-07-21T00:00+09:00
 title: "[Ruby] Bundle에 있는 gem 경로 출력하기"
 ref: bundle-show-paths
 excerpt: "Bundler에서 gem 경로를 확인하는 방법을 정리한다."

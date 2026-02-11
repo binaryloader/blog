@@ -1,4 +1,5 @@
 ---
+date: 2022-02-02T00:00+09:00
 title: "[Jekyll] Changing Word Break Properties in the Minimal Mistakes Theme"
 ref: minimal-mistakes-change-word-break-and-overflow-wrap
 excerpt: "How to change word break properties in the Minimal Mistakes theme to fix horizontal scrolling on mobile."

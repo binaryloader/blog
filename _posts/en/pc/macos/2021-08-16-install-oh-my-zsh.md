@@ -1,4 +1,5 @@
 ---
+date: 2021-08-16T00:00+09:00
 title: "[macOS] Installing Oh My Zsh"
 ref: install-oh-my-zsh
 lang: en

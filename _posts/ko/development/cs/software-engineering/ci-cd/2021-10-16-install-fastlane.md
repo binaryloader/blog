@@ -1,4 +1,5 @@
 ---
+date: 2021-10-16T00:00+09:00
 title: "[CI/CD] fastlane 설치하기"
 ref: install-fastlane
 excerpt: "macOS에서 fastlane을 설치하는 방법을 정리한다."

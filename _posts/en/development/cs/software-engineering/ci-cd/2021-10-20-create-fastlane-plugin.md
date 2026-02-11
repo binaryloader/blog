@@ -1,4 +1,5 @@
 ---
+date: 2021-10-20T00:00+09:00
 title: "[CI/CD] Creating a fastlane Plugin"
 ref: create-fastlane-plugin
 excerpt: "How to create and distribute a custom fastlane Plugin."

@@ -1,4 +1,5 @@
 ---
+date: 2021-10-10T00:00+09:00
 title: "[macOS] Command Line으로 Visual Studio Code 열기"
 ref: setting-open-vscode-by-command-line
 excerpt: "macOS에서 터미널을 통해 Visual Studio Code를 여는 방법을 정리한다."

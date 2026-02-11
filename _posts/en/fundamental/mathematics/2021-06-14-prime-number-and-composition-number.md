@@ -1,4 +1,5 @@
 ---
+date: 2021-06-14T00:00+09:00
 title: "[Mathematics] Prime Numbers and Composite Numbers"
 ref: prime-number-and-composition-number
 lang: en

@@ -1,4 +1,5 @@
 ---
+date: 2021-10-20T00:00+09:00
 title: "[CI/CD] Creating a fastlane Action"
 ref: create-fastlane-action
 excerpt: "How to create a custom fastlane Action."

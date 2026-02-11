@@ -1,4 +1,5 @@
 ---
+date: 2020-11-23T00:00+09:00
 title: "[SmartHome] SmartThings Hub 3세대 구입기"
 ref: smartthings-hub-v3-purchase-review
 excerpt: "SmartThings Hub v3 구매 후기를 정리한다."

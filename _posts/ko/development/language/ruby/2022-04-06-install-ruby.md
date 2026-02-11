@@ -1,4 +1,5 @@
 ---
+date: 2022-04-06T00:00+09:00
 title: "[Ruby] 설치하기"
 ref: install-ruby
 excerpt: "macOS에서 rbenv를 이용하여 Ruby를 설치하는 방법을 정리한다."

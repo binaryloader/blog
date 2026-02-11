@@ -1,4 +1,5 @@
 ---
+date: 2020-10-29T00:00+09:00
 title: "[Synology] Photo Stationにカスタムドメインを接続する方法"
 ref: photostation-apply-custom-domain
 lang: ja

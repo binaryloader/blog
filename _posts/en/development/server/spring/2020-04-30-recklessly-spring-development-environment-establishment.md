@@ -1,4 +1,5 @@
 ---
+date: 2020-04-30T00:00+09:00
 title: "[Spring] Setting Up a Spring 5 Development Environment"
 ref: spring-development-environment-establishment
 lang: en

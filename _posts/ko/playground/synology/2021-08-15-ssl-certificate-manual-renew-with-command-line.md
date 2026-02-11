@@ -1,4 +1,5 @@
 ---
+date: 2021-08-15T00:00+09:00
 title: "[Synology] 커맨드 라인을 통한 SSL 인증서 수동 갱신하기"
 ref: ssl-certificate-manual-renew-with-command-line
 excerpt: "Synology NAS에서 SSL 인증서를 수동으로 갱신하는 방법을 정리한다."

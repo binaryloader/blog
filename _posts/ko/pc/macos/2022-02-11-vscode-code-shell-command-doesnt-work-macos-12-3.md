@@ -1,4 +1,5 @@
 ---
+date: 2022-02-11T00:00+09:00
 title: "[macOS] macOS 12.3에서 Visual Studio Code의 code Shell Command가 동작하지 않는 이슈 해결하기"
 ref: vscode-code-shell-command-doesnt-work-macos-12-3
 excerpt: "macOS 12.3에서 Python 2 제거로 인해 VS Code의 code 명령이 동작하지 않는 이슈를 해결하는 방법을 정리한다."

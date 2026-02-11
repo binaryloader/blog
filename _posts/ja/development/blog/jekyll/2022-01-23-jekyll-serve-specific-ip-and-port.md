@@ -1,4 +1,5 @@
 ---
+date: 2022-01-23T00:00+09:00
 title: "[Jekyll] 特定のIPアドレスとポートでローカルサーバーを起動する"
 ref: jekyll-serve-specific-ip-and-port
 excerpt: "Jekyllローカルサーバーを特定のIPアドレスとポートで起動する方法をまとめる。"

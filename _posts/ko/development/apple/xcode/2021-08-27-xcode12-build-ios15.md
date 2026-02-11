@@ -1,4 +1,5 @@
 ---
+date: 2021-08-27T00:00+09:00
 title: "[Xcode] Xcode 12에서 iOS 15 기기에 빌드하기"
 ref: xcode12-build-ios15
 excerpt: "Xcode 12에서 iOS 15 또는 iPadOS 15 기기에 빌드를 올리는 방법을 정리한다."

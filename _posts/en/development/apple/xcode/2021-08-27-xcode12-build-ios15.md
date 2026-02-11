@@ -1,4 +1,5 @@
 ---
+date: 2021-08-27T00:00+09:00
 title: "[Xcode] Building for iOS 15 Devices with Xcode 12"
 ref: xcode12-build-ios15
 excerpt: "How to deploy builds to iOS 15 or iPadOS 15 devices using Xcode 12."

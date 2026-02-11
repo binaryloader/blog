@@ -1,4 +1,5 @@
 ---
+date: 2019-11-15T00:00+09:00
 title: "[Objective-C] Primitive Data Types"
 ref: objective-c-primitive-data-types
 lang: en

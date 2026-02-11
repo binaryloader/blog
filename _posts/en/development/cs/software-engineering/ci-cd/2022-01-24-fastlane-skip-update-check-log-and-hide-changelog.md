@@ -1,4 +1,5 @@
 ---
+date: 2022-01-24T00:00+09:00
 title: "[CI/CD] Disabling fastlane Update Check and Changelog Logs"
 ref: fastlane-skip-update-check-log-and-hide-changelog
 excerpt: "How to disable fastlane's update check log and changelog log."

@@ -1,4 +1,5 @@
 ---
+date: 2020-07-04T00:00+09:00
 title: "[Objective-C] Loop Statements"
 ref: objective-c-loop-statements
 lang: en

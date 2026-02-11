@@ -1,4 +1,5 @@
 ---
+date: 2022-07-21T00:00+09:00
 title: "[Ruby] Bundle の gem パスを表示する"
 ref: bundle-show-paths
 lang: ja

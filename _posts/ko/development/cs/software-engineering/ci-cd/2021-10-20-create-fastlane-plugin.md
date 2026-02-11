@@ -1,4 +1,5 @@
 ---
+date: 2021-10-20T00:00+09:00
 title: "[CI/CD] fastlane Plugin 만들기"
 ref: create-fastlane-plugin
 excerpt: "fastlane의 커스텀 Plugin을 만들고 배포하는 방법을 정리한다."

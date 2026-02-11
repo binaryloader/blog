@@ -1,4 +1,5 @@
 ---
+date: 2021-10-16T00:00+09:00
 title: "[Python] PIPをインストールする"
 ref: install-python3-pip
 lang: ja

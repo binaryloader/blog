@@ -1,4 +1,5 @@
 ---
+date: 2022-02-02T00:00+09:00
 title: "[Jekyll] Minimal Mistakesテーマで改行プロパティを変更する"
 ref: minimal-mistakes-change-word-break-and-overflow-wrap
 excerpt: "Minimal Mistakesテーマでモバイル環境の横スクロール問題を解決するための改行プロパティの変更方法をまとめる。"

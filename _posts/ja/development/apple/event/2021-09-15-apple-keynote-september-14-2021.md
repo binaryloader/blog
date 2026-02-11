@@ -1,4 +1,5 @@
 ---
+date: 2021-09-15T00:00+09:00
 title: "[Apple] Keynote - September 14, 2021"
 ref: apple-keynote-september-14-2021
 excerpt: "Apple September 2021キーノートで発表された新しいデバイスとサービスをまとめる。"

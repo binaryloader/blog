@@ -1,4 +1,5 @@
 ---
+date: 2022-02-11T00:00+09:00
 title: "[macOS] macOS 12.3でVisual Studio Codeのcode Shellコマンドが動作しない問題の解決方法"
 ref: vscode-code-shell-command-doesnt-work-macos-12-3
 lang: ja

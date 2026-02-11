@@ -1,4 +1,5 @@
 ---
+date: 2026-02-09T00:00+09:00
 title: "[Xcode] Xcode 26.3에서 Claude Opus 4.6 사용하기"
 ref: xcode-26-claude-opus-4-6
 excerpt: "Xcode 26.3에서 Claude Opus 4.6 모델을 Agentic Coding Assistant로 설정하는 방법을 정리한다."

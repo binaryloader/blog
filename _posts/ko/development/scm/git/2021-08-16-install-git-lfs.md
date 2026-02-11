@@ -1,4 +1,5 @@
 ---
+date: 2021-08-16T00:00+09:00
 title: "[Git] Git LFS 설치하기"
 ref: install-git-lfs
 excerpt: "macOS에서 Git LFS를 설치하고 설정하는 방법을 정리한다."

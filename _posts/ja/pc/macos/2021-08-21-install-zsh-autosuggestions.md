@@ -1,4 +1,5 @@
 ---
+date: 2021-08-21T00:00+09:00
 title: "[macOS] Zsh 自動補完プラグインをインストールする"
 ref: install-zsh-autosuggestions
 lang: ja

@@ -1,4 +1,5 @@
 ---
+date: 2021-10-20T00:00+09:00
 title: "[CI/CD] fastlane Actionを作成する"
 ref: create-fastlane-action
 excerpt: "fastlaneのカスタムActionを作成する方法をまとめる。"

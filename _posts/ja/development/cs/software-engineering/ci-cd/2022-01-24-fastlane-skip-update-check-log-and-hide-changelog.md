@@ -1,4 +1,5 @@
 ---
+date: 2022-01-24T00:00+09:00
 title: "[CI/CD] fastlaneのアップデート確認ログと変更履歴ログを無効にする"
 ref: fastlane-skip-update-check-log-and-hide-changelog
 excerpt: "fastlaneのアップデート確認ログと変更履歴ログを無効にする方法をまとめる。"

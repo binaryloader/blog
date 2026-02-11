@@ -1,4 +1,5 @@
 ---
+date: 2021-08-16T00:00+09:00
 title: "[macOS] Zsh Alien テーマをインストールする"
 ref: install-zsh-alien-theme
 lang: ja

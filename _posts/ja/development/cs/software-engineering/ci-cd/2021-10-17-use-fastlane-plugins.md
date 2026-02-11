@@ -1,4 +1,5 @@
 ---
+date: 2021-10-17T00:00+09:00
 title: "[CI/CD] fastlane Pluginを使用する"
 ref: use-fastlane-plugins
 excerpt: "fastlane Pluginを追加・管理する方法をまとめる。"

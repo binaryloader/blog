@@ -1,4 +1,5 @@
 ---
+date: 2021-01-15T00:00+09:00
 title: "[Objective-C] Class and Method, Instance"
 ref: objective-c-class-instance-method
 lang: en

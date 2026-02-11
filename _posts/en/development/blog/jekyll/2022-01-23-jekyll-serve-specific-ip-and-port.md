@@ -1,4 +1,5 @@
 ---
+date: 2022-01-23T00:00+09:00
 title: "[Jekyll] Running a Local Server with a Specific IP and Port"
 ref: jekyll-serve-specific-ip-and-port
 excerpt: "How to run a Jekyll local server with a specific IP address and port."

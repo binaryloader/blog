@@ -1,4 +1,5 @@
 ---
+date: 2021-08-15T00:00+09:00
 title: "[Synology] Manually Renewing SSL Certificates via Command Line"
 ref: ssl-certificate-manual-renew-with-command-line
 lang: en

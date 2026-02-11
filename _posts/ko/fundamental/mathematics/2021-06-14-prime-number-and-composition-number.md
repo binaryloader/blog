@@ -1,4 +1,5 @@
 ---
+date: 2021-06-14T00:00+09:00
 title: "[Mathematics] 소수와 합성수"
 ref: prime-number-and-composition-number
 excerpt: "소수와 합성수의 개념을 정리한다."

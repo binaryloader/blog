@@ -1,4 +1,5 @@
 ---
+date: 2021-10-10T00:00+09:00
 title: "[macOS] Spaces 순서 고정하기"
 ref: setting-spaces-order-fix
 excerpt: "macOS에서 Mission Control의 Spaces 순서를 고정하는 방법을 정리한다."

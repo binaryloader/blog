@@ -1,4 +1,5 @@
 ---
+date: 2021-10-17T00:00+09:00
 title: "[macOS] Finder でパスをコピーする"
 ref: setting-copy-path-in-finder
 lang: ja

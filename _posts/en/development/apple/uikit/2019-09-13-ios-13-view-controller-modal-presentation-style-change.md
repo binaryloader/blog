@@ -1,4 +1,5 @@
 ---
+date: 2019-09-13T00:00+09:00
 title: "[UIKit] Handling the iOS 13 View Controller Modal Presentation Style Change"
 ref: ios-13-view-controller-modal-presentation-style-change
 excerpt: "How to handle the default Modal Presentation Style change introduced in iOS 13."

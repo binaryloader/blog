@@ -1,4 +1,5 @@
 ---
+date: 2020-11-22T00:00+09:00
 title: "[SmartHome] Planning a Convenient and Comfortable Smart Home"
 ref: smarthome-construct-plan
 lang: en

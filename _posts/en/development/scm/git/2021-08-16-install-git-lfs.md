@@ -1,4 +1,5 @@
 ---
+date: 2021-08-16T00:00+09:00
 title: "[Git] Installing Git LFS"
 ref: install-git-lfs
 lang: en

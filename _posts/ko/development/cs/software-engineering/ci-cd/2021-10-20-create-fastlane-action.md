@@ -1,4 +1,5 @@
 ---
+date: 2021-10-20T00:00+09:00
 title: "[CI/CD] fastlane Action 만들기"
 ref: create-fastlane-action
 excerpt: "fastlane의 커스텀 Action을 만드는 방법을 정리한다."

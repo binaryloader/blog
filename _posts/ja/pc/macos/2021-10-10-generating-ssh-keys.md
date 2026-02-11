@@ -1,4 +1,5 @@
 ---
+date: 2021-10-10T00:00+09:00
 title: "[macOS] SSHキーの生成"
 lang: ja
 ref: generating-ssh-keys

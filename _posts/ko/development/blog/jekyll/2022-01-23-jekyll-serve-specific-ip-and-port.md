@@ -1,4 +1,5 @@
 ---
+date: 2022-01-23T00:00+09:00
 title: "[Jekyll] 특정 아이피와 포트로 로컬 서버 실행하기"
 ref: jekyll-serve-specific-ip-and-port
 excerpt: "Jekyll 로컬 서버를 특정 아이피와 포트로 실행하는 방법을 정리한다."

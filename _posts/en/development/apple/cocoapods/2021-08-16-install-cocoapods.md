@@ -1,4 +1,5 @@
 ---
+date: 2021-08-16T00:00+09:00
 title: "[CocoaPods] Installing CocoaPods"
 ref: install-cocoapods
 excerpt: "How to install CocoaPods on macOS."

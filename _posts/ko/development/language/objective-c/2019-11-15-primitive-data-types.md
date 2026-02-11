@@ -1,4 +1,5 @@
 ---
+date: 2019-11-15T00:00+09:00
 title: "[Objective-C] 원시 데이터형 - Primitive Data Types"
 ref: objective-c-primitive-data-types
 excerpt: "Objective-C의 원시 데이터형을 정리한다."

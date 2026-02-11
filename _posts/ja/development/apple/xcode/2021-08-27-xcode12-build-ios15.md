@@ -1,4 +1,5 @@
 ---
+date: 2021-08-27T00:00+09:00
 title: "[Xcode] Xcode 12でiOS 15デバイスにビルドする"
 ref: xcode12-build-ios15
 excerpt: "Xcode 12でiOS 15またはiPadOS 15デバイスにビルドをデプロイする方法をまとめる。"

@@ -1,4 +1,5 @@
 ---
+date: 2021-06-14T00:00+09:00
 title: "[Mathematics] 素数と合成数"
 ref: prime-number-and-composition-number
 lang: ja

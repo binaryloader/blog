@@ -1,4 +1,5 @@
 ---
+date: 2020-04-30T00:00+09:00
 title: "[Spring] 스프링 5 개발환경 구축하기"
 ref: spring-development-environment-establishment
 excerpt: "Spring 5 개발 환경을 구축하는 방법을 정리한다."

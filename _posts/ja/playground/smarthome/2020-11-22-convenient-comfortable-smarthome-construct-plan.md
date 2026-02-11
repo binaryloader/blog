@@ -1,4 +1,5 @@
 ---
+date: 2020-11-22T00:00+09:00
 title: "[SmartHome] 便利で快適なスマートホーム構築計画"
 ref: smarthome-construct-plan
 lang: ja

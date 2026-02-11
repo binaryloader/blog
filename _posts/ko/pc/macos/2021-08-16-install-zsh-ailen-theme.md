@@ -1,4 +1,5 @@
 ---
+date: 2021-08-16T00:00+09:00
 title: "[macOS] Zsh Alien 테마 설치하기"
 ref: install-zsh-alien-theme
 excerpt: "macOS에서 Oh My Zsh의 Alien 테마를 설치하는 방법을 정리한다."

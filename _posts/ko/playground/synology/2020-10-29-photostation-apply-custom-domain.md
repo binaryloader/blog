@@ -1,4 +1,5 @@
 ---
+date: 2020-10-29T00:00+09:00
 title: "[Synology] Photo Station 커스텀 도메인 연결하기"
 ref: photostation-apply-custom-domain
 excerpt: "Synology Photo Station에 커스텀 도메인을 연결하는 방법을 정리한다."

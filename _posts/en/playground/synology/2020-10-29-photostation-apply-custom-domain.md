@@ -1,4 +1,5 @@
 ---
+date: 2020-10-29T00:00+09:00
 title: "[Synology] Connecting a Custom Domain to Photo Station"
 ref: photostation-apply-custom-domain
 lang: en

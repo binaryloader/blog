@@ -1,4 +1,5 @@
 ---
+date: 2021-10-16T00:00+09:00
 title: "[Python] PIP 설치하기"
 ref: install-python3-pip
 excerpt: "Python 3의 패키지 관리자 PIP를 설치하는 방법을 정리한다."

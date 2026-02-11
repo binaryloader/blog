@@ -1,4 +1,5 @@
 ---
+date: 2020-11-22T00:00+09:00
 title: "[SmartHome] 편리하고 안락한 스마트홈 구축 계획"
 ref: smarthome-construct-plan
 excerpt: "편리하고 안락한 스마트홈 인프라 구축 계획을 정리한다."

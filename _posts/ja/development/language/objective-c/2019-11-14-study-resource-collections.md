@@ -1,4 +1,5 @@
 ---
+date: 2019-11-14T00:00+09:00
 title: "[Objective-C] スタディリソース集"
 ref: objective-c-study-resource-collections
 lang: ja

@@ -1,4 +1,5 @@
 ---
+date: 2019-11-14T00:00+09:00
 title: "[Objective-C] 스터디 리소스 모음"
 ref: objective-c-study-resource-collections
 excerpt: "Objective-C 학습에 유용한 스터디 리소스를 정리한다."

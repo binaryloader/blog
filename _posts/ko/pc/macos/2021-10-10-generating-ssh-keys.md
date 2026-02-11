@@ -1,4 +1,5 @@
 ---
+date: 2021-10-10T00:00+09:00
 title: "[macOS] SSH 키 생성하기"
 ref: generating-ssh-keys
 excerpt: "macOS에서 ssh-keygen을 이용하여 SSH 키를 생성하는 방법을 정리한다."

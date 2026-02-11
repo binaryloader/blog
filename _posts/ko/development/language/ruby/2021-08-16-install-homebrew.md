@@ -1,4 +1,5 @@
 ---
+date: 2021-08-16T00:00+09:00
 title: "[Ruby] Homebrew 설치하기"
 ref: install-homebrew
 excerpt: "macOS에서 Homebrew를 설치하는 방법을 정리한다."
