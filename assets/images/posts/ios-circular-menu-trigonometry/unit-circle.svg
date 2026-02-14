@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" rx="8" fill="#1e1e2e"/>
+
+  <!-- Axes -->
+  <line x1="40" y1="200" x2="360" y2="200" stroke="#45475a" stroke-width="1.5"/>
+  <line x1="200" y1="40" x2="200" y2="360" stroke="#45475a" stroke-width="1.5"/>
+
+  <!-- Circle -->
+  <circle cx="200" cy="200" r="130" fill="none" stroke="#89b4fa" stroke-width="2"/>
+
+  <!-- Radius line -->
+  <line x1="200" y1="200" x2="330" y2="200" stroke="#6c7086" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="260" y="190" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="12">r=1</text>
+
+  <!-- 0° point (right) -->
+  <circle cx="330" cy="200" r="5" fill="#a6e3a1"/>
+  <text x="340" y="195" fill="#a6e3a1" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">0°</text>
+  <text x="340" y="210" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="11">(1, 0)</text>
+
+  <!-- 90° point (top) -->
+  <circle cx="200" cy="70" r="5" fill="#fab387"/>
+  <text x="210" y="60" fill="#fab387" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">90°</text>
+  <text x="210" y="75" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="11">(0, 1)</text>
+
+  <!-- 180° point (left) -->
+  <circle cx="70" cy="200" r="5" fill="#f9e2af"/>
+  <text x="20" y="193" fill="#f9e2af" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">180°</text>
+  <text x="20" y="208" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="11">(-1, 0)</text>
+
+  <!-- 270° point (bottom) -->
+  <circle cx="200" cy="330" r="5" fill="#f38ba8"/>
+  <text x="210" y="340" fill="#f38ba8" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">270°</text>
+  <text x="210" y="355" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="11">(0, -1)</text>
+
+  <!-- Center dot -->
+  <circle cx="200" cy="200" r="3" fill="#cdd6f4"/>
+  <text x="205" y="218" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="11">(0, 0)</text>
+
+  <!-- Axis labels -->
+  <text x="355" y="195" fill="#45475a" font-family="-apple-system, sans-serif" font-size="13">x</text>
+  <text x="205" y="48" fill="#45475a" font-family="-apple-system, sans-serif" font-size="13">y</text>
+
+  <!-- Example angle -->
+  <line x1="200" y1="200" x2="292" y2="108" stroke="#cba6f7" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <circle cx="292" cy="108" r="4" fill="#cba6f7"/>
+  <text x="296" y="103" fill="#cba6f7" font-family="-apple-system, sans-serif" font-size="11">(cos θ, sin θ)</text>
+  <!-- Angle arc -->
+  <path d="M 230 200 A 30 30 0 0 0 222 178" fill="none" stroke="#cba6f7" stroke-width="1.5"/>
+  <text x="234" y="188" fill="#cba6f7" font-family="serif" font-size="13" font-style="italic">θ</text>
+</svg>

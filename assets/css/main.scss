@@ -579,6 +579,10 @@ pre {
 }
 
 /* Page hero overlay */
+.page__hero--overlay .page__lead {
+  max-width: $large;
+}
+
 [data-theme="dark"] .page__hero--overlay {
   background-color: #141010;
 }

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260">
+  <rect width="320" height="260" rx="8" fill="#1e1e2e"/>
+
+  <!-- Wall -->
+  <line x1="220" y1="40" x2="220" y2="210" stroke="#6c7086" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Ground -->
+  <line x1="60" y1="210" x2="280" y2="210" stroke="#6c7086" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Right angle marker -->
+  <polyline points="205,210 205,195 220,195" fill="none" stroke="#6c7086" stroke-width="1.5"/>
+
+  <!-- Ladder (hypotenuse) -->
+  <line x1="100" y1="210" x2="220" y2="55" stroke="#89b4fa" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Angle arc -->
+  <path d="M 140 210 A 40 40 0 0 0 124 178" fill="none" stroke="#fab387" stroke-width="2"/>
+  <text x="148" y="192" fill="#fab387" font-family="serif" font-size="16" font-style="italic">θ</text>
+
+  <!-- cos label -->
+  <text x="120" y="240" fill="#a6e3a1" font-family="-apple-system, sans-serif" font-size="13" text-anchor="middle">cos</text>
+  <!-- cos arrow -->
+  <line x1="105" y1="225" x2="215" y2="225" stroke="#a6e3a1" stroke-width="1.2" marker-end="url(#arrowGreen)"/>
+
+  <!-- sin label -->
+  <text x="248" y="135" fill="#f38ba8" font-family="-apple-system, sans-serif" font-size="13" text-anchor="middle">sin</text>
+  <!-- sin arrow -->
+  <line x1="235" y1="60" x2="235" y2="205" stroke="#f38ba8" stroke-width="1.2" marker-end="url(#arrowRed)"/>
+
+  <!-- hypotenuse label -->
+  <text x="135" y="110" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="13" text-anchor="middle" transform="rotate(-53, 135, 110)">r = 1</text>
+
+  <!-- Dots -->
+  <circle cx="100" cy="210" r="4" fill="#fab387"/>
+  <circle cx="220" cy="210" r="3" fill="#6c7086"/>
+  <circle cx="220" cy="55" r="4" fill="#89b4fa"/>
+
+  <defs>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M 0 0 L 8 3 L 0 6 Z" fill="#a6e3a1"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M 0 0 L 8 3 L 0 6 Z" fill="#f38ba8"/>
+    </marker>
+  </defs>
+</svg>

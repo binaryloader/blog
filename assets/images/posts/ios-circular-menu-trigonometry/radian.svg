@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 310">
+  <rect width="360" height="310" rx="8" fill="#1e1e2e"/>
+
+  <!-- Full circle reference (dashed), center=(180,185), r=110 -->
+  <circle cx="180" cy="185" r="110" fill="none" stroke="#45475a" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Radius to start (0°) -->
+  <line x1="180" y1="185" x2="290" y2="185" stroke="#6c7086" stroke-width="2" stroke-linecap="round"/>
+  <!-- Radius to end (-57.3° = -1 rad) -->
+  <!-- end: (180+110*cos(57.3°), 185-110*sin(57.3°)) = (239, 92) -->
+  <line x1="180" y1="185" x2="239" y2="92" stroke="#6c7086" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- 1 radian arc: 0° to -57.3° CCW, <180° so large-arc=0, sweep=0 -->
+  <path d="M 290 185 A 110 110 0 0 0 239 92" fill="none" stroke="#89b4fa" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Angle arc near center (r=35) -->
+  <!-- end: (180+35*cos(57.3°), 185-35*sin(57.3°)) = (199, 156) -->
+  <path d="M 215 185 A 35 35 0 0 0 199 156" fill="none" stroke="#fab387" stroke-width="2"/>
+  <text x="222" y="167" fill="#fab387" font-family="-apple-system, sans-serif" font-size="13">1</text>
+
+  <!-- Labels -->
+  <text x="300" y="110" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">1 rad</text>
+  <text x="300" y="128" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="12">≈ 57.3°</text>
+  <text x="220" y="205" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="12">r = 1</text>
+
+  <!-- Dots -->
+  <circle cx="180" cy="185" r="4" fill="#cdd6f4"/>
+  <circle cx="290" cy="185" r="4" fill="#a6e3a1"/>
+  <circle cx="239" cy="92" r="4" fill="#89b4fa"/>
+</svg>

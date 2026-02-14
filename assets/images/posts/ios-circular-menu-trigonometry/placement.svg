@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 440">
+  <rect width="440" height="440" rx="8" fill="#1e1e2e"/>
+
+  <!-- Connecting lines from center (drawn first, behind everything) -->
+  <line x1="220" y1="220" x2="220" y2="70" stroke="#313244" stroke-width="1"/>
+  <line x1="220" y1="220" x2="326" y2="114" stroke="#313244" stroke-width="1"/>
+  <line x1="220" y1="220" x2="370" y2="220" stroke="#313244" stroke-width="1"/>
+  <line x1="220" y1="220" x2="326" y2="326" stroke="#313244" stroke-width="1"/>
+  <line x1="220" y1="220" x2="220" y2="370" stroke="#313244" stroke-width="1"/>
+  <line x1="220" y1="220" x2="114" y2="326" stroke="#313244" stroke-width="1"/>
+  <line x1="220" y1="220" x2="70" y2="220" stroke="#313244" stroke-width="1"/>
+  <line x1="220" y1="220" x2="114" y2="114" stroke="#313244" stroke-width="1"/>
+
+  <!-- Circle -->
+  <circle cx="220" cy="220" r="150" fill="none" stroke="#45475a" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Center -->
+  <circle cx="220" cy="220" r="3" fill="#cdd6f4"/>
+  <text x="228" y="232" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="10">(200,200)</text>
+
+  <!-- i=0: 12 o'clock (200, 80) -->
+  <circle cx="220" cy="70" r="6" fill="#89b4fa"/>
+  <text x="228" y="55" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="10" font-weight="600">i=0</text>
+  <text x="228" y="68" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="9">(200, 80)</text>
+
+  <!-- i=1: 1-2 o'clock (284.9, 115.1) -->
+  <circle cx="326" cy="114" r="6" fill="#89b4fa"/>
+  <text x="336" y="110" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="10" font-weight="600">i=1</text>
+  <text x="336" y="123" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="9">(285, 115)</text>
+
+  <!-- i=2: 3 o'clock (320, 200) -->
+  <circle cx="370" cy="220" r="6" fill="#89b4fa"/>
+  <text x="380" y="216" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="10" font-weight="600">i=2</text>
+  <text x="380" y="229" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="9">(320, 200)</text>
+
+  <!-- i=3: 4-5 o'clock (284.9, 284.9) -->
+  <circle cx="326" cy="326" r="6" fill="#89b4fa"/>
+  <text x="336" y="322" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="10" font-weight="600">i=3</text>
+  <text x="336" y="335" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="9">(285, 285)</text>
+
+  <!-- i=4: 6 o'clock (200, 320) -->
+  <circle cx="220" cy="370" r="6" fill="#89b4fa"/>
+  <text x="228" y="383" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="10" font-weight="600">i=4</text>
+  <text x="228" y="396" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="9">(200, 320)</text>
+
+  <!-- i=5: 7-8 o'clock (115.1, 284.9) -->
+  <circle cx="114" cy="326" r="6" fill="#89b4fa"/>
+  <text x="50" y="336" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="10" font-weight="600">i=5</text>
+  <text x="50" y="349" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="9">(115, 285)</text>
+
+  <!-- i=6: 9 o'clock (80, 200) -->
+  <circle cx="70" cy="220" r="6" fill="#89b4fa"/>
+  <text x="15" y="216" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="10" font-weight="600">i=6</text>
+  <text x="15" y="229" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="9">(80, 200)</text>
+
+  <!-- i=7: 10-11 o'clock (115.1, 115.1) -->
+  <circle cx="114" cy="114" r="6" fill="#89b4fa"/>
+  <text x="50" y="107" fill="#89b4fa" font-family="-apple-system, sans-serif" font-size="10" font-weight="600">i=7</text>
+  <text x="50" y="120" fill="#a6adc8" font-family="-apple-system, sans-serif" font-size="9">(115, 115)</text>
+</svg>
