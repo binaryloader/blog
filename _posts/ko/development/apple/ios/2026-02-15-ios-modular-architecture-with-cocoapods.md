@@ -60,7 +60,7 @@ CocoaPods Private Spec Repo를 활용하여 iOS 프로젝트를 계층별 모듈
 
 | 계층 | 역할 | 예시 |
 |---|---|---|
-| **Foundation** | 앱에 종속되지 않는 범용 라이브러리 | BinaryloaderNetwork, BinaryloaderExtensions |
+| **Foundation** | 앱에 종속되지 않는 범용 라이브러리 | BinaryLoaderNetwork, BinaryLoaderExtensions |
 | **Module** | 앱 고유의 서비스 및 의존성 인터페이스 | APIService/Auth, Dependencies/Login |
 | **Scene** | 화면 단위의 독립적인 기능 모듈 | LoginScene |
 | **App** | 모듈 조립과 화면 전환을 담당하는 진입점 | Synstagram |
@@ -80,7 +80,7 @@ CocoaPods Private Spec Repo를 활용하여 iOS 프로젝트를 계층별 모듈
 
 | 스펙 저장소 | 대상 | 등록된 Pod |
 |---|---|---|
-| `cocoapods-specs` | Foundation 레이어 | BinaryloaderNetwork, BinaryloaderExtensions, BinaryloaderDIContainer, BinaryloaderUI |
+| `cocoapods-specs` | Foundation 레이어 | BinaryLoaderNetwork, BinaryLoaderExtensions, BinaryLoaderDIContainer, BinaryLoaderUI |
 | `synstagram-module-cocoapods-specs` | Module 레이어 | APIService, Dependencies |
 | `synstagram-scene-cocoapods-specs` | Scene 레이어 | LoginScene |
 
@@ -90,17 +90,17 @@ CocoaPods Private Spec Repo를 활용하여 iOS 프로젝트를 계층별 모듈
 
 앱에 종속되지 않는 범용 라이브러리다. 다른 프로젝트에서도 그대로 가져다 쓸 수 있다.
 
-### BinaryloaderNetwork
+### BinaryLoaderNetwork
 
 Moya를 래핑한 네트워크 추상화 레이어다.
 
 ```ruby
-# BinaryloaderNetwork.podspec
+# BinaryLoaderNetwork.podspec
 Pod::Spec.new do |s|
-  s.name = 'BinaryloaderNetwork'
+  s.name = 'BinaryLoaderNetwork'
   s.version = '1.0.4'
   s.ios.deployment_target = '13.0'
-  s.source_files = 'BinaryloaderNetwork/Module/Source/*.swift'
+  s.source_files = 'BinaryLoaderNetwork/Module/Source/*.swift'
   s.dependency 'Moya', '15.0.0'
 end
 ```
@@ -149,37 +149,37 @@ public typealias MoyaError = Moya.MoyaError
 
 이렇게 하면 Moya 버전이 변경되어 타입명이 바뀌더라도 래핑 파일만 수정하면 되므로 하위 모듈의 변경 범위를 최소화할 수 있다.
 
-### BinaryloaderDIContainer
+### BinaryLoaderDIContainer
 
 Property Wrapper 기반의 의존성 주입 컨테이너다. `@Injectable`로 의존성을 선언하고 `Container.shared.register(type:)`으로 등록한다.
 
 ```ruby
-# BinaryloaderDIContainer.podspec
+# BinaryLoaderDIContainer.podspec
 Pod::Spec.new do |s|
-  s.name = 'BinaryloaderDIContainer'
+  s.name = 'BinaryLoaderDIContainer'
   s.version = '1.0.4'
-  s.source_files = 'BinaryloaderDIContainer/Module/Source/*.swift'
+  s.source_files = 'BinaryLoaderDIContainer/Module/Source/*.swift'
 end
 ```
 
-### BinaryloaderUI
+### BinaryLoaderUI
 
 UI 컴포넌트를 subspec으로 분리하여 필요한 것만 선택적으로 사용할 수 있다.
 
 ```ruby
-# BinaryloaderUI.podspec
+# BinaryLoaderUI.podspec
 Pod::Spec.new do |s|
-  s.name = 'BinaryloaderUI'
+  s.name = 'BinaryLoaderUI'
   s.version = '1.0.2'
   s.default_subspec = :none
 
   s.subspec 'InsetTextField' do |ss|
-    ss.source_files = 'BinaryloaderUI/Module/InsetTextField/Source/*.swift'
+    ss.source_files = 'BinaryLoaderUI/Module/InsetTextField/Source/*.swift'
   end
 end
 ```
 
-`default_subspec = :none`으로 설정하면 `pod 'BinaryloaderUI'`만으로는 아무것도 포함되지 않고 `pod 'BinaryloaderUI/InsetTextField'`처럼 명시적으로 subspec을 지정해야 한다.
+`default_subspec = :none`으로 설정하면 `pod 'BinaryLoaderUI'`만으로는 아무것도 포함되지 않고 `pod 'BinaryLoaderUI/InsetTextField'`처럼 명시적으로 subspec을 지정해야 한다.
 
 ## 4. Module 레이어
 
@@ -194,12 +194,12 @@ end
 Pod::Spec.new do |s|
   s.name = 'APIService'
   s.version = '1.0.6'
-  s.dependency 'BinaryloaderExtensions', '1.0.2'
+  s.dependency 'BinaryLoaderExtensions', '1.0.2'
   s.default_subspec = :none
 
   s.subspec 'Auth' do |ss|
     ss.source_files = 'APIService/Module/Auth/Source/*.swift'
-    ss.dependency 'BinaryloaderNetwork', '1.0.4'
+    ss.dependency 'BinaryLoaderNetwork', '1.0.4'
   end
 end
 ```
@@ -288,9 +288,9 @@ Pod::Spec.new do |s|
   s.version = '1.0.10'
   s.source_files = 'LoginScene/Module/Source/**/*.{swift,xib}'
   s.resource = 'LoginScene/Module/Resources/*.xcassets'
-  s.dependency 'BinaryloaderDIContainer', '1.0.4'
-  s.dependency 'BinaryloaderExtensions', '1.0.2'
-  s.dependency 'BinaryloaderUI/InsetTextField', '1.0.2'
+  s.dependency 'BinaryLoaderDIContainer', '1.0.4'
+  s.dependency 'BinaryLoaderExtensions', '1.0.2'
+  s.dependency 'BinaryLoaderUI/InsetTextField', '1.0.2'
   s.dependency 'APIService/Auth', '1.0.6'
   s.dependency 'Dependencies/Login', '1.0.2'
   s.dependency 'Dependencies/AlbumList', '1.0.2'
@@ -430,12 +430,12 @@ final class HierarchyCoordinator {
 소스 코드 수정 → 버전 범프 → 태그 생성 → 스펙 저장소에 podspec 등록 → 하위 모듈 의존성 업데이트 → 반복
 ```
 
-예를 들어 BinaryloaderNetwork의 코드를 수정한 경우:
+예를 들어 BinaryLoaderNetwork의 코드를 수정한 경우:
 
-1. `BinaryloaderNetwork.podspec`의 `s.version` 범프
+1. `BinaryLoaderNetwork.podspec`의 `s.version` 범프
 2. `git tag 1.0.5` 생성 후 푸시
-3. `cocoapods-specs` 저장소에 `BinaryloaderNetwork/1.0.5/BinaryloaderNetwork.podspec` 등록
-4. BinaryloaderNetwork에 의존하는 APIService의 의존성 버전 업데이트
+3. `cocoapods-specs` 저장소에 `BinaryLoaderNetwork/1.0.5/BinaryLoaderNetwork.podspec` 등록
+4. BinaryLoaderNetwork에 의존하는 APIService의 의존성 버전 업데이트
 5. APIService도 같은 과정 반복
 6. 최종적으로 App의 Podfile에서 `pod install` 실행
 

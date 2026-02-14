@@ -62,7 +62,7 @@ The project consists of four layers.
 
 | Layer | Role | Examples |
 |---|---|---|
-| **Foundation** | General-purpose libraries not tied to the app | BinaryloaderNetwork, BinaryloaderExtensions |
+| **Foundation** | General-purpose libraries not tied to the app | BinaryLoaderNetwork, BinaryLoaderExtensions |
 | **Module** | App-specific services and dependency interfaces | APIService/Auth, Dependencies/Login |
 | **Scene** | Self-contained feature modules per screen | LoginScene |
 | **App** | Entry point responsible for assembling modules and navigation | Synstagram |
@@ -82,7 +82,7 @@ Spec repos are separated by layer.
 
 | Spec Repo | Target | Registered Pods |
 |---|---|---|
-| `cocoapods-specs` | Foundation layer | BinaryloaderNetwork, BinaryloaderExtensions, BinaryloaderDIContainer, BinaryloaderUI |
+| `cocoapods-specs` | Foundation layer | BinaryLoaderNetwork, BinaryLoaderExtensions, BinaryLoaderDIContainer, BinaryLoaderUI |
 | `synstagram-module-cocoapods-specs` | Module layer | APIService, Dependencies |
 | `synstagram-scene-cocoapods-specs` | Scene layer | LoginScene |
 
@@ -92,17 +92,17 @@ Separating spec repos by layer enables fine-grained access control within a team
 
 General-purpose libraries not tied to any specific app. They can be used as-is in other projects.
 
-### BinaryloaderNetwork
+### BinaryLoaderNetwork
 
 A network abstraction layer wrapping Moya.
 
 ```ruby
-# BinaryloaderNetwork.podspec
+# BinaryLoaderNetwork.podspec
 Pod::Spec.new do |s|
-  s.name = 'BinaryloaderNetwork'
+  s.name = 'BinaryLoaderNetwork'
   s.version = '1.0.4'
   s.ios.deployment_target = '13.0'
-  s.source_files = 'BinaryloaderNetwork/Module/Source/*.swift'
+  s.source_files = 'BinaryLoaderNetwork/Module/Source/*.swift'
   s.dependency 'Moya', '15.0.0'
 end
 ```
@@ -151,37 +151,37 @@ public typealias MoyaError = Moya.MoyaError
 
 This way, if Moya changes its type names across versions, only the wrapping file needs to be updated, minimizing the blast radius of changes.
 
-### BinaryloaderDIContainer
+### BinaryLoaderDIContainer
 
 A Property Wrapper-based dependency injection container. Dependencies are declared with `@Injectable` and registered with `Container.shared.register(type:)`.
 
 ```ruby
-# BinaryloaderDIContainer.podspec
+# BinaryLoaderDIContainer.podspec
 Pod::Spec.new do |s|
-  s.name = 'BinaryloaderDIContainer'
+  s.name = 'BinaryLoaderDIContainer'
   s.version = '1.0.4'
-  s.source_files = 'BinaryloaderDIContainer/Module/Source/*.swift'
+  s.source_files = 'BinaryLoaderDIContainer/Module/Source/*.swift'
 end
 ```
 
-### BinaryloaderUI
+### BinaryLoaderUI
 
 UI components are split into subspecs so only the needed parts are included.
 
 ```ruby
-# BinaryloaderUI.podspec
+# BinaryLoaderUI.podspec
 Pod::Spec.new do |s|
-  s.name = 'BinaryloaderUI'
+  s.name = 'BinaryLoaderUI'
   s.version = '1.0.2'
   s.default_subspec = :none
 
   s.subspec 'InsetTextField' do |ss|
-    ss.source_files = 'BinaryloaderUI/Module/InsetTextField/Source/*.swift'
+    ss.source_files = 'BinaryLoaderUI/Module/InsetTextField/Source/*.swift'
   end
 end
 ```
 
-Setting `default_subspec = :none` means `pod 'BinaryloaderUI'` alone includes nothing. You must explicitly specify a subspec like `pod 'BinaryloaderUI/InsetTextField'`.
+Setting `default_subspec = :none` means `pod 'BinaryLoaderUI'` alone includes nothing. You must explicitly specify a subspec like `pod 'BinaryLoaderUI/InsetTextField'`.
 
 ## 4. Module Layer
 
@@ -196,12 +196,12 @@ Encapsulates network API calls. Features are split into subspecs.
 Pod::Spec.new do |s|
   s.name = 'APIService'
   s.version = '1.0.6'
-  s.dependency 'BinaryloaderExtensions', '1.0.2'
+  s.dependency 'BinaryLoaderExtensions', '1.0.2'
   s.default_subspec = :none
 
   s.subspec 'Auth' do |ss|
     ss.source_files = 'APIService/Module/Auth/Source/*.swift'
-    ss.dependency 'BinaryloaderNetwork', '1.0.4'
+    ss.dependency 'BinaryLoaderNetwork', '1.0.4'
   end
 end
 ```
@@ -290,9 +290,9 @@ Pod::Spec.new do |s|
   s.version = '1.0.10'
   s.source_files = 'LoginScene/Module/Source/**/*.{swift,xib}'
   s.resource = 'LoginScene/Module/Resources/*.xcassets'
-  s.dependency 'BinaryloaderDIContainer', '1.0.4'
-  s.dependency 'BinaryloaderExtensions', '1.0.2'
-  s.dependency 'BinaryloaderUI/InsetTextField', '1.0.2'
+  s.dependency 'BinaryLoaderDIContainer', '1.0.4'
+  s.dependency 'BinaryLoaderExtensions', '1.0.2'
+  s.dependency 'BinaryLoaderUI/InsetTextField', '1.0.2'
   s.dependency 'APIService/Auth', '1.0.6'
   s.dependency 'Dependencies/Login', '1.0.2'
   s.dependency 'Dependencies/AlbumList', '1.0.2'
@@ -432,12 +432,12 @@ When code in a module is modified, changes propagate in the following order.
 Modify source code → Bump version → Create tag → Register podspec in spec repo → Update downstream dependencies → Repeat
 ```
 
-For example, if BinaryloaderNetwork is modified:
+For example, if BinaryLoaderNetwork is modified:
 
-1. Bump `s.version` in `BinaryloaderNetwork.podspec`
+1. Bump `s.version` in `BinaryLoaderNetwork.podspec`
 2. Create and push `git tag 1.0.5`
-3. Register `BinaryloaderNetwork/1.0.5/BinaryloaderNetwork.podspec` in the `cocoapods-specs` repo
-4. Update the dependency version in APIService, which depends on BinaryloaderNetwork
+3. Register `BinaryLoaderNetwork/1.0.5/BinaryLoaderNetwork.podspec` in the `cocoapods-specs` repo
+4. Update the dependency version in APIService, which depends on BinaryLoaderNetwork
 5. Repeat the same process for APIService
 6. Finally, run `pod install` in the App's Podfile
 

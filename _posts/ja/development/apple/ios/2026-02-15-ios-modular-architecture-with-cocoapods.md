@@ -62,7 +62,7 @@ CocoaPods Private Spec Repoを活用してiOSプロジェクトをレイヤー�
 
 | レイヤー | 役割 | 例 |
 |---|---|---|
-| **Foundation** | アプリに依存しない汎用ライブラリ | BinaryloaderNetwork, BinaryloaderExtensions |
+| **Foundation** | アプリに依存しない汎用ライブラリ | BinaryLoaderNetwork, BinaryLoaderExtensions |
 | **Module** | アプリ固有のサービスと依存性インターフェース | APIService/Auth, Dependencies/Login |
 | **Scene** | 画面単位の独立した機能モジュール | LoginScene |
 | **App** | モジュールの組み立てと画面遷移を担当するエントリポイント | Synstagram |
@@ -82,7 +82,7 @@ CocoaPods Private Spec Repoを活用してiOSプロジェクトをレイヤー�
 
 | スペックリポジトリ | 対象 | 登録済みPod |
 |---|---|---|
-| `cocoapods-specs` | Foundationレイヤー | BinaryloaderNetwork, BinaryloaderExtensions, BinaryloaderDIContainer, BinaryloaderUI |
+| `cocoapods-specs` | Foundationレイヤー | BinaryLoaderNetwork, BinaryLoaderExtensions, BinaryLoaderDIContainer, BinaryLoaderUI |
 | `synstagram-module-cocoapods-specs` | Moduleレイヤー | APIService, Dependencies |
 | `synstagram-scene-cocoapods-specs` | Sceneレイヤー | LoginScene |
 
@@ -92,17 +92,17 @@ CocoaPods Private Spec Repoを活用してiOSプロジェクトをレイヤー�
 
 アプリに依存しない汎用ライブラリである。他のプロジェクトでもそのまま利用できる。
 
-### BinaryloaderNetwork
+### BinaryLoaderNetwork
 
 Moyaをラップしたネットワーク抽象化レイヤーである。
 
 ```ruby
-# BinaryloaderNetwork.podspec
+# BinaryLoaderNetwork.podspec
 Pod::Spec.new do |s|
-  s.name = 'BinaryloaderNetwork'
+  s.name = 'BinaryLoaderNetwork'
   s.version = '1.0.4'
   s.ios.deployment_target = '13.0'
-  s.source_files = 'BinaryloaderNetwork/Module/Source/*.swift'
+  s.source_files = 'BinaryLoaderNetwork/Module/Source/*.swift'
   s.dependency 'Moya', '15.0.0'
 end
 ```
@@ -151,37 +151,37 @@ public typealias MoyaError = Moya.MoyaError
 
 これによりMoyaのバージョンアップで型名が変更されてもラッピングファイルのみ修正すれば済むため下位モジュールへの変更範囲を最小化できる。
 
-### BinaryloaderDIContainer
+### BinaryLoaderDIContainer
 
 Property Wrapperベースの依存性注入コンテナである。`@Injectable`で依存性を宣言し`Container.shared.register(type:)`で登録する。
 
 ```ruby
-# BinaryloaderDIContainer.podspec
+# BinaryLoaderDIContainer.podspec
 Pod::Spec.new do |s|
-  s.name = 'BinaryloaderDIContainer'
+  s.name = 'BinaryLoaderDIContainer'
   s.version = '1.0.4'
-  s.source_files = 'BinaryloaderDIContainer/Module/Source/*.swift'
+  s.source_files = 'BinaryLoaderDIContainer/Module/Source/*.swift'
 end
 ```
 
-### BinaryloaderUI
+### BinaryLoaderUI
 
 UIコンポーネントをsubspecで分離し必要なものだけ選択的に使用できる。
 
 ```ruby
-# BinaryloaderUI.podspec
+# BinaryLoaderUI.podspec
 Pod::Spec.new do |s|
-  s.name = 'BinaryloaderUI'
+  s.name = 'BinaryLoaderUI'
   s.version = '1.0.2'
   s.default_subspec = :none
 
   s.subspec 'InsetTextField' do |ss|
-    ss.source_files = 'BinaryloaderUI/Module/InsetTextField/Source/*.swift'
+    ss.source_files = 'BinaryLoaderUI/Module/InsetTextField/Source/*.swift'
   end
 end
 ```
 
-`default_subspec = :none`に設定すると`pod 'BinaryloaderUI'`だけでは何も含まれず`pod 'BinaryloaderUI/InsetTextField'`のように明示的にsubspecを指定する必要がある。
+`default_subspec = :none`に設定すると`pod 'BinaryLoaderUI'`だけでは何も含まれず`pod 'BinaryLoaderUI/InsetTextField'`のように明示的にsubspecを指定する必要がある。
 
 ## 4. Moduleレイヤー
 
@@ -196,12 +196,12 @@ end
 Pod::Spec.new do |s|
   s.name = 'APIService'
   s.version = '1.0.6'
-  s.dependency 'BinaryloaderExtensions', '1.0.2'
+  s.dependency 'BinaryLoaderExtensions', '1.0.2'
   s.default_subspec = :none
 
   s.subspec 'Auth' do |ss|
     ss.source_files = 'APIService/Module/Auth/Source/*.swift'
-    ss.dependency 'BinaryloaderNetwork', '1.0.4'
+    ss.dependency 'BinaryLoaderNetwork', '1.0.4'
   end
 end
 ```
@@ -290,9 +290,9 @@ Pod::Spec.new do |s|
   s.version = '1.0.10'
   s.source_files = 'LoginScene/Module/Source/**/*.{swift,xib}'
   s.resource = 'LoginScene/Module/Resources/*.xcassets'
-  s.dependency 'BinaryloaderDIContainer', '1.0.4'
-  s.dependency 'BinaryloaderExtensions', '1.0.2'
-  s.dependency 'BinaryloaderUI/InsetTextField', '1.0.2'
+  s.dependency 'BinaryLoaderDIContainer', '1.0.4'
+  s.dependency 'BinaryLoaderExtensions', '1.0.2'
+  s.dependency 'BinaryLoaderUI/InsetTextField', '1.0.2'
   s.dependency 'APIService/Auth', '1.0.6'
   s.dependency 'Dependencies/Login', '1.0.2'
   s.dependency 'Dependencies/AlbumList', '1.0.2'
@@ -432,12 +432,12 @@ final class HierarchyCoordinator {
 ソースコード修正 → バージョンバンプ → タグ作成 → スペックリポジトリにpodspec登録 → 下流モジュールの依存性更新 → 繰り返し
 ```
 
-例えばBinaryloaderNetworkのコードを修正した場合:
+例えばBinaryLoaderNetworkのコードを修正した場合:
 
-1. `BinaryloaderNetwork.podspec`の`s.version`をバンプ
+1. `BinaryLoaderNetwork.podspec`の`s.version`をバンプ
 2. `git tag 1.0.5`を作成しプッシュ
-3. `cocoapods-specs`リポジトリに`BinaryloaderNetwork/1.0.5/BinaryloaderNetwork.podspec`を登録
-4. BinaryloaderNetworkに依存するAPIServiceの依存性バージョンを更新
+3. `cocoapods-specs`リポジトリに`BinaryLoaderNetwork/1.0.5/BinaryLoaderNetwork.podspec`を登録
+4. BinaryLoaderNetworkに依存するAPIServiceの依存性バージョンを更新
 5. APIServiceも同じプロセスを繰り返す
 6. 最終的にAppのPodfileで`pod install`を実行
 
