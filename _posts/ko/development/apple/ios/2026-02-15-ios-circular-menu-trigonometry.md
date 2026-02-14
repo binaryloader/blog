@@ -3,7 +3,7 @@ title: "[iOS] 삼각함수로 원형 메뉴 배치와 회전 구현하기"
 ref: ios-circular-menu-trigonometry
 excerpt: "삼각함수(sin, cos, atan2)를 활용하여 iOS에서 원형 메뉴 아이템을 배치하고 회전시키는 방법을 정리한다."
 date: 2026-02-15T03:40+09:00
-last_modified_at: 2026-02-15T03:40+09:00
+last_modified_at: 2026-02-15T06:15+09:00
 published: true
 header:
   overlay_color: "#202020"
@@ -40,7 +40,11 @@ x = centerX + radius × cos(angle)
 y = centerY + radius × sin(angle)
 ```
 
-원의 중심 좌표에 반지름과 삼각함수 비율을 곱한 값을 더하면 원 위의 좌표가 나온다. 이 포스트에서는 이 공식이 왜 이렇게 생겼는지 처음부터 단계별로 풀어본다.
+```
+angle = atan2(y, x)
+```
+
+cos, sin으로 각도를 좌표로 변환하여 메뉴를 배치하고 atan2로 좌표를 각도로 변환하여 터치 회전을 구현한다. 이 포스트에서는 이 공식들이 왜 이렇게 생겼는지 처음부터 단계별로 풀어본다.
 
 # 정리
 

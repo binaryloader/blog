@@ -5,7 +5,7 @@ lang: ja
 permalink: /ja/:categories/:title/
 excerpt: "三角関数(sin, cos, atan2)を活用してiOSで円形メニューアイテムを配置・回転させる方法をまとめる。"
 date: 2026-02-15T03:40+09:00
-last_modified_at: 2026-02-15T03:40+09:00
+last_modified_at: 2026-02-15T06:15+09:00
 published: true
 header:
   overlay_color: "#202020"
@@ -42,7 +42,11 @@ x = centerX + radius × cos(angle)
 y = centerY + radius × sin(angle)
 ```
 
-円の中心座標に半径と三角関数の比率を掛けた値を足すと円上の座標が得られる。この記事ではこの公式がなぜこうなるのか最初からステップごとに解説する。
+```
+angle = atan2(y, x)
+```
+
+cosとsinで角度を座標に変換してメニューを配置しatan2で座標を角度に変換してタッチ回転を実装する。この記事ではこれらの公式がなぜこうなるのか最初からステップごとに解説する。
 
 # 手順
 

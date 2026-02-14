@@ -5,7 +5,7 @@ lang: en
 permalink: /en/:categories/:title/
 excerpt: "How to place and rotate circular menu items using sin, cos, and atan2 in iOS."
 date: 2026-02-15T03:40+09:00
-last_modified_at: 2026-02-15T03:40+09:00
+last_modified_at: 2026-02-15T06:15+09:00
 published: true
 header:
   overlay_color: "#202020"
@@ -42,7 +42,11 @@ x = centerX + radius × cos(angle)
 y = centerY + radius × sin(angle)
 ```
 
-Add the radius multiplied by the trigonometric ratio to the center coordinates and you get a point on the circle. This post breaks down why this formula works, step by step from the very beginning.
+```
+angle = atan2(y, x)
+```
+
+cos and sin convert an angle into coordinates to place menu items, while atan2 converts coordinates into an angle to implement touch rotation. This post breaks down why these formulas work, step by step from the very beginning.
 
 # Steps
 
