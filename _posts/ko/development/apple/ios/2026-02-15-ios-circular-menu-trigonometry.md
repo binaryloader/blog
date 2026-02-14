@@ -50,7 +50,7 @@ y = centerY + radius × sin(angle)
 
 벽에 기대어 놓은 사다리를 상상해 본다.
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/ladder.svg" alt="사다리 비유: cos(가로), sin(세로), 빗변" style="max-width: min(320px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/ladder.svg" alt="사다리 비유: cos(가로), sin(세로), 빗변" style="max-width: min(320px, 100%);">
 
 사다리를 눕히면 가로가 길어지고 세로가 짧아진다. 사다리를 세우면 세로가 길어지고 가로가 짧아진다. 각도에 따라 가로와 세로의 분배가 달라진다.
 
@@ -71,7 +71,7 @@ sin = 높이 ÷ 1 = 높이 그 자체
 
 사다리를 빙글 돌리면 끝점이 원을 그린다. 반지름이 1인 이 원을 단위원이라 한다.
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/unit-circle.svg" alt="단위원: 반지름 1인 원 위의 좌표" style="max-width: min(400px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/unit-circle.svg" alt="단위원: 반지름 1인 원 위의 좌표" style="max-width: min(400px, 100%);">
 
 원 위의 어떤 점이든 `(cos θ, sin θ)`로 표현할 수 있다.
 
@@ -94,7 +94,7 @@ cos/sin은 "이 각도에서 가로로/세로로 반지름의 몇 %를 이동하
 
 반지름 1인 원의 둘레 위를 **걸은 거리**다.
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/radian.svg" alt="라디안: 반지름 1인 원의 호 길이" style="max-width: min(360px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/radian.svg" alt="라디안: 반지름 1인 원의 호 길이" style="max-width: min(360px, 100%);">
 
 - 원 둘레 = 2 × π × 1 = 2π ≈ **6.28**
 - 한 바퀴 = 6.28 라디안 = **360°**
@@ -128,13 +128,13 @@ cos(.pi / 2)   // ✅ 이것이 90°
 
 ### 3.1. y축이 뒤집혀 있다
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/coordinates.svg" alt="수학 좌표계 vs iOS 좌표계" style="max-width: min(520px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/coordinates.svg" alt="수학 좌표계 vs iOS 좌표계" style="max-width: min(520px, 100%);">
 
 수학에서는 y가 위로 증가하지만 iOS에서는 **y가 아래로** 증가한다.
 
 ### 3.2. 회전 방향
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/rotation.svg" alt="회전 방향: 수학(반시계) vs iOS(시계)" style="max-width: min(520px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/rotation.svg" alt="회전 방향: 수학(반시계) vs iOS(시계)" style="max-width: min(520px, 100%);">
 
 y축이 뒤집혔기 때문에 같은 코드를 실행해도 **수학에서 반시계 = iOS에서 시계방향**이 된다. 이 특성 덕분에 **-π/2(12시)부터 시작하면 시계방향으로 자연스럽게 배치**된다.
 
@@ -235,13 +235,13 @@ i=7:  x = 200 + (-84.9)= 115.1  y = 200 + (-84.9) = 115.1  (10~11시)
 
 결과를 시각화하면 다음과 같다.
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/placement.svg" alt="8개 아이콘 원형 배치 결과" style="max-width: min(440px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/placement.svg" alt="8개 아이콘 원형 배치 결과" style="max-width: min(440px, 100%);">
 
 ## 5. atan2
 
 cos과 sin은 각도를 넣으면 좌표가 나왔다. `atan2`는 반대다. 좌표를 넣으면 각도가 나온다.
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/atan2.svg" alt="atan2: 좌표에서 각도를 구하는 역함수" style="max-width: min(400px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/atan2.svg" alt="atan2: 좌표에서 각도를 구하는 역함수" style="max-width: min(400px, 100%);">
 
 ```
 cos(각도) → x 비율      각도 → 좌표
@@ -339,7 +339,7 @@ layoutMenuItems()                               // 재배치
 
 #### 감쇠 계수에 따른 느낌
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/deceleration.svg" alt="감쇠 계수별 각속도 감소 그래프" style="max-width: min(440px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/deceleration.svg" alt="감쇠 계수별 각속도 감소 그래프" style="max-width: min(440px, 100%);">
 
 | 계수 | 프레임당 감소 | 느낌 |
 |---|---|---|
@@ -413,9 +413,9 @@ private func layoutMenuItems() {
 실제 UIKit 앱에서 구현하면 다음과 같다.
 
 <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-  <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.png" alt="UIKit 원형 메뉴 구현 결과" style="max-width: min(200px, 45%);">
+  <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.png" alt="UIKit 원형 메뉴 구현 결과" style="max-width: min(200px, 45%);">
   <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
-    <source src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
+    <source src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
   </video>
 </div>
 

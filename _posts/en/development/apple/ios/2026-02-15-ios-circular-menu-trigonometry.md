@@ -52,7 +52,7 @@ Add the radius multiplied by the trigonometric ratio to the center coordinates a
 
 Imagine a ladder leaning against a wall.
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/ladder.svg" alt="Ladder analogy: cos (horizontal), sin (vertical), hypotenuse" style="max-width: min(320px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/ladder.svg" alt="Ladder analogy: cos (horizontal), sin (vertical), hypotenuse" style="max-width: min(320px, 100%);">
 
 Lay the ladder flat and the horizontal distance increases while the vertical height decreases. Stand it upright and the opposite happens. The distribution between horizontal and vertical changes with the angle.
 
@@ -73,7 +73,7 @@ Place this triangle on a coordinate plane: adjacent = x-axis direction, opposite
 
 Spin the ladder in a full circle and the tip traces a circle. A circle with radius 1 is called the unit circle.
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/unit-circle.svg" alt="Unit circle with coordinates at 0°, 90°, 180°, 270°" style="max-width: min(400px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/unit-circle.svg" alt="Unit circle with coordinates at 0°, 90°, 180°, 270°" style="max-width: min(400px, 100%);">
 
 Any point on this circle can be expressed as `(cos θ, sin θ)`.
 
@@ -96,7 +96,7 @@ cos/sin are a ratio table that answers: "at this angle, what fraction of the rad
 
 A radian is the **distance walked** along the circumference of a unit circle (radius = 1).
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/radian.svg" alt="Radian: arc length on a unit circle" style="max-width: min(360px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/radian.svg" alt="Radian: arc length on a unit circle" style="max-width: min(360px, 100%);">
 
 - Circumference = 2 × π × 1 = 2π ≈ **6.28**
 - Full circle = 6.28 radians = **360°**
@@ -130,13 +130,13 @@ cos(.pi / 2)   // ✅ This is 90°
 
 ### 3.1. The y-axis Is Flipped
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/coordinates.svg" alt="Math coordinates vs iOS coordinates" style="max-width: min(520px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/coordinates.svg" alt="Math coordinates vs iOS coordinates" style="max-width: min(520px, 100%);">
 
 In math, y increases upward. In iOS, **y increases downward**.
 
 ### 3.2. Rotation Direction
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/rotation.svg" alt="Rotation direction: Math (counter-clockwise) vs iOS (clockwise)" style="max-width: min(520px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/rotation.svg" alt="Rotation direction: Math (counter-clockwise) vs iOS (clockwise)" style="max-width: min(520px, 100%);">
 
 Because the y-axis is flipped, the same code produces **counter-clockwise in math = clockwise in iOS**. Thanks to this, **starting at -π/2 (12 o'clock) naturally places items clockwise**.
 
@@ -237,13 +237,13 @@ i=7:  x = 200 + (-84.9)= 115.1  y = 200 + (-84.9) = 115.1  (10-11 o'clock)
 
 Visualizing the result:
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/placement.svg" alt="8 icons placed in a circle" style="max-width: min(440px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/placement.svg" alt="8 icons placed in a circle" style="max-width: min(440px, 100%);">
 
 ## 5. atan2
 
 cos and sin take an angle and return coordinates. `atan2` does the opposite. It takes coordinates and returns an angle.
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/atan2.svg" alt="atan2: inverse function that gets angle from coordinates" style="max-width: min(400px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/atan2.svg" alt="atan2: inverse function that gets angle from coordinates" style="max-width: min(400px, 100%);">
 
 ```
 cos(angle) → x ratio      angle → coordinates
@@ -341,7 +341,7 @@ layoutMenuItems()                               // re-layout
 
 #### How the Decay Factor Feels
 
-<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/deceleration.svg" alt="Angular velocity decay graph by decay factor" style="max-width: min(440px, 100%);">
+<img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/deceleration.svg" alt="Angular velocity decay graph by decay factor" style="max-width: min(440px, 100%);">
 
 | Factor | Decrease per Frame | Feel |
 |---|---|---|
@@ -415,9 +415,9 @@ private func layoutMenuItems() {
 Here is the actual implementation in a UIKit app.
 
 <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-  <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.png" alt="UIKit circular menu implementation" style="max-width: min(200px, 45%);">
+  <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.png" alt="UIKit circular menu implementation" style="max-width: min(200px, 45%);">
   <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
-    <source src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
+    <source src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
   </video>
 </div>
 

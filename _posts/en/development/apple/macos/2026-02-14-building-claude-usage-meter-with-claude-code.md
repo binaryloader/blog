@@ -30,7 +30,7 @@ depth:
     url: /en/development/apple/macos/
 ---
 
-{% assign img_path = "/assets/image/post/development/apple/building-claude-usage-meter-with-claude-code" %}
+{% assign img_path = "/assets/image/post/development/apple/macos/building-claude-usage-meter-with-claude-code" %}
 
 # Overview
 

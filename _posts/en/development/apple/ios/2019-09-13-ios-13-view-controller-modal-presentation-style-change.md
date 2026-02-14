@@ -28,14 +28,14 @@ depth:
   - title: "iOS"
     url: /en/development/apple/ios/
 gallery_xcode11_gm_pad:
-  - url: /assets/image/post/development/apple/uikit/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
-    image_path: /assets/image/post/development/apple/uikit/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
+  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
+    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
 gallery_xcode11_gm_phone:
-  - url: /assets/image/post/development/apple/uikit/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
-    image_path: /assets/image/post/development/apple/uikit/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
+  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
+    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
 gallery_xcode11_gm_phone_full:
-  - url: /assets/image/post/development/apple/uikit/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
-    image_path: /assets/image/post/development/apple/uikit/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
+  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
+    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
 ---
 
 # Overview
