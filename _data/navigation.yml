@@ -122,6 +122,13 @@ menu:
       - title: "Synology"
         url: /ko/playground/synology/
         category: "Synology"
+  - title: "Writing"
+    url: /ko/writing/
+    category: "Writing"
+    children:
+      - title: "Column"
+        url: /ko/writing/column/
+        category: "Column"
 
 menu-en:
   - title: "Development"
@@ -222,6 +229,13 @@ menu-en:
       - title: "Synology"
         url: /en/playground/synology/
         category: "Synology"
+  - title: "Writing"
+    url: /en/writing/
+    category: "Writing"
+    children:
+      - title: "Column"
+        url: /en/writing/column/
+        category: "Column"
 
 menu-ja:
   - title: "Development"
@@ -322,4 +336,11 @@ menu-ja:
       - title: "Synology"
         url: /ja/playground/synology/
         category: "Synology"
+  - title: "Writing"
+    url: /ja/writing/
+    category: "Writing"
+    children:
+      - title: "Column"
+        url: /ja/writing/column/
+        category: "Column"
 
