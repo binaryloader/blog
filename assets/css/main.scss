@@ -286,6 +286,32 @@ pre {
   color: var(--text-color);
 }
 
+/* Sidebar scrollbar - visible only on hover */
+.sidebar.sticky {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 3px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+}
+
+[data-theme="dark"] .sidebar.sticky {
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
 /* Sidebar & Navigation */
 [data-theme="dark"] .sidebar {
   background-color: var(--bg-color);
