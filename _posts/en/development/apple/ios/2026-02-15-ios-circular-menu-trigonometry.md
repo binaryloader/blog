@@ -269,10 +269,8 @@ atan2(-66, 96) → angle from center to touch point
 ```
 
 ```swift
-func angle(for point: CGPoint) -> CGFloat {
-    let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-    return atan2(point.y - center.y, point.x - center.x)
-}
+let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+let angle = atan2(point.y - center.y, point.x - center.x)
 ```
 
 ## 6. Rotation with Pan Gesture
@@ -403,18 +401,16 @@ for (i, angle) in itemAngles.enumerated() {
 To apply rotation to the layout, add `currentRotation` to each icon's angle.
 
 ```swift
-private func layoutMenuItems() {
-    let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-    let radius: CGFloat = 120
-    let slice = (2 * .pi) / CGFloat(menuItems.count)
+let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+let radius: CGFloat = 120
+let slice = (2 * .pi) / CGFloat(menuItems.count)
 
-    for (i, item) in menuItems.enumerated() {
-        let angle = -(.pi / 2) + CGFloat(i) * slice + currentRotation
-        item.center = CGPoint(
-            x: center.x + radius * cos(angle),
-            y: center.y + radius * sin(angle)
-        )
-    }
+for (i, item) in menuItems.enumerated() {
+    let angle = -(.pi / 2) + CGFloat(i) * slice + currentRotation
+    item.center = CGPoint(
+        x: center.x + radius * cos(angle),
+        y: center.y + radius * sin(angle)
+    )
 }
 ```
 

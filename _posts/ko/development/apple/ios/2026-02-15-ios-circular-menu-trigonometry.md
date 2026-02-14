@@ -267,10 +267,8 @@ atan2(-66, 96) → 중심에서 터치 방향의 각도
 ```
 
 ```swift
-func angle(for point: CGPoint) -> CGFloat {
-    let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-    return atan2(point.y - center.y, point.x - center.x)
-}
+let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+let angle = atan2(point.y - center.y, point.x - center.x)
 ```
 
 ## 6. 팬 제스처로 회전
@@ -401,18 +399,16 @@ for (i, angle) in itemAngles.enumerated() {
 배치에 회전을 적용하려면 각 아이콘의 각도에 `currentRotation`을 더한다.
 
 ```swift
-private func layoutMenuItems() {
-    let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-    let radius: CGFloat = 120
-    let slice = (2 * .pi) / CGFloat(menuItems.count)
+let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+let radius: CGFloat = 120
+let slice = (2 * .pi) / CGFloat(menuItems.count)
 
-    for (i, item) in menuItems.enumerated() {
-        let angle = -(.pi / 2) + CGFloat(i) * slice + currentRotation
-        item.center = CGPoint(
-            x: center.x + radius * cos(angle),
-            y: center.y + radius * sin(angle)
-        )
-    }
+for (i, item) in menuItems.enumerated() {
+    let angle = -(.pi / 2) + CGFloat(i) * slice + currentRotation
+    item.center = CGPoint(
+        x: center.x + radius * cos(angle),
+        y: center.y + radius * sin(angle)
+    )
 }
 ```
 
