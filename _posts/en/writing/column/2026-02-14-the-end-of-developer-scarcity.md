@@ -65,7 +65,7 @@ It comes down to this: engineering excellence is something you need "after succe
 
 What matters is getting the product out into the world. Not writing perfect code, but finding what customers want. Code quality comes after.
 
-# This Is Not About Abandoning CS
+# Not About Abandoning CS
 
 Make no mistake. This isn't saying that deep, challenging CS domains like engineering mathematics, computer architecture, automata theory, compiler theory, and modern cryptography have become useless.
 
