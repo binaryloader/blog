@@ -1,6 +1,6 @@
 ---
 date: 2019-09-13T00:00+09:00
-title: "[UIKit] Handling the iOS 13 View Controller Modal Presentation Style Change"
+title: "[iOS] Handling the iOS 13 View Controller Modal Presentation Style Change"
 ref: ios-13-view-controller-modal-presentation-style-change
 excerpt: "How to handle the default Modal Presentation Style change introduced in iOS 13."
 lang: en
@@ -11,12 +11,12 @@ header:
 categories:
   - Development
   - Apple
-  - UIKit
+  - iOS
 tags:
   - Development
   - Apple
-  - UIKit
   - iOS
+  - UIKit
   - Modal
   - iOS 13
   - Swift
@@ -25,8 +25,8 @@ depth:
     url: /en/development/
   - title: "Apple"
     url: /en/development/apple/
-  - title: "UIKit"
-    url: /en/development/apple/uikit/
+  - title: "iOS"
+    url: /en/development/apple/ios/
 gallery_xcode11_gm_pad:
   - url: /assets/image/post/development/apple/uikit/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
     image_path: /assets/image/post/development/apple/uikit/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png

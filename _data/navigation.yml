@@ -38,12 +38,12 @@ menu:
           - title: "Event"
             url: /ko/development/apple/event/
             category: "Event"
+          - title: "iOS"
+            url: /ko/development/apple/ios/
+            category: "iOS"
           - title: "macOS"
             url: /ko/development/apple/macos/
             category: "macOS"
-          - title: "UIKit"
-            url: /ko/development/apple/uikit/
-            category: "UIKit"
           - title: "Xcode"
             url: /ko/development/apple/xcode/
             category: "Xcode"
@@ -145,12 +145,12 @@ menu-en:
           - title: "Event"
             url: /en/development/apple/event/
             category: "Event"
+          - title: "iOS"
+            url: /en/development/apple/ios/
+            category: "iOS"
           - title: "macOS"
             url: /en/development/apple/macos/
             category: "macOS"
-          - title: "UIKit"
-            url: /en/development/apple/uikit/
-            category: "UIKit"
           - title: "Xcode"
             url: /en/development/apple/xcode/
             category: "Xcode"
@@ -252,12 +252,12 @@ menu-ja:
           - title: "Event"
             url: /ja/development/apple/event/
             category: "Event"
+          - title: "iOS"
+            url: /ja/development/apple/ios/
+            category: "iOS"
           - title: "macOS"
             url: /ja/development/apple/macos/
             category: "macOS"
-          - title: "UIKit"
-            url: /ja/development/apple/uikit/
-            category: "UIKit"
           - title: "Xcode"
             url: /ja/development/apple/xcode/
             category: "Xcode"
