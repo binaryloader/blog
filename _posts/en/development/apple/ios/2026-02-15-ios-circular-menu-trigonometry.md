@@ -3,7 +3,7 @@ title: "[iOS] Placing Circular Menu Items with Trigonometry"
 ref: ios-circular-menu-trigonometry
 lang: en
 permalink: /en/:categories/:title/
-excerpt: "How to place menu items in a circle using sin and cos in iOS."
+excerpt: "How to place and rotate circular menu items using sin, cos, and atan2 in iOS."
 date: 2026-02-15T03:40+09:00
 last_modified_at: 2026-02-15T03:40+09:00
 published: true
@@ -33,7 +33,7 @@ depth:
 
 # Overview
 
-How to place menu items in a circle using sin and cos in iOS.
+How to place and rotate circular menu items using sin, cos, and atan2 in iOS.
 
 # Core Formula
 
@@ -389,61 +389,25 @@ for (i, angle) in itemAngles.enumerated() {
 
 ### 7.3. Pan Gesture Rotation
 
+To apply rotation to the layout, add `currentRotation` to each icon's angle.
+
 ```swift
-class CircularMenuViewController: UIViewController {
+private func layoutMenuItems() {
+    let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+    let radius: CGFloat = 120
+    let slice = (2 * .pi) / CGFloat(menuItems.count)
 
-    private var currentRotation: CGFloat = 0
-    private var panStartAngle: CGFloat = 0
-    private var previousAngle: CGFloat = 0
-    private var angularVelocity: CGFloat = 0
-    private var displayLink: CADisplayLink?
-    private var lastTimestamp: CFTimeInterval = 0
-
-    // Get the angle of the touch point using atan2
-    private func angle(for point: CGPoint) -> CGFloat {
-        let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-        return atan2(point.y - center.y, point.x - center.x)
-    }
-
-    @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
-        let location = gesture.location(in: view)
-
-        switch gesture.state {
-        case .began:
-            stopDeceleration()
-            // Record offset: touch angle - current rotation
-            panStartAngle = angle(for: location) - currentRotation
-            previousAngle = currentRotation
-        case .changed:
-            // New rotation = touch angle - offset
-            let newRotation = angle(for: location) - panStartAngle
-            angularVelocity = newRotation - previousAngle
-            previousAngle = newRotation
-            currentRotation = newRotation
-            layoutMenuItems()
-        case .ended, .cancelled:
-            // Start deceleration with last angular velocity
-            startDeceleration()
-        default:
-            break
-        }
-    }
-
-    @objc private func decelerationStep(_ link: CADisplayLink) {
-        let dt = link.timestamp - lastTimestamp
-        lastTimestamp = link.timestamp
-
-        // Decay: 8% decrease per frame
-        angularVelocity *= pow(0.92, CGFloat(dt * 60))
-        currentRotation += angularVelocity
-        layoutMenuItems()
-
-        if abs(angularVelocity) < 0.0001 {
-            stopDeceleration()
-        }
+    for (i, item) in menuItems.enumerated() {
+        let angle = -(.pi / 2) + CGFloat(i) * slice + currentRotation
+        item.center = CGPoint(
+            x: center.x + radius * cos(angle),
+            y: center.y + radius * sin(angle)
+        )
     }
 }
 ```
+
+`angle(for:)` was covered in section 5, and `handlePan` and `decelerationStep` in section 6.
 
 Here is the actual implementation in a UIKit app.
 

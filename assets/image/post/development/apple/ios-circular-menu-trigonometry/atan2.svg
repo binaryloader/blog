@@ -10,7 +10,7 @@
   <text x="204" y="28" fill="#a6adc8" font-size="13">y</text>
 
   <!-- Angle arc -->
-  <path d="M 240 150 A 40 40 0 0 0 224 118" fill="none" stroke="#f9e2af" stroke-width="2"/>
+  <path d="M 240 150 A 40 40 0 0 0 233 127" fill="none" stroke="#f9e2af" stroke-width="2"/>
 
   <!-- Line from center to point -->
   <line x1="200" y1="150" x2="296" y2="84" stroke="#89b4fa" stroke-width="2"/>

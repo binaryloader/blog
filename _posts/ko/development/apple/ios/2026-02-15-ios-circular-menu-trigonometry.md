@@ -1,7 +1,7 @@
 ---
 title: "[iOS] 삼각함수로 원형 메뉴 아이템 배치하기"
 ref: ios-circular-menu-trigonometry
-excerpt: "삼각함수(sin, cos)를 활용하여 iOS에서 원형 메뉴 아이템을 원 위에 배치하는 방법을 정리한다."
+excerpt: "삼각함수(sin, cos, atan2)를 활용하여 iOS에서 원형 메뉴 아이템을 배치하고 회전시키는 방법을 정리한다."
 date: 2026-02-15T03:40+09:00
 last_modified_at: 2026-02-15T03:40+09:00
 published: true
@@ -31,7 +31,7 @@ depth:
 
 # 개요
 
-삼각함수(sin, cos)를 활용하여 iOS에서 원형 메뉴 아이템을 원 위에 배치하는 방법을 정리한다.
+삼각함수(sin, cos, atan2)를 활용하여 iOS에서 원형 메뉴 아이템을 배치하고 회전시키는 방법을 정리한다.
 
 # 핵심 공식
 
@@ -387,61 +387,25 @@ for (i, angle) in itemAngles.enumerated() {
 
 ### 7.3. 팬 제스처 회전
 
+배치에 회전을 적용하려면 각 아이콘의 각도에 `currentRotation`을 더한다.
+
 ```swift
-class CircularMenuViewController: UIViewController {
+private func layoutMenuItems() {
+    let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+    let radius: CGFloat = 120
+    let slice = (2 * .pi) / CGFloat(menuItems.count)
 
-    private var currentRotation: CGFloat = 0
-    private var panStartAngle: CGFloat = 0
-    private var previousAngle: CGFloat = 0
-    private var angularVelocity: CGFloat = 0
-    private var displayLink: CADisplayLink?
-    private var lastTimestamp: CFTimeInterval = 0
-
-    // atan2로 터치 지점의 각도를 구한다
-    private func angle(for point: CGPoint) -> CGFloat {
-        let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-        return atan2(point.y - center.y, point.x - center.x)
-    }
-
-    @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
-        let location = gesture.location(in: view)
-
-        switch gesture.state {
-        case .began:
-            stopDeceleration()
-            // 오프셋 기록: 터치 각도 - 현재 회전
-            panStartAngle = angle(for: location) - currentRotation
-            previousAngle = currentRotation
-        case .changed:
-            // 새 회전 = 터치 각도 - 오프셋
-            let newRotation = angle(for: location) - panStartAngle
-            angularVelocity = newRotation - previousAngle
-            previousAngle = newRotation
-            currentRotation = newRotation
-            layoutMenuItems()
-        case .ended, .cancelled:
-            // 마지막 각속도로 감속 시작
-            startDeceleration()
-        default:
-            break
-        }
-    }
-
-    @objc private func decelerationStep(_ link: CADisplayLink) {
-        let dt = link.timestamp - lastTimestamp
-        lastTimestamp = link.timestamp
-
-        // 감쇠: 매 프레임 8%씩 감소
-        angularVelocity *= pow(0.92, CGFloat(dt * 60))
-        currentRotation += angularVelocity
-        layoutMenuItems()
-
-        if abs(angularVelocity) < 0.0001 {
-            stopDeceleration()
-        }
+    for (i, item) in menuItems.enumerated() {
+        let angle = -(.pi / 2) + CGFloat(i) * slice + currentRotation
+        item.center = CGPoint(
+            x: center.x + radius * cos(angle),
+            y: center.y + radius * sin(angle)
+        )
     }
 }
 ```
+
+`angle(for:)`는 5장, `handlePan`과 `decelerationStep`은 6장에서 다뤘다.
 
 실제 UIKit 앱에서 구현하면 다음과 같다.
 
