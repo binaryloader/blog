@@ -327,11 +327,13 @@ displayLink?.add(to: .main, forMode: .common)
 #### Per-Frame Processing
 
 ```swift
+let dt = link.timestamp - lastTimestamp          // time since last frame (seconds)
 angularVelocity *= pow(0.92, CGFloat(dt * 60))  // decay
 currentRotation += angularVelocity               // apply rotation
 layoutMenuItems()                                // re-layout
 ```
 
+- **dt**: time elapsed since the last frame in seconds. At 60fps this is about 0.0167s; it grows larger when frames are dropped.
 - **0.92**: decay factor. Speed decreases by 8% each frame.
 - **pow(0.92, dt × 60)**: ensures consistent deceleration regardless of frame rate. If dt is 1/60s (one frame), 0.92¹ = 0.92. If dt is 1/30s (frame drop), 0.92² ≈ 0.846.
 - The timer stops when angular velocity falls below 0.0001.

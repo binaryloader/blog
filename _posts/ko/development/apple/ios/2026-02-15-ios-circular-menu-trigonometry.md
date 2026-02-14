@@ -325,11 +325,13 @@ displayLink?.add(to: .main, forMode: .common)
 #### 매 프레임 처리
 
 ```swift
+let dt = link.timestamp - lastTimestamp          // 이전 프레임과의 시간 차(초)
 angularVelocity *= pow(0.92, CGFloat(dt * 60))  // 감쇠
 currentRotation += angularVelocity               // 회전 적용
 layoutMenuItems()                                // 재배치
 ```
 
+- **dt**: 이전 프레임과의 시간 차이(초). 60fps면 약 0.0167초, 프레임 드롭이 발생하면 더 커진다.
 - **0.92**: 감쇠 계수. 매 프레임 속도가 8%씩 감소한다.
 - **pow(0.92, dt × 60)**: 프레임 속도에 관계없이 일정한 감속을 보장한다. dt가 1/60초(한 프레임)면 0.92¹ = 0.92, dt가 1/30초(프레임 드롭)면 0.92² ≈ 0.846이 된다.
 - 각속도가 0.0001 미만이면 타이머를 중지한다.

@@ -327,11 +327,13 @@ displayLink?.add(to: .main, forMode: .common)
 #### フレームごとの処理
 
 ```swift
+let dt = link.timestamp - lastTimestamp          // 前フレームとの時間差(秒)
 angularVelocity *= pow(0.92, CGFloat(dt * 60))  // 減衰
 currentRotation += angularVelocity               // 回転適用
 layoutMenuItems()                                // 再配置
 ```
 
+- **dt**: 前フレームとの時間差(秒)。60fpsなら約0.0167秒、フレームドロップが発生するとより大きくなる。
 - **0.92**: 減衰係数。毎フレーム速度が8%ずつ減少する。
 - **pow(0.92, dt × 60)**: フレームレートに関係なく一定の減速を保証する。dtが1/60秒(1フレーム)なら0.92¹ = 0.92、dtが1/30秒(フレームドロップ)なら0.92² ≈ 0.846になる。
 - 角速度が0.0001未満になるとタイマーを停止する。
