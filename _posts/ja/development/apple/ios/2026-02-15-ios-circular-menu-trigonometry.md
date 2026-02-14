@@ -1,5 +1,5 @@
 ---
-title: "[iOS] 三角関数で円形メニューアイテムを配置する"
+title: "[iOS] 三角関数で円形メニューの配置と回転を実装する"
 ref: ios-circular-menu-trigonometry
 lang: ja
 permalink: /ja/:categories/:title/

@@ -1,5 +1,5 @@
 ---
-title: "[iOS] Placing Circular Menu Items with Trigonometry"
+title: "[iOS] Placing and Rotating Circular Menu Items with Trigonometry"
 ref: ios-circular-menu-trigonometry
 lang: en
 permalink: /en/:categories/:title/

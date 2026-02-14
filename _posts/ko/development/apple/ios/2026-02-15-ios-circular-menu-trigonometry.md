@@ -1,5 +1,5 @@
 ---
-title: "[iOS] 삼각함수로 원형 메뉴 아이템 배치하기"
+title: "[iOS] 삼각함수로 원형 메뉴 배치와 회전 구현하기"
 ref: ios-circular-menu-trigonometry
 excerpt: "삼각함수(sin, cos, atan2)를 활용하여 iOS에서 원형 메뉴 아이템을 배치하고 회전시키는 방법을 정리한다."
 date: 2026-02-15T03:40+09:00
