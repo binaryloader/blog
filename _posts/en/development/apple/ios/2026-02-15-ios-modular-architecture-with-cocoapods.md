@@ -442,3 +442,7 @@ For example, if BinaryloaderNetwork is modified:
 6. Finally, run `pod install` in the App's Podfile
 
 This process may feel tedious, but since each module's version is explicitly pinned, you can track exactly which version of the code is in use at any point in time.
+
+# References
+
+- <https://github.com/binaryloader/synstagram-app>

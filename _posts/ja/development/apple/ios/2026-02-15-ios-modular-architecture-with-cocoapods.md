@@ -442,3 +442,7 @@ final class HierarchyCoordinator {
 6. 最終的にAppのPodfileで`pod install`を実行
 
 このプロセスは煩雑に感じるかもしれないが各モジュールのバージョンが明示的に固定されているためどの時点でもどのバージョンのコードが使用されているか正確に追跡できる。
+
+# 参考
+
+- <https://github.com/binaryloader/synstagram-app>
