@@ -251,26 +251,24 @@ sin(angle) → y ratio      angle → coordinates
 atan2(y, x) → angle       coordinates → angle
 ```
 
-`atan2(y, x)` returns the angle in radians from the origin to the direction of (x, y).
+`atan2(y, x)` returns the angle in radians from the origin `(0, 0)` to the direction of (x, y).
 
 - Return range: **-π to π** (-180° to 180°)
 - 3 o'clock = 0, 6 o'clock = π/2, 9 o'clock = ±π, 12 o'clock = -π/2
 
-In the circular menu, you use the **screen center** instead of the origin.
+The circular menu's center is not the origin but the screen center (e.g. `(200, 300)`). Passing raw touch coordinates to `atan2` would give an origin-relative angle, so you subtract the center to convert to center-relative coordinates.
+
+```
+Screen center = (200, 300), Touch = (296, 234)
+Center-relative = (296 - 200, 234 - 300) = (96, -66)
+atan2(-66, 96) → angle from center to touch point
+```
 
 ```swift
 func angle(for point: CGPoint) -> CGFloat {
     let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
     return atan2(point.y - center.y, point.x - center.x)
 }
-```
-
-`atan2` calculates angles from the origin `(0, 0)`. Since the circular menu's center is not the origin, you subtract the center from the touch coordinates to convert them into center-relative coordinates.
-
-```
-Screen center = (200, 300), Touch = (296, 234)
-Center-relative = (296 - 200, 234 - 300) = (96, -66)
-atan2(-66, 96) → angle from center to touch point
 ```
 
 ## 6. Rotation with Pan Gesture
