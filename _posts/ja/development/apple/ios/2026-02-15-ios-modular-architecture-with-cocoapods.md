@@ -65,7 +65,7 @@ CocoaPods Private Spec Repoを活用してiOSプロジェクトをレイヤー�
 | **Foundation** | アプリに依存しない汎用ライブラリ | BinaryloaderNetwork, BinaryloaderExtensions |
 | **Module** | アプリ固有のサービスと依存性インターフェース | APIService/Auth, Dependencies/Login |
 | **Scene** | 画面単位の独立した機能モジュール | LoginScene |
-| **App** | モジュールの組み立てと画面遷移を担当するシェル | Synstagram |
+| **App** | モジュールの組み立てと画面遷移を担当するエントリポイント | Synstagram |
 
 下位レイヤーは上位レイヤーを知らない。FoundationはModuleを知らずModuleはSceneを知らない。依存性は常に上から下へのみ流れる。
 
@@ -361,7 +361,7 @@ final class LoginRouter: NSObject, LoginRoutingLogic {
 
 ## 6. App統合
 
-Appレイヤーはすべてのモジュールを組み立てるシェルの役割を担う。
+Appレイヤーはすべてのモジュールを組み立てるエントリポイントの役割を担う。
 
 ### Podfile
 

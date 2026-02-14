@@ -65,7 +65,7 @@ The project consists of four layers.
 | **Foundation** | General-purpose libraries not tied to the app | BinaryloaderNetwork, BinaryloaderExtensions |
 | **Module** | App-specific services and dependency interfaces | APIService/Auth, Dependencies/Login |
 | **Scene** | Self-contained feature modules per screen | LoginScene |
-| **App** | Shell responsible for assembling modules and navigation | Synstagram |
+| **App** | Entry point responsible for assembling modules and navigation | Synstagram |
 
 Lower layers are unaware of upper layers. Foundation doesn't know about Module, and Module doesn't know about Scene. Dependencies always flow downward.
 
@@ -361,7 +361,7 @@ final class LoginRouter: NSObject, LoginRoutingLogic {
 
 ## 6. App Integration
 
-The App layer serves as a shell that assembles all modules.
+The App layer serves as the entry point that assembles all modules.
 
 ### Podfile
 

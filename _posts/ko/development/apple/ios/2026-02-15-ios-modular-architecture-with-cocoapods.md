@@ -63,7 +63,7 @@ CocoaPods Private Spec Repo를 활용하여 iOS 프로젝트를 계층별 모듈
 | **Foundation** | 앱에 종속되지 않는 범용 라이브러리 | BinaryloaderNetwork, BinaryloaderExtensions |
 | **Module** | 앱 고유의 서비스 및 의존성 인터페이스 | APIService/Auth, Dependencies/Login |
 | **Scene** | 화면 단위의 독립적인 기능 모듈 | LoginScene |
-| **App** | 모듈 조립과 화면 전환을 담당하는 셸 | Synstagram |
+| **App** | 모듈 조립과 화면 전환을 담당하는 진입점 | Synstagram |
 
 하위 계층은 상위 계층을 알지 못한다. Foundation은 Module을 모르고 Module은 Scene을 모른다. 의존성은 항상 위에서 아래로만 흐른다.
 
@@ -359,7 +359,7 @@ final class LoginRouter: NSObject, LoginRoutingLogic {
 
 ## 6. App 통합
 
-App 레이어는 모든 모듈을 조립하는 셸 역할을 한다.
+App 레이어는 모든 모듈을 조립하는 진입점 역할을 한다.
 
 ### Podfile
 
