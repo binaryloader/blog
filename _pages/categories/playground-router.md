@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/playground/router/"
 title: "Router"
 taxonomy: Router
+parent: Playground
 ---

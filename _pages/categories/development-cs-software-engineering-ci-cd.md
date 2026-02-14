@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/development/cs/software-engineering/ci-cd/"
 title: "CI/CD"
 taxonomy: CI/CD
+parent: Software-Engineering
 ---

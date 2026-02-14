@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/development/apple/cocoapods/"
 title: "CocoaPods"
 taxonomy: CocoaPods
+parent: Apple
 ---

@@ -6,6 +6,7 @@ classes: wide
 permalink: "/en/development/language/java/"
 title: "Java"
 taxonomy: Java
+parent: Language
 sidebar:
   nav: "menu-en"
 ---

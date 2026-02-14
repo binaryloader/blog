@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/development/blog/"
 title: "Blog"
 taxonomy: Blog
+parent: Development
 ---

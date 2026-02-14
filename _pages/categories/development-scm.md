@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/development/scm/"
 title: "SCM"
 taxonomy: SCM
+parent: Development
 ---

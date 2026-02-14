@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/development/scm/git/"
 title: "Git"
 taxonomy: Git
+parent: SCM
 ---

@@ -21,25 +21,25 @@
         <ul>
           {% for child_depth_1 in nav.children %}
           {% if current_lang == "ko" %}
-            {% assign category = site.categories[child_depth_1.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" %}
+            {% assign category = site.categories[child_depth_1.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" | where_exp: "item", "item.categories contains nav.category" %}
           {% else %}
-            {% assign category = site.categories[child_depth_1.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" %}
+            {% assign category = site.categories[child_depth_1.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" | where_exp: "item", "item.categories contains nav.category" %}
           {% endif %}
             <li><a href="{{ child_depth_1.url | relative_url }}"{% if child_depth_1.url == page.url or child_depth_1.category == last_category %} class="active"{% endif %}>{% if child_depth_1.icon %}<i class="{{ child_depth_1.icon }}"></i>{% else %}<i class="fa fa-book" style="color: #262626;"></i>{% endif %} {{ child_depth_1.title }} ({{ category.size }})</a></li>
             {% if child_depth_1.children != null %}
               {% for child_depth_2 in child_depth_1.children %}
                 {% if current_lang == "ko" %}
-                  {% assign category = site.categories[child_depth_2.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" %}
+                  {% assign category = site.categories[child_depth_2.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" | where_exp: "item", "item.categories contains child_depth_1.category" %}
                 {% else %}
-                  {% assign category = site.categories[child_depth_2.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" %}
+                  {% assign category = site.categories[child_depth_2.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" | where_exp: "item", "item.categories contains child_depth_1.category" %}
                 {% endif %}
                 <li style="padding-left: 1em;"><a href="{{ child_depth_2.url | relative_url }}"{% if child_depth_2.url == page.url or child_depth_2.category == last_category %} class="active"{% endif %}>{% if child_depth_2.icon %}<i class="{{ child_depth_2.icon }}"></i>{% else %}<i class="fa fa-book" style="color: #262626;"></i>{% endif %} {{ child_depth_2.title }} ({{ category.size }})</a></li>
                 {% if child_depth_2.children != null %}
                   {% for child_depth_3 in child_depth_2.children %}
                     {% if current_lang == "ko" %}
-                      {% assign category = site.categories[child_depth_3.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" %}
+                      {% assign category = site.categories[child_depth_3.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" | where_exp: "item", "item.categories contains child_depth_2.category" %}
                     {% else %}
-                      {% assign category = site.categories[child_depth_3.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" %}
+                      {% assign category = site.categories[child_depth_3.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" | where_exp: "item", "item.categories contains child_depth_2.category" %}
                     {% endif %}
                     <li style="padding-left: 2em;"><a href="{{ child_depth_3.url | relative_url }}"{% if child_depth_3.url == page.url or child_depth_3.category == last_category %} class="active"{% endif %}>{% if child_depth_3.icon %}<i class="{{ child_depth_3.icon }}"></i>{% else %}<i class="fa fa-book" style="color: #262626;"></i>{% endif %} {{ child_depth_3.title }} ({{ category.size }})</a></li>
                   {% endfor %}

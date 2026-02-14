@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/fundamental/mathematics/"
 title: "Mathematics"
 taxonomy: Mathematics
+parent: Fundamental
 ---

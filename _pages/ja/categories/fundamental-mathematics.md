@@ -6,6 +6,7 @@ classes: wide
 permalink: "/ja/fundamental/mathematics/"
 title: "Mathematics"
 taxonomy: Mathematics
+parent: Fundamental
 sidebar:
   nav: "menu-ja"
 ---

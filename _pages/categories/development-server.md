@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/development/server/"
 title: "Server"
 taxonomy: Server
+parent: Development
 ---

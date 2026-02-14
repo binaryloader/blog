@@ -79,6 +79,7 @@ depth:                  # 커스텀 breadcrumb
 ### 작성 규칙
 
 - 이미지에 `max-width`를 지정할 때는 `min(원하는값, 100%)`를 사용한다. (예: `style="max-width: min(400px, 100%);"`)
+- 참고 섹션의 링크는 타이틀 없이 URL만 표기한다. (예: `- <https://example.com>`)
 
 ### 다국어
 

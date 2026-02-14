@@ -38,6 +38,9 @@ menu:
           - title: "Event"
             url: /ko/development/apple/event/
             category: "Event"
+          - title: "macOS"
+            url: /ko/development/apple/macos/
+            category: "macOS"
           - title: "UIKit"
             url: /ko/development/apple/uikit/
             category: "UIKit"
@@ -135,6 +138,9 @@ menu-en:
           - title: "Event"
             url: /en/development/apple/event/
             category: "Event"
+          - title: "macOS"
+            url: /en/development/apple/macos/
+            category: "macOS"
           - title: "UIKit"
             url: /en/development/apple/uikit/
             category: "UIKit"
@@ -232,6 +238,9 @@ menu-ja:
           - title: "Event"
             url: /ja/development/apple/event/
             category: "Event"
+          - title: "macOS"
+            url: /ja/development/apple/macos/
+            category: "macOS"
           - title: "UIKit"
             url: /ja/development/apple/uikit/
             category: "UIKit"

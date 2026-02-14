@@ -6,6 +6,7 @@ classes: wide
 permalink: "/ja/playground/router/"
 title: "Router"
 taxonomy: Router
+parent: Playground
 sidebar:
   nav: "menu-ja"
 ---

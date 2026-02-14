@@ -1,12 +1,12 @@
 ---
 layout: category
 lang: en
-ref: pc-macos
+ref: development-apple-macos
 classes: wide
-permalink: "/en/pc/macos/"
+permalink: "/en/development/apple/macos/"
 title: "macOS"
 taxonomy: macOS
-parent: PC
+parent: Apple
 sidebar:
   nav: "menu-en"
 ---

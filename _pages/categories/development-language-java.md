@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/development/language/java/"
 title: "Java"
 taxonomy: Java
+parent: Language
 ---

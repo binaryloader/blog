@@ -2,6 +2,9 @@
 {% if current_lang == "ko-KR" %}{% assign current_lang = "ko" %}{% endif %}
 {%- for post in site.categories[include.taxonomy] -%}
   {%- unless post.hidden -%}
+    {% if include.parent %}
+      {% unless post.categories contains include.parent %}{% continue %}{% endunless %}
+    {% endif %}
     {% if current_lang == "ko" %}
       {% unless post.lang %}
         {% include archive-single.html %}

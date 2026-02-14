@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/development/language/ruby/"
 title: "Ruby"
 taxonomy: Ruby
+parent: Language
 ---

@@ -6,6 +6,7 @@ classes: wide
 permalink: "/ja/development/apple/"
 title: "Apple"
 taxonomy: Apple
+parent: Development
 sidebar:
   nav: "menu-ja"
 ---

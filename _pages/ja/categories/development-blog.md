@@ -6,6 +6,7 @@ classes: wide
 permalink: "/ja/development/blog/"
 title: "Blog"
 taxonomy: Blog
+parent: Development
 sidebar:
   nav: "menu-ja"
 ---

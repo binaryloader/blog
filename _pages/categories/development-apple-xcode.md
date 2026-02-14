@@ -5,4 +5,5 @@ classes: wide
 permalink: "/ko/development/apple/xcode/"
 title: "Xcode"
 taxonomy: Xcode
+parent: Apple
 ---
