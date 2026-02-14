@@ -35,7 +35,7 @@ Sharing the experience of implementing Korean, English, and Japanese support in 
 
 # Background
 
-Running the blog in Korean only felt limiting. Since it's a tech blog, having it accessible to international readers seemed worthwhile. I also speak Japanese, so I decided to go with three languages.
+Running the blog in Korean only felt limiting. Since it's a tech blog, having it accessible to international readers seemed worthwhile. With AI translation quality being good enough these days, I decided to go with three languages.
 
 There are Jekyll multilingual plugins like `jekyll-polyglot` and `jekyll-multiple-languages-plugin`, but most aren't supported on GitHub Pages and theme compatibility was a concern. I ended up implementing everything with just Liquid templates and `_config.yml` settings.
 
@@ -71,7 +71,7 @@ _pages/
 Every URL is prefixed with a language code.
 
 | Language | URL Pattern | Example |
-|----------|-------------|---------|
+|----------|-------------|--------|
 | Korean | `/ko/categories/title/` | `/ko/development/blog/jekyll/post-title/` |
 | English | `/en/categories/title/` | `/en/development/blog/jekyll/post-title/` |
 | Japanese | `/ja/categories/title/` | `/ja/development/blog/jekyll/post-title/` |
