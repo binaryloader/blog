@@ -230,7 +230,7 @@ Clicking the menu bar icon reveals account info, today's activity, a 7-day trend
 
 ![ClaudeUsageMeter popover]({{ img_path }}/popover.png){: .align-center style="max-width: min(400px, 100%);"}
 
-For the record, the only thing a human did in this project was say "build this." App development, GitHub repo creation, icon generation, and even writing this blog post in three languages — Claude Code handled all of it. My sole contribution was sitting nearby and occasionally saying "that's not right."
+For the record, the only thing a human did in this project was say "build this." App development, GitHub repo creation, icon generation — Claude Code handled all of it. My sole contribution was sitting nearby and occasionally saying "that's not right."
 
 # References
 

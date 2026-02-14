@@ -37,6 +37,8 @@ Now look around.
 
 ChatGPT, Claude, Cursor, Bolt, Lovable, v0. These tools have changed everything. People who have never written a line of code are deploying web services in a single day. College students are shipping SaaS products over the weekend. Designers are building their own frontends. This is not an exaggeration — it's what's happening every day, right now.
 
+This phenomenon already has a name. Vibe coding. Coined by OpenAI co-founder Andrej Karpathy, the term describes a style of programming where you describe what you want in natural language and accept whatever the AI generates — without even reading the code. We've entered an era where software gets built without anyone looking at the source.
+
 # MVP Validation Is Now Open to Everyone
 
 What is the essence of a startup? Throwing an idea at the market quickly and checking the response. MVP (Minimum Viable Product) validation. In the past, even this step was impossible without a developer. You needed a frontend developer just for a simple landing page and a backend developer to hook up a server.
@@ -51,8 +53,8 @@ This is already happening. Solo non-technical founders are generating revenue us
 
 There's a counter-argument that always comes up at this point.
 
-"AI-generated code is spaghetti code."
-"Who's going to maintain it?"
+"AI-generated code is spaghetti code."  
+"Who's going to maintain it?"  
 "Scalability, security, architecture… you can't ignore software engineering."
 
 Fair points. All valid. But the timing of when those concerns matter is different.
