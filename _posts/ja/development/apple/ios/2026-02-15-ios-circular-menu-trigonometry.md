@@ -414,7 +414,7 @@ for (i, item) in menuItems.enumerated() {
 }
 ```
 
-`angle(for:)`は5章、`handlePan`と`decelerationStep`は6章で扱った。
+角度変換は5章、パンジェスチャーと減速アニメーションは6章で扱った。
 
 実際にUIKitアプリで実装すると以下のようになる。
 

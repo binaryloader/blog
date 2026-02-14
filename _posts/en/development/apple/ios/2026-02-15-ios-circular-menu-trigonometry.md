@@ -414,7 +414,7 @@ for (i, item) in menuItems.enumerated() {
 }
 ```
 
-`angle(for:)` was covered in section 5, and `handlePan` and `decelerationStep` in section 6.
+Angle conversion was covered in section 5, and pan gesture with deceleration animation in section 6.
 
 Here is the actual implementation in a UIKit app.
 

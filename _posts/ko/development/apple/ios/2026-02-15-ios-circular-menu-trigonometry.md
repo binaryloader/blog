@@ -412,7 +412,7 @@ for (i, item) in menuItems.enumerated() {
 }
 ```
 
-`angle(for:)`는 5장, `handlePan`과 `decelerationStep`은 6장에서 다뤘다.
+각도 변환은 5장, 팬 제스처와 감속 애니메이션은 6장에서 다뤘다.
 
 실제 UIKit 앱에서 구현하면 다음과 같다.
 
