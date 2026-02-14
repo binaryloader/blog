@@ -414,7 +414,7 @@ private func layoutMenuItems() {
 
 <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
   <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.png" alt="UIKit 원형 메뉴 구현 결과" style="max-width: min(200px, 45%);">
-  <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
+  <video autoplay loop muted playsinline width="200" style="max-width: min(200px, 45%);">
     <source src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
   </video>
 </div>

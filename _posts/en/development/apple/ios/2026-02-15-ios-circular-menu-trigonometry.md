@@ -416,7 +416,7 @@ Here is the actual implementation in a UIKit app.
 
 <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
   <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.png" alt="UIKit circular menu implementation" style="max-width: min(200px, 45%);">
-  <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
+  <video autoplay loop muted playsinline width="200" style="max-width: min(200px, 45%);">
     <source src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
   </video>
 </div>
