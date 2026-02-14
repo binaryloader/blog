@@ -21,6 +21,7 @@ npm run watch:js              # JS 변경 감시
   - 한국어: `/ko/...`, 영어: `/en/...`, 일본어: `/ja/...`
 - **드래프트**: `_draft/` 디렉토리에 카테고리별 하위 폴더
 - **카테고리 페이지**: `_pages/categories/` (한국어), `_pages/{lang}/categories/` (타 언어)
+- **포스트 에셋**: `assets/image/post/{category}/{subcategory}/{slug}/` (예: `assets/image/post/development/apple/ios-circular-menu-trigonometry/`)
 - **커스텀 JS**: `assets/js/custom/` (예: copy-code-button.js)
 - **댓글**: Utterances (별도 repo `binaryloader/blog-comments` 사용)
 

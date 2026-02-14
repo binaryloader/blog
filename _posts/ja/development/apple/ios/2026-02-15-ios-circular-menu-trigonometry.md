@@ -52,7 +52,7 @@ y = centerY + radius × sin(angle)
 
 壁に立て掛けたはしごを想像する。
 
-<img src="/assets/images/posts/ios-circular-menu-trigonometry/ladder.svg" alt="はしごの比喩: cos(横), sin(縦), 斜辺" style="max-width: min(320px, 100%);">
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/ladder.svg" alt="はしごの比喩: cos(横), sin(縦), 斜辺" style="max-width: min(320px, 100%);">
 
 はしごを寝かせると横の距離が伸び縦の高さが縮む。はしごを立てると縦が伸び横が縮む。角度によって横と縦の配分が変わる。
 
@@ -73,7 +73,7 @@ sin = 高さ ÷ 1 = 高さそのもの
 
 はしごをぐるっと回すと先端が円を描く。半径1のこの円を単位円と呼ぶ。
 
-<img src="/assets/images/posts/ios-circular-menu-trigonometry/unit-circle.svg" alt="単位円: 半径1の円上の座標" style="max-width: min(400px, 100%);">
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/unit-circle.svg" alt="単位円: 半径1の円上の座標" style="max-width: min(400px, 100%);">
 
 円上のどの点も`(cos θ, sin θ)`で表現できる。
 
@@ -96,7 +96,7 @@ cos/sinは「この角度で横に/縦に半径の何%移動するか」を教�
 
 半径1の円の円周上を**歩いた距離**だ。
 
-<img src="/assets/images/posts/ios-circular-menu-trigonometry/radian.svg" alt="ラジアン: 単位円の弧の長さ" style="max-width: min(360px, 100%);">
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/radian.svg" alt="ラジアン: 単位円の弧の長さ" style="max-width: min(360px, 100%);">
 
 - 円周 = 2 × π × 1 = 2π ≈ **6.28**
 - 一周 = 6.28ラジアン = **360°**
@@ -130,13 +130,13 @@ cos(.pi / 2)   // ✅ これが90°
 
 ### 3.1. y軸が反転している
 
-<img src="/assets/images/posts/ios-circular-menu-trigonometry/coordinates.svg" alt="数学座標系 vs iOS座標系" style="max-width: min(520px, 100%);">
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/coordinates.svg" alt="数学座標系 vs iOS座標系" style="max-width: min(520px, 100%);">
 
 数学ではyが上に増加するがiOSでは**yが下に**増加する。
 
 ### 3.2. 回転方向
 
-<img src="/assets/images/posts/ios-circular-menu-trigonometry/rotation.svg" alt="回転方向: 数学(反時計回り) vs iOS(時計回り)" style="max-width: min(520px, 100%);">
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/rotation.svg" alt="回転方向: 数学(反時計回り) vs iOS(時計回り)" style="max-width: min(520px, 100%);">
 
 y軸が反転しているため同じコードを実行しても**数学で反時計 = iOSで時計回り**になる。この特性のおかげで**-π/2(12時)から開始すると時計回りに自然に配置**される。
 
@@ -237,7 +237,16 @@ i=7:  x = 200 + (-84.9)= 115.1  y = 200 + (-84.9) = 115.1  (10~11時)
 
 結果を視覚化すると以下のようになる。
 
-<img src="/assets/images/posts/ios-circular-menu-trigonometry/placement.svg" alt="8個のアイコン円形配置結果" style="max-width: min(440px, 100%);">
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/placement.svg" alt="8個のアイコン円形配置結果" style="max-width: min(440px, 100%);">
+
+実際にUIKitアプリで実装すると以下のようになる。
+
+<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+  <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.png" alt="UIKit円形メニュー実装結果" style="max-width: min(200px, 45%);">
+  <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
+    <source src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
+  </video>
+</div>
 
 ## 5. Swift実装
 
