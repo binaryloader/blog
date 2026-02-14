@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="400" height="300" fill="#1e1e2e"/>
+
+  <!-- Axes -->
+  <line x1="60" y1="150" x2="340" y2="150" stroke="#585b70" stroke-width="1.5"/>
+  <line x1="200" y1="30" x2="200" y2="270" stroke="#585b70" stroke-width="1.5"/>
+  <polygon points="340,150 330,145 330,155" fill="#585b70"/>
+  <polygon points="200,30 195,40 205,40" fill="#585b70"/>
+  <text x="348" y="154" fill="#a6adc8" font-size="13">x</text>
+  <text x="204" y="28" fill="#a6adc8" font-size="13">y</text>
+
+  <!-- Angle arc -->
+  <path d="M 240 150 A 40 40 0 0 0 224 118" fill="none" stroke="#f9e2af" stroke-width="2"/>
+
+  <!-- Line from center to point -->
+  <line x1="200" y1="150" x2="296" y2="84" stroke="#89b4fa" stroke-width="2"/>
+
+  <!-- Point -->
+  <circle cx="296" cy="84" r="5" fill="#89b4fa"/>
+  <text x="304" y="80" fill="#89b4fa" font-size="13" font-weight="600">(x, y)</text>
+
+  <!-- Angle label -->
+  <text x="246" y="136" fill="#f9e2af" font-size="14" font-weight="600">θ</text>
+
+  <!-- cos/sin explanation -->
+  <text x="60" y="240" fill="#a6adc8" font-size="13">cos(θ) → x비율</text>
+  <text x="60" y="258" fill="#a6adc8" font-size="13">sin(θ) → y비율</text>
+
+  <!-- atan2 explanation -->
+  <text x="220" y="240" fill="#f9e2af" font-size="13" font-weight="600">atan2(y, x) → θ</text>
+  <text x="220" y="258" fill="#a6adc8" font-size="13">좌표 → 각도</text>
+
+  <!-- Arrow showing direction -->
+  <text x="130" y="280" fill="#585b70" font-size="12">각도 → 좌표</text>
+  <text x="260" y="280" fill="#585b70" font-size="12">좌표 → 각도</text>
+</svg>

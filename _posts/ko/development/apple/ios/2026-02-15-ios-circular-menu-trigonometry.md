@@ -237,18 +237,117 @@ i=7:  x = 200 + (-84.9)= 115.1  y = 200 + (-84.9) = 115.1  (10~11시)
 
 <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/placement.svg" alt="8개 아이콘 원형 배치 결과" style="max-width: min(440px, 100%);">
 
-실제 UIKit 앱에서 구현하면 다음과 같다.
+## 5. atan2
 
-<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-  <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.png" alt="UIKit 원형 메뉴 구현 결과" style="max-width: min(200px, 45%);">
-  <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
-    <source src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
-  </video>
-</div>
+cos과 sin은 각도를 넣으면 좌표가 나왔다. `atan2`는 반대다. 좌표를 넣으면 각도가 나온다.
 
-## 5. Swift 구현
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/atan2.svg" alt="atan2: 좌표에서 각도를 구하는 역함수" style="max-width: min(400px, 100%);">
 
-### 5.1. 균등 배치
+```
+cos(각도) → x 비율      각도 → 좌표
+sin(각도) → y 비율      각도 → 좌표
+atan2(y, x) → 각도      좌표 → 각도
+```
+
+`atan2(y, x)`는 원점에서 (x, y) 방향까지의 각도를 라디안으로 반환한다.
+
+- 반환 범위: **-π ~ π** (-180° ~ 180°)
+- 3시 = 0, 6시 = π/2, 9시 = ±π, 12시 = -π/2
+
+원형 메뉴에서는 원점 대신 **화면 중심**을 기준으로 사용한다.
+
+```swift
+func angle(for point: CGPoint) -> CGFloat {
+    let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+    return atan2(point.y - center.y, point.x - center.x)
+}
+```
+
+터치 좌표에서 중심을 빼면 중심 기준 상대 좌표가 되고 `atan2`가 해당 방향의 각도를 알려준다.
+
+## 6. 팬 제스처로 회전
+
+배치된 메뉴를 드래그로 회전시키려면 터치 지점의 **각도 변화**를 추적해야 한다.
+
+### 6.1. 회전량 계산
+
+#### 터치 시작 (began)
+
+```swift
+panStartAngle = angle(for: touchPoint) - currentRotation
+```
+
+터치 지점의 각도에서 현재 회전량을 빼서 **오프셋**을 기록한다. 이 오프셋은 터치 지점과 메뉴 회전 상태 사이의 차이다.
+
+```
+터치 각도 = 0.5 rad, 현재 회전 = 0.3 rad
+오프셋 = 0.5 - 0.3 = 0.2 rad
+```
+
+오프셋을 기록하는 이유는 메뉴가 이미 회전된 상태에서 터치해도 메뉴가 점프하지 않고 부드럽게 이어지도록 하기 위해서다.
+
+#### 터치 이동 (changed)
+
+```swift
+currentRotation = angle(for: touchPoint) - panStartAngle
+```
+
+새 터치 각도에서 오프셋을 빼면 새 회전량이 나온다.
+
+```
+터치가 0.5 → 1.2로 이동
+새 회전 = 1.2 - 0.2(오프셋) = 1.0 rad
+회전 변화 = 1.0 - 0.3(이전) = 0.7 rad만큼 회전
+```
+
+#### 각속도 기록
+
+```swift
+angularVelocity = newRotation - previousAngle
+previousAngle = newRotation
+```
+
+프레임 간 회전 변화량을 **각속도**로 기록한다. 터치를 뗄 때 이 값이 감속 애니메이션의 초기 속도가 된다.
+
+### 6.2. 감속 애니메이션
+
+터치를 떼면 갑자기 멈추는 대신 관성처럼 서서히 느려진다.
+
+#### CADisplayLink
+
+`CADisplayLink`는 화면이 갱신될 때마다(보통 초당 60회) 호출되는 타이머다.
+
+```swift
+displayLink = CADisplayLink(target: self, selector: #selector(step))
+displayLink?.add(to: .main, forMode: .common)
+```
+
+#### 매 프레임 처리
+
+```swift
+angularVelocity *= pow(0.92, CGFloat(dt * 60))  // 감쇠
+currentRotation += angularVelocity               // 회전 적용
+layoutMenuItems()                                // 재배치
+```
+
+- **0.92**: 감쇠 계수. 매 프레임 속도가 8%씩 감소한다.
+- **pow(0.92, dt × 60)**: 프레임 속도에 관계없이 일정한 감속을 보장한다. dt가 1/60초(한 프레임)면 0.92¹ = 0.92, dt가 1/30초(프레임 드롭)면 0.92² ≈ 0.846이 된다.
+- 각속도가 0.0001 미만이면 타이머를 중지한다.
+
+#### 감쇠 계수에 따른 느낌
+
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/deceleration.svg" alt="감쇠 계수별 각속도 감소 그래프" style="max-width: min(440px, 100%);">
+
+| 계수 | 프레임당 감소 | 느낌 |
+|---|---|---|
+| 0.98 | 2% | 오래 미끄러짐 (빙판) |
+| 0.95 | 5% | 부드러운 감속 |
+| 0.92 | 8% | 적당한 감속 |
+| 0.85 | 15% | 빠른 정지 |
+
+## 7. Swift 구현
+
+### 7.1. 균등 배치
 
 ```swift
 let count = 8
@@ -256,19 +355,19 @@ let slice = (2 * .pi) / CGFloat(count)  // 한 바퀴(2π) ÷ 8 = 45°씩
 
 for i in 0..<count {
     let angle = -(.pi / 2) + CGFloat(i) * slice
-    //          ↑ 12시 시작  ↑ 몇 번째    ↑ 한 조각 크기
+    //          ↑ 12시       ↑ 몇 번째    ↑ 한 조각
 
     let x = centerX + radius * cos(angle)  // cos = 가로
     let y = centerY + radius * sin(angle)  // sin = 세로
 }
 ```
 
-### 5.2. 불균등 배치
+### 7.2. 불균등 배치
 
-간격이 고르지 않은 배치는 각도를 직접 지정한다.
+간격이 불규칙한 경우 각도를 직접 지정한다.
 
 ```swift
-// 각 아이콘의 각도를 수동 지정 (라디안)
+// 각 아이콘의 각도를 직접 지정 (라디안)
 let itemAngles: [CGFloat] = [
     -.pi / 2,            // 12시
     -.pi / 4,            // 1~2시
@@ -286,8 +385,76 @@ for (i, angle) in itemAngles.enumerated() {
 }
 ```
 
+### 7.3. 팬 제스처 회전
+
+```swift
+class CircularMenuViewController: UIViewController {
+
+    private var currentRotation: CGFloat = 0
+    private var panStartAngle: CGFloat = 0
+    private var previousAngle: CGFloat = 0
+    private var angularVelocity: CGFloat = 0
+    private var displayLink: CADisplayLink?
+    private var lastTimestamp: CFTimeInterval = 0
+
+    // atan2로 터치 지점의 각도를 구한다
+    private func angle(for point: CGPoint) -> CGFloat {
+        let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        return atan2(point.y - center.y, point.x - center.x)
+    }
+
+    @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
+        let location = gesture.location(in: view)
+
+        switch gesture.state {
+        case .began:
+            stopDeceleration()
+            // 오프셋 기록: 터치 각도 - 현재 회전
+            panStartAngle = angle(for: location) - currentRotation
+            previousAngle = currentRotation
+        case .changed:
+            // 새 회전 = 터치 각도 - 오프셋
+            let newRotation = angle(for: location) - panStartAngle
+            angularVelocity = newRotation - previousAngle
+            previousAngle = newRotation
+            currentRotation = newRotation
+            layoutMenuItems()
+        case .ended, .cancelled:
+            // 마지막 각속도로 감속 시작
+            startDeceleration()
+        default:
+            break
+        }
+    }
+
+    @objc private func decelerationStep(_ link: CADisplayLink) {
+        let dt = link.timestamp - lastTimestamp
+        lastTimestamp = link.timestamp
+
+        // 감쇠: 매 프레임 8%씩 감소
+        angularVelocity *= pow(0.92, CGFloat(dt * 60))
+        currentRotation += angularVelocity
+        layoutMenuItems()
+
+        if abs(angularVelocity) < 0.0001 {
+            stopDeceleration()
+        }
+    }
+}
+```
+
+실제 UIKit 앱에서 구현하면 다음과 같다.
+
+<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+  <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.png" alt="UIKit 원형 메뉴 구현 결과" style="max-width: min(200px, 45%);">
+  <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
+    <source src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
+  </video>
+</div>
+
 # 참고
 
 - <https://developer.apple.com/documentation/coregraphics/cgfloat>
 - <https://en.wikipedia.org/wiki/Unit_circle>
 - <https://en.wikipedia.org/wiki/Radian>
+- <https://developer.apple.com/documentation/quartzcore/cadisplaylink>

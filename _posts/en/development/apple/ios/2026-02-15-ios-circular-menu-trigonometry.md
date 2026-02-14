@@ -239,18 +239,117 @@ Visualizing the result:
 
 <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/placement.svg" alt="8 icons placed in a circle" style="max-width: min(440px, 100%);">
 
-Here is the actual implementation in a UIKit app.
+## 5. atan2
 
-<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-  <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.png" alt="UIKit circular menu implementation" style="max-width: min(200px, 45%);">
-  <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
-    <source src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
-  </video>
-</div>
+cos and sin take an angle and return coordinates. `atan2` does the opposite. It takes coordinates and returns an angle.
 
-## 5. Swift Implementation
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/atan2.svg" alt="atan2: inverse function that gets angle from coordinates" style="max-width: min(400px, 100%);">
 
-### 5.1. Uniform Placement
+```
+cos(angle) → x ratio      angle → coordinates
+sin(angle) → y ratio      angle → coordinates
+atan2(y, x) → angle       coordinates → angle
+```
+
+`atan2(y, x)` returns the angle in radians from the origin to the direction of (x, y).
+
+- Return range: **-π to π** (-180° to 180°)
+- 3 o'clock = 0, 6 o'clock = π/2, 9 o'clock = ±π, 12 o'clock = -π/2
+
+In the circular menu, you use the **screen center** instead of the origin.
+
+```swift
+func angle(for point: CGPoint) -> CGFloat {
+    let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+    return atan2(point.y - center.y, point.x - center.x)
+}
+```
+
+Subtracting the center from the touch coordinates gives relative coordinates, and `atan2` returns the angle of that direction.
+
+## 6. Rotation with Pan Gesture
+
+To rotate the placed menu by dragging, you need to track the **change in angle** of the touch point.
+
+### 6.1. Calculating Rotation
+
+#### Touch Start (began)
+
+```swift
+panStartAngle = angle(for: touchPoint) - currentRotation
+```
+
+Subtract the current rotation from the touch angle to record the **offset**. This offset is the difference between the touch point and the menu's rotation state.
+
+```
+touch angle = 0.5 rad, current rotation = 0.3 rad
+offset = 0.5 - 0.3 = 0.2 rad
+```
+
+The offset ensures the menu doesn't jump when you touch it mid-rotation; it continues smoothly.
+
+#### Touch Move (changed)
+
+```swift
+currentRotation = angle(for: touchPoint) - panStartAngle
+```
+
+Subtracting the offset from the new touch angle gives the new rotation.
+
+```
+touch moves from 0.5 → 1.2
+new rotation = 1.2 - 0.2 (offset) = 1.0 rad
+rotation change = 1.0 - 0.3 (previous) = 0.7 rad of rotation
+```
+
+#### Recording Angular Velocity
+
+```swift
+angularVelocity = newRotation - previousAngle
+previousAngle = newRotation
+```
+
+The change in rotation between frames is recorded as **angular velocity**. When the touch ends, this value becomes the initial speed for the deceleration animation.
+
+### 6.2. Deceleration Animation
+
+Instead of stopping abruptly when the touch ends, the menu gradually slows down like inertia.
+
+#### CADisplayLink
+
+`CADisplayLink` is a timer that fires every time the screen refreshes (typically 60 times per second).
+
+```swift
+displayLink = CADisplayLink(target: self, selector: #selector(step))
+displayLink?.add(to: .main, forMode: .common)
+```
+
+#### Per-Frame Processing
+
+```swift
+angularVelocity *= pow(0.92, CGFloat(dt * 60))  // decay
+currentRotation += angularVelocity               // apply rotation
+layoutMenuItems()                                // re-layout
+```
+
+- **0.92**: decay factor. Speed decreases by 8% each frame.
+- **pow(0.92, dt × 60)**: ensures consistent deceleration regardless of frame rate. If dt is 1/60s (one frame), 0.92¹ = 0.92. If dt is 1/30s (frame drop), 0.92² ≈ 0.846.
+- The timer stops when angular velocity falls below 0.0001.
+
+#### How the Decay Factor Feels
+
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/deceleration.svg" alt="Angular velocity decay graph by decay factor" style="max-width: min(440px, 100%);">
+
+| Factor | Decrease per Frame | Feel |
+|---|---|---|
+| 0.98 | 2% | Long slide (ice) |
+| 0.95 | 5% | Smooth deceleration |
+| 0.92 | 8% | Moderate deceleration |
+| 0.85 | 15% | Quick stop |
+
+## 7. Swift Implementation
+
+### 7.1. Uniform Placement
 
 ```swift
 let count = 8
@@ -265,7 +364,7 @@ for i in 0..<count {
 }
 ```
 
-### 5.2. Non-uniform Placement
+### 7.2. Non-uniform Placement
 
 For irregular spacing, specify each angle manually.
 
@@ -288,8 +387,76 @@ for (i, angle) in itemAngles.enumerated() {
 }
 ```
 
+### 7.3. Pan Gesture Rotation
+
+```swift
+class CircularMenuViewController: UIViewController {
+
+    private var currentRotation: CGFloat = 0
+    private var panStartAngle: CGFloat = 0
+    private var previousAngle: CGFloat = 0
+    private var angularVelocity: CGFloat = 0
+    private var displayLink: CADisplayLink?
+    private var lastTimestamp: CFTimeInterval = 0
+
+    // Get the angle of the touch point using atan2
+    private func angle(for point: CGPoint) -> CGFloat {
+        let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        return atan2(point.y - center.y, point.x - center.x)
+    }
+
+    @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
+        let location = gesture.location(in: view)
+
+        switch gesture.state {
+        case .began:
+            stopDeceleration()
+            // Record offset: touch angle - current rotation
+            panStartAngle = angle(for: location) - currentRotation
+            previousAngle = currentRotation
+        case .changed:
+            // New rotation = touch angle - offset
+            let newRotation = angle(for: location) - panStartAngle
+            angularVelocity = newRotation - previousAngle
+            previousAngle = newRotation
+            currentRotation = newRotation
+            layoutMenuItems()
+        case .ended, .cancelled:
+            // Start deceleration with last angular velocity
+            startDeceleration()
+        default:
+            break
+        }
+    }
+
+    @objc private func decelerationStep(_ link: CADisplayLink) {
+        let dt = link.timestamp - lastTimestamp
+        lastTimestamp = link.timestamp
+
+        // Decay: 8% decrease per frame
+        angularVelocity *= pow(0.92, CGFloat(dt * 60))
+        currentRotation += angularVelocity
+        layoutMenuItems()
+
+        if abs(angularVelocity) < 0.0001 {
+            stopDeceleration()
+        }
+    }
+}
+```
+
+Here is the actual implementation in a UIKit app.
+
+<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+  <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.png" alt="UIKit circular menu implementation" style="max-width: min(200px, 45%);">
+  <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
+    <source src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
+  </video>
+</div>
+
 # References
 
 - <https://developer.apple.com/documentation/coregraphics/cgfloat>
 - <https://en.wikipedia.org/wiki/Unit_circle>
 - <https://en.wikipedia.org/wiki/Radian>
+- <https://developer.apple.com/documentation/quartzcore/cadisplaylink>

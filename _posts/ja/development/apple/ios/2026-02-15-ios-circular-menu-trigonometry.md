@@ -239,18 +239,117 @@ i=7:  x = 200 + (-84.9)= 115.1  y = 200 + (-84.9) = 115.1  (10~11時)
 
 <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/placement.svg" alt="8個のアイコン円形配置結果" style="max-width: min(440px, 100%);">
 
-実際にUIKitアプリで実装すると以下のようになる。
+## 5. atan2
 
-<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-  <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.png" alt="UIKit円形メニュー実装結果" style="max-width: min(200px, 45%);">
-  <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
-    <source src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
-  </video>
-</div>
+cosとsinは角度を入れると座標が出た。`atan2`は逆だ。座標を入れると角度が出る。
 
-## 5. Swift実装
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/atan2.svg" alt="atan2: 座標から角度を求める逆関数" style="max-width: min(400px, 100%);">
 
-### 5.1. 均等配置
+```
+cos(角度) → x比率      角度 → 座標
+sin(角度) → y比率      角度 → 座標
+atan2(y, x) → 角度     座標 → 角度
+```
+
+`atan2(y, x)`は原点から(x, y)方向までの角度をラジアンで返す。
+
+- 返り値の範囲: **-π ~ π** (-180° ~ 180°)
+- 3時 = 0、6時 = π/2、9時 = ±π、12時 = -π/2
+
+円形メニューでは原点の代わりに**画面中心**を基準にする。
+
+```swift
+func angle(for point: CGPoint) -> CGFloat {
+    let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+    return atan2(point.y - center.y, point.x - center.x)
+}
+```
+
+タッチ座標から中心を引くと中心基準の相対座標になり`atan2`がその方向の角度を教えてくれる。
+
+## 6. パンジェスチャーで回転
+
+配置したメニューをドラッグで回転させるにはタッチ地点の**角度変化**を追跡する必要がある。
+
+### 6.1. 回転量の計算
+
+#### タッチ開始 (began)
+
+```swift
+panStartAngle = angle(for: touchPoint) - currentRotation
+```
+
+タッチ地点の角度から現在の回転量を引いて**オフセット**を記録する。このオフセットはタッチ地点とメニューの回転状態の差だ。
+
+```
+タッチ角度 = 0.5 rad、現在の回転 = 0.3 rad
+オフセット = 0.5 - 0.3 = 0.2 rad
+```
+
+オフセットを記録する理由はメニューが既に回転した状態でタッチしてもメニューがジャンプせず滑らかに続くようにするためだ。
+
+#### タッチ移動 (changed)
+
+```swift
+currentRotation = angle(for: touchPoint) - panStartAngle
+```
+
+新しいタッチ角度からオフセットを引くと新しい回転量が出る。
+
+```
+タッチが0.5 → 1.2に移動
+新しい回転 = 1.2 - 0.2(オフセット) = 1.0 rad
+回転変化 = 1.0 - 0.3(以前) = 0.7 rad分回転
+```
+
+#### 角速度の記録
+
+```swift
+angularVelocity = newRotation - previousAngle
+previousAngle = newRotation
+```
+
+フレーム間の回転変化量を**角速度**として記録する。タッチを離した時この値が減速アニメーションの初速になる。
+
+### 6.2. 減速アニメーション
+
+タッチを離すと急に止まる代わりに慣性のようにゆっくり減速する。
+
+#### CADisplayLink
+
+`CADisplayLink`は画面が更新されるたびに(通常秒間60回)呼ばれるタイマーだ。
+
+```swift
+displayLink = CADisplayLink(target: self, selector: #selector(step))
+displayLink?.add(to: .main, forMode: .common)
+```
+
+#### フレームごとの処理
+
+```swift
+angularVelocity *= pow(0.92, CGFloat(dt * 60))  // 減衰
+currentRotation += angularVelocity               // 回転適用
+layoutMenuItems()                                // 再配置
+```
+
+- **0.92**: 減衰係数。毎フレーム速度が8%ずつ減少する。
+- **pow(0.92, dt × 60)**: フレームレートに関係なく一定の減速を保証する。dtが1/60秒(1フレーム)なら0.92¹ = 0.92、dtが1/30秒(フレームドロップ)なら0.92² ≈ 0.846になる。
+- 角速度が0.0001未満になるとタイマーを停止する。
+
+#### 減衰係数による感触
+
+<img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/deceleration.svg" alt="減衰係数別角速度減少グラフ" style="max-width: min(440px, 100%);">
+
+| 係数 | フレームごとの減少 | 感触 |
+|---|---|---|
+| 0.98 | 2% | 長く滑る (氷上) |
+| 0.95 | 5% | 滑らかな減速 |
+| 0.92 | 8% | 適度な減速 |
+| 0.85 | 15% | 素早い停止 |
+
+## 7. Swift実装
+
+### 7.1. 均等配置
 
 ```swift
 let count = 8
@@ -265,7 +364,7 @@ for i in 0..<count {
 }
 ```
 
-### 5.2. 不均等配置
+### 7.2. 不均等配置
 
 間隔が均一でない配置は角度を直接指定する。
 
@@ -288,8 +387,76 @@ for (i, angle) in itemAngles.enumerated() {
 }
 ```
 
+### 7.3. パンジェスチャー回転
+
+```swift
+class CircularMenuViewController: UIViewController {
+
+    private var currentRotation: CGFloat = 0
+    private var panStartAngle: CGFloat = 0
+    private var previousAngle: CGFloat = 0
+    private var angularVelocity: CGFloat = 0
+    private var displayLink: CADisplayLink?
+    private var lastTimestamp: CFTimeInterval = 0
+
+    // atan2でタッチ地点の角度を求める
+    private func angle(for point: CGPoint) -> CGFloat {
+        let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        return atan2(point.y - center.y, point.x - center.x)
+    }
+
+    @objc private func handlePan(_ gesture: UIPanGestureRecognizer) {
+        let location = gesture.location(in: view)
+
+        switch gesture.state {
+        case .began:
+            stopDeceleration()
+            // オフセット記録: タッチ角度 - 現在の回転
+            panStartAngle = angle(for: location) - currentRotation
+            previousAngle = currentRotation
+        case .changed:
+            // 新しい回転 = タッチ角度 - オフセット
+            let newRotation = angle(for: location) - panStartAngle
+            angularVelocity = newRotation - previousAngle
+            previousAngle = newRotation
+            currentRotation = newRotation
+            layoutMenuItems()
+        case .ended, .cancelled:
+            // 最後の角速度で減速開始
+            startDeceleration()
+        default:
+            break
+        }
+    }
+
+    @objc private func decelerationStep(_ link: CADisplayLink) {
+        let dt = link.timestamp - lastTimestamp
+        lastTimestamp = link.timestamp
+
+        // 減衰: 毎フレーム8%ずつ減少
+        angularVelocity *= pow(0.92, CGFloat(dt * 60))
+        currentRotation += angularVelocity
+        layoutMenuItems()
+
+        if abs(angularVelocity) < 0.0001 {
+            stopDeceleration()
+        }
+    }
+}
+```
+
+実際にUIKitアプリで実装すると以下のようになる。
+
+<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+  <img src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.png" alt="UIKit円形メニュー実装結果" style="max-width: min(200px, 45%);">
+  <video autoplay loop muted playsinline style="max-width: min(200px, 45%);">
+    <source src="/assets/image/post/development/apple/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
+  </video>
+</div>
+
 # 参考
 
 - <https://developer.apple.com/documentation/coregraphics/cgfloat>
 - <https://en.wikipedia.org/wiki/Unit_circle>
 - <https://en.wikipedia.org/wiki/Radian>
+- <https://developer.apple.com/documentation/quartzcore/cadisplaylink>
