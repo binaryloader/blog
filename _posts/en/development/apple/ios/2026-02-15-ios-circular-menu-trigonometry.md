@@ -265,7 +265,13 @@ func angle(for point: CGPoint) -> CGFloat {
 }
 ```
 
-Subtracting the center from the touch coordinates gives relative coordinates, and `atan2` returns the angle of that direction.
+`atan2` calculates angles from the origin `(0, 0)`. Since the circular menu's center is not the origin, you subtract the center from the touch coordinates to convert them into center-relative coordinates.
+
+```
+Screen center = (200, 300), Touch = (296, 234)
+Center-relative = (296 - 200, 234 - 300) = (96, -66)
+atan2(-66, 96) → angle from center to touch point
+```
 
 ## 6. Rotation with Pan Gesture
 
