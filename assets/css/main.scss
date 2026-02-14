@@ -546,8 +546,36 @@ pre {
   color: var(--muted-text);
 }
 
+.page__content a:not(.btn) {
+  color: #2a6496;
+
+  &:hover {
+    color: #1a4a6e;
+  }
+}
+
+.page__content .toc__menu a {
+  color: #6f777d;
+
+  &:hover {
+    color: #3d4144;
+  }
+}
+
 [data-theme="dark"] .page__content a:not(.btn) {
-  color: var(--link-color);
+  color: #6cb4ee !important;
+
+  &:hover {
+    color: #9ccdf5 !important;
+  }
+}
+
+[data-theme="dark"] .page__content .toc__menu a {
+  color: var(--muted-text) !important;
+
+  &:hover {
+    color: var(--text-color) !important;
+  }
 }
 
 /* Page hero overlay */

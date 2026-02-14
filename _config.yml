@@ -289,6 +289,12 @@ defaults:
       permalink: /ko/:categories/:title/
       sidebar:
         nav: "menu"
+  # _posts/ko CI/CD (fix slash in category name)
+  - scope:
+      path: "_posts/ko/development/cs/software-engineering/ci-cd"
+      type: posts
+    values:
+      permalink: /ko/development/cs/software-engineering/ci-cd/:title/
   # _posts/en (English posts)
   - scope:
       path: "_posts/en"
@@ -298,6 +304,12 @@ defaults:
       permalink: /en/:categories/:title/
       sidebar:
         nav: "menu-en"
+  # _posts/en CI/CD
+  - scope:
+      path: "_posts/en/development/cs/software-engineering/ci-cd"
+      type: posts
+    values:
+      permalink: /en/development/cs/software-engineering/ci-cd/:title/
   # _posts/ja (Japanese posts)
   - scope:
       path: "_posts/ja"
@@ -307,6 +319,12 @@ defaults:
       permalink: /ja/:categories/:title/
       sidebar:
         nav: "menu-ja"
+  # _posts/ja CI/CD
+  - scope:
+      path: "_posts/ja/development/cs/software-engineering/ci-cd"
+      type: posts
+    values:
+      permalink: /ja/development/cs/software-engineering/ci-cd/:title/
 
 jekyll_admin:
   hidden_links:
