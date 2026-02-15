@@ -1,0 +1,7 @@
+Alfred TimeZones Workflow をインストールする
+
+macOS で Alfred TimeZones Workflow をインストールして使用する方法をまとめる。
+
+https://blog.binaryloader.io/ja/pc/macos/install-alfred-timezones-workflow
+
+#PC #macOS #Alfred #TimeZones #Workflow

@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/use-fastlane-plugins.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/use-fastlane-plugins.png"
+  teaser: "/assets/image/thumbnail/teaser/en/use-fastlane-plugins.png"
 categories:
   - Development
   - CS

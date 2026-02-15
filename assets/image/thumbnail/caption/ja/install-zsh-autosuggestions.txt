@@ -1,0 +1,7 @@
+Zsh 自動補完プラグインをインストールする
+
+macOS で zsh-autosuggestions プラグインをインストールする方法をまとめる。
+
+https://blog.binaryloader.io/ja/pc/macos/install-zsh-autosuggestions
+
+#PC #macOS #Oh-My-Zsh #Terminal #Zsh #Shell #Plugin

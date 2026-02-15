@@ -1,0 +1,7 @@
+Setting Up MCP Servers for the Agentic Coding Assistant
+
+A guide to connecting MCP servers to the Xcode agentic coding assistant.
+
+https://blog.binaryloader.io/en/development/apple/xcode/xcode-agentic-coding-assistant-mcp-setup
+
+#Development #Apple #Xcode #ClaudeCode #MCP #AgenticCodingAssistant

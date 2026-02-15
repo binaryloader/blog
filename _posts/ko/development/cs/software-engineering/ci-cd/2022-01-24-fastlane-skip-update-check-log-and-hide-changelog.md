@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/fastlane-skip-update-check-log-and-hide-changelog.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/fastlane-skip-update-check-log-and-hide-changelog.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/fastlane-skip-update-check-log-and-hide-changelog.png"
 categories:
   - Development
   - CS

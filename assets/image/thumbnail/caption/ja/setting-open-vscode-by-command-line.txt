@@ -1,0 +1,7 @@
+コマンドラインから Visual Studio Code を開く
+
+macOS でターミナルから Visual Studio Code を開く方法をまとめる。
+
+https://blog.binaryloader.io/ja/pc/macos/setting-open-vscode-by-command-line
+
+#PC #macOS #CommandLine #VisualStudioCode #VSCode #Terminal #Shell

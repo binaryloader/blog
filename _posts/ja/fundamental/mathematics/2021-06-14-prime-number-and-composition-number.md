@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/prime-number-and-composition-number.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/prime-number-and-composition-number.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/prime-number-and-composition-number.png"
 categories:
   - Fundamental
   - Mathematics

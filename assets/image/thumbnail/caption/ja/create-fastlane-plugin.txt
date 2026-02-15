@@ -1,0 +1,7 @@
+fastlane Pluginを作成する
+
+fastlaneのカスタムPluginを作成・配布する方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/cs/software-engineering/ci/cd/create-fastlane-plugin
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #Plugin #iOS #Automation #Ruby #RubyGems

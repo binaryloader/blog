@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/xcode-agentic-coding-assistant-mcp-setup.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/xcode-agentic-coding-assistant-mcp-setup.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/xcode-agentic-coding-assistant-mcp-setup.png"
 categories:
   - Development
   - Apple

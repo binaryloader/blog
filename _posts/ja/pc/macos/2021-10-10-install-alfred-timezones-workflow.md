@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-alfred-timezones-workflow.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/install-alfred-timezones-workflow.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/install-alfred-timezones-workflow.png"
 categories:
   - PC
   - macOS

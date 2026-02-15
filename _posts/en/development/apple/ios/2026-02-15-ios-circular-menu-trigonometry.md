@@ -10,7 +10,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/ios-circular-menu-trigonometry.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/ios-circular-menu-trigonometry.png"
+  teaser: "/assets/image/thumbnail/teaser/en/ios-circular-menu-trigonometry.png"
 categories:
   - Development
   - Apple

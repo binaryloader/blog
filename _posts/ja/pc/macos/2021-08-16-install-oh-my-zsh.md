@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-oh-my-zsh.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/install-oh-my-zsh.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/install-oh-my-zsh.png"
 categories:
   - PC
   - macOS

@@ -1,0 +1,7 @@
+Fixing the Spaces Order
+
+How to fix the order of Spaces in Mission Control on macOS.
+
+https://blog.binaryloader.io/en/pc/macos/setting-spaces-order-fix
+
+#PC #macOS #Spaces #MissionControl

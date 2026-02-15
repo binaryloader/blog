@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/create-fastlane-action.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/create-fastlane-action.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/create-fastlane-action.png"
 categories:
   - Development
   - CS

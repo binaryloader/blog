@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-homebrew.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/install-homebrew.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/install-homebrew.png"
 categories:
   - Development
   - Language

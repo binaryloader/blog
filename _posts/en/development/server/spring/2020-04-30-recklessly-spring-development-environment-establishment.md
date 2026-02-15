@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/spring-development-environment-establishment.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/spring-development-environment-establishment.png"
+  teaser: "/assets/image/thumbnail/teaser/en/spring-development-environment-establishment.png"
 categories:
   - Development
   - Server

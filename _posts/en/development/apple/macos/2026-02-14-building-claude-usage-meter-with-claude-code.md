@@ -10,7 +10,7 @@ permalink: /en/:categories/:title/
 header:
   overlay_image: "/assets/image/thumbnail/header/building-claude-usage-meter-with-claude-code.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/building-claude-usage-meter-with-claude-code.png"
+  teaser: "/assets/image/thumbnail/teaser/en/building-claude-usage-meter-with-claude-code.png"
 categories:
   - Development
   - Apple

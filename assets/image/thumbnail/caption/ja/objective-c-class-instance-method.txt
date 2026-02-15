@@ -1,0 +1,7 @@
+クラスとメソッド、インスタンス - Class and Method, Instance
+
+Objective-Cのクラスとメソッドそしてインスタンスをまとめる。
+
+https://blog.binaryloader.io/ja/development/language/objective-c/class-instance-method
+
+#Development #Language #Objective-C #OOP #Class #Method

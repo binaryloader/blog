@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/xcode-26-claude-opus-4-6.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/xcode-26-claude-opus-4-6.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/xcode-26-claude-opus-4-6.png"
 categories:
   - Development
   - Apple

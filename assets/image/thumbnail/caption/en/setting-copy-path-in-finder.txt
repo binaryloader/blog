@@ -1,0 +1,7 @@
+Copying a Path in Finder
+
+The keyboard shortcut for copying a file or folder path in macOS Finder.
+
+https://blog.binaryloader.io/en/pc/macos/setting-copy-path-in-finder
+
+#PC #macOS #Finder #Path

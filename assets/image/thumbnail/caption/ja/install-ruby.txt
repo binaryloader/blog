@@ -1,0 +1,7 @@
+Rubyをインストールする
+
+macOSでrbenvを利用してRubyをインストールする方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/language/ruby/install-ruby
+
+#Development #Language #Ruby #rbenv #VersionManagement

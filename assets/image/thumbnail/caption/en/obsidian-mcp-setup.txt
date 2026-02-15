@@ -1,0 +1,7 @@
+Setting Up Obsidian MCP Integration
+
+How to set up an MCP server so Claude Code can directly read and write to your Obsidian vault.
+
+https://blog.binaryloader.io/en/pc/macos/obsidian-mcp-setup
+
+#PC #macOS #Obsidian #MCP #ClaudeCode

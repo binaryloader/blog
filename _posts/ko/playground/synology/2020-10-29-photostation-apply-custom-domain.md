@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/photostation-apply-custom-domain.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/photostation-apply-custom-domain.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/photostation-apply-custom-domain.png"
 categories:
   - Playground
   - Synology

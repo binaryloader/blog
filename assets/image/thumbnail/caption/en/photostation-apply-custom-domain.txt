@@ -1,0 +1,7 @@
+Connecting a Custom Domain to Photo Station
+
+A guide on how to connect a custom domain to Synology Photo Station.
+
+https://blog.binaryloader.io/en/playground/synology/photostation-apply-custom-domain
+
+#Playground #Synology #PhotoStation #NAS #Nginx #Domain

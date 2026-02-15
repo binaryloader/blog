@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/setting-copy-path-in-finder.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/setting-copy-path-in-finder.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/setting-copy-path-in-finder.png"
 categories:
   - PC
   - macOS

@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-git-lfs.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/install-git-lfs.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/install-git-lfs.png"
 categories:
   - Development
   - SCM

@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-cocoapods.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/install-cocoapods.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/install-cocoapods.png"
 categories:
   - Development
   - Apple

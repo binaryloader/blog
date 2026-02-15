@@ -1,0 +1,7 @@
+fastlaneをインストールする
+
+macOSでfastlaneをインストールする方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/cs/software-engineering/ci/cd/install-fastlane
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #iOS #Automation #Ruby

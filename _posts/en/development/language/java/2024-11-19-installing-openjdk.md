@@ -10,7 +10,7 @@ permalink: /en/development/language/java/installing-openjdk/
 header:
   overlay_image: "/assets/image/thumbnail/header/installing-openjdk.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/installing-openjdk.png"
+  teaser: "/assets/image/thumbnail/teaser/en/installing-openjdk.png"
 categories:
   - Development
   - Language

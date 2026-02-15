@@ -10,7 +10,7 @@ permalink: /ja/:categories/:title/
 header:
   overlay_image: "/assets/image/thumbnail/header/jekyll-multilingual-blog-implementation.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/jekyll-multilingual-blog-implementation.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/jekyll-multilingual-blog-implementation.png"
 categories:
   - Development
   - Blog

@@ -1,0 +1,7 @@
+Minimal Mistakesテーマで改行プロパティを変更する
+
+Minimal Mistakesテーマでモバイル環境の横スクロール問題を解決するための改行プロパティの変更方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/blog/jekyll/minimal-mistakes-change-word-break-and-overflow-wrap
+
+#Development #Blog #Jekyll #MinimalMistakes #CSS #Responsive

@@ -1,0 +1,7 @@
+Displaying Gem Paths in Bundle
+
+How to check gem paths in Bundler.
+
+https://blog.binaryloader.io/en/development/language/ruby/bundle-show-paths
+
+#Development #Language #Ruby #RubyGems #Bundler #Bundle

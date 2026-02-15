@@ -1,0 +1,7 @@
+コマンドラインでSSL証明書を手動更新する方法
+
+Synology NASでSSL証明書を手動で更新する方法をまとめます。
+
+https://blog.binaryloader.io/ja/playground/synology/ssl-certificate-manual-renew-with-command-line
+
+#Playground #Synology #SSL #Certificate #NAS #Let'sEncrypt #SSH

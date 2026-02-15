@@ -1,0 +1,7 @@
+iOS 13のView Controller Modal Presentation Style変更に対応する
+
+iOS 13で変更されたModal Presentation Styleのデフォルト値に対応する方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/apple/ios/ios-13-view-controller-modal-presentation-style-change
+
+#Development #Apple #iOS #UIKit #Modal #iOS13 #Swift

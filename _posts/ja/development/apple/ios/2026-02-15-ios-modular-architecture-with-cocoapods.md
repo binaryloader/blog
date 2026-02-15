@@ -10,7 +10,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/ios-modular-architecture-with-cocoapods.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/ios-modular-architecture-with-cocoapods.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/ios-modular-architecture-with-cocoapods.png"
 categories:
   - Development
   - Apple

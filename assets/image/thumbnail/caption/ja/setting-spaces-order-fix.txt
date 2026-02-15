@@ -1,0 +1,7 @@
+Spaces の順序を固定する
+
+macOS の Mission Control で Spaces の順序を固定する方法をまとめる。
+
+https://blog.binaryloader.io/ja/pc/macos/setting-spaces-order-fix
+
+#PC #macOS #Spaces #MissionControl

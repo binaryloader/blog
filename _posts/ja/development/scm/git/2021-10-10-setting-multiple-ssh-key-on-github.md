@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/setting-multiple-ssh-key-on-github.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/setting-multiple-ssh-key-on-github.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/setting-multiple-ssh-key-on-github.png"
 categories:
   - Development
   - SCM

@@ -1,0 +1,7 @@
+Building a Claude Code Monitor with Claude Code
+
+Sharing the experience of building a macOS menu bar app that monitors Claude Code's own usage — using Claude Code itself.
+
+https://blog.binaryloader.io/en/development/apple/macos/building-claude-usage-meter-with-claude-code
+
+#Development #Apple #macOS #SwiftUI #ClaudeCode #MenuBarExtra #SwiftPackageManager

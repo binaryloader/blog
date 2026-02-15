@@ -10,7 +10,7 @@ permalink: /en/pc/macos/generating-ssh-keys/
 header:
   overlay_image: "/assets/image/thumbnail/header/generating-ssh-keys.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/generating-ssh-keys.png"
+  teaser: "/assets/image/thumbnail/teaser/en/generating-ssh-keys.png"
 categories:
   - PC
   - macOS

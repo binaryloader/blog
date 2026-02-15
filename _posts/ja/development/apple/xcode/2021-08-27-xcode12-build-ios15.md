@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/xcode12-build-ios15.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/xcode12-build-ios15.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/xcode12-build-ios15.png"
 categories:
   - Development
   - Apple

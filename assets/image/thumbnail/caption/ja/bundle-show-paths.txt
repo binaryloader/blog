@@ -1,0 +1,7 @@
+Bundle の gem パスを表示する
+
+Bundler で gem のパスを確認する方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/language/ruby/bundle-show-paths
+
+#Development #Language #Ruby #RubyGems #Bundler #Bundle

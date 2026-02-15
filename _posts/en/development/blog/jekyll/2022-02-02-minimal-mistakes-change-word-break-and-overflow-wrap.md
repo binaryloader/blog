@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/minimal-mistakes-change-word-break-and-overflow-wrap.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/minimal-mistakes-change-word-break-and-overflow-wrap.png"
+  teaser: "/assets/image/thumbnail/teaser/en/minimal-mistakes-change-word-break-and-overflow-wrap.png"
 categories:
   - Development
   - Blog

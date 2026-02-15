@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/objective-c-loop-statements.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/objective-c-loop-statements.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/objective-c-loop-statements.png"
 categories:
   - Development
   - Language

@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/ssl-certificate-manual-renew-with-command-line.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/ssl-certificate-manual-renew-with-command-line.png"
+  teaser: "/assets/image/thumbnail/teaser/en/ssl-certificate-manual-renew-with-command-line.png"
 categories:
   - Playground
   - Synology

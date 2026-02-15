@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/ios-13-view-controller-modal-presentation-style-change.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/ios-13-view-controller-modal-presentation-style-change.png"
+  teaser: "/assets/image/thumbnail/teaser/en/ios-13-view-controller-modal-presentation-style-change.png"
 categories:
   - Development
   - Apple

@@ -1,0 +1,7 @@
+Planning a Convenient and Comfortable Smart Home
+
+A summary of the plan for building a convenient and comfortable smart home infrastructure.
+
+https://blog.binaryloader.io/en/playground/smarthome/convenient-comfortable-smarthome-construct-plan
+
+#Playground #SmartHome #IoT #ZigBee #SmartThings

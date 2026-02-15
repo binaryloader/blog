@@ -1,0 +1,7 @@
+Finder でパスをコピーする
+
+macOS の Finder でファイルやフォルダのパスをコピーするショートカットキーをまとめる。
+
+https://blog.binaryloader.io/ja/pc/macos/setting-copy-path-in-finder
+
+#PC #macOS #Finder #Path

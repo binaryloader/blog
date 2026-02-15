@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/smarthome-construct-plan.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/smarthome-construct-plan.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/smarthome-construct-plan.png"
 categories:
   - Playground
   - SmartHome

@@ -1,0 +1,7 @@
+Installing the Zsh Autosuggestions Plugin
+
+How to install the zsh-autosuggestions plugin on macOS.
+
+https://blog.binaryloader.io/en/pc/macos/install-zsh-autosuggestions
+
+#PC #macOS #Oh-My-Zsh #Terminal #Zsh #Shell #Plugin

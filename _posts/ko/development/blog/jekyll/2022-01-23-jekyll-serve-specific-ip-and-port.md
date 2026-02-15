@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/jekyll-serve-specific-ip-and-port.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/jekyll-serve-specific-ip-and-port.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/jekyll-serve-specific-ip-and-port.png"
 categories:
   - Development
   - Blog

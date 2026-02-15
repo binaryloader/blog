@@ -1,0 +1,7 @@
+Primitive Data Types
+
+A summary of primitive data types in Objective-C.
+
+https://blog.binaryloader.io/en/development/language/objective-c/primitive-data-types
+
+#Development #Language #Objective-C #DataType

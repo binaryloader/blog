@@ -1,0 +1,7 @@
+fastlaneのアップデート確認ログと変更履歴ログを無効にする
+
+fastlaneのアップデート確認ログと変更履歴ログを無効にする方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/cs/software-engineering/ci/cd/fastlane-skip-update-check-log-and-hide-changelog
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #Log #iOS #Automation

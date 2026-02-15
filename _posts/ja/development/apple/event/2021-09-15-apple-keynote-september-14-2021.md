@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/apple-keynote-september-14-2021.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/apple-keynote-september-14-2021.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/apple-keynote-september-14-2021.png"
 categories:
   - Development
   - Apple

@@ -25,7 +25,7 @@ function buildDecorations(theme, ref) {
     const x = rng() * 1080;
     const y = rng() * 1080;
     const size = 100 + rng() * 220;
-    const opacity = 0.08 + rng() * 0.12;
+    const opacity = 0.06 + rng() * 0.09;
     const rotation = Math.floor(rng() * 360);
 
     switch (theme) {
@@ -94,8 +94,8 @@ function buildHtml({ title, ref, categories, tags }) {
   .bg-gradient {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 20%, rgba(0,255,255,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 80%, rgba(0,180,255,0.06) 0%, transparent 50%),
+    background: radial-gradient(ellipse at 30% 20%, rgba(0,255,255,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(0,180,255,0.05) 0%, transparent 50%),
                 linear-gradient(160deg, #0d0d0d 0%, #111 50%, #0d0d0d 100%);
   }
 
@@ -240,8 +240,8 @@ function buildHeaderHtml({ ref, categories }) {
   .bg-gradient {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 20%, rgba(0,255,255,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 80%, rgba(0,180,255,0.06) 0%, transparent 50%),
+    background: radial-gradient(ellipse at 30% 20%, rgba(0,255,255,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(0,180,255,0.05) 0%, transparent 50%),
                 linear-gradient(160deg, #0d0d0d 0%, #111 50%, #0d0d0d 100%);
   }
   .pattern-layer { position: absolute; inset: 0; }
@@ -274,7 +274,7 @@ function buildTeaserHtml({ title, ref, categories }) {
     const x = rng() * W;
     const y = rng() * H;
     const size = 60 + rng() * 120;
-    const opacity = 0.08 + rng() * 0.12;
+    const opacity = 0.06 + rng() * 0.09;
     const rotation = Math.floor(rng() * 360);
     if (rng() > 0.5) {
       decoElems.push(`<circle cx="${x}" cy="${y}" r="${size * 0.3}" fill="none" stroke="rgba(0,255,255,${opacity})" stroke-width="1.5"/>`);
@@ -286,7 +286,7 @@ function buildTeaserHtml({ title, ref, categories }) {
   const breadcrumb = escapeHtml(categories.map(c => c.toUpperCase()).join(' > '));
   const safeTitle = escapeHtml(title);
   const len = title.length;
-  const titleSize = len <= 15 ? 36 : len <= 30 ? 30 : len <= 50 ? 26 : 22;
+  const titleSize = len <= 15 ? 44 : len <= 30 ? 36 : len <= 50 ? 30 : 26;
   const titleLineHeight = Math.round(titleSize * 1.35);
 
   return `<!DOCTYPE html>
@@ -310,36 +310,35 @@ function buildTeaserHtml({ title, ref, categories }) {
   .bg-gradient {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 20%, rgba(0,255,255,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 80%, rgba(0,180,255,0.06) 0%, transparent 50%),
+    background: radial-gradient(ellipse at 30% 20%, rgba(0,255,255,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(0,180,255,0.05) 0%, transparent 50%),
                 linear-gradient(160deg, #0d0d0d 0%, #111 50%, #0d0d0d 100%);
   }
   .pattern-layer { position: absolute; inset: 0; }
   .deco-layer { position: absolute; inset: 0; }
   .content {
     position: absolute;
-    left: 40px;
-    right: 40px;
-    top: 0;
-    bottom: 0;
+    inset: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 16px;
+    gap: 14px;
+    padding: 40px;
+    background: rgba(0,0,0,0.2);
   }
   .breadcrumb {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     color: #00e5ff;
     letter-spacing: 2px;
     text-transform: uppercase;
-    opacity: 0.9;
   }
   .title {
     font-size: ${titleSize}px;
     line-height: ${titleLineHeight}px;
     font-weight: 800;
     color: #ffffff;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;

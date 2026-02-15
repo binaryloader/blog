@@ -1,0 +1,7 @@
+Disabling fastlane Update Check and Changelog Logs
+
+How to disable fastlane's update check log and changelog log.
+
+https://blog.binaryloader.io/en/development/cs/software-engineering/ci/cd/fastlane-skip-update-check-log-and-hide-changelog
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #Log #iOS #Automation

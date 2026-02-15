@@ -1,0 +1,7 @@
+プリミティブデータ型 - Primitive Data Types
+
+Objective-Cのプリミティブデータ型をまとめる。
+
+https://blog.binaryloader.io/ja/development/language/objective-c/primitive-data-types
+
+#Development #Language #Objective-C #DataType

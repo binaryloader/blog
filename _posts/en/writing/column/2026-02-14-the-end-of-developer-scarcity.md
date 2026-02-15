@@ -10,7 +10,7 @@ permalink: /en/:categories/:title/
 header:
   overlay_image: "/assets/image/thumbnail/header/the-end-of-developer-scarcity.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/the-end-of-developer-scarcity.png"
+  teaser: "/assets/image/thumbnail/teaser/en/the-end-of-developer-scarcity.png"
 categories:
   - Writing
   - Column

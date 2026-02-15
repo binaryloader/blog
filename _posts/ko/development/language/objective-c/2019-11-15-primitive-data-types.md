@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/objective-c-primitive-data-types.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/objective-c-primitive-data-types.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/objective-c-primitive-data-types.png"
 categories:
   - Development
   - Language

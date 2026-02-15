@@ -1,0 +1,7 @@
+Private Spec Repoを活用したCocoaPodsモジュラーアーキテクチャ
+
+CocoaPods Private Spec Repoを活用してiOSプロジェクトをレイヤー別モジュールに分離する方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/apple/ios/ios-modular-architecture-with-cocoapods
+
+#Development #Apple #iOS #CocoaPods #ModularArchitecture #PrivateSpecRepo #Swift #CleanSwift #DependencyInjection

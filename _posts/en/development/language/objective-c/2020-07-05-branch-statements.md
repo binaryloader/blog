@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/objective-c-branch-statements.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/objective-c-branch-statements.png"
+  teaser: "/assets/image/thumbnail/teaser/en/objective-c-branch-statements.png"
 categories:
   - Development
   - Language

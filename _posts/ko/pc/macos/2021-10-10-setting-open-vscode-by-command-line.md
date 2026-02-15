@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/setting-open-vscode-by-command-line.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/setting-open-vscode-by-command-line.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/setting-open-vscode-by-command-line.png"
 categories:
   - PC
   - macOS

@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/smartthings-hub-v3-purchase-review.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/smartthings-hub-v3-purchase-review.png"
+  teaser: "/assets/image/thumbnail/teaser/en/smartthings-hub-v3-purchase-review.png"
 categories:
   - Playground
   - SmartHome

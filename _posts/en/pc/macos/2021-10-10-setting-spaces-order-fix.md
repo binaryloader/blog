@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/setting-spaces-order-fix.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/setting-spaces-order-fix.png"
+  teaser: "/assets/image/thumbnail/teaser/en/setting-spaces-order-fix.png"
 categories:
   - PC
   - macOS

@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-zsh-alien-theme.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/install-zsh-alien-theme.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/install-zsh-alien-theme.png"
 categories:
   - PC
   - macOS

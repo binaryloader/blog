@@ -1,0 +1,7 @@
+Changing Word Break Properties in the Minimal Mistakes Theme
+
+How to change word break properties in the Minimal Mistakes theme to fix horizontal scrolling on mobile.
+
+https://blog.binaryloader.io/en/development/blog/jekyll/minimal-mistakes-change-word-break-and-overflow-wrap
+
+#Development #Blog #Jekyll #MinimalMistakes #CSS #Responsive

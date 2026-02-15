@@ -1,0 +1,7 @@
+プラグインなしでJekyllブログの多言語（韓/英/日）を実装する
+
+JekyllとMinimal Mistakesテーマでプラグインなしに韓国語、英語、日本語の3言語をサポートするブログを実装した経験を共有する。
+
+https://blog.binaryloader.io/ja/development/blog/jekyll/jekyll-multilingual-blog-implementation
+
+#Development #Blog #Jekyll #i18n #Multilingual #MinimalMistakes

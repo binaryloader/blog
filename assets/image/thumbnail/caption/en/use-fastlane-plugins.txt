@@ -1,0 +1,7 @@
+Using fastlane Plugins
+
+How to add and manage fastlane plugins.
+
+https://blog.binaryloader.io/en/development/cs/software-engineering/ci/cd/use-fastlane-plugins
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #Plugin #iOS #Automation #Ruby

@@ -10,7 +10,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/obsidian-mcp-setup.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/obsidian-mcp-setup.png"
+  teaser: "/assets/image/thumbnail/teaser/en/obsidian-mcp-setup.png"
 categories:
   - PC
   - macOS

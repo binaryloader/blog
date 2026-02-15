@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-ruby.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/install-ruby.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/install-ruby.png"
 categories:
   - Development
   - Language

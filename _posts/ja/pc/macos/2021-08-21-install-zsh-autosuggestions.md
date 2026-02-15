@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-zsh-autosuggestions.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/install-zsh-autosuggestions.png"
+  teaser: "/assets/image/thumbnail/teaser/ja/install-zsh-autosuggestions.png"
 categories:
   - PC
   - macOS

@@ -9,12 +9,16 @@ const { capture, close } = require('./lib/renderer');
 
 const ROOT = path.resolve(__dirname, '../..');
 const OUT_BASE = path.join(ROOT, 'assets/image/thumbnail');
-const DIRS = {
-  instagram: path.join(OUT_BASE, 'instagram'),
-  header: path.join(OUT_BASE, 'header'),
-  teaser: path.join(OUT_BASE, 'teaser'),
-  caption: path.join(OUT_BASE, 'caption'),
-};
+const LANGS = ['ko', 'en', 'ja'];
+
+function ensureDirs() {
+  fs.mkdirSync(path.join(OUT_BASE, 'header'), { recursive: true });
+  for (const lang of LANGS) {
+    fs.mkdirSync(path.join(OUT_BASE, 'instagram', lang), { recursive: true });
+    fs.mkdirSync(path.join(OUT_BASE, 'teaser', lang), { recursive: true });
+    fs.mkdirSync(path.join(OUT_BASE, 'caption', lang), { recursive: true });
+  }
+}
 
 function findPosts(lang) {
   const dir = path.join(ROOT, '_posts', lang);
@@ -22,9 +26,15 @@ function findPosts(lang) {
   return fs.globSync('**/*.md', { cwd: dir }).map(f => path.join(dir, f));
 }
 
+function detectLang(filePath) {
+  const rel = path.relative(path.join(ROOT, '_posts'), filePath);
+  const first = rel.split(path.sep)[0];
+  return LANGS.includes(first) ? first : 'ko';
+}
+
 function parseArgs() {
   const args = process.argv.slice(2);
-  const opts = { files: [], all: false, lang: 'ko', force: false };
+  const opts = { files: [], all: false, lang: null, force: false };
 
   for (let i = 0; i < args.length; i++) {
     if (args[i] === '--all') {
@@ -42,36 +52,50 @@ function parseArgs() {
 
 async function generateOne(filePath, force) {
   const data = parse(filePath);
-  const instaPath = path.join(DIRS.instagram, `${data.ref}.png`);
-  const headerPath = path.join(DIRS.header, `${data.ref}.png`);
-  const teaserPath = path.join(DIRS.teaser, `${data.ref}.png`);
+  const lang = detectLang(filePath);
 
-  if (!force && fs.existsSync(instaPath) && fs.existsSync(headerPath) && fs.existsSync(teaserPath)) {
-    return { ref: data.ref, skipped: true };
+  const instaPath = path.join(OUT_BASE, 'instagram', lang, `${data.ref}.png`);
+  const teaserPath = path.join(OUT_BASE, 'teaser', lang, `${data.ref}.png`);
+  const headerPath = path.join(OUT_BASE, 'header', `${data.ref}.png`);
+
+  const needInsta = force || !fs.existsSync(instaPath);
+  const needTeaser = force || !fs.existsSync(teaserPath);
+  const needHeader = force || !fs.existsSync(headerPath);
+
+  if (!needInsta && !needTeaser && !needHeader) {
+    return { ref: data.ref, lang, skipped: true };
   }
 
-  const instaHtml = buildHtml(data);
-  await capture(instaHtml, instaPath);
+  if (needInsta) {
+    const instaHtml = buildHtml(data);
+    await capture(instaHtml, instaPath);
+  }
 
-  const headerHtml = buildHeaderHtml(data);
-  await capture(headerHtml, headerPath, { width: 1920, height: 640 });
+  if (needTeaser) {
+    const teaserHtml = buildTeaserHtml(data);
+    await capture(teaserHtml, teaserPath, { width: 600, height: 600 });
+  }
 
-  const teaserHtml = buildTeaserHtml(data);
-  await capture(teaserHtml, teaserPath, { width: 600, height: 600 });
+  // Header is language-independent (pattern only), generate once
+  if (needHeader) {
+    const headerHtml = buildHeaderHtml(data);
+    await capture(headerHtml, headerPath, { width: 1920, height: 640 });
+  }
 
-  const captionPath = path.join(DIRS.caption, `${data.ref}.txt`);
+  const captionPath = path.join(OUT_BASE, 'caption', lang, `${data.ref}.txt`);
   fs.writeFileSync(captionPath, buildCaption(data), 'utf-8');
 
-  return { ref: data.ref, skipped: false };
+  return { ref: data.ref, lang, skipped: false };
 }
 
 async function main() {
   const opts = parseArgs();
-  Object.values(DIRS).forEach(d => fs.mkdirSync(d, { recursive: true }));
+  ensureDirs();
 
   let files = opts.files;
   if (opts.all) {
-    files = findPosts(opts.lang);
+    const langs = opts.lang ? [opts.lang] : LANGS;
+    files = langs.flatMap(l => findPosts(l));
   }
 
   if (files.length === 0) {
@@ -85,18 +109,17 @@ async function main() {
 
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
-    const rel = path.relative(ROOT, file);
     try {
       const result = await generateOne(file, opts.force);
       if (result.skipped) {
         skipped++;
-        process.stdout.write(`  [${i + 1}/${files.length}] skip  ${result.ref}\n`);
+        process.stdout.write(`  [${i + 1}/${files.length}] skip  ${result.lang}/${result.ref}\n`);
       } else {
         generated++;
-        process.stdout.write(`  [${i + 1}/${files.length}] done  ${result.ref}\n`);
+        process.stdout.write(`  [${i + 1}/${files.length}] done  ${result.lang}/${result.ref}\n`);
       }
     } catch (err) {
-      console.error(`  [${i + 1}/${files.length}] FAIL  ${rel}: ${err.message}`);
+      console.error(`  [${i + 1}/${files.length}] FAIL  ${path.relative(ROOT, file)}: ${err.message}`);
     }
   }
 

@@ -1,0 +1,7 @@
+L2TP/IPSec VPNサーバーの構築方法
+
+Synology NASにL2TP/IPSec VPNサーバーを構築し、外部から接続する方法をまとめる。
+
+https://blog.binaryloader.io/ja/playground/synology/synology-vpn-server-setup
+
+#Playground #Synology #VPN #L2TP #IPSec #NAS #Network

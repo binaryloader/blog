@@ -1,0 +1,7 @@
+Installing PIP
+
+How to install PIP, the package manager for Python 3.
+
+https://blog.binaryloader.io/en/development/language/python/install-python3-pip
+
+#Development #Language #Python #Python3 #PIP #PackageManagement

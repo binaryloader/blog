@@ -1,0 +1,7 @@
+素数と合成数
+
+素数と合成数の概念をまとめる。
+
+https://blog.binaryloader.io/ja/fundamental/mathematics/prime-number-and-composition-number
+
+#Fundamental #Mathematics #PrimeNumber #NumberTheory

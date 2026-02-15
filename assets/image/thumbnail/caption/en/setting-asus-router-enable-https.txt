@@ -1,0 +1,7 @@
+How to Enable HTTPS on ASUS Router Settings Page
+
+A guide on how to enable HTTPS for the ASUS router settings page.
+
+https://blog.binaryloader.io/en/playground/router/setting-asus-router-enable-https
+
+#Playground #Router #ASUS #RT-AX3000 #HTTPS #Certificate #Network #Security

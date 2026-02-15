@@ -10,7 +10,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/synology-vpn-server-setup.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/synology-vpn-server-setup.png"
+  teaser: "/assets/image/thumbnail/teaser/en/synology-vpn-server-setup.png"
 categories:
   - Playground
   - Synology

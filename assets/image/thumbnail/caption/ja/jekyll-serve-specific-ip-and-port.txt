@@ -1,0 +1,7 @@
+特定のIPアドレスとポートでローカルサーバーを起動する
+
+Jekyllローカルサーバーを特定のIPアドレスとポートで起動する方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/blog/jekyll/jekyll-serve-specific-ip-and-port
+
+#Development #Blog #Jekyll #CLI #Server

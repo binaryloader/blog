@@ -1,0 +1,7 @@
+fastlane Actionを作成する
+
+fastlaneのカスタムActionを作成する方法をまとめる。
+
+https://blog.binaryloader.io/ja/development/cs/software-engineering/ci/cd/create-fastlane-action
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #Action #iOS #Automation #Ruby

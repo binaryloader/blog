@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/vscode-code-shell-command-doesnt-work-macos-12-3.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/vscode-code-shell-command-doesnt-work-macos-12-3.png"
+  teaser: "/assets/image/thumbnail/teaser/en/vscode-code-shell-command-doesnt-work-macos-12-3.png"
 categories:
   - PC
   - macOS

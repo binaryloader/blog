@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/objective-c-study-resource-collections.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/objective-c-study-resource-collections.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/objective-c-study-resource-collections.png"
 categories:
   - Development
   - Language

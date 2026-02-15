@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/bundle-show-paths.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/bundle-show-paths.png"
+  teaser: "/assets/image/thumbnail/teaser/en/bundle-show-paths.png"
 categories:
   - Development
   - Language

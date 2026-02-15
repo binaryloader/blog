@@ -8,7 +8,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-python3-pip.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/install-python3-pip.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/install-python3-pip.png"
 categories:
   - Development
   - Language

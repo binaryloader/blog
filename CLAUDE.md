@@ -23,11 +23,11 @@ npm run watch:js              # JS 변경 감시
 - **포스트**: `_posts/{lang}/{category}/{subcategory}/YYYY-MM-DD-title.md`
   - 한국어: `/ko/...`, 영어: `/en/...`, 일본어: `/ja/...`
 - **포스트 에셋**: `assets/image/post/{categories}/{slug}/` — 포스트의 카테고리 뎁스와 동일한 경로 (예: `assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/`)
-- **썸네일**: `assets/image/thumbnail/` — 용도별 하위 폴더로 분리
-  - `instagram/` — 1080x1080 인스타그램용 (다크 배경 + 시안 액센트 + 카테고리/제목/태그/푸터)
-  - `header/` — 1920x640 블로그 헤더 오버레이용 (패턴만, 텍스트 없음)
-  - `teaser/` — 600x600 관련글 그리드용 (패턴 + 카테고리/제목)
-  - `caption/` — 인스타그램 캡션 텍스트 (.txt)
+- **썸네일**: `assets/image/thumbnail/` — 용도별·언어별 하위 폴더로 분리
+  - `instagram/{lang}/` — 1080x1080 인스타그램용 (다크 배경 + 시안 액센트 + 카테고리/제목/태그/푸터)
+  - `header/` — 1920x640 블로그 헤더 오버레이용 (패턴만, 텍스트 없음, 언어 공통)
+  - `teaser/{lang}/` — 600x600 관련글 그리드용 (패턴 + 카테고리/제목)
+  - `caption/{lang}/` — 인스타그램 캡션 텍스트 (.txt)
 
 ## 규칙
 
@@ -43,8 +43,8 @@ last_modified_at: YYYY-MM-DDTHH:MM+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/{ref}.png"
-  overlay_filter: "0.1"
-  teaser: "/assets/image/thumbnail/teaser/{ref}.png"
+  overlay_filter: "0"
+  teaser: "/assets/image/thumbnail/teaser/{lang}/{ref}.png"
 categories:
   - 상위카테고리
   - 하위카테고리
@@ -98,15 +98,16 @@ depth:                  # 커스텀 breadcrumb
 `tools/thumbnail/`의 Node.js 도구로 자동 생성한다. 카테고리 기반 12개 테마(circuit, hexagon, pipeline, code-flow, branch-tree, network, geometry, dots, connected, blocks, waves, default)가 자동 적용되며 `ref` 해시로 결정적 출력을 보장한다.
 
 ```bash
-node tools/thumbnail/generate.js <파일경로>     # 단일 포스트
-node tools/thumbnail/generate.js --all          # 전체 (한국어)
-node tools/thumbnail/generate.js --all --lang en  # 특정 언어
-node tools/thumbnail/generate.js --all --force  # 강제 재생성
+node tools/thumbnail/generate.js <파일경로>       # 단일 포스트
+node tools/thumbnail/generate.js --all            # 전체 (ko/en/ja 3개 언어)
+node tools/thumbnail/generate.js --all --lang ko  # 특정 언어만
+node tools/thumbnail/generate.js --all --force    # 강제 재생성
 ```
 
-- 새 포스트 작성 시 썸네일도 함께 생성한다
-- 포스트의 `header` 블록을 생성된 이미지 경로로 설정한다
+- 새 포스트 작성 시 3개 언어 모두 썸네일을 함께 생성한다
+- 포스트의 `header` 블록을 생성된 이미지 경로로 설정한다 (teaser는 언어별 경로)
 - `tools/thumbnail/update-frontmatter.js`로 전체 포스트의 header 블록을 일괄 갱신할 수 있다
+- header 이미지는 패턴만 포함하므로 언어 공통이고 teaser/instagram/caption은 언어별로 분리된다
 
 ### 작성
 

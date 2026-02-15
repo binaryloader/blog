@@ -9,7 +9,7 @@ published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/objective-c-class-instance-method.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/objective-c-class-instance-method.png"
+  teaser: "/assets/image/thumbnail/teaser/en/objective-c-class-instance-method.png"
 categories:
   - Development
   - Language
