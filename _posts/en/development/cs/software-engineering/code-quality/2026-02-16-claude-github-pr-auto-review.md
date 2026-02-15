@@ -220,7 +220,9 @@ jobs:
 
 We use a Git Flow where each of us forks the repository and submits PRs, but initially the workflow wasn't triggered on fork PRs. We solved this as follows:
 
-- Enable fork PR workflow permissions in Organization settings: Turned on both "Send write tokens to workflows from fork pull requests" and "Send secrets to workflows from fork pull requests" options
+- Enable fork PR workflow permissions in Organization settings:
+  - "Send write tokens to workflows from fork pull requests"
+  - "Send secrets to workflows from fork pull requests"
 - Apply a workaround that temporarily creates the fork PR's branch on the base repository and deletes it afterward
 
 ## 4. Results

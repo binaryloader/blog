@@ -218,7 +218,12 @@ jobs:
 
 ### 3.4. fork基盤Git Flow対応
 
-私たちはそれぞれforkしたリポジトリからPRを上げるGit Flowを使用しているが、初期にはfork PRでワークフローがトリガーされなかった。Organization設定でfork PRワークフロー権限を有効化する必要があった。"Send write tokens to workflows from fork pull requests"と"Send secrets to workflows from fork pull requests"オプションを両方有効にした。追加でfork PRのブランチをbaseリポジトリに一時的に作成して削除するworkaroundも適用した。
+私たちはそれぞれforkしたリポジトリからPRを上げるGit Flowを使用しているが、初期にはfork PRでワークフローがトリガーされなかった。私たちは以下のように解決した。
+
+- Organization設定でfork PRワークフロー権限を有効化:
+  - "Send write tokens to workflows from fork pull requests"
+  - "Send secrets to workflows from fork pull requests"
+- fork PRのブランチをbaseリポジトリに一時的に作成して削除するworkaroundを適用
 
 ## 4. 結果
 

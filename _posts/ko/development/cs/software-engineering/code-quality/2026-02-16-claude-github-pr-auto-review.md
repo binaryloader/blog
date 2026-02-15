@@ -218,7 +218,9 @@ jobs:
 
 우리는 각자 fork한 저장소에서 PR을 올리는 Git Flow를 사용하는데 초기에는 fork PR에서 워크플로우가 트리거되지 않았다. 우리는 아래와 같이 해결했다.
 
-- Organization 설정에서 fork PR 워크플로우 권한 활성화: "Send write tokens to workflows from fork pull requests"와 "Send secrets to workflows from fork pull requests" 옵션을 모두 켰다
+- Organization 설정에서 fork PR 워크플로우 권한 활성화:
+  - "Send write tokens to workflows from fork pull requests"
+  - "Send secrets to workflows from fork pull requests"
 - fork PR의 브랜치를 base 저장소에 임시로 생성했다가 삭제하는 workaround 적용
 
 ## 4. 결과
