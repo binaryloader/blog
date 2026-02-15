@@ -7,7 +7,7 @@ last_modified_at: 2026-02-15T00:00+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/ios-modular-architecture-with-cocoapods.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/ios-modular-architecture-with-cocoapods.png"
 categories:
   - Development

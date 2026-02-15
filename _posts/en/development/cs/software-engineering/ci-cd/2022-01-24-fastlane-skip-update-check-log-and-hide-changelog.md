@@ -8,7 +8,7 @@ last_modified_at: 2022-01-24T15:16+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/fastlane-skip-update-check-log-and-hide-changelog.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/fastlane-skip-update-check-log-and-hide-changelog.png"
 categories:
   - Development

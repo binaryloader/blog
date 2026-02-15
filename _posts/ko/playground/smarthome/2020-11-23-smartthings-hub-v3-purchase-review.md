@@ -7,7 +7,7 @@ last_modified_at: 2020-11-23T18:12+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/smartthings-hub-v3-purchase-review.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/smartthings-hub-v3-purchase-review.png"
 categories:
   - Playground

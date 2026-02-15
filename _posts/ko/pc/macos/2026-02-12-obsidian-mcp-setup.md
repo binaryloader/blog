@@ -7,7 +7,7 @@ last_modified_at: 2026-02-12T05:00+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/obsidian-mcp-setup.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/obsidian-mcp-setup.png"
 categories:
   - PC

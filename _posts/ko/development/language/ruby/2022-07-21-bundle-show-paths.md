@@ -7,7 +7,7 @@ last_modified_at: 2022-07-21T15:58+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/bundle-show-paths.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/bundle-show-paths.png"
 categories:
   - Development

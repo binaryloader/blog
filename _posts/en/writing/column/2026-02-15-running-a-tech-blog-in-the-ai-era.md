@@ -9,7 +9,7 @@ lang: en
 permalink: /en/:categories/:title/
 header:
   overlay_image: "/assets/image/thumbnail/header/running-a-tech-blog-in-the-ai-era.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/running-a-tech-blog-in-the-ai-era.png"
 categories:
   - Writing

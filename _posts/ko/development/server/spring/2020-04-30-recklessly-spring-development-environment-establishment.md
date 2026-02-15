@@ -7,7 +7,7 @@ last_modified_at: 2020-04-30T21:26+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/spring-development-environment-establishment.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/spring-development-environment-establishment.png"
 categories:
   - Development

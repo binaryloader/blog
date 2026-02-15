@@ -7,7 +7,7 @@ last_modified_at: 2026-02-15T16:11+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/the-end-of-developer-scarcity.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/the-end-of-developer-scarcity.png"
 categories:
   - Writing

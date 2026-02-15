@@ -8,7 +8,7 @@ last_modified_at: 2021-10-17T08:15+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/setting-asus-router-enable-https.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/setting-asus-router-enable-https.png"
 categories:
   - Playground

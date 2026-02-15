@@ -7,7 +7,7 @@ last_modified_at: 2022-04-06T13:03+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-ruby.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/install-ruby.png"
 categories:
   - Development

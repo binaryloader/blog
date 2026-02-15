@@ -8,7 +8,7 @@ last_modified_at: 2019-11-18T13:12+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/objective-c-operators-and-expressions.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/objective-c-operators-and-expressions.png"
 categories:
   - Development

@@ -8,7 +8,7 @@ last_modified_at: 2021-10-10T04:48+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/setting-multiple-ssh-key-on-github.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/setting-multiple-ssh-key-on-github.png"
 categories:
   - Development

@@ -7,7 +7,7 @@ last_modified_at: 2021-10-17T04:32+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/setting-copy-path-in-finder.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/setting-copy-path-in-finder.png"
 categories:
   - PC

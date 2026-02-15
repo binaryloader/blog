@@ -7,7 +7,7 @@ last_modified_at: 2021-10-10T03:05+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-alfred-timezones-workflow.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/install-alfred-timezones-workflow.png"
 categories:
   - PC

@@ -7,7 +7,7 @@ last_modified_at: 2026-02-15T03:00+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/running-a-tech-blog-in-the-ai-era.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/running-a-tech-blog-in-the-ai-era.png"
 categories:
   - Writing

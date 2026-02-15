@@ -8,7 +8,7 @@ last_modified_at: 2021-08-16T08:06+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/install-oh-my-zsh.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/install-oh-my-zsh.png"
 categories:
   - PC

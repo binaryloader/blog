@@ -7,7 +7,7 @@ last_modified_at: 2021-10-10T04:36+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/generating-ssh-keys.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/generating-ssh-keys.png"
 categories:
   - PC

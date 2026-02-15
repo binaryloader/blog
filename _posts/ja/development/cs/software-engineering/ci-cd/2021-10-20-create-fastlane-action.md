@@ -8,7 +8,7 @@ last_modified_at: 2021-10-20T15:02+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/create-fastlane-action.png"
-  overlay_filter: "0.1"
+  overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/create-fastlane-action.png"
 categories:
   - Development
