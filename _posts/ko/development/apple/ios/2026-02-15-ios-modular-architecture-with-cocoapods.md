@@ -98,7 +98,7 @@ Moya를 래핑한 네트워크 추상화 레이어다.
 # BinaryLoaderNetwork.podspec
 Pod::Spec.new do |s|
   s.name = 'BinaryLoaderNetwork'
-  s.version = '1.0.4'
+  s.version = '1.0.5'
   s.ios.deployment_target = '13.0'
   s.source_files = 'BinaryLoaderNetwork/Module/Source/*.swift'
   s.dependency 'Moya', '15.0.0'
@@ -110,18 +110,21 @@ end
 ```swift
 // NetworkTarget.swift
 public protocol NetworkTarget: TargetType {
+
     var baseURL: URL { get }
     var path: String { get }
-    var method: HTTPMethod { get }
+    var method: Method { get }
     var sampleData: Data { get }
-    var task: HTTPTask { get }
+    var task: Task { get }
     var headers: [String: String]? { get }
+
 }
 ```
 
 ```swift
 // NetworkProvider.swift
 public final class NetworkProvider<Target: NetworkTarget> {
+
     private let provider: MoyaProvider<Target>
 
     @discardableResult
@@ -134,6 +137,7 @@ public final class NetworkProvider<Target: NetworkTarget> {
         let result = await provider.request(target)
         return result
     }
+
 }
 ```
 
@@ -141,8 +145,8 @@ Moya의 타입을 직접 노출하지 않고 typealias로 래핑하여 외부에
 
 ```swift
 // Moya+Wrapping.swift
-public typealias HTTPMethod = Moya.Method
-public typealias HTTPTask = Moya.Task
+public typealias Method = Moya.Method
+public typealias Task = Moya.Task
 public typealias Response = Moya.Response
 public typealias MoyaError = Moya.MoyaError
 ```
@@ -157,7 +161,7 @@ Property Wrapper 기반의 의존성 주입 컨테이너다. `@Injectable`로 �
 # BinaryLoaderDIContainer.podspec
 Pod::Spec.new do |s|
   s.name = 'BinaryLoaderDIContainer'
-  s.version = '1.0.4'
+  s.version = '1.0.5'
   s.source_files = 'BinaryLoaderDIContainer/Module/Source/*.swift'
 end
 ```
@@ -170,7 +174,7 @@ UI 컴포넌트를 subspec으로 분리하여 필요한 것만 선택적으로 �
 # BinaryLoaderUI.podspec
 Pod::Spec.new do |s|
   s.name = 'BinaryLoaderUI'
-  s.version = '1.0.2'
+  s.version = '1.0.3'
   s.default_subspec = :none
 
   s.subspec 'InsetTextField' do |ss|
@@ -193,13 +197,13 @@ end
 # APIService.podspec
 Pod::Spec.new do |s|
   s.name = 'APIService'
-  s.version = '1.0.6'
-  s.dependency 'BinaryLoaderExtensions', '1.0.2'
+  s.version = '1.0.8'
+  s.dependency 'BinaryLoaderExtensions', '1.0.3'
   s.default_subspec = :none
 
   s.subspec 'Auth' do |ss|
     ss.source_files = 'APIService/Module/Auth/Source/*.swift'
-    ss.dependency 'BinaryLoaderNetwork', '1.0.4'
+    ss.dependency 'BinaryLoaderNetwork', '1.0.5'
   end
 end
 ```
@@ -209,24 +213,30 @@ Auth subspec은 `AuthService` 클래스를 통해 로그인/로그아웃 API를 
 ```swift
 // AuthNetworkTarget.swift
 struct AuthNetworkTarget {
+
     enum Route {
         case isAlreadyLogin
         case login(request: AuthLoginModel.Request)
         case logout
     }
+
     private let route: Route
+
 }
 
 extension AuthNetworkTarget: NetworkTarget {
+
     var baseURL: URL {
         let URLString = "https://photo.domain.com/photo/webapi"
         return URLString.toAPIURL
     }
-    var task: HTTPTask {
+
+    var task: BinaryLoaderNetwork.Task {
         var parameters: [String: Any] = [
             "api": "SYNO.PhotoStation.Auth",
             "version": "1"
         ]
+
         switch route {
         case .isAlreadyLogin:
             parameters["method"] = "checkauth"
@@ -237,8 +247,10 @@ extension AuthNetworkTarget: NetworkTarget {
         case .logout:
             parameters["method"] = "logout"
         }
+
         return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
     }
+
 }
 ```
 
@@ -266,11 +278,13 @@ end
 ```swift
 // LoginDependency.swift
 public protocol LoginDependency {
+
     var viewController: UIViewController { get }
 }
 
 // AlbumListDependency.swift
 public protocol AlbumListDependency {
+
     func getViewController(username: String) -> UIViewController
 }
 ```
@@ -285,13 +299,13 @@ public protocol AlbumListDependency {
 # LoginScene.podspec
 Pod::Spec.new do |s|
   s.name = 'LoginScene'
-  s.version = '1.0.10'
+  s.version = '1.0.12'
   s.source_files = 'LoginScene/Module/Source/**/*.{swift,xib}'
   s.resource = 'LoginScene/Module/Resources/*.xcassets'
-  s.dependency 'BinaryLoaderDIContainer', '1.0.4'
-  s.dependency 'BinaryLoaderExtensions', '1.0.2'
-  s.dependency 'BinaryLoaderUI/InsetTextField', '1.0.2'
-  s.dependency 'APIService/Auth', '1.0.6'
+  s.dependency 'BinaryLoaderDIContainer', '1.0.5'
+  s.dependency 'BinaryLoaderExtensions', '1.0.3'
+  s.dependency 'BinaryLoaderUI/InsetTextField', '1.0.3'
+  s.dependency 'APIService/Auth', '1.0.8'
   s.dependency 'Dependencies/Login', '1.0.2'
   s.dependency 'Dependencies/AlbumList', '1.0.2'
 end
@@ -330,11 +344,9 @@ Scene 모듈은 Dependencies의 프로토콜을 구현하여 외부에 진입점
 ```swift
 // LoginDependencyItem.swift
 public struct LoginDependencyItem: Dependency, LoginDependency {
+
     public var viewController: UIViewController {
-        return LoginViewController(
-            nibName: LoginViewController.className,
-            bundle: LoginViewController.bundle
-        )
+        return LoginViewController(nibName: LoginViewController.className, bundle: LoginViewController.bundle)
     }
 }
 ```
@@ -344,11 +356,13 @@ Scene 간 화면 전환은 Router에서 Dependencies 프로토콜을 통해 수�
 ```swift
 // LoginRouter.swift
 final class LoginRouter: NSObject, LoginRoutingLogic {
+
     @Injectable
     private var albumListDependency: AlbumListDependency?
 
     func routeToAlbumList(username: String) {
         let albumListVC = albumListDependency?.getViewController(username: username)
+
         let keyWindow = UIApplication.shared.windows.first { $0.isKeyWindow }
         keyWindow?.rootViewController = albumListVC
     }
@@ -370,10 +384,16 @@ source 'https://github.com/binaryloader/synstagram-module-cocoapods-specs.git'
 source 'https://github.com/binaryloader/synstagram-scene-cocoapods-specs.git'
 
 platform :ios, '13.0'
+project 'Synstagram'
+inhibit_all_warnings!
 use_frameworks!
 
+def scenes
+    pod 'LoginScene', '1.0.13'
+end
+
 target :'Synstagram' do
-    pod 'LoginScene', '1.0.10'
+    scenes
 end
 ```
 
@@ -386,9 +406,13 @@ App 레이어에서 각 Scene의 DependencyItem을 DI Container에 등록한다.
 ```swift
 // DependencyContainer.swift
 final class DependencyContainer {
+
     static func registerAll() {
         registerLoginSceneDependency()
     }
+}
+
+extension DependencyContainer {
 
     private static func registerLoginSceneDependency() {
         Container.shared.register(type: LoginDependencyItem.self)
@@ -402,10 +426,10 @@ final class DependencyContainer {
 // AppDelegate.swift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+
     var window: UIWindow?
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         DependencyContainer.registerAll()
         HierarchyCoordinator.configure(window: &window)
         return true
@@ -414,6 +438,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // HierarchyCoordinator.swift
 final class HierarchyCoordinator {
+
     static func configure(window: inout UIWindow?) {
         window = UIWindow(frame: UIScreen.main.bounds)
         let launcher = LoginSceneLauncher()
