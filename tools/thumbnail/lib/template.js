@@ -3,6 +3,7 @@
 const { createRng } = require('./hash');
 const { resolveTheme } = require('../themes/index');
 const { generatePattern } = require('../themes/patterns');
+const { getIllustration } = require('./illustrations');
 
 function getTitleSize(title) {
   const len = title.length;
@@ -61,8 +62,9 @@ function buildBreadcrumb(categories) {
 
 function buildHtml({ title, ref, categories, tags }) {
   const theme = resolveTheme(categories);
+  const illustration = getIllustration(ref);
   const patternSvg = generatePattern(theme, ref);
-  const decoSvg = buildDecorations(theme, ref);
+  const decoSvg = illustration || buildDecorations(theme, ref);
   const breadcrumb = escapeHtml(buildBreadcrumb(categories));
   const safeTitle = escapeHtml(title);
   const titleSize = getTitleSize(title);
