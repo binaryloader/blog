@@ -86,7 +86,7 @@ facebook:
   username:
   app_id:
   publisher:
-og_image: "/assets/image/bio/profile.svg"
+og_image: "/assets/image/bio/profile.jpg"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -104,7 +104,7 @@ analytics:
 # Site Author
 author:
   name: "binaryloader"
-  avatar: "/assets/image/bio/profile.svg"
+  avatar: "/assets/image/bio/profile.jpg"
   bio: "어떤 것에 대하여 밑바닥까지 파고들어<br />원리를 이해하는 것을 좋아합니다."
   location: "Korea, South"
   email:
