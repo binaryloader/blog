@@ -2,6 +2,6 @@ Claude를 활용한 PR 자동 코드 리뷰 구축기
 
 사이드 프로젝트에서 Claude Code Action으로 GitHub PR 자동 리뷰를 구축한 경험을 정리한다.
 
-https://blog.binaryloader.io/ko/development/scm/github/claude-github-pr-auto-review
+https://blog.binaryloader.io/ko/development/cs/software-engineering/code-quality/claude-github-pr-auto-review
 
 #Development #GitHub #Claude #CodeReview #GitHubActions #CI/CD #Automation

@@ -1379,6 +1379,53 @@ function illustrationXcode12BuildIos15() {
   `;
 }
 
+// 51. Claude GitHub PR Auto Review
+function illustrationClaudeGithubPrAutoReview() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- PR diff view -->
+    <rect x="260" y="120" width="560" height="260" rx="12" fill="#111" stroke="#333" stroke-width="2"/>
+    <rect x="260" y="120" width="560" height="32" rx="12" fill="#1a1a1a"/>
+    <rect x="260" y="140" width="560" height="12" fill="#1a1a1a"/>
+    <circle cx="284" cy="137" r="5" fill="#ff6b6b" opacity="0.7"/>
+    <circle cx="298" cy="137" r="5" fill="#ffe66d" opacity="0.7"/>
+    <circle cx="312" cy="137" r="5" fill="#4ecdc4" opacity="0.7"/>
+    <text x="540" y="140" text-anchor="middle" font-family="monospace" font-size="10" fill="#555">Pull Request #42</text>
+    <!-- Diff lines -->
+    <rect x="275" y="165" width="530" height="18" rx="2" fill="#1a2e1a" opacity="0.5"/>
+    <text x="285" y="178" font-family="monospace" font-size="11" fill="#a8e6cf">+ const review = await claude.analyze(diff);</text>
+    <rect x="275" y="187" width="530" height="18" rx="2" fill="#1a2e1a" opacity="0.5"/>
+    <text x="285" y="200" font-family="monospace" font-size="11" fill="#a8e6cf">+ await pr.comment(review.feedback);</text>
+    <rect x="275" y="209" width="530" height="18" rx="2" fill="#2e1a1a" opacity="0.5"/>
+    <text x="285" y="222" font-family="monospace" font-size="11" fill="#ff6b6b">- // TODO: manual review</text>
+    <!-- Review comment bubble -->
+    <rect x="300" y="240" width="480" height="60" rx="8" fill="#0d1a2d" stroke="#00e5ff" stroke-width="1"/>
+    <text x="320" y="262" font-family="monospace" font-size="11" fill="#00e5ff">Claude:</text>
+    <text x="320" y="280" font-family="monospace" font-size="10" fill="#888">Consider adding error handling for the API call.</text>
+    <rect x="740" y="250" width="28" height="28" rx="6" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+    <text x="754" y="269" text-anchor="middle" font-family="monospace" font-size="12" fill="#00e5ff" opacity="0.7">&#x2714;</text>
+    <!-- GitHub Actions workflow -->
+    <g transform="translate(540, 440)">
+      <rect x="-200" y="-30" width="400" height="60" rx="10" fill="none" stroke="#333" stroke-width="1.5"/>
+      <circle cx="-150" cy="0" r="18" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <text x="-150" y="5" text-anchor="middle" font-family="monospace" font-size="12" fill="#fff">GH</text>
+      <line x1="-130" y1="0" x2="-80" y2="0" stroke="#333" stroke-width="1.5"/>
+      <polygon points="-80,-4 -72,0 -80,4" fill="#333"/>
+      <rect x="-70" y="-15" width="80" height="30" rx="6" fill="none" stroke="#ffe66d" stroke-width="1.5"/>
+      <text x="-30" y="5" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d">Action</text>
+      <line x1="15" y1="0" x2="60" y2="0" stroke="#333" stroke-width="1.5"/>
+      <polygon points="60,-4 68,0 60,4" fill="#333"/>
+      <polygon points="100,-18 108,-5 118,0 108,5 100,18 92,5 82,0 92,-5" fill="none" stroke="#ff6b9d" stroke-width="1.5"/>
+      <text x="100" y="4" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d">Claude</text>
+      <line x1="120" y1="0" x2="155" y2="0" stroke="#333" stroke-width="1.5"/>
+      <polygon points="155,-4 163,0 155,4" fill="#333"/>
+      <text x="178" y="5" font-family="monospace" font-size="10" fill="#a8e6cf">Review</text>
+    </g>
+    <text x="540" y="550" text-anchor="middle" font-family="monospace" font-size="12" fill="#555">on: pull_request → claude review → comment</text>
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">AUTOMATED PR REVIEW</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -1431,6 +1478,7 @@ const ILLUSTRATION_MAP = {
   'xcode-26-claude-opus-4-6': illustrationXcode26ClaudeOpus46,
   'xcode-agentic-coding-assistant-mcp-setup': illustrationXcodeAgenticCodingAssistantMcpSetup,
   'xcode12-build-ios15': illustrationXcode12BuildIos15,
+  'claude-github-pr-auto-review': illustrationClaudeGithubPrAutoReview,
 };
 
 function getIllustration(ref) {
