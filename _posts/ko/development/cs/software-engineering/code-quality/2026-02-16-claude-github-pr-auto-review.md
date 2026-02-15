@@ -71,13 +71,15 @@ Claude Pro/Max 구독자는 API 키 대신 OAuth 토큰을 사용할 수 있다.
 claude setup-token
 ```
 
-**주의사항:**
+주의사항은 아래와 같다.
+
 - 토큰은 반드시 한 줄로 복사한다 (줄바꿈 포함 시 인증 실패)
 - Organization Secrets에 `CLAUDE_CODE_OAUTH_TOKEN` 이름으로 등록한다
 
 ### 3.2. GitHub App 생성
 
-기본 `github-actions[bot]` 대신 커스텀 봇 이름을 사용하기 위해 GitHub App을 생성했다. **설정:**
+기본 `github-actions[bot]` 대신 커스텀 봇 이름을 사용하기 위해 GitHub App을 생성했다. 설정은 아래와 같다.
+
 - App name: 원하는 봇 이름 (예: `myteam-review`)
 - Permissions:
   - Contents: Read and write

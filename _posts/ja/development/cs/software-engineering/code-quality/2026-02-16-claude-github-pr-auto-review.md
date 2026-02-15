@@ -73,13 +73,15 @@ Claude Pro/Max購読者はAPIキーの代わりにOAuthトークンを使用で�
 claude setup-token
 ```
 
-**注意事項:**
+注意事項は以下の通り。
+
 - トークンは必ず1行でコピーする(改行を含むと認証失敗)
 - Organization Secretsに`CLAUDE_CODE_OAUTH_TOKEN`という名前で登録する
 
 ### 3.2. GitHub App生成
 
-デフォルトの`github-actions[bot]`の代わりにカスタムボット名を使用するためにGitHub Appを作成した。**設定:**
+デフォルトの`github-actions[bot]`の代わりにカスタムボット名を使用するためにGitHub Appを作成した。設定は以下の通り。
+
 - App name: 希望するボット名(例: `myteam-review`)
 - Permissions:
   - Contents: Read and write

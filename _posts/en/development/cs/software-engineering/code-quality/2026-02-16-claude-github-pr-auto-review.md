@@ -73,13 +73,15 @@ Claude Pro/Max subscribers can use OAuth tokens instead of API keys.
 claude setup-token
 ```
 
-**Important notes:**
+Important notes are as follows.
+
 - Copy the token as a single line (authentication fails if line breaks are included)
 - Register it in Organization Secrets with the name `CLAUDE_CODE_OAUTH_TOKEN`
 
 ### 3.2. Creating GitHub App
 
-I created a GitHub App to use a custom bot name instead of the default `github-actions[bot]`. **Configuration:**
+I created a GitHub App to use a custom bot name instead of the default `github-actions[bot]`. The configuration is as follows.
+
 - App name: Desired bot name (e.g., `myteam-review`)
 - Permissions:
   - Contents: Read and write
