@@ -1,0 +1,7 @@
+Finder에서 경로 복사하기
+
+macOS Finder에서 파일이나 폴더의 경로를 복사하는 단축키를 정리한다.
+
+https://blog.binaryloader.io/ko/pc/macos/setting-copy-path-in-finder
+
+#PC #macOS #Finder #Path

@@ -7,7 +7,9 @@ excerpt: "macOS で Oh My Zsh の Alien テーマをインストールする方�
 last_modified_at: 2021-08-16T08:17+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/install-zsh-alien-theme.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/install-zsh-alien-theme.png"
 categories:
   - PC
   - macOS

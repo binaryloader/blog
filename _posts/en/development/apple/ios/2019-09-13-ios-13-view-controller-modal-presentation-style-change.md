@@ -7,7 +7,9 @@ lang: en
 last_modified_at: 2019-09-13T16:12+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/ios-13-view-controller-modal-presentation-style-change.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/ios-13-view-controller-modal-presentation-style-change.png"
 categories:
   - Development
   - Apple

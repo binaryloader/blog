@@ -578,6 +578,16 @@ pre {
   }
 }
 
+/* Related Posts teaser - square display */
+.grid__item .archive__item-teaser {
+  max-height: none;
+
+  img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+}
+
 /* Page hero overlay */
 .page__hero--overlay .page__lead {
   max-width: $large;

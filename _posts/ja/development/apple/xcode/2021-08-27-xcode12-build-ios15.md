@@ -7,7 +7,9 @@ lang: ja
 last_modified_at: 2021-08-27T14:15+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/xcode12-build-ios15.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/xcode12-build-ios15.png"
 categories:
   - Development
   - Apple

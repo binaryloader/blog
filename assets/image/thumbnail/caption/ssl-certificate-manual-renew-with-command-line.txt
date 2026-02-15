@@ -1,0 +1,7 @@
+커맨드 라인을 통한 SSL 인증서 수동 갱신하기
+
+Synology NAS에서 SSL 인증서를 수동으로 갱신하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/playground/synology/ssl-certificate-manual-renew-with-command-line
+
+#Playground #Synology #SSL #Certificate #NAS #Let'sEncrypt #SSH

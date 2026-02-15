@@ -1,0 +1,7 @@
+소수와 합성수
+
+소수와 합성수의 개념을 정리한다.
+
+https://blog.binaryloader.io/ko/fundamental/mathematics/prime-number-and-composition-number
+
+#Fundamental #Mathematics #PrimeNumber #NumberTheory

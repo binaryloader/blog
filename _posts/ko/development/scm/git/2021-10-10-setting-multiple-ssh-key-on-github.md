@@ -6,7 +6,9 @@ excerpt: "GitHub에서 여러 SSH 키를 사용하는 방법을 정리한다."
 last_modified_at: 2021-10-10T04:48+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/setting-multiple-ssh-key-on-github.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/setting-multiple-ssh-key-on-github.png"
 categories:
   - Development
   - SCM

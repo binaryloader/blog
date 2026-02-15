@@ -1,0 +1,7 @@
+설치하기
+
+macOS에서 rbenv를 이용하여 Ruby를 설치하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/language/ruby/install-ruby
+
+#Development #Language #Ruby #rbenv #VersionManagement

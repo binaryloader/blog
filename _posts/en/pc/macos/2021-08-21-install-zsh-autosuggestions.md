@@ -7,7 +7,9 @@ excerpt: "How to install the zsh-autosuggestions plugin on macOS."
 last_modified_at: 2021-08-21T15:33+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/install-zsh-autosuggestions.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/install-zsh-autosuggestions.png"
 categories:
   - PC
   - macOS

@@ -6,7 +6,9 @@ date: 2026-02-15T03:00+09:00
 last_modified_at: 2026-02-15T03:00+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/running-a-tech-blog-in-the-ai-era.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/running-a-tech-blog-in-the-ai-era.png"
 categories:
   - Writing
   - Column

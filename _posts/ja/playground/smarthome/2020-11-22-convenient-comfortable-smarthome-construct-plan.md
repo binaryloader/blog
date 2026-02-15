@@ -7,7 +7,9 @@ excerpt: "便利で快適なスマートホームインフラの構築計画を�
 last_modified_at: 2020-11-22T18:12+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/smarthome-construct-plan.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/smarthome-construct-plan.png"
 categories:
   - Playground
   - SmartHome

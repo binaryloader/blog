@@ -8,7 +8,9 @@ date: 2026-02-15T03:40+09:00
 last_modified_at: 2026-02-15T06:15+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/ios-circular-menu-trigonometry.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/ios-circular-menu-trigonometry.png"
 categories:
   - Development
   - Apple

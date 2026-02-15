@@ -8,7 +8,9 @@ excerpt: "How to set up an MCP server so Claude Code can directly read and write
 last_modified_at: 2026-02-12T05:00+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/obsidian-mcp-setup.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/obsidian-mcp-setup.png"
 categories:
   - PC
   - macOS

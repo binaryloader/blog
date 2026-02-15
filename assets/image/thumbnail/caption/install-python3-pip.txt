@@ -1,0 +1,7 @@
+PIP 설치하기
+
+Python 3의 패키지 관리자 PIP를 설치하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/language/python/install-python3-pip
+
+#Development #Language #Python #Python3 #PIP #PackageManagement

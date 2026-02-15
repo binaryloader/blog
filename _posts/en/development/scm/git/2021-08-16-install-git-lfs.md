@@ -7,7 +7,9 @@ excerpt: "How to install and set up Git LFS on macOS."
 last_modified_at: 2021-08-16T08:21+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/install-git-lfs.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/install-git-lfs.png"
 categories:
   - Development
   - SCM

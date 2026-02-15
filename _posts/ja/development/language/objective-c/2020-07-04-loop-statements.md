@@ -7,7 +7,9 @@ excerpt: "Objective-Cのループ文をまとめる。"
 last_modified_at: 2020-07-04T11:39+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/objective-c-loop-statements.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/objective-c-loop-statements.png"
 categories:
   - Development
   - Language

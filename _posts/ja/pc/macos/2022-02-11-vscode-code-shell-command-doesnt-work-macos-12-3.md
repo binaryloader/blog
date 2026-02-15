@@ -7,7 +7,9 @@ excerpt: "macOS 12.3でPython 2が削除されたことによりVS Codeのcode�
 last_modified_at: 2022-02-11T18:27+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/vscode-code-shell-command-doesnt-work-macos-12-3.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/vscode-code-shell-command-doesnt-work-macos-12-3.png"
 categories:
   - PC
   - macOS

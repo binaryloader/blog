@@ -1,0 +1,7 @@
+Minimal Mistakes 테마에서 줄바꿈 속성 변경하기
+
+Minimal Mistakes 테마에서 모바일 환경의 가로 스크롤 문제를 해결하기 위한 줄바꿈 속성 변경 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/blog/jekyll/minimal-mistakes-change-word-break-and-overflow-wrap
+
+#Development #Blog #Jekyll #MinimalMistakes #CSS #Responsive

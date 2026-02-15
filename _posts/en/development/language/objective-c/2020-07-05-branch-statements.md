@@ -7,7 +7,9 @@ excerpt: "A summary of branch statements in Objective-C."
 last_modified_at: 2020-07-05T12:39+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/objective-c-branch-statements.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/objective-c-branch-statements.png"
 categories:
   - Development
   - Language

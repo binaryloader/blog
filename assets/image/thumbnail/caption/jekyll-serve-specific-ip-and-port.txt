@@ -1,0 +1,7 @@
+특정 아이피와 포트로 로컬 서버 실행하기
+
+Jekyll 로컬 서버를 특정 아이피와 포트로 실행하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/blog/jekyll/jekyll-serve-specific-ip-and-port
+
+#Development #Blog #Jekyll #CLI #Server

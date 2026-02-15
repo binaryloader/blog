@@ -1,0 +1,7 @@
+원시 데이터형 - Primitive Data Types
+
+Objective-C의 원시 데이터형을 정리한다.
+
+https://blog.binaryloader.io/ko/development/language/objective-c/primitive-data-types
+
+#Development #Language #Objective-C #DataType

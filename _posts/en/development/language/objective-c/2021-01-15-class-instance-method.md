@@ -7,7 +7,9 @@ excerpt: "A summary of classes, methods, and instances in Objective-C."
 last_modified_at: 2021-01-15T18:31+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/objective-c-class-instance-method.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/objective-c-class-instance-method.png"
 categories:
   - Development
   - Language

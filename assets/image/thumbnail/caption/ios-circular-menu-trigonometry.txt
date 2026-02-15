@@ -1,0 +1,7 @@
+삼각함수로 원형 메뉴 배치와 회전 구현하기
+
+삼각함수(sin, cos, atan2)를 활용하여 iOS에서 원형 메뉴 아이템을 배치하고 회전시키는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/apple/ios/ios-circular-menu-trigonometry
+
+#Development #Apple #iOS #Swift #UIKit #Trigonometry #Mathematics #UI

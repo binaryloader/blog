@@ -1,0 +1,7 @@
+클래스와 메서드, 인스턴스 - Class and Method, Instance
+
+Objective-C의 클래스와 메서드 그리고 인스턴스를 정리한다.
+
+https://blog.binaryloader.io/ko/development/language/objective-c/class-instance-method
+
+#Development #Language #Objective-C #OOP #Class #Method

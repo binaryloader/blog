@@ -7,7 +7,9 @@ lang: en
 last_modified_at: 2022-01-23T14:23+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/jekyll-serve-specific-ip-and-port.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/jekyll-serve-specific-ip-and-port.png"
 categories:
   - Development
   - Blog

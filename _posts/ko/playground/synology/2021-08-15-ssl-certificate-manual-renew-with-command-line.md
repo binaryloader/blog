@@ -6,7 +6,9 @@ excerpt: "Synology NAS에서 SSL 인증서를 수동으로 갱신하는 방법�
 last_modified_at: 2021-08-15T14:50+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/ssl-certificate-manual-renew-with-command-line.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/ssl-certificate-manual-renew-with-command-line.png"
 categories:
   - Playground
   - Synology

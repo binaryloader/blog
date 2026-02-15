@@ -8,7 +8,9 @@ last_modified_at: 2026-02-09T00:30+09:00
 published: true
 permalink: /ja/development/apple/xcode/xcode-26-claude-opus-4-6/
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/xcode-26-claude-opus-4-6.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/xcode-26-claude-opus-4-6.png"
 categories:
   - Development
   - Apple

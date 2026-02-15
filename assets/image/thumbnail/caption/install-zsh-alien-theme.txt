@@ -1,0 +1,7 @@
+Zsh Alien 테마 설치하기
+
+macOS에서 Oh My Zsh의 Alien 테마를 설치하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/pc/macos/install-zsh-ailen-theme
+
+#PC #macOS #Oh-My-Zsh #Terminal #Zsh #Shell #Theme

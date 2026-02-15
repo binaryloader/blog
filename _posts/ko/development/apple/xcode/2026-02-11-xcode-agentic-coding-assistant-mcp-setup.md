@@ -6,7 +6,9 @@ date: 2026-02-11T19:37+09:00
 last_modified_at: 2026-02-11T19:37+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/xcode-agentic-coding-assistant-mcp-setup.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/xcode-agentic-coding-assistant-mcp-setup.png"
 categories:
   - Development
   - Apple

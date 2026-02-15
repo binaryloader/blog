@@ -6,7 +6,9 @@ excerpt: "소수와 합성수의 개념을 정리한다."
 last_modified_at: 2021-06-14T08:13+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/prime-number-and-composition-number.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/prime-number-and-composition-number.png"
 categories:
   - Fundamental
   - Mathematics

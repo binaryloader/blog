@@ -6,7 +6,9 @@ excerpt: "Objective-C의 클래스와 메서드 그리고 인스턴스를 정리
 last_modified_at: 2021-01-15T18:31+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/objective-c-class-instance-method.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/objective-c-class-instance-method.png"
 categories:
   - Development
   - Language

@@ -7,7 +7,9 @@ excerpt: "Objective-C学習に役立つスタディリソースをまとめる�
 last_modified_at: 2019-11-14T13:12+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/objective-c-study-resource-collections.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/objective-c-study-resource-collections.png"
 categories:
   - Development
   - Language

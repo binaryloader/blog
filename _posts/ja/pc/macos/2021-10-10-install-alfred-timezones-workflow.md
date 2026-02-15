@@ -7,7 +7,9 @@ excerpt: "macOS で Alfred TimeZones Workflow をインストールして使用�
 last_modified_at: 2021-10-10T03:05+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/install-alfred-timezones-workflow.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/install-alfred-timezones-workflow.png"
 categories:
   - PC
   - macOS

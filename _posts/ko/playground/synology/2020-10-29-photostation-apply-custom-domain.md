@@ -6,7 +6,9 @@ excerpt: "Synology Photo Station에 커스텀 도메인을 연결하는 방법�
 last_modified_at: 2020-11-05T21:30+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/photostation-apply-custom-domain.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/photostation-apply-custom-domain.png"
 categories:
   - Playground
   - Synology

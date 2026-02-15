@@ -7,7 +7,9 @@ excerpt: "Spring 5 の開発環境を構築する方法をまとめる。"
 last_modified_at: 2020-04-30T21:26+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/spring-development-environment-establishment.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/spring-development-environment-establishment.png"
 categories:
   - Development
   - Server

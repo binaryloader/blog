@@ -8,7 +8,9 @@ published: true
 lang: ja
 permalink: /ja/:categories/:title/
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/the-end-of-developer-scarcity.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/the-end-of-developer-scarcity.png"
 categories:
   - Writing
   - Column

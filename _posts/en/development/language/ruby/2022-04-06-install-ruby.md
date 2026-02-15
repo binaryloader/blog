@@ -7,7 +7,9 @@ excerpt: "How to install Ruby using rbenv on macOS."
 last_modified_at: 2022-04-06T13:03+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/install-ruby.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/install-ruby.png"
 categories:
   - Development
   - Language

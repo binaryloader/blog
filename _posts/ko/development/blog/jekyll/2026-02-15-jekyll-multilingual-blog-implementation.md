@@ -6,7 +6,9 @@ date: 2026-02-15T00:30+09:00
 last_modified_at: 2026-02-15T00:30+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/jekyll-multilingual-blog-implementation.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/jekyll-multilingual-blog-implementation.png"
 categories:
   - Development
   - Blog

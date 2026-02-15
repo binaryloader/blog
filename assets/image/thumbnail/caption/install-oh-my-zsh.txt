@@ -1,0 +1,7 @@
+Oh My Zsh 설치하기
+
+macOS에서 Oh My Zsh를 설치하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/pc/macos/install-oh-my-zsh
+
+#PC #macOS #Oh-My-Zsh #Terminal #Zsh #Shell

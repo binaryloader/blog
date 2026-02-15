@@ -6,7 +6,9 @@ excerpt: "macOS에서 ssh-keygen을 이용하여 SSH 키를 생성하는 방법�
 last_modified_at: 2021-10-10T04:36+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/generating-ssh-keys.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/generating-ssh-keys.png"
 categories:
   - PC
   - macOS

@@ -1,0 +1,7 @@
+OpenJDK 설치하기
+
+macOS에서 Homebrew를 이용하여 Eclipse Temurin OpenJDK를 설치하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/language/java/installing-openjdk
+
+#Development #Language #Java #JDK #OpenJDK #Homebrew #Temurin

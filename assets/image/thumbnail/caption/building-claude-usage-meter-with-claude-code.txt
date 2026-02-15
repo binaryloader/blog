@@ -1,0 +1,7 @@
+Claude Code로 Claude Code 모니터링 앱 만들기
+
+Claude Code를 사용해 자기 자신의 사용량을 모니터링하는 macOS 메뉴바 앱을 만든 경험을 공유한다.
+
+https://blog.binaryloader.io/ko/development/apple/macos/building-claude-usage-meter-with-claude-code
+
+#Development #Apple #macOS #SwiftUI #ClaudeCode #MenuBarExtra #SwiftPackageManager

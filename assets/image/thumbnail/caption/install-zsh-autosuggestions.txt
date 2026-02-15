@@ -1,0 +1,7 @@
+Zsh 자동 완성 플러그인 설치하기
+
+macOS에서 zsh-autosuggestions 플러그인을 설치하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/pc/macos/install-zsh-autosuggestions
+
+#PC #macOS #Oh-My-Zsh #Terminal #Zsh #Shell #Plugin

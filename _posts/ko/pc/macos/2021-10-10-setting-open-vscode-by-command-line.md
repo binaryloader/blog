@@ -6,7 +6,9 @@ excerpt: "macOS에서 터미널을 통해 Visual Studio Code를 여는 방법을
 last_modified_at: 2021-10-10T05:09+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/setting-open-vscode-by-command-line.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/setting-open-vscode-by-command-line.png"
 categories:
   - PC
   - macOS

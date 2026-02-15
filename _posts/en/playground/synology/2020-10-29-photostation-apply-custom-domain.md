@@ -7,7 +7,9 @@ excerpt: "A guide on how to connect a custom domain to Synology Photo Station."
 last_modified_at: 2020-11-05T21:30+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/photostation-apply-custom-domain.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/photostation-apply-custom-domain.png"
 categories:
   - Playground
   - Synology

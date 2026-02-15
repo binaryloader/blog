@@ -8,7 +8,9 @@ last_modified_at: 2024-11-19T14:12+09:00
 published: true
 permalink: /ja/development/language/java/installing-openjdk/
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/installing-openjdk.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/installing-openjdk.png"
 categories:
   - Development
   - Language

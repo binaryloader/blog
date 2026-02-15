@@ -1,0 +1,7 @@
+Xcode 26.3에서 Claude Opus 4.6 사용하기
+
+Xcode 26.3에서 Claude Opus 4.6 모델을 Agentic Coding Assistant로 설정하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/apple/xcode/xcode-26-claude-opus-4-6
+
+#Development #Apple #Xcode #ClaudeCode #ClaudeOpus #AI #AgenticCodingAssistant

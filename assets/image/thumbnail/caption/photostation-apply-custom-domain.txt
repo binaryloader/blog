@@ -1,0 +1,7 @@
+Photo Station 커스텀 도메인 연결하기
+
+Synology Photo Station에 커스텀 도메인을 연결하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/playground/synology/photostation-apply-custom-domain
+
+#Playground #Synology #PhotoStation #NAS #Nginx #Domain

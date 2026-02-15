@@ -7,7 +7,9 @@ excerpt: "Bundler で gem のパスを確認する方法をまとめる。"
 last_modified_at: 2022-07-21T15:58+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/bundle-show-paths.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/bundle-show-paths.png"
 categories:
   - Development
   - Language

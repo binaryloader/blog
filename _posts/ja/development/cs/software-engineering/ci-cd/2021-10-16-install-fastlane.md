@@ -7,7 +7,9 @@ lang: ja
 last_modified_at: 2021-10-16T04:32+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/install-fastlane.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/install-fastlane.png"
 categories:
   - Development
   - CS

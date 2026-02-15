@@ -8,7 +8,9 @@ published: true
 lang: en
 permalink: /en/:categories/:title/
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/building-claude-usage-meter-with-claude-code.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/building-claude-usage-meter-with-claude-code.png"
 categories:
   - Development
   - Apple

@@ -1,0 +1,7 @@
+fastlane 업데이트 확인 로그 및 변경사항 로그 끄기
+
+fastlane의 업데이트 확인 로그와 변경사항 로그를 끄는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/cs/software-engineering/ci/cd/fastlane-skip-update-check-log-and-hide-changelog
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #Log #iOS #Automation

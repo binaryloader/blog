@@ -155,6 +155,7 @@ exclude:
   - staticman.yml
   - "*.gemspec"
   - tmp
+  - tools
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
 keep_files:

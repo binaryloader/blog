@@ -8,7 +8,9 @@ date: 2026-02-11T00:00+09:00
 last_modified_at: 2026-02-11T00:00+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/synology-vpn-server-setup.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/synology-vpn-server-setup.png"
 categories:
   - Playground
   - Synology

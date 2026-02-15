@@ -1,0 +1,7 @@
+설치하기
+
+macOS에서 CocoaPods를 설치하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/apple/cocoapods/install-cocoapods
+
+#Development #Apple #CocoaPods #iOS #Ruby #PackageManagement

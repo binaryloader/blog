@@ -7,7 +7,9 @@ lang: ja
 last_modified_at: 2021-10-20T13:34+09:00
 published: true
 header:
-  overlay_color: "#202020"
+  overlay_image: "/assets/image/thumbnail/header/create-fastlane-plugin.png"
+  overlay_filter: "0.1"
+  teaser: "/assets/image/thumbnail/teaser/create-fastlane-plugin.png"
 categories:
   - Development
   - CS
