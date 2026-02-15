@@ -321,7 +321,7 @@ previousAngle = newRotation
 
 #### CADisplayLink
 
-`CADisplayLink`는 화면이 갱신될 때마다(보통 초당 60회) 호출되는 타이머다.
+`CADisplayLink`는 화면 주사율에 동기화되어 매 프레임마다 호출되는 타이머다.
 
 ```swift
 displayLink = CADisplayLink(target: self, selector: #selector(step))

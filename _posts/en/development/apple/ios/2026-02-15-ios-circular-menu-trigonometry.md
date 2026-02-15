@@ -323,7 +323,7 @@ Instead of stopping abruptly when the touch ends, the menu gradually slows down 
 
 #### CADisplayLink
 
-`CADisplayLink` is a timer that fires every time the screen refreshes (typically 60 times per second).
+`CADisplayLink` is a timer synchronized with the display's refresh rate, firing once per frame.
 
 ```swift
 displayLink = CADisplayLink(target: self, selector: #selector(step))

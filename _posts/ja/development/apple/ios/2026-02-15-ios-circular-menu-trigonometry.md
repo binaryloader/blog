@@ -323,7 +323,7 @@ previousAngle = newRotation
 
 #### CADisplayLink
 
-`CADisplayLink`は画面が更新されるたびに(通常秒間60回)呼ばれるタイマーだ。
+`CADisplayLink`はディスプレイのリフレッシュレートに同期し、毎フレーム呼ばれるタイマーだ。
 
 ```swift
 displayLink = CADisplayLink(target: self, selector: #selector(step))
