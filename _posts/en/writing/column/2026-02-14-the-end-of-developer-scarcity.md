@@ -3,7 +3,7 @@ title: "[Column] 'We Can't Build It Without a Developer' No Longer Holds"
 ref: the-end-of-developer-scarcity
 excerpt: "AI coding tools have completely reshaped developer scarcity. Where does a developer's value lie now?"
 date: 2026-02-14T23:55+09:00
-last_modified_at: 2026-02-15T13:09+09:00
+last_modified_at: 2026-02-15T16:11+09:00
 published: true
 lang: en
 permalink: /en/:categories/:title/
@@ -97,7 +97,7 @@ As models advanced through generations, that conviction slowly wavered. Code ass
 
 That was until just two months ago.
 
-The emotion I felt when I first used Claude Opus 4.6 was unmistakable: this is serious. There was something qualitatively different from previous models. I no longer needed to give detailed follow-up instructions on every output. Before, I had to meticulously review AI-generated code, make corrections, and go through rounds of re-prompting. Now it's different. I can review it the way I'd review a colleague's pull request — drop a single comment like "wouldn't this approach be better here?" — and that's enough. It grasps the intent precisely, maintains context, and delivers results that reflect the direction I suggested. Sometimes it even proposes a better approach than what I had in mind.
+When I first used Claude Opus 4.6, two emotions hit me at once. This is serious. And this is exciting. The fear of my standing as a developer being shaken to its core. Yet at the same time, the thrill of realizing I could now have the kind of reassurance you feel working alongside dependable colleagues at the office — except available anywhere, 24 hours a day. It was like having several trustworthy, highly skilled technicians by my side at all times. There was something qualitatively different from previous models. I no longer needed to give detailed follow-up instructions on every output. Before, I had to meticulously review AI-generated code, make corrections, and go through rounds of re-prompting. Now it's different. I can review it the way I'd review a colleague's pull request — drop a single comment like "wouldn't this approach be better here?" — and that's enough. It grasps the intent precisely, maintains context, and delivers results that reflect the direction I suggested. Sometimes it even proposes a better approach than what I had in mind.
 
 What sent a deeper chill down my spine was using a code review agent. Write up review guidelines in a document and run the agent, and it reviews code more thoroughly than I do. Naming consistency, missing error handling, potential performance issues, security vulnerabilities — things I miss when I'm tired or unfocused, the AI catches at the same quality level every time. An entity that follows my own guidelines more faithfully than I do. I was speechless at the irony.
 
