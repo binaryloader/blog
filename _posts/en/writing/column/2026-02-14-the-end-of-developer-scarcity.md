@@ -3,7 +3,7 @@ title: "[Column] 'We Can't Build It Without a Developer' No Longer Holds"
 ref: the-end-of-developer-scarcity
 excerpt: "AI coding tools have completely reshaped developer scarcity. Where does a developer's value lie now?"
 date: 2026-02-14T23:55+09:00
-last_modified_at: 2026-02-14T23:55+09:00
+last_modified_at: 2026-02-15T13:09+09:00
 published: true
 lang: en
 permalink: /en/:categories/:title/
@@ -84,6 +84,24 @@ AI coding tools have completely eliminated that supply shortage. Now anyone with
 This is a historically recurring pattern. Before the printing press, scribes who could copy texts were rare and valuable. There was an era when typists were considered professionals. When computers became widespread, those roles vanished. When a skill becomes democratized, the scarcity of those who possess it evaporates. Coding is following the same path.
 
 Of course, senior developers, infrastructure engineers, and security specialists are still needed. But they're needed after a service has gained traction. At the early stage, AI has taken over a significant portion of what developers used to handle.
+
+# Water Up to My Chin
+
+I'm no exception to what I've been writing about.
+
+I've been using LLMs since their earliest days. I watched from the GPT-2 era when it strung together awkward sentences, and even when GPT-3 drew reactions of "this is something different," I shook my head at code generation demos. It couldn't even write a simple function properly — replace developers? When I actually used these tools for real work, the limitations were clear. They lost context, generated nonsensical code, and fell apart at the slightest complexity. The gap between impressive demos and real-world work was wider than people thought.
+
+This pattern repeated with every new model. A splashy launch, stunning benchmarks, ecstatic reactions. Then the limits revealed themselves once you applied it to actual work. "Impressive, but still far off" was my conclusion every time. Honestly, I was skeptical about the prospect of AI replacing the entire development field. I believed coding was a fundamentally different problem from simply generating text. The ability to understand systems, maintain context, and grasp how hundreds of files interlock — I was convinced this was a domain LLMs couldn't reach.
+
+As models advanced through generations, that conviction slowly wavered. Code assistants became increasingly useful and clearly saved time on repetitive tasks. "Maybe in five years the landscape will look quite different." Five became four. Four became three. Still, I felt relatively at ease, because I believed there was a fundamental difference between AI boosting developer productivity as an assistive tool and AI replacing developers altogether. I reassured myself that my lifespan as a developer was still considerable.
+
+That was until just two months ago.
+
+The emotion I felt when I first used Claude Opus 4.6 was unmistakable: this is serious. There was something qualitatively different from previous models. I no longer needed to give detailed follow-up instructions on every output. Before, I had to meticulously review AI-generated code, make corrections, and go through rounds of re-prompting. Now it's different. I can review it the way I'd review a colleague's pull request — drop a single comment like "wouldn't this approach be better here?" — and that's enough. It grasps the intent precisely, maintains context, and delivers results that reflect the direction I suggested. Sometimes it even proposes a better approach than what I had in mind.
+
+What sent a deeper chill down my spine was using a code review agent. Write up review guidelines in a document and run the agent, and it reviews code more thoroughly than I do. Naming consistency, missing error handling, potential performance issues, security vulnerabilities — things I miss when I'm tired or unfocused, the AI catches at the same quality level every time. An entity that follows my own guidelines more faithfully than I do. I was speechless at the irony.
+
+For the past two months, I've been feeling a real crisis. This isn't some vague story about the future — it's a reality I'm experiencing every single day. AI is better today than yesterday. It will be better tomorrow than today. At this pace, even the three years I was comfortably counting down might be a luxurious expectation. The chilling thought that my lifespan as a developer may not have much left. Like water that had risen to my chin — the reality had crept up right in front of me before I noticed.
 
 # The New Rules of the Game
 
