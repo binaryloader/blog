@@ -137,3 +137,4 @@ node tools/thumbnail/generate.js --all --force    # 강제 재생성
 - 이미지에 `max-width`를 지정할 때는 `min(원하는값, 100%)`를 사용한다 (예: `style="max-width: min(400px, 100%);"`)
 - 참고 섹션의 링크는 타이틀 없이 URL만 표기한다 (예: `- <https://example.com>`)
 - 코드 예제가 실제 저장소의 소스 코드를 참조하는 경우 개행과 버전을 실제 소스와 일치시킨다
+- 경험 공유나 이야기 형식의 포스트는 콜론(:)과 bullet point를 과도하게 사용하지 않고 자연스러운 서술체로 작성한다 (절차 가이드나 설정 문서와 구분한다)
