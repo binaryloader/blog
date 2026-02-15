@@ -162,19 +162,19 @@ center + actual distance = final coordinate
 
 Place 8 icons clockwise from 12 o'clock with center (200, 200) and radius 120.
 
-#### Step 1: Full circle in radians
+#### 4.2.1. Full circle in radians
 
 ```
 2 × π = 2 × 3.14159 = 6.28318 radians
 ```
 
-#### Step 2: Divide into 8 slices
+#### 4.2.2. Divide into 8 slices
 
 ```
 6.28318 ÷ 8 = 0.78540 radians (= 45°)
 ```
 
-#### Step 3: Move start to 12 o'clock
+#### 4.2.3. Move start to 12 o'clock
 
 0° points to 3 o'clock (right). To reach 12 o'clock, go back 1/4 turn.
 
@@ -183,7 +183,7 @@ Place 8 icons clockwise from 12 o'clock with center (200, 200) and radius 120.
 Backward (negative): -1.5708 radians (= -90°)
 ```
 
-#### Step 4: Each icon's angle
+#### 4.2.4. Each icon's angle
 
 Formula: `-1.5708 + i × 0.78540`
 
@@ -198,7 +198,7 @@ i=6:  -1.5708 + 6 × 0.7854 =  3.1416  → 180°  (9 o'clock)
 i=7:  -1.5708 + 7 × 0.7854 =  3.9270  → 225°  (10-11 o'clock)
 ```
 
-#### Step 5: Get cos/sin ratios
+#### 4.2.5. Get cos/sin ratios
 
 Input is radians, output is a ratio between -1 and 1.
 
@@ -213,7 +213,7 @@ i=6:  cos(3.1416) =-1.0000   sin(3.1416) = 0.0000  (left 100%, no vert)
 i=7:  cos(3.9270) =-0.7071   sin(3.9270) =-0.7071  (left 70.7%, up 70.7%)
 ```
 
-#### Step 6: Multiply by radius (120)
+#### 4.2.6. Multiply by radius (120)
 
 Multiplying the ratio by the radius gives the actual distance in points.
 
@@ -228,7 +228,7 @@ i=6:  horiz -1.0000 × 120 = -120     vert  0.0000 × 120 =    0
 i=7:  horiz -0.7071 × 120 =  -84.9   vert -0.7071 × 120 =  -84.9
 ```
 
-#### Step 7: Add center coordinates (200, 200)
+#### 4.2.7. Add center coordinates (200, 200)
 
 ```
 i=0:  x = 200 +    0   = 200    y = 200 + (-120)  =  80    (12 o'clock)

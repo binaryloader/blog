@@ -94,7 +94,7 @@ Separating spec repos by layer enables fine-grained access control within a team
 
 General-purpose libraries not tied to any specific app. They can be used as-is in other projects.
 
-### BinaryLoaderNetwork
+### 3.1. BinaryLoaderNetwork
 
 A network abstraction layer wrapping Moya.
 
@@ -157,7 +157,7 @@ public typealias MoyaError = Moya.MoyaError
 
 This way, if Moya changes its type names across versions, only the wrapping file needs to be updated, minimizing the blast radius of changes.
 
-### BinaryLoaderDIContainer
+### 3.2. BinaryLoaderDIContainer
 
 A Property Wrapper-based dependency injection container. Dependencies are declared with `@Injectable` and registered with `Container.shared.register(type:)`.
 
@@ -170,7 +170,7 @@ Pod::Spec.new do |s|
 end
 ```
 
-### BinaryLoaderUI
+### 3.3. BinaryLoaderUI
 
 UI components are split into subspecs so only the needed parts are included.
 
@@ -193,7 +193,7 @@ Setting `default_subspec = :none` means `pod 'BinaryLoaderUI'` alone includes no
 
 The layer for app-specific business logic. It depends on the Foundation layer and is consumed by the Scene layer.
 
-### APIService
+### 4.1. APIService
 
 Encapsulates network API calls. Features are split into subspecs.
 
@@ -258,7 +258,7 @@ extension AuthNetworkTarget: NetworkTarget {
 }
 ```
 
-### Dependencies
+### 4.2. Dependencies
 
 Defines inter-scene dependency interfaces as protocols. Scene modules depend only on these protocols and don't need to know the concrete implementations.
 
@@ -379,7 +379,7 @@ final class LoginRouter: NSObject, LoginRoutingLogic {
 
 The App layer serves as the entry point that assembles all modules.
 
-### Podfile
+### 6.1. Podfile
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -403,7 +403,7 @@ end
 
 By specifying only the Scene Pod, CocoaPods resolves the dependency graph and automatically installs all pods from lower layers.
 
-### DI Container Registration
+### 6.2. DI Container Registration
 
 The App layer registers each Scene's DependencyItem into the DI Container.
 
@@ -424,7 +424,7 @@ extension DependencyContainer {
 }
 ```
 
-### App Launch
+### 6.3. App Launch
 
 ```swift
 // AppDelegate.swift

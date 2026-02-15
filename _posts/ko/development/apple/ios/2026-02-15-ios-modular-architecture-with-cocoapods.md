@@ -92,7 +92,7 @@ CocoaPods Private Spec Repo를 활용하여 iOS 프로젝트를 계층별 모듈
 
 앱에 종속되지 않는 범용 라이브러리다. 다른 프로젝트에서도 그대로 가져다 쓸 수 있다.
 
-### BinaryLoaderNetwork
+### 3.1. BinaryLoaderNetwork
 
 Moya를 래핑한 네트워크 추상화 레이어다.
 
@@ -155,7 +155,7 @@ public typealias MoyaError = Moya.MoyaError
 
 이렇게 하면 Moya 버전이 변경되어 타입명이 바뀌더라도 래핑 파일만 수정하면 되므로 하위 모듈의 변경 범위를 최소화할 수 있다.
 
-### BinaryLoaderDIContainer
+### 3.2. BinaryLoaderDIContainer
 
 Property Wrapper 기반의 의존성 주입 컨테이너다. `@Injectable`로 의존성을 선언하고 `Container.shared.register(type:)`으로 등록한다.
 
@@ -168,7 +168,7 @@ Pod::Spec.new do |s|
 end
 ```
 
-### BinaryLoaderUI
+### 3.3. BinaryLoaderUI
 
 UI 컴포넌트를 subspec으로 분리하여 필요한 것만 선택적으로 사용할 수 있다.
 
@@ -191,7 +191,7 @@ end
 
 앱 고유의 비즈니스 로직을 담당하는 계층이다. Foundation 레이어에 의존하며 Scene 레이어에서 사용된다.
 
-### APIService
+### 4.1. APIService
 
 네트워크 API 호출을 캡슐화한다. 기능별로 subspec을 분리한다.
 
@@ -256,7 +256,7 @@ extension AuthNetworkTarget: NetworkTarget {
 }
 ```
 
-### Dependencies
+### 4.2. Dependencies
 
 Scene 간 의존성 인터페이스를 프로토콜로 정의한다. Scene 모듈은 이 프로토콜에만 의존하므로 구체적인 구현을 알 필요가 없다.
 
@@ -377,7 +377,7 @@ final class LoginRouter: NSObject, LoginRoutingLogic {
 
 App 레이어는 모든 모듈을 조립하는 진입점 역할을 한다.
 
-### Podfile
+### 6.1. Podfile
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -401,7 +401,7 @@ end
 
 Scene Pod만 명시하면 CocoaPods가 의존성 그래프를 해석하여 하위 계층의 모든 Pod을 자동으로 설치한다.
 
-### DI Container 등록
+### 6.2. DI Container 등록
 
 App 레이어에서 각 Scene의 DependencyItem을 DI Container에 등록한다.
 
@@ -422,7 +422,7 @@ extension DependencyContainer {
 }
 ```
 
-### 앱 시작
+### 6.3. 앱 시작
 
 ```swift
 // AppDelegate.swift

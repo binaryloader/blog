@@ -94,7 +94,7 @@ CocoaPods Private Spec Repoを活用してiOSプロジェクトをレイヤー�
 
 アプリに依存しない汎用ライブラリである。他のプロジェクトでもそのまま利用できる。
 
-### BinaryLoaderNetwork
+### 3.1. BinaryLoaderNetwork
 
 Moyaをラップしたネットワーク抽象化レイヤーである。
 
@@ -157,7 +157,7 @@ public typealias MoyaError = Moya.MoyaError
 
 これによりMoyaのバージョンアップで型名が変更されてもラッピングファイルのみ修正すれば済むため下位モジュールへの変更範囲を最小化できる。
 
-### BinaryLoaderDIContainer
+### 3.2. BinaryLoaderDIContainer
 
 Property Wrapperベースの依存性注入コンテナである。`@Injectable`で依存性を宣言し`Container.shared.register(type:)`で登録する。
 
@@ -170,7 +170,7 @@ Pod::Spec.new do |s|
 end
 ```
 
-### BinaryLoaderUI
+### 3.3. BinaryLoaderUI
 
 UIコンポーネントをsubspecで分離し必要なものだけ選択的に使用できる。
 
@@ -193,7 +193,7 @@ end
 
 アプリ固有のビジネスロジックを担当するレイヤーである。Foundationレイヤーに依存しSceneレイヤーから利用される。
 
-### APIService
+### 4.1. APIService
 
 ネットワークAPI呼び出しをカプセル化する。機能別にsubspecを分離する。
 
@@ -258,7 +258,7 @@ extension AuthNetworkTarget: NetworkTarget {
 }
 ```
 
-### Dependencies
+### 4.2. Dependencies
 
 Scene間の依存性インターフェースをプロトコルで定義する。Sceneモジュールはこのプロトコルにのみ依存するため具体的な実装を知る必要がない。
 
@@ -379,7 +379,7 @@ final class LoginRouter: NSObject, LoginRoutingLogic {
 
 Appレイヤーはすべてのモジュールを組み立てるエントリポイントの役割を担う。
 
-### Podfile
+### 6.1. Podfile
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -424,7 +424,7 @@ extension DependencyContainer {
 }
 ```
 
-### アプリ起動
+### 6.3. アプリ起動
 
 ```swift
 // AppDelegate.swift
