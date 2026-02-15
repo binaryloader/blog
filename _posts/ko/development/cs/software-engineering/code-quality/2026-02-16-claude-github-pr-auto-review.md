@@ -11,8 +11,9 @@ header:
   teaser: "/assets/image/thumbnail/teaser/ko/claude-github-pr-auto-review.png"
 categories:
   - Development
-  - SCM
-  - GitHub
+  - CS
+  - Software-Engineering
+  - Code-Quality
 tags:
   - Development
   - GitHub
@@ -24,10 +25,12 @@ tags:
 depth:
   - title: "Development"
     url: /ko/development/
-  - title: "SCM"
-    url: /ko/development/scm/
-  - title: "GitHub"
-    url: /ko/development/scm/github/
+  - title: "CS"
+    url: /ko/development/cs/
+  - title: "Software Engineering"
+    url: /ko/development/cs/software-engineering/
+  - title: "Code Quality"
+    url: /ko/development/cs/software-engineering/code-quality/
 ---
 
 # 개요
@@ -52,9 +55,7 @@ depth:
 
 ### 2.1. CodeRabbit 검토
 
-처음엔 AI 코드 리뷰 도구로 유명한 CodeRabbit을 고려했다. 하지만 무료 플랜은 Public 저장소만 지원했고 우리 프로젝트는 Private 저장소를 사용 중이었다. 무료 버전에서는 PR 요약 정도만 제공되고 상세한 인라인 코드 리뷰는 유료 플랜에서만 가능했다.
-
-이미 Claude Max 플랜을 구독하고 있었고 매달 토큰을 다 쓰지도 못하는 상황에서 별도로 유료 플랜을 결제하는 건 비효율적이었다.
+처음엔 AI 코드 리뷰 도구로 유명한 CodeRabbit을 고려했다. 하지만 무료 플랜은 Public 저장소만 지원했고 우리 프로젝트는 Private 저장소를 사용 중이었다. 무료 버전에서는 PR 요약 정도만 제공되고 상세한 인라인 코드 리뷰는 유료 플랜에서만 가능했다. 이미 Claude Max 플랜을 구독하고 있었고 매달 토큰을 다 쓰지도 못하는 상황에서 별도로 유료 플랜을 결제하는 건 비효율적이었다.
 
 ### 2.2. Claude Code Action 선택
 
@@ -213,25 +214,24 @@ jobs:
             --system-prompt "모든 응답과 코멘트는 한국어로 작성해주세요."
 ```
 
-### 3.4. Fork 기반 Git Flow 대응
+### 3.4. fork 기반 Git Flow 대응
 
-팀원들이 fork한 저장소에서 PR을 올리는 Git Flow를 사용하는데 초기에는 fork PR에서 워크플로우가 트리거되지 않았다. **해결:**
-1. Organization 설정에서 fork PR 워크플로우 권한 활성화:
-   - "Send write tokens to workflows from fork pull requests"
-   - "Send secrets to workflows from fork pull requests"
-2. Fork PR의 브랜치를 base 저장소에 임시로 생성했다가 삭제하는 workaround 적용
+우리는 각자 fork한 저장소에서 PR을 올리는 Git Flow를 사용하는데 초기에는 fork PR에서 워크플로우가 트리거되지 않았다. 우리는 아래와 같이 해결했다.
+
+- Organization 설정에서 fork PR 워크플로우 권한 활성화: "Send write tokens to workflows from fork pull requests"와 "Send secrets to workflows from fork pull requests" 옵션을 모두 켰다
+- fork PR의 브랜치를 base 저장소에 임시로 생성했다가 삭제하는 workaround 적용
 
 ## 4. 결과
 
 ### 4.1. PR 본문 자동 업데이트
 
-![PR 본문 예시]({{site.baseurl}}/assets/image/post/development/scm/github/claude-github-pr-auto-review/pr-body-example.png){: style="max-width: min(800px, 100%);"}
+![PR 본문 예시]({{site.baseurl}}/assets/image/post/development/cs/software-engineering/code-quality/claude-github-pr-auto-review/pr-body-example.png){: style="max-width: min(800px, 100%);"}
 
 PR이 열리면 Claude가 자동으로 관련 이슈 링크를 추가하고 변경 사항을 bullet point로 요약하며 Mermaid 시퀀스 다이어그램으로 주요 흐름을 시각화하고 전반적인 아키텍처와 설계에 대한 피드백을 제공한다.
 
 ### 4.2. 인라인 코드 리뷰
 
-![인라인 리뷰 예시]({{site.baseurl}}/assets/image/post/development/scm/github/claude-github-pr-auto-review/inline-review-example.png){: style="max-width: min(800px, 100%);"}
+![인라인 리뷰 예시]({{site.baseurl}}/assets/image/post/development/cs/software-engineering/code-quality/claude-github-pr-auto-review/inline-review-example.png){: style="max-width: min(800px, 100%);"}
 
 특정 코드 라인에 대해 잠재적 버그를 지적하고 코드 예시와 함께 개선 방안을 제시하며 문제 원인과 해결 방법을 상세히 설명한다.
 
@@ -251,13 +251,7 @@ PR 코멘트에 `@claude`를 멘션하면 언제든 추가 질문이 가능하�
 
 ### 5.2. 정성적 효과
 
-코드 품질이 개선되었다. 미처 생각하지 못한 엣지 케이스나 잠재적 버그를 발견하고 Python 베스트 프랙티스를 학습할 수 있었다.
-
-도메인 지식 격차도 해소되었다. AI 에이전트 개발에 익숙하지 않은 팀원도 Claude의 상세한 리뷰를 통해 도메인 특화 이슈를 파악할 수 있고 현업 전문가가 놓칠 수 있는 기본적인 코드 품질 이슈도 자동으로 체크된다.
-
-문서화도 자동화되었다. PR 본문에 자동으로 요약과 다이어그램이 생성되어 히스토리 추적이 용이해졌다.
-
-심리적 부담도 감소했다. "리뷰해야 하는데..."하는 부담이 줄어들었고 Claude 리뷰를 기반으로 빠르게 승인할 수 있게 되었다.
+코드 품질이 개선되었다. 미처 생각하지 못한 엣지 케이스나 잠재적 버그를 발견하고 Python 베스트 프랙티스를 학습할 수 있었다. 도메인 지식 격차도 해소되었다. 나처럼 AI 에이전트 개발에 익숙하지 않아도 Claude의 상세한 리뷰를 통해 도메인 특화 이슈를 파악할 수 있고 현업 전문가가 놓칠 수 있는 기본적인 코드 품질 이슈도 자동으로 체크된다. 문서화도 자동화되었다. PR 본문에 자동으로 요약과 다이어그램이 생성되어 히스토리 추적이 용이해졌다. 심리적 부담도 감소했다. "리뷰해야 하는데..."하는 부담이 줄어들었고 Claude 리뷰를 기반으로 빠르게 승인할 수 있게 되었다.
 
 ## 6. 한계점
 
@@ -269,9 +263,9 @@ Claude도 틀릴 수 있다. 프로젝트 특수한 컨텍스트를 모르거나
 
 처음엔 모든 리뷰가 코멘트로 달려서 PR이 지저분했다. 프롬프트를 계속 수정하면서 일반적인 피드백은 PR 본문에, 코드 라인별 구체적인 이슈만 인라인 코멘트로 분리하는 데 여러 번의 시행착오가 있었다.
 
-### 6.3. Fork PR 이슈
+### 6.3. fork PR 이슈
 
-Fork 기반 Git Flow를 쓴다면 Organization 설정과 워크플로우 workaround가 필요하다. 이 부분은 공식 문서에 명확히 나와 있지 않아서 삽질을 좀 했다.
+fork 기반 Git Flow를 쓴다면 Organization 설정과 워크플로우 workaround가 필요하다. 이 부분은 공식 문서에 명확히 나와 있지 않아서 삽질을 좀 했다.
 
 ## 7. 마치며
 

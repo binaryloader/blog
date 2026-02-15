@@ -13,8 +13,9 @@ header:
   teaser: "/assets/image/thumbnail/teaser/ja/claude-github-pr-auto-review.png"
 categories:
   - Development
-  - SCM
-  - GitHub
+  - CS
+  - Software-Engineering
+  - Code-Quality
 tags:
   - Development
   - GitHub
@@ -26,10 +27,12 @@ tags:
 depth:
   - title: "Development"
     url: /ja/development/
-  - title: "SCM"
-    url: /ja/development/scm/
-  - title: "GitHub"
-    url: /ja/development/scm/github/
+  - title: "CS"
+    url: /ja/development/cs/
+  - title: "Software Engineering"
+    url: /ja/development/cs/software-engineering/
+  - title: "Code Quality"
+    url: /ja/development/cs/software-engineering/code-quality/
 ---
 
 # 概要
@@ -54,9 +57,7 @@ depth:
 
 ### 2.1. CodeRabbitの検討
 
-最初はAIコードレビューツールとして有名なCodeRabbitを考慮した。しかし無料プランはPublicリポジトリのみサポートしており、私たちのプロジェクトはPrivateリポジトリを使用中だった。無料バージョンではPRサマリー程度しか提供されず、詳細なインラインコードレビューは有料プランでのみ可能だった。
-
-すでにClaude Maxプランを購読しており、毎月トークンを使い切れていない状況で別途有料プランを決済するのは非効率的だった。
+最初はAIコードレビューツールとして有名なCodeRabbitを考慮した。しかし無料プランはPublicリポジトリのみサポートしており、私たちのプロジェクトはPrivateリポジトリを使用中だった。無料バージョンではPRサマリー程度しか提供されず、詳細なインラインコードレビューは有料プランでのみ可能だった。すでにClaude Maxプランを購読しており、毎月トークンを使い切れていない状況で別途有料プランを決済するのは非効率的だった。
 
 ### 2.2. Claude Code Actionの選択
 
@@ -215,25 +216,21 @@ jobs:
             --system-prompt "すべての応答とコメントは日本語で作成してください。"
 ```
 
-### 3.4. Fork基盤Git Flow対応
+### 3.4. fork基盤Git Flow対応
 
-チームメンバーがforkしたリポジトリからPRを上げるGit Flowを使用しているが、初期にはfork PRでワークフローがトリガーされなかった。**解決:**
-1. Organization設定でfork PRワークフロー権限を有効化:
-   - "Send write tokens to workflows from fork pull requests"
-   - "Send secrets to workflows from fork pull requests"
-2. fork PRのブランチをbaseリポジトリに一時的に作成して削除するworkaroundを適用
+私たちはそれぞれforkしたリポジトリからPRを上げるGit Flowを使用しているが、初期にはfork PRでワークフローがトリガーされなかった。Organization設定でfork PRワークフロー権限を有効化する必要があった。"Send write tokens to workflows from fork pull requests"と"Send secrets to workflows from fork pull requests"オプションを両方有効にした。追加でfork PRのブランチをbaseリポジトリに一時的に作成して削除するworkaroundも適用した。
 
 ## 4. 結果
 
 ### 4.1. PR本文自動更新
 
-![PR本文例]({{site.baseurl}}/assets/image/post/development/scm/github/claude-github-pr-auto-review/pr-body-example.png){: style="max-width: min(800px, 100%);"}
+![PR本文例]({{site.baseurl}}/assets/image/post/development/cs/software-engineering/code-quality/claude-github-pr-auto-review/pr-body-example.png){: style="max-width: min(800px, 100%);"}
 
 PRが開かれるとClaudeが自動的に関連issueリンクを追加し、変更事項をbullet pointで要約し、Mermaidシーケンスダイアグラムで主要な流れを視覚化し、全体的なアーキテクチャと設計に対するフィードバックを提供する。
 
 ### 4.2. インラインコードレビュー
 
-![インラインレビュー例]({{site.baseurl}}/assets/image/post/development/scm/github/claude-github-pr-auto-review/inline-review-example.png){: style="max-width: min(800px, 100%);"}
+![インラインレビュー例]({{site.baseurl}}/assets/image/post/development/cs/software-engineering/code-quality/claude-github-pr-auto-review/inline-review-example.png){: style="max-width: min(800px, 100%);"}
 
 特定のコード行に対して潜在的なバグを指摘し、コード例とともに改善案を提示し、問題の原因と解決方法を詳しく説明する。
 
@@ -253,13 +250,7 @@ PRコメントで`@claude`をメンションすればいつでも追加質問が
 
 ### 5.2. 定性的効果
 
-コード品質が改善された。思いつかなかったエッジケースや潜在的なバグを発見し、Pythonベストプラクティスを学習できた。
-
-ドメイン知識のギャップも解消された。AIエージェント開発に慣れていないチームメンバーもClaudeの詳細なレビューを通じてドメイン特化イシューを把握でき、現業専門家が見落としがちな基本的なコード品質イシューも自動的にチェックされる。
-
-ドキュメント化も自動化された。PR本文に自動的にサマリーとダイアグラムが生成され、履歴追跡が容易になった。
-
-心理的負担も減少した。「レビューしなきゃ...」という負担が減り、Claudeレビューを基に素早く承認できるようになった。
+コード品質が改善された。思いつかなかったエッジケースや潜在的なバグを発見し、Pythonベストプラクティスを学習できた。ドメイン知識のギャップも解消された。AIエージェント開発に慣れていなくても、Claudeの詳細なレビューを通じてドメイン特化イシューを把握でき、現業専門家が見落としがちな基本的なコード品質イシューも自動的にチェックされる。ドキュメント化も自動化された。PR本文に自動的にサマリーとダイアグラムが生成され、履歴追跡が容易になった。心理的負担も減少した。「レビューしなきゃ...」という負担が減り、Claudeレビューを基に素早く承認できるようになった。
 
 ## 6. 限界点
 

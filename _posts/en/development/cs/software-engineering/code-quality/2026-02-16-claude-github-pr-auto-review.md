@@ -13,8 +13,9 @@ header:
   teaser: "/assets/image/thumbnail/teaser/en/claude-github-pr-auto-review.png"
 categories:
   - Development
-  - SCM
-  - GitHub
+  - CS
+  - Software-Engineering
+  - Code-Quality
 tags:
   - Development
   - GitHub
@@ -26,10 +27,12 @@ tags:
 depth:
   - title: "Development"
     url: /en/development/
-  - title: "SCM"
-    url: /en/development/scm/
-  - title: "GitHub"
-    url: /en/development/scm/github/
+  - title: "CS"
+    url: /en/development/cs/
+  - title: "Software Engineering"
+    url: /en/development/cs/software-engineering/
+  - title: "Code Quality"
+    url: /en/development/cs/software-engineering/code-quality/
 ---
 
 # Overview
@@ -54,9 +57,7 @@ There was a more fundamental issue. My brother works professionally in AI agent 
 
 ### 2.1. Considering CodeRabbit
 
-Initially, I considered CodeRabbit, a well-known AI code review tool. However, the free plan only supported public repositories and our project used private repositories. The free version only provided PR summaries, and detailed inline code reviews were only available in paid plans.
-
-I was already subscribing to Claude Max and not even using all the monthly tokens, so paying separately for a premium plan seemed inefficient.
+Initially, I considered CodeRabbit, a well-known AI code review tool. However, the free plan only supported public repositories and our project used private repositories. The free version only provided PR summaries, and detailed inline code reviews were only available in paid plans. I was already subscribing to Claude Max and not even using all the monthly tokens, so paying separately for a premium plan seemed inefficient.
 
 ### 2.2. Choosing Claude Code Action
 
@@ -215,25 +216,24 @@ jobs:
             --system-prompt "Write all responses and comments in English."
 ```
 
-### 3.4. Supporting Fork-based Git Flow
+### 3.4. Supporting fork-based Git Flow
 
-We use a Git Flow where team members fork the repository and submit PRs, but initially the workflow wasn't triggered on fork PRs. **Solution:**
-1. Enable fork PR workflow permissions in Organization settings:
-   - "Send write tokens to workflows from fork pull requests"
-   - "Send secrets to workflows from fork pull requests"
-2. Applied a workaround that temporarily creates the fork PR's branch on the base repository and deletes it afterward
+We use a Git Flow where each of us forks the repository and submits PRs, but initially the workflow wasn't triggered on fork PRs. We solved this as follows:
+
+- Enable fork PR workflow permissions in Organization settings: Turned on both "Send write tokens to workflows from fork pull requests" and "Send secrets to workflows from fork pull requests" options
+- Apply a workaround that temporarily creates the fork PR's branch on the base repository and deletes it afterward
 
 ## 4. Results
 
 ### 4.1. Automatic PR Body Updates
 
-![PR Body Example]({{site.baseurl}}/assets/image/post/development/scm/github/claude-github-pr-auto-review/pr-body-example.png){: style="max-width: min(800px, 100%);"}
+![PR Body Example]({{site.baseurl}}/assets/image/post/development/cs/software-engineering/code-quality/claude-github-pr-auto-review/pr-body-example.png){: style="max-width: min(800px, 100%);"}
 
 When a PR is opened, Claude automatically adds related issue links, summarizes changes as bullet points, visualizes main flow as a Mermaid sequence diagram, and provides overall architecture and design feedback.
 
 ### 4.2. Inline Code Review
 
-![Inline Review Example]({{site.baseurl}}/assets/image/post/development/scm/github/claude-github-pr-auto-review/inline-review-example.png){: style="max-width: min(800px, 100%);"}
+![Inline Review Example]({{site.baseurl}}/assets/image/post/development/cs/software-engineering/code-quality/claude-github-pr-auto-review/inline-review-example.png){: style="max-width: min(800px, 100%);"}
 
 For specific code lines, it points out potential bugs, suggests improvements with code examples, and explains problem causes and solutions in detail.
 
@@ -253,13 +253,7 @@ You can ask additional questions anytime by mentioning `@claude` in PR comments.
 
 ### 5.2. Qualitative Impact
 
-Code quality improved. We discovered edge cases and potential bugs we hadn't thought of and learned Python best practices.
-
-Domain knowledge gaps were bridged. Team members unfamiliar with AI agent development could identify domain-specific issues through Claude's detailed reviews, and basic code quality issues that domain experts might miss were automatically checked.
-
-Documentation was automated. PR bodies automatically generated summaries and diagrams, making history tracking easier.
-
-Psychological burden decreased. The pressure of "I need to review..." diminished, and we could quickly approve based on Claude's reviews.
+Code quality improved. We discovered edge cases and potential bugs we hadn't thought of and learned Python best practices. Domain knowledge gaps were bridged. Even without familiarity with AI agent development, Claude's detailed reviews helped identify domain-specific issues, and basic code quality issues that domain experts might miss were automatically checked. Documentation was automated. PR bodies automatically generated summaries and diagrams, making history tracking easier. Psychological burden decreased. The pressure of "I need to review..." diminished, and we could quickly approve based on Claude's reviews.
 
 ## 6. Limitations
 
@@ -271,7 +265,7 @@ Claude can be wrong. It may not know project-specific context, fail to reflect l
 
 Initially all reviews came as comments making PRs messy. After continuous prompt modifications, we separated general feedback into PR body and only code-line-specific issues as inline comments, which took several trial and error attempts.
 
-### 6.3. Fork PR Issues
+### 6.3. fork PR Issues
 
 If using fork-based Git Flow, Organization settings and workflow workarounds are needed. This wasn't clearly documented and required some trial and error.
 

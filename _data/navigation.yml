@@ -65,6 +65,9 @@ menu:
               - title: "CI/CD"
                 url: /ko/development/cs/software-engineering/ci-cd/
                 category: "CI/CD"
+              - title: "Code Quality"
+                url: /ko/development/cs/software-engineering/code-quality/
+                category: "Code-Quality"
       - title: "Language"
         url: /ko/development/language/
         category: "Language"
@@ -175,6 +178,9 @@ menu-en:
               - title: "CI/CD"
                 url: /en/development/cs/software-engineering/ci-cd/
                 category: "CI/CD"
+              - title: "Code Quality"
+                url: /en/development/cs/software-engineering/code-quality/
+                category: "Code-Quality"
       - title: "Language"
         url: /en/development/language/
         category: "Language"
@@ -285,6 +291,9 @@ menu-ja:
               - title: "CI/CD"
                 url: /ja/development/cs/software-engineering/ci-cd/
                 category: "CI/CD"
+              - title: "Code Quality"
+                url: /ja/development/cs/software-engineering/code-quality/
+                category: "Code-Quality"
       - title: "Language"
         url: /ja/development/language/
         category: "Language"
