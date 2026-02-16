@@ -13,7 +13,7 @@ header:
 categories:
   - Development
   - CS
-  - Software-Engineering
+  - Software Engineering
   - CI/CD
 tags:
   - Development

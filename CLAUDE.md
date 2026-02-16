@@ -130,6 +130,11 @@ node tools/thumbnail/generate.js --all --force    # 강제 재생성
 - `tools/thumbnail/update-frontmatter.js`로 전체 포스트의 header 블록을 일괄 갱신할 수 있다
 - header 이미지는 패턴만 포함하므로 언어 공통이고 teaser/instagram/caption은 언어별로 분리된다
 
+### 카테고리
+
+- 카테고리 이름에는 대시 대신 공백을 사용한다 (예: `Software Engineering`, `Code Quality`)
+- URL에서만 자동으로 소문자+대시로 변환된다 (`software-engineering`)
+
 ### 작성
 
 - Writing 카테고리는 알파벳 순을 무시하고 제일 마지막에 배치한다

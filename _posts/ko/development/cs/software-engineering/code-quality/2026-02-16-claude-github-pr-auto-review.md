@@ -12,8 +12,8 @@ header:
 categories:
   - Development
   - CS
-  - Software-Engineering
-  - Code-Quality
+  - Software Engineering
+  - Code Quality
 tags:
   - Development
   - GitHub
