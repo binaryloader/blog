@@ -1,5 +1,5 @@
 ---
-title: "[GitHub] Claudeを活用したPR自動コードレビュー構築記"
+title: "[Code Quality] Claudeを活用したPR自動コードレビュー構築記"
 ref: claude-github-pr-auto-review
 lang: ja
 permalink: /ja/:categories/:title/
@@ -14,8 +14,8 @@ header:
 categories:
   - Development
   - CS
-  - Software Engineering
-  - Code Quality
+  - Software-Engineering
+  - Code-Quality
 tags:
   - Development
   - GitHub

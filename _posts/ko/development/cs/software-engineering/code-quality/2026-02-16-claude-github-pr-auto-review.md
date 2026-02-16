@@ -1,5 +1,5 @@
 ---
-title: "[GitHub] Claude를 활용한 PR 자동 코드 리뷰 구축기"
+title: "[Code Quality] Claude를 활용한 PR 자동 코드 리뷰 구축기"
 ref: claude-github-pr-auto-review
 excerpt: "사이드 프로젝트에서 Claude Code Action으로 GitHub PR 자동 리뷰를 구축한 경험을 정리한다."
 date: 2026-02-16T01:00+09:00
@@ -12,8 +12,8 @@ header:
 categories:
   - Development
   - CS
-  - Software Engineering
-  - Code Quality
+  - Software-Engineering
+  - Code-Quality
 tags:
   - Development
   - GitHub

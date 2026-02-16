@@ -31,7 +31,9 @@ layout: archive
       {% if filtered.size == i %}
         <li>
           <a href="#{{ category[0] | slugify }}">
-            <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
+            {% assign cat_key = category[0] %}
+            {% assign cat_display = site.data.category_display_names[cat_key] | default: cat_key %}
+            <strong>{{ cat_display }}</strong> <span class="taxonomy__count">{{ i }}</span>
           </a>
         </li>
       {% endif %}
@@ -49,7 +51,9 @@ layout: archive
     {% endif %}
     {% if filtered.size == i %}
       <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
-        <h2 class="archive__subtitle">{{ category[0] }}</h2>
+        {% assign cat_key = category[0] %}
+        {% assign cat_display = site.data.category_display_names[cat_key] | default: cat_key %}
+        <h2 class="archive__subtitle">{{ cat_display }}</h2>
         <div class="entries-{{ entries_layout }}">
           {% for post in filtered %}
             {% include archive-single.html type=entries_layout %}

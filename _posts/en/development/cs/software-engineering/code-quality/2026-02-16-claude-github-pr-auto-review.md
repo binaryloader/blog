@@ -1,5 +1,5 @@
 ---
-title: "[GitHub] Building Automated PR Code Review with Claude"
+title: "[Code Quality] Building Automated PR Code Review with Claude"
 ref: claude-github-pr-auto-review
 lang: en
 permalink: /en/:categories/:title/
@@ -14,8 +14,8 @@ header:
 categories:
   - Development
   - CS
-  - Software Engineering
-  - Code Quality
+  - Software-Engineering
+  - Code-Quality
 tags:
   - Development
   - GitHub
