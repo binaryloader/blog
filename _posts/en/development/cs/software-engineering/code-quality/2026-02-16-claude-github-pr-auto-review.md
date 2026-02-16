@@ -391,7 +391,7 @@ When `@myteam/review` is mentioned in a PR comment, a 👀 reaction is added and
 
 ### 5.2. Qualitative Impact
 
-Code quality improved. We discovered edge cases and potential bugs we hadn't thought of and learned Python best practices. Domain knowledge gaps were bridged. Even without familiarity with AI agent development, Claude's detailed reviews helped identify domain-specific issues, and basic code quality issues that domain experts might miss were automatically checked. Documentation was automated. PR bodies automatically generated summaries and diagrams, making history tracking easier. Psychological burden decreased. The pressure of "I need to review..." diminished, and we could quickly approve based on Claude's reviews.
+Code quality improved. We discovered edge cases and potential bugs we hadn't thought of and learned Python best practices. Domain knowledge gaps were supplemented. Even without familiarity with AI agent development, Claude's detailed reviews helped identify domain-specific issues, and basic code quality issues that domain experts might miss were automatically checked. Documentation was automated. PR bodies automatically generated summaries and diagrams, making history tracking easier. Psychological burden decreased. The pressure of "I need to review..." diminished, and we could quickly approve based on Claude's reviews.
 
 ## 6. Limitations
 
