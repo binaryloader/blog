@@ -101,7 +101,7 @@ A workflow that automatically performs reviews when a PR is opened.
 name: Claude Auto Review
 on:
   pull_request:
-    types: [opened, synchronize, ready_for_review, reopened]
+    types: [opened, ready_for_review, reopened]
 
 jobs:
   review:
