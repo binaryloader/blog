@@ -66,7 +66,7 @@ EOF
 
 설정이 완료되면 Xcode를 재시작한다. Agentic Coding Assistant를 사용할 때 Claude Opus 4.6 모델이 적용된다.
 
-### 디렉터리 구조
+### 3.1. 디렉터리 구조
 
 설정 완료 후 디렉터리 구조는 다음과 같다.
 

@@ -50,7 +50,7 @@ I hope studying this book will give me a general understanding of server develop
 
 I plan to document all my trial and error while studying the Spring Framework through the "Recklessly Learning Spring Development" series. So let's kick things off with the first step: setting up the Spring 5 development environment.
 
-# Setting Up the Environment
+# Steps
 
 ## 1. Install JDK 8
 

@@ -39,7 +39,7 @@ In such cases, you typically perform a manual renewal through the DSM Control Pa
 
 In situations like this, you can SSH into your Synology and manually renew the certificate. When renewing certificates via the command line, you can use debug options like `-v` or `-vv` to find out why the renewal failed. The difference between the two options is that `-vv` outputs more detailed logs than `-v`.
 
-# Let's Fix It
+# Steps
 
 ## 1. Renewal
 

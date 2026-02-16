@@ -117,7 +117,7 @@ let package = Package(
 
 # Key Implementation Details
 
-## MenuBarExtra
+## 1. MenuBarExtra
 
 Starting with macOS 14, SwiftUI's `MenuBarExtra` enables building native menu bar apps. The `.window` style shows a popover window on click.
 
@@ -137,7 +137,7 @@ struct ClaudeUsageMeterApp: App {
 }
 ```
 
-## DispatchSource File Watching
+## 2. DispatchSource File Watching
 
 To refresh the UI immediately when `stats-cache.json` changes, the app watches file system events via `DispatchSource`. A 60-second timer serves as a fallback.
 
@@ -164,7 +164,7 @@ final class FileWatcher {
 }
 ```
 
-## Creating the .app Bundle
+## 3. Creating the .app Bundle
 
 To package an SPM binary as a macOS app bundle, you need to manually create the directory structure with an `Info.plist`. Setting `LSUIElement` to `true` makes it a menu-bar-only app that doesn't appear in the Dock.
 
@@ -185,14 +185,14 @@ ClaudeUsageMeter.app/
 
 # Lessons Learned
 
-## Server-Side Usage Data Is Inaccessible
+## 1. Server-Side Usage Data Is Inaccessible
 
 Initially, I planned to show a progress bar visualizing daily usage against the plan limit. However, the usage percentages shown on the web (e.g., "current session 5%, weekly 10%") are computed server-side, and there's no public API to fetch them.
 Anthropic does offer a Usage & Cost API, but it requires an organization Admin API key (`sk-ant-admin...`) and tracks different metrics from the per-plan session/weekly limits.
 
 I ended up removing the progress bar and focusing on data that `stats-cache.json` reliably provides — messages, tokens, sessions, and per-model breakdowns.
 
-## macOS Icon Cache
+## 2. macOS Icon Cache
 
 I generated the app icon programmatically with a Swift script. After changing the icon, macOS's icon cache prevented it from updating. Re-registering the app with `lsregister` and restarting Finder and Dock was necessary.
 

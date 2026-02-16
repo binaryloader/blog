@@ -55,17 +55,17 @@ depth:
 
 ### 2.1. CodeRabbit 검토
 
-처음엔 AI 코드 리뷰 도구로 유명한 CodeRabbit을 고려했다. 하지만 무료 플랜은 Public 저장소만 지원했고 우리 프로젝트는 Private 저장소를 사용 중이었다. 무료 버전에서는 PR 요약 정도만 제공되고 상세한 인라인 코드 리뷰는 유료 플랜에서만 가능했다. 이미 Claude Max 플랜을 구독하고 있었고 매달 토큰을 다 쓰지도 못하는 상황에서 별도로 유료 플랜을 결제하는 건 비효율적이었다.
+처음엔 AI 코드 리뷰 도구로 유명한 CodeRabbit을 고려했다. 하지만 무료 플랜은 Public 저장소만 지원했고 우리 프로젝트는 Private 저장소를 사용 중이었다. 무료 버전에서는 PR 요약 정도만 제공되고 상세한 인라인 코드 리뷰는 유료 플랜에서만 가능했다. 우리는 이미 Claude 유료 플랜을 구독하고 있었고 매달 토큰을 다 쓰지도 못하는 상황에서 별도로 유료 플랜을 결제하는 건 비효율적이었다.
 
 ### 2.2. Claude Code Action 선택
 
-Anthropic에서 공식 제공하는 `claude-code-action`을 발견했다. GitHub Actions 워크플로우로 동작하며 Claude API나 OAuth 토큰을 사용해 자동 코드 리뷰를 수행한다. 이미 구독 중인 Claude Max를 활용하면 추가 비용이 들지 않고 Private 저장소도 OAuth 토큰 방식으로 지원되며 최신 고성능 모델인 Claude Opus 4.6을 사용할 수 있고 프롬프트도 원하는 대로 커스터마이징 가능했다.
+Anthropic에서 공식 제공하는 `claude-code-action`을 발견했다. GitHub Actions 워크플로우로 동작하며 Claude API나 OAuth 토큰을 사용해 자동 코드 리뷰를 수행한다. 우리가 이미 구독 중인 Claude 유료 플랜을 활용하면 추가 비용이 들지 않고 Private 저장소도 OAuth 토큰 방식으로 지원되며 최신 고성능 모델인 Claude Opus 4.6을 사용할 수 있고 프롬프트도 원하는 대로 커스터마이징 가능했다.
 
 ## 3. 구현
 
 ### 3.1. OAuth 토큰 생성
 
-Claude Pro/Max 구독자는 API 키 대신 OAuth 토큰을 사용할 수 있다.
+Claude 유료 플랜 구독자는 API 키 대신 OAuth 토큰을 사용할 수 있다.
 
 ```bash
 claude setup-token
@@ -91,7 +91,7 @@ claude setup-token
 
 ### 3.3. 워크플로우 작성
 
-#### claude-review.yml
+#### 3.3.1. claude-review.yml
 
 PR이 열리면 자동으로 리뷰를 수행하는 워크플로우다.
 
@@ -188,7 +188,7 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
 ```
 
-#### claude.yml
+#### 3.3.2. claude.yml
 
 코멘트에 트리거 문구를 멘션하면 인터랙티브하게 응답하는 워크플로우다.
 
@@ -341,19 +341,19 @@ jobs:
 
 ### 3.5. UX 개선
 
-#### 커스텀 트리거 문구
+#### 3.5.1. 커스텀 트리거 문구
 
 기본 트리거는 `@claude`인데 GitHub Organization 팀을 활용해 커스텀 트리거로 변경했다. GitHub Team 유료 플랜은 시트당 비용을 지불하는데 이미 사용 중이라면 Organization 팀 기능을 활용할 수 있다. `review`라는 팀을 생성하면 `@myteam/review`로 멘션할 때 자동완성이 지원되어 입력이 편리하다. `trigger_phrase` 파라미터로 트리거 문구를 지정하고 `if` 조건에서 `contains()`로 해당 문구가 포함된 이벤트만 필터링한다.
 
-#### 리액션
+#### 3.5.2. 리액션
 
 워크플로우가 트리거되면 해당 코멘트에 👀 이모지 리액션을 추가한다. Claude가 응답을 생성하는 동안 요청이 접수되었다는 것을 시각적으로 보여준다.
 
-#### 응답 정리
+#### 3.5.3. 응답 정리
 
 claude-code-action은 tag 모드에서 응답 완료 시 "Claude finished @user's task in Xs"라는 헤더와 구분선, 체크리스트, "View job" 링크를 자동으로 추가한다. 이런 UI 요소가 응답 내용과 섞이면 가독성이 떨어지므로 완료 후 Python regex로 파싱하여 불필요한 부분을 제거하는 cleanup 단계를 추가했다.
 
-#### 질문자 태깅
+#### 3.5.4. 질문자 태깅
 
 시스템 프롬프트에서 응답 시작 시 질문자를 `@username님,` 형식으로 태깅하도록 지시했다. 이렇게 하면 질문자가 GitHub 알림을 받을 수 있고 누구에게 답변하는 것인지 명확해진다.
 
@@ -409,7 +409,7 @@ fork 기반 Git Flow를 쓴다면 Organization 설정과 워크플로우 workaro
 
 "코드 리뷰할 시간이 없어서 품질이 떨어진다"는 핑계는 이제 통하지 않는다. Claude를 활용한 자동 코드 리뷰로 더 빠르게 PR을 머지하고 더 높은 코드 품질을 유지하며 서로의 시간을 존중하면서 프로젝트를 진행할 수 있게 되었다.
 
-특히 이미 Claude Max를 구독하고 있다면 추가 비용 없이 바로 적용 가능하다. 주말 프로젝트나 스타트업 팀에게 강력히 추천한다.
+특히 이미 Claude 유료 플랜을 구독하고 있다면 추가 비용 없이 바로 적용 가능하다. 주말 프로젝트나 스타트업 팀에게 강력히 추천한다.
 
 # 참고
 

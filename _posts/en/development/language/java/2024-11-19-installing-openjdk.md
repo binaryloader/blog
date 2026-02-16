@@ -40,13 +40,13 @@ This guide covers how to install Eclipse Temurin OpenJDK on macOS.
 
 ## 1. Install Eclipse Temurin OpenJDK
 
-### Install the latest version
+### 1.1. Install the latest version
 
 ```zsh
 brew install --cask temurin
 ```
 
-### Install a specific version
+### 1.2. Install a specific version
 
 ```zsh
 brew install --cask temurin@17

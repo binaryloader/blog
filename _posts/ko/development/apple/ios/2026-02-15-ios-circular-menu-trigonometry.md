@@ -160,19 +160,19 @@ cos(각도), sin(각도) = 비율
 
 중심 (200, 200), 반지름 120으로 8개 아이콘을 12시부터 시계방향으로 배치한다.
 
-#### 1단계: 한 바퀴를 라디안으로
+#### 4.2.1. 한 바퀴를 라디안으로
 
 ```
 2 × π = 2 × 3.14159 = 6.28318 라디안
 ```
 
-#### 2단계: 8등분
+#### 4.2.2. 8등분
 
 ```
 6.28318 ÷ 8 = 0.78540 라디안 (= 45°)
 ```
 
-#### 3단계: 시작점을 12시로
+#### 4.2.3. 시작점을 12시로
 
 0°는 3시 방향(오른쪽)이다. 12시로 옮기려면 1/4 바퀴 뒤로 간다.
 
@@ -181,7 +181,7 @@ cos(각도), sin(각도) = 비율
 뒤로(음의 방향): -1.5708 라디안 (= -90°)
 ```
 
-#### 4단계: 각 아이콘의 각도
+#### 4.2.4. 각 아이콘의 각도
 
 공식: `-1.5708 + i × 0.78540`
 
@@ -196,7 +196,7 @@ i=6:  -1.5708 + 6 × 0.7854 =  3.1416  → 180°  (9시)
 i=7:  -1.5708 + 7 × 0.7854 =  3.9270  → 225°  (10~11시)
 ```
 
-#### 5단계: cos/sin 비율 구하기
+#### 4.2.5. cos/sin 비율 구하기
 
 입력은 라디안, 출력은 -1 ~ 1 사이의 비율이다.
 
@@ -211,7 +211,7 @@ i=6:  cos(3.1416) =-1.0000   sin(3.1416) = 0.0000  (왼쪽 100%, 세로 없음)
 i=7:  cos(3.9270) =-0.7071   sin(3.9270) =-0.7071  (왼쪽 70.7%, 위로 70.7%)
 ```
 
-#### 6단계: 반지름(120) 곱하기
+#### 4.2.6. 반지름(120) 곱하기
 
 비율에 반지름을 곱하면 실제 이동 거리(pt)가 나온다.
 
@@ -226,7 +226,7 @@ i=6:  가로 -1.0000 × 120 = -120     세로  0.0000 × 120 =    0
 i=7:  가로 -0.7071 × 120 =  -84.9   세로 -0.7071 × 120 =  -84.9
 ```
 
-#### 7단계: 중심 좌표(200, 200) 더하기
+#### 4.2.7. 중심 좌표(200, 200) 더하기
 
 ```
 i=0:  x = 200 +    0   = 200    y = 200 + (-120)  =  80    (12시)
@@ -279,7 +279,7 @@ let angle = atan2(point.y - center.y, point.x - center.x)
 
 ### 6.1. 회전량 계산
 
-#### 터치 시작 (began)
+#### 6.1.1. 터치 시작 (began)
 
 ```swift
 panStartAngle = angle(for: touchPoint) - currentRotation
@@ -294,7 +294,7 @@ panStartAngle = angle(for: touchPoint) - currentRotation
 
 오프셋을 기록하는 이유는 메뉴가 이미 회전된 상태에서 터치해도 메뉴가 점프하지 않고 부드럽게 이어지도록 하기 위해서다.
 
-#### 터치 이동 (changed)
+#### 6.1.2. 터치 이동 (changed)
 
 ```swift
 currentRotation = angle(for: touchPoint) - panStartAngle
@@ -308,7 +308,7 @@ currentRotation = angle(for: touchPoint) - panStartAngle
 회전 변화 = 1.0 - 0.3(이전) = 0.7 rad만큼 회전
 ```
 
-#### 각속도 기록
+#### 6.1.3. 각속도 기록
 
 ```swift
 angularVelocity = newRotation - previousAngle
@@ -321,7 +321,7 @@ previousAngle = newRotation
 
 터치를 떼면 갑자기 멈추는 대신 관성처럼 서서히 느려진다.
 
-#### CADisplayLink
+#### 6.2.1. CADisplayLink
 
 `CADisplayLink`는 화면 주사율에 동기화되어 매 프레임마다 호출되는 타이머다.
 
@@ -330,7 +330,7 @@ displayLink = CADisplayLink(target: self, selector: #selector(step))
 displayLink?.add(to: .main, forMode: .common)
 ```
 
-#### 매 프레임 처리
+#### 6.2.2. 매 프레임 처리
 
 ```swift
 let dt = link.timestamp - lastTimestamp         // 이전 프레임과의 시간 차(초)
@@ -345,7 +345,7 @@ layoutMenuItems()                               // 재배치
 - **pow(0.92, dt × 60)**: 프레임 속도에 관계없이 일정한 감속을 보장한다. dt가 1/60초(한 프레임)면 0.92¹ = 0.92, dt가 1/30초(프레임 드롭)면 0.92² ≈ 0.846이 된다.
 - 각속도가 0.0001 미만이면 타이머를 중지한다.
 
-#### 감쇠 계수에 따른 느낌
+#### 6.2.3. 감쇠 계수에 따른 느낌
 
 <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/deceleration.svg" alt="감쇠 계수별 각속도 감소 그래프" style="max-width: min(440px, 100%);">
 

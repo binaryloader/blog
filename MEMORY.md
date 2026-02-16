@@ -10,9 +10,14 @@
 - 사례: `page__meta.html`에서 `current_lang = "ko-KR"` → `posts-category.html` 루프의 `current_lang`이 오염되어 첫 포스트만 표시됨
 - 해결: include 내부에서는 고유한 변수명 사용 (`current_lang` → `meta_lang`)
 
-### bracket 내 pipe 필터 불가
+### bracket 내 복잡한 표현식 불가
 - `site.data.ui-text[page.lang | default: site.locale]` → 에러
+- `site.data.hash[category[0]]` → 조회 실패 (nil 반환)
 - 반드시 `assign`으로 변수 먼저 생성 후 bracket에 사용
+
+### 데이터 파일명 대시 불가
+- `_data/category-display-names.yml` → `site.data.category-display-names`가 빼기 연산으로 해석됨
+- 데이터 파일명은 반드시 언더스코어를 사용한다 (`category_display_names.yml`)
 
 ### include_cached와 다국어
 - 첫 호출 결과를 캐싱 → 언어별 다른 출력이 필요한 include에는 사용 불가

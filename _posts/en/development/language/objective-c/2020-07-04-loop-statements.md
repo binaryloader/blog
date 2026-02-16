@@ -58,7 +58,7 @@ for (<#initialization#>; <#condition#>; <#increment#>) {
 }
 ```
 
-#### 1.1.1 initialization
+#### 1.1.1. initialization
 
 This is the initialization expression for starting the loop, where you set an initial value through a variable. You can declare a variable within the loop scope or reference a variable from an outer scope to set the initial value.
 

@@ -48,7 +48,7 @@ I'm sharing this in case anyone else is struggling with the same issue.
 **Warning:** As a prerequisite for this process, a subdomain such as photo.mydomain.com should already be connected to your Synology via CNAME record registration.
 {: .notice--warning}
 
-# Let's Fix It
+# Steps
 
 ## 1. Create Photo.mustache
 

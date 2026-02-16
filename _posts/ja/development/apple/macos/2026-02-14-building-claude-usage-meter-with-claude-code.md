@@ -117,7 +117,7 @@ let package = Package(
 
 # 主要な実装
 
-## MenuBarExtra
+## 1. MenuBarExtra
 
 macOS 14からSwiftUIの`MenuBarExtra`でネイティブメニューバーアプリを作れるようになった。`.window`スタイルを適用するとクリック時にポップオーバーウィンドウが表示される。
 
@@ -137,7 +137,7 @@ struct ClaudeUsageMeterApp: App {
 }
 ```
 
-## DispatchSourceファイル監視
+## 2. DispatchSourceファイル監視
 
 `stats-cache.json`ファイルが変更されたら即座にUIを更新するため、`DispatchSource`でファイルシステムイベントを監視する。フォールバックとして60秒周期タイマーも併用する。
 
@@ -164,7 +164,7 @@ final class FileWatcher {
 }
 ```
 
-## .appバンドルの作成
+## 3. .appバンドルの作成
 
 SPMでビルドしたバイナリをmacOSアプリバンドルとしてパッケージングするには、`Info.plist`を含むディレクトリ構造を手動で作成する必要がある。`LSUIElement`を`true`に設定するとDockに表示されないメニューバー専用アプリになる。
 
@@ -185,14 +185,14 @@ ClaudeUsageMeter.app/
 
 # 試行錯誤
 
-## サーバー側の使用量を取得できない
+## 1. サーバー側の使用量を取得できない
 
 当初はプログレスバーで日次使用量と上限を可視化する予定だった。しかしWebで表示される使用率（「現在のセッション5%」「週間10%」など）はサーバー側で計算される値で、取得できる公開APIがなかった。
 AnthropicのUsage & Cost APIはあるが、組織用Admin APIキー（`sk-ant-admin...`）が必要で、個人プランのセッション別/週間使用率とは異なるデータだった。
 
 結局プログレスバーを削除し、`stats-cache.json`で確実に表示できるデータ（メッセージ数、トークン数、セッション数、モデル別使用量）に集中する方向に転換した。
 
-## macOSアイコンキャッシュ
+## 2. macOSアイコンキャッシュ
 
 Swiftスクリプトでアプリアイコンをプログラム的に生成したが、アイコンを変更してもmacOSのアイコンキャッシュのせいで反映されない問題があった。`lsregister`でアプリを再登録し、FinderとDockを再起動する必要があった。
 

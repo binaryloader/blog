@@ -48,7 +48,7 @@ Synology Photo Stationにカスタムドメインを接続する方法をまと�
 **注意:** この作業の前提条件として、CNAMEレコードの登録を通じてphoto.mydomain.comというサブドメインが事前にSynologyに接続されている状態であることが必要です。
 {: .notice--warning}
 
-# 解決してみよう
+# 手順
 
 ## 1. Photo.mustacheの作成
 

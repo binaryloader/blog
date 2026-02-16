@@ -47,7 +47,7 @@ Synology Photo Station에 커스텀 도메인을 연결하는 방법을 정리�
 **경고:** 해당 작업의 선행 과정으로 CNAME 레코드 등록을 통해 photo.mydomain.com이라는 서브 도메인을 시놀로지에 미리 연결해둔 상태이다.
 {: .notice--warning}
 
-# 해결을 해보자
+# 정리
 
 ## 1. Photo.mustache 생성
 

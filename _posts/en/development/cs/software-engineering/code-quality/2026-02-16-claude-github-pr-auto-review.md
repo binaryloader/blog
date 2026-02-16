@@ -57,17 +57,17 @@ There was a more fundamental issue. My brother works professionally in AI agent 
 
 ### 2.1. Considering CodeRabbit
 
-Initially, I considered CodeRabbit, a well-known AI code review tool. However, the free plan only supported public repositories and our project used private repositories. The free version only provided PR summaries, and detailed inline code reviews were only available in paid plans. I was already subscribing to Claude Max and not even using all the monthly tokens, so paying separately for a premium plan seemed inefficient.
+Initially, I considered CodeRabbit, a well-known AI code review tool. However, the free plan only supported public repositories and our project used private repositories. The free version only provided PR summaries, and detailed inline code reviews were only available in paid plans. We were already subscribing to a Claude paid plan and not even using all the monthly tokens, so paying separately for another premium plan seemed inefficient.
 
 ### 2.2. Choosing Claude Code Action
 
-I discovered `claude-code-action`, officially provided by Anthropic. It operates as a GitHub Actions workflow and performs automated code reviews using Claude API or OAuth tokens. I could utilize my existing Claude Max subscription at no additional cost, it supported private repositories via OAuth token method, could use the latest high-performance model Claude Opus 4.6, and allowed prompt customization.
+I discovered `claude-code-action`, officially provided by Anthropic. It operates as a GitHub Actions workflow and performs automated code reviews using Claude API or OAuth tokens. We could utilize our existing Claude paid plan at no additional cost, it supported private repositories via OAuth token method, could use the latest high-performance model Claude Opus 4.6, and allowed prompt customization.
 
 ## 3. Implementation
 
 ### 3.1. Generating OAuth Token
 
-Claude Pro/Max subscribers can use OAuth tokens instead of API keys.
+Claude paid plan subscribers can use OAuth tokens instead of API keys.
 
 ```bash
 claude setup-token
@@ -93,7 +93,7 @@ I created a GitHub App to use a custom bot name instead of the default `github-a
 
 ### 3.3. Writing Workflows
 
-#### claude-review.yml
+#### 3.3.1. claude-review.yml
 
 A workflow that automatically performs reviews when a PR is opened.
 
@@ -190,7 +190,7 @@ jobs:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
 ```
 
-#### claude.yml
+#### 3.3.2. claude.yml
 
 A workflow that responds interactively when a trigger phrase is mentioned in comments.
 
@@ -343,19 +343,19 @@ We use a Git Flow where each of us forks the repository and submits PRs, but ini
 
 ### 3.5. UX Improvements
 
-#### Custom Trigger Phrase
+#### 3.5.1. Custom Trigger Phrase
 
 The default trigger is `@claude`, but we changed it to a custom trigger using a GitHub Organization team. Since we were already on GitHub's Team paid plan with per-seat billing, we could leverage the Organization team feature. By creating a team called `review` in the Organization, mentioning `@myteam/review` gets autocomplete support for convenient input. The `trigger_phrase` parameter specifies the trigger phrase, and the `if` condition uses `contains()` to filter events containing that phrase.
 
-#### Reaction
+#### 3.5.2. Reaction
 
 When a workflow is triggered, a 👀 emoji reaction is added to the comment. This visually indicates that the request has been received while Claude generates a response.
 
-#### Response Cleanup
+#### 3.5.3. Response Cleanup
 
 claude-code-action automatically appends a "Claude finished @user's task in Xs" header, separator, checklist, and "View job" link when completing in tag mode. Since these UI elements mixed with the response content reduce readability, we added a cleanup step that uses Python regex to parse and remove unnecessary parts after completion.
 
-#### Questioner Tagging
+#### 3.5.4. Questioner Tagging
 
 The system prompt instructs the response to start by tagging the questioner in the format `@username,`. This allows the questioner to receive GitHub notifications and makes it clear who the response is directed to.
 
@@ -411,7 +411,7 @@ If using fork-based Git Flow, Organization settings and workflow workarounds are
 
 The excuse "quality suffers because there's no time for code reviews" no longer works. With Claude-powered automated code reviews, we can merge PRs faster, maintain higher code quality, and respect each other's time while progressing the project.
 
-Especially if you're already subscribing to Claude Max, it's immediately applicable at no additional cost. Highly recommended for weekend projects and startup teams.
+Especially if you're already subscribing to a Claude paid plan, it's immediately applicable at no additional cost. Highly recommended for weekend projects and startup teams.
 
 # References
 

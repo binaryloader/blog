@@ -115,7 +115,7 @@ let package = Package(
 
 # 주요 구현
 
-## MenuBarExtra
+## 1. MenuBarExtra
 
 macOS 14부터 SwiftUI에서 `MenuBarExtra`를 사용하면 네이티브 메뉴바 앱을 만들 수 있다. `.window` 스타일을 적용하면 클릭 시 팝오버 윈도우가 표시된다.
 
@@ -135,7 +135,7 @@ struct ClaudeUsageMeterApp: App {
 }
 ```
 
-## DispatchSource 파일 감시
+## 2. DispatchSource 파일 감시
 
 `stats-cache.json` 파일이 변경되면 즉시 UI를 갱신하기 위해 `DispatchSource`로 파일 시스템 이벤트를 감시한다. 폴백으로 60초 주기 타이머도 함께 사용한다.
 
@@ -162,7 +162,7 @@ final class FileWatcher {
 }
 ```
 
-## .app 번들 생성
+## 3. .app 번들 생성
 
 SPM으로 빌드한 바이너리를 macOS 앱 번들로 패키징하려면 `Info.plist`를 포함한 디렉토리 구조를 직접 만들어야 한다. `LSUIElement`를 `true`로 설정하면 Dock에 나타나지 않는 메뉴바 전용 앱이 된다.
 
@@ -183,14 +183,14 @@ ClaudeUsageMeter.app/
 
 # 시행착오
 
-## 서버 사용량을 가져올 수 없다
+## 1. 서버 사용량을 가져올 수 없다
 
 처음에는 프로그레스 바로 일일 사용량 대비 한도를 시각화하려고 했다. 하지만 웹에서 보이는 플랜 사용률(현재 세션 5%, 주간 10% 등)은 서버 측에서 계산하는 값이고 이 데이터를 가져올 수 있는 공개 API가 없었다.
 Anthropic의 Usage & Cost API가 있지만 조직용 Admin API 키(`sk-ant-admin...`)가 필요하고 개인 플랜의 세션별/주간 사용률과는 다른 데이터였다.
 
 결국 프로그레스 바를 제거하고 `stats-cache.json`에서 확실하게 보여줄 수 있는 데이터(메시지 수, 토큰 수, 세션 수, 모델별 사용량)에 집중하는 방향으로 전환했다.
 
-## macOS 아이콘 캐시
+## 2. macOS 아이콘 캐시
 
 Swift 스크립트로 앱 아이콘을 프로그래밍 방식으로 생성했는데 아이콘을 변경해도 macOS의 아이콘 캐시 때문에 반영되지 않는 문제가 있었다. `lsregister`로 앱을 재등록하고 Finder와 Dock을 재시작해야 갱신되었다.
 

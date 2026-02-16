@@ -403,7 +403,7 @@ end
 
 Scene Podのみ指定すればCocoaPodsが依存性グラフを解析し下位レイヤーのすべてのPodを自動的にインストールする。
 
-### DI Container登録
+### 6.2. DI Container登録
 
 Appレイヤーで各SceneのDependencyItemをDI Containerに登録する。
 

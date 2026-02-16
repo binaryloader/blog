@@ -56,7 +56,7 @@ Personally, while I understand to some extent that Apple is pushing the card-sty
 
 For new projects, adapting the UI/UX for the card-style presentation would be relatively straightforward. However, for existing projects that already have their UI/UX implemented and optimized for the full-screen style, it is difficult to adapt to the new style immediately. Therefore, let's explore whether we can still provide the `fullScreen` style in projects built with the iOS 13 SDK.
 
-# Investigating and Adapting
+# Steps
 
 ## 1. What Changed
 

@@ -43,7 +43,7 @@ There are Jekyll multilingual plugins like `jekyll-polyglot` and `jekyll-multipl
 
 # Overall Architecture
 
-## Directory Layout
+## 1. Directory Layout
 
 The core idea is separating posts and pages into language-specific directories.
 
@@ -68,7 +68,7 @@ _pages/
 └── ja/categories/     # Japanese category pages
 ```
 
-## URL Structure
+## 2. URL Structure
 
 Every URL is prefixed with a language code.
 
@@ -297,17 +297,17 @@ This tells Google about alternate language versions so it can serve the right on
 
 # Lessons Learned
 
-## No lang Field for Korean
+## 1. No lang Field for Korean
 
 I initially wanted to set `lang: ko` on Korean posts, but this conflicted with the Minimal Mistakes theme's default behavior. The theme treats posts without a `lang` field as the default language in many places. I adopted an asymmetric structure where only non-default languages get explicit `lang` fields.
 
 This decision means Liquid filtering always splits into two branches: `unless post.lang` for Korean, `if post.lang == current_lang` for others. The code is slightly messier but maintains theme compatibility.
 
-## Triple Category Page Maintenance
+## 2. Triple Category Page Maintenance
 
 Every category page must exist in all three languages. Each new category means creating three page files and adding entries to three menus in `navigation.yml`. Automation would be nice, but custom plugins aren't available on GitHub Pages, so manual work is unavoidable.
 
-## Back Navigation Language Confusion
+## 3. Back Navigation Language Confusion
 
 When switching from English to Korean, the browser history retains the English URL. Pressing back shows the English page while the user assumes they're in Korean mode. The `back_forward` detection + localStorage combination solved this, but the implementation required handling bfcache edge cases, making it more involved than expected.
 

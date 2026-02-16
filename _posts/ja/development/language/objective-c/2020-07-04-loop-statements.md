@@ -58,7 +58,7 @@ for (<#initialization#>; <#condition#>; <#increment#>) {
 }
 ```
 
-#### 1.1.1 initialization
+#### 1.1.1. initialization
 
 ループを開始する初期化式で変数を通して初期値を設定する。この時ループスコープ内の変数を宣言することも外部スコープの変数を参照して初期値を設定することもできる。
 

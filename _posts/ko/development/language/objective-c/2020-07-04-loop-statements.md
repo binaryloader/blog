@@ -57,7 +57,7 @@ for (<#initialization#>; <#condition#>; <#increment#>) {
 }
 ```
 
-#### 1.1.1 initialization
+#### 1.1.1. initialization
 
 루프를 시작할 초기화식으로 변수를 통해 초기값을 설정한다. 이때, 루프 스코프 내의 변수를 선언할 수도 있고 외부 스코프의 변수를 참조하여 초기값을 설정할 수도 있다.
 

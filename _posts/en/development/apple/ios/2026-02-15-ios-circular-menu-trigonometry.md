@@ -162,19 +162,19 @@ center + actual distance = final coordinate
 
 Place 8 icons clockwise from 12 o'clock with center (200, 200) and radius 120.
 
-#### Step 1: Full circle in radians
+#### 4.2.1. Full circle in radians
 
 ```
 2 × π = 2 × 3.14159 = 6.28318 radians
 ```
 
-#### Step 2: Divide into 8 slices
+#### 4.2.2. Divide into 8 slices
 
 ```
 6.28318 ÷ 8 = 0.78540 radians (= 45°)
 ```
 
-#### Step 3: Move start to 12 o'clock
+#### 4.2.3. Move start to 12 o'clock
 
 0° points to 3 o'clock (right). To reach 12 o'clock, go back 1/4 turn.
 
@@ -183,7 +183,7 @@ Place 8 icons clockwise from 12 o'clock with center (200, 200) and radius 120.
 Backward (negative): -1.5708 radians (= -90°)
 ```
 
-#### Step 4: Each icon's angle
+#### 4.2.4. Each icon's angle
 
 Formula: `-1.5708 + i × 0.78540`
 
@@ -198,7 +198,7 @@ i=6:  -1.5708 + 6 × 0.7854 =  3.1416  → 180°  (9 o'clock)
 i=7:  -1.5708 + 7 × 0.7854 =  3.9270  → 225°  (10-11 o'clock)
 ```
 
-#### Step 5: Get cos/sin ratios
+#### 4.2.5. Get cos/sin ratios
 
 Input is radians, output is a ratio between -1 and 1.
 
@@ -213,7 +213,7 @@ i=6:  cos(3.1416) =-1.0000   sin(3.1416) = 0.0000  (left 100%, no vert)
 i=7:  cos(3.9270) =-0.7071   sin(3.9270) =-0.7071  (left 70.7%, up 70.7%)
 ```
 
-#### Step 6: Multiply by radius (120)
+#### 4.2.6. Multiply by radius (120)
 
 Multiplying the ratio by the radius gives the actual distance in points.
 
@@ -228,7 +228,7 @@ i=6:  horiz -1.0000 × 120 = -120     vert  0.0000 × 120 =    0
 i=7:  horiz -0.7071 × 120 =  -84.9   vert -0.7071 × 120 =  -84.9
 ```
 
-#### Step 7: Add center coordinates (200, 200)
+#### 4.2.7. Add center coordinates (200, 200)
 
 ```
 i=0:  x = 200 +    0   = 200    y = 200 + (-120)  =  80    (12 o'clock)
@@ -281,7 +281,7 @@ To rotate the placed menu by dragging, you need to track the **change in angle**
 
 ### 6.1. Calculating Rotation
 
-#### Touch Start (began)
+#### 6.1.1. Touch Start (began)
 
 ```swift
 panStartAngle = angle(for: touchPoint) - currentRotation
@@ -296,7 +296,7 @@ offset = 0.5 - 0.3 = 0.2 rad
 
 The offset ensures the menu doesn't jump when you touch it mid-rotation; it continues smoothly.
 
-#### Touch Move (changed)
+#### 6.1.2. Touch Move (changed)
 
 ```swift
 currentRotation = angle(for: touchPoint) - panStartAngle
@@ -310,7 +310,7 @@ new rotation = 1.2 - 0.2 (offset) = 1.0 rad
 rotation change = 1.0 - 0.3 (previous) = 0.7 rad of rotation
 ```
 
-#### Recording Angular Velocity
+#### 6.1.3. Recording Angular Velocity
 
 ```swift
 angularVelocity = newRotation - previousAngle
@@ -323,7 +323,7 @@ The change in rotation between frames is recorded as **angular velocity**. When 
 
 Instead of stopping abruptly when the touch ends, the menu gradually slows down like inertia.
 
-#### CADisplayLink
+#### 6.2.1. CADisplayLink
 
 `CADisplayLink` is a timer synchronized with the display's refresh rate, firing once per frame.
 
@@ -332,7 +332,7 @@ displayLink = CADisplayLink(target: self, selector: #selector(step))
 displayLink?.add(to: .main, forMode: .common)
 ```
 
-#### Per-Frame Processing
+#### 6.2.2. Per-Frame Processing
 
 ```swift
 let dt = link.timestamp - lastTimestamp         // time since last frame (seconds)
@@ -347,7 +347,7 @@ layoutMenuItems()                               // re-layout
 - **pow(0.92, dt × 60)**: ensures consistent deceleration regardless of frame rate. If dt is 1/60s (one frame), 0.92¹ = 0.92. If dt is 1/30s (frame drop), 0.92² ≈ 0.846.
 - The timer stops when angular velocity falls below 0.0001.
 
-#### How the Decay Factor Feels
+#### 6.2.3. How the Decay Factor Feels
 
 <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/deceleration.svg" alt="Angular velocity decay graph by decay factor" style="max-width: min(440px, 100%);">
 

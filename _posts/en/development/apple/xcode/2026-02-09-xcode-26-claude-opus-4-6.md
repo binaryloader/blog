@@ -68,7 +68,7 @@ EOF
 
 After the configuration is complete, restart Xcode. The Claude Opus 4.6 model will be applied when using the agentic coding assistant.
 
-### Directory structure
+### 3.1. Directory structure
 
 After configuration, the directory structure should look like this.
 
