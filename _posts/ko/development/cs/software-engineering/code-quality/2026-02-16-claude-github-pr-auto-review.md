@@ -3,7 +3,7 @@ title: "[Code Quality] Claude를 활용한 PR 자동 코드 리뷰 구축기"
 ref: claude-github-pr-auto-review
 excerpt: "사이드 프로젝트에서 Claude Code Action으로 GitHub PR 자동 리뷰를 구축한 경험을 정리한다."
 date: 2026-02-16T01:00+09:00
-last_modified_at: 2026-02-16T02:17+09:00
+last_modified_at: 2026-02-16T19:16+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/claude-github-pr-auto-review.png"
@@ -106,6 +106,7 @@ jobs:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     permissions:
+      actions: read
       contents: write
       pull-requests: write
       id-token: write
@@ -116,12 +117,21 @@ jobs:
           app-id: ${{ secrets.REVIEW_APP_ID }}
           private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
 
-      - name: Create tracking branch for fork PR
+      - name: Add eyes reaction to PR
+        run: |
+          gh api repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/reactions \
+            -f content=eyes
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Create or update tracking branch for fork PR
         if: github.event.pull_request.head.repo.fork == true
         run: |
           gh api repos/${{ github.repository }}/git/refs \
             -f ref="refs/heads/${{ github.event.pull_request.head.ref }}" \
-            -f sha="${{ github.event.pull_request.head.sha }}"
+            -f sha="${{ github.event.pull_request.head.sha }}" 2>/dev/null || \
+          gh api repos/${{ github.repository }}/git/refs/heads/${{ github.event.pull_request.head.ref }} \
+            -X PATCH -f sha="${{ github.event.pull_request.head.sha }}" -F force=true
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
 
@@ -145,27 +155,29 @@ jobs:
                다음과 같은 구조로 작성해주세요:
 
                ## 정보
-               - PR 타이틀에서 이슈 참조를 찾아 Related 링크로 작성
+               - PR 타이틀에서 이슈 참조를 찾아 Related 링크로 작성 (이미 있으면 중복 추가하지 마세요)
 
                ## 요약
                - PR 변경 사항을 bullet point로 작성
 
                ## 다이어그램
-               - 주요 흐름이 있다면 Mermaid 시퀀스 다이어그램으로 표현 (없으면 생략)
+               - 주요 흐름이 있다면 Mermaid 시퀀스 다이어그램으로 표현 (없으면 이 섹션 생략)
 
                ## 리뷰 피드백
-               - 특정 코드 라인과 관련 없는 일반적인 리뷰 피드백
+               - 특정 코드 라인과 관련 없는 일반적인 리뷰 피드백 (아키텍처, 설계 방향, 전반적인 개선 사항 등)
 
-            2. 코드 리뷰는 인라인 코멘트로 해당 코드 라인에 직접 달아주세요:
+            2. 코드 리뷰는 `mcp__github_inline_comment__create_inline_comment`를 사용하여 해당 코드 라인에 직접 달아주세요:
                - 코드 품질 및 모범 사례
                - 잠재적 버그 또는 이슈
                - 보안 관련 사항
                - 성능 고려 사항
                - 문제가 없는 코드에는 코멘트를 달지 마세요
+               - 특정 코드 라인에 해당하지 않는 피드백은 인라인 코멘트가 아닌 PR 본문에 작성하세요
 
           claude_args: |
             --model claude-opus-4-6
             --system-prompt "모든 응답과 코멘트는 한국어로 작성해주세요."
+            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr edit:*)"
 
       - name: Cleanup tracking branch for fork PR
         if: always() && github.event.pull_request.head.repo.fork == true
@@ -178,7 +190,7 @@ jobs:
 
 #### claude.yml
 
-코멘트에 `@claude`를 멘션하면 인터랙티브하게 응답하는 워크플로우다.
+코멘트에 트리거 문구를 멘션하면 인터랙티브하게 응답하는 워크플로우다.
 
 ```yaml
 name: Claude Assistant
@@ -187,16 +199,19 @@ on:
     types: [created]
   pull_request_review_comment:
     types: [created]
-  issues:
-    types: [opened, assigned]
   pull_request_review:
     types: [submitted]
 
 jobs:
   claude-response:
+    if: |
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@myteam/review')) ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@myteam/review')) ||
+      (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@myteam/review'))
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      actions: read
+      contents: write
       pull-requests: write
       issues: write
       id-token: write
@@ -207,13 +222,112 @@ jobs:
           app-id: ${{ secrets.REVIEW_APP_ID }}
           private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
 
+      - name: Add eyes reaction
+        run: |
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
+              -f content=eyes
+          elif [ "${{ github.event_name }}" = "pull_request_review_comment" ]; then
+            gh api repos/${{ github.repository }}/pulls/comments/${{ github.event.comment.id }}/reactions \
+              -f content=eyes
+          elif [ "${{ github.event_name }}" = "pull_request_review" ]; then
+            gh api repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/reactions \
+              -f content=eyes
+          fi
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Get fork PR info
+        id: fork-check
+        run: |
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            PR_NUMBER="${{ github.event.issue.number }}"
+            PR_DATA=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER 2>/dev/null) || {
+              echo "is_fork=false" >> $GITHUB_OUTPUT
+              exit 0
+            }
+          elif [ "${{ github.event_name }}" = "pull_request_review_comment" ] || [ "${{ github.event_name }}" = "pull_request_review" ]; then
+            PR_NUMBER="${{ github.event.pull_request.number }}"
+            PR_DATA=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER)
+          else
+            echo "is_fork=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          IS_FORK=$(echo "$PR_DATA" | jq -r '.head.repo.fork')
+          HEAD_REF=$(echo "$PR_DATA" | jq -r '.head.ref')
+          HEAD_SHA=$(echo "$PR_DATA" | jq -r '.head.sha')
+          echo "is_fork=$IS_FORK" >> $GITHUB_OUTPUT
+          echo "head_ref=$HEAD_REF" >> $GITHUB_OUTPUT
+          echo "head_sha=$HEAD_SHA" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Create or update tracking branch for fork PR
+        if: steps.fork-check.outputs.is_fork == 'true'
+        run: |
+          gh api repos/${{ github.repository }}/git/refs \
+            -f ref="refs/heads/${{ steps.fork-check.outputs.head_ref }}" \
+            -f sha="${{ steps.fork-check.outputs.head_sha }}" 2>/dev/null || \
+          gh api repos/${{ github.repository }}/git/refs/heads/${{ steps.fork-check.outputs.head_ref }} \
+            -X PATCH -f sha="${{ steps.fork-check.outputs.head_sha }}" -F force=true
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
       - uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ steps.app-token.outputs.token }}
+          trigger_phrase: "@myteam/review"
           claude_args: |
             --model claude-opus-4-6
-            --system-prompt "모든 응답과 코멘트는 한국어로 작성해주세요."
+            --system-prompt "모든 응답과 코멘트는 한국어로 작성해주세요. 진행 상황 체크리스트나 단계 목록을 작성하지 마세요. 답변 내용만 작성하세요. 답변 시작은 반드시 질문자를 태깅하고 개행한 후 답변을 작성하세요. 예: @username님,\n\n답변 내용"
+
+      - name: Cleanup comment
+        if: success()
+        run: |
+          NUMBER="${{ github.event.issue.number || github.event.pull_request.number }}"
+          COMMENT=$(gh api "repos/${{ github.repository }}/issues/${NUMBER}/comments?per_page=100" \
+            --jq '[.[] | select(.body | test("\\*\\*Claude finished"))] | last')
+          COMMENT_ID=$(echo "$COMMENT" | jq -r '.id // empty')
+          ENDPOINT="issues/comments"
+          if [ -z "$COMMENT_ID" ]; then
+            COMMENT=$(gh api "repos/${{ github.repository }}/pulls/${NUMBER}/comments?per_page=100" \
+              --jq '[.[] | select(.body | test("\\*\\*Claude finished"))] | last')
+            COMMENT_ID=$(echo "$COMMENT" | jq -r '.id // empty')
+            ENDPOINT="pulls/comments"
+          fi
+          if [ -z "$COMMENT_ID" ]; then
+            echo "No Claude comment found"
+            exit 0
+          fi
+          export BODY
+          BODY=$(echo "$COMMENT" | jq -r '.body')
+          CLEANED=$(python3 << 'PYEOF'
+          import os, re
+          body = os.environ.get('BODY', '')
+          body = re.sub(r'\*\*Claude finished.*?\n', '', body)
+          body = re.sub(r'^---\s*\n', '', body.strip())
+          body = re.sub(r'^(- \[[ x]\] .+\n)+', '', body.strip())
+          body = re.sub(r'\[View job\s*(?:run)?\]\(https?://[^\)]+\)\s*', '', body)
+          print(body.strip())
+          PYEOF
+          )
+          gh api "repos/${{ github.repository }}/${ENDPOINT}/${COMMENT_ID}" \
+            -X PATCH -f body="$CLEANED"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Cleanup tracking branch for fork PR
+        if: always() && steps.fork-check.outputs.is_fork == 'true'
+        continue-on-error: true
+        run: |
+          gh api repos/${{ github.repository }}/git/refs/heads/${{ steps.fork-check.outputs.head_ref }} -X DELETE
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
 ```
 
 ### 3.4. fork 기반 Git Flow 대응
@@ -224,6 +338,24 @@ jobs:
   - "Send write tokens to workflows from fork pull requests"
   - "Send secrets to workflows from fork pull requests"
 - fork PR의 브랜치를 base 저장소에 임시로 생성했다가 삭제하는 workaround 적용
+
+### 3.5. UX 개선
+
+#### 커스텀 트리거 문구
+
+기본 트리거는 `@claude`인데 GitHub Organization 팀을 활용해 커스텀 트리거로 변경했다. GitHub Team 유료 플랜은 시트당 비용을 지불하는데 이미 사용 중이라면 Organization 팀 기능을 활용할 수 있다. `review`라는 팀을 생성하면 `@myteam/review`로 멘션할 때 자동완성이 지원되어 입력이 편리하다. `trigger_phrase` 파라미터로 트리거 문구를 지정하고 `if` 조건에서 `contains()`로 해당 문구가 포함된 이벤트만 필터링한다.
+
+#### 리액션
+
+워크플로우가 트리거되면 해당 코멘트에 👀 이모지 리액션을 추가한다. Claude가 응답을 생성하는 동안 요청이 접수되었다는 것을 시각적으로 보여준다.
+
+#### 응답 정리
+
+claude-code-action은 tag 모드에서 응답 완료 시 "Claude finished @user's task in Xs"라는 헤더와 구분선, 체크리스트, "View job" 링크를 자동으로 추가한다. 이런 UI 요소가 응답 내용과 섞이면 가독성이 떨어지므로 완료 후 Python regex로 파싱하여 불필요한 부분을 제거하는 cleanup 단계를 추가했다.
+
+#### 질문자 태깅
+
+시스템 프롬프트에서 응답 시작 시 질문자를 `@username님,` 형식으로 태깅하도록 지시했다. 이렇게 하면 질문자가 GitHub 알림을 받을 수 있고 누구에게 답변하는 것인지 명확해진다.
 
 ## 4. 결과
 
@@ -239,9 +371,11 @@ PR이 열리면 Claude가 자동으로 관련 이슈 링크를 추가하고 변�
 
 특정 코드 라인에 대해 잠재적 버그를 지적하고 코드 예시와 함께 개선 방안을 제시하며 문제 원인과 해결 방법을 상세히 설명한다.
 
-### 4.3. @claude 멘션
+### 4.3. @myteam/review 멘션
 
-PR 코멘트에 `@claude`를 멘션하면 언제든 추가 질문이 가능하다. "이 부분 리팩토링 방법 추천해줘", "이 함수의 시간 복잡도는?", "보안 이슈 없을까?" 같은 질문에 실시간으로 답변을 받을 수 있다.
+![멘션 예시]({{site.baseurl}}/assets/image/post/development/cs/software-engineering/code-quality/claude-github-pr-auto-review/mention-example.png){: style="max-width: min(800px, 100%);"}
+
+PR 코멘트에 `@myteam/review`를 멘션하면 👀 리액션이 달리고 Claude가 응답을 생성한다. 응답은 질문자를 태깅하면서 시작되고 "Claude finished" 헤더 같은 불필요한 UI 요소는 자동으로 제거된다. "이 부분 리팩토링 방법 추천해줘", "이 함수의 시간 복잡도는?", "보안 이슈 없을까?" 같은 질문에 실시간으로 답변을 받을 수 있다.
 
 ## 5. 효과
 

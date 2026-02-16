@@ -5,7 +5,7 @@ lang: ja
 permalink: /ja/:categories/:title/
 excerpt: "サイドプロジェクトでClaude Code ActionによりGitHub PR自動レビューを構築した経験をまとめる。"
 date: 2026-02-16T01:00+09:00
-last_modified_at: 2026-02-16T02:17+09:00
+last_modified_at: 2026-02-16T19:16+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/claude-github-pr-auto-review.png"
@@ -39,7 +39,7 @@ depth:
 
 サイドプロジェクトでClaude Code ActionによりGitHub PR自動レビューを構築した経験をまとめる。
 
-# 詳細
+# 手順
 
 ## 1. 背景
 
@@ -61,7 +61,7 @@ depth:
 
 ### 2.2. Claude Code Actionの選択
 
-AnthropicがオフィシャルGitHub Actionsワークフローとして動作し、Claude APIやOAuthトークンを使用して自動コードレビューを実行する。すでに購読中のClaude Maxを活用すれば追加費用がかからず、PrivateリポジトリもOAuthトークン方式でサポートされ、最新の高性能モデルであるClaude Opus 4.6を使用でき、プロンプトも希望通りにカスタマイズ可能だった。
+Anthropicが公式提供する`claude-code-action`を発見した。GitHub Actionsワークフローとして動作し、Claude APIやOAuthトークンを使用して自動コードレビューを実行する。すでに購読中のClaude Maxを活用すれば追加費用がかからず、PrivateリポジトリもOAuthトークン方式でサポートされ、最新の高性能モデルであるClaude Opus 4.6を使用でき、プロンプトも希望通りにカスタマイズ可能だった。
 
 ## 3. 実装
 
@@ -78,7 +78,7 @@ claude setup-token
 - トークンは必ず1行でコピーする(改行を含むと認証失敗)
 - Organization Secretsに`CLAUDE_CODE_OAUTH_TOKEN`という名前で登録する
 
-### 3.2. GitHub App生成
+### 3.2. GitHub App作成
 
 デフォルトの`github-actions[bot]`の代わりにカスタムボット名を使用するためにGitHub Appを作成した。設定は以下の通り。
 
@@ -108,6 +108,7 @@ jobs:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     permissions:
+      actions: read
       contents: write
       pull-requests: write
       id-token: write
@@ -118,12 +119,21 @@ jobs:
           app-id: ${{ secrets.REVIEW_APP_ID }}
           private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
 
-      - name: Create tracking branch for fork PR
+      - name: Add eyes reaction to PR
+        run: |
+          gh api repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/reactions \
+            -f content=eyes
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Create or update tracking branch for fork PR
         if: github.event.pull_request.head.repo.fork == true
         run: |
           gh api repos/${{ github.repository }}/git/refs \
             -f ref="refs/heads/${{ github.event.pull_request.head.ref }}" \
-            -f sha="${{ github.event.pull_request.head.sha }}"
+            -f sha="${{ github.event.pull_request.head.sha }}" 2>/dev/null || \
+          gh api repos/${{ github.repository }}/git/refs/heads/${{ github.event.pull_request.head.ref }} \
+            -X PATCH -f sha="${{ github.event.pull_request.head.sha }}" -F force=true
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
 
@@ -147,27 +157,29 @@ jobs:
                以下のような構造で作成してください:
 
                ## 情報
-               - PRタイトルからissue参照を見つけてRelatedリンクとして作成
+               - PRタイトルからissue参照を見つけてRelatedリンクとして作成(既にある場合は重複追加しないでください)
 
                ## サマリー
                - PR変更事項をbullet pointで作成
 
                ## ダイアグラム
-               - 主要な流れがあればMermaidシーケンスダイアグラムで表現(なければ省略)
+               - 主要な流れがあればMermaidシーケンスダイアグラムで表現(なければこのセクション省略)
 
                ## レビューフィードバック
-               - 特定のコード行と関連しない一般的なレビューフィードバック
+               - 特定のコード行と関連しない一般的なレビューフィードバック(アーキテクチャ、設計方向、全体的な改善事項など)
 
-            2. コードレビューはインラインコメントで該当コード行に直接付けてください:
+            2. コードレビューは`mcp__github_inline_comment__create_inline_comment`を使用して該当コード行に直接付けてください:
                - コード品質とベストプラクティス
                - 潜在的なバグまたは問題
                - セキュリティ関連事項
                - パフォーマンス考慮事項
                - 問題のないコードにはコメントを付けないでください
+               - 特定のコード行に該当しないフィードバックはインラインコメントではなくPR本文に記述してください
 
           claude_args: |
             --model claude-opus-4-6
-            --system-prompt "すべての応答とコメントは日本語で作成してください。"
+            --system-prompt "すべての応答とコメントは韓国語で作成してください。"
+            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr edit:*)"
 
       - name: Cleanup tracking branch for fork PR
         if: always() && github.event.pull_request.head.repo.fork == true
@@ -180,7 +192,7 @@ jobs:
 
 #### claude.yml
 
-コメントで`@claude`をメンションするとインタラクティブに応答するワークフローだ。
+コメントでトリガーフレーズをメンションするとインタラクティブに応答するワークフローだ。
 
 ```yaml
 name: Claude Assistant
@@ -189,16 +201,19 @@ on:
     types: [created]
   pull_request_review_comment:
     types: [created]
-  issues:
-    types: [opened, assigned]
   pull_request_review:
     types: [submitted]
 
 jobs:
   claude-response:
+    if: |
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@myteam/review')) ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@myteam/review')) ||
+      (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@myteam/review'))
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      actions: read
+      contents: write
       pull-requests: write
       issues: write
       id-token: write
@@ -209,23 +224,140 @@ jobs:
           app-id: ${{ secrets.REVIEW_APP_ID }}
           private-key: ${{ secrets.REVIEW_APP_PRIVATE_KEY }}
 
+      - name: Add eyes reaction
+        run: |
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            gh api repos/${{ github.repository }}/issues/comments/${{ github.event.comment.id }}/reactions \
+              -f content=eyes
+          elif [ "${{ github.event_name }}" = "pull_request_review_comment" ]; then
+            gh api repos/${{ github.repository }}/pulls/comments/${{ github.event.comment.id }}/reactions \
+              -f content=eyes
+          elif [ "${{ github.event_name }}" = "pull_request_review" ]; then
+            gh api repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/reactions \
+              -f content=eyes
+          fi
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Get fork PR info
+        id: fork-check
+        run: |
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            PR_NUMBER="${{ github.event.issue.number }}"
+            PR_DATA=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER 2>/dev/null) || {
+              echo "is_fork=false" >> $GITHUB_OUTPUT
+              exit 0
+            }
+          elif [ "${{ github.event_name }}" = "pull_request_review_comment" ] || [ "${{ github.event_name }}" = "pull_request_review" ]; then
+            PR_NUMBER="${{ github.event.pull_request.number }}"
+            PR_DATA=$(gh api repos/${{ github.repository }}/pulls/$PR_NUMBER)
+          else
+            echo "is_fork=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          IS_FORK=$(echo "$PR_DATA" | jq -r '.head.repo.fork')
+          HEAD_REF=$(echo "$PR_DATA" | jq -r '.head.ref')
+          HEAD_SHA=$(echo "$PR_DATA" | jq -r '.head.sha')
+          echo "is_fork=$IS_FORK" >> $GITHUB_OUTPUT
+          echo "head_ref=$HEAD_REF" >> $GITHUB_OUTPUT
+          echo "head_sha=$HEAD_SHA" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Create or update tracking branch for fork PR
+        if: steps.fork-check.outputs.is_fork == 'true'
+        run: |
+          gh api repos/${{ github.repository }}/git/refs \
+            -f ref="refs/heads/${{ steps.fork-check.outputs.head_ref }}" \
+            -f sha="${{ steps.fork-check.outputs.head_sha }}" 2>/dev/null || \
+          gh api repos/${{ github.repository }}/git/refs/heads/${{ steps.fork-check.outputs.head_ref }} \
+            -X PATCH -f sha="${{ steps.fork-check.outputs.head_sha }}" -F force=true
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
       - uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ steps.app-token.outputs.token }}
+          trigger_phrase: "@myteam/review"
           claude_args: |
             --model claude-opus-4-6
-            --system-prompt "すべての応答とコメントは日本語で作成してください。"
+            --system-prompt "すべての応答とコメントは韓国語で作成してください。進行状況チェックリストやステップリストを作成しないでください。回答内容のみ記述してください。回答の冒頭で必ず質問者をタグ付けし、改行した後に回答を記述してください。例: @username様、\n\n回答内容"
+
+      - name: Cleanup comment
+        if: success()
+        run: |
+          NUMBER="${{ github.event.issue.number || github.event.pull_request.number }}"
+          COMMENT=$(gh api "repos/${{ github.repository }}/issues/${NUMBER}/comments?per_page=100" \
+            --jq '[.[] | select(.body | test("\\*\\*Claude finished"))] | last')
+          COMMENT_ID=$(echo "$COMMENT" | jq -r '.id // empty')
+          ENDPOINT="issues/comments"
+          if [ -z "$COMMENT_ID" ]; then
+            COMMENT=$(gh api "repos/${{ github.repository }}/pulls/${NUMBER}/comments?per_page=100" \
+              --jq '[.[] | select(.body | test("\\*\\*Claude finished"))] | last')
+            COMMENT_ID=$(echo "$COMMENT" | jq -r '.id // empty')
+            ENDPOINT="pulls/comments"
+          fi
+          if [ -z "$COMMENT_ID" ]; then
+            echo "No Claude comment found"
+            exit 0
+          fi
+          export BODY
+          BODY=$(echo "$COMMENT" | jq -r '.body')
+          CLEANED=$(python3 << 'PYEOF'
+          import os, re
+          body = os.environ.get('BODY', '')
+          body = re.sub(r'\*\*Claude finished.*?\n', '', body)
+          body = re.sub(r'^---\s*\n', '', body.strip())
+          body = re.sub(r'^(- \[[ x]\] .+\n)+', '', body.strip())
+          body = re.sub(r'\[View job\s*(?:run)?\]\(https?://[^\)]+\)\s*', '', body)
+          print(body.strip())
+          PYEOF
+          )
+          gh api "repos/${{ github.repository }}/${ENDPOINT}/${COMMENT_ID}" \
+            -X PATCH -f body="$CLEANED"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Cleanup tracking branch for fork PR
+        if: always() && steps.fork-check.outputs.is_fork == 'true'
+        continue-on-error: true
+        run: |
+          gh api repos/${{ github.repository }}/git/refs/heads/${{ steps.fork-check.outputs.head_ref }} -X DELETE
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
 ```
 
 ### 3.4. fork基盤Git Flow対応
 
-私たちはそれぞれforkしたリポジトリからPRを上げるGit Flowを使用しているが、初期にはfork PRでワークフローがトリガーされなかった。私たちは以下のように解決した。
+私たちはそれぞれforkしたリポジトリからPRを上げるGit Flowを使用しているが、初期にはfork PRでワークフローがトリガーされなかった。以下のように解決した。
 
 - Organization設定でfork PRワークフロー権限を有効化:
   - "Send write tokens to workflows from fork pull requests"
   - "Send secrets to workflows from fork pull requests"
 - fork PRのブランチをbaseリポジトリに一時的に作成して削除するworkaroundを適用
+
+### 3.5. UX改善
+
+#### カスタムトリガーフレーズ
+
+デフォルトのトリガーは`@claude`だが、GitHub Organizationチームを活用してカスタムトリガーに変更した。GitHubのTeam有料プランはシート当たりの費用を支払うが、すでに利用中であればOrganizationチーム機能を活用できる。`review`というチームを作成すると、`@myteam/review`でメンションする時にオートコンプリートがサポートされ入力が便利になる。`trigger_phrase`パラメータでトリガーフレーズを指定し、`if`条件で`contains()`によって該当フレーズが含まれるイベントのみフィルタリングする。
+
+#### リアクション
+
+ワークフローがトリガーされると該当コメントに👀絵文字リアクションを追加する。Claudeが応答を生成する間、リクエストが受理されたことを視覚的に表示する。
+
+#### 応答整理
+
+claude-code-actionはtagモードで応答完了時に「Claude finished @user's task in Xs」というヘッダーと区切り線、チェックリスト、「View job」リンクを自動的に追加する。こうしたUI要素が応答内容と混ざると可読性が低下するため、完了後にPython regexでパースして不要な部分を除去するcleanupステップを追加した。
+
+#### 質問者タグ付け
+
+システムプロンプトで応答開始時に質問者を`@username様、`形式でタグ付けするよう指示した。これにより質問者がGitHub通知を受け取ることができ、誰に対する回答なのかが明確になる。
 
 ## 4. 結果
 
@@ -241,9 +373,11 @@ PRが開かれるとClaudeが自動的に関連issueリンクを追加し、変�
 
 特定のコード行に対して潜在的なバグを指摘し、コード例とともに改善案を提示し、問題の原因と解決方法を詳しく説明する。
 
-### 4.3. @claudeメンション
+### 4.3. @myteam/reviewメンション
 
-PRコメントで`@claude`をメンションすればいつでも追加質問が可能だ。「この部分のリファクタリング方法を推薦して」、「この関数の時間複雑度は?」、「セキュリティ問題はないか?」といった質問にリアルタイムで回答を受けられる。
+![メンション例]({{site.baseurl}}/assets/image/post/development/cs/software-engineering/code-quality/claude-github-pr-auto-review/mention-example.png){: style="max-width: min(800px, 100%);"}
+
+PRコメントで`@myteam/review`をメンションすると👀リアクションが付き、Claudeが応答を生成する。応答は質問者をタグ付けしながら始まり、「Claude finished」ヘッダーのような不要なUI要素は自動的に除去される。「この部分のリファクタリング方法を推薦して」、「この関数の時間計算量は?」、「セキュリティ問題はないか?」といった質問にリアルタイムで回答を受けられる。
 
 ## 5. 効果
 
