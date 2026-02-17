@@ -1,0 +1,7 @@
+야심한 새벽에 만드는 Claude Code 음성 어시스턴트
+
+잠이 안 오는 야심한 새벽에 Claude Code CLI의 입출력을 음성으로 중계하는 macOS 어시스턴트 데모를 만들어 봤다. whisper.cpp로 음성을 텍스트로 바꾸고 Google Cloud TTS로 응답을 읽어주는 수준이지만 만드는 과정이 재밌었다.
+
+https://blog.binaryloader.io/ko/development/apple/macos/building-claude-voice-assistant
+
+#Development #Apple #macOS #SwiftUI #ClaudeCode #STT #TTS #whisper.cpp #GoogleCloudTTS #SwiftPackageManager

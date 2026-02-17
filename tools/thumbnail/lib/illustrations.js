@@ -1426,6 +1426,71 @@ function illustrationClaudeGithubPrAutoReview() {
   `;
 }
 
+// 52. Claude Voice Assistant
+function illustrationBuildingClaudeVoiceAssistant() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Avatar face -->
+    <circle cx="540" cy="260" r="85" fill="none" stroke="#ffdfc4" stroke-width="2.5" opacity="0.8"/>
+    <circle cx="540" cy="260" r="75" fill="#ffdfc4" opacity="0.15"/>
+    <!-- Eyes -->
+    <ellipse cx="512" cy="248" rx="10" ry="8" fill="#fff" opacity="0.9"/>
+    <ellipse cx="568" cy="248" rx="10" ry="8" fill="#fff" opacity="0.9"/>
+    <circle cx="514" cy="248" r="4" fill="#2d2838"/>
+    <circle cx="570" cy="248" r="4" fill="#2d2838"/>
+    <!-- Glasses -->
+    <circle cx="512" cy="250" r="18" fill="none" stroke="#888" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="568" cy="250" r="18" fill="none" stroke="#888" stroke-width="1.5" opacity="0.7"/>
+    <line x1="530" y1="248" x2="550" y2="248" stroke="#888" stroke-width="1" opacity="0.7"/>
+    <!-- Mouth (speaking) -->
+    <ellipse cx="540" cy="282" rx="12" ry="8" fill="#c07060" opacity="0.7"/>
+    <!-- Sound waves from mouth -->
+    <path d="M 570 280 Q 590 270 570 260" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 580 285 Q 610 270 580 255" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.35"/>
+    <path d="M 590 290 Q 630 270 590 250" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.2"/>
+    <!-- Microphone -->
+    <g transform="translate(350, 230)">
+      <rect x="-12" y="-30" width="24" height="40" rx="12" fill="none" stroke="#4ecdc4" stroke-width="2"/>
+      <line x1="0" y1="12" x2="0" y2="28" stroke="#4ecdc4" stroke-width="1.5"/>
+      <line x1="-8" y1="28" x2="8" y2="28" stroke="#4ecdc4" stroke-width="1.5"/>
+      <path d="M -18 -5 Q -18 20 0 20 Q 18 20 18 -5" fill="none" stroke="#4ecdc4" stroke-width="1.5"/>
+    </g>
+    <!-- Sound waves into mic -->
+    <path d="M 310 220 Q 300 230 310 240" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <path d="M 300 215 Q 285 230 300 245" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.35"/>
+    <path d="M 290 210 Q 270 230 290 250" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.2"/>
+    <!-- State machine flow -->
+    <g transform="translate(540, 460)">
+      <!-- States -->
+      <rect x="-280" y="-20" width="80" height="40" rx="20" fill="none" stroke="#555" stroke-width="1.5"/>
+      <text x="-240" y="5" text-anchor="middle" font-family="monospace" font-size="10" fill="#555">IDLE</text>
+      <rect x="-140" y="-20" width="80" height="40" rx="20" fill="none" stroke="#4ecdc4" stroke-width="1.5"/>
+      <text x="-100" y="5" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4">LISTEN</text>
+      <rect x="0" y="-20" width="80" height="40" rx="20" fill="none" stroke="#ffe66d" stroke-width="1.5"/>
+      <text x="40" y="5" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d">THINK</text>
+      <rect x="140" y="-20" width="80" height="40" rx="20" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
+      <text x="180" y="5" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff">SPEAK</text>
+      <!-- Arrows -->
+      <line x1="-198" y1="0" x2="-145" y2="0" stroke="#333" stroke-width="1"/>
+      <polygon points="-145,-3 -138,0 -145,3" fill="#333"/>
+      <line x1="-58" y1="0" x2="-5" y2="0" stroke="#333" stroke-width="1"/>
+      <polygon points="-5,-3 2,0 -5,3" fill="#333"/>
+      <line x1="82" y1="0" x2="135" y2="0" stroke="#333" stroke-width="1"/>
+      <polygon points="135,-3 142,0 135,3" fill="#333"/>
+      <!-- Return arrow -->
+      <path d="M 220 20 Q 240 55 0 55 Q -260 55 -280 20" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="4 3"/>
+      <polygon points="-280,22 -283,14 -276,17" fill="#333"/>
+    </g>
+    <!-- Claude sparkle -->
+    <g transform="translate(700, 240)">
+      <polygon points="0,-16 4,-4 16,0 4,4 0,16 -4,4 -16,0 -4,-4" fill="#ff6b9d" opacity="0.7"/>
+    </g>
+    <text x="700" y="275" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b9d" opacity="0.6">Claude</text>
+    <text x="540" y="560" text-anchor="middle" font-family="monospace" font-size="12" fill="#555">STT → Claude Code → TTS</text>
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">VOICE ASSISTANT</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -1479,6 +1544,7 @@ const ILLUSTRATION_MAP = {
   'xcode-agentic-coding-assistant-mcp-setup': illustrationXcodeAgenticCodingAssistantMcpSetup,
   'xcode12-build-ios15': illustrationXcode12BuildIos15,
   'claude-github-pr-auto-review': illustrationClaudeGithubPrAutoReview,
+  'building-claude-voice-assistant': illustrationBuildingClaudeVoiceAssistant,
 };
 
 function getIllustration(ref) {
