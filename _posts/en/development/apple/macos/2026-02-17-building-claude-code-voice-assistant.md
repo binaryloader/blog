@@ -3,7 +3,7 @@ title: "[macOS] Building a Claude Code Voice Assistant in the Small Hours"
 ref: building-claude-code-voice-assistant
 lang: en
 permalink: /en/:categories/:title/
-excerpt: "On a sleepless night I built a macOS assistant demo that relays Claude Code CLI's input and output through voice. It just converts speech to text with whisper.cpp and reads responses back with Google Cloud TTS, but the process was fun."
+excerpt: "Building a macOS assistant demo that relays Claude Code CLI's input and output through voice on a sleepless night"
 date: 2026-02-17T11:00+09:00
 last_modified_at: 2026-02-17T11:00+09:00
 published: true

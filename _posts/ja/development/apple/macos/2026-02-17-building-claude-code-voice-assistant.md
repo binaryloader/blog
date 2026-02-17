@@ -3,7 +3,7 @@ title: "[macOS] 夜更けに作るClaude Code音声アシスタント"
 ref: building-claude-code-voice-assistant
 lang: ja
 permalink: /ja/:categories/:title/
-excerpt: "眠れない夜更けにClaude Code CLIの入出力を音声で中継するmacOSアシスタントのデモを作ってみた。whisper.cppで音声をテキストに変換しGoogle Cloud TTSで応答を読み上げる程度だが作る過程が楽しかった。"
+excerpt: "眠れない夜更けにClaude Code CLIの入出力を音声で中継するmacOSアシスタントデモ作り"
 date: 2026-02-17T11:00+09:00
 last_modified_at: 2026-02-17T11:00+09:00
 published: true
