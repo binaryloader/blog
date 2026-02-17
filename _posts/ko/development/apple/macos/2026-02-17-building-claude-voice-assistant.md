@@ -99,7 +99,7 @@ Whisper 모델에는 hallucination이라는 골치 아픈 문제가 있다. 아�
 
 ## 4. 음성 출력 — Google Cloud TTS
 
-TTS는 Google Cloud Text-to-Speech의 Chirp 3 HD 모델을 사용한다. Apple의 내장 TTS도 시도해 봤지만 한국어 음성이 너무 기계적이었다. Chirp 3 HD는 Google이 2025년에 출시한 모델인데 억양과 호흡이 꽤 자연스럽다. 처음 들었을 때 "오 이 정도면 괜찮은데?" 싶었다.
+TTS는 Google Cloud Text-to-Speech의 Chirp 3 HD 모델을 사용한다. Apple의 내장 TTS도 시도해 봤지만 한국어 음성이 너무 기계적이었다. Chirp 3 HD는 Google이 2025년에 출시한 모델인데 억양과 호흡이 꽤 자연스럽다. 처음 들었을 때 "오 이 정도면 괜찮은데?" 싶었다. 가격 페이지를 확인해 보니 매월 0~100만 자까지 무료 사용량이 제공돼서 데모 프로젝트에 부담 없이 쓸 수 있었다.
 
 설정 화면에서 음성을 선택하고 미리 들어볼 수 있게 했다. Chirp 3 HD는 남녀 음성을 포함해 다양한 프리셋을 제공하는데 각각 고유한 이름(Alnilam, Charon 등)이 붙어 있다. API 호출 시 LINEAR16(비압축 PCM) 인코딩에 48kHz 샘플레이트를 지정해서 가능한 한 좋은 음질로 받는다.
 
@@ -167,4 +167,5 @@ JSON 스트리밍 응답을 파싱하는 게 은근히 재밌는 작업이었다
 
 - <https://github.com/ggerganov/whisper.cpp>
 - <https://cloud.google.com/text-to-speech/docs/chirp3-hd>
+- <https://cloud.google.com/text-to-speech/pricing>
 - <https://docs.anthropic.com/en/docs/claude-code/overview>

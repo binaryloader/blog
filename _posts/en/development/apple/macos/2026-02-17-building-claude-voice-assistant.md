@@ -101,7 +101,7 @@ Whisper models have a notorious hallucination problem — they generate phantom 
 
 ## 4. Speech Output — Google Cloud TTS
 
-For TTS, I went with Google Cloud Text-to-Speech's Chirp 3 HD model. Apple's built-in TTS was too robotic for Korean. Chirp 3 HD, released by Google in 2025, has fairly natural intonation and breathing patterns. My first reaction was "oh, this is actually not bad."
+For TTS, I went with Google Cloud Text-to-Speech's Chirp 3 HD model. Apple's built-in TTS was too robotic for Korean. Chirp 3 HD, released by Google in 2025, has fairly natural intonation and breathing patterns. My first reaction was "oh, this is actually not bad." Checking the pricing page, it offers a free tier of up to 1 million characters per month, so there was no cost barrier for a demo project.
 
 The settings screen lets you choose from various voices and preview them. Chirp 3 HD offers diverse presets including male and female voices, each with unique names like Alnilam and Charon. API calls specify LINEAR16 (uncompressed PCM) encoding at 48kHz sample rate for the best possible audio quality.
 
@@ -169,4 +169,5 @@ What started at 2 AM went well past sunrise. "I should really sleep... wait, it'
 
 - <https://github.com/ggerganov/whisper.cpp>
 - <https://cloud.google.com/text-to-speech/docs/chirp3-hd>
+- <https://cloud.google.com/text-to-speech/pricing>
 - <https://docs.anthropic.com/en/docs/claude-code/overview>
