@@ -91,9 +91,6 @@ menu:
           - title: "Git"
             url: /ko/development/scm/git/
             category: "Git"
-          - title: "GitHub"
-            url: /ko/development/scm/github/
-            category: "GitHub"
       - title: "Server"
         url: /ko/development/server/
         category: "Server"
@@ -204,9 +201,6 @@ menu-en:
           - title: "Git"
             url: /en/development/scm/git/
             category: "Git"
-          - title: "GitHub"
-            url: /en/development/scm/github/
-            category: "GitHub"
       - title: "Server"
         url: /en/development/server/
         category: "Server"
@@ -317,9 +311,6 @@ menu-ja:
           - title: "Git"
             url: /ja/development/scm/git/
             category: "Git"
-          - title: "GitHub"
-            url: /ja/development/scm/github/
-            category: "GitHub"
       - title: "Server"
         url: /ja/development/server/
         category: "Server"
