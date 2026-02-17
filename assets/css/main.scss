@@ -483,10 +483,19 @@ pre {
 [data-theme="dark"] a > code,
 [data-theme="dark"] li > code,
 [data-theme="dark"] figcaption > code,
-[data-theme="dark"] td > code {
+[data-theme="dark"] td > code,
+[data-theme="dark"] em > code,
+[data-theme="dark"] strong > code,
+[data-theme="dark"] .page__content :not(pre) > code {
   background: var(--code-bg);
   color: var(--code-text);
   border-color: var(--code-border);
+}
+
+/* Image Captions */
+.page__content p.text-center em {
+  font-size: 0.85em;
+  color: var(--muted-text, $muted-text-color);
 }
 
 /* Code Blocks */

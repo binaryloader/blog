@@ -29,16 +29,9 @@ depth:
     url: /en/development/apple/
   - title: "iOS"
     url: /en/development/apple/ios/
-gallery_xcode11_gm_pad:
-  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
-    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
-gallery_xcode11_gm_phone:
-  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
-    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
-gallery_xcode11_gm_phone_full:
-  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
-    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
 ---
+
+{% assign img_path = "/assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change" %}
 
 # Overview
 
@@ -62,8 +55,13 @@ For new projects, adapting the UI/UX for the card-style presentation would be re
 
 Let's first take a look at the actual Modal Presentation Style change on a device.
 
-{% include gallery id="gallery_xcode11_gm_pad" caption="Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13" %}
-{% include gallery id="gallery_xcode11_gm_phone" caption="Xcode 11 GM / iPhone 11 Pro / iOS 13" %}
+![Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13]({{ img_path }}/xcode11_gm_pad.png){: .align-center}
+*Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13*
+{: .text-center}
+
+![Xcode 11 GM / iPhone 11 Pro / iOS 13]({{ img_path }}/xcode11_gm_phone.png){: .align-center}
+*Xcode 11 GM / iPhone 11 Pro / iOS 13*
+{: .text-center}
 
 I implemented a `present` button on the white background view controller on the left. Pressing it presents a new view controller with a green background. Instead of the presented view controller covering the entire screen as before, the existing view controller dims and scales down while the new view controller slides up as a card form partially covering it. It also supports dismiss interaction through a pull-down gesture. Whether this system-provided gesture and interaction can actually be used in production is uncertain. I'm curious whether designers would actually approve of the system default interaction.
 
@@ -157,7 +155,9 @@ extension UIViewController {
 
 Using an extension, we added a method to UIViewController that presents modals in `fullScreen` style. The code only changes to `fullScreen` when the runtime environment is iOS 13 or later and the view controller's modalPresentationStyle is `pageSheet`.
 
-{% include gallery id="gallery_xcode11_gm_phone_full" caption="Xcode 11 GM / iPhone 11 Pro / iOS 13" %}
+![Xcode 11 GM / iPhone 11 Pro / iOS 13]({{ img_path }}/xcode11_gm_phone_full.png){: .align-center}
+*Xcode 11 GM / iPhone 11 Pro / iOS 13*
+{: .text-center}
 
 Running it confirms that the modal is now presented in full-screen style. Eventually, the UI/UX should be updated to accommodate the `pageSheet` style, but for now, this approach serves as a reasonable solution.
 

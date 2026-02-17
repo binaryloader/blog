@@ -28,16 +28,9 @@ depth:
     url: /ko/development/apple/
   - title: "iOS"
     url: /ko/development/apple/ios/
-gallery_xcode11_gm_pad:
-  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
-    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
-gallery_xcode11_gm_phone:
-  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
-    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
-gallery_xcode11_gm_phone_full:
-  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
-    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
 ---
+
+{% assign img_path = "/assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change" %}
 
 # 개요
 
@@ -61,8 +54,13 @@ iOS 13 SDK에서 UIModalPresentationStyle에 `automatic`이라는 케이스가 �
 
 먼저 실제로 변경된 Modal Presentation Style을 기기에서 확인해보자.
 
-{% include gallery id="gallery_xcode11_gm_pad" caption="Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13" %}
-{% include gallery id="gallery_xcode11_gm_phone" caption="Xcode 11 GM / iPhone 11 Pro / iOS 13" %}
+![Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13]({{ img_path }}/xcode11_gm_pad.png){: .align-center}
+*Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13*
+{: .text-center}
+
+![Xcode 11 GM / iPhone 11 Pro / iOS 13]({{ img_path }}/xcode11_gm_phone.png){: .align-center}
+*Xcode 11 GM / iPhone 11 Pro / iOS 13*
+{: .text-center}
 
 왼쪽 흰색 배경의 뷰 컨트롤러에 있는 `present` 버튼을 누르면 녹색 배경의 새로운 뷰 컨트롤러가 Present 되도록 구현했다. 기존처럼 Present 되는 뷰 컨트롤러가 화면 전체를 덮는 형태가 아니라 기존에 노출되고 있던 뷰 컨트롤러는 딤드되면서 스케일이 작아지고 새로 Present 되는 뷰 컨트롤러가 그 위를 일부만 덮으면서 카드 형태로 올라오는 것을 확인할 수 있다. 또한 풀 다운 제스처를 통한 Dismiss 인터렉션을 지원한다. 사실 시스템에서 제공하는 이 제스처와 인터렉션을 사용할 수 있을지는 미지수이다. 디자이너가 과연 시스템 디폴트 인터렉션을 마음에 들어 할지 궁금하다.
 
@@ -157,7 +155,9 @@ extension UIViewController {
 
 extension을 통해 `fullScreen`으로 모달을 표시하는 메서드를 UIViewController에 추가하였다. 런타임 환경이 iOS 13 이상, 표시할 뷰 컨트롤러의 modalPresentationStyle이 `pageSheet`일 경우에만 `fullScreen`으로 변경하도록 작성하였다.
 
-{% include gallery id="gallery_xcode11_gm_phone_full" caption="Xcode 11 GM / iPhone 11 Pro / iOS 13" %}
+![Xcode 11 GM / iPhone 11 Pro / iOS 13]({{ img_path }}/xcode11_gm_phone_full.png){: .align-center}
+*Xcode 11 GM / iPhone 11 Pro / iOS 13*
+{: .text-center}
 
 실행해보면 화면 전체를 덮는 형태로 모달이 표시되는 것을 확인할 수 있다. 언젠가는 `pageSheet` 스타일에 적합한 UI/UX로 수정을 해야겠지만 시간이 없는 지금 당장은 본 글에서 알아본 방법으로 해결하는 것도 괜찮을 것 같다.
 

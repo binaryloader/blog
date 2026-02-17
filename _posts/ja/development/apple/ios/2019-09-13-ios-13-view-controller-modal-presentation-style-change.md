@@ -29,16 +29,9 @@ depth:
     url: /ja/development/apple/
   - title: "iOS"
     url: /ja/development/apple/ios/
-gallery_xcode11_gm_pad:
-  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
-    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_pad.png
-gallery_xcode11_gm_phone:
-  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
-    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone.png
-gallery_xcode11_gm_phone_full:
-  - url: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
-    image_path: /assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change/xcode11_gm_phone_full.png
 ---
+
+{% assign img_path = "/assets/image/post/development/apple/ios/ios-13-view-controller-modal-presentation-style-change" %}
 
 # 概要
 
@@ -62,8 +55,13 @@ iOS 13 SDKで、UIModalPresentationStyleに`automatic`というケースが追�
 
 まず実際に変更されたModal Presentation Styleをデバイスで確認してみよう。
 
-{% include gallery id="gallery_xcode11_gm_pad" caption="Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13" %}
-{% include gallery id="gallery_xcode11_gm_phone" caption="Xcode 11 GM / iPhone 11 Pro / iOS 13" %}
+![Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13]({{ img_path }}/xcode11_gm_pad.png){: .align-center}
+*Xcode 11 GM / iPad Pro 3rd Gen 12.9 / iOS 13*
+{: .text-center}
+
+![Xcode 11 GM / iPhone 11 Pro / iOS 13]({{ img_path }}/xcode11_gm_phone.png){: .align-center}
+*Xcode 11 GM / iPhone 11 Pro / iOS 13*
+{: .text-center}
 
 左側の白い背景のView Controllerにある`present`ボタンを押すと、緑色の背景の新しいView ControllerがPresentされるように実装した。従来のようにPresentされるView Controllerが画面全体を覆う形式ではなく、既に表示されているView Controllerがディムされてスケールが小さくなり、新しくPresentされるView Controllerがその上を部分的にカード形式で覆いながら上がってくるのが確認できる。またプルダウンジェスチャーによるDismissインタラクションにも対応している。実際にシステムが提供するこのジェスチャーとインタラクションを使えるかどうかは未知数だ。デザイナーがシステムデフォルトのインタラクションを気に入るかも気になるところだ。
 
@@ -157,7 +155,9 @@ extension UIViewController {
 
 extensionを使用して、`fullScreen`でモーダルを表示するメソッドをUIViewControllerに追加した。ランタイム環境がiOS 13以上で、表示するView ControllerのmodalPresentationStyleが`pageSheet`の場合にのみ`fullScreen`に変更するように実装した。
 
-{% include gallery id="gallery_xcode11_gm_phone_full" caption="Xcode 11 GM / iPhone 11 Pro / iOS 13" %}
+![Xcode 11 GM / iPhone 11 Pro / iOS 13]({{ img_path }}/xcode11_gm_phone_full.png){: .align-center}
+*Xcode 11 GM / iPhone 11 Pro / iOS 13*
+{: .text-center}
 
 実行してみると、画面全体を覆う形式でモーダルが表示されることが確認できる。いずれは`pageSheet`スタイルに適したUI/UXに修正すべきだが、時間がない今は本記事で紹介した方法で対応するのも良いだろう。
 
