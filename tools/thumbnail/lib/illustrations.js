@@ -1544,7 +1544,7 @@ const ILLUSTRATION_MAP = {
   'xcode-agentic-coding-assistant-mcp-setup': illustrationXcodeAgenticCodingAssistantMcpSetup,
   'xcode12-build-ios15': illustrationXcode12BuildIos15,
   'claude-github-pr-auto-review': illustrationClaudeGithubPrAutoReview,
-  'building-claude-voice-assistant': illustrationBuildingClaudeVoiceAssistant,
+  'building-claude-code-voice-assistant': illustrationBuildingClaudeVoiceAssistant,
 };
 
 function getIllustration(ref) {

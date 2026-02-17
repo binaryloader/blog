@@ -1,6 +1,6 @@
 ---
 title: "[macOS] Building a Claude Code Voice Assistant in the Small Hours"
-ref: building-claude-voice-assistant
+ref: building-claude-code-voice-assistant
 lang: en
 permalink: /en/:categories/:title/
 excerpt: "On a sleepless night I built a macOS assistant demo that relays Claude Code CLI's input and output through voice. It just converts speech to text with whisper.cpp and reads responses back with Google Cloud TTS, but the process was fun."
@@ -8,9 +8,9 @@ date: 2026-02-17T11:00+09:00
 last_modified_at: 2026-02-17T11:00+09:00
 published: true
 header:
-  overlay_image: "/assets/image/thumbnail/header/building-claude-voice-assistant.png"
+  overlay_image: "/assets/image/thumbnail/header/building-claude-code-voice-assistant.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/en/building-claude-voice-assistant.png"
+  teaser: "/assets/image/thumbnail/teaser/en/building-claude-code-voice-assistant.png"
 categories:
   - Development
   - Apple
@@ -35,7 +35,7 @@ depth:
     url: /en/development/apple/macos/
 ---
 
-{% assign img_path = "/assets/image/post/development/apple/macos/building-claude-voice-assistant" %}
+{% assign img_path = "/assets/image/post/development/apple/macos/building-claude-code-voice-assistant" %}
 
 # Overview
 

@@ -2,6 +2,6 @@ Building a Claude Code Voice Assistant in the Small Hours
 
 On a sleepless night I built a macOS assistant demo that relays Claude Code CLI's input and output through voice. It just converts speech to text with whisper.cpp and reads responses back with Google Cloud TTS, but the process was fun.
 
-https://blog.binaryloader.io/en/development/apple/macos/building-claude-voice-assistant
+https://blog.binaryloader.io/en/development/apple/macos/building-claude-code-voice-assistant
 
 #Development #Apple #macOS #SwiftUI #ClaudeCode #STT #TTS #whisper.cpp #GoogleCloudTTS #SwiftPackageManager
