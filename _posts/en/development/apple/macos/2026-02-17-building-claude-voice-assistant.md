@@ -155,9 +155,11 @@ During processing, an indicator shows which tool Claude Code is currently using.
 
 # Reflections
 
-For a demo born from insomnia, it turned out more usable than expected. It's not production-ready by any means, but as an answer to "Can you put a voice on Claude Code?" — it'll do.
+For a demo born from insomnia, it turned out ~~more usable than expected~~ more fun than expected. As an answer to "Can you put a voice on Claude Code?" — it'll do.
 
 In actual use, asking "What's the current working directory?" by voice and hearing "The current working directory is the repository folder on your Desktop" through the speakers is pretty refreshing. Ask "Is the working tree clean?" and it checks the status and answers in conversational language. You can do the same in a terminal, but there's a certain convenience in not needing to touch the keyboard.
+
+The one downside is response latency. After a voice query, Claude Code needs time to analyze, call tools, and generate a response. Even simple questions can take anywhere from a few seconds to over ten, and that wait feels much longer through a voice interface. If I were to improve this, a few ideas come to mind: streaming TTS that starts synthesis as soon as the first sentence is ready instead of waiting for the full response, routing simple queries to a faster model like Haiku, and pre-initializing the audio session when entering the processing state to eliminate playback startup delay. I didn't go this far for a demo, but even just streaming TTS alone would make a noticeable difference.
 
 The most painful part was definitely Whisper hallucination. Add a safeguard, test it, find another pattern that breaks through, patch it again — rinse and repeat. The clipped first syllable in TTS also took a while to diagnose. Audio hardware initialization delay isn't something you'd catch from logs alone, and the fix of prepending silence required byte-level WAV header surgery.
 
