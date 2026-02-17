@@ -2,6 +2,6 @@ QuickTime Playerでマイクとシステムオーディオを同時に録音す�
 
 BlackHoleを使ってQuickTime Playerでマイク入力とシステムオーディオを同時に録音する方法をまとめる。
 
-https://blog.binaryloader.io/ja/pc/macos/macos-quicktime-blackhole-audio-recording
+https://blog.binaryloader.io/ja/pc/macos/quicktime-blackhole-audio-recording
 
 #macOS #QuickTimePlayer #BlackHole #AudioMIDISetup

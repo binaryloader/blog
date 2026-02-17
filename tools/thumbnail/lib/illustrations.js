@@ -1491,6 +1491,61 @@ function illustrationBuildingClaudeVoiceAssistant() {
   `;
 }
 
+// 53. QuickTime BlackHole audio recording
+function illustrationQuicktimeBlackholeAudioRecording() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Microphone -->
+    <g transform="translate(200, 260)">
+      <rect x="-20" y="-50" width="40" height="70" rx="20" fill="none" stroke="#4ecdc4" stroke-width="2"/>
+      <line x1="-30" y1="30" x2="30" y2="30" stroke="#4ecdc4" stroke-width="1.5"/>
+      <path d="M-30,10 Q-30,30 0,30 Q30,30 30,10" fill="none" stroke="#4ecdc4" stroke-width="1.5"/>
+      <line x1="0" y1="30" x2="0" y2="50" stroke="#4ecdc4" stroke-width="1.5"/>
+    </g>
+    <text x="200" y="340" text-anchor="middle" font-family="monospace" font-size="12" fill="#4ecdc4">MIC</text>
+    <!-- Speaker / System Audio -->
+    <g transform="translate(200, 460)">
+      <rect x="-20" y="-25" width="30" height="50" rx="2" fill="none" stroke="#ff6b9d" stroke-width="2"/>
+      <polygon points="10,-40 40,-55 40,15 10,0" fill="none" stroke="#ff6b9d" stroke-width="2"/>
+      <path d="M48,-35 Q65,-20 48,0" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5"/>
+      <path d="M55,-45 Q80,-20 55,10" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.3"/>
+    </g>
+    <text x="200" y="540" text-anchor="middle" font-family="monospace" font-size="12" fill="#ff6b9d">SYSTEM</text>
+    <!-- Audio flow lines to BlackHole -->
+    <line x1="270" y1="260" x2="430" y2="320" stroke="#4ecdc4" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+    <line x1="270" y1="460" x2="430" y2="380" stroke="#ff6b9d" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+    <!-- BlackHole virtual driver -->
+    <g transform="translate(540, 350)">
+      <circle cx="0" cy="0" r="70" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.7"/>
+      <circle cx="0" cy="0" r="45" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="0" cy="0" r="18" fill="#00e5ff" opacity="0.15"/>
+      <circle cx="0" cy="0" r="6" fill="#00e5ff" opacity="0.5"/>
+    </g>
+    <text x="540" y="445" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#00e5ff">BlackHole</text>
+    <!-- Swirl effect in BlackHole -->
+    <path d="M525,325 Q540,310 555,325" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+    <path d="M515,345 Q540,365 565,345" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.4"/>
+    <path d="M520,335 Q530,350 540,335 Q550,320 560,335" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+    <!-- Audio flow to QuickTime -->
+    <line x1="650" y1="350" x2="780" y2="350" stroke="#ffe66d" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.5"/>
+    <!-- Waveform on the line -->
+    <polyline points="670,350 680,340 690,360 700,340 710,360 720,340 730,360 740,350 750,350 760,340 770,355" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.4"/>
+    <!-- QuickTime Player -->
+    <g transform="translate(870, 350)">
+      <rect x="-70" y="-60" width="140" height="100" rx="10" fill="none" stroke="#ffe66d" stroke-width="2"/>
+      <rect x="-55" y="-45" width="110" height="70" rx="4" fill="#111"/>
+      <polygon points="-10,-15 20,0 -10,15" fill="#ffe66d" opacity="0.6"/>
+      <circle cx="0" cy="52" r="4" fill="#ffe66d" opacity="0.4"/>
+    </g>
+    <text x="870" y="435" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffe66d">QuickTime</text>
+    <!-- Aggregate device label -->
+    <rect x="370" y="490" width="340" height="40" rx="8" fill="none" stroke="#333" stroke-width="1"/>
+    <text x="540" y="515" text-anchor="middle" font-family="monospace" font-size="13" fill="#00e5ff" opacity="0.7">Aggregate Device</text>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">AUDIO ROUTING</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -1545,6 +1600,7 @@ const ILLUSTRATION_MAP = {
   'xcode12-build-ios15': illustrationXcode12BuildIos15,
   'claude-github-pr-auto-review': illustrationClaudeGithubPrAutoReview,
   'building-claude-code-voice-assistant': illustrationBuildingClaudeVoiceAssistant,
+  'quicktime-blackhole-audio-recording': illustrationQuicktimeBlackholeAudioRecording,
 };
 
 function getIllustration(ref) {
