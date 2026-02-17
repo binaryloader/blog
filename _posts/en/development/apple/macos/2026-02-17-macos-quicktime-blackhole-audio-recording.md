@@ -116,4 +116,4 @@ If you no longer need BlackHole, delete `BlackHole16ch.driver` from `/Library/Au
 # References
 
 - <https://existential.audio/blackhole/>
-- <https://support.apple.com/guide/audio-midi-setup/ams11031/mac>
+- <https://www.youtube.com/watch?v=tZ03DpRufxo>

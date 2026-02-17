@@ -114,4 +114,4 @@ BlackHole을 더 이상 사용하지 않으면 `/Library/Audio/Plug-Ins/HAL/` �
 # 참고
 
 - <https://existential.audio/blackhole/>
-- <https://support.apple.com/ko-kr/guide/audio-midi-setup/ams11031/mac>
+- <https://www.youtube.com/watch?v=tZ03DpRufxo>

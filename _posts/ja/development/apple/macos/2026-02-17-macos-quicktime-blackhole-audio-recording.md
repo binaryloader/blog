@@ -116,4 +116,4 @@ BlackHoleが不要になった場合は`/Library/Audio/Plug-Ins/HAL/`パスか�
 # 参考
 
 - <https://existential.audio/blackhole/>
-- <https://support.apple.com/ja-jp/guide/audio-midi-setup/ams11031/mac>
+- <https://www.youtube.com/watch?v=tZ03DpRufxo>
