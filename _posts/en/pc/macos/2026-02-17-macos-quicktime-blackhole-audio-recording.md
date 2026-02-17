@@ -12,26 +12,21 @@ header:
   overlay_filter: "0"
   teaser: "/assets/image/thumbnail/teaser/en/macos-quicktime-blackhole-audio-recording.png"
 categories:
-  - Development
-  - Apple
+  - PC
   - macOS
 tags:
-  - Development
-  - Apple
   - macOS
   - QuickTime Player
   - BlackHole
   - Audio MIDI Setup
 depth:
-  - title: "Development"
-    url: /en/development/
-  - title: "Apple"
-    url: /en/development/apple/
+  - title: "PC"
+    url: /en/pc/
   - title: "macOS"
-    url: /en/development/apple/macos/
+    url: /en/pc/macos/
 ---
 
-{% assign img_path = "/assets/image/post/development/apple/macos/macos-quicktime-blackhole-audio-recording" %}
+{% assign img_path = "/assets/image/post/pc/macos/macos-quicktime-blackhole-audio-recording" %}
 
 # Overview
 
