@@ -1,14 +1,14 @@
 ---
 title: "[macOS] QuickTime Player로 마이크와 시스템 오디오를 함께 녹음하는 방법"
-ref: macos-quicktime-blackhole-audio-recording
+ref: quicktime-blackhole-audio-recording
 excerpt: "BlackHole을 이용해 QuickTime Player에서 마이크 입력과 시스템 오디오를 동시에 녹음하는 방법을 정리한다."
 date: 2026-02-17T17:00+09:00
 last_modified_at: 2026-02-17T17:00+09:00
 published: true
 header:
-  overlay_image: "/assets/image/thumbnail/header/macos-quicktime-blackhole-audio-recording.png"
+  overlay_image: "/assets/image/thumbnail/header/quicktime-blackhole-audio-recording.png"
   overlay_filter: "0"
-  teaser: "/assets/image/thumbnail/teaser/ko/macos-quicktime-blackhole-audio-recording.png"
+  teaser: "/assets/image/thumbnail/teaser/ko/quicktime-blackhole-audio-recording.png"
 categories:
   - PC
   - macOS
@@ -24,7 +24,7 @@ depth:
     url: /ko/pc/macos/
 ---
 
-{% assign img_path = "/assets/image/post/pc/macos/macos-quicktime-blackhole-audio-recording" %}
+{% assign img_path = "/assets/image/post/pc/macos/quicktime-blackhole-audio-recording" %}
 
 # 개요
 
