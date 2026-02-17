@@ -155,7 +155,7 @@ During processing, an indicator shows which tool Claude Code is currently using.
 
 # Reflections
 
-For a demo born from insomnia, it turned out ~~more usable than expected~~ more fun than expected. As an answer to "Can you put a voice on Claude Code?" — it'll do.
+For a demo born from insomnia, it turned out more ~~usable~~ fun than expected. As an answer to "Can you put a voice on Claude Code?" — it'll do.
 
 In actual use, asking "What's the current working directory?" by voice and hearing "The current working directory is the repository folder on your Desktop" through the speakers is pretty refreshing. Ask "Is the working tree clean?" and it checks the status and answers in conversational language. You can do the same in a terminal, but there's a certain convenience in not needing to touch the keyboard.
 
