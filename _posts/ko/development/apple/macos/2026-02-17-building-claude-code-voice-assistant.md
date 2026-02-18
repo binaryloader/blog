@@ -1,7 +1,7 @@
 ---
 title: "[macOS] 야심한 새벽에 만드는 Claude Code 음성 어시스턴트"
 ref: building-claude-code-voice-assistant
-excerpt: "잠이 안 오는 야심한 새벽에 Claude Code CLI의 입출력을 음성으로 중계하는 macOS 어시스턴트 데모 만들기"
+excerpt: "잠이 안 오는 야심한 새벽에 Claude Code CLI의 입출력을 음성으로 중계하는 macOS 어시스턴트 데모를 만든 경험을 공유한다."
 date: 2026-02-17T11:00+09:00
 last_modified_at: 2026-02-17T11:00+09:00
 published: true
