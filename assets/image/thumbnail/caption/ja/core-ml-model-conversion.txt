@@ -1,4 +1,4 @@
-coremltools で機械学習モデルを iOS アプリに統合する
+Core ML Tools で機械学習モデルを iOS アプリに統合する
 
 coremltools を活用して PyTorch モデルを Core ML 形式に変換し、iOS アプリに統合する方法をまとめる。
 

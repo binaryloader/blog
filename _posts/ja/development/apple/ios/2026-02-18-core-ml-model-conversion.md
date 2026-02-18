@@ -1,9 +1,9 @@
 ---
-title: "[iOS] coremltools で機械学習モデルを iOS アプリに統合する"
+title: "[iOS] Core ML Tools で機械学習モデルを iOS アプリに統合する"
 ref: core-ml-model-conversion
 lang: ja
 permalink: /ja/:categories/:title/
-excerpt: "coremltools を活用して PyTorch モデルを Core ML 形式に変換し、iOS アプリに統合する方法をまとめる。"
+excerpt: "Core ML Tools を活用して PyTorch モデルを Core ML 形式に変換し、iOS アプリに統合する方法をまとめる。"
 date: 2026-02-18T15:00+09:00
 last_modified_at: 2026-02-18T15:00+09:00
 published: true
@@ -33,7 +33,7 @@ depth:
 
 # 概要
 
-coremltools を活用して PyTorch モデルを Core ML 形式に変換し、iOS アプリに統合する方法をまとめる。
+Core ML Tools を活用して PyTorch モデルを Core ML 形式に変換し、iOS アプリに統合する方法をまとめる。
 
 # 手順
 
@@ -62,20 +62,20 @@ Apple は Core ML の上にドメイン別の上位フレームワークを提�
 
 これらのフレームワークは内部的に Core ML を使用しているが、より高レベルな API を提供する。例えば、Vision の `VNClassifyImageRequest` を使えば、画像分類を数行のコードで実装できる。
 
-独自に学習したカスタムモデルを使用するには、Core ML 形式（`.mlmodel` または `.mlpackage`）に変換する必要がある。ここで coremltools が必要になる。
+独自に学習したカスタムモデルを使用するには、Core ML 形式（`.mlmodel` または `.mlpackage`）に変換する必要がある。ここで Core ML Tools が必要になる。
 
-## 3. coremltools でモデル変換
+## 3. Core ML Tools でモデル変換
 
-coremltools は Apple が提供する Python ライブラリで、PyTorch や TensorFlow などのモデルを Core ML 形式に変換する。この記事では PyTorch の MobileNetV2 画像分類モデルを例として使用する。
+Core ML Tools（`coremltools`）は Apple が提供する Python ライブラリで、PyTorch や TensorFlow などのモデルを Core ML 形式に変換する。この記事では PyTorch の MobileNetV2 画像分類モデルを例として使用する。
 
-### 3.1. coremltools のインストール
+### 3.1. Core ML Tools のインストール
 
 ```bash
 pip install coremltools
 pip install torch torchvision
 ```
 
-Python 3.8 以上が必要である。coremltools 8.x を基準に説明する。
+Python 3.8 以上が必要である。Core ML Tools 8.x を基準に説明する。
 
 ### 3.2. PyTorch モデルの変換
 

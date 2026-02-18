@@ -1,9 +1,9 @@
 ---
-title: "[iOS] Integrating Machine Learning Models into iOS Apps with coremltools"
+title: "[iOS] Integrating Machine Learning Models into iOS Apps with Core ML Tools"
 ref: core-ml-model-conversion
 lang: en
 permalink: /en/:categories/:title/
-excerpt: "How to convert a PyTorch model to Core ML format using coremltools and integrate it into an iOS app."
+excerpt: "How to convert a PyTorch model to Core ML format using Core ML Tools and integrate it into an iOS app."
 date: 2026-02-18T15:00+09:00
 last_modified_at: 2026-02-18T15:00+09:00
 published: true
@@ -33,7 +33,7 @@ depth:
 
 # Overview
 
-How to convert a PyTorch model to Core ML format using coremltools and integrate it into an iOS app.
+How to convert a PyTorch model to Core ML format using Core ML Tools and integrate it into an iOS app.
 
 # Steps
 
@@ -62,20 +62,20 @@ Apple provides domain-specific frameworks on top of Core ML.
 
 These frameworks use Core ML internally but provide higher-level APIs. For example, using Vision's `VNClassifyImageRequest`, you can implement image classification in just a few lines of code.
 
-To use custom trained models, they must be converted to Core ML format (`.mlmodel` or `.mlpackage`). This is where coremltools comes in.
+To use custom trained models, they must be converted to Core ML format (`.mlmodel` or `.mlpackage`). This is where Core ML Tools comes in.
 
-## 3. Converting Models with coremltools
+## 3. Converting Models with Core ML Tools
 
-coremltools is a Python library provided by Apple that converts models from PyTorch, TensorFlow, and other frameworks to Core ML format. This guide uses PyTorch's MobileNetV2 image classification model as an example.
+Core ML Tools (`coremltools`) is a Python library provided by Apple that converts models from PyTorch, TensorFlow, and other frameworks to Core ML format. This guide uses PyTorch's MobileNetV2 image classification model as an example.
 
-### 3.1. Installing coremltools
+### 3.1. Installing Core ML Tools
 
 ```bash
 pip install coremltools
 pip install torch torchvision
 ```
 
-Python 3.8 or later is required. This guide is based on coremltools 8.x.
+Python 3.8 or later is required. This guide is based on Core ML Tools 8.x.
 
 ### 3.2. Converting a PyTorch Model
 
