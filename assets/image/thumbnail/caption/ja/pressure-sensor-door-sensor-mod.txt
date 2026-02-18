@@ -1,0 +1,7 @@
+薄膜接触センサー + Zigbee ドアセンサー改造で在室検知の自動化
+
+Sonoff SNZB-04 Zigbee ドアセンサーのリードスイッチに薄膜接触センサーを接続し、椅子とキッチンマットで在室検知の自動化を実現した経験をまとめる。
+
+https://blog.binaryloader.io/ja/playground/smarthome/pressure-sensor-door-sensor-mod
+
+#SmartHome #Zigbee #Sonoff #Thin-FilmContactSensor #DIY #SmartThings #Automation

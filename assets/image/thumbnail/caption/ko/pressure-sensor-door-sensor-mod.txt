@@ -1,0 +1,7 @@
+박막 접촉 센서 + Zigbee 도어 센서 개조로 재실 감지 자동화
+
+Sonoff SNZB-04 Zigbee 도어 센서의 리드 스위치에 박막 접촉 센서를 연결하여 의자와 주방 발판에서 재실 감지 자동화를 구현한 경험을 정리한다.
+
+https://blog.binaryloader.io/ko/playground/smarthome/pressure-sensor-door-sensor-mod
+
+#SmartHome #Zigbee #Sonoff #Thin-FilmContactSensor #DIY #SmartThings #Automation

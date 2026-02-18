@@ -1,6 +1,6 @@
-현대통신 월패드 RS485 하드웨어 설계 및 결선 가이드
+현대통신 월패드 RS485-WiFi 변환기 교체 검토
 
-현대통신 월패드를 Home Assistant에서 제어하기 위한 RS485 하드웨어 설계 및 결선 방법을 정리한다.
+기존 Raspberry Pi + RS485 TO USB 구성의 유지보수 문제를 개선하기 위해 RS485-WiFi 변환기 교체를 검토한 내용을 정리한다.
 
 https://blog.binaryloader.io/ko/playground/smarthome/wallpad-rs485-hardware-setup
 

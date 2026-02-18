@@ -1,6 +1,6 @@
-現代通信ウォールパッド RS485 ハードウェア設計と配線ガイド
+現代通信ウォールパッド RS485-WiFi変換器 交換検討
 
-現代通信ウォールパッドをHome Assistantで制御するためのRS485ハードウェア設計と配線方法をまとめます。
+既存のRaspberry Pi + RS485 TO USB構成のメンテナンス問題を改善するため、RS485-WiFi変換器への交換を検討した内容をまとめます。
 
 https://blog.binaryloader.io/ja/playground/smarthome/wallpad-rs485-hardware-setup
 

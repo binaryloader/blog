@@ -1758,6 +1758,118 @@ function illustrationDiyLanWiringCableManagement() {
   `;
 }
 
+// Wallpad RS485-WiFi converter replacement
+function illustrationWallpadRs485HardwareSetup() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Wallpad panel -->
+    <rect x="400" y="80" width="280" height="200" rx="12" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.8"/>
+    <rect x="420" y="100" width="240" height="140" rx="6" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+    <!-- Wallpad screen icons -->
+    <rect x="440" y="120" width="40" height="40" rx="4" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+    <text x="460" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.5">LIGHT</text>
+    <rect x="500" y="120" width="40" height="40" rx="4" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <text x="520" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.5">HEAT</text>
+    <rect x="560" y="120" width="40" height="40" rx="4" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5"/>
+    <text x="580" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.5">GAS</text>
+    <rect x="620" y="120" width="40" height="40" rx="4" fill="none" stroke="#a8e6cf" stroke-width="1.5" opacity="0.5"/>
+    <text x="640" y="145" text-anchor="middle" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.5">FAN</text>
+    <!-- RS485 bus line -->
+    <line x1="540" y1="280" x2="540" y2="360" stroke="#ff6b9d" stroke-width="3" opacity="0.6"/>
+    <text x="565" y="325" font-family="monospace" font-size="11" fill="#ff6b9d" opacity="0.6">RS485</text>
+    <!-- Old setup (left, crossed out) -->
+    <rect x="100" y="400" width="180" height="120" rx="10" fill="none" stroke="#888" stroke-width="1.5" opacity="0.3"/>
+    <rect x="120" y="420" width="60" height="40" rx="4" fill="none" stroke="#888" stroke-width="1" opacity="0.3"/>
+    <text x="150" y="445" text-anchor="middle" font-family="monospace" font-size="8" fill="#888" opacity="0.3">RPi 4</text>
+    <rect x="200" y="425" width="60" height="30" rx="3" fill="none" stroke="#888" stroke-width="1" opacity="0.3"/>
+    <text x="230" y="444" text-anchor="middle" font-family="monospace" font-size="7" fill="#888" opacity="0.3">USB</text>
+    <text x="190" y="500" text-anchor="middle" font-family="monospace" font-size="9" fill="#888" opacity="0.3">BEFORE</text>
+    <!-- X mark over old setup -->
+    <line x1="110" y1="410" x2="270" y2="510" stroke="#ff6b9d" stroke-width="2" opacity="0.4"/>
+    <line x1="270" y1="410" x2="110" y2="510" stroke="#ff6b9d" stroke-width="2" opacity="0.4"/>
+    <!-- Arrow from old to new -->
+    <line x1="320" y1="460" x2="380" y2="460" stroke="#555" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.4"/>
+    <polygon points="380,454 395,460 380,466" fill="#555" opacity="0.4"/>
+    <!-- New setup (center-right) -->
+    <rect x="420" y="400" width="240" height="120" rx="10" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+    <rect x="440" y="420" width="100" height="50" rx="6" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <text x="490" y="442" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">RS485</text>
+    <text x="490" y="458" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">WiFi</text>
+    <text x="540" y="500" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.6">AFTER</text>
+    <!-- RS485 line down to new converter -->
+    <line x1="540" y1="360" x2="490" y2="400" stroke="#ff6b9d" stroke-width="2" opacity="0.4"/>
+    <!-- WiFi signal from converter -->
+    <path d="M570,430 Q590,415 610,430" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <path d="M560,415 Q590,392 620,415" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
+    <path d="M550,400 Q590,370 630,400" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
+    <!-- Home Assistant on right -->
+    <circle cx="820" cy="440" r="50" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.6"/>
+    <circle cx="820" cy="440" r="30" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+    <text x="820" y="436" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.7">HOME</text>
+    <text x="820" y="450" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.7">ASSISTANT</text>
+    <!-- WiFi link to HA -->
+    <line x1="660" y1="440" x2="770" y2="440" stroke="#00e5ff" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">WALLPAD RS485-WiFi CONVERTER</text>
+  `;
+}
+
+// Pressure sensor + door sensor mod
+function illustrationPressureSensorDoorSensorMod() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Door sensor body -->
+    <rect x="420" y="100" width="240" height="140" rx="12" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.8"/>
+    <rect x="440" y="115" width="200" height="110" rx="8" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+    <!-- PCB inside -->
+    <ellipse cx="540" cy="170" rx="70" ry="40" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+    <!-- Zigbee chip -->
+    <rect x="515" y="152" width="50" height="36" rx="3" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.7"/>
+    <text x="540" y="175" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d" opacity="0.7">Zigbee</text>
+    <!-- Reed switch on PCB -->
+    <rect x="470" y="185" width="30" height="8" rx="2" fill="#ff6b9d" opacity="0.6"/>
+    <circle cx="475" cy="189" r="2" fill="#ff6b9d" opacity="0.9"/>
+    <circle cx="495" cy="189" r="2" fill="#ff6b9d" opacity="0.9"/>
+    <!-- CR2032 battery -->
+    <circle cx="590" cy="170" r="20" fill="none" stroke="#888" stroke-width="1" opacity="0.4"/>
+    <text x="590" y="174" text-anchor="middle" font-family="monospace" font-size="7" fill="#888" opacity="0.5">CR2032</text>
+    <!-- Wires coming out from reed switch -->
+    <line x1="475" y1="193" x2="475" y2="240" stroke="#ff6b9d" stroke-width="2" opacity="0.7"/>
+    <line x1="495" y1="193" x2="495" y2="240" stroke="#333" stroke-width="2" opacity="0.7"/>
+    <!-- Cable going down -->
+    <path d="M475,240 Q475,300 460,360 Q445,420 440,460" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.5"/>
+    <path d="M495,240 Q495,300 480,360 Q465,420 460,460" fill="none" stroke="#333" stroke-width="2" opacity="0.5"/>
+    <!-- Pressure sensor strip -->
+    <rect x="180" y="460" width="720" height="60" rx="6" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+    <!-- Pressure points on strip -->
+    <circle cx="260" cy="490" r="12" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="360" cy="490" r="12" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="460" cy="490" r="12" fill="#4ecdc4" opacity="0.3"/>
+    <circle cx="460" cy="490" r="12" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="560" cy="490" r="12" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="660" cy="490" r="12" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="760" cy="490" r="12" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <!-- Pressure arrow -->
+    <line x1="460" y1="430" x2="460" y2="450" stroke="#ffe66d" stroke-width="2" opacity="0.6"/>
+    <polygon points="450,450 470,450 460,462" fill="#ffe66d" opacity="0.6"/>
+    <text x="460" y="425" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffe66d" opacity="0.6">PRESSURE</text>
+    <!-- Zigbee signal waves -->
+    <path d="M660,100 Q680,85 700,100" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <path d="M650,80 Q680,55 710,80" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
+    <path d="M640,60 Q680,28 720,60" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
+    <!-- State labels -->
+    <rect x="120" y="560" width="180" height="40" rx="6" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <text x="210" y="585" text-anchor="middle" font-family="monospace" font-size="12" fill="#4ecdc4" opacity="0.7">CLOSED (SIT)</text>
+    <rect x="780" y="560" width="180" height="40" rx="6" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5"/>
+    <text x="870" y="585" text-anchor="middle" font-family="monospace" font-size="12" fill="#ff6b9d" opacity="0.7">OPEN (STAND)</text>
+    <!-- Connection arrows -->
+    <line x1="300" y1="570" x2="370" y2="525" stroke="#4ecdc4" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+    <line x1="780" y1="570" x2="710" y2="525" stroke="#ff6b9d" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">PRESSURE SENSOR + DOOR SENSOR MOD</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -1816,6 +1928,8 @@ const ILLUSTRATION_MAP = {
   'quicktime-blackhole-audio-recording': illustrationQuicktimeBlackholeAudioRecording,
   'sync-files-with-symlink': illustrationSyncFilesWithSymlink,
   'diy-lan-wiring-cable-management': illustrationDiyLanWiringCableManagement,
+  'pressure-sensor-door-sensor-mod': illustrationPressureSensorDoorSensorMod,
+  'wallpad-rs485-hardware-setup': illustrationWallpadRs485HardwareSetup,
 };
 
 function getIllustration(ref) {

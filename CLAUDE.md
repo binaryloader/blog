@@ -116,7 +116,8 @@ node tools/thumbnail/generate.js --all --force    # 강제 재생성
 #### 일러스트
 
 - Instagram 썸네일은 `lib/illustrations.js`에 정의된 포스트별 맞춤 SVG 일러스트를 사용한다
-- 각 포스트의 `ref`를 키로 매핑되며 일러스트가 없는 포스트는 카테고리 기반 데코레이션으로 대체된다
+- 각 포스트의 `ref`를 키로 매핑한다
+- **모든 포스트의 Instagram 썸네일은 반드시 커스텀 일러스트를 생성해야 한다.** 일러스트 없이 카테고리 기반 데코레이션만으로 생성하지 않는다
 - 새 포스트 추가 시 `illustrations.js`에 해당 ref의 일러스트 함수와 `ILLUSTRATION_MAP` 항목을 추가한다
 
 #### 테마
