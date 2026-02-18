@@ -4,6 +4,13 @@ Agentic Coding AssistantにMCPサーバーを連携する
 
 XcodeAgentic Coding AssistantにMCPサーバーを連携する方法をまとめる。
 
+📋 こんな内容です
+→ 設定ファイルのパス
+→ 設定構造
+→ MCPサーバーの種類
+→ 設定例
+→ 注意事項
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

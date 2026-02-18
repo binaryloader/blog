@@ -4,6 +4,11 @@ Command Line으로 Visual Studio Code 열기
 
 macOS에서 터미널을 통해 Visual Studio Code를 여는 방법을 정리한다.
 
+📋 이런 내용을 다뤘어요
+→ Visual Studio Code에서 Command Palette 실행
+→ 아래와 같은 Shell Command 검색 후 설치
+→ 작동 확인
+
 👉 자세한 내용은 블로그에서
 🔗 프로필 링크 클릭
 

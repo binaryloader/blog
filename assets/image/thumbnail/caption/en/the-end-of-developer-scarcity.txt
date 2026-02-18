@@ -4,6 +4,13 @@ Some thoughts from my life as a developer 💭
 
 AI coding tools have completely reshaped developer scarcity. Where does a developer's value lie now?
 
+📋 What's covered
+→ The Golden Age of Developers Is Over
+→ MVP Validation Is Now Open to Everyone
+→ "But What About Maintenance?"
+→ Not About Abandoning CS
+→ The Real Crisis for Developers: The End of Scarcity
+
 👉 Full post on the blog
 🔗 Link in bio
 

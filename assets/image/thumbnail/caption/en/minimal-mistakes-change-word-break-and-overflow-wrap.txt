@@ -4,6 +4,10 @@ Changing Word Break Properties in the Minimal Mistakes Theme
 
 How to change word break properties in the Minimal Mistakes theme to fix horizontal scrolling on mobile.
 
+📋 What's covered
+→ Add word-break and overflow-wrap Properties to \_base.scss
+→ Verify the Result
+
 👉 Full post on the blog
 🔗 Link in bio
 

@@ -4,6 +4,13 @@ Building Automated PR Code Review with Claude
 
 A story of building automated GitHub PR review with Claude Code Action for a side project.
 
+📋 What's covered
+→ Background
+→ Exploring Solutions
+→ Implementation
+→ Results
+→ Impact
+
 👉 Full post on the blog
 🔗 Link in bio
 

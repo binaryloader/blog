@@ -4,6 +4,10 @@ DIY LAN Wiring and TV Cable Management After Moving
 
 Fixing cut LAN ports, crimping RJ45 connectors, and organizing TV cables after my parents moved to a new apartment.
 
+📋 What's covered
+→ Fixing the LAN Ports
+→ TV Cable Management
+
 👉 Full post on the blog
 🔗 Link in bio
 

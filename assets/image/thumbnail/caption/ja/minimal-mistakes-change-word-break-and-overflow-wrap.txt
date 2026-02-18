@@ -4,6 +4,10 @@ Minimal Mistakesテーマで改行プロパティを変更する
 
 Minimal Mistakesテーマでモバイル環境の横スクロール問題を解決するための改行プロパティの変更方法をまとめる。
 
+📋 こんな内容です
+→ \_base.scssにword-breakプロパティとoverflow-wrapプロパティを指定
+→ 結果の確認
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

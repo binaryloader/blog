@@ -4,6 +4,13 @@ Setting Up Obsidian MCP Integration
 
 How to set up an MCP server so Claude Code can directly read and write to your Obsidian vault.
 
+📋 What's covered
+→ Install the BRAT Plugin
+→ Install the Claude Code MCP Plugin
+→ Register the MCP Server in Claude Code
+→ Verify the Integration
+→ Notes
+
 👉 Full post on the blog
 🔗 Link in bio
 

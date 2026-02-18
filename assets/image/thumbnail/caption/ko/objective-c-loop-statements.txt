@@ -4,6 +4,10 @@
 
 Objective-C의 반복문을 정리한다.
 
+📋 이런 내용을 다뤘어요
+→ 먼저 Loop Statements를 보자
+→ 다음은 Loop Statements와 함께 사용할 수 있는 Control Transfer Statements를 보자
+
 👉 자세한 내용은 블로그에서
 🔗 프로필 링크 클릭
 

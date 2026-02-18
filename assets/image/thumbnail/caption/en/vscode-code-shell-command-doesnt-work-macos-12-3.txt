@@ -4,6 +4,10 @@ Fixing Visual Studio Code's code Shell Command Not Working on macOS 12.3
 
 A guide on how to fix the issue where VS Code's code command stops working due to the removal of Python 2 in macOS 12.3.
 
+📋 What's covered
+→ Identifying the Cause
+→ Fixing the Issue
+
 👉 Full post on the blog
 🔗 Link in bio
 

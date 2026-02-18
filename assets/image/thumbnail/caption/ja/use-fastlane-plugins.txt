@@ -4,6 +4,12 @@ fastlane Pluginを使用する
 
 fastlane Pluginを追加・管理する方法をまとめる。
 
+📋 こんな内容です
+→ Pluginの依存関係を追加
+→ Pluginのインストール
+→ Pluginのアップデート
+→ Pluginの削除
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

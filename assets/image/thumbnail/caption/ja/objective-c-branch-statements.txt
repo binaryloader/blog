@@ -4,6 +4,10 @@
 
 Objective-Cの条件分岐文をまとめる。
 
+📋 こんな内容です
+→ If Statement
+→ Switch Statement
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

@@ -4,6 +4,13 @@ Placing and Rotating Circular Menu Items with Trigonometry
 
 How to place and rotate circular menu items using sin, cos, and atan2 in iOS.
 
+📋 What's covered
+→ cos and sin
+→ Radians
+→ The iOS Coordinate System
+→ Circular Placement Calculation
+→ atan2
+
 👉 Full post on the blog
 🔗 Link in bio
 

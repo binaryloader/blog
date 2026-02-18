@@ -4,6 +4,10 @@ Installing Git LFS
 
 How to install and set up Git LFS on macOS.
 
+📋 What's covered
+→ Installation
+→ Enable LFS for a Specific Repository
+
 👉 Full post on the blog
 🔗 Link in bio
 

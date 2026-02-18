@@ -4,6 +4,11 @@ Class and Method, Instance
 
 A summary of classes, methods, and instances in Objective-C.
 
+📋 What's covered
+→ Class
+→ Method
+→ Instance
+
 👉 Full post on the blog
 🔗 Link in bio
 

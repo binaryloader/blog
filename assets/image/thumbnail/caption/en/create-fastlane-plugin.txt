@@ -4,6 +4,13 @@ Creating a fastlane Plugin
 
 How to create and distribute a custom fastlane Plugin.
 
+📋 What's covered
+→ Plugin Example
+→ Generating a Plugin Template
+→ Plugin Folder Structure
+→ Using the Plugin
+→ Distributing the Plugin
+
 👉 Full post on the blog
 🔗 Link in bio
 

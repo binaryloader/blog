@@ -4,6 +4,13 @@ Syncing Configuration Files with Git Using Symbolic Links
 
 How to version-control configuration files in a Git repository using symbolic links.
 
+📋 What's covered
+→ What Is a Symbolic Link
+→ Creating a Symbolic Link
+→ Syncing with a Git Repository
+→ Removing the Sync
+→ Things to Keep in Mind
+
 👉 Full post on the blog
 🔗 Link in bio
 

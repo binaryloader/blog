@@ -4,6 +4,11 @@ Opening Visual Studio Code from the Command Line
 
 How to open Visual Studio Code from the terminal on macOS.
 
+📋 What's covered
+→ Open the Command Palette in Visual Studio Code
+→ Search for and Install the Following Shell Command
+→ Verify It Works
+
 👉 Full post on the blog
 🔗 Link in bio
 

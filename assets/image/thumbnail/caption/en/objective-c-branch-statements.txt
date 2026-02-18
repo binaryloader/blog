@@ -4,6 +4,10 @@ Branch Statements
 
 A summary of branch statements in Objective-C.
 
+📋 What's covered
+→ If Statement
+→ Switch Statement
+
 👉 Full post on the blog
 🔗 Link in bio
 

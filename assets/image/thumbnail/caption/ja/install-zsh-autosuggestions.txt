@@ -4,6 +4,11 @@ Zsh 自動補完プラグインをインストールする
 
 macOS で zsh-autosuggestions プラグインをインストールする方法をまとめる。
 
+📋 こんな内容です
+→ Oh-My-Zsh のプラグインフォルダに移動する
+→ プラグインリポジトリをクローンする
+→ ~/.zshrc の plugins に zsh-autosuggestions を追加する
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

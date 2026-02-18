@@ -4,6 +4,10 @@
 
 Objective-Cのループ文をまとめる。
 
+📋 こんな内容です
+→ まずLoop Statementsを見てみよう
+→ 次にLoop Statementsと一緒に使えるControl Transfer Statementsを見てみよう
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

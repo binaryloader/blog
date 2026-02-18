@@ -4,6 +4,11 @@ Operators and Expressions
 
 A summary of operators and expressions in Objective-C.
 
+📋 What's covered
+→ Expressions
+→ Operators
+→ Associativity
+
 👉 Full post on the blog
 🔗 Link in bio
 

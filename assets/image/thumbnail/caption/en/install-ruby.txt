@@ -4,6 +4,13 @@ Installing Ruby
 
 How to install Ruby using rbenv on macOS.
 
+📋 What's covered
+→ Install rbenv
+→ Check available version list
+→ Install a specific version
+→ Add the following lines to ~/.zshrc
+→ Change the global version
+
 👉 Full post on the blog
 🔗 Link in bio
 

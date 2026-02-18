@@ -4,6 +4,13 @@ Claude CodeでClaude Codeモニタリングアプリを作る
 
 Claude Codeを使って自身の使用量をモニタリングするmacOSメニューバーアプリを作った経験を共有する。
 
+📋 こんな内容です
+→ MenuBarExtra
+→ DispatchSourceファイル監視
+→ .appバンドルの作成
+→ サーバー側の使用量を取得できない
+→ macOSアイコンキャッシュ
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

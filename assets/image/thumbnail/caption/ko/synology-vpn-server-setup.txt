@@ -4,6 +4,13 @@ L2TP/IPSec VPN 서버 구축하기
 
 Synology NAS에 L2TP/IPSec VPN 서버를 구축하고 외부에서 접속하는 방법을 정리한다.
 
+📋 이런 내용을 다뤘어요
+→ Synology VPN 서버 설정
+→ Synology 방화벽 설정
+→ 공유기 포트포워딩
+→ 도메인 연동
+→ 아이폰 설정
+
 👉 자세한 내용은 블로그에서
 🔗 프로필 링크 클릭
 

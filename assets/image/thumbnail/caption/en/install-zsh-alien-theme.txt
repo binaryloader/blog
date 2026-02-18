@@ -4,6 +4,12 @@ Installing the Zsh Alien Theme
 
 How to install the Alien theme for Oh My Zsh on macOS.
 
+📋 What's covered
+→ Navigate to the Oh-My-Zsh Themes Folder
+→ Clone the Theme Repository and Its Submodules
+→ Add the Following Lines to ~/.zshrc
+→ Apply the Changes
+
 👉 Full post on the blog
 🔗 Link in bio
 

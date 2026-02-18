@@ -4,6 +4,13 @@ Study Resource Collections
 
 A curated list of useful study resources for learning Objective-C.
 
+📋 What's covered
+→ Apple Developer Documentation
+→ Clang 11 Documentation
+→ Books
+→ Naver Mobile Training
+→ BinaryLoader's Objective-C Series
+
 👉 Full post on the blog
 🔗 Link in bio
 

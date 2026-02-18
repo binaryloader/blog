@@ -4,6 +4,11 @@
 
 Objective-C의 연산자와 표현식을 정리한다.
 
+📋 이런 내용을 다뤘어요
+→ 표현식 (Expressions)
+→ 연산자 (Operators)
+→ 결합 방향 (Associativity)
+
 👉 자세한 내용은 블로그에서
 🔗 프로필 링크 클릭
 

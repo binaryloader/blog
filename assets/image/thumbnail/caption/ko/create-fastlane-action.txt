@@ -4,6 +4,13 @@ fastlane Action 만들기
 
 fastlane의 커스텀 Action을 만드는 방법을 정리한다.
 
+📋 이런 내용을 다뤘어요
+→ Action 예시
+→ Action 템플릿 생성
+→ Action 작성
+→ Action 사용
+→ fastlane main repo에 제출
+
 👉 자세한 내용은 블로그에서
 🔗 프로필 링크 클릭
 

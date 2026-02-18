@@ -4,6 +4,11 @@ Alfred TimeZones Workflow 설치하기
 
 macOS에서 Alfred TimeZones Workflow를 설치하고 사용하는 방법을 정리한다.
 
+📋 이런 내용을 다뤘어요
+→ Timezones 확인
+→ 도시 추가
+→ 편집
+
 👉 자세한 내용은 블로그에서
 🔗 프로필 링크 클릭
 

@@ -366,14 +366,25 @@ function pickHook(ref, categories, lang) {
 }
 
 // ---------------------------------------------------------------------------
+// Key points label
+// ---------------------------------------------------------------------------
+
+const KEY_POINTS_LABEL = {
+  ko: '📋 이런 내용을 다뤘어요',
+  en: '📋 What\'s covered',
+  ja: '📋 こんな内容です',
+};
+
+// ---------------------------------------------------------------------------
 // Caption builder
 // ---------------------------------------------------------------------------
 
-function buildCaption({ title, excerpt, categories, tags, lang, ref }) {
+function buildCaption({ title, excerpt, categories, tags, lang, ref, keyPoints }) {
   const l = lang || 'ko';
   const cta = CTA[l] || CTA['ko'];
   const reach = REACH_TAGS[l] || REACH_TAGS['ko'];
   const hook = pickHook(ref, categories, l);
+  const points = keyPoints || [];
 
   const postTags = tags.map(t => `#${t.replace(/\s+/g, '')}`).join(' ');
   const reachStr = reach.join(' ');
@@ -384,6 +395,18 @@ function buildCaption({ title, excerpt, categories, tags, lang, ref }) {
     title,
     '',
     excerpt,
+  ];
+
+  // Key points section (only if 2+ points)
+  if (points.length >= 2) {
+    const label = KEY_POINTS_LABEL[l] || KEY_POINTS_LABEL['ko'];
+    lines.push('', label);
+    for (const p of points) {
+      lines.push(`→ ${p}`);
+    }
+  }
+
+  lines.push(
     '',
     cta.blog,
     cta.link,
@@ -393,13 +416,11 @@ function buildCaption({ title, excerpt, categories, tags, lang, ref }) {
     cta.engage,
     HANDLE,
     '',
-    '.',
-    '.',
-    '.',
+    '.', '.', '.',
     '',
     `${postTags} ${BRAND_TAG}`,
     reachStr,
-  ];
+  );
 
   return lines.join('\n');
 }

@@ -4,6 +4,10 @@ Installing OpenJDK
 
 How to install Eclipse Temurin OpenJDK on macOS using Homebrew.
 
+📋 What's covered
+→ Install Eclipse Temurin OpenJDK
+→ Verify the installation
+
 👉 Full post on the blog
 🔗 Link in bio
 

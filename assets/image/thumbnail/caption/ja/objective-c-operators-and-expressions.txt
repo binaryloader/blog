@@ -4,6 +4,11 @@
 
 Objective-Cの演算子と式をまとめる。
 
+📋 こんな内容です
+→ 式 (Expressions)
+→ 演算子 (Operators)
+→ 結合方向 (Associativity)
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

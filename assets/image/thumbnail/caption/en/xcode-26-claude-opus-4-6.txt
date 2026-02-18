@@ -4,6 +4,11 @@ Using Claude Opus 4.6 in Xcode 26.3
 
 How to configure Xcode 26.3 to use the Claude Opus 4.6 model as an agentic coding assistant.
 
+📋 What's covered
+→ Copy the Claude Code binary
+→ Create settings.json
+→ Verify
+
 👉 Full post on the blog
 🔗 Link in bio
 

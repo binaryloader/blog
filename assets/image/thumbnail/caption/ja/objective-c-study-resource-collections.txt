@@ -4,6 +4,13 @@
 
 Objective-C学習に役立つスタディリソースをまとめる。
 
+📋 こんな内容です
+→ Apple開発者ドキュメント
+→ Clang 11ドキュメント
+→ 書籍
+→ Naverモバイル教育
+→ BinaryLoader's Objective-C Series
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

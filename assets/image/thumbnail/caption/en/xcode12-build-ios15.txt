@@ -4,6 +4,12 @@ Building for iOS 15 Devices with Xcode 12
 
 How to deploy builds to iOS 15 or iPadOS 15 devices using Xcode 12.
 
+📋 What's covered
+→ Download Xcode 13 Beta
+→ Copy the 15.0 Folder from the Following Path
+→ Paste the Copied 15.0 Folder to the Following Path
+→ Reboot
+
 👉 Full post on the blog
 🔗 Link in bio
 

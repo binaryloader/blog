@@ -4,6 +4,10 @@ Connecting a Custom Domain to Photo Station
 
 A guide on how to connect a custom domain to Synology Photo Station.
 
+📋 What's covered
+→ Create Photo.mustache
+→ Modify nginx.mustache
+
 👉 Full post on the blog
 🔗 Link in bio
 

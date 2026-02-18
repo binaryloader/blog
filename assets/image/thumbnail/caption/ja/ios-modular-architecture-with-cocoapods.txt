@@ -4,6 +4,13 @@ Private Spec Repoを活用したCocoaPodsモジュラーアーキテクチャ
 
 CocoaPods Private Spec Repoを活用してiOSプロジェクトをレイヤー別モジュールに分離する方法をまとめる。
 
+📋 こんな内容です
+→ アーキテクチャ概要
+→ リポジトリ構成
+→ Foundationレイヤー
+→ Moduleレイヤー
+→ Sceneレイヤー
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

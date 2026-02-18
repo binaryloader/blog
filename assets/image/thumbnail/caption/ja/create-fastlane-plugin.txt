@@ -4,6 +4,13 @@ fastlane Pluginを作成する
 
 fastlaneのカスタムPluginを作成・配布する方法をまとめる。
 
+📋 こんな内容です
+→ Pluginの例
+→ Pluginテンプレートの生成
+→ Pluginのフォルダ構造
+→ Pluginの使用
+→ Pluginの配布
+
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
 

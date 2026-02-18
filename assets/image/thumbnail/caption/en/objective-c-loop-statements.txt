@@ -4,6 +4,10 @@ Loop Statements
 
 A summary of loop statements in Objective-C.
 
+📋 What's covered
+→ First, Let Us Look at Loop Statements
+→ Next, Let Us Look at Control Transfer Statements Used with Loop Statements
+
 👉 Full post on the blog
 🔗 Link in bio
 
