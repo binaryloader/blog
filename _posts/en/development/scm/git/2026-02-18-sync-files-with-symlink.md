@@ -137,3 +137,8 @@ find ~ -maxdepth 3 -type l ! -exec test -e {} \; -print
 ### How Git Tracks Symbolic Links
 
 Git tracks the symbolic link itself. When you commit a symlink to a repository, Git stores the path it points to. Cloning the repository on another machine will produce a broken link if the target doesn't exist at that path. Therefore, it is common to keep the original files inside the repository and place symbolic links at system paths outside the repository.
+
+# References
+
+- <https://man7.org/linux/man-pages/man1/ln.1.html>
+- <https://dotfiles.github.io/>

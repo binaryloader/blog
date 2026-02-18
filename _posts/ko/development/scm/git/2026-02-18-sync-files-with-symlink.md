@@ -135,3 +135,8 @@ find ~ -maxdepth 3 -type l ! -exec test -e {} \; -print
 ### Git에서 심볼릭 링크 추적
 
 Git은 심볼릭 링크 자체를 추적한다. 저장소에 심볼릭 링크를 커밋하면 링크가 가리키는 경로가 저장되며, 다른 환경에서 클론할 때 해당 경로에 원본이 없으면 깨진 링크가 된다. 따라서 저장소에는 원본 파일을 두고 심볼릭 링크는 저장소 밖의 시스템 경로에 생성하는 것이 일반적이다.
+
+# 참고
+
+- <https://man7.org/linux/man-pages/man1/ln.1.html>
+- <https://dotfiles.github.io/>
