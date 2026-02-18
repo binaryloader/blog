@@ -1,0 +1,7 @@
+現代通信ウォールパッド RS485 ハードウェア設計と配線ガイド
+
+現代通信ウォールパッドをHome Assistantで制御するためのRS485ハードウェア設計と配線方法をまとめます。
+
+https://blog.binaryloader.io/ja/playground/smarthome/wallpad-rs485-hardware-setup
+
+#Playground #SmartHome #RS485 #HomeAssistant #IoT #Wallpad

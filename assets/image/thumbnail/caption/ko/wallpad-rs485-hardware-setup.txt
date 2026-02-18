@@ -1,0 +1,7 @@
+현대통신 월패드 RS485 하드웨어 설계 및 결선 가이드
+
+현대통신 월패드를 Home Assistant에서 제어하기 위한 RS485 하드웨어 설계 및 결선 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/playground/smarthome/wallpad-rs485-hardware-setup
+
+#Playground #SmartHome #RS485 #HomeAssistant #IoT #Wallpad
