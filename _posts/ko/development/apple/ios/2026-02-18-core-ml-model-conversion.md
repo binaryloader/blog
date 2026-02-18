@@ -83,18 +83,31 @@ import torchvision
 import coremltools as ct
 
 # 1. 사전 학습된 MobileNetV2 로드
-model = torchvision.models.mobilenet_v2(
+base_model = torchvision.models.mobilenet_v2(
     weights=torchvision.models.MobileNet_V2_Weights.DEFAULT
 )
+
+# 2. Softmax 래퍼 추가 (logit → 확률 변환)
+class ModelWithSoftmax(torch.nn.Module):
+
+    def __init__(self, base):
+        super().__init__()
+        self.base = base
+
+    def forward(self, x):
+        return torch.nn.functional.softmax(self.base(x), dim=1)
+
+model = ModelWithSoftmax(base_model)
 model.eval()
 
-# 2. 예제 입력 생성 (배치 1, RGB 3채널, 224x224)
+# 3. 예제 입력 생성 (배치 1, RGB 3채널, 224x224)
 example_input = torch.rand(1, 3, 224, 224)
 
-# 3. TorchScript로 트레이싱
+# 4. TorchScript로 트레이싱
 traced_model = torch.jit.trace(model, example_input)
 
-# 4. Core ML 모델로 변환
+# 5. Core ML 모델로 변환
+labels = torchvision.models.MobileNet_V2_Weights.DEFAULT.meta["categories"]
 mlmodel = ct.convert(
     traced_model,
     inputs=[
@@ -104,18 +117,21 @@ mlmodel = ct.convert(
             scale=1 / 255.0
         )
     ],
+    classifier_config=ct.ClassifierConfig(labels),
     minimum_deployment_target=ct.target.iOS16,
 )
 
-# 5. 저장
+# 6. 저장
 mlmodel.save("MobileNetV2.mlpackage")
 ```
 
 변환 과정을 단계별로 살펴보면 다음과 같다.
 
+- `ModelWithSoftmax` — MobileNetV2는 raw logit을 출력하므로 softmax를 적용하여 0~1 범위의 확률로 변환한다
 - `model.eval()` — 모델을 추론 모드로 전환한다. Dropout이나 BatchNorm이 학습 모드로 동작하는 것을 방지한다
 - `torch.jit.trace` — 예제 입력을 모델에 통과시켜 연산 그래프를 기록한다. coremltools는 이 TorchScript 형식을 입력으로 받는다
 - `ct.ImageType` — 입력이 이미지임을 명시한다. `scale=1/255.0`으로 0~255 픽셀값을 0~1 범위로 정규화한다
+- `ct.ClassifierConfig` — 모델 출력을 클래스 레이블에 매핑한다. ImageNet 1000개 클래스명을 torchvision에서 가져온다
 - `minimum_deployment_target` — 최소 배포 대상을 지정한다. iOS 16 이상으로 설정하면 최신 최적화가 적용된다
 
 ### 3.3. 모델 메타데이터 설정

@@ -85,18 +85,31 @@ import torchvision
 import coremltools as ct
 
 # 1. Load pre-trained MobileNetV2
-model = torchvision.models.mobilenet_v2(
+base_model = torchvision.models.mobilenet_v2(
     weights=torchvision.models.MobileNet_V2_Weights.DEFAULT
 )
+
+# 2. Add softmax wrapper (logits → probabilities)
+class ModelWithSoftmax(torch.nn.Module):
+
+    def __init__(self, base):
+        super().__init__()
+        self.base = base
+
+    def forward(self, x):
+        return torch.nn.functional.softmax(self.base(x), dim=1)
+
+model = ModelWithSoftmax(base_model)
 model.eval()
 
-# 2. Create example input (batch 1, RGB 3 channels, 224x224)
+# 3. Create example input (batch 1, RGB 3 channels, 224x224)
 example_input = torch.rand(1, 3, 224, 224)
 
-# 3. Trace with TorchScript
+# 4. Trace with TorchScript
 traced_model = torch.jit.trace(model, example_input)
 
-# 4. Convert to Core ML model
+# 5. Convert to Core ML model
+labels = torchvision.models.MobileNet_V2_Weights.DEFAULT.meta["categories"]
 mlmodel = ct.convert(
     traced_model,
     inputs=[
@@ -106,18 +119,21 @@ mlmodel = ct.convert(
             scale=1 / 255.0
         )
     ],
+    classifier_config=ct.ClassifierConfig(labels),
     minimum_deployment_target=ct.target.iOS16,
 )
 
-# 5. Save
+# 6. Save
 mlmodel.save("MobileNetV2.mlpackage")
 ```
 
 Here's a step-by-step breakdown of the conversion process.
 
+- `ModelWithSoftmax` — MobileNetV2 outputs raw logits, so softmax is applied to convert them into probabilities in the 0–1 range
 - `model.eval()` — Switches the model to inference mode. This prevents Dropout and BatchNorm from operating in training mode
 - `torch.jit.trace` — Records the computation graph by passing example input through the model. coremltools accepts this TorchScript format as input
 - `ct.ImageType` — Specifies that the input is an image. `scale=1/255.0` normalizes pixel values from 0–255 to the 0–1 range
+- `ct.ClassifierConfig` — Maps model outputs to class labels. The 1000 ImageNet class names are retrieved from torchvision
 - `minimum_deployment_target` — Sets the minimum deployment target. Setting it to iOS 16 or later enables the latest optimizations
 
 ### 3.3. Setting Model Metadata
