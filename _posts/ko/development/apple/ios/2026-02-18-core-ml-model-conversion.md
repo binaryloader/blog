@@ -160,15 +160,18 @@ Xcode는 `.mlpackage`를 추가하면 모델 이름과 동일한 Swift 클래스
 ```swift
 // Xcode가 자동 생성 (직접 수정하지 않는다)
 class MobileNetV2 {
+
     let model: MLModel
     func prediction(input: MobileNetV2Input) throws -> MobileNetV2Output
 }
 
 class MobileNetV2Input: MLFeatureProvider {
+
     var image: CVPixelBuffer
 }
 
 class MobileNetV2Output: MLFeatureProvider {
+
     let classLabel: String
     let classLabelProbs: [String: Double]
 }

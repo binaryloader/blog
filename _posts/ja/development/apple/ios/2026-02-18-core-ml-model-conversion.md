@@ -162,15 +162,18 @@ Xcode でモデルファイルを選択すると、以下の情報を確認で�
 ```swift
 // Xcode が自動生成（直接修正しない）
 class MobileNetV2 {
+
     let model: MLModel
     func prediction(input: MobileNetV2Input) throws -> MobileNetV2Output
 }
 
 class MobileNetV2Input: MLFeatureProvider {
+
     var image: CVPixelBuffer
 }
 
 class MobileNetV2Output: MLFeatureProvider {
+
     let classLabel: String
     let classLabelProbs: [String: Double]
 }
