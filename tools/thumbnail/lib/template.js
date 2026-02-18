@@ -111,6 +111,21 @@ function buildHtml({ title, ref, categories, tags }) {
     inset: 0;
   }
 
+  .content-backdrop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 30%,
+      rgba(13,13,13,0.7) 48%,
+      rgba(13,13,13,0.92) 65%,
+      rgba(13,13,13,0.95) 100%
+    );
+  }
+
   .content {
     position: absolute;
     left: 72px;
@@ -201,6 +216,7 @@ function buildHtml({ title, ref, categories, tags }) {
     <svg class="deco-layer" width="1080" height="1080" xmlns="http://www.w3.org/2000/svg">
       ${decoSvg}
     </svg>
+    <div class="content-backdrop"></div>
     <div class="content">
       <div class="breadcrumb">${breadcrumb}</div>
       <div class="title">${safeTitle}</div>

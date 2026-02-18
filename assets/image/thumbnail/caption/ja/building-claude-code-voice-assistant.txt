@@ -1,6 +1,6 @@
 夜更けに作るClaude Code音声アシスタント
 
-眠れない夜更けにClaude Code CLIの入出力を音声で中継するmacOSアシスタントのデモを作ってみた。whisper.cppで音声をテキストに変換しGoogle Cloud TTSで応答を読み上げる程度だが作る過程が楽しかった。
+眠れない夜更けにClaude Code CLIの入出力を音声で中継するmacOSアシスタントデモ作り
 
 https://blog.binaryloader.io/ja/development/apple/macos/building-claude-code-voice-assistant
 
