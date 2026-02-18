@@ -231,8 +231,9 @@ li ol {
 figure {
   display: -webkit-box;
   display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  column-gap: 0.5em;
   -webkit-box-align: start;
   align-items: flex-start;
   flex-wrap: wrap;

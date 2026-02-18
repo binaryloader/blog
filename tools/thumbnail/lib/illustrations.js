@@ -1705,6 +1705,59 @@ function illustrationCoreMlModelConversion() {
   `;
 }
 
+// DIY LAN wiring and cable management
+function illustrationDiyLanWiringCableManagement() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- RJ45 connector -->
+    <rect x="420" y="120" width="240" height="160" rx="10" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.8"/>
+    <rect x="440" y="140" width="200" height="20" rx="4" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <!-- 8 pin contacts -->
+    <rect x="455" y="145" width="8" height="10" rx="1" fill="#ffe66d" opacity="0.8"/>
+    <rect x="470" y="145" width="8" height="10" rx="1" fill="#ff6b9d" opacity="0.8"/>
+    <rect x="485" y="145" width="8" height="10" rx="1" fill="#4ecdc4" opacity="0.8"/>
+    <rect x="500" y="145" width="8" height="10" rx="1" fill="#5b8def" opacity="0.8"/>
+    <rect x="515" y="145" width="8" height="10" rx="1" fill="#a8e6cf" opacity="0.8"/>
+    <rect x="530" y="145" width="8" height="10" rx="1" fill="#4ecdc4" opacity="0.6"/>
+    <rect x="545" y="145" width="8" height="10" rx="1" fill="#c4a882" opacity="0.8"/>
+    <rect x="560" y="145" width="8" height="10" rx="1" fill="#c4a882" opacity="0.5"/>
+    <!-- Cable coming out -->
+    <rect x="510" y="280" width="60" height="120" rx="8" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+    <line x1="540" y1="400" x2="540" y2="480" stroke="#00e5ff" stroke-width="3" opacity="0.3"/>
+    <!-- Twisted pairs fanning out -->
+    <line x1="540" y1="480" x2="380" y2="560" stroke="#ffe66d" stroke-width="1.5" opacity="0.6"/>
+    <line x1="540" y1="480" x2="420" y2="570" stroke="#ff6b9d" stroke-width="1.5" opacity="0.6"/>
+    <line x1="540" y1="480" x2="460" y2="575" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+    <line x1="540" y1="480" x2="500" y2="578" stroke="#5b8def" stroke-width="1.5" opacity="0.6"/>
+    <line x1="540" y1="480" x2="580" y2="578" stroke="#a8e6cf" stroke-width="1.5" opacity="0.6"/>
+    <line x1="540" y1="480" x2="620" y2="575" stroke="#4ecdc4" stroke-width="1.5" opacity="0.4"/>
+    <line x1="540" y1="480" x2="660" y2="570" stroke="#c4a882" stroke-width="1.5" opacity="0.6"/>
+    <line x1="540" y1="480" x2="700" y2="560" stroke="#c4a882" stroke-width="1.5" opacity="0.4"/>
+    <!-- Keystone jack on the left -->
+    <rect x="100" y="200" width="140" height="100" rx="8" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.6"/>
+    <rect x="130" y="220" width="80" height="40" rx="4" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <text x="170" y="245" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.6">CAT.5E</text>
+    <line x1="240" y1="250" x2="420" y2="200" stroke="#555" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+    <!-- Cable tester on the right -->
+    <rect x="840" y="180" width="120" height="180" rx="8" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.6"/>
+    <text x="900" y="210" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.6">TESTER</text>
+    <!-- Tester LED indicators -->
+    <rect x="862" y="225" width="10" height="10" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <rect x="878" y="225" width="10" height="10" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <rect x="894" y="225" width="10" height="10" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <rect x="910" y="225" width="10" height="10" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <rect x="862" y="242" width="10" height="10" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <rect x="878" y="242" width="10" height="10" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <rect x="894" y="242" width="10" height="10" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <rect x="910" y="242" width="10" height="10" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <line x1="660" y1="200" x2="840" y2="250" stroke="#555" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+    <!-- Checkmark -->
+    <polyline points="880,300 892,315 920,280" fill="none" stroke="#4ecdc4" stroke-width="2.5" opacity="0.7"/>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">LAN WIRING &amp; CABLE MANAGEMENT</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -1762,6 +1815,7 @@ const ILLUSTRATION_MAP = {
   'building-claude-code-voice-assistant': illustrationBuildingClaudeVoiceAssistant,
   'quicktime-blackhole-audio-recording': illustrationQuicktimeBlackholeAudioRecording,
   'sync-files-with-symlink': illustrationSyncFilesWithSymlink,
+  'diy-lan-wiring-cable-management': illustrationDiyLanWiringCableManagement,
 };
 
 function getIllustration(ref) {

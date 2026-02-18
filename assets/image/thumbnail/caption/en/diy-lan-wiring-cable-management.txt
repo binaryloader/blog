@@ -1,0 +1,7 @@
+DIY LAN Wiring and TV Cable Management After Moving
+
+Fixing cut LAN ports, crimping RJ45 connectors, and organizing TV cables after my parents moved to a new apartment.
+
+https://blog.binaryloader.io/en/playground/smarthome/diy-lan-wiring-cable-management
+
+#DIY #LAN #Ethernet #CableManagement #SmartHome

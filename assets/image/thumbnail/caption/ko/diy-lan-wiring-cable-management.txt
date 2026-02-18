@@ -1,0 +1,7 @@
+부모님 집 이사 후 LAN 배선 및 TV 선 정리
+
+부모님 이사 후 끊어진 랜 포트 복구, RJ45 크림핑, TV 뒤 선 정리까지 직접 해본 경험을 정리한다.
+
+https://blog.binaryloader.io/ko/playground/smarthome/diy-lan-wiring-cable-management
+
+#DIY #LAN #Ethernet #CableManagement #SmartHome
