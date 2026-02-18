@@ -1,0 +1,7 @@
+coremltools로 머신러닝 모델을 iOS 앱에 통합하기
+
+coremltools를 활용하여 PyTorch 모델을 Core ML 형식으로 변환하고 iOS 앱에 통합하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/apple/ios/core-ml-model-conversion
+
+#iOS #Swift #CoreML #coremltools #MachineLearning #PyTorch

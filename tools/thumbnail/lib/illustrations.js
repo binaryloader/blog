@@ -1609,6 +1609,102 @@ function illustrationSyncFilesWithSymlink() {
   `;
 }
 
+// 32. Core ML Model Conversion
+function illustrationCoreMlModelConversion() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- PyTorch logo (left) -->
+    <g transform="translate(180, 240)">
+      <circle cx="0" cy="0" r="55" fill="none" stroke="#ff6b9d" stroke-width="2"/>
+      <text x="0" y="-12" text-anchor="middle" font-family="monospace" font-size="14" fill="#ff6b9d" font-weight="bold">PyTorch</text>
+      <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b9d">.pt</text>
+      <!-- Flame icon simplified -->
+      <circle cx="0" cy="-35" r="4" fill="#ff6b9d" opacity="0.6"/>
+      <path d="M-3,-42 Q0,-50 3,-42" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.6"/>
+    </g>
+    <!-- Arrow: PyTorch → coremltools -->
+    <line x1="250" y1="240" x2="370" y2="240" stroke="#555" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <polygon points="370,235 380,240 370,245" fill="#555"/>
+    <!-- coremltools (center) -->
+    <g transform="translate(460, 240)">
+      <rect x="-70" y="-40" width="140" height="80" rx="10" fill="none" stroke="#a8e6cf" stroke-width="2"/>
+      <text x="0" y="-10" text-anchor="middle" font-family="monospace" font-size="12" fill="#a8e6cf" font-weight="bold">coremltools</text>
+      <text x="0" y="10" text-anchor="middle" font-family="monospace" font-size="11" fill="#a8e6cf">ct.convert()</text>
+      <!-- Gear icon -->
+      <circle cx="50" cy="-25" r="8" fill="none" stroke="#a8e6cf" stroke-width="1" opacity="0.5"/>
+      <circle cx="50" cy="-25" r="3" fill="#a8e6cf" opacity="0.3"/>
+    </g>
+    <!-- Arrow: coremltools → Core ML -->
+    <line x1="545" y1="240" x2="665" y2="240" stroke="#555" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <polygon points="665,235 675,240 665,245" fill="#555"/>
+    <!-- Core ML / iPhone (right) -->
+    <g transform="translate(780, 240)">
+      <!-- iPhone frame -->
+      <rect x="-35" y="-60" width="70" height="120" rx="10" fill="none" stroke="#00e5ff" stroke-width="2"/>
+      <rect x="-25" y="-45" width="50" height="80" rx="2" fill="none" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
+      <!-- Core ML text -->
+      <text x="0" y="-5" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff" font-weight="bold">Core ML</text>
+      <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff">.mlpackage</text>
+      <!-- Notch -->
+      <rect x="-12" y="-58" width="24" height="6" rx="3" fill="#00e5ff" opacity="0.2"/>
+    </g>
+    <!-- Neural Engine chip (bottom center) -->
+    <g transform="translate(460, 440)">
+      <rect x="-80" y="-30" width="160" height="60" rx="6" fill="none" stroke="#ffe66d" stroke-width="1.5"/>
+      <!-- Chip pins -->
+      <line x1="-60" y1="-30" x2="-60" y2="-38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="-40" y1="-30" x2="-40" y2="-38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="-20" y1="-30" x2="-20" y2="-38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="0" y1="-30" x2="0" y2="-38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="20" y1="-30" x2="20" y2="-38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="40" y1="-30" x2="40" y2="-38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="60" y1="-30" x2="60" y2="-38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="-60" y1="30" x2="-60" y2="38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="-40" y1="30" x2="-40" y2="38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="-20" y1="30" x2="-20" y2="38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="0" y1="30" x2="0" y2="38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="20" y1="30" x2="20" y2="38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="40" y1="30" x2="40" y2="38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <line x1="60" y1="30" x2="60" y2="38" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <text x="0" y="-5" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffe66d" font-weight="bold">Neural Engine</text>
+      <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d" opacity="0.7">GPU · CPU</text>
+    </g>
+    <!-- Connection: iPhone → Neural Engine -->
+    <line x1="780" y1="310" x2="780" y2="380" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+    <line x1="780" y1="380" x2="540" y2="420" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+    <!-- Framework labels (top) -->
+    <g opacity="0.4">
+      <rect x="620" y="100" width="80" height="24" rx="4" fill="none" stroke="#00e5ff" stroke-width="1"/>
+      <text x="660" y="117" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff">Vision</text>
+    </g>
+    <g opacity="0.35">
+      <rect x="720" y="100" width="120" height="24" rx="4" fill="none" stroke="#00e5ff" stroke-width="1"/>
+      <text x="780" y="117" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff">NaturalLanguage</text>
+    </g>
+    <g opacity="0.3">
+      <rect x="860" y="100" width="80" height="24" rx="4" fill="none" stroke="#00e5ff" stroke-width="1"/>
+      <text x="900" y="117" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff">Speech</text>
+    </g>
+    <!-- Connection lines from frameworks to iPhone -->
+    <line x1="660" y1="124" x2="770" y2="185" stroke="#00e5ff" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.2"/>
+    <line x1="780" y1="124" x2="780" y2="185" stroke="#00e5ff" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.2"/>
+    <line x1="900" y1="124" x2="790" y2="185" stroke="#00e5ff" stroke-width="0.5" stroke-dasharray="3,3" opacity="0.2"/>
+    <!-- Optimization badges (bottom left) -->
+    <g transform="translate(180, 440)">
+      <rect x="-55" y="-18" width="110" height="36" rx="6" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.5"/>
+      <text x="0" y="0" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.6">Float16</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.4">~50% smaller</text>
+    </g>
+    <g transform="translate(180, 500)">
+      <rect x="-55" y="-18" width="110" height="36" rx="6" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+      <text x="0" y="0" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.5">Palettization</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.35">~75% smaller</text>
+    </g>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">CORE ML MODEL CONVERSION</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -1642,6 +1738,7 @@ const ILLUSTRATION_MAP = {
   'ios-13-view-controller-modal-presentation-style-change': illustrationIos13ViewControllerModalPresentationStyleChange,
   'ios-circular-menu-trigonometry': illustrationIosCircularMenuTrigonometry,
   'ios-modular-architecture-with-cocoapods': illustrationIosModularArchitectureWithCocoapods,
+  'core-ml-model-conversion': illustrationCoreMlModelConversion,
   'jekyll-multilingual-blog-implementation': illustrationJekyllMultilingualBlogImplementation,
   'jekyll-serve-specific-ip-and-port': illustrationJekyllServeSpecificIpAndPort,
   'minimal-mistakes-change-word-break-and-overflow-wrap': illustrationMinimalMistakesChangeWordBreakAndOverflowWrap,
