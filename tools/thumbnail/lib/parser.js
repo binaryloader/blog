@@ -6,31 +6,81 @@ const path = require('path');
 
 // Headings to exclude from key points
 const SKIP_HEADINGS = new Set([
-  '개요', '정리', '참고', '후기',
-  'Overview', 'Steps', 'Summary', 'References',
-  '概要', '手順', 'まとめ', '参考',
+  '개요', '정리', '참고', '후기', '마치며',
+  'Overview', 'Steps', 'Summary', 'References', 'Conclusion',
+  '概要', '手順', 'まとめ', '参考', 'おわりに',
 ]);
 
 const MAX_POINTS = 5;
+const SHORT_HEADING = 5;
+const MAX_POINT_LEN = 45;
+
+function isContentLine(line) {
+  if (!line) return false;
+  const prefixes = ['```', '![', '<', '#', '- ', '{%', '|', '> '];
+  return !prefixes.some(p => line.startsWith(p));
+}
+
+function stripMarkdown(text) {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/__(.+?)__/g, '$1')
+    .replace(/`(.+?)`/g, '$1')
+    .replace(/\[(.+?)\]\(.+?\)/g, '$1');
+}
+
+function truncate(text, max) {
+  const clean = stripMarkdown(text);
+  if (clean.length <= max) return clean;
+  // Cut at last space before limit
+  const cut = clean.lastIndexOf(' ', max);
+  return clean.slice(0, cut > 0 ? cut : max) + '…';
+}
+
+function extractSections(lines, pattern) {
+  const sections = [];
+  let current = null;
+
+  for (const line of lines) {
+    if (pattern.test(line)) {
+      const heading = line.replace(pattern, '').replace(/^\d+\.\s*/, '').trim();
+      current = { heading, firstLine: null };
+      sections.push(current);
+      continue;
+    }
+
+    if (current && !current.firstLine) {
+      const t = line.trim();
+      if (isContentLine(t)) {
+        current.firstLine = t;
+      }
+    }
+  }
+
+  return sections;
+}
 
 function extractKeyPoints(content) {
   const lines = content.split('\n');
 
-  // Try H2 headings first (structured guides)
-  let points = lines
-    .filter(l => /^## /.test(l))
-    .map(l => l.replace(/^## /, '').replace(/^\d+\.\s*/, '').trim())
-    .filter(h => !SKIP_HEADINGS.has(h));
+  // Try H2 sections first (structured guides)
+  let sections = extractSections(lines, /^## /);
 
-  // Fall back to H1 headings (essay-style posts)
-  if (points.length < 2) {
-    points = lines
-      .filter(l => /^# /.test(l))
-      .map(l => l.replace(/^# /, '').replace(/^\d+\.\s*/, '').trim())
-      .filter(h => !SKIP_HEADINGS.has(h));
+  // Fall back to H1 sections (essay-style posts)
+  if (sections.length < 2) {
+    sections = extractSections(lines, /^# /);
   }
 
-  return points.slice(0, MAX_POINTS);
+  return sections
+    .filter(s => !SKIP_HEADINGS.has(s.heading))
+    .slice(0, MAX_POINTS)
+    .map(s => {
+      // Short/generic headings → replace with first sentence
+      if (s.heading.length < SHORT_HEADING && s.firstLine) {
+        return truncate(s.firstLine, MAX_POINT_LEN);
+      }
+      return s.heading;
+    });
 }
 
 function parse(filePath) {

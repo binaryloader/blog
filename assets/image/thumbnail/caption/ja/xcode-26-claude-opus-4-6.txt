@@ -7,7 +7,7 @@ Xcode 26.3でClaude Opus 4.6モデルをAgentic Coding Assistantとして設定�
 📋 こんな内容です
 → Claude Codeバイナリのコピー
 → settings.jsonの作成
-→ 確認
+→ 設定が完了したら、Xcodeを再起動してください。Agentic Coding…
 
 👉 詳しくはブログで
 🔗 プロフィールのリンクから
