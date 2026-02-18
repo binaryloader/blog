@@ -5,13 +5,8 @@ fastlaneをインストールする
 macOSでfastlaneをインストールする方法をまとめる。
 
 📋 こんな内容です
-→ Xcode Command Line Toolsのインストール
-→ 方法1: Managed Ruby環境 + Bundler (macOS/Linux/Windows)
-→ 方法2: System Ruby + RubyGems (macOS/Linux/Windows)
-→ インストールの確認
-
-👉 詳しくはブログで
-🔗 プロフィールのリンクから
+→ fastlaneインストール前にXcode Command Line Toolsが必要だ
+→ Homebrewとgemどちらでインストールするかで管理方法が変わる
 
 —
 

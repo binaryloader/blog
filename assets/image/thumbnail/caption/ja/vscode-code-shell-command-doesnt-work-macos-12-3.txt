@@ -5,11 +5,9 @@ macOS 12.3でVisual Studio Codeのcode Shellコマンドが動作しない問題
 macOS 12.3でPython 2が削除されたことによりVS Codeのcodeコマンドが動作しなくなる問題の解決方法をまとめます。
 
 📋 こんな内容です
-→ 原因の特定
-→ 問題の解決
-
-👉 詳しくはブログで
-🔗 プロフィールのリンクから
+→ macOS 12.3アップデート後、codeコマンドが突然動かなくなった
+→ 原因はAppleがPython 2を削除したことだった
+→ シェルスクリプトでpythonをpython3に変えれば解決する
 
 —
 

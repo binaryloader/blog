@@ -5,14 +5,10 @@ Implementing Multilingual Support (KO/EN/JA) Without Plugins
 Sharing the experience of implementing Korean, English, and Japanese support in a Jekyll blog with the Minimal Mistakes theme — without any plugins.
 
 📋 What's covered
-→ Directory Layout
-→ URL Structure
-→ _config.yml Scope Settings
-→ Translation Linking via ref Field
-→ Language Detection and Redirect
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Built a trilingual Jekyll blog without any plugins
+→ GitHub Pages doesn't allow custom plugins — that was the constraint
+→ Language detection, switching, and translation matching with Liquid alone
+→ Sharing real Liquid variable scope pollution issues and fixes
 
 —
 

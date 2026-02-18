@@ -4,8 +4,9 @@ Displaying Gem Paths in Bundle
 
 How to check gem paths in Bundler.
 
-👉 Full post on the blog
-🔗 Link in bio
+📋 What's covered
+→ The command to find where a gem's actual source code lives
+→ You can open gem internals directly when debugging
 
 —
 

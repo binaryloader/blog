@@ -4,8 +4,10 @@ Prime Numbers and Composite Numbers
 
 An overview of the concepts of prime numbers and composite numbers.
 
-👉 Full post on the blog
-🔗 Link in bio
+📋 What's covered
+→ 1 is neither prime nor composite — understanding why reveals deeper math
+→ The Sieve of Eratosthenes is simple but surprisingly efficient
+→ Comparing time complexity of prime checking algorithms
 
 —
 

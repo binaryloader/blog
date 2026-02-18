@@ -5,14 +5,9 @@ fastlane Plugin 만들기
 fastlane의 커스텀 Plugin을 만들고 배포하는 방법을 정리한다.
 
 📋 이런 내용을 다뤘어요
-→ Plugin 예시
-→ Plugin 템플릿 생성
-→ Plugin 폴더 구조
-→ Plugin 사용
-→ Plugin 배포
-
-👉 자세한 내용은 블로그에서
-🔗 프로필 링크 클릭
+→ Action과 Plugin의 차이: Plugin은 다른 프로젝트와 공유할 수 있다
+→ RubyGems에 배포하면 누구나 설치해서 쓸 수 있다
+→ 폴더 구조부터 배포까지 전체 과정을 정리했다
 
 —
 

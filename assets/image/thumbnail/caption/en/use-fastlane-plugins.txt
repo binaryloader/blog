@@ -5,13 +5,8 @@ Using fastlane Plugins
 How to add and manage fastlane plugins.
 
 📋 What's covered
-→ Adding a Plugin Dependency
-→ Installing Plugins
-→ Updating Plugins
-→ Removing a Plugin
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Manage fastlane plugins per project with a Pluginfile
+→ Hundreds of community plugins are ready to use right away
 
 —
 

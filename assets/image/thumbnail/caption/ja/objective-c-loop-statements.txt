@@ -5,11 +5,8 @@
 Objective-Cのループ文をまとめる。
 
 📋 こんな内容です
-→ まずLoop Statementsを見てみよう
-→ 次にLoop Statementsと一緒に使えるControl Transfer Statementsを見てみよう
-
-👉 詳しくはブログで
-🔗 プロフィールのリンクから
+→ for-in(Fast Enumeration)が通常のfor文より速い理由がある
+→ breakとcontinueの動作がdo-whileでは違って感じることがある
 
 —
 

@@ -5,14 +5,10 @@ Building a Claude Code Voice Assistant in the Small Hours
 Building a macOS assistant demo that relays Claude Code CLI's input and output through voice on a sleepless night
 
 📋 What's covered
-→ Overall Structure
-→ State Machine
-→ Speech Input — whisper.cpp
-→ Speech Output — Google Cloud TTS
-→ Avatar
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Built a voice assistant at 3am because I couldn't sleep — it actually worked well
+→ Local speech recognition with whisper.cpp, voice output with Google Cloud TTS
+→ A state machine controls the record → recognize → process → respond flow
+→ Adding an avatar to the assistant was purely for fun
 
 —
 

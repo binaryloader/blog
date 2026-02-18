@@ -5,14 +5,9 @@ Setting Up an L2TP/IPSec VPN Server
 A guide to setting up an L2TP/IPSec VPN server on a Synology NAS and connecting from outside.
 
 📋 What's covered
-→ Synology VPN Server Configuration
-→ Synology Firewall Settings
-→ Router Port Forwarding
-→ Domain Setup
-→ iPhone Configuration
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Wanted secure access to my home NAS while away
+→ Set up an L2TP/IPSec VPN server directly on Synology
+→ Covers the entire process including router port forwarding
 
 —
 

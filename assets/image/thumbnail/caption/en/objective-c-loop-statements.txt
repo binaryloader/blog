@@ -5,11 +5,8 @@ Loop Statements
 A summary of loop statements in Objective-C.
 
 📋 What's covered
-→ First, Let Us Look at Loop Statements
-→ Next, Let Us Look at Control Transfer Statements Used with Loop Statements
-
-👉 Full post on the blog
-🔗 Link in bio
+→ There's a reason for-in (Fast Enumeration) is faster than regular for loops
+→ break and continue can feel different inside do-while loops
 
 —
 

@@ -5,11 +5,8 @@ Generating SSH Keys
 How to generate SSH keys on macOS using ssh-keygen.
 
 📋 What's covered
-→ Navigate to ~/.ssh directory
-→ Generate a key
-
-👉 Full post on the blog
-🔗 Link in bio
+→ SSH keys are your secure password-free gateway to servers
+→ RSA 4096-bit is the current recommendation
 
 —
 

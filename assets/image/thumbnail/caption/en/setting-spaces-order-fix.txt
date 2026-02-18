@@ -4,8 +4,9 @@ Fixing the Spaces Order
 
 How to fix the order of Spaces in Mission Control on macOS.
 
-👉 Full post on the blog
-🔗 Link in bio
+📋 What's covered
+→ Annoyed by macOS constantly rearranging your desktop order?
+→ One Mission Control setting locks the order in place
 
 —
 

@@ -5,11 +5,8 @@ OpenJDK 설치하기
 macOS에서 Homebrew를 이용하여 Eclipse Temurin OpenJDK를 설치하는 방법을 정리한다.
 
 📋 이런 내용을 다뤘어요
-→ Eclipse Temurin OpenJDK 설치
-→ 버전 확인
-
-👉 자세한 내용은 블로그에서
-🔗 프로필 링크 클릭
+→ macOS에서 Homebrew로 OpenJDK를 설치하는 가장 깔끔한 방법
+→ Eclipse Temurin을 추천하는 이유가 있다
 
 —
 

@@ -5,12 +5,8 @@ Operators and Expressions
 A summary of operators and expressions in Objective-C.
 
 📋 What's covered
-→ Expressions
-→ Operators
-→ Associativity
-
-👉 Full post on the blog
-🔗 Link in bio
+→ You don't need to memorize operator precedence, but know the pitfalls
+→ Pre/post increment differences cause more bugs than you'd think
 
 —
 

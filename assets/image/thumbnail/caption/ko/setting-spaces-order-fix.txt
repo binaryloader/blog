@@ -4,8 +4,9 @@ Spaces 순서 고정하기
 
 macOS에서 Mission Control의 Spaces 순서를 고정하는 방법을 정리한다.
 
-👉 자세한 내용은 블로그에서
-🔗 프로필 링크 클릭
+📋 이런 내용을 다뤘어요
+→ macOS에서 데스크톱 순서가 자꾸 바뀌어서 짜증났다면
+→ Mission Control 설정 하나로 순서를 고정할 수 있다
 
 —
 

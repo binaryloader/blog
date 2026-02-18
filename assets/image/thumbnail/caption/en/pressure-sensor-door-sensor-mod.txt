@@ -5,14 +5,10 @@ DIY Presence Detection with Thin-Film Contact Sensor and Zigbee Door Sensor Mod
 Modifying a Sonoff SNZB-04 Zigbee door sensor by wiring a thin-film contact sensor to its reed switch for chair and kitchen mat presence detection automation.
 
 📋 What's covered
-→ How It Works
-→ Materials
-→ Disassembly
-→ Modification
-→ Result and Use Cases
-
-👉 Full post on the blog
-🔗 Link in bio
+→ A $0.50 thin-film sensor turns on lights automatically when you sit down
+→ Mod: replacing a Zigbee door sensor's reed switch with a pressure sensor
+→ No soldering needed — just jumper wires
+→ Applied to both office chair and kitchen floor mat with real usage results
 
 —
 

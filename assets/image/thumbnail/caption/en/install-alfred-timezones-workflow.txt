@@ -5,12 +5,8 @@ Installing the Alfred TimeZones Workflow
 How to install and use the Alfred TimeZones Workflow on macOS.
 
 📋 What's covered
-→ Check Timezones
-→ Add a City
-→ Edit
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Scheduling meetings across time zones was always a hassle
+→ Type 'tz' in Alfred and see world times at a glance
 
 —
 

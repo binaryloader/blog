@@ -5,14 +5,8 @@ Primitive Data Types
 A summary of primitive data types in Objective-C.
 
 📋 What's covered
-→ Character Data Type
-→ Integer Data Types
-→ Floating-Point Data Types
-→ Boolean Data Type
-→ Instance Pointer Type
-
-👉 Full post on the blog
-🔗 Link in bio
+→ int isn't always 4 bytes — it varies by platform
+→ Knowing exact data type sizes and ranges in Objective-C prevents bugs
 
 —
 

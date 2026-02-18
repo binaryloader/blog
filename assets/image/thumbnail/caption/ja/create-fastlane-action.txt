@@ -5,14 +5,9 @@ fastlane Actionを作成する
 fastlaneのカスタムActionを作成する方法をまとめる。
 
 📋 こんな内容です
-→ Actionの例
-→ Actionテンプレートの生成
-→ Actionの記述
-→ Actionの使用
-→ fastlaneメインリポジトリへの提出
-
-👉 詳しくはブログで
-🔗 プロフィールのリンクから
+→ fastlaneに欲しい機能がなければカスタムActionを作れる
+→ generate_actionコマンド1つでテンプレートが生成される
+→ 既存Actionのソースコードを参考にすると作成がずっと楽になる
 
 —
 

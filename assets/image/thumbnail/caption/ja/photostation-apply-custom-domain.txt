@@ -5,11 +5,8 @@ Photo Stationにカスタムドメインを接続する方法
 Synology Photo Stationにカスタムドメインを接続する方法をまとめます。
 
 📋 こんな内容です
-→ Photo.mustacheの作成
-→ nginx.mustacheの修正
-
-👉 詳しくはブログで
-🔗 プロフィールのリンクから
+→ Synology Photo Stationに独自ドメインを接続できる
+→ Nginxリバースプロキシの設定がポイントだ
 
 —
 

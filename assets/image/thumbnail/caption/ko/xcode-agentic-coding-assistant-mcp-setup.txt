@@ -5,14 +5,9 @@ Agentic Coding Assistant에 MCP 서버 연동하기
 Xcode Agentic Coding Assistant에 MCP 서버를 연동하는 방법을 정리한다.
 
 📋 이런 내용을 다뤘어요
-→ 설정 파일 경로
-→ 설정 구조
-→ MCP 서버 유형
-→ 설정 예시
-→ 주의사항
-
-👉 자세한 내용은 블로그에서
-🔗 프로필 링크 클릭
+→ Xcode에서 MCP 서버를 연결하면 외부 도구와 AI가 직접 소통한다
+→ mcpServers 설정 하나로 파일시스템, Git, DB 등에 접근 가능하다
+→ Agentic Coding이 MCP를 통해 할 수 있는 일이 훨씬 많아진다
 
 —
 

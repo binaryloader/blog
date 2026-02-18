@@ -5,14 +5,9 @@ Hyundai Wallpad RS485-WiFi Converter Replacement Review
 A review of replacing the existing Raspberry Pi + RS485 TO USB setup with an RS485-WiFi converter to improve maintainability for controlling a Hyundai Communication wallpad with Home Assistant.
 
 📋 What's covered
-→ Previous Setup
-→ System Architecture
-→ Parts List
-→ RS485 Basics
-→ Hyundai Wallpad RS485 Wiring
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Was using Raspberry Pi for wallpad integration, but maintenance was painful
+→ One RS485-WiFi converter simplifies the entire setup dramatically
+→ Includes analysis of Hyundai wallpad RS485 protocol structure
 
 —
 

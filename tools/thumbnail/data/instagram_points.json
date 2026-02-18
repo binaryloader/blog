@@ -1,0 +1,928 @@
+{
+  "install-cocoapods": {
+    "ko": [
+      "CocoaPods 설치, 한 줄이면 끝나지만 그 전에 확인할 게 있다",
+      "sudo 없이 설치하는 방법도 있다는 거 아셨나요?"
+    ],
+    "en": [
+      "CocoaPods installs in one line, but there's a prerequisite to check first",
+      "Did you know you can install it without sudo?"
+    ],
+    "ja": [
+      "CocoaPods、1行でインストールできるけど事前に確認すべきことがある",
+      "sudoなしでインストールする方法もあるって知ってましたか？"
+    ]
+  },
+  "apple-keynote-september-14-2021": {
+    "ko": [
+      "iPhone 13 시리즈 4종의 차이점을 한눈에 비교한다",
+      "Apple Watch 7의 디스플레이가 이전보다 20% 커졌다",
+      "iPad Mini가 드디어 전면 디자인을 바꿨다"
+    ],
+    "en": [
+      "All four iPhone 13 models compared at a glance",
+      "Apple Watch 7 display grew 20% larger than before",
+      "iPad Mini finally got a full design overhaul"
+    ],
+    "ja": [
+      "iPhone 13シリーズ4機種の違いを一目で比較する",
+      "Apple Watch 7のディスプレイが前作より20%大きくなった",
+      "iPad Miniがついにフルデザインリニューアルした"
+    ]
+  },
+  "ios-13-view-controller-modal-presentation-style-change": {
+    "ko": [
+      "iOS 13부터 모달이 풀스크린이 아니라 카드 형태로 바뀌었다",
+      "기존 앱이 갑자기 모달이 이상하게 뜬다면 이 설정 때문이다",
+      "한 줄로 기존 동작을 복원할 수 있다"
+    ],
+    "en": [
+      "Since iOS 13, modals default to card style instead of fullscreen",
+      "If your existing app's modals suddenly look different, this is why",
+      "One line of code restores the previous behavior"
+    ],
+    "ja": [
+      "iOS 13からモーダルがフルスクリーンではなくカード形式に変わった",
+      "既存アプリのモーダルが急におかしくなったら、この設定が原因だ",
+      "1行で以前の動作に戻せる"
+    ]
+  },
+  "ios-circular-menu-trigonometry": {
+    "ko": [
+      "cos과 sin은 반지름 1인 원의 둘레 위를 걸은 거리다",
+      "iOS 좌표계에서 y축이 뒤집혀 있어서 sin에 마이너스를 붙여야 한다",
+      "atan2로 터치 위치에서 회전 각도를 계산할 수 있다",
+      "원형 메뉴의 아이템 배치가 삼각함수 두 줄이면 끝난다"
+    ],
+    "en": [
+      "cos and sin are just distances walked along a unit circle",
+      "iOS flips the y-axis, so you need to negate sin",
+      "atan2 calculates rotation angle from any touch position",
+      "Placing items in a circle takes just two lines of trigonometry"
+    ],
+    "ja": [
+      "cosとsinは半径1の円の周を歩いた距離のことだ",
+      "iOS座標系はy軸が反転しているのでsinにマイナスを付ける必要がある",
+      "atan2でタッチ位置から回転角度を計算できる",
+      "円形メニューのアイテム配置は三角関数2行で終わる"
+    ]
+  },
+  "ios-modular-architecture-with-cocoapods": {
+    "ko": [
+      "모노리스 앱을 4개의 레이어(App, Feature, Core, Common)로 분리했다",
+      "Private Spec Repo 하나로 사내 모듈을 CocoaPods처럼 관리할 수 있다",
+      "모듈화 후 빌드 시간이 줄고 기능 단위 개발이 가능해졌다",
+      "실무에서 겪은 의존성 순환 문제와 해결 과정을 공유한다"
+    ],
+    "en": [
+      "Split a monolith app into 4 layers: App, Feature, Core, Common",
+      "One Private Spec Repo lets you manage internal modules like public pods",
+      "Build times dropped and feature-level development became possible",
+      "Sharing real dependency cycle issues and how we solved them"
+    ],
+    "ja": [
+      "モノリスアプリを4つのレイヤー(App, Feature, Core, Common)に分離した",
+      "Private Spec Repo1つで社内モジュールをCocoaPodsのように管理できる",
+      "モジュール化後、ビルド時間が減り機能単位の開発が可能になった",
+      "実務で経験した依存関係の循環問題と解決過程を共有する"
+    ]
+  },
+  "core-ml-model-conversion": {
+    "ko": [
+      "PyTorch 모델을 Core ML로 변환하면 iPhone에서 오프라인 AI 추론이 가능하다",
+      "ct.convert() 한 줄이면 변환이 끝나지만 입력 shape 설정이 핵심이다",
+      "VNCoreMLModel로 감싸면 Vision 프레임워크와 바로 연동된다"
+    ],
+    "en": [
+      "Convert a PyTorch model to Core ML for offline AI inference on iPhone",
+      "ct.convert() does the job in one line, but input shape config is the key",
+      "Wrap with VNCoreMLModel and it connects directly to the Vision framework"
+    ],
+    "ja": [
+      "PyTorchモデルをCore MLに変換すればiPhoneでオフラインAI推論ができる",
+      "ct.convert()1行で変換できるが、入力shape設定がポイントだ",
+      "VNCoreMLModelでラップすればVisionフレームワークと直接連携できる"
+    ]
+  },
+  "building-claude-usage-meter-with-claude-code": {
+    "ko": [
+      "Claude Code가 자기 자신의 사용량을 모니터링하는 앱을 만들었다",
+      "메뉴바에서 실시간 토큰 사용량과 남은 용량을 확인할 수 있다",
+      "stats-cache.json 파일 하나에 모든 사용량 데이터가 들어있다",
+      "Claude Code로 Claude Code 앱을 만드는 메타적인 경험이었다"
+    ],
+    "en": [
+      "Built an app where Claude Code monitors its own usage",
+      "Check real-time token usage and remaining capacity from the menu bar",
+      "All usage data lives in a single stats-cache.json file",
+      "A meta experience: building a Claude Code app with Claude Code itself"
+    ],
+    "ja": [
+      "Claude Codeが自分自身の使用量をモニタリングするアプリを作った",
+      "メニューバーからリアルタイムのトークン使用量と残量を確認できる",
+      "stats-cache.jsonファイル1つに全ての使用量データが入っている",
+      "Claude CodeでClaude Codeアプリを作るメタ的な体験だった"
+    ]
+  },
+  "building-claude-code-voice-assistant": {
+    "ko": [
+      "잠이 안 와서 새벽에 만든 음성 어시스턴트가 생각보다 잘 동작했다",
+      "whisper.cpp로 로컬 음성 인식, Google Cloud TTS로 음성 출력을 구현했다",
+      "상태 머신으로 녹음 → 인식 → 처리 → 응답 흐름을 제어한다",
+      "어시스턴트에 아바타를 넣은 건 완전히 재미 목적이다"
+    ],
+    "en": [
+      "Built a voice assistant at 3am because I couldn't sleep — it actually worked well",
+      "Local speech recognition with whisper.cpp, voice output with Google Cloud TTS",
+      "A state machine controls the record → recognize → process → respond flow",
+      "Adding an avatar to the assistant was purely for fun"
+    ],
+    "ja": [
+      "眠れない夜明けに作った音声アシスタントが意外とうまく動いた",
+      "whisper.cppでローカル音声認識、Google Cloud TTSで音声出力を実装した",
+      "ステートマシンで録音→認識→処理→応答の流れを制御する",
+      "アシスタントにアバターを入れたのは完全に遊び心だ"
+    ]
+  },
+  "xcode12-build-ios15": {
+    "ko": [
+      "Xcode 12인데 iOS 15 기기에 빌드해야 할 때가 있다",
+      "Xcode 13 베타에서 DeviceSupport 폴더만 복사하면 된다",
+      "프로젝트 마이그레이션 없이 임시로 해결하는 방법이다"
+    ],
+    "en": [
+      "Sometimes you need to build for iOS 15 but you're stuck on Xcode 12",
+      "Just copy the DeviceSupport folder from Xcode 13 beta",
+      "A quick workaround without migrating your entire project"
+    ],
+    "ja": [
+      "Xcode 12なのにiOS 15デバイスにビルドしなければならない時がある",
+      "Xcode 13ベータからDeviceSupportフォルダをコピーするだけでOK",
+      "プロジェクト移行なしの一時的な解決方法だ"
+    ]
+  },
+  "xcode-26-claude-opus-4-6": {
+    "ko": [
+      "Xcode 26에서 Claude Opus 4.6을 코딩 어시스턴트로 쓸 수 있다",
+      "설정 한 곳만 바꾸면 기본 모델 대신 최신 Claude를 사용할 수 있다",
+      "Agentic Coding Assistant가 파일 생성부터 빌드 오류 수정까지 해준다"
+    ],
+    "en": [
+      "Xcode 26 lets you use Claude Opus 4.6 as a coding assistant",
+      "Change one setting to use the latest Claude instead of the default model",
+      "Agentic Coding Assistant handles everything from file creation to build error fixes"
+    ],
+    "ja": [
+      "Xcode 26でClaude Opus 4.6をコーディングアシスタントとして使える",
+      "設定1つ変えるだけで最新のClaudeを使えるようになる",
+      "Agentic Coding Assistantがファイル生成からビルドエラー修正までやってくれる"
+    ]
+  },
+  "xcode-agentic-coding-assistant-mcp-setup": {
+    "ko": [
+      "Xcode에서 MCP 서버를 연결하면 외부 도구와 AI가 직접 소통한다",
+      "mcpServers 설정 하나로 파일시스템, Git, DB 등에 접근 가능하다",
+      "Agentic Coding이 MCP를 통해 할 수 있는 일이 훨씬 많아진다"
+    ],
+    "en": [
+      "Connect MCP servers to Xcode and let AI talk directly to external tools",
+      "One mcpServers config gives access to filesystem, Git, DBs and more",
+      "MCP dramatically expands what Agentic Coding can do"
+    ],
+    "ja": [
+      "XcodeでMCPサーバーを接続すると外部ツールとAIが直接通信できる",
+      "mcpServers設定1つでファイルシステム、Git、DBなどにアクセス可能",
+      "MCPを通じてAgentic Codingができることが大幅に増える"
+    ]
+  },
+  "jekyll-serve-specific-ip-and-port": {
+    "ko": [
+      "Jekyll 로컬 서버를 0.0.0.0으로 띄우면 같은 네트워크 기기에서 접속할 수 있다",
+      "모바일에서 블로그 레이아웃 확인할 때 유용하다"
+    ],
+    "en": [
+      "Run Jekyll on 0.0.0.0 and access it from any device on your network",
+      "Super useful for checking blog layout on mobile devices"
+    ],
+    "ja": [
+      "Jekyllを0.0.0.0で起動すれば同じネットワークのデバイスからアクセスできる",
+      "モバイルでブログレイアウトを確認する時に便利だ"
+    ]
+  },
+  "minimal-mistakes-change-word-break-and-overflow-wrap": {
+    "ko": [
+      "모바일에서 블로그가 좌우로 스크롤되면 이 CSS 속성을 확인해보자",
+      "word-break와 overflow-wrap 두 속성의 차이를 이해해야 한다",
+      "코드 블록이 레이아웃을 깨뜨리는 주범인 경우가 많다"
+    ],
+    "en": [
+      "If your blog scrolls horizontally on mobile, check these CSS properties",
+      "Understanding the difference between word-break and overflow-wrap is key",
+      "Code blocks are often the culprit breaking your layout"
+    ],
+    "ja": [
+      "モバイルでブログが横スクロールするならこのCSS属性を確認しよう",
+      "word-breakとoverflow-wrapの違いを理解する必要がある",
+      "コードブロックがレイアウトを壊す犯人であることが多い"
+    ]
+  },
+  "jekyll-multilingual-blog-implementation": {
+    "ko": [
+      "플러그인 없이 Jekyll에서 3개 국어 블로그를 구현했다",
+      "GitHub Pages 호환을 위해 플러그인을 쓸 수 없는 제약이 있었다",
+      "Liquid 템플릿만으로 언어 감지, 전환, 번역 매칭까지 구현한다",
+      "실제로 겪은 Liquid 변수 스코프 오염 문제와 해결법도 공유한다"
+    ],
+    "en": [
+      "Built a trilingual Jekyll blog without any plugins",
+      "GitHub Pages doesn't allow custom plugins — that was the constraint",
+      "Language detection, switching, and translation matching with Liquid alone",
+      "Sharing real Liquid variable scope pollution issues and fixes"
+    ],
+    "ja": [
+      "プラグインなしでJekyllの3言語ブログを実装した",
+      "GitHub Pagesではカスタムプラグインが使えないという制約があった",
+      "Liquidテンプレートだけで言語検出、切替、翻訳マッチングまで実装する",
+      "実際に経験したLiquid変数スコープ汚染問題と解決法も共有する"
+    ]
+  },
+  "install-fastlane": {
+    "ko": [
+      "fastlane 설치 전에 Xcode Command Line Tools가 먼저 필요하다",
+      "Homebrew와 gem 중 어떤 방법으로 설치하느냐에 따라 관리 방식이 다르다"
+    ],
+    "en": [
+      "Xcode Command Line Tools must be installed before fastlane",
+      "Homebrew vs gem install — each has different management implications"
+    ],
+    "ja": [
+      "fastlaneインストール前にXcode Command Line Toolsが必要だ",
+      "Homebrewとgemどちらでインストールするかで管理方法が変わる"
+    ]
+  },
+  "use-fastlane-plugins": {
+    "ko": [
+      "fastlane 플러그인은 Pluginfile로 프로젝트 단위로 관리할 수 있다",
+      "커뮤니티가 만든 수백 개의 플러그인을 바로 가져다 쓸 수 있다"
+    ],
+    "en": [
+      "Manage fastlane plugins per project with a Pluginfile",
+      "Hundreds of community plugins are ready to use right away"
+    ],
+    "ja": [
+      "fastlaneプラグインはPluginfileでプロジェクト単位で管理できる",
+      "コミュニティが作った数百のプラグインをすぐに使える"
+    ]
+  },
+  "create-fastlane-action": {
+    "ko": [
+      "fastlane에 원하는 기능이 없으면 커스텀 Action을 만들 수 있다",
+      "generate_action 명령어 하나로 템플릿이 생성된다",
+      "기존 Action의 소스 코드를 참고하면 작성이 훨씬 쉬워진다"
+    ],
+    "en": [
+      "If fastlane doesn't have what you need, create a custom Action",
+      "One generate_action command creates the template",
+      "Reading existing Action source code makes writing your own much easier"
+    ],
+    "ja": [
+      "fastlaneに欲しい機能がなければカスタムActionを作れる",
+      "generate_actionコマンド1つでテンプレートが生成される",
+      "既存Actionのソースコードを参考にすると作成がずっと楽になる"
+    ]
+  },
+  "create-fastlane-plugin": {
+    "ko": [
+      "Action과 Plugin의 차이: Plugin은 다른 프로젝트와 공유할 수 있다",
+      "RubyGems에 배포하면 누구나 설치해서 쓸 수 있다",
+      "폴더 구조부터 배포까지 전체 과정을 정리했다"
+    ],
+    "en": [
+      "Action vs Plugin: Plugins can be shared across projects",
+      "Publish to RubyGems and anyone can install and use it",
+      "Covering the entire process from folder structure to deployment"
+    ],
+    "ja": [
+      "ActionとPluginの違い：Pluginは他のプロジェクトと共有できる",
+      "RubyGemsに公開すれば誰でもインストールして使える",
+      "フォルダ構造からデプロイまで全過程を整理した"
+    ]
+  },
+  "fastlane-skip-update-check-log-and-hide-changelog": {
+    "ko": [
+      "fastlane 실행할 때마다 뜨는 업데이트 로그가 거슬릴 때",
+      "환경변수 두 개면 깔끔한 로그를 유지할 수 있다"
+    ],
+    "en": [
+      "Tired of update check logs every time you run fastlane?",
+      "Two environment variables keep your logs clean"
+    ],
+    "ja": [
+      "fastlane実行のたびに出る更新ログが気になる時",
+      "環境変数2つでクリーンなログを維持できる"
+    ]
+  },
+  "claude-github-pr-auto-review": {
+    "ko": [
+      "동생과 사이드 프로젝트를 하는데 서로 코드 리뷰할 시간이 없었다",
+      "PR을 올리면 Claude가 자동으로 이슈 링크 추가와 코드 리뷰를 해준다",
+      "유료 구독자는 API 키 대신 OAuth 토큰으로 무료로 사용할 수 있다",
+      "미처 생각하지 못한 엣지 케이스를 찾아주는 게 가장 유용했다"
+    ],
+    "en": [
+      "My brother and I do a side project but had no time for code reviews",
+      "When a PR is opened, Claude auto-links issues and reviews the code",
+      "Paid subscribers can use OAuth tokens instead of API keys — for free",
+      "The most useful part was catching edge cases we didn't think of"
+    ],
+    "ja": [
+      "弟とサイドプロジェクトをしているが、お互いコードレビューの時間がなかった",
+      "PRを上げるとClaudeが自動でイシューリンクとコードレビューをしてくれる",
+      "有料プランならAPIキーの代わりにOAuthトークンで無料で使える",
+      "思いつかなかったエッジケースを見つけてくれるのが一番便利だった"
+    ]
+  },
+  "installing-openjdk": {
+    "ko": [
+      "macOS에서 Homebrew로 OpenJDK를 설치하는 가장 깔끔한 방법",
+      "Eclipse Temurin을 추천하는 이유가 있다"
+    ],
+    "en": [
+      "The cleanest way to install OpenJDK on macOS with Homebrew",
+      "There's a reason Eclipse Temurin is recommended"
+    ],
+    "ja": [
+      "macOSでHomebrewを使ってOpenJDKをインストールする最もクリーンな方法",
+      "Eclipse Temurinを推奨する理由がある"
+    ]
+  },
+  "objective-c-study-resource-collections": {
+    "ko": [
+      "Objective-C를 지금 배워야 하는 이유가 있다면 이 리소스부터 시작하자",
+      "Apple 공식 문서와 실전 프로젝트를 조합하는 학습 전략"
+    ],
+    "en": [
+      "If you need to learn Objective-C now, start with these resources",
+      "A study strategy combining Apple's official docs with real projects"
+    ],
+    "ja": [
+      "今Objective-Cを学ぶ必要があるならこのリソースから始めよう",
+      "Apple公式ドキュメントと実践プロジェクトを組み合わせる学習戦略"
+    ]
+  },
+  "objective-c-primitive-data-types": {
+    "ko": [
+      "int가 항상 4바이트인 건 아니다 — 플랫폼마다 다르다",
+      "Objective-C의 데이터형 크기와 범위를 정확히 알아야 버그를 줄인다"
+    ],
+    "en": [
+      "int isn't always 4 bytes — it varies by platform",
+      "Knowing exact data type sizes and ranges in Objective-C prevents bugs"
+    ],
+    "ja": [
+      "intは常に4バイトとは限らない — プラットフォームによって異なる",
+      "Objective-Cのデータ型のサイズと範囲を正確に知ることでバグを減らせる"
+    ]
+  },
+  "objective-c-operators-and-expressions": {
+    "ko": [
+      "연산자 우선순위를 외울 필요는 없지만 함정은 알아야 한다",
+      "증감 연산자의 전위/후위 차이로 버그가 생기는 경우가 많다"
+    ],
+    "en": [
+      "You don't need to memorize operator precedence, but know the pitfalls",
+      "Pre/post increment differences cause more bugs than you'd think"
+    ],
+    "ja": [
+      "演算子の優先順位を暗記する必要はないが、罠は知っておくべきだ",
+      "インクリメントの前置/後置の違いでバグが生まれることが多い"
+    ]
+  },
+  "objective-c-loop-statements": {
+    "ko": [
+      "for-in(Fast Enumeration)이 일반 for문보다 빠른 이유가 있다",
+      "break와 continue의 동작이 do-while에서는 다르게 느껴질 수 있다"
+    ],
+    "en": [
+      "There's a reason for-in (Fast Enumeration) is faster than regular for loops",
+      "break and continue can feel different inside do-while loops"
+    ],
+    "ja": [
+      "for-in(Fast Enumeration)が通常のfor文より速い理由がある",
+      "breakとcontinueの動作がdo-whileでは違って感じることがある"
+    ]
+  },
+  "objective-c-branch-statements": {
+    "ko": [
+      "switch 문에서 break를 빼먹으면 fall-through가 발생한다",
+      "if-else와 switch의 성능 차이는 언제 의미가 있을까?"
+    ],
+    "en": [
+      "Missing break in switch statements causes fall-through",
+      "When does the performance difference between if-else and switch matter?"
+    ],
+    "ja": [
+      "switch文でbreakを入れ忘れるとfall-throughが発生する",
+      "if-elseとswitchの性能差はいつ意味があるのか？"
+    ]
+  },
+  "objective-c-class-instance-method": {
+    "ko": [
+      "Objective-C의 - 메서드와 + 메서드의 차이를 이해하는 게 첫 걸음이다",
+      "alloc과 init을 분리해서 호출하는 이유가 있다"
+    ],
+    "en": [
+      "Understanding the difference between - and + methods is the first step",
+      "There's a reason alloc and init are called separately"
+    ],
+    "ja": [
+      "Objective-Cの - メソッドと + メソッドの違いを理解するのが第一歩だ",
+      "allocとinitを分けて呼ぶ理由がある"
+    ]
+  },
+  "install-python3-pip": {
+    "ko": [
+      "macOS에 Python 3가 있어도 PIP가 없는 경우가 있다",
+      "get-pip.py 스크립트로 깔끔하게 설치하는 방법"
+    ],
+    "en": [
+      "macOS may have Python 3 but not PIP — here's how to fix that",
+      "Clean installation using the get-pip.py bootstrap script"
+    ],
+    "ja": [
+      "macOSにPython 3があってもPIPがない場合がある",
+      "get-pip.pyスクリプトでクリーンにインストールする方法"
+    ]
+  },
+  "install-homebrew": {
+    "ko": [
+      "macOS 개발 환경의 시작은 Homebrew 설치부터다",
+      "공식 설치 스크립트 한 줄이면 끝난다"
+    ],
+    "en": [
+      "Setting up a macOS dev environment starts with Homebrew",
+      "One line from the official install script and you're done"
+    ],
+    "ja": [
+      "macOS開発環境のスタートはHomebrewインストールからだ",
+      "公式インストールスクリプト1行で完了する"
+    ]
+  },
+  "install-ruby": {
+    "ko": [
+      "시스템 Ruby를 쓰면 안 되는 이유가 있다",
+      "rbenv로 버전을 관리하면 프로젝트별로 다른 Ruby를 쓸 수 있다"
+    ],
+    "en": [
+      "There's a reason you shouldn't use system Ruby",
+      "rbenv lets you use different Ruby versions per project"
+    ],
+    "ja": [
+      "システムRubyを使ってはいけない理由がある",
+      "rbenvでバージョン管理すればプロジェクトごとに異なるRubyを使える"
+    ]
+  },
+  "bundle-show-paths": {
+    "ko": [
+      "gem의 실제 소스 코드 위치를 알고 싶을 때 쓰는 명령어",
+      "디버깅할 때 gem 내부를 직접 열어볼 수 있다"
+    ],
+    "en": [
+      "The command to find where a gem's actual source code lives",
+      "You can open gem internals directly when debugging"
+    ],
+    "ja": [
+      "gemの実際のソースコードの場所を知りたい時に使うコマンド",
+      "デバッグ時にgemの内部を直接開いて見ることができる"
+    ]
+  },
+  "install-git-lfs": {
+    "ko": [
+      "대용량 파일을 Git에 올리면 저장소가 무거워진다 — LFS가 해결책이다",
+      "설치 후 git lfs track으로 확장자를 지정하면 자동으로 관리된다"
+    ],
+    "en": [
+      "Large files make your Git repo heavy — LFS is the solution",
+      "After setup, git lfs track by extension and it's handled automatically"
+    ],
+    "ja": [
+      "大容量ファイルをGitに上げるとリポジトリが重くなる — LFSが解決策だ",
+      "設置後、git lfs trackで拡張子を指定すれば自動管理される"
+    ]
+  },
+  "setting-multiple-ssh-key-on-github": {
+    "ko": [
+      "개인 계정과 회사 계정을 같은 맥에서 쓸 때 SSH 키가 충돌한다",
+      "~/.ssh/config에 Host를 분리하면 계정별로 다른 키를 사용할 수 있다"
+    ],
+    "en": [
+      "Personal and work GitHub accounts on the same Mac cause SSH key conflicts",
+      "Separate Host entries in ~/.ssh/config let you use different keys per account"
+    ],
+    "ja": [
+      "個人アカウントと会社アカウントを同じMacで使うとSSHキーが衝突する",
+      "~/.ssh/configでHostを分ければアカウントごとに異なるキーを使える"
+    ]
+  },
+  "sync-files-with-symlink": {
+    "ko": [
+      "설정 파일을 Git으로 관리하고 싶은데 위치가 제각각일 때",
+      "심볼릭 링크 하나로 원본 위치와 Git 저장소를 동기화할 수 있다",
+      "dotfiles 관리의 기본이 되는 패턴이다"
+    ],
+    "en": [
+      "Want to Git-manage config files scattered across different locations?",
+      "One symlink syncs the original location with your Git repo",
+      "This is the foundational pattern for dotfiles management"
+    ],
+    "ja": [
+      "設定ファイルをGitで管理したいけど場所がバラバラな時",
+      "シンボリックリンク1つで原本とGitリポジトリを同期できる",
+      "dotfiles管理の基本パターンだ"
+    ]
+  },
+  "spring-development-environment-establishment": {
+    "ko": [
+      "백엔드에 입문할 때 Spring 환경 구축이 첫 번째 허들이다",
+      "IDE 설정부터 첫 프로젝트 실행까지 단계별로 정리했다"
+    ],
+    "en": [
+      "Setting up Spring is the first hurdle when getting into backend dev",
+      "Step-by-step from IDE setup to running your first project"
+    ],
+    "ja": [
+      "バックエンド入門時、Spring環境構築が最初のハードルだ",
+      "IDE設定から初プロジェクト実行まで段階的に整理した"
+    ]
+  },
+  "prime-number-and-composition-number": {
+    "ko": [
+      "1은 소수도 합성수도 아니다 — 그 이유를 알면 수학이 보인다",
+      "에라토스테네스의 체는 단순하지만 놀라울 정도로 효율적이다",
+      "소수 판별 알고리즘의 시간 복잡도를 비교해본다"
+    ],
+    "en": [
+      "1 is neither prime nor composite — understanding why reveals deeper math",
+      "The Sieve of Eratosthenes is simple but surprisingly efficient",
+      "Comparing time complexity of prime checking algorithms"
+    ],
+    "ja": [
+      "1は素数でも合成数でもない — その理由を知ると数学が見えてくる",
+      "エラトステネスの篩はシンプルだが驚くほど効率的だ",
+      "素数判定アルゴリズムの時間計算量を比較する"
+    ]
+  },
+  "install-oh-my-zsh": {
+    "ko": [
+      "기본 zsh도 좋지만 Oh My Zsh를 설치하면 생산성이 달라진다",
+      "200개 이상의 플러그인과 테마를 바로 쓸 수 있다"
+    ],
+    "en": [
+      "Default zsh is fine, but Oh My Zsh takes productivity to another level",
+      "Over 200 plugins and themes ready to use out of the box"
+    ],
+    "ja": [
+      "デフォルトzshも良いがOh My Zshを入れると生産性が変わる",
+      "200以上のプラグインとテーマがすぐに使える"
+    ]
+  },
+  "install-zsh-alien-theme": {
+    "ko": [
+      "터미널도 예쁘게 쓰고 싶어서 Alien 테마를 설치해봤다",
+      "Git 브랜치 상태와 실행 시간이 프롬프트에 표시된다"
+    ],
+    "en": [
+      "Wanted a prettier terminal, so I tried the Alien theme",
+      "Git branch status and execution time shown right in the prompt"
+    ],
+    "ja": [
+      "ターミナルもきれいに使いたくてAlienテーマを入れてみた",
+      "Gitブランチ状態と実行時間がプロンプトに表示される"
+    ]
+  },
+  "install-zsh-autosuggestions": {
+    "ko": [
+      "이전에 입력한 명령어를 자동으로 제안해주는 플러그인이다",
+      "→ 키 하나로 긴 명령어를 다시 타이핑하지 않아도 된다"
+    ],
+    "en": [
+      "This plugin auto-suggests commands you've typed before",
+      "One arrow key press saves you from retyping long commands"
+    ],
+    "ja": [
+      "以前入力したコマンドを自動でサジェストしてくれるプラグインだ",
+      "→キー1つで長いコマンドを再入力しなくて済む"
+    ]
+  },
+  "generating-ssh-keys": {
+    "ko": [
+      "SSH 키는 비밀번호 없이 서버에 안전하게 접속하는 열쇠다",
+      "RSA 4096비트로 생성하는 게 현재 권장 사항이다"
+    ],
+    "en": [
+      "SSH keys are your secure password-free gateway to servers",
+      "RSA 4096-bit is the current recommendation"
+    ],
+    "ja": [
+      "SSHキーはパスワードなしでサーバーに安全に接続する鍵だ",
+      "RSA 4096ビットで生成するのが現在の推奨事項だ"
+    ]
+  },
+  "install-alfred-timezones-workflow": {
+    "ko": [
+      "해외 동료와 미팅 잡을 때 시차 계산이 귀찮았다",
+      "Alfred에서 tz 치면 전 세계 시간이 한눈에 보인다"
+    ],
+    "en": [
+      "Scheduling meetings across time zones was always a hassle",
+      "Type 'tz' in Alfred and see world times at a glance"
+    ],
+    "ja": [
+      "海外の同僚とミーティングを組む時、時差計算が面倒だった",
+      "Alfredでtzと打てば世界中の時間が一目で分かる"
+    ]
+  },
+  "setting-open-vscode-by-command-line": {
+    "ko": [
+      "터미널에서 code . 한 줄이면 현재 폴더를 VS Code로 열 수 있다",
+      "Command Palette에서 Shell Command를 설치하면 된다"
+    ],
+    "en": [
+      "Type 'code .' in terminal to open the current folder in VS Code",
+      "Install it from the Command Palette's Shell Command option"
+    ],
+    "ja": [
+      "ターミナルでcode .の1行で現在のフォルダをVS Codeで開ける",
+      "Command PaletteのShell Commandからインストールする"
+    ]
+  },
+  "setting-spaces-order-fix": {
+    "ko": [
+      "macOS에서 데스크톱 순서가 자꾸 바뀌어서 짜증났다면",
+      "Mission Control 설정 하나로 순서를 고정할 수 있다"
+    ],
+    "en": [
+      "Annoyed by macOS constantly rearranging your desktop order?",
+      "One Mission Control setting locks the order in place"
+    ],
+    "ja": [
+      "macOSでデスクトップの順番がいつも変わってイライラしていたなら",
+      "Mission Controlの設定1つで順番を固定できる"
+    ]
+  },
+  "setting-copy-path-in-finder": {
+    "ko": [
+      "Finder에서 파일 경로를 복사하는 숨겨진 단축키가 있다",
+      "Option + Command + C — 이것만 외우면 된다"
+    ],
+    "en": [
+      "There's a hidden shortcut to copy file paths in Finder",
+      "Option + Command + C — that's all you need to remember"
+    ],
+    "ja": [
+      "Finderでファイルパスをコピーする隠しショートカットがある",
+      "Option + Command + C — これだけ覚えればOK"
+    ]
+  },
+  "vscode-code-shell-command-doesnt-work-macos-12-3": {
+    "ko": [
+      "macOS 12.3 업데이트 후 code 명령어가 갑자기 안 됐다",
+      "원인은 Apple이 Python 2를 제거한 것이었다",
+      "셸 스크립트에서 python을 python3로 바꾸면 해결된다"
+    ],
+    "en": [
+      "After updating to macOS 12.3, the 'code' command suddenly stopped working",
+      "The cause: Apple removed Python 2",
+      "Changing python to python3 in the shell script fixes it"
+    ],
+    "ja": [
+      "macOS 12.3アップデート後、codeコマンドが突然動かなくなった",
+      "原因はAppleがPython 2を削除したことだった",
+      "シェルスクリプトでpythonをpython3に変えれば解決する"
+    ]
+  },
+  "obsidian-mcp-setup": {
+    "ko": [
+      "Claude Code에서 Obsidian 노트를 직접 읽고 쓸 수 있다",
+      "MCP 서버 하나로 AI와 메모장이 연결되는 셈이다",
+      "BRAT 플러그인으로 설치하고 .claude.json에 설정하면 끝"
+    ],
+    "en": [
+      "Claude Code can directly read and write your Obsidian notes",
+      "One MCP server connects your AI assistant to your note-taking app",
+      "Install via BRAT plugin, configure .claude.json, and you're done"
+    ],
+    "ja": [
+      "Claude CodeからObsidianノートを直接読み書きできる",
+      "MCPサーバー1つでAIとメモアプリがつながる",
+      "BRATプラグインでインストールして.claude.jsonに設定すれば完了"
+    ]
+  },
+  "quicktime-blackhole-audio-recording": {
+    "ko": [
+      "QuickTime으로 화면 녹화할 때 시스템 소리가 안 들어가서 불편했다",
+      "BlackHole이라는 가상 오디오 드라이버가 해결책이다",
+      "마이크 + 시스템 오디오를 동시에 녹음할 수 있는 집계 장비를 만든다"
+    ],
+    "en": [
+      "Frustrated that QuickTime screen recording doesn't capture system audio?",
+      "BlackHole virtual audio driver is the solution",
+      "Create an aggregate device to record mic + system audio simultaneously"
+    ],
+    "ja": [
+      "QuickTimeで画面録画する時、システム音が入らなくて不便だった",
+      "BlackHoleという仮想オーディオドライバーが解決策だ",
+      "マイク＋システムオーディオを同時録音できる集約デバイスを作る"
+    ]
+  },
+  "setting-asus-router-enable-https": {
+    "ko": [
+      "공유기 설정 페이지를 HTTP로 접속하고 있다면 보안 취약점이다",
+      "ASUS 공유기에서 HTTPS를 활성화하는 건 설정 한 곳이면 된다",
+      "자체 서명 인증서를 신뢰하는 방법도 함께 알아본다"
+    ],
+    "en": [
+      "Accessing your router settings over HTTP is a security vulnerability",
+      "Enabling HTTPS on ASUS routers takes just one setting change",
+      "Also covers how to trust the self-signed certificate"
+    ],
+    "ja": [
+      "ルーター設定ページにHTTPでアクセスしているならセキュリティ上の脆弱性だ",
+      "ASUSルーターでHTTPSを有効にするのは設定1つだけ",
+      "自己署名証明書を信頼する方法も一緒に確認する"
+    ]
+  },
+  "smarthome-construct-plan": {
+    "ko": [
+      "스마트홈을 시작하기 전에 전체 구조를 먼저 설계해야 한다",
+      "ZigBee vs Wi-Fi vs Bluetooth — 프로토콜 선택이 가장 중요했다",
+      "SmartThings Hub를 중심으로 기기를 통합하는 구조로 결정했다"
+    ],
+    "en": [
+      "Before starting a smart home, design the overall architecture first",
+      "ZigBee vs Wi-Fi vs Bluetooth — choosing the protocol was the key decision",
+      "Decided on a SmartThings Hub-centric integration structure"
+    ],
+    "ja": [
+      "スマートホームを始める前に全体構造を先に設計する必要がある",
+      "ZigBee vs Wi-Fi vs Bluetooth — プロトコル選択が最も重要だった",
+      "SmartThings Hubを中心にデバイスを統合する構造に決めた"
+    ]
+  },
+  "smartthings-hub-v3-purchase-review": {
+    "ko": [
+      "SmartThings Hub 3세대를 직접 구매해서 개봉기를 작성했다",
+      "ZigBee와 Z-Wave를 동시에 지원하는 게 가장 큰 장점이다",
+      "실제 패키지 구성품과 첫인상을 솔직하게 공유한다"
+    ],
+    "en": [
+      "Bought the SmartThings Hub v3 and sharing an honest unboxing review",
+      "Supporting both ZigBee and Z-Wave simultaneously is its biggest advantage",
+      "Real package contents and genuine first impressions"
+    ],
+    "ja": [
+      "SmartThings Hub第3世代を実際に購入して開封レビューを書いた",
+      "ZigBeeとZ-Waveを同時にサポートするのが最大の利点だ",
+      "実際のパッケージ内容と率直な第一印象を共有する"
+    ]
+  },
+  "diy-lan-wiring-cable-management": {
+    "ko": [
+      "부모님 이사 후 끊어진 랜 포트를 직접 복구했다",
+      "RJ45 크림핑은 처음이었지만 생각보다 어렵지 않았다",
+      "TV 뒤 케이블 정리 전후 사진이 가장 뿌듯하다"
+    ],
+    "en": [
+      "Fixed broken Ethernet ports myself after my parents moved",
+      "First time crimping RJ45 — it was easier than expected",
+      "The before/after cable management photos behind the TV are the most satisfying"
+    ],
+    "ja": [
+      "両親の引越し後、切れたLANポートを自分で復旧した",
+      "RJ45クリンプは初めてだったが思ったより難しくなかった",
+      "TV裏のケーブル整理のビフォーアフター写真が一番達成感がある"
+    ]
+  },
+  "pressure-sensor-door-sensor-mod": {
+    "ko": [
+      "500원짜리 박막 센서로 의자에 앉으면 자동으로 조명이 켜진다",
+      "Zigbee 도어 센서의 리드 스위치를 압력 센서로 교체하는 개조다",
+      "납땜 없이 점퍼 와이어만으로 연결할 수 있다",
+      "의자와 주방 발판 두 곳에 적용한 실제 사용기를 공유한다"
+    ],
+    "en": [
+      "A $0.50 thin-film sensor turns on lights automatically when you sit down",
+      "Mod: replacing a Zigbee door sensor's reed switch with a pressure sensor",
+      "No soldering needed — just jumper wires",
+      "Applied to both office chair and kitchen floor mat with real usage results"
+    ],
+    "ja": [
+      "50円の薄膜センサーで椅子に座ると自動で照明が点く",
+      "Zigbeeドアセンサーのリードスイッチを圧力センサーに交換する改造だ",
+      "はんだ付け不要 — ジャンパーワイヤーだけで接続できる",
+      "椅子とキッチンの足元マット2箇所に適用した実際の使用記を共有する"
+    ]
+  },
+  "wallpad-rs485-hardware-setup": {
+    "ko": [
+      "Raspberry Pi로 월패드를 연동하고 있었는데 유지보수가 너무 힘들었다",
+      "RS485-WiFi 변환기 하나로 구성이 훨씬 단순해진다",
+      "현대통신 월패드의 RS485 프로토콜 구조를 분석한 내용도 포함한다"
+    ],
+    "en": [
+      "Was using Raspberry Pi for wallpad integration, but maintenance was painful",
+      "One RS485-WiFi converter simplifies the entire setup dramatically",
+      "Includes analysis of Hyundai wallpad RS485 protocol structure"
+    ],
+    "ja": [
+      "Raspberry Piでウォールパッドを連動していたがメンテナンスが大変だった",
+      "RS485-WiFi変換機1つで構成がずっとシンプルになる",
+      "現代通信ウォールパッドのRS485プロトコル構造の分析も含む"
+    ]
+  },
+  "photostation-apply-custom-domain": {
+    "ko": [
+      "Synology Photo Station에 나만의 도메인을 연결할 수 있다",
+      "Nginx 리버스 프록시를 설정하는 게 핵심이다"
+    ],
+    "en": [
+      "You can connect your own domain to Synology Photo Station",
+      "Setting up Nginx reverse proxy is the key step"
+    ],
+    "ja": [
+      "Synology Photo Stationに独自ドメインを接続できる",
+      "Nginxリバースプロキシの設定がポイントだ"
+    ]
+  },
+  "ssl-certificate-manual-renew-with-command-line": {
+    "ko": [
+      "Synology NAS의 SSL 인증서가 만료되면 웹에서 갱신이 안 될 때가 있다",
+      "커맨드 라인에서 수동으로 갱신하는 방법을 알아두면 안심이다"
+    ],
+    "en": [
+      "Sometimes web-based renewal fails for Synology NAS SSL certificates",
+      "Knowing the command line renewal method gives you a reliable fallback"
+    ],
+    "ja": [
+      "Synology NASのSSL証明書が期限切れになるとWebから更新できないことがある",
+      "コマンドラインでの手動更新方法を知っておくと安心だ"
+    ]
+  },
+  "synology-vpn-server-setup": {
+    "ko": [
+      "외출 중에도 집 NAS에 안전하게 접속하고 싶었다",
+      "Synology에 L2TP/IPSec VPN 서버를 직접 구축했다",
+      "공유기 포트포워딩 설정까지 포함한 전체 과정을 정리한다"
+    ],
+    "en": [
+      "Wanted secure access to my home NAS while away",
+      "Set up an L2TP/IPSec VPN server directly on Synology",
+      "Covers the entire process including router port forwarding"
+    ],
+    "ja": [
+      "外出中でも自宅NASに安全にアクセスしたかった",
+      "SynologyにL2TP/IPSec VPNサーバーを直接構築した",
+      "ルーターのポートフォワーディング設定まで含めた全過程を整理する"
+    ]
+  },
+  "the-end-of-developer-scarcity": {
+    "ko": [
+      "AI 코딩 도구 덕분에 비개발자도 앱을 만드는 시대가 왔다",
+      "더 이상 '개발자 없이는 안 된다'는 말이 통하지 않는다",
+      "그렇다면 개발자의 가치는 어디에 있는가?",
+      "코딩 능력이 아니라 문제를 정의하는 능력이 차별점이 된다"
+    ],
+    "en": [
+      "AI coding tools let non-developers build apps now",
+      "'We can't do it without developers' no longer holds true",
+      "So where does developer value actually lie?",
+      "Problem definition, not coding ability, becomes the differentiator"
+    ],
+    "ja": [
+      "AIコーディングツールのおかげで非開発者もアプリを作れる時代が来た",
+      "もう「開発者がいないとできない」は通用しない",
+      "では開発者の価値はどこにあるのか？",
+      "コーディング能力ではなく問題を定義する能力が差別化ポイントになる"
+    ]
+  },
+  "running-a-tech-blog-in-the-ai-era": {
+    "ko": [
+      "여행 일본어가 전부인 사람이 3개 국어 블로그를 발행하고 있다",
+      "AI가 번역, 교정, 썸네일 생성까지 해주는 시대다",
+      "그래도 글의 방향과 경험은 사람이 결정해야 한다",
+      "1인 블로거가 AI와 협업하는 실제 워크플로우를 공유한다"
+    ],
+    "en": [
+      "Someone who only knows travel Japanese now publishes a trilingual blog",
+      "AI handles translation, proofreading, even thumbnail generation",
+      "But the direction and experience behind each post still needs a human",
+      "Sharing the actual workflow of a solo blogger collaborating with AI"
+    ],
+    "ja": [
+      "旅行日本語しか知らない人が3言語ブログを発行している",
+      "AIが翻訳、校正、サムネイル生成までしてくれる時代だ",
+      "それでも記事の方向性と経験は人間が決めなければならない",
+      "一人ブロガーがAIと協業する実際のワークフローを共有する"
+    ]
+  }
+}

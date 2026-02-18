@@ -5,11 +5,8 @@
 Objective-C의 조건문을 정리한다.
 
 📋 이런 내용을 다뤘어요
-→ If Statement
-→ Switch Statement
-
-👉 자세한 내용은 블로그에서
-🔗 프로필 링크 클릭
+→ switch 문에서 break를 빼먹으면 fall-through가 발생한다
+→ if-else와 switch의 성능 차이는 언제 의미가 있을까?
 
 —
 

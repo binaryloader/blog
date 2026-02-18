@@ -5,12 +5,8 @@ Installing the Zsh Autosuggestions Plugin
 How to install the zsh-autosuggestions plugin on macOS.
 
 📋 What's covered
-→ Navigate to the Oh-My-Zsh Plugins Folder
-→ Clone the Plugin Repository
-→ Add zsh-autosuggestions to the plugins in ~/.zshrc
-
-👉 Full post on the blog
-🔗 Link in bio
+→ This plugin auto-suggests commands you've typed before
+→ One arrow key press saves you from retyping long commands
 
 —
 

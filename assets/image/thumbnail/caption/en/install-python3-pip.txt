@@ -5,12 +5,8 @@ Installing PIP
 How to install PIP, the package manager for Python 3.
 
 📋 What's covered
-→ Navigate to the directory where you want to download get-pip.py
-→ Download get-pip.py
-→ Install PIP by running the Python script
-
-👉 Full post on the blog
-🔗 Link in bio
+→ macOS may have Python 3 but not PIP — here's how to fix that
+→ Clean installation using the get-pip.py bootstrap script
 
 —
 

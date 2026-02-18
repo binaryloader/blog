@@ -1,6 +1,18 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
 const { createRng } = require('./hash');
+
+// ---------------------------------------------------------------------------
+// Custom Instagram points — hand-written per post, loaded from JSON
+// ---------------------------------------------------------------------------
+
+const POINTS_PATH = path.join(__dirname, '..', 'data', 'instagram_points.json');
+let customPoints = {};
+try {
+  customPoints = JSON.parse(fs.readFileSync(POINTS_PATH, 'utf-8'));
+} catch (_) { /* file missing → fallback to auto-extracted */ }
 
 const HANDLE = '@woogie.dev';
 const BRAND_TAG = '#woogiedev';
@@ -320,21 +332,9 @@ const REACH_TAGS = {
 // ---------------------------------------------------------------------------
 
 const CTA = {
-  ko: {
-    blog: '👉 자세한 내용은 블로그에서',
-    link: '🔗 프로필 링크 클릭',
-    engage: '💾 저장  ❤️ 좋아요  📲 팔로우',
-  },
-  en: {
-    blog: '👉 Full post on the blog',
-    link: '🔗 Link in bio',
-    engage: '💾 Save  ❤️ Like  📲 Follow',
-  },
-  ja: {
-    blog: '👉 詳しくはブログで',
-    link: '🔗 プロフィールのリンクから',
-    engage: '💾 保存  ❤️ いいね  📲 フォロー',
-  },
+  ko: { engage: '💾 저장  ❤️ 좋아요  📲 팔로우' },
+  en: { engage: '💾 Save  ❤️ Like  📲 Follow' },
+  ja: { engage: '💾 保存  ❤️ いいね  📲 フォロー' },
 };
 
 // ---------------------------------------------------------------------------
@@ -379,12 +379,19 @@ const KEY_POINTS_LABEL = {
 // Caption builder
 // ---------------------------------------------------------------------------
 
+function getPoints(ref, lang, fallbackKeyPoints) {
+  const l = lang || 'ko';
+  const entry = customPoints[ref];
+  if (entry && entry[l] && entry[l].length > 0) return entry[l];
+  return fallbackKeyPoints || [];
+}
+
 function buildCaption({ title, excerpt, categories, tags, lang, ref, keyPoints }) {
   const l = lang || 'ko';
   const cta = CTA[l] || CTA['ko'];
   const reach = REACH_TAGS[l] || REACH_TAGS['ko'];
   const hook = pickHook(ref, categories, l);
-  const points = keyPoints || [];
+  const points = getPoints(ref, l, keyPoints);
 
   const postTags = tags.map(t => `#${t.replace(/\s+/g, '')}`).join(' ');
   const reachStr = reach.join(' ');
@@ -407,9 +414,6 @@ function buildCaption({ title, excerpt, categories, tags, lang, ref, keyPoints }
   }
 
   lines.push(
-    '',
-    cta.blog,
-    cta.link,
     '',
     '—',
     '',

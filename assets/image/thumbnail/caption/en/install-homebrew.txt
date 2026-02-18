@@ -4,8 +4,9 @@ Installing Homebrew
 
 How to install Homebrew on macOS.
 
-👉 Full post on the blog
-🔗 Link in bio
+📋 What's covered
+→ Setting up a macOS dev environment starts with Homebrew
+→ One line from the official install script and you're done
 
 —
 

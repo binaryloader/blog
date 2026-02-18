@@ -5,11 +5,8 @@ Branch Statements
 A summary of branch statements in Objective-C.
 
 📋 What's covered
-→ If Statement
-→ Switch Statement
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Missing break in switch statements causes fall-through
+→ When does the performance difference between if-else and switch matter?
 
 —
 

@@ -5,11 +5,8 @@
 Objective-Cの条件分岐文をまとめる。
 
 📋 こんな内容です
-→ If Statement
-→ Switch Statement
-
-👉 詳しくはブログで
-🔗 プロフィールのリンクから
+→ switch文でbreakを入れ忘れるとfall-throughが発生する
+→ if-elseとswitchの性能差はいつ意味があるのか？
 
 —
 

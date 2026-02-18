@@ -4,8 +4,9 @@ Installing Oh My Zsh
 
 How to install Oh My Zsh on macOS.
 
-👉 Full post on the blog
-🔗 Link in bio
+📋 What's covered
+→ Default zsh is fine, but Oh My Zsh takes productivity to another level
+→ Over 200 plugins and themes ready to use out of the box
 
 —
 

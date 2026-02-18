@@ -5,11 +5,8 @@ Using Multiple SSH Keys on GitHub
 How to use multiple SSH keys on GitHub.
 
 📋 What's covered
-→ Add the Following Lines to ~/.ssh/config
-→ Verify It Works
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Personal and work GitHub accounts on the same Mac cause SSH key conflicts
+→ Separate Host entries in ~/.ssh/config let you use different keys per account
 
 —
 

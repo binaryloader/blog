@@ -5,11 +5,8 @@ Photo Station 커스텀 도메인 연결하기
 Synology Photo Station에 커스텀 도메인을 연결하는 방법을 정리한다.
 
 📋 이런 내용을 다뤘어요
-→ Photo.mustache 생성
-→ nginx.mustache 수정
-
-👉 자세한 내용은 블로그에서
-🔗 프로필 링크 클릭
+→ Synology Photo Station에 나만의 도메인을 연결할 수 있다
+→ Nginx 리버스 프록시를 설정하는 게 핵심이다
 
 —
 

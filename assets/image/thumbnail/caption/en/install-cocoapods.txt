@@ -4,8 +4,9 @@ Installing CocoaPods
 
 How to install CocoaPods on macOS.
 
-👉 Full post on the blog
-🔗 Link in bio
+📋 What's covered
+→ CocoaPods installs in one line, but there's a prerequisite to check first
+→ Did you know you can install it without sudo?
 
 —
 

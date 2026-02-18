@@ -5,14 +5,10 @@ Modular Architecture with CocoaPods Private Spec Repos
 How to modularize an iOS project into layered modules using CocoaPods Private Spec Repos.
 
 📋 What's covered
-→ Architecture Overview
-→ Repository Structure
-→ Foundation Layer
-→ Module Layer
-→ Scene Layer
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Split a monolith app into 4 layers: App, Feature, Core, Common
+→ One Private Spec Repo lets you manage internal modules like public pods
+→ Build times dropped and feature-level development became possible
+→ Sharing real dependency cycle issues and how we solved them
 
 —
 

@@ -5,14 +5,10 @@ Private Spec Repo를 활용한 CocoaPods 모듈화 아키텍처
 CocoaPods Private Spec Repo를 활용하여 iOS 프로젝트를 계층별 모듈로 분리하는 방법을 정리한다.
 
 📋 이런 내용을 다뤘어요
-→ 아키텍처 개요
-→ 저장소 구조
-→ Foundation 레이어
-→ Module 레이어
-→ Scene 레이어
-
-👉 자세한 내용은 블로그에서
-🔗 프로필 링크 클릭
+→ 모노리스 앱을 4개의 레이어(App, Feature, Core, Common)로 분리했다
+→ Private Spec Repo 하나로 사내 모듈을 CocoaPods처럼 관리할 수 있다
+→ 모듈화 후 빌드 시간이 줄고 기능 단위 개발이 가능해졌다
+→ 실무에서 겪은 의존성 순환 문제와 해결 과정을 공유한다
 
 —
 

@@ -5,14 +5,9 @@ Core ML Tools로 머신러닝 모델을 iOS 앱에 통합하기
 Core ML Tools를 활용하여 PyTorch 모델을 Core ML 형식으로 변환하고 iOS 앱에 통합하는 방법을 정리한다.
 
 📋 이런 내용을 다뤘어요
-→ Core ML이란
-→ Core ML 생태계
-→ Core ML Tools로 모델 변환
-→ Xcode에서 모델 통합
-→ 모델 최적화
-
-👉 자세한 내용은 블로그에서
-🔗 프로필 링크 클릭
+→ PyTorch 모델을 Core ML로 변환하면 iPhone에서 오프라인 AI 추론이 가능하다
+→ ct.convert() 한 줄이면 변환이 끝나지만 입력 shape 설정이 핵심이다
+→ VNCoreMLModel로 감싸면 Vision 프레임워크와 바로 연동된다
 
 —
 

@@ -4,8 +4,9 @@ Copying a Path in Finder
 
 The keyboard shortcut for copying a file or folder path in macOS Finder.
 
-👉 Full post on the blog
-🔗 Link in bio
+📋 What's covered
+→ There's a hidden shortcut to copy file paths in Finder
+→ Option + Command + C — that's all you need to remember
 
 —
 

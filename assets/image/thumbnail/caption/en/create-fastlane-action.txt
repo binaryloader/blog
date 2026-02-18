@@ -5,14 +5,9 @@ Creating a fastlane Action
 How to create a custom fastlane Action.
 
 📋 What's covered
-→ Action Example
-→ Generating an Action Template
-→ Writing the Action
-→ Using the Action
-→ Submitting to the fastlane Main Repo
-
-👉 Full post on the blog
-🔗 Link in bio
+→ If fastlane doesn't have what you need, create a custom Action
+→ One generate_action command creates the template
+→ Reading existing Action source code makes writing your own much easier
 
 —
 

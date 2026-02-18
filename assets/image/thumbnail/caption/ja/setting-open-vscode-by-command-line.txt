@@ -5,12 +5,8 @@ Mac設定で見つけたTipsです 🍎
 macOS でターミナルから Visual Studio Code を開く方法をまとめる。
 
 📋 こんな内容です
-→ Visual Studio Code でコマンドパレットを開く
-→ 以下の Shell Command を検索してインストールする
-→ code ~/.ssh/config
-
-👉 詳しくはブログで
-🔗 プロフィールのリンクから
+→ ターミナルでcode .の1行で現在のフォルダをVS Codeで開ける
+→ Command PaletteのShell Commandからインストールする
 
 —
 

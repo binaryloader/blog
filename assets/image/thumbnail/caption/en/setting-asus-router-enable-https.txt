@@ -5,13 +5,9 @@ How to Enable HTTPS on ASUS Router Settings Page
 A guide on how to enable HTTPS for the ASUS router settings page.
 
 📋 What's covered
-→ Access the ASUS Settings Page
-→ Advanced Settings - Administration - System
-→ Register and Trust the Certificate in Keychain
-→ Verify HTTPS Access
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Accessing your router settings over HTTP is a security vulnerability
+→ Enabling HTTPS on ASUS routers takes just one setting change
+→ Also covers how to trust the self-signed certificate
 
 —
 

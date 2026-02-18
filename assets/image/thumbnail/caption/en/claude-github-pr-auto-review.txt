@@ -5,14 +5,10 @@ Building Automated PR Code Review with Claude
 A story of building automated GitHub PR review with Claude Code Action for a side project.
 
 📋 What's covered
-→ Background
-→ Exploring Solutions
-→ Implementation
-→ Results
-→ Impact
-
-👉 Full post on the blog
-🔗 Link in bio
+→ My brother and I do a side project but had no time for code reviews
+→ When a PR is opened, Claude auto-links issues and reviews the code
+→ Paid subscribers can use OAuth tokens instead of API keys — for free
+→ The most useful part was catching edge cases we didn't think of
 
 —
 

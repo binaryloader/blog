@@ -5,13 +5,8 @@ Setting Up a Spring 5 Development Environment
 How to set up a Spring 5 development environment.
 
 📋 What's covered
-→ Install JDK 8
-→ Install Maven
-→ Install Gradle
-→ Install Eclipse
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Setting up Spring is the first hurdle when getting into backend dev
+→ Step-by-step from IDE setup to running your first project
 
 —
 

@@ -5,11 +5,8 @@ Disabling fastlane Update Check and Changelog Logs
 How to disable fastlane's update check log and changelog log.
 
 📋 What's covered
-→ Disable Only the Changelog Log
-→ Disable Both Update Check and Changelog Logs
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Tired of update check logs every time you run fastlane?
+→ Two environment variables keep your logs clean
 
 —
 

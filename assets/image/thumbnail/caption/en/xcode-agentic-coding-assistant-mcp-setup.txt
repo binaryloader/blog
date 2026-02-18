@@ -5,14 +5,9 @@ Setting Up MCP Servers for the Agentic Coding Assistant
 A guide to connecting MCP servers to the Xcode agentic coding assistant.
 
 📋 What's covered
-→ Settings File Path
-→ Configuration Structure
-→ MCP Server Types
-→ Configuration Example
-→ Notes
-
-👉 Full post on the blog
-🔗 Link in bio
+→ Connect MCP servers to Xcode and let AI talk directly to external tools
+→ One mcpServers config gives access to filesystem, Git, DBs and more
+→ MCP dramatically expands what Agentic Coding can do
 
 —
 
