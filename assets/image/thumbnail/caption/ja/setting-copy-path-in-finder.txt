@@ -1,7 +1,20 @@
+Macで便利だった設定をシェアします 💻
+
 Finder でパスをコピーする
 
 macOS の Finder でファイルやフォルダのパスをコピーするショートカットキーをまとめる。
 
-https://blog.binaryloader.io/ja/pc/macos/setting-copy-path-in-finder
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#PC #macOS #Finder #Path
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #Finder #Path #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

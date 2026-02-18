@@ -1,7 +1,20 @@
+iOS 개발할 때 도움이 됐던 내용이에요 🚀
+
 Private Spec Repo를 활용한 CocoaPods 모듈화 아키텍처
 
 CocoaPods Private Spec Repo를 활용하여 iOS 프로젝트를 계층별 모듈로 분리하는 방법을 정리한다.
 
-https://blog.binaryloader.io/ko/development/apple/ios/ios-modular-architecture-with-cocoapods
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #Apple #iOS #CocoaPods #ModularArchitecture #PrivateSpecRepo #Swift #CleanSwift #DependencyInjection
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #iOS #CocoaPods #ModularArchitecture #PrivateSpecRepo #Swift #CleanSwift #DependencyInjection #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

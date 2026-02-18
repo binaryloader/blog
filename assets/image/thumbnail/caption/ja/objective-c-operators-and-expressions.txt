@@ -1,7 +1,20 @@
+この言語を勉強して整理したものをシェアします 💪
+
 演算子と式 - Operators and Expressions
 
 Objective-Cの演算子と式をまとめる。
 
-https://blog.binaryloader.io/ja/development/language/objective-c/operators-and-expressions
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Language #Objective-C #Operator
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Objective-C #Operator #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

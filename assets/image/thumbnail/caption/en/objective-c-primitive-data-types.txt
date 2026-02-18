@@ -1,7 +1,20 @@
+Notes from my study sessions 📚
+
 Primitive Data Types
 
 A summary of primitive data types in Objective-C.
 
-https://blog.binaryloader.io/en/development/language/objective-c/primitive-data-types
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Language #Objective-C #DataType
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Objective-C #DataType #woogiedev
+#developer #devlife #coding #programming #tech

@@ -1,7 +1,20 @@
+This Git config helped me a lot ⚙️
+
 Installing Git LFS
 
 How to install and set up Git LFS on macOS.
 
-https://blog.binaryloader.io/en/development/scm/git/install-git-lfs
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #SCM #Git #Homebrew #LFS
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #SCM #Git #Homebrew #LFS #woogiedev
+#developer #devlife #coding #programming #tech

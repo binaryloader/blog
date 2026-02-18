@@ -1,7 +1,20 @@
+Notes from my study sessions 📚
+
 Installing Homebrew
 
 How to install Homebrew on macOS.
 
-https://blog.binaryloader.io/en/development/language/ruby/install-homebrew
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Language #Ruby #Homebrew #PackageManagement #macOS
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Ruby #Homebrew #PackageManagement #macOS #woogiedev
+#developer #devlife #coding #programming #tech

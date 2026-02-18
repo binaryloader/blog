@@ -1,7 +1,20 @@
+블로그 만들면서 배운 걸 정리해봤어요 🌐
+
 플러그인 없이 Jekyll 블로그 다국어(한/영/일) 구현하기
 
 Jekyll과 Minimal Mistakes 테마에서 플러그인 없이 한국어, 영어, 일본어 3개 국어를 지원하는 블로그를 구현한 경험을 공유한다.
 
-https://blog.binaryloader.io/ko/development/blog/jekyll/jekyll-multilingual-blog-implementation
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #Blog #Jekyll #i18n #Multilingual #MinimalMistakes
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #Blog #Jekyll #i18n #Multilingual #MinimalMistakes #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

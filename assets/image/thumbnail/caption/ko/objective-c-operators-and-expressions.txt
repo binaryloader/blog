@@ -1,7 +1,20 @@
+이 언어 공부하면서 정리한 걸 나눠봅니다 💪
+
 연산자와 표현식 - Operators and Expressions
 
 Objective-C의 연산자와 표현식을 정리한다.
 
-https://blog.binaryloader.io/ko/development/language/objective-c/operators-and-expressions
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #Language #Objective-C #Operator
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Objective-C #Operator #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

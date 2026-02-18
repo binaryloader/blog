@@ -1,7 +1,20 @@
+Xcodeで見つけた便利な機能です ⚡
+
 Agentic Coding AssistantにMCPサーバーを連携する
 
 XcodeAgentic Coding AssistantにMCPサーバーを連携する方法をまとめる。
 
-https://blog.binaryloader.io/ja/development/apple/xcode/xcode-agentic-coding-assistant-mcp-setup
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Apple #Xcode #ClaudeCode #MCP #AgenticCodingAssistant
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #Xcode #ClaudeCode #MCP #AgenticCodingAssistant #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

@@ -1,7 +1,20 @@
+Apple開発で学んだTipsをシェアします 🍎
+
 Keynote - September 14, 2021
 
 Apple September 2021キーノートで発表された新しいデバイスとサービスをまとめる。
 
-https://blog.binaryloader.io/ja/development/apple/event/apple-keynote-september-14-2021
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Apple #Event #Keynote #iPad #iPadMini #iPhone13 #AppleWatchSeries7
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #Event #Keynote #iPad #iPadMini #iPhone13 #AppleWatchSeries7 #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

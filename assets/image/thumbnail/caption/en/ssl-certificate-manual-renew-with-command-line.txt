@@ -1,7 +1,20 @@
+Sharing what I found useful with my NAS 💾
+
 Manually Renewing SSL Certificates via Command Line
 
 A guide on how to manually renew SSL certificates on a Synology NAS.
 
-https://blog.binaryloader.io/en/playground/synology/ssl-certificate-manual-renew-with-command-line
+👉 Full post on the blog
+🔗 Link in bio
 
-#Playground #Synology #SSL #Certificate #NAS #Let'sEncrypt #SSH
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Playground #Synology #SSL #Certificate #NAS #Let'sEncrypt #SSH #woogiedev
+#developer #devlife #coding #programming #tech

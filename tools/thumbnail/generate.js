@@ -54,6 +54,10 @@ async function generateOne(filePath, force) {
   const data = parse(filePath);
   const lang = detectLang(filePath);
 
+  // Always regenerate captions regardless of image state
+  const captionPath = path.join(OUT_BASE, 'caption', lang, `${data.ref}.txt`);
+  fs.writeFileSync(captionPath, buildCaption(data), 'utf-8');
+
   const instaPath = path.join(OUT_BASE, 'instagram', lang, `${data.ref}.png`);
   const teaserPath = path.join(OUT_BASE, 'teaser', lang, `${data.ref}.png`);
   const headerPath = path.join(OUT_BASE, 'header', `${data.ref}.png`);
@@ -81,9 +85,6 @@ async function generateOne(filePath, force) {
     const headerHtml = buildHeaderHtml(data);
     await capture(headerHtml, headerPath, { width: 1920, height: 640 });
   }
-
-  const captionPath = path.join(OUT_BASE, 'caption', lang, `${data.ref}.txt`);
-  fs.writeFileSync(captionPath, buildCaption(data), 'utf-8');
 
   return { ref: data.ref, lang, skipped: false };
 }

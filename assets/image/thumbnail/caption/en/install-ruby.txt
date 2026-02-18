@@ -1,7 +1,20 @@
+I organized what I learned about this language 💪
+
 Installing Ruby
 
 How to install Ruby using rbenv on macOS.
 
-https://blog.binaryloader.io/en/development/language/ruby/install-ruby
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Language #Ruby #rbenv #VersionManagement
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Ruby #rbenv #VersionManagement #woogiedev
+#developer #devlife #coding #programming #tech

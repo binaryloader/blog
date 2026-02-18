@@ -1,7 +1,20 @@
+Git設定で楽になったことをシェアします 🔀
+
 シンボリックリンクで設定ファイルを Git リポジトリと同期する
 
 シンボリックリンクを活用して特定パスの設定ファイルを Git リポジトリでバージョン管理する方法をまとめる。
 
-https://blog.binaryloader.io/ja/development/scm/git/sync-files-with-symlink
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Git #SymbolicLink #dotfiles
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Git #SymbolicLink #dotfiles #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

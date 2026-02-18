@@ -1,7 +1,20 @@
+ブログ運営されている方は共感するかもしれません ✍️
+
 特定のIPアドレスとポートでローカルサーバーを起動する
 
 Jekyllローカルサーバーを特定のIPアドレスとポートで起動する方法をまとめる。
 
-https://blog.binaryloader.io/ja/development/blog/jekyll/jekyll-serve-specific-ip-and-port
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Blog #Jekyll #CLI #Server
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Blog #Jekyll #CLI #Server #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

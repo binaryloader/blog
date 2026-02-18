@@ -1,7 +1,20 @@
+What I learned while building my dev blog 🌐
+
 Implementing Multilingual Support (KO/EN/JA) Without Plugins
 
 Sharing the experience of implementing Korean, English, and Japanese support in a Jekyll blog with the Minimal Mistakes theme — without any plugins.
 
-https://blog.binaryloader.io/en/development/blog/jekyll/jekyll-multilingual-blog-implementation
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Blog #Jekyll #i18n #Multilingual #MinimalMistakes
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Blog #Jekyll #i18n #Multilingual #MinimalMistakes #woogiedev
+#developer #devlife #coding #programming #tech

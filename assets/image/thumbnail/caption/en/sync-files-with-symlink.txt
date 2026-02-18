@@ -1,7 +1,20 @@
+A Git setup that made things easier for me 🔀
+
 Syncing Configuration Files with Git Using Symbolic Links
 
 How to version-control configuration files in a Git repository using symbolic links.
 
-https://blog.binaryloader.io/en/development/scm/git/sync-files-with-symlink
+👉 Full post on the blog
+🔗 Link in bio
 
-#Git #SymbolicLink #dotfiles
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Git #SymbolicLink #dotfiles #woogiedev
+#developer #devlife #coding #programming #tech

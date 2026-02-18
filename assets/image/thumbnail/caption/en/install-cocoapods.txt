@@ -1,7 +1,20 @@
+Sharing a useful Apple dev tip 🍎
+
 Installing CocoaPods
 
 How to install CocoaPods on macOS.
 
-https://blog.binaryloader.io/en/development/apple/cocoapods/install-cocoapods
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Apple #CocoaPods #iOS #Ruby #PackageManagement
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #CocoaPods #iOS #Ruby #PackageManagement #woogiedev
+#developer #devlife #coding #programming #tech

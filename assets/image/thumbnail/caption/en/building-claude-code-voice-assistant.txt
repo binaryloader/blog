@@ -1,7 +1,20 @@
+I tried building this on macOS 🖥️
+
 Building a Claude Code Voice Assistant in the Small Hours
 
 Building a macOS assistant demo that relays Claude Code CLI's input and output through voice on a sleepless night
 
-https://blog.binaryloader.io/en/development/apple/macos/building-claude-code-voice-assistant
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Apple #macOS #SwiftUI #ClaudeCode #STT #TTS #whisper.cpp #GoogleCloudTTS #SwiftPackageManager
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #macOS #SwiftUI #ClaudeCode #STT #TTS #whisper.cpp #GoogleCloudTTS #SwiftPackageManager #woogiedev
+#developer #devlife #coding #programming #tech

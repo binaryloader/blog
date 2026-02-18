@@ -1,7 +1,20 @@
+혹시 이 방법 써보셨나요? 📱
+
 삼각함수로 원형 메뉴 배치와 회전 구현하기
 
 삼각함수(sin, cos, atan2)를 활용하여 iOS에서 원형 메뉴 아이템을 배치하고 회전시키는 방법을 정리한다.
 
-https://blog.binaryloader.io/ko/development/apple/ios/ios-circular-menu-trigonometry
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #Apple #iOS #Swift #UIKit #Trigonometry #Mathematics #UI
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #iOS #Swift #UIKit #Trigonometry #Mathematics #UI #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

@@ -1,7 +1,20 @@
+この言語を勉強して整理したものをシェアします 💪
+
 Bundle の gem パスを表示する
 
 Bundler で gem のパスを確認する方法をまとめる。
 
-https://blog.binaryloader.io/ja/development/language/ruby/bundle-show-paths
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Language #Ruby #RubyGems #Bundler #Bundle
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Ruby #RubyGems #Bundler #Bundle #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

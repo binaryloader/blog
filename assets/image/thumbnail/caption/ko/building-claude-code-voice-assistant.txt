@@ -1,7 +1,20 @@
+macOS에서 이런 것도 만들 수 있더라고요 🖥️
+
 야심한 새벽에 만드는 Claude Code 음성 어시스턴트
 
-잠이 안 오는 야심한 새벽에 Claude Code CLI의 입출력을 음성으로 중계하는 macOS 어시스턴트 데모 만들기
+잠이 안 오는 야심한 새벽에 Claude Code CLI의 입출력을 음성으로 중계하는 macOS 어시스턴트 데모를 만든 경험을 공유한다.
 
-https://blog.binaryloader.io/ko/development/apple/macos/building-claude-code-voice-assistant
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #Apple #macOS #SwiftUI #ClaudeCode #STT #TTS #whisper.cpp #GoogleCloudTTS #SwiftPackageManager
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #macOS #SwiftUI #ClaudeCode #STT #TTS #whisper.cpp #GoogleCloudTTS #SwiftPackageManager #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

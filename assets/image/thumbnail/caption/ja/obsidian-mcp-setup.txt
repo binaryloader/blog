@@ -1,7 +1,20 @@
+Mac設定で見つけたTipsです 🍎
+
 Obsidian MCP 連携の設定
 
 Claude Code から Obsidian ボルトを直接読み書きできるように MCP サーバーを連携する手順をまとめる。
 
-https://blog.binaryloader.io/ja/pc/macos/obsidian-mcp-setup
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#PC #macOS #Obsidian #MCP #ClaudeCode
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #Obsidian #MCP #ClaudeCode #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

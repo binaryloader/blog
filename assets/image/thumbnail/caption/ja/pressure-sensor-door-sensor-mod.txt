@@ -1,7 +1,20 @@
+週末に少しずつ作ったスマートホームです 🛠️
+
 薄膜接触センサー + Zigbee ドアセンサー改造で在室検知の自動化
 
 Sonoff SNZB-04 Zigbee ドアセンサーのリードスイッチに薄膜接触センサーを接続し、椅子とキッチンマットで在室検知の自動化を実現した経験をまとめる。
 
-https://blog.binaryloader.io/ja/playground/smarthome/pressure-sensor-door-sensor-mod
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#SmartHome #Zigbee #Sonoff #Thin-FilmContactSensor #DIY #SmartThings #Automation
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#SmartHome #Zigbee #Sonoff #Thin-FilmContactSensor #DIY #SmartThings #Automation #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

@@ -1,7 +1,20 @@
+This helped me a lot with iOS development 🚀
+
 Modular Architecture with CocoaPods Private Spec Repos
 
 How to modularize an iOS project into layered modules using CocoaPods Private Spec Repos.
 
-https://blog.binaryloader.io/en/development/apple/ios/ios-modular-architecture-with-cocoapods
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Apple #iOS #CocoaPods #ModularArchitecture #PrivateSpecRepo #Swift #CleanSwift #DependencyInjection
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #iOS #CocoaPods #ModularArchitecture #PrivateSpecRepo #Swift #CleanSwift #DependencyInjection #woogiedev
+#developer #devlife #coding #programming #tech

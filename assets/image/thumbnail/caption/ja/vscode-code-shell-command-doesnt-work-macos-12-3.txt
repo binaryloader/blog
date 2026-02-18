@@ -1,7 +1,20 @@
+Macで便利だった設定をシェアします 💻
+
 macOS 12.3でVisual Studio Codeのcode Shellコマンドが動作しない問題の解決方法
 
 macOS 12.3でPython 2が削除されたことによりVS Codeのcodeコマンドが動作しなくなる問題の解決方法をまとめます。
 
-https://blog.binaryloader.io/ja/pc/macos/vscode-code-shell-command-doesnt-work-macos-12-3
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#PC #macOS #CommandLine #VisualStudioCode #VSCode #Python #Troubleshooting
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #CommandLine #VisualStudioCode #VSCode #Python #Troubleshooting #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

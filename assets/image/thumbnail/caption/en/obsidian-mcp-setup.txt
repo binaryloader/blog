@@ -1,7 +1,20 @@
+A Mac tip I picked up recently 🍎
+
 Setting Up Obsidian MCP Integration
 
 How to set up an MCP server so Claude Code can directly read and write to your Obsidian vault.
 
-https://blog.binaryloader.io/en/pc/macos/obsidian-mcp-setup
+👉 Full post on the blog
+🔗 Link in bio
 
-#PC #macOS #Obsidian #MCP #ClaudeCode
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #Obsidian #MCP #ClaudeCode #woogiedev
+#developer #devlife #coding #programming #tech

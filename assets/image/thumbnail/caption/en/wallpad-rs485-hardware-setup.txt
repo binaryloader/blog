@@ -1,7 +1,20 @@
+I tried building a smart home myself 🏠
+
 Hyundai Wallpad RS485-WiFi Converter Replacement Review
 
 A review of replacing the existing Raspberry Pi + RS485 TO USB setup with an RS485-WiFi converter to improve maintainability for controlling a Hyundai Communication wallpad with Home Assistant.
 
-https://blog.binaryloader.io/en/playground/smarthome/wallpad-rs485-hardware-setup
+👉 Full post on the blog
+🔗 Link in bio
 
-#Playground #SmartHome #RS485 #HomeAssistant #IoT #Wallpad
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Playground #SmartHome #RS485 #HomeAssistant #IoT #Wallpad #woogiedev
+#developer #devlife #coding #programming #tech

@@ -1,7 +1,20 @@
+코드 품질 고민하다가 찾은 방법이에요 ✅
+
 fastlane Plugin 만들기
 
 fastlane의 커스텀 Plugin을 만들고 배포하는 방법을 정리한다.
 
-https://blog.binaryloader.io/ko/development/cs/software-engineering/ci/cd/create-fastlane-plugin
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #CS #SoftwareEngineering #CI/CD #fastlane #Plugin #iOS #Automation #Ruby #RubyGems
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #Plugin #iOS #Automation #Ruby #RubyGems #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

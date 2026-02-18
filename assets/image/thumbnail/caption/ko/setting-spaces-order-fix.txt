@@ -1,7 +1,20 @@
+이 설정 해두니 확실히 편해지더라고요 ⚡
+
 Spaces 순서 고정하기
 
 macOS에서 Mission Control의 Spaces 순서를 고정하는 방법을 정리한다.
 
-https://blog.binaryloader.io/ko/pc/macos/setting-spaces-order-fix
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#PC #macOS #Spaces #MissionControl
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #Spaces #MissionControl #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

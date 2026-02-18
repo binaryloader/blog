@@ -1,7 +1,20 @@
+Have you tried this approach? 📱
+
 Placing and Rotating Circular Menu Items with Trigonometry
 
 How to place and rotate circular menu items using sin, cos, and atan2 in iOS.
 
-https://blog.binaryloader.io/en/development/apple/ios/ios-circular-menu-trigonometry
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Apple #iOS #Swift #UIKit #Trigonometry #Mathematics #UI
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #iOS #Swift #UIKit #Trigonometry #Mathematics #UI #woogiedev
+#developer #devlife #coding #programming #tech

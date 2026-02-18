@@ -1,7 +1,20 @@
+この言語を勉強して整理したものをシェアします 💪
+
 条件分岐文 - Branch Statements
 
 Objective-Cの条件分岐文をまとめる。
 
-https://blog.binaryloader.io/ja/development/language/objective-c/branch-statements
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Language #Objective-C #Branch #ControlFlow
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Objective-C #Branch #ControlFlow #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

@@ -1,7 +1,20 @@
+I organized what I learned about this language 💪
+
 Displaying Gem Paths in Bundle
 
 How to check gem paths in Bundler.
 
-https://blog.binaryloader.io/en/development/language/ruby/bundle-show-paths
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Language #Ruby #RubyGems #Bundler #Bundle
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Ruby #RubyGems #Bundler #Bundle #woogiedev
+#developer #devlife #coding #programming #tech

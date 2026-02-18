@@ -1,7 +1,20 @@
+A method I found while working on code quality ✅
+
 Building Automated PR Code Review with Claude
 
 A story of building automated GitHub PR review with Claude Code Action for a side project.
 
-https://blog.binaryloader.io/en/development/cs/software-engineering/code-quality/claude-github-pr-auto-review
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #GitHub #Claude #CodeReview #GitHubActions #CI/CD #Automation
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #GitHub #Claude #CodeReview #GitHubActions #CI/CD #Automation #woogiedev
+#developer #devlife #coding #programming #tech

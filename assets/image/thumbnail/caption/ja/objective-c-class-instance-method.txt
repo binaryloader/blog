@@ -1,7 +1,20 @@
+勉強しながら整理した内容です 📚
+
 クラスとメソッド、インスタンス - Class and Method, Instance
 
 Objective-Cのクラスとメソッドそしてインスタンスをまとめる。
 
-https://blog.binaryloader.io/ja/development/language/objective-c/class-instance-method
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Language #Objective-C #OOP #Class #Method
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Objective-C #OOP #Class #Method #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

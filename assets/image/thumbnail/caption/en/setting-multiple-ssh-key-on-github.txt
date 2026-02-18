@@ -1,7 +1,20 @@
+A Git setup that made things easier for me 🔀
+
 Using Multiple SSH Keys on GitHub
 
 How to use multiple SSH keys on GitHub.
 
-https://blog.binaryloader.io/en/development/scm/git/setting-multiple-ssh-key-on-github
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #SCM #Git #GitHub #SSH #Key #SSHConfig
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #SCM #Git #GitHub #SSH #Key #SSHConfig #woogiedev
+#developer #devlife #coding #programming #tech

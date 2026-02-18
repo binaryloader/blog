@@ -1,7 +1,20 @@
+スマートホームDIYの経験をシェアします 🔧
+
 引っ越し後のLAN配線工事とテレビ周りのケーブル整理
 
 両親の引っ越し後に切られたLANポートの復旧、RJ45コネクタの圧着、テレビ裏のケーブル整理をDIYで行った経験をまとめる。
 
-https://blog.binaryloader.io/ja/playground/smarthome/diy-lan-wiring-cable-management
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#DIY #LAN #Ethernet #CableManagement #SmartHome
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#DIY #LAN #Ethernet #CableManagement #SmartHome #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

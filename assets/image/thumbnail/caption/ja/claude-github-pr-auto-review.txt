@@ -1,7 +1,20 @@
+コード品質を考えていて見つけた方法です ✅
+
 Claudeを活用したPR自動コードレビュー構築記
 
 サイドプロジェクトでClaude Code ActionによりGitHub PR自動レビューを構築した経験をまとめる。
 
-https://blog.binaryloader.io/ja/development/cs/software-engineering/code-quality/claude-github-pr-auto-review
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #GitHub #Claude #CodeReview #GitHubActions #CI/CD #Automation
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #GitHub #Claude #CodeReview #GitHubActions #CI/CD #Automation #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

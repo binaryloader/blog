@@ -1,7 +1,20 @@
+This setup made my workflow smoother ⚙️
+
 Creating a fastlane Action
 
 How to create a custom fastlane Action.
 
-https://blog.binaryloader.io/en/development/cs/software-engineering/ci/cd/create-fastlane-action
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #CS #SoftwareEngineering #CI/CD #fastlane #Action #iOS #Automation #Ruby
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #Action #iOS #Automation #Ruby #woogiedev
+#developer #devlife #coding #programming #tech

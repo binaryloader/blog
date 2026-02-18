@@ -1,7 +1,20 @@
+A useful Xcode feature I discovered ⚡
+
 Setting Up MCP Servers for the Agentic Coding Assistant
 
 A guide to connecting MCP servers to the Xcode agentic coding assistant.
 
-https://blog.binaryloader.io/en/development/apple/xcode/xcode-agentic-coding-assistant-mcp-setup
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Apple #Xcode #ClaudeCode #MCP #AgenticCodingAssistant
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #Xcode #ClaudeCode #MCP #AgenticCodingAssistant #woogiedev
+#developer #devlife #coding #programming #tech

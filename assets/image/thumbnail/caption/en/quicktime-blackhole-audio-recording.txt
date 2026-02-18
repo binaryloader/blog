@@ -1,7 +1,20 @@
+A Mac setting I found really useful 💻
+
 Recording Microphone and System Audio Together with QuickTime Player
 
 How to record both microphone input and system audio simultaneously in QuickTime Player using BlackHole.
 
-https://blog.binaryloader.io/en/pc/macos/quicktime-blackhole-audio-recording
+👉 Full post on the blog
+🔗 Link in bio
 
-#macOS #QuickTimePlayer #BlackHole #AudioMIDISetup
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#macOS #QuickTimePlayer #BlackHole #AudioMIDISetup #woogiedev
+#developer #devlife #coding #programming #tech

@@ -1,7 +1,20 @@
+Some Synology tips I picked up 📦
+
 Setting Up an L2TP/IPSec VPN Server
 
 A guide to setting up an L2TP/IPSec VPN server on a Synology NAS and connecting from outside.
 
-https://blog.binaryloader.io/en/playground/synology/synology-vpn-server-setup
+👉 Full post on the blog
+🔗 Link in bio
 
-#Playground #Synology #VPN #L2TP #IPSec #NAS #Network
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Playground #Synology #VPN #L2TP #IPSec #NAS #Network #woogiedev
+#developer #devlife #coding #programming #tech

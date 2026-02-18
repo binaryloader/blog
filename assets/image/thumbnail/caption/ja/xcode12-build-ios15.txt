@@ -1,7 +1,20 @@
+最初は知らなかったXcodeのTipsです 🔍
+
 Xcode 12でiOS 15デバイスにビルドする
 
 Xcode 12でiOS 15またはiPadOS 15デバイスにビルドをデプロイする方法をまとめる。
 
-https://blog.binaryloader.io/ja/development/apple/xcode/xcode12-build-ios15
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Apple #Xcode #iOS #iOS15 #Xcode12
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #Xcode #iOS #iOS15 #Xcode12 #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

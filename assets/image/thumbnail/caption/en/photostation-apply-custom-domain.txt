@@ -1,7 +1,20 @@
+My NAS setup experience 🗄️
+
 Connecting a Custom Domain to Photo Station
 
 A guide on how to connect a custom domain to Synology Photo Station.
 
-https://blog.binaryloader.io/en/playground/synology/photostation-apply-custom-domain
+👉 Full post on the blog
+🔗 Link in bio
 
-#Playground #Synology #PhotoStation #NAS #Nginx #Domain
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Playground #Synology #PhotoStation #NAS #Nginx #Domain #woogiedev
+#developer #devlife #coding #programming #tech

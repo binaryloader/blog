@@ -1,7 +1,20 @@
+NAS活用記を整理してみました 🗄️
+
 Photo Stationにカスタムドメインを接続する方法
 
 Synology Photo Stationにカスタムドメインを接続する方法をまとめます。
 
-https://blog.binaryloader.io/ja/playground/synology/photostation-apply-custom-domain
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Playground #Synology #PhotoStation #NAS #Nginx #Domain
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Playground #Synology #PhotoStation #NAS #Nginx #Domain #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

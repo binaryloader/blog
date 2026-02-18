@@ -1,7 +1,20 @@
+공부하면서 정리해본 내용이에요 📚
+
 원시 데이터형 - Primitive Data Types
 
 Objective-C의 원시 데이터형을 정리한다.
 
-https://blog.binaryloader.io/ko/development/language/objective-c/primitive-data-types
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #Language #Objective-C #DataType
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Objective-C #DataType #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

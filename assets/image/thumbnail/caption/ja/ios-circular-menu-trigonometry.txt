@@ -1,7 +1,20 @@
+この方法、試してみましたか？ 📱
+
 三角関数で円形メニューの配置と回転を実装する
 
 三角関数(sin, cos, atan2)を活用してiOSで円形メニューアイテムを配置・回転させる方法をまとめる。
 
-https://blog.binaryloader.io/ja/development/apple/ios/ios-circular-menu-trigonometry
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Apple #iOS #Swift #UIKit #Trigonometry #Mathematics #UI
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #iOS #Swift #UIKit #Trigonometry #Mathematics #UI #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

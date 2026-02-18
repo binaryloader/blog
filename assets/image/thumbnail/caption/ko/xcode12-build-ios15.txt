@@ -1,7 +1,20 @@
+저도 처음엔 몰랐던 Xcode 팁이에요 🔍
+
 Xcode 12에서 iOS 15 기기에 빌드하기
 
 Xcode 12에서 iOS 15 또는 iPadOS 15 기기에 빌드를 올리는 방법을 정리한다.
 
-https://blog.binaryloader.io/ko/development/apple/xcode/xcode12-build-ios15
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #Apple #Xcode #iOS #iOS15 #Xcode12
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #Xcode #iOS #iOS15 #Xcode12 #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

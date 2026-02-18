@@ -1,7 +1,20 @@
+블로그 만들면서 배운 걸 정리해봤어요 🌐
+
 Minimal Mistakes 테마에서 줄바꿈 속성 변경하기
 
 Minimal Mistakes 테마에서 모바일 환경의 가로 스크롤 문제를 해결하기 위한 줄바꿈 속성 변경 방법을 정리한다.
 
-https://blog.binaryloader.io/ko/development/blog/jekyll/minimal-mistakes-change-word-break-and-overflow-wrap
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #Blog #Jekyll #MinimalMistakes #CSS #Responsive
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #Blog #Jekyll #MinimalMistakes #CSS #Responsive #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

@@ -1,7 +1,20 @@
+집에서 직접 스마트홈을 만들어봤어요 🏠
+
 현대통신 월패드 RS485-WiFi 변환기 교체 검토
 
 기존 Raspberry Pi + RS485 TO USB 구성의 유지보수 문제를 개선하기 위해 RS485-WiFi 변환기 교체를 검토한 내용을 정리한다.
 
-https://blog.binaryloader.io/ko/playground/smarthome/wallpad-rs485-hardware-setup
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Playground #SmartHome #RS485 #HomeAssistant #IoT #Wallpad
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Playground #SmartHome #RS485 #HomeAssistant #IoT #Wallpad #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

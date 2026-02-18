@@ -1,7 +1,20 @@
+コード品質を考えていて見つけた方法です ✅
+
 fastlaneをインストールする
 
 macOSでfastlaneをインストールする方法をまとめる。
 
-https://blog.binaryloader.io/ja/development/cs/software-engineering/ci/cd/install-fastlane
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #CS #SoftwareEngineering #CI/CD #fastlane #iOS #Automation #Ruby
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #iOS #Automation #Ruby #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

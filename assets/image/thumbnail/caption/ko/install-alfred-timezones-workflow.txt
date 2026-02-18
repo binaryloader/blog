@@ -1,7 +1,20 @@
+맥 쓰면서 편했던 설정 공유해요 💻
+
 Alfred TimeZones Workflow 설치하기
 
 macOS에서 Alfred TimeZones Workflow를 설치하고 사용하는 방법을 정리한다.
 
-https://blog.binaryloader.io/ko/pc/macos/install-alfred-timezones-workflow
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#PC #macOS #Alfred #TimeZones #Workflow
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #Alfred #TimeZones #Workflow #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

@@ -1,7 +1,20 @@
+Have you tried this Mac setting? 🤔
+
 Generating SSH Keys
 
 How to generate SSH keys on macOS using ssh-keygen.
 
-https://blog.binaryloader.io/en/pc/macos/generating-ssh-keys
+👉 Full post on the blog
+🔗 Link in bio
 
-#PC #macOS #SSHKey #SSH #Key #Terminal
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #SSHKey #SSH #Key #Terminal #woogiedev
+#developer #devlife #coding #programming #tech

@@ -1,7 +1,20 @@
+Have you tried this approach? 📱
+
 Integrating Machine Learning Models into iOS Apps with Core ML Tools
 
-How to convert a PyTorch model to Core ML format using coremltools and integrate it into an iOS app.
+How to convert a PyTorch model to Core ML format using Core ML Tools and integrate it into an iOS app.
 
-https://blog.binaryloader.io/en/development/apple/ios/core-ml-model-conversion
+👉 Full post on the blog
+🔗 Link in bio
 
-#iOS #Swift #CoreML #coremltools #MachineLearning #PyTorch
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#iOS #Swift #CoreML #coremltools #MachineLearning #PyTorch #woogiedev
+#developer #devlife #coding #programming #tech

@@ -1,7 +1,20 @@
+Notes from my study sessions 📚
+
 Class and Method, Instance
 
 A summary of classes, methods, and instances in Objective-C.
 
-https://blog.binaryloader.io/en/development/language/objective-c/class-instance-method
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Language #Objective-C #OOP #Class #Method
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Objective-C #OOP #Class #Method #woogiedev
+#developer #devlife #coding #programming #tech

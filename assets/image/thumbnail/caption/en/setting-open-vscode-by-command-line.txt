@@ -1,7 +1,20 @@
+A Mac tip I picked up recently 🍎
+
 Opening Visual Studio Code from the Command Line
 
 How to open Visual Studio Code from the terminal on macOS.
 
-https://blog.binaryloader.io/en/pc/macos/setting-open-vscode-by-command-line
+👉 Full post on the blog
+🔗 Link in bio
 
-#PC #macOS #CommandLine #VisualStudioCode #VSCode #Terminal #Shell
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #CommandLine #VisualStudioCode #VSCode #Terminal #Shell #woogiedev
+#developer #devlife #coding #programming #tech

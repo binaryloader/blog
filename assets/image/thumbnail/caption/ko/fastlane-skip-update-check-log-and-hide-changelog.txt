@@ -1,7 +1,20 @@
+코드 품질 고민하다가 찾은 방법이에요 ✅
+
 fastlane 업데이트 확인 로그 및 변경사항 로그 끄기
 
 fastlane의 업데이트 확인 로그와 변경사항 로그를 끄는 방법을 정리한다.
 
-https://blog.binaryloader.io/ko/development/cs/software-engineering/ci/cd/fastlane-skip-update-check-log-and-hide-changelog
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Development #CS #SoftwareEngineering #CI/CD #fastlane #Log #iOS #Automation
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Development #CS #SoftwareEngineering #CI/CD #fastlane #Log #iOS #Automation #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

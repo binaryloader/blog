@@ -1,7 +1,20 @@
+I tried building this on macOS 🖥️
+
 Building a Claude Code Monitor with Claude Code
 
 Sharing the experience of building a macOS menu bar app that monitors Claude Code's own usage — using Claude Code itself.
 
-https://blog.binaryloader.io/en/development/apple/macos/building-claude-usage-meter-with-claude-code
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Apple #macOS #SwiftUI #ClaudeCode #MenuBarExtra #SwiftPackageManager
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Apple #macOS #SwiftUI #ClaudeCode #MenuBarExtra #SwiftPackageManager #woogiedev
+#developer #devlife #coding #programming #tech

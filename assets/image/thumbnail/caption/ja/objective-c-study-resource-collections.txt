@@ -1,7 +1,20 @@
+参考になれば嬉しいです 📝
+
 スタディリソース集
 
 Objective-C学習に役立つスタディリソースをまとめる。
 
-https://blog.binaryloader.io/ja/development/language/objective-c/study-resource-collections
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Language #Objective-C #iOS #LearningResource
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Objective-C #iOS #LearningResource #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

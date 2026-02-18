@@ -1,7 +1,20 @@
+Git 설정하면서 편해진 것들 공유해요 🔀
+
 심볼릭 링크로 설정 파일을 Git 저장소와 동기화하기
 
 심볼릭 링크를 활용해 특정 경로의 설정 파일을 Git 저장소에서 버전 관리하는 방법을 정리한다.
 
-https://blog.binaryloader.io/ko/development/scm/git/sync-files-with-symlink
+👉 자세한 내용은 블로그에서
+🔗 프로필 링크 클릭
 
-#Git #SymbolicLink #dotfiles
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Git #SymbolicLink #dotfiles #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

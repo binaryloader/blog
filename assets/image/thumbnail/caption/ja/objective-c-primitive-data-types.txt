@@ -1,7 +1,20 @@
+勉強しながら整理した内容です 📚
+
 プリミティブデータ型 - Primitive Data Types
 
 Objective-Cのプリミティブデータ型をまとめる。
 
-https://blog.binaryloader.io/ja/development/language/objective-c/primitive-data-types
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#Development #Language #Objective-C #DataType
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#Development #Language #Objective-C #DataType #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

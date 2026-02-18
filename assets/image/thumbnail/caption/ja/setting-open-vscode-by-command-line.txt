@@ -1,7 +1,20 @@
+Mac設定で見つけたTipsです 🍎
+
 コマンドラインから Visual Studio Code を開く
 
 macOS でターミナルから Visual Studio Code を開く方法をまとめる。
 
-https://blog.binaryloader.io/ja/pc/macos/setting-open-vscode-by-command-line
+👉 詳しくはブログで
+🔗 プロフィールのリンクから
 
-#PC #macOS #CommandLine #VisualStudioCode #VSCode #Terminal #Shell
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #CommandLine #VisualStudioCode #VSCode #Terminal #Shell #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

@@ -1,7 +1,20 @@
+Fellow bloggers might relate to this ✍️
+
 Running a Local Server with a Specific IP and Port
 
 How to run a Jekyll local server with a specific IP address and port.
 
-https://blog.binaryloader.io/en/development/blog/jekyll/jekyll-serve-specific-ip-and-port
+👉 Full post on the blog
+🔗 Link in bio
 
-#Development #Blog #Jekyll #CLI #Server
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Development #Blog #Jekyll #CLI #Server #woogiedev
+#developer #devlife #coding #programming #tech
