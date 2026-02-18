@@ -1,0 +1,7 @@
+심볼릭 링크로 설정 파일을 Git 저장소와 동기화하기
+
+심볼릭 링크를 활용해 특정 경로의 설정 파일을 Git 저장소에서 버전 관리하는 방법을 정리한다.
+
+https://blog.binaryloader.io/ko/development/scm/git/sync-files-with-symlink
+
+#Git #SymbolicLink #dotfiles

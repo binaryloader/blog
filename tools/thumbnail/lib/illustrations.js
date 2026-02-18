@@ -1546,6 +1546,69 @@ function illustrationQuicktimeBlackholeAudioRecording() {
   `;
 }
 
+// Sync files with symlink
+function illustrationSyncFilesWithSymlink() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- System path label -->
+    <rect x="120" y="130" width="220" height="36" rx="8" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.6"/>
+    <text x="230" y="153" text-anchor="middle" font-family="monospace" font-size="13" fill="#ff6b9d" opacity="0.8">~/</text>
+    <!-- System file: .zshrc -->
+    <g transform="translate(230, 280)">
+      <rect x="-55" y="-38" width="110" height="76" rx="8" fill="none" stroke="#ff6b9d" stroke-width="2"/>
+      <rect x="-36" y="-20" width="72" height="6" rx="2" fill="#ff6b9d" opacity="0.4"/>
+      <rect x="-36" y="-6" width="58" height="6" rx="2" fill="#ff6b9d" opacity="0.3"/>
+      <rect x="-36" y="8" width="44" height="6" rx="2" fill="#ff6b9d" opacity="0.2"/>
+    </g>
+    <text x="230" y="340" text-anchor="middle" font-family="monospace" font-size="12" fill="#ff6b9d">.zshrc</text>
+    <text x="230" y="358" text-anchor="middle" font-family="monospace" font-size="10" fill="#555" opacity="0.5">symlink</text>
+    <!-- Symlink chain icon (center) -->
+    <g transform="translate(540, 280)">
+      <ellipse cx="-18" cy="0" rx="32" ry="16" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.7" transform="rotate(-15)"/>
+      <ellipse cx="18" cy="0" rx="32" ry="16" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.7" transform="rotate(15)"/>
+    </g>
+    <text x="540" y="250" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#00e5ff" opacity="0.6">ln -s</text>
+    <!-- Arrow: system -> link -->
+    <line x1="305" y1="280" x2="478" y2="280" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="8,4" opacity="0.5"/>
+    <!-- Arrow: link -> repo -->
+    <line x1="602" y1="280" x2="730" y2="280" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="8,4" opacity="0.5"/>
+    <polygon points="730,280 718,273 718,287" fill="#00e5ff" opacity="0.5"/>
+    <!-- Git repository label -->
+    <rect x="730" y="130" width="220" height="36" rx="8" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+    <text x="840" y="153" text-anchor="middle" font-family="monospace" font-size="13" fill="#4ecdc4" opacity="0.8">~/repos/dotfiles/</text>
+    <!-- Repo file: .zshrc -->
+    <g transform="translate(840, 280)">
+      <rect x="-55" y="-38" width="110" height="76" rx="8" fill="none" stroke="#4ecdc4" stroke-width="2"/>
+      <rect x="-36" y="-20" width="72" height="6" rx="2" fill="#4ecdc4" opacity="0.4"/>
+      <rect x="-36" y="-6" width="58" height="6" rx="2" fill="#4ecdc4" opacity="0.3"/>
+      <rect x="-36" y="8" width="44" height="6" rx="2" fill="#4ecdc4" opacity="0.2"/>
+    </g>
+    <text x="840" y="340" text-anchor="middle" font-family="monospace" font-size="12" fill="#4ecdc4">.zshrc</text>
+    <text x="840" y="358" text-anchor="middle" font-family="monospace" font-size="10" fill="#555" opacity="0.5">original</text>
+    <!-- Git branch icon -->
+    <g transform="translate(840, 400)">
+      <circle cx="-15" cy="0" r="6" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="15" cy="0" r="6" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="0" cy="25" r="6" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.6"/>
+      <line x1="-10" y1="5" x2="-4" y2="20" stroke="#ffe66d" stroke-width="1.5" opacity="0.6"/>
+      <line x1="10" y1="5" x2="4" y2="20" stroke="#ffe66d" stroke-width="1.5" opacity="0.6"/>
+    </g>
+    <!-- Additional dotfiles (faded) -->
+    <g opacity="0.4">
+      <rect x="150" y="405" width="160" height="28" rx="6" fill="none" stroke="#ff6b9d" stroke-width="1"/>
+      <text x="230" y="424" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b9d">.gitconfig</text>
+    </g>
+    <g opacity="0.3">
+      <rect x="150" y="448" width="160" height="28" rx="6" fill="none" stroke="#ff6b9d" stroke-width="1"/>
+      <text x="230" y="467" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b9d">.ssh/config</text>
+    </g>
+    <line x1="310" y1="419" x2="510" y2="295" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4,4" opacity="0.2"/>
+    <line x1="310" y1="462" x2="510" y2="300" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4,4" opacity="0.15"/>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">SYMLINK FILE SYNC</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -1601,6 +1664,7 @@ const ILLUSTRATION_MAP = {
   'claude-github-pr-auto-review': illustrationClaudeGithubPrAutoReview,
   'building-claude-code-voice-assistant': illustrationBuildingClaudeVoiceAssistant,
   'quicktime-blackhole-audio-recording': illustrationQuicktimeBlackholeAudioRecording,
+  'sync-files-with-symlink': illustrationSyncFilesWithSymlink,
 };
 
 function getIllustration(ref) {
