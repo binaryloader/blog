@@ -89,14 +89,23 @@ base_model = torchvision.models.mobilenet_v2(
     weights=torchvision.models.MobileNet_V2_Weights.DEFAULT
 )
 
-# 2. Add softmax wrapper (logits → probabilities)
+# 2. Add normalization + softmax wrapper
 class ModelWithSoftmax(torch.nn.Module):
 
     def __init__(self, base):
         super().__init__()
         self.base = base
+        self.register_buffer(
+            "mean",
+            torch.tensor([0.485, 0.456, 0.406]).reshape(1, 3, 1, 1)
+        )
+        self.register_buffer(
+            "std",
+            torch.tensor([0.229, 0.224, 0.225]).reshape(1, 3, 1, 1)
+        )
 
     def forward(self, x):
+        x = (x - self.mean) / self.std
         return torch.nn.functional.softmax(self.base(x), dim=1)
 
 model = ModelWithSoftmax(base_model)
@@ -129,7 +138,7 @@ mlmodel.save("MobileNetV2.mlpackage")
 
 Here's a step-by-step breakdown of the conversion process.
 
-- `ModelWithSoftmax` — MobileNetV2 outputs raw logits, so softmax is applied to convert them into probabilities in the 0–1 range
+- `ModelWithSoftmax` — Applies ImageNet normalization (mean/std) and converts raw logits into probabilities in the 0–1 range using softmax
 - `model.eval()` — Switches the model to inference mode. This prevents Dropout and BatchNorm from operating in training mode
 - `torch.jit.trace` — Records the computation graph by passing example input through the model. coremltools accepts this TorchScript format as input
 - `ct.ImageType` — Specifies that the input is an image. `scale=1/255.0` normalizes pixel values from 0–255 to the 0–1 range

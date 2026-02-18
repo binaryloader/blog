@@ -87,14 +87,23 @@ base_model = torchvision.models.mobilenet_v2(
     weights=torchvision.models.MobileNet_V2_Weights.DEFAULT
 )
 
-# 2. Softmax 래퍼 추가 (logit → 확률 변환)
+# 2. 정규화 + Softmax 래퍼 추가
 class ModelWithSoftmax(torch.nn.Module):
 
     def __init__(self, base):
         super().__init__()
         self.base = base
+        self.register_buffer(
+            "mean",
+            torch.tensor([0.485, 0.456, 0.406]).reshape(1, 3, 1, 1)
+        )
+        self.register_buffer(
+            "std",
+            torch.tensor([0.229, 0.224, 0.225]).reshape(1, 3, 1, 1)
+        )
 
     def forward(self, x):
+        x = (x - self.mean) / self.std
         return torch.nn.functional.softmax(self.base(x), dim=1)
 
 model = ModelWithSoftmax(base_model)
@@ -127,7 +136,7 @@ mlmodel.save("MobileNetV2.mlpackage")
 
 변환 과정을 단계별로 살펴보면 다음과 같다.
 
-- `ModelWithSoftmax` — MobileNetV2는 raw logit을 출력하므로 softmax를 적용하여 0~1 범위의 확률로 변환한다
+- `ModelWithSoftmax` — ImageNet 정규화(mean/std)를 적용하고 softmax로 raw logit을 0~1 범위의 확률로 변환한다
 - `model.eval()` — 모델을 추론 모드로 전환한다. Dropout이나 BatchNorm이 학습 모드로 동작하는 것을 방지한다
 - `torch.jit.trace` — 예제 입력을 모델에 통과시켜 연산 그래프를 기록한다. coremltools는 이 TorchScript 형식을 입력으로 받는다
 - `ct.ImageType` — 입력이 이미지임을 명시한다. `scale=1/255.0`으로 0~255 픽셀값을 0~1 범위로 정규화한다
