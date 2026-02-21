@@ -1,0 +1,23 @@
+A Mac setting I found really useful 💻
+
+Setting iTerm2 as the Default Terminal in Alfred
+
+How to configure Alfred to use iTerm2 instead of the default Terminal.app when running terminal commands.
+
+📋 What's covered
+→ Open Alfred Terminal Settings
+→ Change Application to Custom
+→ Enter the AppleScript
+→ Verify
+
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#PC #macOS #Alfred #iTerm2 #Terminal #AppleScript #woogiedev
+#developer #devlife #coding #programming #tech

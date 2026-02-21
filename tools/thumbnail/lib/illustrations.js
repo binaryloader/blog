@@ -1870,6 +1870,53 @@ function illustrationPressureSensorDoorSensorMod() {
   `;
 }
 
+// Alfred iTerm2 terminal integration
+function illustrationAlfredIterm2TerminalIntegration() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Alfred search bar -->
+    <rect x="220" y="120" width="640" height="65" rx="12" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+    <text x="260" y="162" font-family="monospace" font-size="18" fill="#555">&gt; </text>
+    <text x="290" y="162" font-family="monospace" font-size="18" fill="#fff">ssh deploy@server</text>
+    <rect x="790" y="136" width="45" height="32" rx="6" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.4"/>
+    <text x="812" y="157" text-anchor="middle" font-family="monospace" font-size="11" fill="#00e5ff" opacity="0.6">&#x2318;</text>
+    <!-- Arrow from Alfred to iTerm2 -->
+    <line x1="540" y1="195" x2="540" y2="245" stroke="#00e5ff" stroke-width="2" opacity="0.6"/>
+    <polygon points="530,245 550,245 540,260" fill="#00e5ff" opacity="0.6"/>
+    <!-- iTerm2 window -->
+    <rect x="180" y="270" width="720" height="340" rx="12" fill="#0d0d0d" stroke="#4ecdc4" stroke-width="2.5"/>
+    <!-- Title bar -->
+    <rect x="180" y="270" width="720" height="35" rx="12" fill="#1a1a1a"/>
+    <rect x="180" y="293" width="720" height="12" fill="#1a1a1a"/>
+    <circle cx="208" cy="289" r="7" fill="#ff6b6b" opacity="0.7"/>
+    <circle cx="230" cy="289" r="7" fill="#ffe66d" opacity="0.7"/>
+    <circle cx="252" cy="289" r="7" fill="#4ecdc4" opacity="0.7"/>
+    <text x="540" y="293" text-anchor="middle" font-family="monospace" font-size="12" fill="#666">iTerm2</text>
+    <!-- Terminal content -->
+    <text x="210" y="340" font-family="monospace" font-size="14" fill="#4ecdc4">&#x276F;</text>
+    <text x="230" y="340" font-family="monospace" font-size="14" fill="#fff">ssh deploy@server</text>
+    <text x="210" y="370" font-family="monospace" font-size="13" fill="#888">Connecting to server...</text>
+    <text x="210" y="400" font-family="monospace" font-size="13" fill="#4ecdc4">deploy@server</text>
+    <text x="360" y="400" font-family="monospace" font-size="13" fill="#fff">~ $</text>
+    <rect x="412" y="388" width="10" height="16" fill="#4ecdc4" opacity="0.7"/>
+    <!-- Tab bar -->
+    <rect x="180" y="305" width="180" height="25" fill="#222"/>
+    <text x="195" y="322" font-family="monospace" font-size="11" fill="#4ecdc4">&#x25CF;</text>
+    <text x="212" y="322" font-family="monospace" font-size="11" fill="#aaa">deploy@server</text>
+    <rect x="360" y="305" width="140" height="25" fill="#111"/>
+    <text x="375" y="322" font-family="monospace" font-size="11" fill="#666">&#x25CB;</text>
+    <text x="392" y="322" font-family="monospace" font-size="11" fill="#555">local</text>
+    <!-- AppleScript icon -->
+    <g transform="translate(830, 470)">
+      <rect x="-35" y="-25" width="70" height="50" rx="8" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.6"/>
+      <text x="0" y="-2" text-anchor="middle" font-family="monospace" font-size="20" fill="#ffe66d" opacity="0.7">&#x2318;</text>
+      <text x="0" y="15" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.5">SCRIPT</text>
+    </g>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">ALFRED + iTERM2 INTEGRATION</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -1930,6 +1977,7 @@ const ILLUSTRATION_MAP = {
   'diy-lan-wiring-cable-management': illustrationDiyLanWiringCableManagement,
   'pressure-sensor-door-sensor-mod': illustrationPressureSensorDoorSensorMod,
   'wallpad-rs485-hardware-setup': illustrationWallpadRs485HardwareSetup,
+  'alfred-iterm2-terminal-integration': illustrationAlfredIterm2TerminalIntegration,
 };
 
 function getIllustration(ref) {
