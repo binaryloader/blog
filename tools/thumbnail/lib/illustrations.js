@@ -1917,6 +1917,66 @@ function illustrationAlfredIterm2TerminalIntegration() {
   `;
 }
 
+// Docker Compose GHCR auth and Milvus volume
+function illustrationDockerComposeGhcrAuthMilvusVolume() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Docker whale container -->
+    <g transform="translate(540, 260)">
+      <!-- Whale body -->
+      <path d="M-120,20 Q-120,-40 -60,-40 L100,-40 Q120,-40 120,-20 L120,20 Q120,40 100,40 L-60,40 Q-120,40 -120,20 Z" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.8"/>
+      <!-- Container grid (6 boxes) -->
+      <rect x="-100" y="-30" width="45" height="25" rx="3" fill="#00e5ff" opacity="0.2" stroke="#00e5ff" stroke-width="1"/>
+      <rect x="-45" y="-30" width="45" height="25" rx="3" fill="#00e5ff" opacity="0.3" stroke="#00e5ff" stroke-width="1"/>
+      <rect x="10" y="-30" width="45" height="25" rx="3" fill="#00e5ff" opacity="0.2" stroke="#00e5ff" stroke-width="1"/>
+      <rect x="-100" y="5" width="45" height="25" rx="3" fill="#00e5ff" opacity="0.15" stroke="#00e5ff" stroke-width="1"/>
+      <rect x="-45" y="5" width="45" height="25" rx="3" fill="#00e5ff" opacity="0.25" stroke="#00e5ff" stroke-width="1"/>
+      <rect x="10" y="5" width="45" height="25" rx="3" fill="#4ecdc4" opacity="0.4" stroke="#4ecdc4" stroke-width="1.5"/>
+      <!-- Whale tail -->
+      <path d="M-120,0 Q-160,-30 -150,-60 Q-140,-40 -120,-20" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.6"/>
+    </g>
+    <!-- Lock icon (GHCR auth) -->
+    <g transform="translate(280, 160)">
+      <rect x="-20" y="0" width="40" height="32" rx="5" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.8"/>
+      <path d="M-12,0 L-12,-12 Q-12,-28 0,-28 Q12,-28 12,-12 L12,0" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.8"/>
+      <circle cx="0" cy="14" r="4" fill="#ff6b9d" opacity="0.6"/>
+    </g>
+    <text x="280" y="215" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b9d" opacity="0.7">GHCR AUTH</text>
+    <!-- GitHub icon -->
+    <g transform="translate(280, 100)">
+      <circle cx="0" cy="0" r="22" fill="none" stroke="#888" stroke-width="1.5" opacity="0.5"/>
+      <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="16" fill="#888" opacity="0.6">GH</text>
+    </g>
+    <line x1="280" y1="122" x2="280" y2="148" stroke="#888" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+    <!-- Database icon (Milvus/RocksDB) -->
+    <g transform="translate(800, 160)">
+      <ellipse cx="0" cy="-15" rx="35" ry="12" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.7"/>
+      <line x1="-35" y1="-15" x2="-35" y2="15" stroke="#ffe66d" stroke-width="2" opacity="0.7"/>
+      <line x1="35" y1="-15" x2="35" y2="15" stroke="#ffe66d" stroke-width="2" opacity="0.7"/>
+      <ellipse cx="0" cy="15" rx="35" ry="12" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.7"/>
+      <!-- Warning symbol -->
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="18" fill="#ffe66d" opacity="0.8">!</text>
+    </g>
+    <text x="800" y="215" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffe66d" opacity="0.7">WAL CONFLICT</text>
+    <!-- Connection lines -->
+    <line x1="310" y1="180" x2="420" y2="250" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="770" y1="180" x2="660" y2="250" stroke="#555" stroke-width="1" stroke-dasharray="4,4"/>
+    <!-- Terminal output at bottom -->
+    <rect x="240" y="420" width="600" height="160" rx="10" fill="#111" stroke="#333" stroke-width="1.5"/>
+    <circle cx="265" cy="440" r="5" fill="#ff6b9d" opacity="0.8"/>
+    <circle cx="285" cy="440" r="5" fill="#ffe66d" opacity="0.8"/>
+    <circle cx="305" cy="440" r="5" fill="#4ecdc4" opacity="0.8"/>
+    <text x="270" y="475" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.7">$ docker-compose up -d</text>
+    <text x="270" y="495" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.6">Error: 403 Forbidden</text>
+    <text x="270" y="515" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.7">$ docker login ghcr.io</text>
+    <text x="270" y="535" font-family="monospace" font-size="10" fill="#a8e6cf" opacity="0.6">Login Succeeded</text>
+    <text x="270" y="555" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.7">$ docker-compose up -d</text>
+    <text x="270" y="565" font-family="monospace" font-size="10" fill="#a8e6cf" opacity="0.5">&#x2713;</text>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">DOCKER COMPOSE TROUBLESHOOTING</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -1978,6 +2038,7 @@ const ILLUSTRATION_MAP = {
   'pressure-sensor-door-sensor-mod': illustrationPressureSensorDoorSensorMod,
   'wallpad-rs485-hardware-setup': illustrationWallpadRs485HardwareSetup,
   'alfred-iterm2-terminal-integration': illustrationAlfredIterm2TerminalIntegration,
+  'docker-compose-ghcr-auth-milvus-volume': illustrationDockerComposeGhcrAuthMilvusVolume,
 };
 
 function getIllustration(ref) {

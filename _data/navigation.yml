@@ -95,6 +95,9 @@ menu:
         url: /ko/development/server/
         category: "Server"
         children:
+          - title: "Docker"
+            url: /ko/development/server/docker/
+            category: "Docker"
           - title: "Spring"
             url: /ko/development/server/spring/
             category: "Spring"
@@ -205,6 +208,9 @@ menu-en:
         url: /en/development/server/
         category: "Server"
         children:
+          - title: "Docker"
+            url: /en/development/server/docker/
+            category: "Docker"
           - title: "Spring"
             url: /en/development/server/spring/
             category: "Spring"
@@ -315,6 +321,9 @@ menu-ja:
         url: /ja/development/server/
         category: "Server"
         children:
+          - title: "Docker"
+            url: /ja/development/server/docker/
+            category: "Docker"
           - title: "Spring"
             url: /ja/development/server/spring/
             category: "Spring"

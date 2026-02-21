@@ -1,0 +1,21 @@
+Notes from setting up my server environment 🖧
+
+Docker Compose GHCR Auth and Milvus Volume Initialization
+
+Resolving GHCR private image authentication errors and RocksDB WAL volume conflicts when running a Milvus stack with Docker Compose.
+
+📋 What's covered
+→ GHCR Private Image Authentication
+→ Milvus Volume Initialization
+
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Docker #DockerCompose #GHCR #Milvus #GitHubContainerRegistry #woogiedev
+#developer #devlife #coding #programming #tech
