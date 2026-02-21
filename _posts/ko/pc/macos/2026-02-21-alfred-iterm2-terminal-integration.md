@@ -3,7 +3,7 @@ date: 2026-02-21T15:00+09:00
 title: "[macOS] Alfred에서 iTerm2를 기본 터미널로 설정하기"
 ref: alfred-iterm2-terminal-integration
 excerpt: "Alfred에서 터미널 커맨드를 실행할 때 기본 Terminal.app 대신 iTerm2를 사용하도록 설정하는 방법을 정리한다."
-last_modified_at: 2026-02-21T15:00+09:00
+last_modified_at: 2026-02-21T16:11+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/alfred-iterm2-terminal-integration.png"
@@ -46,31 +46,56 @@ Alfred Preferences에서 **Features > Terminal**로 이동한다.
 
 ```applescript
 on alfred_script(q)
-    tell application "iTerm2"
-        activate
-        try
-            tell current window
-                create tab with default profile
-                tell current session
-                    write text q
+    if application "iTerm2" is running or application "iTerm" is running then
+        run script "
+            on run {q}
+                tell application \"iTerm\"
+                    activate
+                    try
+                        select first window
+                        set onlywindow to false
+                    on error
+                        create window with default profile
+                        select first window
+                        set onlywindow to true
+                    end try
+                    tell current session of current window
+                        if not onlywindow then
+                            tell current window
+                                create tab with default profile
+                            end tell
+                        end if
+                        write text q
+                    end tell
                 end tell
-            end tell
-        on error
-            create window with default profile
-            tell current window
-                tell current session
-                    write text q
+            end run
+        " with parameters {q}
+    else
+        run script "
+            on run {q}
+                tell application \"iTerm\"
+                    activate
+                    try
+                        select first window
+                    on error
+                        create window with default profile
+                        select first window
+                    end try
+                    tell current session of current window
+                        write text q
+                    end tell
                 end tell
-            end tell
-        end try
-    end tell
+            end run
+        " with parameters {q}
+    end if
 end alfred_script
 ```
 
 이 스크립트는 아래와 같이 동작한다.
 
-- iTerm2가 이미 열려 있으면 현재 윈도우에 새 탭을 생성하고 커맨드를 실행한다
-- iTerm2 윈도우가 없으면 새 윈도우를 생성하고 커맨드를 실행한다
+- iTerm2가 실행 중이고 윈도우가 있으면 새 탭을 생성하고 커맨드를 실행한다
+- iTerm2가 실행 중이지만 윈도우가 없으면 새 윈도우를 생성하고 커맨드를 실행한다
+- iTerm2가 실행 중이 아니면 iTerm2를 시작하고 커맨드를 실행한다
 
 ## 4. 확인
 

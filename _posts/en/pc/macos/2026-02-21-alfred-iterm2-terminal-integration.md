@@ -4,7 +4,7 @@ title: "[macOS] Setting iTerm2 as the Default Terminal in Alfred"
 ref: alfred-iterm2-terminal-integration
 lang: en
 excerpt: "How to configure Alfred to use iTerm2 instead of the default Terminal.app when running terminal commands."
-last_modified_at: 2026-02-21T15:00+09:00
+last_modified_at: 2026-02-21T16:11+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/alfred-iterm2-terminal-integration.png"
@@ -47,31 +47,56 @@ Paste the following AppleScript into the text area.
 
 ```applescript
 on alfred_script(q)
-    tell application "iTerm2"
-        activate
-        try
-            tell current window
-                create tab with default profile
-                tell current session
-                    write text q
+    if application "iTerm2" is running or application "iTerm" is running then
+        run script "
+            on run {q}
+                tell application \"iTerm\"
+                    activate
+                    try
+                        select first window
+                        set onlywindow to false
+                    on error
+                        create window with default profile
+                        select first window
+                        set onlywindow to true
+                    end try
+                    tell current session of current window
+                        if not onlywindow then
+                            tell current window
+                                create tab with default profile
+                            end tell
+                        end if
+                        write text q
+                    end tell
                 end tell
-            end tell
-        on error
-            create window with default profile
-            tell current window
-                tell current session
-                    write text q
+            end run
+        " with parameters {q}
+    else
+        run script "
+            on run {q}
+                tell application \"iTerm\"
+                    activate
+                    try
+                        select first window
+                    on error
+                        create window with default profile
+                        select first window
+                    end try
+                    tell current session of current window
+                        write text q
+                    end tell
                 end tell
-            end tell
-        end try
-    end tell
+            end run
+        " with parameters {q}
+    end if
 end alfred_script
 ```
 
 This script works as follows.
 
-- If iTerm2 is already open, it creates a new tab in the current window and runs the command
-- If no iTerm2 window exists, it creates a new window and runs the command
+- If iTerm2 is running and a window exists, it creates a new tab and runs the command
+- If iTerm2 is running but no window exists, it creates a new window and runs the command
+- If iTerm2 is not running, it launches iTerm2 and runs the command
 
 ## 4. Verify
 
