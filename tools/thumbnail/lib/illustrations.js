@@ -2209,6 +2209,91 @@ function illustrationJekyllMarkdownImageLightbox() {
   `;
 }
 
+// MCP Scapple - MCP server for Scapple diagrams
+function illustrationMcpScapple() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Scapple cloud node (left) -->
+    <g transform="translate(200, 280)">
+      <!-- Cloud shape -->
+      <path d="M-70,20 Q-75,-15 -45,-30 Q-20,-50 15,-35 Q40,-55 65,-30 Q90,-20 85,10 Q95,35 70,40 Q50,55 20,45 Q-10,60 -40,40 Q-75,45 -70,20 Z" fill="none" stroke="#ffeb3b" stroke-width="2.5" opacity="0.8"/>
+      <text x="10" y="15" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#ffeb3b" opacity="0.9">.scap</text>
+      <!-- XML lines inside -->
+      <text x="-30" y="-10" font-family="monospace" font-size="8" fill="#ffeb3b" opacity="0.3">&lt;Note&gt;</text>
+      <text x="-20" y="35" font-family="monospace" font-size="8" fill="#ffeb3b" opacity="0.3">&lt;/Note&gt;</text>
+    </g>
+    <!-- MCP protocol center -->
+    <g transform="translate(540, 280)">
+      <!-- Hexagonal frame -->
+      <polygon points="0,-65 56,-33 56,33 0,65 -56,33 -56,-33" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.7"/>
+      <polygon points="0,-42 36,-21 36,21 0,42 -36,21 -36,-21" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.35"/>
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#00e5ff" opacity="0.9">MCP</text>
+      <!-- Pulse rings -->
+      <circle cx="0" cy="0" r="80" fill="none" stroke="#00e5ff" stroke-width="0.8" opacity="0.15"/>
+      <circle cx="0" cy="0" r="100" fill="none" stroke="#00e5ff" stroke-width="0.5" opacity="0.08"/>
+    </g>
+    <!-- Connection: Scapple → MCP -->
+    <line x1="290" y1="280" x2="470" y2="280" stroke="#4ecdc4" stroke-width="1.5" stroke-dasharray="8,5" opacity="0.5"/>
+    <polygon points="470,280 460,274 460,286" fill="#4ecdc4" opacity="0.5"/>
+    <!-- Connection: MCP → Diagram -->
+    <line x1="610" y1="280" x2="730" y2="280" stroke="#4ecdc4" stroke-width="1.5" stroke-dasharray="8,5" opacity="0.5"/>
+    <polygon points="730,280 720,274 720,286" fill="#4ecdc4" opacity="0.5"/>
+    <!-- Rendered diagram (right) -->
+    <g transform="translate(850, 220)">
+      <!-- Mini diagram nodes -->
+      <!-- Root cloud -->
+      <path d="M-50,8 Q-52,-8 -35,-15 Q-20,-25 -5,-18 Q10,-28 25,-15 Q38,-10 35,5 Q42,18 28,20 Q18,28 0,22 Q-15,30 -30,20 Q-52,22 -50,8 Z" fill="#ffeb3b" stroke="#ccc" stroke-width="1" opacity="0.7"/>
+      <text x="-8" y="8" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">Root</text>
+      <!-- Child 1 -->
+      <rect x="50" y="-35" width="60" height="22" rx="6" fill="#4fc3f7" stroke="#ccc" stroke-width="1" opacity="0.7"/>
+      <text x="80" y="-20" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">Node A</text>
+      <!-- Child 2 -->
+      <rect x="50" y="-5" width="60" height="22" rx="6" fill="#4fc3f7" stroke="#ccc" stroke-width="1" opacity="0.7"/>
+      <text x="80" y="10" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">Node B</text>
+      <!-- Child 3 -->
+      <rect x="50" y="25" width="60" height="22" rx="6" fill="#81c784" stroke="#ccc" stroke-width="1" opacity="0.7"/>
+      <text x="80" y="40" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">Node C</text>
+      <!-- Arrows -->
+      <line x1="25" y1="0" x2="50" y2="-24" stroke="#888" stroke-width="1" opacity="0.5"/>
+      <line x1="25" y1="5" x2="50" y2="6" stroke="#888" stroke-width="1" opacity="0.5"/>
+      <line x1="25" y1="10" x2="50" y2="36" stroke="#888" stroke-width="1" opacity="0.5"/>
+      <!-- Leaf nodes -->
+      <rect x="130" y="-45" width="55" height="20" rx="5" fill="#81c784" stroke="#ccc" stroke-width="0.8" opacity="0.6"/>
+      <rect x="130" y="-20" width="55" height="20" rx="5" fill="#ff8a65" stroke="#ccc" stroke-width="0.8" opacity="0.6"/>
+      <rect x="130" y="15" width="55" height="20" rx="5" fill="#ff8a65" stroke="#ccc" stroke-width="0.8" opacity="0.6"/>
+      <rect x="130" y="40" width="55" height="20" rx="5" fill="#ce93d8" stroke="#ccc" stroke-width="0.8" opacity="0.6"/>
+      <line x1="110" y1="-24" x2="130" y2="-35" stroke="#888" stroke-width="0.8" opacity="0.4"/>
+      <line x1="110" y1="-24" x2="130" y2="-10" stroke="#888" stroke-width="0.8" opacity="0.4"/>
+      <line x1="110" y1="6" x2="130" y2="25" stroke="#888" stroke-width="0.8" opacity="0.4"/>
+      <line x1="110" y1="36" x2="130" y2="50" stroke="#888" stroke-width="0.8" opacity="0.4"/>
+    </g>
+    <!-- PNG frame around diagram -->
+    <rect x="770" y="175" width="220" height="150" rx="8" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.5"/>
+    <text x="880" y="342" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.6">.png</text>
+    <!-- Tool labels (bottom) -->
+    <g transform="translate(540, 460)">
+      <rect x="-320" y="-20" width="145" height="30" rx="6" fill="#111" stroke="#ff6b9d" stroke-width="1.5" opacity="0.6"/>
+      <text x="-248" y="-1" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.8">read-scapple</text>
+      <rect x="-155" y="-20" width="145" height="30" rx="6" fill="#111" stroke="#a8e6cf" stroke-width="1.5" opacity="0.6"/>
+      <text x="-83" y="-1" text-anchor="middle" font-family="monospace" font-size="10" fill="#a8e6cf" opacity="0.8">write-scapple</text>
+      <rect x="10" y="-20" width="155" height="30" rx="6" fill="#111" stroke="#ffe66d" stroke-width="1.5" opacity="0.6"/>
+      <text x="88" y="-1" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d" opacity="0.8">text-to-scapple</text>
+      <rect x="185" y="-20" width="155" height="30" rx="6" fill="#111" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+      <text x="263" y="-1" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.8">scapple-to-image</text>
+    </g>
+    <!-- AI icon (top) -->
+    <g transform="translate(540, 130)">
+      <circle cx="0" cy="0" r="28" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.25"/>
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="12" fill="#00e5ff" opacity="0.6">AI</text>
+      <!-- Connection down -->
+      <line x1="0" y1="28" x2="0" y2="210" stroke="#00e5ff" stroke-width="1" stroke-dasharray="4,4" opacity="0.2"/>
+    </g>
+    <!-- Bottom label -->
+    <text x="540" y="560" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">SCAPPLE MCP SERVER</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -2274,6 +2359,7 @@ const ILLUSTRATION_MAP = {
   'windows-ollama-qwen3-install': illustrationWindowsOllamaQwen3Install,
   'ollama-remote-access-setup': illustrationOllamaRemoteAccessSetup,
   'jekyll-markdown-image-lightbox': illustrationJekyllMarkdownImageLightbox,
+  'mcp-scapple': illustrationMcpScapple,
 };
 
 function getIllustration(ref) {

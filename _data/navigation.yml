@@ -54,6 +54,9 @@ menu:
           - title: "LLM"
             url: /ko/development/ai/llm/
             category: "LLM"
+          - title: "MCP"
+            url: /ko/development/ai/mcp/
+            category: "MCP"
       - title: "Blog"
         url: /ko/development/blog/
         category: "Blog"
@@ -174,6 +177,9 @@ menu-en:
           - title: "LLM"
             url: /en/development/ai/llm/
             category: "LLM"
+          - title: "MCP"
+            url: /en/development/ai/mcp/
+            category: "MCP"
       - title: "Blog"
         url: /en/development/blog/
         category: "Blog"
@@ -294,6 +300,9 @@ menu-ja:
           - title: "LLM"
             url: /ja/development/ai/llm/
             category: "LLM"
+          - title: "MCP"
+            url: /ja/development/ai/mcp/
+            category: "MCP"
       - title: "Blog"
         url: /ja/development/blog/
         category: "Blog"
