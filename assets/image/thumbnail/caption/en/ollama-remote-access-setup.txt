@@ -1,0 +1,23 @@
+Sharing something that helped me as a developer 💻
+
+Setting Up Ollama Remote Access
+
+Configuring the OLLAMA_HOST environment variable and Windows Firewall to access a local LLM from other devices on the same network.
+
+📋 What's covered
+→ Ollama only listens on localhost by default
+→ One environment variable opens access from other devices on your network
+→ Don't forget to allow the port through Windows Firewall
+→ Calling a local LLM on Windows from macOS via curl
+
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Ollama #LLM #Windows11 #Network #woogiedev
+#developer #devlife #coding #programming #tech

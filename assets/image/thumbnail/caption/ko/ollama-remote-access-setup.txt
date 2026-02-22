@@ -1,0 +1,23 @@
+개발하면서 도움이 됐던 걸 공유해봅니다 💻
+
+Ollama 원격 접속 설정하기
+
+Ollama의 OLLAMA_HOST 환경변수와 Windows 방화벽을 설정하여 같은 네트워크의 다른 기기에서 로컬 LLM에 접속하는 방법을 정리한다.
+
+📋 이런 내용을 다뤘어요
+→ Ollama는 기본적으로 localhost에서만 접속할 수 있다
+→ 환경변수 하나로 같은 네트워크의 다른 기기에서 접근 가능하다
+→ Windows 방화벽에서 포트를 열어주는 것도 잊지 말아야 한다
+→ 맥에서 curl로 Windows의 로컬 LLM을 호출하는 과정을 정리한다
+
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Ollama #LLM #Windows11 #Network #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

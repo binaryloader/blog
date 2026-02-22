@@ -2060,6 +2060,75 @@ function illustrationWindowsOllamaQwen3Install() {
   `;
 }
 
+// Ollama Remote Access Setup
+function illustrationOllamaRemoteAccessSetup() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Windows PC (left) -->
+    <g transform="translate(280, 250)">
+      <!-- Monitor -->
+      <rect x="-90" y="-80" width="180" height="120" rx="8" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.7"/>
+      <!-- Screen content -->
+      <rect x="-75" y="-65" width="150" height="90" rx="4" fill="#111" stroke="#333" stroke-width="1"/>
+      <!-- Ollama text on screen -->
+      <text x="0" y="-35" text-anchor="middle" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.8">ollama serve</text>
+      <text x="0" y="-15" text-anchor="middle" font-family="monospace" font-size="9" fill="#a8e6cf" opacity="0.6">0.0.0.0:11434</text>
+      <!-- Stand -->
+      <rect x="-20" y="40" width="40" height="15" rx="2" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+      <rect x="-40" y="55" width="80" height="5" rx="2" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+      <!-- Windows logo -->
+      <rect x="-15" y="-5" width="12" height="12" rx="1" fill="#00e5ff" opacity="0.2" stroke="#00e5ff" stroke-width="0.8"/>
+      <rect x="5" y="-5" width="12" height="12" rx="1" fill="#00e5ff" opacity="0.3" stroke="#00e5ff" stroke-width="0.8"/>
+      <rect x="-15" y="10" width="12" height="12" rx="1" fill="#00e5ff" opacity="0.25" stroke="#00e5ff" stroke-width="0.8"/>
+      <rect x="5" y="10" width="12" height="12" rx="1" fill="#00e5ff" opacity="0.35" stroke="#00e5ff" stroke-width="0.8"/>
+    </g>
+    <text x="280" y="340" text-anchor="middle" font-family="monospace" font-size="12" fill="#00e5ff" opacity="0.7">WINDOWS</text>
+    <!-- macOS (right) -->
+    <g transform="translate(800, 250)">
+      <!-- Laptop body -->
+      <rect x="-90" y="-60" width="180" height="110" rx="8" fill="none" stroke="#ffe66d" stroke-width="2.5" opacity="0.7"/>
+      <!-- Screen -->
+      <rect x="-75" y="-48" width="150" height="80" rx="4" fill="#111" stroke="#333" stroke-width="1"/>
+      <!-- Terminal content -->
+      <text x="-60" y="-25" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">$ curl 192.168...</text>
+      <text x="-60" y="-8" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.5">{"response":"..."}</text>
+      <!-- Apple logo hint -->
+      <circle cx="0" cy="18" r="5" fill="none" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <!-- Keyboard base -->
+      <rect x="-95" y="52" width="190" height="8" rx="3" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+    </g>
+    <text x="800" y="340" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffe66d" opacity="0.7">macOS</text>
+    <!-- Network connection -->
+    <line x1="400" y1="250" x2="680" y2="250" stroke="#4ecdc4" stroke-width="2" stroke-dasharray="8,6" opacity="0.5"/>
+    <!-- Arrow -->
+    <polygon points="680,250 668,244 668,256" fill="#4ecdc4" opacity="0.5"/>
+    <!-- WiFi icon (center) -->
+    <g transform="translate(540, 220)">
+      <path d="M-20,10 Q0,-15 20,10" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.4"/>
+      <path d="M-13,10 Q0,-8 13,10" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+      <path d="M-6,10 Q0,-2 6,10" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="0" cy="13" r="3" fill="#4ecdc4" opacity="0.7"/>
+    </g>
+    <text x="540" y="275" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.6">LAN :11434</text>
+    <!-- Firewall icon -->
+    <g transform="translate(540, 430)">
+      <rect x="-50" y="-25" width="100" height="50" rx="6" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.6"/>
+      <!-- Brick pattern -->
+      <line x1="-50" y1="-8" x2="50" y2="-8" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
+      <line x1="-50" y1="8" x2="50" y2="8" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
+      <line x1="0" y1="-25" x2="0" y2="-8" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
+      <line x1="-25" y1="-8" x2="-25" y2="8" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
+      <line x1="25" y1="-8" x2="25" y2="8" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
+      <line x1="0" y1="8" x2="0" y2="25" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
+      <!-- Check mark -->
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="18" fill="#a8e6cf" opacity="0.7">&#x2713;</text>
+    </g>
+    <text x="540" y="480" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b9d" opacity="0.7">FIREWALL</text>
+    <!-- Bottom label -->
+    <text x="540" y="620" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">OLLAMA REMOTE ACCESS</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -2123,6 +2192,7 @@ const ILLUSTRATION_MAP = {
   'alfred-iterm2-terminal-integration': illustrationAlfredIterm2TerminalIntegration,
   'docker-compose-ghcr-auth-milvus-volume': illustrationDockerComposeGhcrAuthMilvusVolume,
   'windows-ollama-qwen3-install': illustrationWindowsOllamaQwen3Install,
+  'ollama-remote-access-setup': illustrationOllamaRemoteAccessSetup,
 };
 
 function getIllustration(ref) {

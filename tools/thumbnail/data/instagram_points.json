@@ -905,6 +905,26 @@
       "コーディング能力ではなく問題を定義する能力が差別化ポイントになる"
     ]
   },
+  "ollama-remote-access-setup": {
+    "ko": [
+      "Ollama는 기본적으로 localhost에서만 접속할 수 있다",
+      "환경변수 하나로 같은 네트워크의 다른 기기에서 접근 가능하다",
+      "Windows 방화벽에서 포트를 열어주는 것도 잊지 말아야 한다",
+      "맥에서 curl로 Windows의 로컬 LLM을 호출하는 과정을 정리한다"
+    ],
+    "en": [
+      "Ollama only listens on localhost by default",
+      "One environment variable opens access from other devices on your network",
+      "Don't forget to allow the port through Windows Firewall",
+      "Calling a local LLM on Windows from macOS via curl"
+    ],
+    "ja": [
+      "Ollamaはデフォルトでlocalhostからのみアクセスできる",
+      "環境変数1つで同じネットワークの他デバイスからアクセス可能になる",
+      "Windowsファイアウォールでポートを開けるのも忘れずに",
+      "macOSからcurlでWindowsのローカルLLMを呼び出す手順をまとめる"
+    ]
+  },
   "windows-ollama-qwen3-install": {
     "ko": [
       "Ollama 하나면 Windows에서도 로컬 LLM을 바로 실행할 수 있다",
