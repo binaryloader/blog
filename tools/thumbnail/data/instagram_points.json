@@ -925,6 +925,23 @@
       "macOSからcurlでWindowsのローカルLLMを呼び出す手順をまとめる"
     ]
   },
+  "jekyll-markdown-image-lightbox": {
+    "ko": [
+      "마크다운 이미지를 클릭해도 라이트박스가 안 뜨는 건 <a> 태그가 없기 때문이다",
+      "jQuery로 단독 <img>를 자동 래핑하면 Magnific Popup이 동작한다",
+      "코드 3줄이면 모든 마크다운 이미지에 라이트박스가 적용된다"
+    ],
+    "en": [
+      "Markdown images don't get lightbox because they lack an <a> wrapper",
+      "Auto-wrap standalone <img> with jQuery and Magnific Popup just works",
+      "Three lines of code enable lightbox for all markdown images"
+    ],
+    "ja": [
+      "Markdown画像をクリックしてもライトボックスが出ないのは<a>タグがないからだ",
+      "jQueryで単独の<img>を自動ラップすればMagnific Popupが動作する",
+      "コード3行で全てのMarkdown画像にライトボックスが適用される"
+    ]
+  },
   "windows-ollama-qwen3-install": {
     "ko": [
       "Ollama 하나면 Windows에서도 로컬 LLM을 바로 실행할 수 있다",

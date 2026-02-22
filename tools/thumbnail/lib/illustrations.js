@@ -2129,6 +2129,86 @@ function illustrationOllamaRemoteAccessSetup() {
   `;
 }
 
+// Jekyll markdown image lightbox
+function illustrationJekyllMarkdownImageLightbox() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Original image frame (left) -->
+    <g transform="translate(260, 200)">
+      <!-- Image frame -->
+      <rect x="-120" y="-100" width="240" height="180" rx="8" fill="#111" stroke="#333" stroke-width="2"/>
+      <!-- Landscape placeholder -->
+      <rect x="-100" y="-80" width="200" height="130" rx="4" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.3"/>
+      <!-- Mountain scene -->
+      <polygon points="-60,50 -20,-20 20,50" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+      <polygon points="10,50 50,-40 90,50" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+      <!-- Sun -->
+      <circle cx="60" cy="-40" r="15" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.6"/>
+      <!-- img tag label -->
+      <text x="0" y="105" text-anchor="middle" font-family="monospace" font-size="13" fill="#888">&lt;img&gt;</text>
+    </g>
+    <!-- Click cursor -->
+    <g transform="translate(450, 280)">
+      <!-- Cursor pointer -->
+      <path d="M0,0 L0,28 L8,22 L14,34 L20,30 L14,18 L24,18 Z" fill="#00e5ff" opacity="0.8"/>
+      <!-- Click ripple -->
+      <circle cx="0" cy="0" r="12" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#00e5ff" stroke-width="0.8" opacity="0.15"/>
+    </g>
+    <!-- Arrow -->
+    <line x1="430" y1="320" x2="540" y2="320" stroke="#00e5ff" stroke-width="2" stroke-dasharray="8,5" opacity="0.5"/>
+    <polygon points="540,320 530,314 530,326" fill="#00e5ff" opacity="0.5"/>
+    <!-- Lightbox overlay (right) -->
+    <g transform="translate(720, 200)">
+      <!-- Dark overlay background -->
+      <rect x="-160" y="-140" width="320" height="310" rx="12" fill="#0a0a0a" stroke="#00e5ff" stroke-width="2" opacity="0.9"/>
+      <!-- Enlarged image -->
+      <rect x="-130" y="-110" width="260" height="195" rx="6" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.6"/>
+      <!-- Mountain scene (enlarged) -->
+      <polygon points="-80,85 -20,-40 40,85" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.6"/>
+      <polygon points="20,85 80,-70 140,85" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.6"/>
+      <!-- Sun (enlarged) -->
+      <circle cx="90" cy="-60" r="22" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.7"/>
+      <!-- Close button -->
+      <g transform="translate(140, -120)">
+        <circle cx="0" cy="0" r="12" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.6"/>
+        <line x1="-5" y1="-5" x2="5" y2="5" stroke="#ff6b9d" stroke-width="1.5" opacity="0.7"/>
+        <line x1="5" y1="-5" x2="-5" y2="5" stroke="#ff6b9d" stroke-width="1.5" opacity="0.7"/>
+      </g>
+      <!-- Zoom indicator -->
+      <g transform="translate(-110, -90)">
+        <circle cx="0" cy="0" r="8" fill="none" stroke="#ffe66d" stroke-width="1" opacity="0.5"/>
+        <line x1="5" y1="5" x2="12" y2="12" stroke="#ffe66d" stroke-width="1" opacity="0.5"/>
+        <text x="2" y="3" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.5">+</text>
+      </g>
+      <!-- a > img label -->
+      <text x="0" y="145" text-anchor="middle" font-family="monospace" font-size="13" fill="#00e5ff" opacity="0.8">&lt;a&gt;&lt;img&gt;&lt;/a&gt;</text>
+    </g>
+    <!-- jQuery code snippet (bottom) -->
+    <g transform="translate(540, 530)">
+      <rect x="-280" y="-35" width="560" height="70" rx="8" fill="#111" stroke="#333" stroke-width="1.5"/>
+      <text x="-260" y="-10" font-family="monospace" font-size="11" fill="#ff6b9d" opacity="0.7">$</text>
+      <text x="-248" y="-10" font-family="monospace" font-size="11" fill="#888">(</text>
+      <text x="-240" y="-10" font-family="monospace" font-size="11" fill="#a8e6cf" opacity="0.8">"img"</text>
+      <text x="-208" y="-10" font-family="monospace" font-size="11" fill="#888">).</text>
+      <text x="-196" y="-10" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.8">wrap</text>
+      <text x="-166" y="-10" font-family="monospace" font-size="11" fill="#888">(</text>
+      <text x="-158" y="-10" font-family="monospace" font-size="11" fill="#a8e6cf" opacity="0.8">'&lt;a href="..."&gt;'</text>
+      <text x="-24" y="-10" font-family="monospace" font-size="11" fill="#888">)</text>
+      <text x="-260" y="12" font-family="monospace" font-size="11" fill="#888">.</text>
+      <text x="-252" y="12" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.8">addClass</text>
+      <text x="-192" y="12" font-family="monospace" font-size="11" fill="#888">(</text>
+      <text x="-184" y="12" font-family="monospace" font-size="11" fill="#a8e6cf" opacity="0.8">"image-popup"</text>
+      <text x="-82" y="12" font-family="monospace" font-size="11" fill="#888">)</text>
+    </g>
+    <!-- Label -->
+    <text x="260" y="370" text-anchor="middle" font-family="monospace" font-size="11" fill="#555">MARKDOWN IMAGE</text>
+    <text x="720" y="395" text-anchor="middle" font-family="monospace" font-size="11" fill="#00e5ff" opacity="0.7">LIGHTBOX POPUP</text>
+    <!-- Bottom label -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">MAGNIFIC POPUP AUTO-WRAP</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -2193,6 +2273,7 @@ const ILLUSTRATION_MAP = {
   'docker-compose-ghcr-auth-milvus-volume': illustrationDockerComposeGhcrAuthMilvusVolume,
   'windows-ollama-qwen3-install': illustrationWindowsOllamaQwen3Install,
   'ollama-remote-access-setup': illustrationOllamaRemoteAccessSetup,
+  'jekyll-markdown-image-lightbox': illustrationJekyllMarkdownImageLightbox,
 };
 
 function getIllustration(ref) {

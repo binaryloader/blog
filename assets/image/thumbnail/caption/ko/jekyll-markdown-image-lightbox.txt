@@ -1,0 +1,22 @@
+블로그 운영하시는 분들 공감하실 이야기예요 ✍️
+
+Markdown 이미지에 라이트박스(Magnific Popup) 자동 적용하기
+
+Minimal Mistakes 테마에서 마크다운 이미지 클릭 시 라이트박스가 동작하지 않는 문제를 jQuery 자동 래핑으로 해결한다.
+
+📋 이런 내용을 다뤘어요
+→ 마크다운 이미지를 클릭해도 라이트박스가 안 뜨는 건 <a> 태그가 없기 때문이다
+→ jQuery로 단독 <img>를 자동 래핑하면 Magnific Popup이 동작한다
+→ 코드 3줄이면 모든 마크다운 이미지에 라이트박스가 적용된다
+
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Jekyll #MinimalMistakes #MagnificPopup #JavaScript #jQuery #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍
