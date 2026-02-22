@@ -142,3 +142,10 @@ Invoke-RestMethod -Uri http://localhost:11434/api/generate -Method Post -Content
 | `ollama show qwen3:8b` | 모델 상세 정보 확인 |
 | `ollama ps` | 실행 중인 모델 확인 |
 | `ollama stop qwen3:8b` | 모델 중지 |
+
+# 참고
+
+- <https://ollama.com>
+- <https://ollama.com/library/qwen3>
+- <https://github.com/ollama/ollama>
+- <https://qwenlm.github.io/blog/qwen3/>

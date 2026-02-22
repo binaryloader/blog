@@ -144,3 +144,10 @@ Invoke-RestMethod -Uri http://localhost:11434/api/generate -Method Post -Content
 | `ollama show qwen3:8b` | Show model details |
 | `ollama ps` | Show running models |
 | `ollama stop qwen3:8b` | Stop a model |
+
+# References
+
+- <https://ollama.com>
+- <https://ollama.com/library/qwen3>
+- <https://github.com/ollama/ollama>
+- <https://qwenlm.github.io/blog/qwen3/>
