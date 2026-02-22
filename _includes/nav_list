@@ -11,10 +11,15 @@
   <ul class="nav__items">
     {% for nav in navigation %}
       <li>
-        {% if nav.url %}
-          <a href="{{ nav.url | relative_url }}"><span class="nav__sub-title">{% if nav.icon %}<i class="{{ nav.icon }}"></i> {% else %}<i class="fa fa-folder" style="color: #262626;"></i>{% endif %} {{ nav.title }}</span></a>
+        {% if current_lang == "ko" %}
+          {% assign nav_category = site.categories[nav.category] | where_exp: "item", "item.lang == nil" | where_exp: "item", "item.hidden != true" %}
         {% else %}
-          <span class="nav__sub-title">{{ nav.title }}</span>
+          {% assign nav_category = site.categories[nav.category] | where: "lang", current_lang | where_exp: "item", "item.hidden != true" %}
+        {% endif %}
+        {% if nav.url %}
+          <a href="{{ nav.url | relative_url }}"><span class="nav__sub-title">{% if nav.icon %}<i class="{{ nav.icon }}"></i> {% else %}<i class="fa fa-folder" style="color: #262626;"></i>{% endif %} {{ nav.title }} ({{ nav_category.size }})</span></a>
+        {% else %}
+          <span class="nav__sub-title">{{ nav.title }} ({{ nav_category.size }})</span>
         {% endif %}
 
         {% if nav.children != null %}
