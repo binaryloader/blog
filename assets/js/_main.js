@@ -81,6 +81,14 @@ $(function() {
     });
   }
 
+  // wrap standalone images in anchor tags for lightbox
+  $(".page__content img").each(function() {
+    var $img = $(this);
+    if (!$img.parent("a").length) {
+      $img.wrap('<a href="' + $img.attr("src") + '"></a>');
+    }
+  });
+
   // add lightbox class to all image links
   $(
     "a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif'],a[href$='.webp']"
