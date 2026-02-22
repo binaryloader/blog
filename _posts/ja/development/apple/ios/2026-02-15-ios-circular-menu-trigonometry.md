@@ -420,11 +420,15 @@ for (i, item) in menuItems.enumerated() {
 
 実際にUIKitアプリで実装すると以下のようになる。
 
-<div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-  <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.png" alt="UIKit円形メニュー実装結果" style="max-width: min(200px, 45%);">
-  <video autoplay loop muted playsinline width="200" style="max-width: min(200px, 45%);">
-    <source src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
-  </video>
+<div style="display: flex; gap: 12px; align-items: center;">
+  <div style="flex: 0 0 auto; width: min(200px, 45%);">
+    <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.png" alt="UIKit円形メニュー実装結果" style="width: 100%;">
+  </div>
+  <div style="flex: 0 0 auto; width: min(200px, 45%);">
+    <video autoplay loop muted playsinline style="width: 100%;">
+      <source src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/demo.mp4" type="video/mp4">
+    </video>
+  </div>
 </div>
 
 # 参考
