@@ -1977,6 +1977,89 @@ function illustrationDockerComposeGhcrAuthMilvusVolume() {
   `;
 }
 
+// Windows Ollama Qwen3 Install
+function illustrationWindowsOllamaQwen3Install() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Windows logo -->
+    <g transform="translate(200, 180)">
+      <rect x="-50" y="-50" width="45" height="45" rx="3" fill="#00e5ff" opacity="0.3" stroke="#00e5ff" stroke-width="2"/>
+      <rect x="5" y="-50" width="45" height="45" rx="3" fill="#00e5ff" opacity="0.4" stroke="#00e5ff" stroke-width="2"/>
+      <rect x="-50" y="5" width="45" height="45" rx="3" fill="#00e5ff" opacity="0.25" stroke="#00e5ff" stroke-width="2"/>
+      <rect x="5" y="5" width="45" height="45" rx="3" fill="#00e5ff" opacity="0.35" stroke="#00e5ff" stroke-width="2"/>
+    </g>
+    <text x="200" y="270" text-anchor="middle" font-family="monospace" font-size="12" fill="#00e5ff" opacity="0.7">WINDOWS 11</text>
+    <!-- Ollama llama icon -->
+    <g transform="translate(540, 200)">
+      <!-- Llama body outline -->
+      <ellipse cx="0" cy="20" rx="55" ry="35" fill="none" stroke="#4ecdc4" stroke-width="2.5" opacity="0.7"/>
+      <!-- Head -->
+      <circle cx="-35" cy="-15" r="22" fill="none" stroke="#4ecdc4" stroke-width="2.5" opacity="0.7"/>
+      <!-- Ears -->
+      <line x1="-48" y1="-30" x2="-55" y2="-52" stroke="#4ecdc4" stroke-width="2" opacity="0.6"/>
+      <line x1="-22" y1="-30" x2="-18" y2="-52" stroke="#4ecdc4" stroke-width="2" opacity="0.6"/>
+      <!-- Eyes -->
+      <circle cx="-40" cy="-18" r="3" fill="#4ecdc4" opacity="0.8"/>
+      <circle cx="-28" cy="-18" r="3" fill="#4ecdc4" opacity="0.8"/>
+      <!-- Legs -->
+      <line x1="-30" y1="50" x2="-30" y2="75" stroke="#4ecdc4" stroke-width="2" opacity="0.5"/>
+      <line x1="-10" y1="50" x2="-10" y2="75" stroke="#4ecdc4" stroke-width="2" opacity="0.5"/>
+      <line x1="10" y1="50" x2="10" y2="75" stroke="#4ecdc4" stroke-width="2" opacity="0.5"/>
+      <line x1="30" y1="50" x2="30" y2="75" stroke="#4ecdc4" stroke-width="2" opacity="0.5"/>
+    </g>
+    <text x="540" y="300" text-anchor="middle" font-family="monospace" font-size="14" fill="#4ecdc4" opacity="0.8">OLLAMA</text>
+    <!-- Qwen3 neural network nodes -->
+    <g transform="translate(860, 180)">
+      <!-- Central node -->
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#ffe66d" stroke-width="2.5" opacity="0.8"/>
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d" opacity="0.9">Q3</text>
+      <!-- Surrounding nodes -->
+      <circle cx="-50" cy="-35" r="10" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="50" cy="-35" r="10" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="-55" cy="30" r="10" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="55" cy="30" r="10" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="0" cy="55" r="10" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+      <!-- Connections -->
+      <line x1="-15" y1="-10" x2="-40" y2="-30" stroke="#ffe66d" stroke-width="1" opacity="0.3"/>
+      <line x1="15" y1="-10" x2="40" y2="-30" stroke="#ffe66d" stroke-width="1" opacity="0.3"/>
+      <line x1="-16" y1="8" x2="-45" y2="25" stroke="#ffe66d" stroke-width="1" opacity="0.3"/>
+      <line x1="16" y1="8" x2="45" y2="25" stroke="#ffe66d" stroke-width="1" opacity="0.3"/>
+      <line x1="0" y1="18" x2="0" y2="45" stroke="#ffe66d" stroke-width="1" opacity="0.3"/>
+    </g>
+    <text x="860" y="270" text-anchor="middle" font-family="monospace" font-size="12" fill="#ffe66d" opacity="0.7">QWEN3:8B</text>
+    <!-- GPU card -->
+    <g transform="translate(370, 440)">
+      <rect x="-80" y="-30" width="160" height="60" rx="6" fill="none" stroke="#a8e6cf" stroke-width="2" opacity="0.6"/>
+      <!-- Fan circles -->
+      <circle cx="-40" cy="0" r="18" fill="none" stroke="#a8e6cf" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="40" cy="0" r="18" fill="none" stroke="#a8e6cf" stroke-width="1.5" opacity="0.4"/>
+      <!-- Fan blades -->
+      <line x1="-40" y1="-12" x2="-40" y2="12" stroke="#a8e6cf" stroke-width="1" opacity="0.3"/>
+      <line x1="-52" y1="0" x2="-28" y2="0" stroke="#a8e6cf" stroke-width="1" opacity="0.3"/>
+      <line x1="40" y1="-12" x2="40" y2="12" stroke="#a8e6cf" stroke-width="1" opacity="0.3"/>
+      <line x1="28" y1="0" x2="52" y2="0" stroke="#a8e6cf" stroke-width="1" opacity="0.3"/>
+    </g>
+    <text x="370" y="490" text-anchor="middle" font-family="monospace" font-size="11" fill="#a8e6cf" opacity="0.7">RTX 4070 12GB</text>
+    <!-- Terminal window -->
+    <g transform="translate(710, 440)">
+      <rect x="-130" y="-50" width="260" height="100" rx="8" fill="#111" stroke="#333" stroke-width="1.5"/>
+      <circle cx="-110" cy="-35" r="4" fill="#ff6b9d" opacity="0.8"/>
+      <circle cx="-96" cy="-35" r="4" fill="#ffe66d" opacity="0.8"/>
+      <circle cx="-82" cy="-35" r="4" fill="#4ecdc4" opacity="0.8"/>
+      <text x="-120" y="-10" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.7">$ ollama run qwen3:8b</text>
+      <text x="-120" y="8" font-family="monospace" font-size="10" fill="#a8e6cf" opacity="0.6">Thinking...</text>
+      <text x="-120" y="26" font-family="monospace" font-size="10" fill="#fff" opacity="0.5">안녕하세요! 도움이 필요하신가요?</text>
+      <text x="-120" y="40" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.4">>>></text>
+    </g>
+    <!-- Connection arrows -->
+    <line x1="260" y1="200" x2="470" y2="200" stroke="#555" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+    <line x1="610" y1="200" x2="790" y2="190" stroke="#555" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+    <line x1="540" y1="310" x2="540" y2="380" stroke="#555" stroke-width="1" stroke-dasharray="6,4" opacity="0.3"/>
+    <!-- Bottom label -->
+    <text x="540" y="620" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">LOCAL LLM ON WINDOWS</text>
+  `;
+}
+
 // ===== ILLUSTRATION MAP =====
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
@@ -2039,6 +2122,7 @@ const ILLUSTRATION_MAP = {
   'wallpad-rs485-hardware-setup': illustrationWallpadRs485HardwareSetup,
   'alfred-iterm2-terminal-integration': illustrationAlfredIterm2TerminalIntegration,
   'docker-compose-ghcr-auth-milvus-volume': illustrationDockerComposeGhcrAuthMilvusVolume,
+  'windows-ollama-qwen3-install': illustrationWindowsOllamaQwen3Install,
 };
 
 function getIllustration(ref) {

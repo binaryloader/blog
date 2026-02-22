@@ -47,6 +47,13 @@ menu:
           - title: "Xcode"
             url: /ko/development/apple/xcode/
             category: "Xcode"
+      - title: "AI"
+        url: /ko/development/ai/
+        category: "AI"
+        children:
+          - title: "LLM"
+            url: /ko/development/ai/llm/
+            category: "LLM"
       - title: "Blog"
         url: /ko/development/blog/
         category: "Blog"
@@ -160,6 +167,13 @@ menu-en:
           - title: "Xcode"
             url: /en/development/apple/xcode/
             category: "Xcode"
+      - title: "AI"
+        url: /en/development/ai/
+        category: "AI"
+        children:
+          - title: "LLM"
+            url: /en/development/ai/llm/
+            category: "LLM"
       - title: "Blog"
         url: /en/development/blog/
         category: "Blog"
@@ -273,6 +287,13 @@ menu-ja:
           - title: "Xcode"
             url: /ja/development/apple/xcode/
             category: "Xcode"
+      - title: "AI"
+        url: /ja/development/ai/
+        category: "AI"
+        children:
+          - title: "LLM"
+            url: /ja/development/ai/llm/
+            category: "LLM"
       - title: "Blog"
         url: /ja/development/blog/
         category: "Blog"

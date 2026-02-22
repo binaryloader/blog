@@ -905,6 +905,26 @@
       "コーディング能力ではなく問題を定義する能力が差別化ポイントになる"
     ]
   },
+  "windows-ollama-qwen3-install": {
+    "ko": [
+      "Ollama 하나면 Windows에서도 로컬 LLM을 바로 실행할 수 있다",
+      "Qwen3:8B는 RTX 4070 12GB에서 VRAM 6GB만 사용하며 돌아간다",
+      "설치부터 GPU 활용 확인까지 10분이면 끝난다",
+      "API 서버가 자동으로 뜨니까 다른 앱과 연동도 바로 가능하다"
+    ],
+    "en": [
+      "Ollama lets you run local LLMs on Windows with zero hassle",
+      "Qwen3:8B runs on RTX 4070 12GB using only about 6GB of VRAM",
+      "From install to GPU verification takes just 10 minutes",
+      "The built-in API server makes integration with other apps immediate"
+    ],
+    "ja": [
+      "OllamaひとつでWindowsでもローカルLLMをすぐ実行できる",
+      "Qwen3:8BはRTX 4070 12GBでVRAM約6GBだけで動作する",
+      "インストールからGPU活用確認まで10分で完了する",
+      "APIサーバーが自動で立ち上がるので他のアプリとの連携もすぐ可能だ"
+    ]
+  },
   "running-a-tech-blog-in-the-ai-era": {
     "ko": [
       "여행 일본어가 전부인 사람이 3개 국어 블로그를 발행하고 있다",

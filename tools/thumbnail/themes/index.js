@@ -11,6 +11,7 @@ const CATEGORY_THEME_MAP = [
   { categories: ['macOS'], parent: 'PC', theme: 'dots' },
   { categories: ['SmartHome', 'Router'], theme: 'connected' },
   { categories: ['Synology'], theme: 'blocks' },
+  { categories: ['AI', 'LLM'], parent: 'Development', theme: 'network' },
   { categories: ['Writing', 'Column'], theme: 'waves' },
 ];
 
