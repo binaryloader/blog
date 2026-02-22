@@ -65,7 +65,7 @@ Ollama는 CPU만으로도 동작하지만 GPU가 있으면 훨씬 빠르다.
 
 ## 3. Ollama 설치
 
-[ollama.com](https://ollama.com)에서 Windows용 설치 파일을 다운로드한다. `OllamaSetup.exe`를 실행하면 별도 설정 없이 설치가 완료된다.
+[ollama.com/download](https://ollama.com/download)에서 Windows용 설치 파일을 다운로드한다. `OllamaSetup.exe`를 실행하면 별도 설정 없이 설치가 완료된다.
 
 설치가 끝나면 PowerShell에서 버전을 확인한다.
 
@@ -145,7 +145,7 @@ Invoke-RestMethod -Uri http://localhost:11434/api/generate -Method Post -Content
 
 # 참고
 
-- <https://ollama.com>
+- <https://ollama.com/download>
 - <https://ollama.com/library/qwen3>
 - <https://github.com/ollama/ollama>
 - <https://qwenlm.github.io/blog/qwen3/>

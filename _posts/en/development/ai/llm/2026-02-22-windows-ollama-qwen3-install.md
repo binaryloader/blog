@@ -67,7 +67,7 @@ The environment used in this post is as follows.
 
 ## 3. Installing Ollama
 
-Download the Windows installer from [ollama.com](https://ollama.com). Run `OllamaSetup.exe` and the installation completes without any additional configuration.
+Download the Windows installer from [ollama.com/download](https://ollama.com/download). Run `OllamaSetup.exe` and the installation completes without any additional configuration.
 
 After installation, verify the version in PowerShell.
 
@@ -147,7 +147,7 @@ Invoke-RestMethod -Uri http://localhost:11434/api/generate -Method Post -Content
 
 # References
 
-- <https://ollama.com>
+- <https://ollama.com/download>
 - <https://ollama.com/library/qwen3>
 - <https://github.com/ollama/ollama>
 - <https://qwenlm.github.io/blog/qwen3/>

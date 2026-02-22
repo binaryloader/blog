@@ -67,7 +67,7 @@ OllamaはCPUだけでも動作するが、GPUがあればはるかに高速だ�
 
 ## 3. Ollamaのインストール
 
-[ollama.com](https://ollama.com)からWindows用インストーラーをダウンロードする。`OllamaSetup.exe`を実行すれば、特別な設定なしでインストールが完了する。
+[ollama.com/download](https://ollama.com/download)からWindows用インストーラーをダウンロードする。`OllamaSetup.exe`を実行すれば、特別な設定なしでインストールが完了する。
 
 インストールが終わったらPowerShellでバージョンを確認する。
 
@@ -147,7 +147,7 @@ Invoke-RestMethod -Uri http://localhost:11434/api/generate -Method Post -Content
 
 # 参考
 
-- <https://ollama.com>
+- <https://ollama.com/download>
 - <https://ollama.com/library/qwen3>
 - <https://github.com/ollama/ollama>
 - <https://qwenlm.github.io/blog/qwen3/>
