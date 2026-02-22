@@ -35,9 +35,11 @@ Configuring the OLLAMA_HOST environment variable and Windows Firewall to access 
 
 # Steps
 
-## 1. The Problem
+## 1. Background
 
-By default, Ollama only listens on `127.0.0.1:11434`. This works fine on the same PC, but to call the API from a Mac or other device, you need to allow external access.
+The idea is to use a GPU-equipped Windows PC as an LLM API server via Ollama, while doing actual development and study on macOS. Windows provides the GPU resources, and macOS calls the API to leverage the LLM — making the most of each machine's strengths.
+
+However, Ollama only listens on `127.0.0.1:11434` by default. This works fine on the same PC, but to call the API from a Mac, you need to allow external access.
 
 ## 2. Setting the OLLAMA_HOST Environment Variable
 
