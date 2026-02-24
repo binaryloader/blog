@@ -135,6 +135,6 @@ npm run build:js
 
 # 참고
 
-- <https://dimsemenov.com/plugins/magnific-popup/>
 - <https://api.jquery.com/wrap/>
+- <https://dimsemenov.com/plugins/magnific-popup/>
 - <https://mmistakes.github.io/minimal-mistakes/docs/helpers/#gallery>

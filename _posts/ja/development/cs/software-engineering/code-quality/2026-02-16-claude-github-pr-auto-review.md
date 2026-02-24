@@ -415,6 +415,6 @@ Fork基盤Git Flowを使うならOrganization設定とワークフローworkarou
 
 # 参考
 
+- <https://github.com/actions/create-github-app-token>
 - <https://github.com/anthropics/claude-code-action>
 - <https://github.com/anthropics/claude-code-action/issues/821>
-- <https://github.com/actions/create-github-app-token>

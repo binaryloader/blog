@@ -137,6 +137,6 @@ This command uglifies `_main.js` into `main.min.js`. Commit the built file and d
 
 # References
 
-- <https://dimsemenov.com/plugins/magnific-popup/>
 - <https://api.jquery.com/wrap/>
+- <https://dimsemenov.com/plugins/magnific-popup/>
 - <https://mmistakes.github.io/minimal-mistakes/docs/helpers/#gallery>

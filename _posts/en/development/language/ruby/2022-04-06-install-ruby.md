@@ -88,7 +88,7 @@ rbenv uninstall 3.0.0
 
 # References
 
-- <https://www.ruby-lang.org/ko/documentation/installation/>
 - <https://devhints.io/rbenv>
+- <https://www.ruby-lang.org/ko/documentation/installation/>
 - [Install Oh My Zsh](/en/pc/macos/install-oh-my-zsh/)
 - [Setting Up Opening VSCode by Command Line](/en/pc/macos/setting-open-vscode-by-command-line/)

@@ -131,5 +131,5 @@ gem "fastlane-plugin-name"
 
 # 参考
 
-- <https://docs.fastlane.tools/plugins/using-plugins/>
 - <https://bundler.io/gemfile.html>
+- <https://docs.fastlane.tools/plugins/using-plugins/>

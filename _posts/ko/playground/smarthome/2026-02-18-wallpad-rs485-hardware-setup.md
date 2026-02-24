@@ -565,6 +565,6 @@ WiFi 환경에서 RS485-WiFi 변환기가 자주 끊기는 경우 다음을 확�
 
 # 참고
 
-- <https://www.waveshare.com/wiki/RS485_TO_WIFI/ETH>
-- <https://www.waveshare.com/rs232-485-to-wifi-eth-b.htm>
 - <https://cafe.naver.com/stsmarthome>
+- <https://www.waveshare.com/rs232-485-to-wifi-eth-b.htm>
+- <https://www.waveshare.com/wiki/RS485_TO_WIFI/ETH>

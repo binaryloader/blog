@@ -145,7 +145,7 @@ Invoke-RestMethod -Uri http://localhost:11434/api/generate -Method Post -Content
 
 # 참고
 
+- <https://github.com/ollama/ollama>
 - <https://ollama.com/download>
 - <https://ollama.com/library/qwen3>
-- <https://github.com/ollama/ollama>
 - <https://qwenlm.github.io/blog/qwen3/>

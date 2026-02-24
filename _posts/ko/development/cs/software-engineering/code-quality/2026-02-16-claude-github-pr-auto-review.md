@@ -413,6 +413,6 @@ fork 기반 Git Flow를 쓴다면 Organization 설정과 워크플로우 workaro
 
 # 참고
 
+- <https://github.com/actions/create-github-app-token>
 - <https://github.com/anthropics/claude-code-action>
 - <https://github.com/anthropics/claude-code-action/issues/821>
-- <https://github.com/actions/create-github-app-token>

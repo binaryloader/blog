@@ -236,7 +236,7 @@ Sources/
 
 # 参考
 
-- <https://developer.apple.com/documentation/swiftui/menubarextra>
 - <https://developer.apple.com/documentation/dispatch/dispatchsource>
-- <https://platform.claude.com/docs/en/build-with-claude/usage-cost-api>
+- <https://developer.apple.com/documentation/swiftui/menubarextra>
 - <https://docs.anthropic.com/en/docs/claude-code/overview>
+- <https://platform.claude.com/docs/en/build-with-claude/usage-cost-api>

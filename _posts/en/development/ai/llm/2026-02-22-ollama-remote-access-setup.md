@@ -86,5 +86,5 @@ If a response comes back successfully, the setup is complete.
 
 # References
 
-- <https://ollama.com>
 - <https://github.com/ollama/ollama/blob/main/docs/faq.md>
+- <https://ollama.com>

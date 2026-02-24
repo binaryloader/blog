@@ -89,5 +89,5 @@ fastlane -v
 
 # 参考
 
-- <https://github.com/fastlane/fastlane>
 - <https://docs.fastlane.tools/>
+- <https://github.com/fastlane/fastlane>

@@ -635,6 +635,6 @@ Program ended with exit code: 0
 
 # 参考
 
-- <https://code.tutsplus.com/tutorials/objective-c-succinctly-data-types--mobile-21986>
 - <https://andybargh.com/primitive-data-types-objective-c/>
+- <https://code.tutsplus.com/tutorials/objective-c-succinctly-data-types--mobile-21986>
 - <https://www.tutorialspoint.com/objective_c/objective_c_data_types.htm>

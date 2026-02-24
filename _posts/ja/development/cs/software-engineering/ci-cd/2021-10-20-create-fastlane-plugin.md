@@ -165,6 +165,6 @@ Please enter a detailed description of this fastlane plugin:
 
 # 参考
 
-- <https://docs.fastlane.tools/plugins/create-plugin/>
 - <https://bundler.io/guides/git.html>
+- <https://docs.fastlane.tools/plugins/create-plugin/>
 - <https://rubygems.org/>

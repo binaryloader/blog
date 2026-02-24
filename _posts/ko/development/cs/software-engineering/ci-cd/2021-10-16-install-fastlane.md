@@ -88,5 +88,5 @@ fastlane -v
 
 # 참고
 
-- <https://github.com/fastlane/fastlane>
 - <https://docs.fastlane.tools/>
+- <https://github.com/fastlane/fastlane>

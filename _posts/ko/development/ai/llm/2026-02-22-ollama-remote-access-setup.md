@@ -84,5 +84,5 @@ curl -s http://<윈도우IP>:11434/api/generate -d '{"model":"qwen3:8b","prompt"
 
 # 참고
 
-- <https://ollama.com>
 - <https://github.com/ollama/ollama/blob/main/docs/faq.md>
+- <https://ollama.com>

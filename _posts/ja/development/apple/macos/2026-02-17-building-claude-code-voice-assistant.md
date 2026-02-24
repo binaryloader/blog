@@ -171,7 +171,7 @@ JSONストリーミングレスポンスのパースが地味に楽しい作業�
 
 # 参考
 
-- <https://github.com/ggerganov/whisper.cpp>
 - <https://cloud.google.com/text-to-speech/docs/chirp3-hd>
 - <https://cloud.google.com/text-to-speech/pricing>
 - <https://docs.anthropic.com/en/docs/claude-code/overview>
+- <https://github.com/ggerganov/whisper.cpp>

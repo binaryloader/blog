@@ -434,6 +434,6 @@ Here is the actual implementation in a UIKit app.
 # References
 
 - <https://developer.apple.com/documentation/coregraphics/cgfloat>
-- <https://en.wikipedia.org/wiki/Unit_circle>
-- <https://en.wikipedia.org/wiki/Radian>
 - <https://developer.apple.com/documentation/quartzcore/cadisplaylink>
+- <https://en.wikipedia.org/wiki/Radian>
+- <https://en.wikipedia.org/wiki/Unit_circle>

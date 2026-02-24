@@ -167,7 +167,7 @@ validate_ipa(
 
 # 参考
 
-- <https://docs.fastlane.tools/create-action/>
 - <https://docs.fastlane.tools/advanced/actions>
 - <https://docs.fastlane.tools/advanced/lanes/#lane-context>
+- <https://docs.fastlane.tools/create-action/>
 - <https://github.com/fastlane/fastlane/issues/14255>

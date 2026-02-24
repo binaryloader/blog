@@ -432,6 +432,6 @@ for (i, item) in menuItems.enumerated() {
 # 참고
 
 - <https://developer.apple.com/documentation/coregraphics/cgfloat>
-- <https://en.wikipedia.org/wiki/Unit_circle>
-- <https://en.wikipedia.org/wiki/Radian>
 - <https://developer.apple.com/documentation/quartzcore/cadisplaylink>
+- <https://en.wikipedia.org/wiki/Radian>
+- <https://en.wikipedia.org/wiki/Unit_circle>

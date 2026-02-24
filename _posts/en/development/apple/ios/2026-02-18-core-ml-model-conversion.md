@@ -287,6 +287,6 @@ Palettization maps weight values to a limited set of representative values. Usin
 
 # References
 
-- <https://developer.apple.com/documentation/coreml>
 - <https://coremltools.readme.io/docs>
+- <https://developer.apple.com/documentation/coreml>
 - <https://developer.apple.com/machine-learning/models/>

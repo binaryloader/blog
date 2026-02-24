@@ -287,6 +287,6 @@ mlmodel_palettized.save("MobileNetV2_8bit.mlpackage")
 
 # 参考
 
-- <https://developer.apple.com/documentation/coreml>
 - <https://coremltools.readme.io/docs>
+- <https://developer.apple.com/documentation/coreml>
 - <https://developer.apple.com/machine-learning/models/>

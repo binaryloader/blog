@@ -140,5 +140,5 @@ Git はシンボリックリンク自体を追跡する。リポジトリにシ�
 
 # 参考
 
-- <https://man7.org/linux/man-pages/man1/ln.1.html>
 - <https://dotfiles.github.io/>
+- <https://man7.org/linux/man-pages/man1/ln.1.html>

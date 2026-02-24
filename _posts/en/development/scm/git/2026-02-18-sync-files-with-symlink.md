@@ -140,5 +140,5 @@ Git tracks the symbolic link itself. When you commit a symlink to a repository, 
 
 # References
 
-- <https://man7.org/linux/man-pages/man1/ln.1.html>
 - <https://dotfiles.github.io/>
+- <https://man7.org/linux/man-pages/man1/ln.1.html>

@@ -415,6 +415,6 @@ Especially if you're already subscribing to a Claude paid plan, it's immediately
 
 # References
 
+- <https://github.com/actions/create-github-app-token>
 - <https://github.com/anthropics/claude-code-action>
 - <https://github.com/anthropics/claude-code-action/issues/821>
-- <https://github.com/actions/create-github-app-token>

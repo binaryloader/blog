@@ -341,5 +341,5 @@ The source code is available on [GitHub](https://github.com/binaryloader/mcp-sca
 
 # References
 
-- <https://www.literatureandlatte.com/scapple/overview>
 - <https://modelcontextprotocol.io>
+- <https://www.literatureandlatte.com/scapple/overview>

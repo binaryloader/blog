@@ -130,5 +130,5 @@ gem "fastlane-plugin-name"
 
 # 참고
 
-- <https://docs.fastlane.tools/plugins/using-plugins/>
 - <https://bundler.io/gemfile.html>
+- <https://docs.fastlane.tools/plugins/using-plugins/>

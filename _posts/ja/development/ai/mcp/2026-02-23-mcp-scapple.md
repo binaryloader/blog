@@ -341,5 +341,5 @@ claude mcp add mcp-scapple -- npx @binaryloader/mcp-scapple
 
 # 参考
 
-- <https://www.literatureandlatte.com/scapple/overview>
 - <https://modelcontextprotocol.io>
+- <https://www.literatureandlatte.com/scapple/overview>

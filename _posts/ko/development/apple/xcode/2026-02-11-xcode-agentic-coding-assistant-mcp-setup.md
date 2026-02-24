@@ -171,7 +171,7 @@ CLI 명령어로 MCP 서버 프로세스를 직접 실행하는 방식이다.
 
 # 참고
 
-- <https://developer.apple.com/documentation/xcode/setting-up-coding-intelligence>
 - <https://developer.apple.com/documentation/xcode/giving-agentic-coding-tools-access-to-xcode>
-- <https://modelcontextprotocol.io>
+- <https://developer.apple.com/documentation/xcode/setting-up-coding-intelligence>
 - <https://docs.anthropic.com/en/docs/claude-code>
+- <https://modelcontextprotocol.io>

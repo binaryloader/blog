@@ -169,7 +169,7 @@ JSON 스트리밍 응답을 파싱하는 게 은근히 재밌는 작업이었다
 
 # 참고
 
-- <https://github.com/ggerganov/whisper.cpp>
 - <https://cloud.google.com/text-to-speech/docs/chirp3-hd>
 - <https://cloud.google.com/text-to-speech/pricing>
 - <https://docs.anthropic.com/en/docs/claude-code/overview>
+- <https://github.com/ggerganov/whisper.cpp>

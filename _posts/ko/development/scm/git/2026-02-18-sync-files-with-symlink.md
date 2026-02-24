@@ -138,5 +138,5 @@ Git은 심볼릭 링크 자체를 추적한다. 저장소에 심볼릭 링크를
 
 # 참고
 
-- <https://man7.org/linux/man-pages/man1/ln.1.html>
 - <https://dotfiles.github.io/>
+- <https://man7.org/linux/man-pages/man1/ln.1.html>

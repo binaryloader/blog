@@ -567,6 +567,6 @@ When installing electronic devices inside a communication junction box, pay atte
 
 # References
 
-- <https://www.waveshare.com/wiki/RS485_TO_WIFI/ETH>
-- <https://www.waveshare.com/rs232-485-to-wifi-eth-b.htm>
 - <https://cafe.naver.com/stsmarthome>
+- <https://www.waveshare.com/rs232-485-to-wifi-eth-b.htm>
+- <https://www.waveshare.com/wiki/RS485_TO_WIFI/ETH>

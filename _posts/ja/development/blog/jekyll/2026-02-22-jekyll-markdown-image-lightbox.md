@@ -137,6 +137,6 @@ npm run build:js
 
 # 参考
 
-- <https://dimsemenov.com/plugins/magnific-popup/>
 - <https://api.jquery.com/wrap/>
+- <https://dimsemenov.com/plugins/magnific-popup/>
 - <https://mmistakes.github.io/minimal-mistakes/docs/helpers/#gallery>

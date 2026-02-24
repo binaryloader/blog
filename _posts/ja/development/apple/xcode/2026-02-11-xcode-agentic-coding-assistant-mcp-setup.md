@@ -173,7 +173,7 @@ CLIコマンドでMCPサーバープロセスを直接起動する方式だ。
 
 # 参考
 
-- <https://developer.apple.com/documentation/xcode/setting-up-coding-intelligence>
 - <https://developer.apple.com/documentation/xcode/giving-agentic-coding-tools-access-to-xcode>
-- <https://modelcontextprotocol.io>
+- <https://developer.apple.com/documentation/xcode/setting-up-coding-intelligence>
 - <https://docs.anthropic.com/en/docs/claude-code>
+- <https://modelcontextprotocol.io>
