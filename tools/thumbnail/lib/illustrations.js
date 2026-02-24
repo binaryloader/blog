@@ -2295,6 +2295,60 @@ function illustrationMcpScapple() {
 }
 
 // ===== ILLUSTRATION MAP =====
+function illustrationPythonUvOllamaGettingStarted() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Python logo stylized -->
+    <g transform="translate(540, 280)">
+      <!-- Snake body -->
+      <path d="M-60,-80 C-60,-120 -20,-120 -20,-80 L-20,-20 C-20,20 20,20 20,-20 L20,-80 C20,-120 60,-120 60,-80 L60,-20 C60,40 20,80 -20,80 L-60,80 C-100,80 -100,40 -60,0 Z" fill="none" stroke="#4ecdc4" stroke-width="2.5" opacity="0.7"/>
+      <!-- Snake eyes -->
+      <circle cx="-35" cy="-90" r="5" fill="#4ecdc4" opacity="0.8"/>
+      <circle cx="35" cy="-90" r="5" fill="#ffe66d" opacity="0.8"/>
+    </g>
+    <!-- uv speed lines -->
+    <g opacity="0.5">
+      <line x1="160" y1="200" x2="280" y2="200" stroke="#ff6b9d" stroke-width="2" stroke-linecap="round"/>
+      <line x1="180" y1="220" x2="260" y2="220" stroke="#ff6b9d" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="200" y1="240" x2="270" y2="240" stroke="#ff6b9d" stroke-width="1" stroke-linecap="round"/>
+    </g>
+    <text x="220" y="180" text-anchor="middle" font-family="monospace" font-size="24" font-weight="bold" fill="#ff6b9d" opacity="0.8">uv</text>
+    <!-- Ollama llama icon -->
+    <g transform="translate(840, 240)">
+      <circle cx="0" cy="0" r="45" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.6"/>
+      <circle cx="0" cy="-5" r="25" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="-8" cy="-12" r="3" fill="#ffe66d" opacity="0.7"/>
+      <circle cx="8" cy="-12" r="3" fill="#ffe66d" opacity="0.7"/>
+      <text x="0" y="55" text-anchor="middle" font-family="monospace" font-size="14" fill="#ffe66d" opacity="0.7">ollama</text>
+    </g>
+    <!-- Connection arrows -->
+    <line x1="310" y1="260" x2="470" y2="270" stroke="#555" stroke-width="1" stroke-dasharray="6,4"/>
+    <line x1="610" y1="270" x2="790" y2="250" stroke="#555" stroke-width="1" stroke-dasharray="6,4"/>
+    <!-- Terminal window -->
+    <rect x="280" y="440" width="520" height="180" rx="10" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="305" cy="458" r="5" fill="#ff6b9d" opacity="0.6"/>
+    <circle cx="325" cy="458" r="5" fill="#ffe66d" opacity="0.6"/>
+    <circle cx="345" cy="458" r="5" fill="#4ecdc4" opacity="0.6"/>
+    <line x1="280" y1="472" x2="800" y2="472" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
+    <text x="305" y="500" font-family="monospace" font-size="13" fill="#4ecdc4" opacity="0.7">$ uv run main.py</text>
+    <text x="305" y="525" font-family="monospace" font-size="13" fill="#888" opacity="0.5">Installing dependencies...</text>
+    <text x="305" y="550" font-family="monospace" font-size="13" fill="#ffe66d" opacity="0.6">Connected to ollama:11434</text>
+    <text x="305" y="575" font-family="monospace" font-size="13" fill="#00e5ff" opacity="0.7">Response: Hello World!</text>
+    <!-- PyCharm gear -->
+    <g transform="translate(160, 480)" opacity="0.4">
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#a8e6cf" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="8" fill="none" stroke="#a8e6cf" stroke-width="1"/>
+      <line x1="0" y1="-22" x2="0" y2="-28" stroke="#a8e6cf" stroke-width="2" stroke-linecap="round"/>
+      <line x1="0" y1="22" x2="0" y2="28" stroke="#a8e6cf" stroke-width="2" stroke-linecap="round"/>
+      <line x1="-22" y1="0" x2="-28" y2="0" stroke="#a8e6cf" stroke-width="2" stroke-linecap="round"/>
+      <line x1="22" y1="0" x2="28" y2="0" stroke="#a8e6cf" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <!-- TIL badge -->
+    <rect x="440" y="120" width="200" height="40" rx="20" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <text x="540" y="146" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#00e5ff" opacity="0.7">TODAY I LEARNED</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -2360,6 +2414,7 @@ const ILLUSTRATION_MAP = {
   'ollama-remote-access-setup': illustrationOllamaRemoteAccessSetup,
   'jekyll-markdown-image-lightbox': illustrationJekyllMarkdownImageLightbox,
   'mcp-scapple': illustrationMcpScapple,
+  'python-uv-ollama-getting-started': illustrationPythonUvOllamaGettingStarted,
 };
 
 function getIllustration(ref) {
