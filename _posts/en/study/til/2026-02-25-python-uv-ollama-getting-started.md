@@ -203,6 +203,10 @@ To access devices on the same network from PyCharm, macOS local network permissi
 
 Go to **System Settings** → **Privacy & Security** → **Local Network** and enable PyCharm.
 
+# Resources
+
+- Do it! LLM을 활용한 AI 에이전트 개발 입문 (by 이성용, 이지스퍼블리싱)
+
 # References
 
 - <https://docs.astral.sh/uv/>
