@@ -1,0 +1,23 @@
+サーバー開発環境を整えた時の記録です 🖧
+
+韓国法制処 Open API の Swagger UI 構築と Vercel デプロイ
+
+韓国法制処 Open API の OpenAPI Spec を作成し、Swagger UI でドキュメント化した後、Vercel にデプロイして Mixed Content 問題を Rewrites プロキシで解決した手順を整理する。
+
+📋 こんな内容です
+→ OpenAPI Spec の作成
+→ Swagger UI の構成
+→ Vercel へのデプロイ
+→ Mixed Content の解決
+
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#SwaggerUI #OpenAPI #Vercel #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

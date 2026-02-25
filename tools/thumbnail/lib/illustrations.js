@@ -2349,6 +2349,64 @@ function illustrationPythonUvOllamaGettingStarted() {
   `;
 }
 
+// Swagger UI + Vercel deployment for Korean Law Open API
+function illustrationSwaggerUiVercelKoreanLawOpenApi() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Swagger UI browser window -->
+    <rect x="240" y="100" width="600" height="380" rx="12" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.7"/>
+    <rect x="240" y="100" width="600" height="36" rx="12" fill="#00e5ff" opacity="0.1"/>
+    <circle cx="268" cy="118" r="6" fill="#ff6b9d" opacity="0.7"/>
+    <circle cx="288" cy="118" r="6" fill="#ffe66d" opacity="0.7"/>
+    <circle cx="308" cy="118" r="6" fill="#a8e6cf" opacity="0.7"/>
+    <!-- Swagger green header bar -->
+    <rect x="270" y="155" width="540" height="40" rx="6" fill="#4ecdc4" opacity="0.25"/>
+    <text x="300" y="181" font-family="monospace" font-size="16" font-weight="bold" fill="#4ecdc4" opacity="0.9">법제처 Open API</text>
+    <text x="680" y="179" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.6">OAS 3.0</text>
+    <!-- API endpoint blocks -->
+    <rect x="270" y="210" width="540" height="32" rx="4" fill="none" stroke="#4ecdc4" stroke-width="1.2" opacity="0.5"/>
+    <rect x="278" y="216" width="42" height="20" rx="3" fill="#4ecdc4" opacity="0.6"/>
+    <text x="299" y="231" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#fff">GET</text>
+    <text x="335" y="231" font-family="monospace" font-size="11" fill="#aaa">/lawSearch.do</text>
+    <rect x="270" y="250" width="540" height="32" rx="4" fill="none" stroke="#4ecdc4" stroke-width="1.2" opacity="0.4"/>
+    <rect x="278" y="256" width="42" height="20" rx="3" fill="#4ecdc4" opacity="0.5"/>
+    <text x="299" y="271" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#fff">GET</text>
+    <text x="335" y="271" font-family="monospace" font-size="11" fill="#aaa">/lawService.do</text>
+    <rect x="270" y="290" width="540" height="32" rx="4" fill="none" stroke="#00e5ff" stroke-width="1.2" opacity="0.4"/>
+    <rect x="278" y="296" width="42" height="20" rx="3" fill="#00e5ff" opacity="0.5"/>
+    <text x="299" y="311" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#fff">GET</text>
+    <text x="335" y="311" font-family="monospace" font-size="11" fill="#aaa">/lawSearch.do (eflaw)</text>
+    <rect x="270" y="330" width="540" height="32" rx="4" fill="none" stroke="#00e5ff" stroke-width="1.2" opacity="0.3"/>
+    <rect x="278" y="336" width="42" height="20" rx="3" fill="#00e5ff" opacity="0.4"/>
+    <text x="299" y="351" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#fff">GET</text>
+    <text x="335" y="351" font-family="monospace" font-size="11" fill="#aaa">/lawService.do (eflaw)</text>
+    <!-- Try it out button -->
+    <rect x="700" y="380" width="100" height="28" rx="4" fill="#4ecdc4" opacity="0.7"/>
+    <text x="750" y="399" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#fff">Try it out</text>
+    <!-- Vercel proxy flow -->
+    <g transform="translate(540, 540)">
+      <!-- HTTPS label -->
+      <rect x="-250" y="-20" width="130" height="40" rx="8" fill="none" stroke="#a8e6cf" stroke-width="1.5"/>
+      <text x="-185" y="7" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#a8e6cf">HTTPS</text>
+      <!-- Arrow -->
+      <line x1="-115" y1="0" x2="-50" y2="0" stroke="#555" stroke-width="1.5"/>
+      <polygon points="-55,5 -45,0 -55,-5" fill="#555"/>
+      <!-- Vercel box -->
+      <rect x="-45" y="-20" width="90" height="40" rx="8" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
+      <text x="0" y="7" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff">Vercel</text>
+      <!-- Arrow -->
+      <line x1="50" y1="0" x2="115" y2="0" stroke="#555" stroke-width="1.5"/>
+      <polygon points="110,5 120,0 110,-5" fill="#555"/>
+      <!-- HTTP label -->
+      <rect x="120" y="-20" width="130" height="40" rx="8" fill="none" stroke="#ff6b9d" stroke-width="1.5"/>
+      <text x="185" y="7" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ff6b9d">HTTP</text>
+    </g>
+    <text x="540" y="600" text-anchor="middle" font-family="monospace" font-size="10" fill="#555">Rewrites Proxy: /api/* → law.go.kr/DRF/*</text>
+    <!-- Annotation -->
+    <text x="540" y="660" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">SWAGGER UI + VERCEL PROXY</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -2415,6 +2473,7 @@ const ILLUSTRATION_MAP = {
   'jekyll-markdown-image-lightbox': illustrationJekyllMarkdownImageLightbox,
   'mcp-scapple': illustrationMcpScapple,
   'python-uv-ollama-getting-started': illustrationPythonUvOllamaGettingStarted,
+  'swagger-ui-vercel-korean-law-open-api': illustrationSwaggerUiVercelKoreanLawOpenApi,
 };
 
 function getIllustration(ref) {

@@ -111,6 +111,9 @@ menu:
           - title: "Spring"
             url: /ko/development/server/spring/
             category: "Spring"
+          - title: "Swagger"
+            url: /ko/development/server/swagger/
+            category: "Swagger"
   - title: "Fundamental"
     url: /ko/fundamental/
     category: "Fundamental"
@@ -241,6 +244,9 @@ menu-en:
           - title: "Spring"
             url: /en/development/server/spring/
             category: "Spring"
+          - title: "Swagger"
+            url: /en/development/server/swagger/
+            category: "Swagger"
   - title: "Fundamental"
     url: /en/fundamental/
     category: "Fundamental"
@@ -371,6 +377,9 @@ menu-ja:
           - title: "Spring"
             url: /ja/development/server/spring/
             category: "Spring"
+          - title: "Swagger"
+            url: /ja/development/server/swagger/
+            category: "Swagger"
   - title: "Fundamental"
     url: /ja/fundamental/
     category: "Fundamental"
