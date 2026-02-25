@@ -1,5 +1,5 @@
 ---
-title: "[TIL][260225] uv와 Ollama로 Python 프로젝트 시작하기"
+title: "[TIL][260224] uv와 Ollama로 Python 프로젝트 시작하기"
 ref: python-uv-ollama-getting-started
 excerpt: "uv 패키지 매니저로 Python 프로젝트를 구성하고 Ollama Python 라이브러리로 원격 LLM 서버에 연결하면서 배운 것들을 정리한다."
 date: 2026-02-25T01:55+09:00

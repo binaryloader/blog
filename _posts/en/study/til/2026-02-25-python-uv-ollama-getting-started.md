@@ -1,5 +1,5 @@
 ---
-title: "[TIL][260225] Getting Started with Python Projects Using uv and Ollama"
+title: "[TIL][260224] Getting Started with Python Projects Using uv and Ollama"
 ref: python-uv-ollama-getting-started
 excerpt: "Setting up a Python project with the uv package manager and connecting to a remote LLM server using the Ollama Python library."
 date: 2026-02-25T01:55+09:00
