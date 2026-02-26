@@ -205,7 +205,7 @@ Go to **System Settings** → **Privacy & Security** → **Local Network** and e
 
 # Resources
 
-- Do it! LLM을 활용한 AI 에이전트 개발 입문 (by 이성용, 이지스퍼블리싱)
+- 올라마와 오픈소스 LLM을 활용한 AI 에이전트 개발 입문
 
 # References
 
