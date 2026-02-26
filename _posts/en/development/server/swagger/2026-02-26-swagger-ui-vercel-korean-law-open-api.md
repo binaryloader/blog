@@ -128,6 +128,9 @@ Since the site consists of just `index.html` and `openapi.yaml`, it can be easil
 
 Connecting the GitHub repository to Vercel enables automatic deployments on every push to the `main` branch.
 
+- Repository: <https://github.com/wookbros/open-law-api-docs>
+- Live: <https://open-law-api-docs-wookbros.vercel.app>
+
 ## 4. Resolving Mixed Content
 
 Swagger UI's Try it out feature allows sending API requests directly from the browser. However, the Vercel-hosted site is served over HTTPS, while the Legislative Service API's Base URL (`http://www.law.go.kr/DRF/`) only supports HTTP. When an HTTPS page calls an HTTP API, the browser blocks the request due to the Mixed Content policy.

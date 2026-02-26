@@ -126,6 +126,9 @@ Swagger UI는 CDN에서 직접 로드하여 별도 빌드 없이 정적 HTML 파
 
 GitHub 저장소를 Vercel에 연결하면 `main` 브랜치에 푸시할 때마다 자동으로 배포된다.
 
+- 저장소: <https://github.com/wookbros/open-law-api-docs>
+- 라이브: <https://open-law-api-docs-wookbros.vercel.app>
+
 ## 4. Mixed Content 해결
 
 Swagger UI의 Try it out 기능을 사용하면 브라우저에서 직접 API를 호출할 수 있다. 그런데 Vercel에 배포된 사이트는 HTTPS로 서빙되고 법제처 API의 Base URL은 `http://www.law.go.kr/DRF/`로 HTTP만 지원한다. HTTPS 페이지에서 HTTP API를 호출하면 브라우저가 Mixed Content 정책으로 요청을 차단한다.
