@@ -128,9 +128,6 @@ Swagger UI は CDN から直接ロードし、ビルド不要で静的 HTML フ�
 
 GitHub リポジトリを Vercel に接続すれば、`main` ブランチへのプッシュのたびに自動デプロイされる。
 
-- リポジトリ: <https://github.com/wookbros/open-law-api-docs>
-- ライブ: <https://open-law-api-docs-wookbros.vercel.app>
-
 ## 4. Mixed Content の解決
 
 Swagger UI の Try it out 機能を使うと、ブラウザから直接 API を呼び出せる。しかし Vercel にデプロイされたサイトは HTTPS で配信される一方、法制処 API の Base URL（`http://www.law.go.kr/DRF/`）は HTTP のみをサポートしている。HTTPS ページから HTTP API を呼び出すと、ブラウザが Mixed Content ポリシーによりリクエストをブロックする。
@@ -160,6 +157,11 @@ Swagger UI の Try it out 機能を使うと、ブラウザから直接 API を�
 `/api/*` へのリクエストを `http://www.law.go.kr/DRF/*` にリライトする。ブラウザの観点では同じドメインの HTTPS エンドポイントを呼び出すことになるため、Mixed Content 問題は発生しない。先ほど OpenAPI Spec の `servers.url` を `/api` に設定したのも、このプロキシを経由してリクエストが転送されるようにするためである。
 
 `headers` 設定は `openapi.yaml` ファイルに CORS 許可と適切な Content-Type を指定し、Swagger UI がスペックファイルを正常にロードできるようにする。
+
+上記の手順を経て完成した成果物は以下で確認できる。
+
+- リポジトリ: <https://github.com/wookbros/open-law-api-docs>
+- ライブ: <https://open-law-api-docs-wookbros.vercel.app>
 
 # 参考
 
