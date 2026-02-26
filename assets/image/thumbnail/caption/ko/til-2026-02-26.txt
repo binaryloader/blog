@@ -1,0 +1,24 @@
+도움이 되면 좋겠어요 🔖
+
+2026-02-26
+
+LangChain의 LCEL, 프롬프트 템플릿, 메시지 클래스, RunnableGenerator를 학습하면서 배운 것들을 정리한다.
+
+📋 이런 내용을 다뤘어요
+→ 프롬프트 엔지니어링
+→ LCEL (LangChain Expression Language)
+→ 프롬프트 템플릿
+→ 메시지 클래스
+→ MessagesPlaceholder
+
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#LangChain #LCEL #PromptEngineering #Python #PyCharm #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍

@@ -2295,7 +2295,7 @@ function illustrationMcpScapple() {
 }
 
 // ===== ILLUSTRATION MAP =====
-function illustrationPythonUvOllamaGettingStarted() {
+function illustrationTil20260224() {
   return `
     <rect x="0" y="0" width="1080" height="700" fill="none"/>
     <!-- Python logo stylized -->
@@ -2407,6 +2407,75 @@ function illustrationSwaggerUiVercelKoreanLawOpenApi() {
   `;
 }
 
+// LangChain prompt templates and LCEL
+function illustrationTil20260226() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- LCEL pipe chain -->
+    <g transform="translate(540, 180)">
+      <!-- Prompt box -->
+      <rect x="-380" y="-45" width="160" height="90" rx="10" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+      <text x="-300" y="-10" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#4ecdc4" opacity="0.8">Prompt</text>
+      <text x="-300" y="12" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.5">{variables}</text>
+      <!-- Pipe 1 -->
+      <text x="-195" y="5" text-anchor="middle" font-family="monospace" font-size="28" font-weight="bold" fill="#00e5ff" opacity="0.6">|</text>
+      <!-- LLM box -->
+      <rect x="-160" y="-45" width="160" height="90" rx="10" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.7"/>
+      <text x="-80" y="-10" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#ff6b9d" opacity="0.8">LLM</text>
+      <text x="-80" y="12" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.5">invoke()</text>
+      <!-- Pipe 2 -->
+      <text x="25" y="5" text-anchor="middle" font-family="monospace" font-size="28" font-weight="bold" fill="#00e5ff" opacity="0.6">|</text>
+      <!-- Parser box -->
+      <rect x="60" y="-45" width="160" height="90" rx="10" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.7"/>
+      <text x="140" y="-10" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#ffe66d" opacity="0.8">Parser</text>
+      <text x="140" y="12" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d" opacity="0.5">output</text>
+      <!-- Arrow -->
+      <polygon points="250,0 270,0 260,-8" fill="#00e5ff" opacity="0.4" transform="rotate(90, 260, 0) translate(-260, -260) translate(260, 260)"/>
+      <line x1="245" y1="0" x2="290" y2="0" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
+      <polygon points="285,-5 295,0 285,5" fill="#00e5ff" opacity="0.5"/>
+      <!-- Result -->
+      <text x="340" y="5" text-anchor="middle" font-family="monospace" font-size="12" fill="#00e5ff" opacity="0.6">Result</text>
+    </g>
+    <!-- Chat prompt template -->
+    <g transform="translate(280, 400)">
+      <rect x="-150" y="-90" width="300" height="230" rx="10" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+      <text x="0" y="-65" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff" opacity="0.7">ChatPromptTemplate</text>
+      <!-- System message -->
+      <rect x="-125" y="-48" width="250" height="32" rx="6" fill="none" stroke="#a8e6cf" stroke-width="1" opacity="0.5"/>
+      <text x="-115" y="-28" font-family="monospace" font-size="10" fill="#a8e6cf" opacity="0.7">system: "You are a..."</text>
+      <!-- Messages placeholder -->
+      <rect x="-125" y="-8" width="250" height="32" rx="6" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.5" stroke-dasharray="4,3"/>
+      <text x="-115" y="12" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.7">MessagesPlaceholder</text>
+      <!-- Human message -->
+      <rect x="-125" y="32" width="250" height="32" rx="6" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+      <text x="-115" y="52" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.7">human: "{input}"</text>
+      <!-- Few-shot label -->
+      <text x="0" y="95" text-anchor="middle" font-family="monospace" font-size="9" fill="#888" opacity="0.5">from_messages()</text>
+    </g>
+    <!-- Chat history messages -->
+    <g transform="translate(770, 380)">
+      <rect x="-140" y="-70" width="280" height="200" rx="10" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
+      <text x="0" y="-48" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#ff6b9d" opacity="0.6">chat_history</text>
+      <!-- Message bubbles -->
+      <rect x="-115" y="-35" width="170" height="28" rx="14" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+      <text x="-105" y="-17" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.6">Human: "Hello"</text>
+      <rect x="-55" y="0" width="170" height="28" rx="14" fill="none" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <text x="-45" y="18" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.6">AI: "Hi there!"</text>
+      <rect x="-115" y="35" width="170" height="28" rx="14" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+      <text x="-105" y="53" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.6">Human: "My name?"</text>
+      <rect x="-55" y="70" width="170" height="28" rx="14" fill="none" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+      <text x="-45" y="88" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.6">AI: "You're Alice!"</text>
+    </g>
+    <!-- Connection from chat_history to placeholder -->
+    <line x1="630" y1="410" x2="430" y2="400" stroke="#ff6b9d" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+    <!-- Annotation -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">LANGCHAIN PROMPT TEMPLATE + LCEL</text>
+    <!-- TIL badge -->
+    <rect x="440" y="60" width="200" height="40" rx="20" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <text x="540" y="86" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#00e5ff" opacity="0.7">TODAY I LEARNED</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -2472,8 +2541,9 @@ const ILLUSTRATION_MAP = {
   'ollama-remote-access-setup': illustrationOllamaRemoteAccessSetup,
   'jekyll-markdown-image-lightbox': illustrationJekyllMarkdownImageLightbox,
   'mcp-scapple': illustrationMcpScapple,
-  'python-uv-ollama-getting-started': illustrationPythonUvOllamaGettingStarted,
+  'til-2026-02-24': illustrationTil20260224,
   'swagger-ui-vercel-korean-law-open-api': illustrationSwaggerUiVercelKoreanLawOpenApi,
+  'til-2026-02-26': illustrationTil20260226,
 };
 
 function getIllustration(ref) {

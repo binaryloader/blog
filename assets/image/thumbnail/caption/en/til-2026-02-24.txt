@@ -1,6 +1,6 @@
 Sharing in case it might be helpful 📌
 
-[2026-02-25] Getting Started with Python Projects Using uv and Ollama
+2026-02-24
 
 Setting up a Python project with the uv package manager and connecting to a remote LLM server using the Ollama Python library.
 
