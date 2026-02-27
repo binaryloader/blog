@@ -1,0 +1,23 @@
+A dev tip I found quite useful ⏰
+
+Integrating LLMs with the Ollama Python Library
+
+Using the Ollama Python library to connect to a remote LLM server, with generate, chat, and LangChain integration.
+
+📋 What's covered
+→ Remote Server Connection
+→ generate and chat
+→ LangChain Integration
+→ Timeout
+
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Ollama #Python #LangChain #LLM #woogiedev
+#developer #devlife #coding #programming #tech

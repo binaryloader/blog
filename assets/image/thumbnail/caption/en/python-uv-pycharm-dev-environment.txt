@@ -1,0 +1,24 @@
+I organized what I learned about this language 💪
+
+Setting Up a Python Dev Environment with uv and PyCharm
+
+Setting up a Python project with the uv package manager and configuring the development environment in PyCharm.
+
+📋 What's covered
+→ pip vs pip3
+→ uv Package Manager
+→ Python Basics
+→ PyCharm Interpreter Setup
+→ macOS Local Network Permission
+
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Python #uv #PyCharm #macOS #woogiedev
+#developer #devlife #coding #programming #tech

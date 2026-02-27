@@ -2295,57 +2295,105 @@ function illustrationMcpScapple() {
 }
 
 // ===== ILLUSTRATION MAP =====
-function illustrationTil20260224() {
+// Python + uv + PyCharm dev environment
+function illustrationPythonUvPycharmDevEnvironment() {
   return `
     <rect x="0" y="0" width="1080" height="700" fill="none"/>
     <!-- Python logo stylized -->
-    <g transform="translate(540, 280)">
-      <!-- Snake body -->
+    <g transform="translate(300, 250)">
       <path d="M-60,-80 C-60,-120 -20,-120 -20,-80 L-20,-20 C-20,20 20,20 20,-20 L20,-80 C20,-120 60,-120 60,-80 L60,-20 C60,40 20,80 -20,80 L-60,80 C-100,80 -100,40 -60,0 Z" fill="none" stroke="#4ecdc4" stroke-width="2.5" opacity="0.7"/>
-      <!-- Snake eyes -->
       <circle cx="-35" cy="-90" r="5" fill="#4ecdc4" opacity="0.8"/>
       <circle cx="35" cy="-90" r="5" fill="#ffe66d" opacity="0.8"/>
+      <text x="0" y="110" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#4ecdc4" opacity="0.7">Python</text>
     </g>
-    <!-- uv speed lines -->
-    <g opacity="0.5">
-      <line x1="160" y1="200" x2="280" y2="200" stroke="#ff6b9d" stroke-width="2" stroke-linecap="round"/>
-      <line x1="180" y1="220" x2="260" y2="220" stroke="#ff6b9d" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="200" y1="240" x2="270" y2="240" stroke="#ff6b9d" stroke-width="1" stroke-linecap="round"/>
+    <!-- uv with speed lines -->
+    <g transform="translate(780, 200)">
+      <text x="0" y="0" text-anchor="middle" font-family="monospace" font-size="36" font-weight="bold" fill="#ff6b9d" opacity="0.8">uv</text>
+      <g opacity="0.5">
+        <line x1="-80" y1="20" x2="-20" y2="20" stroke="#ff6b9d" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="-60" y1="35" x2="-15" y2="35" stroke="#ff6b9d" stroke-width="2" stroke-linecap="round"/>
+        <line x1="-45" y1="50" x2="-10" y2="50" stroke="#ff6b9d" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+      <text x="0" y="80" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.5">fast package manager</text>
     </g>
-    <text x="220" y="180" text-anchor="middle" font-family="monospace" font-size="24" font-weight="bold" fill="#ff6b9d" opacity="0.8">uv</text>
-    <!-- Ollama llama icon -->
-    <g transform="translate(840, 240)">
-      <circle cx="0" cy="0" r="45" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.6"/>
-      <circle cx="0" cy="-5" r="25" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
-      <circle cx="-8" cy="-12" r="3" fill="#ffe66d" opacity="0.7"/>
-      <circle cx="8" cy="-12" r="3" fill="#ffe66d" opacity="0.7"/>
-      <text x="0" y="55" text-anchor="middle" font-family="monospace" font-size="14" fill="#ffe66d" opacity="0.7">ollama</text>
+    <!-- PyCharm gear icon -->
+    <g transform="translate(780, 380)" opacity="0.7">
+      <circle cx="0" cy="0" r="35" fill="none" stroke="#a8e6cf" stroke-width="2"/>
+      <circle cx="0" cy="0" r="14" fill="none" stroke="#a8e6cf" stroke-width="1.5"/>
+      <line x1="0" y1="-37" x2="0" y2="-48" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round"/>
+      <line x1="0" y1="37" x2="0" y2="48" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round"/>
+      <line x1="-37" y1="0" x2="-48" y2="0" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round"/>
+      <line x1="37" y1="0" x2="48" y2="0" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round"/>
+      <line x1="-26" y1="-26" x2="-34" y2="-34" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round"/>
+      <line x1="26" y1="26" x2="34" y2="34" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round"/>
+      <text x="0" y="70" text-anchor="middle" font-family="monospace" font-size="12" fill="#a8e6cf" opacity="0.7">PyCharm</text>
     </g>
-    <!-- Connection arrows -->
-    <line x1="310" y1="260" x2="470" y2="270" stroke="#555" stroke-width="1" stroke-dasharray="6,4"/>
-    <line x1="610" y1="270" x2="790" y2="250" stroke="#555" stroke-width="1" stroke-dasharray="6,4"/>
+    <!-- Connection lines -->
+    <line x1="380" y1="260" x2="710" y2="200" stroke="#555" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
+    <line x1="380" y1="280" x2="710" y2="370" stroke="#555" stroke-width="1" stroke-dasharray="6,4" opacity="0.4"/>
     <!-- Terminal window -->
-    <rect x="280" y="440" width="520" height="180" rx="10" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
-    <circle cx="305" cy="458" r="5" fill="#ff6b9d" opacity="0.6"/>
-    <circle cx="325" cy="458" r="5" fill="#ffe66d" opacity="0.6"/>
-    <circle cx="345" cy="458" r="5" fill="#4ecdc4" opacity="0.6"/>
-    <line x1="280" y1="472" x2="800" y2="472" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
-    <text x="305" y="500" font-family="monospace" font-size="13" fill="#4ecdc4" opacity="0.7">$ uv run main.py</text>
-    <text x="305" y="525" font-family="monospace" font-size="13" fill="#888" opacity="0.5">Installing dependencies...</text>
-    <text x="305" y="550" font-family="monospace" font-size="13" fill="#ffe66d" opacity="0.6">Connected to ollama:11434</text>
-    <text x="305" y="575" font-family="monospace" font-size="13" fill="#00e5ff" opacity="0.7">Response: Hello World!</text>
-    <!-- PyCharm gear -->
-    <g transform="translate(160, 480)" opacity="0.4">
-      <circle cx="0" cy="0" r="20" fill="none" stroke="#a8e6cf" stroke-width="1.5"/>
-      <circle cx="0" cy="0" r="8" fill="none" stroke="#a8e6cf" stroke-width="1"/>
-      <line x1="0" y1="-22" x2="0" y2="-28" stroke="#a8e6cf" stroke-width="2" stroke-linecap="round"/>
-      <line x1="0" y1="22" x2="0" y2="28" stroke="#a8e6cf" stroke-width="2" stroke-linecap="round"/>
-      <line x1="-22" y1="0" x2="-28" y2="0" stroke="#a8e6cf" stroke-width="2" stroke-linecap="round"/>
-      <line x1="22" y1="0" x2="28" y2="0" stroke="#a8e6cf" stroke-width="2" stroke-linecap="round"/>
+    <rect x="200" y="440" width="680" height="200" rx="10" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="225" cy="458" r="5" fill="#ff6b9d" opacity="0.6"/>
+    <circle cx="245" cy="458" r="5" fill="#ffe66d" opacity="0.6"/>
+    <circle cx="265" cy="458" r="5" fill="#4ecdc4" opacity="0.6"/>
+    <line x1="200" y1="472" x2="880" y2="472" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
+    <text x="225" y="500" font-family="monospace" font-size="13" fill="#4ecdc4" opacity="0.7">$ uv init myproject</text>
+    <text x="225" y="525" font-family="monospace" font-size="13" fill="#888" opacity="0.5">Initialized project \`myproject\`</text>
+    <text x="225" y="555" font-family="monospace" font-size="13" fill="#4ecdc4" opacity="0.7">$ uv add ollama langchain-ollama</text>
+    <text x="225" y="580" font-family="monospace" font-size="13" fill="#888" opacity="0.5">Resolved 12 packages in 0.8s</text>
+    <text x="225" y="605" font-family="monospace" font-size="13" fill="#ffe66d" opacity="0.6">$ uv run main.py</text>
+    <!-- Annotation -->
+    <text x="540" y="120" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">PYTHON DEV ENVIRONMENT</text>
+  `;
+}
+
+// Ollama Python library — llama + Python code + API connection
+function illustrationOllamaPythonLibrary() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Ollama llama icon -->
+    <g transform="translate(300, 280)">
+      <circle cx="0" cy="-10" r="70" fill="none" stroke="#ffe66d" stroke-width="2.5" opacity="0.6"/>
+      <circle cx="0" cy="-20" r="40" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.5"/>
+      <circle cx="-12" cy="-30" r="5" fill="#ffe66d" opacity="0.8"/>
+      <circle cx="12" cy="-30" r="5" fill="#ffe66d" opacity="0.8"/>
+      <!-- Ears -->
+      <line x1="-25" y1="-55" x2="-35" y2="-80" stroke="#ffe66d" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      <line x1="25" y1="-55" x2="35" y2="-80" stroke="#ffe66d" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      <text x="0" y="80" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#ffe66d" opacity="0.7">Ollama</text>
     </g>
-    <!-- TIL badge -->
-    <rect x="440" y="120" width="200" height="40" rx="20" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
-    <text x="540" y="146" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#00e5ff" opacity="0.7">TODAY I LEARNED</text>
+    <!-- API connection line -->
+    <g opacity="0.5">
+      <line x1="400" y1="260" x2="550" y2="260" stroke="#00e5ff" stroke-width="2" stroke-dasharray="8,4"/>
+      <polygon points="545,255 555,260 545,265" fill="#00e5ff" opacity="0.7"/>
+      <text x="475" y="248" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff" opacity="0.7">:11434</text>
+    </g>
+    <!-- Python code block -->
+    <g transform="translate(730, 180)">
+      <rect x="-170" y="-80" width="340" height="280" rx="10" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+      <text x="-145" y="-55" font-family="monospace" font-size="11" fill="#ff6b9d" opacity="0.7">import</text>
+      <text x="-92" y="-55" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.7">ollama</text>
+      <text x="-145" y="-30" font-family="monospace" font-size="11" fill="#888" opacity="0.5"></text>
+      <text x="-145" y="-5" font-family="monospace" font-size="11" fill="#ffe66d" opacity="0.7">client = ollama.Client(</text>
+      <text x="-125" y="15" font-family="monospace" font-size="11" fill="#a8e6cf" opacity="0.6">host="192.168.x.x"</text>
+      <text x="-145" y="35" font-family="monospace" font-size="11" fill="#ffe66d" opacity="0.7">)</text>
+      <text x="-145" y="65" font-family="monospace" font-size="11" fill="#888" opacity="0.5"># generate</text>
+      <text x="-145" y="85" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.7">client.generate(</text>
+      <text x="-125" y="105" font-family="monospace" font-size="11" fill="#a8e6cf" opacity="0.6">model="qwen3:8b"</text>
+      <text x="-145" y="125" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.7">)</text>
+      <text x="-145" y="155" font-family="monospace" font-size="11" fill="#888" opacity="0.5"># chat</text>
+      <text x="-145" y="175" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.7">client.chat(...)</text>
+    </g>
+    <!-- LangChain integration box -->
+    <g transform="translate(540, 560)">
+      <rect x="-220" y="-50" width="440" height="100" rx="10" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.4"/>
+      <text x="0" y="-25" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ff6b9d" opacity="0.6">LangChain Integration</text>
+      <text x="0" y="0" text-anchor="middle" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.5">ChatOllama(model="qwen3:8b",</text>
+      <text x="0" y="18" text-anchor="middle" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.5">base_url="http://...")</text>
+      <text x="0" y="38" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffe66d" opacity="0.5">llm.invoke(messages)</text>
+    </g>
+    <!-- Annotation -->
+    <text x="540" y="100" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">OLLAMA PYTHON LIBRARY</text>
   `;
 }
 
@@ -2407,8 +2455,8 @@ function illustrationSwaggerUiVercelKoreanLawOpenApi() {
   `;
 }
 
-// LangChain prompt templates and LCEL
-function illustrationTil20260226() {
+// LangChain core concepts — LCEL, prompt templates, message classes
+function illustrationLangchainCoreConcepts() {
   return `
     <rect x="0" y="0" width="1080" height="700" fill="none"/>
     <!-- LCEL pipe chain -->
@@ -2430,14 +2478,15 @@ function illustrationTil20260226() {
       <text x="140" y="-10" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#ffe66d" opacity="0.8">Parser</text>
       <text x="140" y="12" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d" opacity="0.5">output</text>
       <!-- Arrow -->
-      <polygon points="250,0 270,0 260,-8" fill="#00e5ff" opacity="0.4" transform="rotate(90, 260, 0) translate(-260, -260) translate(260, 260)"/>
       <line x1="245" y1="0" x2="290" y2="0" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
       <polygon points="285,-5 295,0 285,5" fill="#00e5ff" opacity="0.5"/>
       <!-- Result -->
       <text x="340" y="5" text-anchor="middle" font-family="monospace" font-size="12" fill="#00e5ff" opacity="0.6">Result</text>
     </g>
+    <!-- LCEL label -->
+    <text x="540" y="100" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">LCEL: prompt | llm | parser</text>
     <!-- Chat prompt template -->
-    <g transform="translate(280, 400)">
+    <g transform="translate(280, 420)">
       <rect x="-150" y="-90" width="300" height="230" rx="10" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
       <text x="0" y="-65" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff" opacity="0.7">ChatPromptTemplate</text>
       <!-- System message -->
@@ -2453,7 +2502,7 @@ function illustrationTil20260226() {
       <text x="0" y="95" text-anchor="middle" font-family="monospace" font-size="9" fill="#888" opacity="0.5">from_messages()</text>
     </g>
     <!-- Chat history messages -->
-    <g transform="translate(770, 380)">
+    <g transform="translate(770, 400)">
       <rect x="-140" y="-70" width="280" height="200" rx="10" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
       <text x="0" y="-48" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#ff6b9d" opacity="0.6">chat_history</text>
       <!-- Message bubbles -->
@@ -2467,12 +2516,112 @@ function illustrationTil20260226() {
       <text x="-45" y="88" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.6">AI: "You're Alice!"</text>
     </g>
     <!-- Connection from chat_history to placeholder -->
-    <line x1="630" y1="410" x2="430" y2="400" stroke="#ff6b9d" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+    <line x1="630" y1="420" x2="430" y2="420" stroke="#ff6b9d" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
     <!-- Annotation -->
-    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">LANGCHAIN PROMPT TEMPLATE + LCEL</text>
-    <!-- TIL badge -->
-    <rect x="440" y="60" width="200" height="40" rx="20" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
-    <text x="540" y="86" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#00e5ff" opacity="0.7">TODAY I LEARNED</text>
+    <text x="540" y="670" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">LANGCHAIN CORE CONCEPTS</text>
+  `;
+}
+
+function illustrationHydeHypotheticalDocumentEmbeddings() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Title: Standard RAG (left side) -->
+    <text x="270" y="100" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#ff6b9d" opacity="0.8">STANDARD RAG</text>
+    <!-- Standard RAG flow -->
+    <!-- Query box -->
+    <g transform="translate(270, 160)">
+      <rect x="-70" y="-22" width="140" height="44" rx="8" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+      <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="13" fill="#4ecdc4" opacity="0.9">Query</text>
+    </g>
+    <!-- Arrow down -->
+    <line x1="270" y1="185" x2="270" y2="225" stroke="#555" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="265,222 275,222 270,232" fill="#555" opacity="0.5"/>
+    <!-- Encoder box -->
+    <g transform="translate(270, 260)">
+      <rect x="-70" y="-22" width="140" height="44" rx="8" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.7"/>
+      <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="13" fill="#ffe66d" opacity="0.9">Encoder</text>
+    </g>
+    <!-- Arrow down -->
+    <line x1="270" y1="285" x2="270" y2="325" stroke="#555" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="265,322 275,322 270,332" fill="#555" opacity="0.5"/>
+    <!-- Vector Search box -->
+    <g transform="translate(270, 360)">
+      <rect x="-80" y="-22" width="160" height="44" rx="8" fill="none" stroke="#a8e6cf" stroke-width="2" opacity="0.7"/>
+      <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="12" fill="#a8e6cf" opacity="0.9">Vector Search</text>
+    </g>
+    <!-- Low similarity indicator -->
+    <g transform="translate(270, 430)">
+      <rect x="-60" y="-14" width="120" height="28" rx="14" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5"/>
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.7">Low Similarity</text>
+    </g>
+    <!-- Embedding visualization (scattered dots) -->
+    <g transform="translate(270, 510)">
+      <circle cx="-30" cy="-15" r="5" fill="#4ecdc4" opacity="0.3"/>
+      <circle cx="25" cy="10" r="5" fill="#a8e6cf" opacity="0.3"/>
+      <circle cx="-10" cy="20" r="5" fill="#a8e6cf" opacity="0.3"/>
+      <circle cx="40" cy="-20" r="5" fill="#a8e6cf" opacity="0.3"/>
+      <circle cx="-40" cy="5" r="5" fill="#a8e6cf" opacity="0.3"/>
+      <text x="-30" y="-25" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.5">Q</text>
+      <text x="25" y="0" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.5">D</text>
+      <text x="-10" y="10" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.5">D</text>
+      <!-- Distance line -->
+      <line x1="-30" y1="-15" x2="25" y2="10" stroke="#ff6b9d" stroke-width="1" stroke-dasharray="3,3" opacity="0.4"/>
+    </g>
+    <!-- Divider -->
+    <line x1="540" y1="80" x2="540" y2="620" stroke="#333" stroke-width="1" stroke-dasharray="8,6" opacity="0.3"/>
+    <text x="540" y="350" text-anchor="middle" font-family="monospace" font-size="14" fill="#555" opacity="0.5">VS</text>
+    <!-- Title: HyDE (right side) -->
+    <text x="810" y="100" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#00e5ff" opacity="0.8">HyDE</text>
+    <!-- HyDE flow -->
+    <!-- Query box -->
+    <g transform="translate(810, 160)">
+      <rect x="-70" y="-22" width="140" height="44" rx="8" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+      <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="13" fill="#4ecdc4" opacity="0.9">Query</text>
+    </g>
+    <!-- Arrow down -->
+    <line x1="810" y1="185" x2="810" y2="215" stroke="#555" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="805,212 815,212 810,222" fill="#555" opacity="0.5"/>
+    <!-- LLM box (highlighted) -->
+    <g transform="translate(810, 248)">
+      <rect x="-75" y="-22" width="150" height="44" rx="8" fill="#00e5ff" fill-opacity="0.08" stroke="#00e5ff" stroke-width="2.5" opacity="0.9"/>
+      <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#00e5ff" opacity="0.9">LLM</text>
+    </g>
+    <!-- Arrow down -->
+    <line x1="810" y1="273" x2="810" y2="295" stroke="#555" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="805,292 815,292 810,302" fill="#555" opacity="0.5"/>
+    <!-- Hypothetical Doc box (highlighted) -->
+    <g transform="translate(810, 328)">
+      <rect x="-90" y="-22" width="180" height="44" rx="8" fill="#ffe66d" fill-opacity="0.06" stroke="#ffe66d" stroke-width="2" opacity="0.8"/>
+      <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="11" fill="#ffe66d" opacity="0.9">Hypothetical Doc</text>
+    </g>
+    <!-- Arrow down -->
+    <line x1="810" y1="353" x2="810" y2="375" stroke="#555" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="805,372 815,372 810,382" fill="#555" opacity="0.5"/>
+    <!-- Encoder box -->
+    <g transform="translate(810, 408)">
+      <rect x="-70" y="-22" width="140" height="44" rx="8" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.7"/>
+      <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="13" fill="#ffe66d" opacity="0.9">Encoder</text>
+    </g>
+    <!-- High similarity indicator -->
+    <g transform="translate(810, 478)">
+      <rect x="-65" y="-14" width="130" height="28" rx="14" fill="none" stroke="#a8e6cf" stroke-width="1.5" opacity="0.6"/>
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="10" fill="#a8e6cf" opacity="0.8">High Similarity</text>
+    </g>
+    <!-- Embedding visualization (clustered dots) -->
+    <g transform="translate(810, 545)">
+      <circle cx="5" cy="-5" r="5" fill="#ffe66d" opacity="0.4"/>
+      <circle cx="15" cy="5" r="5" fill="#a8e6cf" opacity="0.4"/>
+      <circle cx="-5" cy="8" r="5" fill="#a8e6cf" opacity="0.4"/>
+      <circle cx="20" cy="-10" r="5" fill="#a8e6cf" opacity="0.4"/>
+      <circle cx="-10" cy="-8" r="5" fill="#a8e6cf" opacity="0.4"/>
+      <text x="5" y="-15" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.6">H</text>
+      <text x="15" y="-5" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.5">D</text>
+      <text x="-5" y="-2" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.5">D</text>
+      <!-- Close distance line -->
+      <line x1="5" y1="-5" x2="15" y2="5" stroke="#a8e6cf" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+    </g>
+    <!-- Bottom annotation -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">HYPOTHETICAL DOCUMENT EMBEDDINGS</text>
   `;
 }
 
@@ -2541,9 +2690,11 @@ const ILLUSTRATION_MAP = {
   'ollama-remote-access-setup': illustrationOllamaRemoteAccessSetup,
   'jekyll-markdown-image-lightbox': illustrationJekyllMarkdownImageLightbox,
   'mcp-scapple': illustrationMcpScapple,
-  'til-2026-02-24': illustrationTil20260224,
+  'python-uv-pycharm-dev-environment': illustrationPythonUvPycharmDevEnvironment,
+  'ollama-python-library': illustrationOllamaPythonLibrary,
   'swagger-ui-vercel-korean-law-open-api': illustrationSwaggerUiVercelKoreanLawOpenApi,
-  'til-2026-02-26': illustrationTil20260226,
+  'langchain-core-concepts': illustrationLangchainCoreConcepts,
+  'hyde-hypothetical-document-embeddings': illustrationHydeHypotheticalDocumentEmbeddings,
 };
 
 function getIllustration(ref) {

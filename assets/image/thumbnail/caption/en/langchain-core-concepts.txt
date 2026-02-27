@@ -1,0 +1,24 @@
+This helped me be more productive 🚀
+
+LangChain Core Concepts — LCEL, Prompt Templates, Message Classes
+
+An overview of LangChain's LCEL, prompt templates, message classes, MessagesPlaceholder, and RunnableGenerator.
+
+📋 What's covered
+→ Prompt Engineering
+→ LCEL (LangChain Expression Language)
+→ Prompt Templates
+→ Message Classes
+→ MessagesPlaceholder
+
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#LangChain #LCEL #PromptEngineering #Python #woogiedev
+#developer #devlife #coding #programming #tech

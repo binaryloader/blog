@@ -141,13 +141,6 @@ menu:
       - title: "Synology"
         url: /ko/playground/synology/
         category: "Synology"
-  - title: "Study"
-    url: /ko/study/
-    category: "Study"
-    children:
-      - title: "TIL"
-        url: /ko/study/til/
-        category: "TIL"
   - title: "Writing"
     url: /ko/writing/
     category: "Writing"
@@ -274,13 +267,6 @@ menu-en:
       - title: "Synology"
         url: /en/playground/synology/
         category: "Synology"
-  - title: "Study"
-    url: /en/study/
-    category: "Study"
-    children:
-      - title: "TIL"
-        url: /en/study/til/
-        category: "TIL"
   - title: "Writing"
     url: /en/writing/
     category: "Writing"
@@ -407,13 +393,6 @@ menu-ja:
       - title: "Synology"
         url: /ja/playground/synology/
         category: "Synology"
-  - title: "Study"
-    url: /ja/study/
-    category: "Study"
-    children:
-      - title: "TIL"
-        url: /ja/study/til/
-        category: "TIL"
   - title: "Writing"
     url: /ja/writing/
     category: "Writing"

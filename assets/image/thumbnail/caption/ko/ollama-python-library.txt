@@ -1,0 +1,23 @@
+알아두니 편했던 개발 팁이에요 ⏰
+
+Ollama Python 라이브러리로 LLM 연동하기
+
+Ollama Python 라이브러리로 원격 LLM 서버에 연결하고 generate, chat, LangChain 연동까지 사용하는 방법을 정리한다.
+
+📋 이런 내용을 다뤘어요
+→ 원격 서버 연결
+→ generate와 chat
+→ LangChain 연동
+→ 8B 모델이라도 서버 사양에 따라 응답에 시간이 걸릴 수 있다. 기본 타임아웃이…
+
+—
+
+💾 저장  ❤️ 좋아요  📲 팔로우
+@woogie.dev
+
+.
+.
+.
+
+#Ollama #Python #LangChain #LLM #woogiedev
+#개발자 #개발자일상 #개발자그램 #코딩 #프로그래밍
