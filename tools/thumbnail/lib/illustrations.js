@@ -2928,6 +2928,56 @@ function illustrationTerraformModulesS3NativeLocking() {
   `;
 }
 
+// AWS PoC infra under 300K KRW
+function illustrationAwsPocInfraUnder300kKrw() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- EC2 instance center -->
+    <rect x="340" y="120" width="400" height="340" rx="18" fill="none" stroke="#ff9900" stroke-width="2.5" opacity="0.5"/>
+    <text x="540" y="155" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#ff9900" opacity="0.8">EC2 (docker-compose)</text>
+    <!-- Containers inside -->
+    <rect x="370" y="175" width="110" height="38" rx="6" fill="#00e5ff" fill-opacity="0.08" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <text x="425" y="199" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.7">AI API</text>
+    <rect x="500" y="175" width="110" height="38" rx="6" fill="#4ecdc4" fill-opacity="0.08" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <text x="555" y="199" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">Service API</text>
+    <rect x="630" y="175" width="90" height="38" rx="6" fill="#a8e6cf" fill-opacity="0.08" stroke="#a8e6cf" stroke-width="1.5" opacity="0.5"/>
+    <text x="675" y="199" text-anchor="middle" font-family="monospace" font-size="9" fill="#a8e6cf" opacity="0.7">nginx</text>
+    <rect x="370" y="230" width="110" height="38" rx="6" fill="#ff6b9d" fill-opacity="0.08" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5"/>
+    <text x="425" y="254" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.7">Kafka</text>
+    <rect x="500" y="230" width="110" height="38" rx="6" fill="#ffe66d" fill-opacity="0.08" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+    <text x="555" y="254" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.7">Milvus</text>
+    <rect x="630" y="230" width="90" height="38" rx="6" fill="#888" fill-opacity="0.08" stroke="#888" stroke-width="1.5" opacity="0.5"/>
+    <text x="675" y="254" text-anchor="middle" font-family="monospace" font-size="9" fill="#888" opacity="0.7">etcd</text>
+    <!-- Cost badge -->
+    <rect x="440" y="310" width="200" height="50" rx="25" fill="#4ecdc4" fill-opacity="0.1" stroke="#4ecdc4" stroke-width="2" opacity="0.6"/>
+    <text x="540" y="335" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#4ecdc4" opacity="0.8">~$66~129/mo</text>
+    <text x="540" y="352" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.5">91~95% cost reduction</text>
+    <!-- Production comparison crossed out -->
+    <text x="540" y="420" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b9d" opacity="0.4" text-decoration="line-through">EKS ~$1,445/mo</text>
+    <!-- External: MongoDB Atlas Free -->
+    <rect x="120" y="200" width="160" height="50" rx="10" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.4"/>
+    <text x="200" y="222" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">MongoDB Atlas</text>
+    <text x="200" y="240" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#4ecdc4" opacity="0.6">M0 FREE</text>
+    <line x1="280" y1="225" x2="340" y2="225" stroke="#4ecdc4" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
+    <!-- External: S3 + CloudFront -->
+    <rect x="120" y="100" width="160" height="50" rx="10" fill="none" stroke="#ff9900" stroke-width="1.5" opacity="0.4"/>
+    <text x="200" y="122" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff9900" opacity="0.7">S3 + CloudFront</text>
+    <text x="200" y="140" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff9900" opacity="0.5">React SPA</text>
+    <!-- Internet arrow -->
+    <line x1="60" y1="200" x2="120" y2="200" stroke="#555" stroke-width="1.5" opacity="0.4"/>
+    <polygon points="118,194 118,206 130,200" fill="#555" opacity="0.4"/>
+    <text x="60" y="190" font-family="monospace" font-size="10" fill="#555" opacity="0.5">Internet</text>
+    <!-- Transition arrow at bottom -->
+    <line x1="340" y1="510" x2="540" y2="510" stroke="#7b42bc" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
+    <polygon points="538,504 538,516 550,510" fill="#7b42bc" opacity="0.4"/>
+    <text x="440" y="500" text-anchor="middle" font-family="monospace" font-size="9" fill="#7b42bc" opacity="0.5">PoC → Production</text>
+    <rect x="560" y="490" width="120" height="40" rx="8" fill="none" stroke="#7b42bc" stroke-width="1.5" opacity="0.3"/>
+    <text x="620" y="515" text-anchor="middle" font-family="monospace" font-size="10" fill="#7b42bc" opacity="0.5">EKS</text>
+    <!-- Bottom annotation -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">POC INFRA UNDER 300K KRW</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -3004,6 +3054,7 @@ const ILLUSTRATION_MAP = {
   's3-cloudfront-react-spa-hosting': illustrationS3CloudfrontReactSpaHosting,
   'mongodb-atlas-vs-documentdb': illustrationMongodbAtlasVsDocumentdb,
   'terraform-modules-s3-native-locking': illustrationTerraformModulesS3NativeLocking,
+  'aws-poc-infra-under-300k-krw': illustrationAwsPocInfraUnder300kKrw,
 };
 
 function getIllustration(ref) {
