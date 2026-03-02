@@ -28,5 +28,9 @@ codekit-config.json
 _asset_bundler_cache
 _site
 
+# Thumbnail (Instagram, Caption)
+assets/image/thumbnail/instagram
+assets/image/thumbnail/caption
+
 # Drive
 **/Icon
