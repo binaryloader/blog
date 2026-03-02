@@ -7,9 +7,9 @@ uvパッケージマネージャでPythonプロジェクトを構成し、PyChar
 📋 こんな内容です
 → pip vs pip3
 → uvパッケージマネージャ
-→ Python基本文法
 → PyCharmインタプリタ設定
 → macOSローカルネットワーク権限
+→ PyCharmで韓国語入力時のUnicodeEncodeError
 
 —
 

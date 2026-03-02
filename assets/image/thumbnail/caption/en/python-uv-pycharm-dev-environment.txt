@@ -7,9 +7,9 @@ Setting up a Python project with the uv package manager and configuring the deve
 📋 What's covered
 → pip vs pip3
 → uv Package Manager
-→ Python Basics
 → PyCharm Interpreter Setup
 → macOS Local Network Permission
+→ UnicodeEncodeError with Korean Input in PyCharm
 
 —
 

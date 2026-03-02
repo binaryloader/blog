@@ -7,9 +7,9 @@ uv 패키지 매니저로 Python 프로젝트를 구성하고 PyCharm에서 개�
 📋 이런 내용을 다뤘어요
 → pip vs pip3
 → uv 패키지 매니저
-→ Python 기본 문법
 → PyCharm 인터프리터 설정
 → macOS 로컬 네트워크 권한
+→ PyCharm 한국어 입력 UnicodeEncodeError
 
 —
 

@@ -108,6 +108,9 @@ menu:
           - title: "Docker"
             url: /ko/development/server/docker/
             category: "Docker"
+          - title: "Infra"
+            url: /ko/development/server/infra/
+            category: "Infra"
           - title: "Spring"
             url: /ko/development/server/spring/
             category: "Spring"
@@ -234,6 +237,9 @@ menu-en:
           - title: "Docker"
             url: /en/development/server/docker/
             category: "Docker"
+          - title: "Infra"
+            url: /en/development/server/infra/
+            category: "Infra"
           - title: "Spring"
             url: /en/development/server/spring/
             category: "Spring"
@@ -360,6 +366,9 @@ menu-ja:
           - title: "Docker"
             url: /ja/development/server/docker/
             category: "Docker"
+          - title: "Infra"
+            url: /ja/development/server/infra/
+            category: "Infra"
           - title: "Spring"
             url: /ja/development/server/spring/
             category: "Spring"

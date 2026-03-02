@@ -1,0 +1,24 @@
+バックエンド始める時に参考にした内容です 📋
+
+AWS API Gatewayタイプ比較とEKS連携
+
+REST API、HTTP API、WebSocket APIの違いを比較し、Lambda Authorizer認証、VPC Linkを通じたEKS連携方法を整理する。
+
+📋 こんな内容です
+→ API Gatewayタイプ比較
+→ サービス別APIタイプ選択
+→ 認証 — Lambda Authorizer
+→ API Gateway + EKS統合
+→ CORS設定
+
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#AWS #APIGateway #WebSocket #VPCLink #LambdaAuthorizer #EKS #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

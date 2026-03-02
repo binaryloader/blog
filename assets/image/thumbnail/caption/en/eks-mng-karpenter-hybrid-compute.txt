@@ -1,0 +1,24 @@
+Sharing what helped me getting started with backend 📋
+
+EKS MNG + Karpenter Hybrid Compute Strategy
+
+Compare EKS compute options (MNG, Fargate, Karpenter) and outline a hybrid strategy that combines MNG for stateful services with Karpenter for stateless services.
+
+📋 What's covered
+→ EKS Compute Option Comparison
+→ Hybrid Configuration — MNG + Karpenter
+→ Node Group Design
+→ Network Design
+→ Auto-scaling Strategy
+
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#AWS #EKS #Kubernetes #Karpenter #HPA #KEDA #Milvus #woogiedev
+#developer #devlife #coding #programming #tech

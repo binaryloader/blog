@@ -2625,6 +2625,309 @@ function illustrationHydeHypotheticalDocumentEmbeddings() {
   `;
 }
 
+// AWS infra design for a side project
+// EKS MNG + Karpenter hybrid compute
+function illustrationEksMngKarpenterHybridCompute() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- EKS cluster boundary -->
+    <rect x="140" y="80" width="800" height="480" rx="18" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+    <text x="180" y="115" font-family="monospace" font-size="14" font-weight="bold" fill="#00e5ff" opacity="0.8">EKS CLUSTER</text>
+    <!-- MNG system box -->
+    <rect x="180" y="140" width="200" height="80" rx="10" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.6"/>
+    <text x="280" y="165" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#4ecdc4" opacity="0.8">SYSTEM MNG</text>
+    <text x="280" y="185" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.5">CoreDNS · Karpenter · LBC</text>
+    <text x="280" y="205" text-anchor="middle" font-family="monospace" font-size="8" fill="#888" opacity="0.5">On-Demand m7i.large × 2</text>
+    <!-- MNG stateful box -->
+    <rect x="180" y="240" width="200" height="80" rx="10" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.6"/>
+    <text x="280" y="265" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d" opacity="0.8">STATEFUL MNG</text>
+    <text x="280" y="285" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.5">Kafka · Milvus</text>
+    <text x="280" y="305" text-anchor="middle" font-family="monospace" font-size="8" fill="#888" opacity="0.5">On-Demand r7i.xlarge × 2</text>
+    <!-- Karpenter dynamic area -->
+    <rect x="420" y="140" width="480" height="300" rx="12" fill="none" stroke="#ffe66d" stroke-width="2" stroke-dasharray="8,4" opacity="0.5"/>
+    <text x="460" y="165" font-family="monospace" font-size="11" font-weight="bold" fill="#ffe66d" opacity="0.8">KARPENTER DYNAMIC NODES</text>
+    <!-- Spot pods -->
+    <rect x="450" y="185" width="120" height="50" rx="8" fill="#00e5ff" fill-opacity="0.06" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <text x="510" y="215" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff" opacity="0.7">AI API</text>
+    <rect x="590" y="185" width="120" height="50" rx="8" fill="#4ecdc4" fill-opacity="0.06" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <text x="650" y="215" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.7">Service API</text>
+    <rect x="730" y="185" width="120" height="50" rx="8" fill="#a8e6cf" fill-opacity="0.06" stroke="#a8e6cf" stroke-width="1.5" opacity="0.5"/>
+    <text x="790" y="215" text-anchor="middle" font-family="monospace" font-size="10" fill="#a8e6cf" opacity="0.7">Web Client</text>
+    <!-- HPA/KEDA indicators -->
+    <text x="510" y="250" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff" opacity="0.4">KEDA</text>
+    <text x="650" y="250" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.4">HPA</text>
+    <text x="790" y="250" text-anchor="middle" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.4">HPA</text>
+    <!-- Spot badge -->
+    <rect x="720" y="300" width="60" height="22" rx="11" fill="#ffe66d" fill-opacity="0.15" stroke="#ffe66d" stroke-width="1" opacity="0.6"/>
+    <text x="750" y="315" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#ffe66d" opacity="0.7">SPOT</text>
+    <!-- Consolidation arrow -->
+    <text x="500" y="400" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.5">consolidationPolicy: WhenUnderutilized</text>
+    <!-- Scale arrows -->
+    <line x1="860" y1="280" x2="860" y2="350" stroke="#ffe66d" stroke-width="1.5" opacity="0.4"/>
+    <polygon points="855,350 865,350 860,360" fill="#ffe66d" opacity="0.4"/>
+    <line x1="880" y1="350" x2="880" y2="280" stroke="#ffe66d" stroke-width="1.5" opacity="0.4"/>
+    <polygon points="875,280 885,280 880,270" fill="#ffe66d" opacity="0.4"/>
+    <!-- Bottom annotation -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">MNG + KARPENTER HYBRID COMPUTE</text>
+  `;
+}
+
+// AWS Secrets Manager + EKS integration
+function illustrationAwsSecretsManagerEksIntegration() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Secrets Manager vault -->
+    <rect x="140" y="120" width="280" height="200" rx="16" fill="none" stroke="#ff9900" stroke-width="2" opacity="0.5"/>
+    <text x="280" y="155" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#ff9900" opacity="0.8">SECRETS MANAGER</text>
+    <!-- Secret items -->
+    <rect x="170" y="175" width="220" height="28" rx="6" fill="#ff9900" fill-opacity="0.06" stroke="#ff9900" stroke-width="1" opacity="0.4"/>
+    <text x="280" y="194" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff9900" opacity="0.6">LLM API Keys</text>
+    <rect x="170" y="213" width="220" height="28" rx="6" fill="#ff9900" fill-opacity="0.06" stroke="#ff9900" stroke-width="1" opacity="0.4"/>
+    <text x="280" y="232" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff9900" opacity="0.6">MongoDB Atlas URI</text>
+    <rect x="170" y="251" width="220" height="28" rx="6" fill="#ff9900" fill-opacity="0.06" stroke="#ff9900" stroke-width="1" opacity="0.4"/>
+    <text x="280" y="270" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff9900" opacity="0.6">JWT Signing Keys</text>
+    <!-- KMS key -->
+    <circle cx="280" cy="400" r="40" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.5"/>
+    <text x="280" y="405" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ffe66d" opacity="0.7">KMS</text>
+    <line x1="280" y1="320" x2="280" y2="360" stroke="#ffe66d" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.4"/>
+    <!-- Arrow to ESO -->
+    <line x1="420" y1="220" x2="520" y2="220" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+    <polygon points="518,214 518,226 530,220" fill="#00e5ff" opacity="0.4"/>
+    <!-- ESO box -->
+    <rect x="530" y="160" width="200" height="120" rx="12" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.5"/>
+    <text x="630" y="195" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#00e5ff" opacity="0.8">ESO</text>
+    <text x="630" y="215" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.5">External Secrets</text>
+    <text x="630" y="232" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.5">Operator</text>
+    <text x="630" y="260" text-anchor="middle" font-family="monospace" font-size="8" fill="#888" opacity="0.4">refreshInterval: 1h</text>
+    <!-- Arrow to K8s Secrets -->
+    <line x1="730" y1="220" x2="810" y2="220" stroke="#4ecdc4" stroke-width="2" opacity="0.4"/>
+    <polygon points="808,214 808,226 820,220" fill="#4ecdc4" opacity="0.4"/>
+    <!-- K8s Secrets -->
+    <rect x="820" y="160" width="160" height="120" rx="12" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.5"/>
+    <text x="900" y="195" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#4ecdc4" opacity="0.8">K8s Secrets</text>
+    <text x="900" y="220" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.5">env vars</text>
+    <!-- Pod icons -->
+    <rect x="840" y="320" width="60" height="40" rx="8" fill="#a8e6cf" fill-opacity="0.08" stroke="#a8e6cf" stroke-width="1.5" opacity="0.5"/>
+    <text x="870" y="345" text-anchor="middle" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.7">Pod</text>
+    <rect x="920" y="320" width="60" height="40" rx="8" fill="#a8e6cf" fill-opacity="0.08" stroke="#a8e6cf" stroke-width="1.5" opacity="0.5"/>
+    <text x="950" y="345" text-anchor="middle" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.7">Pod</text>
+    <line x1="900" y1="280" x2="870" y2="320" stroke="#4ecdc4" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+    <line x1="900" y1="280" x2="950" y2="320" stroke="#4ecdc4" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+    <!-- IRSA badge -->
+    <rect x="530" y="380" width="100" height="30" rx="15" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5"/>
+    <text x="580" y="400" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#ff6b9d" opacity="0.7">IRSA</text>
+    <!-- Rotation cycle -->
+    <path d="M 200 500 A 60 60 0 1 1 260 560" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.4"/>
+    <polygon points="258,555 268,560 260,565" fill="#ff6b9d" opacity="0.4"/>
+    <text x="230" y="535" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.5">ROTATION</text>
+    <!-- Bottom annotation -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">SECRETS MANAGER + EKS INTEGRATION</text>
+  `;
+}
+
+// AWS API Gateway types and EKS integration
+function illustrationAwsApiGatewayEksIntegration() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Internet -->
+    <text x="100" y="200" text-anchor="middle" font-family="monospace" font-size="11" fill="#555" opacity="0.6">INTERNET</text>
+    <line x1="150" y1="195" x2="230" y2="195" stroke="#555" stroke-width="1.5" opacity="0.4"/>
+    <polygon points="228,189 228,201 240,195" fill="#555" opacity="0.4"/>
+    <!-- API Gateway box -->
+    <rect x="240" y="100" width="300" height="340" rx="16" fill="none" stroke="#ff9900" stroke-width="2" opacity="0.4"/>
+    <text x="390" y="135" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#ff9900" opacity="0.8">API GATEWAY</text>
+    <!-- WebSocket API -->
+    <rect x="270" y="160" width="240" height="60" rx="10" fill="#00e5ff" fill-opacity="0.06" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+    <text x="390" y="185" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff" opacity="0.7">WebSocket API</text>
+    <text x="390" y="205" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff" opacity="0.4">bidirectional · 2h max</text>
+    <!-- HTTP API -->
+    <rect x="270" y="240" width="240" height="60" rx="10" fill="#4ecdc4" fill-opacity="0.06" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <text x="390" y="265" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#4ecdc4" opacity="0.7">HTTP API</text>
+    <text x="390" y="285" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.4">71% cheaper · JWT built-in</text>
+    <!-- Lambda Authorizer -->
+    <rect x="270" y="320" width="240" height="50" rx="10" fill="#ffe66d" fill-opacity="0.06" stroke="#ffe66d" stroke-width="1.5" opacity="0.5"/>
+    <text x="390" y="350" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d" opacity="0.7">Lambda Authorizer</text>
+    <text x="390" y="365" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.4">OAuth · TTL cache</text>
+    <!-- VPC Link -->
+    <rect x="600" y="200" width="120" height="50" rx="25" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.5"/>
+    <text x="660" y="230" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#ff6b9d" opacity="0.7">VPC Link</text>
+    <line x1="510" y1="270" x2="600" y2="225" stroke="#ff6b9d" stroke-width="1.5" opacity="0.4"/>
+    <!-- ALB -->
+    <rect x="780" y="200" width="100" height="50" rx="10" fill="none" stroke="#a8e6cf" stroke-width="1.5" opacity="0.5"/>
+    <text x="830" y="230" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#a8e6cf" opacity="0.7">ALB</text>
+    <line x1="720" y1="225" x2="780" y2="225" stroke="#a8e6cf" stroke-width="1.5" opacity="0.4"/>
+    <polygon points="778,219 778,231 790,225" fill="#a8e6cf" opacity="0.3"/>
+    <!-- EKS Pods -->
+    <rect x="690" y="340" width="90" height="50" rx="8" fill="#00e5ff" fill-opacity="0.06" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+    <text x="735" y="370" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.7">AI API</text>
+    <rect x="800" y="340" width="90" height="50" rx="8" fill="#4ecdc4" fill-opacity="0.06" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+    <text x="845" y="370" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">Service API</text>
+    <line x1="830" y1="250" x2="830" y2="340" stroke="#888" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+    <!-- WebSocket connection lines -->
+    <line x1="510" y1="190" x2="690" y2="340" stroke="#00e5ff" stroke-width="1" stroke-dasharray="5,3" opacity="0.3"/>
+    <!-- Bottom annotation -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">API GATEWAY + EKS INTEGRATION</text>
+  `;
+}
+
+// S3 + CloudFront React SPA hosting
+function illustrationS3CloudfrontReactSpaHosting() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- CloudFront globe -->
+    <circle cx="350" cy="250" r="100" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+    <ellipse cx="350" cy="250" rx="100" ry="40" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.25"/>
+    <ellipse cx="350" cy="250" rx="40" ry="100" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.25"/>
+    <text x="350" y="255" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#00e5ff" opacity="0.8">CloudFront</text>
+    <text x="350" y="275" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.4">450+ Edge Locations</text>
+    <!-- Edge dots -->
+    <circle cx="260" cy="190" r="4" fill="#00e5ff" opacity="0.5"/>
+    <circle cx="440" cy="200" r="4" fill="#00e5ff" opacity="0.5"/>
+    <circle cx="290" cy="330" r="4" fill="#00e5ff" opacity="0.5"/>
+    <circle cx="420" cy="310" r="4" fill="#00e5ff" opacity="0.5"/>
+    <!-- Arrow to S3 -->
+    <line x1="450" y1="250" x2="560" y2="250" stroke="#ff9900" stroke-width="2" opacity="0.4"/>
+    <polygon points="558,244 558,256 570,250" fill="#ff9900" opacity="0.4"/>
+    <text x="510" y="240" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff9900" opacity="0.5">OAC</text>
+    <!-- S3 bucket -->
+    <rect x="570" y="180" width="200" height="140" rx="14" fill="none" stroke="#ff9900" stroke-width="2" opacity="0.5"/>
+    <text x="670" y="215" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#ff9900" opacity="0.8">S3</text>
+    <!-- React files inside S3 -->
+    <rect x="595" y="235" width="150" height="22" rx="4" fill="#4ecdc4" fill-opacity="0.08" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <text x="670" y="250" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.6">index.html</text>
+    <rect x="595" y="265" width="150" height="22" rx="4" fill="#ffe66d" fill-opacity="0.08" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+    <text x="670" y="280" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.6">main.[hash].js · .css</text>
+    <!-- Block Public Access badge -->
+    <rect x="810" y="220" width="120" height="30" rx="6" fill="#ff6b9d" fill-opacity="0.1" stroke="#ff6b9d" stroke-width="1" opacity="0.5"/>
+    <text x="870" y="240" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.7">BLOCK PUBLIC</text>
+    <!-- React logo simplified -->
+    <circle cx="200" cy="480" r="8" fill="#00e5ff" opacity="0.5"/>
+    <ellipse cx="200" cy="480" rx="35" ry="14" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.3" transform="rotate(-30,200,480)"/>
+    <ellipse cx="200" cy="480" rx="35" ry="14" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.3" transform="rotate(30,200,480)"/>
+    <ellipse cx="200" cy="480" rx="35" ry="14" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.3"/>
+    <text x="200" y="530" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff" opacity="0.5">React SPA</text>
+    <!-- Cache strategy -->
+    <rect x="500" y="420" width="380" height="100" rx="10" fill="none" stroke="#888" stroke-width="1" opacity="0.3"/>
+    <text x="690" y="445" text-anchor="middle" font-family="monospace" font-size="10" fill="#888" opacity="0.6">CACHE STRATEGY</text>
+    <text x="530" y="470" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.5">index.html → max-age=300</text>
+    <text x="530" y="490" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.5">JS/CSS [hash] → immutable, 1yr</text>
+    <text x="530" y="510" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.5">images → max-age=86400</text>
+    <!-- Bottom annotation -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">S3 + CLOUDFRONT STATIC HOSTING</text>
+  `;
+}
+
+// MongoDB Atlas vs DocumentDB
+function illustrationMongodbAtlasVsDocumentdb() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Atlas side -->
+    <rect x="100" y="120" width="380" height="380" rx="16" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.5"/>
+    <text x="290" y="160" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#4ecdc4" opacity="0.8">MongoDB Atlas</text>
+    <!-- Atlas features -->
+    <rect x="140" y="185" width="300" height="30" rx="6" fill="#4ecdc4" fill-opacity="0.06" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <text x="290" y="205" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">100% MongoDB Compatible</text>
+    <rect x="140" y="225" width="300" height="30" rx="6" fill="#4ecdc4" fill-opacity="0.06" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <text x="290" y="245" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">Atlas Search · lucene.korean</text>
+    <rect x="140" y="265" width="300" height="30" rx="6" fill="#4ecdc4" fill-opacity="0.06" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <text x="290" y="285" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">Atlas Vector Search</text>
+    <rect x="140" y="305" width="300" height="30" rx="6" fill="#4ecdc4" fill-opacity="0.06" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <text x="290" y="325" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">Auto-Scaling · PITR</text>
+    <!-- Check marks -->
+    <text x="125" y="208" font-family="monospace" font-size="12" fill="#4ecdc4" opacity="0.7">✓</text>
+    <text x="125" y="248" font-family="monospace" font-size="12" fill="#4ecdc4" opacity="0.7">✓</text>
+    <text x="125" y="288" font-family="monospace" font-size="12" fill="#4ecdc4" opacity="0.7">✓</text>
+    <text x="125" y="328" font-family="monospace" font-size="12" fill="#4ecdc4" opacity="0.7">✓</text>
+    <!-- DocumentDB side -->
+    <rect x="600" y="120" width="380" height="380" rx="16" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.5"/>
+    <text x="790" y="160" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#ff6b9d" opacity="0.8">DocumentDB</text>
+    <!-- DocumentDB limitations -->
+    <rect x="640" y="185" width="300" height="30" rx="6" fill="#ff6b9d" fill-opacity="0.06" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+    <text x="790" y="205" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.7">~34% Compatibility</text>
+    <rect x="640" y="225" width="300" height="30" rx="6" fill="#ff6b9d" fill-opacity="0.06" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+    <text x="790" y="245" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.7">No Korean Full-Text Search</text>
+    <rect x="640" y="265" width="300" height="30" rx="6" fill="#ff6b9d" fill-opacity="0.06" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+    <text x="790" y="285" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.7">No Vector Search</text>
+    <rect x="640" y="305" width="300" height="30" rx="6" fill="#ff6b9d" fill-opacity="0.06" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+    <text x="790" y="325" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.7">retryWrites = false</text>
+    <!-- X marks -->
+    <text x="625" y="208" font-family="monospace" font-size="12" fill="#ff6b9d" opacity="0.7">✗</text>
+    <text x="625" y="248" font-family="monospace" font-size="12" fill="#ff6b9d" opacity="0.7">✗</text>
+    <text x="625" y="288" font-family="monospace" font-size="12" fill="#ff6b9d" opacity="0.7">✗</text>
+    <text x="625" y="328" font-family="monospace" font-size="12" fill="#ff6b9d" opacity="0.7">✗</text>
+    <!-- VS divider -->
+    <text x="540" y="310" text-anchor="middle" font-family="monospace" font-size="24" font-weight="bold" fill="#555" opacity="0.3">VS</text>
+    <!-- VPC Peering at bottom -->
+    <rect x="300" y="530" width="200" height="40" rx="8" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
+    <text x="400" y="555" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.6">VPC Peering</text>
+    <rect x="580" y="530" width="200" height="40" rx="8" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.4"/>
+    <text x="680" y="555" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.6">PrivateLink</text>
+    <!-- Bottom annotation -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">MONGODB ATLAS vs DOCUMENTDB</text>
+  `;
+}
+
+// Terraform modules and S3 native state locking
+function illustrationTerraformModulesS3NativeLocking() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Terraform logo area -->
+    <rect x="420" y="80" width="240" height="50" rx="10" fill="none" stroke="#7b42bc" stroke-width="2" opacity="0.5"/>
+    <text x="540" y="112" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#7b42bc" opacity="0.8">TERRAFORM</text>
+    <!-- Modules tree -->
+    <rect x="120" y="180" width="340" height="360" rx="14" fill="none" stroke="#7b42bc" stroke-width="1.5" opacity="0.3"/>
+    <text x="290" y="210" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#7b42bc" opacity="0.7">MODULES</text>
+    <!-- Module items -->
+    <rect x="150" y="230" width="130" height="32" rx="6" fill="#00e5ff" fill-opacity="0.06" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+    <text x="215" y="250" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.7">networking</text>
+    <rect x="300" y="230" width="130" height="32" rx="6" fill="#4ecdc4" fill-opacity="0.06" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+    <text x="365" y="250" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">eks</text>
+    <rect x="150" y="275" width="130" height="32" rx="6" fill="#ff6b9d" fill-opacity="0.06" stroke="#ff6b9d" stroke-width="1" opacity="0.5"/>
+    <text x="215" y="295" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.7">secrets</text>
+    <rect x="300" y="275" width="130" height="32" rx="6" fill="#ffe66d" fill-opacity="0.06" stroke="#ffe66d" stroke-width="1" opacity="0.5"/>
+    <text x="365" y="295" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.7">database</text>
+    <rect x="150" y="320" width="130" height="32" rx="6" fill="#a8e6cf" fill-opacity="0.06" stroke="#a8e6cf" stroke-width="1" opacity="0.5"/>
+    <text x="215" y="340" text-anchor="middle" font-family="monospace" font-size="9" fill="#a8e6cf" opacity="0.7">storage</text>
+    <rect x="300" y="320" width="130" height="32" rx="6" fill="#ff9900" fill-opacity="0.06" stroke="#ff9900" stroke-width="1" opacity="0.5"/>
+    <text x="365" y="340" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff9900" opacity="0.7">cdn</text>
+    <rect x="150" y="365" width="130" height="32" rx="6" fill="#888" fill-opacity="0.06" stroke="#888" stroke-width="1" opacity="0.5"/>
+    <text x="215" y="385" text-anchor="middle" font-family="monospace" font-size="9" fill="#888" opacity="0.7">api-gateway</text>
+    <rect x="300" y="365" width="130" height="32" rx="6" fill="#00e5ff" fill-opacity="0.06" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+    <text x="365" y="385" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.7">milvus</text>
+    <!-- Environments -->
+    <rect x="150" y="420" width="80" height="28" rx="14" fill="#4ecdc4" fill-opacity="0.1" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+    <text x="190" y="438" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.7">dev</text>
+    <rect x="245" y="420" width="80" height="28" rx="14" fill="#ffe66d" fill-opacity="0.1" stroke="#ffe66d" stroke-width="1" opacity="0.5"/>
+    <text x="285" y="438" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.7">staging</text>
+    <rect x="340" y="420" width="80" height="28" rx="14" fill="#ff6b9d" fill-opacity="0.1" stroke="#ff6b9d" stroke-width="1" opacity="0.5"/>
+    <text x="380" y="438" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.7">prod</text>
+    <!-- S3 State Backend -->
+    <rect x="580" y="180" width="380" height="180" rx="14" fill="none" stroke="#ff9900" stroke-width="1.5" opacity="0.4"/>
+    <text x="770" y="210" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ff9900" opacity="0.7">S3 STATE BACKEND</text>
+    <!-- Lock file indicator -->
+    <rect x="620" y="235" width="300" height="35" rx="8" fill="#ff9900" fill-opacity="0.06" stroke="#ff9900" stroke-width="1" opacity="0.4"/>
+    <text x="770" y="258" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff9900" opacity="0.6">use_lockfile = true</text>
+    <text x="770" y="300" text-anchor="middle" font-family="monospace" font-size="9" fill="#888" opacity="0.4">S3 Native Locking (Terraform 1.10+)</text>
+    <text x="770" y="320" text-anchor="middle" font-family="monospace" font-size="8" fill="#888" opacity="0.3">No DynamoDB needed</text>
+    <!-- GitHub Actions -->
+    <rect x="580" y="400" width="380" height="130" rx="14" fill="none" stroke="#888" stroke-width="1.5" opacity="0.3"/>
+    <text x="770" y="430" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#888" opacity="0.6">GITHUB ACTIONS CI/CD</text>
+    <!-- PR → Plan -->
+    <rect x="620" y="450" width="100" height="30" rx="6" fill="#4ecdc4" fill-opacity="0.08" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <text x="670" y="470" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.6">PR → plan</text>
+    <!-- Merge → Apply -->
+    <rect x="740" y="450" width="100" height="30" rx="6" fill="#ff6b9d" fill-opacity="0.08" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+    <text x="790" y="470" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.6">merge → apply</text>
+    <!-- Infracost -->
+    <rect x="860" y="450" width="80" height="30" rx="6" fill="#ffe66d" fill-opacity="0.08" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+    <text x="900" y="470" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.6">Infracost</text>
+    <!-- OIDC label -->
+    <text x="770" y="510" text-anchor="middle" font-family="monospace" font-size="8" fill="#888" opacity="0.4">OIDC Authentication · No Static Keys</text>
+    <!-- Bottom annotation -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">TERRAFORM MODULES + S3 STATE LOCKING</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -2695,6 +2998,12 @@ const ILLUSTRATION_MAP = {
   'swagger-ui-vercel-korean-law-open-api': illustrationSwaggerUiVercelKoreanLawOpenApi,
   'langchain-core-concepts': illustrationLangchainCoreConcepts,
   'hyde-hypothetical-document-embeddings': illustrationHydeHypotheticalDocumentEmbeddings,
+  'eks-mng-karpenter-hybrid-compute': illustrationEksMngKarpenterHybridCompute,
+  'aws-secrets-manager-eks-integration': illustrationAwsSecretsManagerEksIntegration,
+  'aws-api-gateway-eks-integration': illustrationAwsApiGatewayEksIntegration,
+  's3-cloudfront-react-spa-hosting': illustrationS3CloudfrontReactSpaHosting,
+  'mongodb-atlas-vs-documentdb': illustrationMongodbAtlasVsDocumentdb,
+  'terraform-modules-s3-native-locking': illustrationTerraformModulesS3NativeLocking,
 };
 
 function getIllustration(ref) {

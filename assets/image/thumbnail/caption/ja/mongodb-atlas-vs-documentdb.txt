@@ -1,0 +1,24 @@
+バックエンド始める時に参考にした内容です 📋
+
+MongoDB Atlas vs DocumentDB比較とEKS連携
+
+DocumentDBの互換性の限界を分析し、MongoDB Atlasを選択した理由、Atlas Search日本語検索、VPC Peering/PrivateLinkを通じたEKS連携方法を整理する。
+
+📋 こんな内容です
+→ DocumentDBの互換性問題
+→ Atlas Search — 韓国語全文検索
+→ Atlas Vector Search
+→ EKSネットワーク連携
+→ 環境別構成
+
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#AWS #MongoDBAtlas #DocumentDB #AtlasSearch #VPCPeering #Terraform #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック

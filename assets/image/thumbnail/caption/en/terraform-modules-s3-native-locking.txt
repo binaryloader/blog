@@ -1,0 +1,24 @@
+Sharing what helped me getting started with backend 📋
+
+Terraform Module Structure and S3 Native State Locking
+
+Cover Terraform module-based directory design, S3 native state locking, and GitHub Actions CI/CD pipeline.
+
+📋 What's covered
+→ Why Terraform
+→ Directory Structure
+→ S3 State Management
+→ Key Modules
+→ CI/CD — GitHub Actions
+
+—
+
+💾 Save  ❤️ Like  📲 Follow
+@woogie.dev
+
+.
+.
+.
+
+#Terraform #AWS #S3 #GitHubActions #Infracost #IaC #woogiedev
+#developer #devlife #coding #programming #tech

@@ -1,0 +1,24 @@
+バックエンド始める時に参考にした内容です 📋
+
+EKS MNG + Karpenterハイブリッドコンピュート戦略
+
+EKSのコンピュートオプション(MNG、Fargate、Karpenter)を比較し、statefulサービスにはMNG、statelessサービスにはKarpenterを組み合わせるハイブリッド戦略を整理する。
+
+📋 こんな内容です
+→ EKSコンピュートオプション比較
+→ ハイブリッド構成 — MNG + Karpenter
+→ ノードグループ設計
+→ ネットワーク設計
+→ Auto-scaling戦略
+
+—
+
+💾 保存  ❤️ いいね  📲 フォロー
+@woogie.dev
+
+.
+.
+.
+
+#AWS #EKS #Kubernetes #Karpenter #HPA #KEDA #Milvus #woogiedev
+#エンジニア #プログラミング #開発者 #エンジニアライフ #テック
