@@ -127,7 +127,7 @@ Claude Code メインセッション（CTO / オーケストレーター）
 │   └── security-auditor.md         # セキュリティ監査者（opus, plan）
 │
 ├── skills/                         # ワークフロー（5個）
-│   ├── planning/SKILL.md       # /planning <機能>
+│   ├── planning/SKILL.md           # /planning <機能>
 │   ├── develop/SKILL.md            # /develop <タスク>
 │   ├── review-all/SKILL.md         # /review-all [ブランチ]
 │   ├── release/SKILL.md            # /release <バージョン>

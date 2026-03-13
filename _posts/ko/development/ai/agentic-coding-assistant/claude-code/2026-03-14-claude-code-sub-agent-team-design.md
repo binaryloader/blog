@@ -123,7 +123,7 @@ Claude Code 메인 세션 (CTO / 오케스트레이터)
 │   └── security-auditor.md         # 보안 감사자 (opus, plan)
 │
 ├── skills/                         # 워크플로우 (5개)
-│   ├── planning/SKILL.md       # /planning <기능>
+│   ├── planning/SKILL.md           # /planning <기능>
 │   ├── develop/SKILL.md            # /develop <작업>
 │   ├── review-all/SKILL.md         # /review-all [브랜치]
 │   ├── release/SKILL.md            # /release <버전>

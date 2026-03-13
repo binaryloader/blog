@@ -127,7 +127,7 @@ User-level settings applied globally to all projects. These are always loaded re
 │   └── security-auditor.md         # Security Auditor (opus, plan)
 │
 ├── skills/                         # Workflows (5 skills)
-│   ├── planning/SKILL.md       # /planning <feature>
+│   ├── planning/SKILL.md           # /planning <feature>
 │   ├── develop/SKILL.md            # /develop <task>
 │   ├── review-all/SKILL.md         # /review-all [branch]
 │   ├── release/SKILL.md            # /release <version>
