@@ -32,5 +32,9 @@ _site
 assets/image/thumbnail/instagram
 assets/image/thumbnail/caption
 
+# Claude Code
+CLAUDE.md
+.claude/
+
 # Drive
 **/Icon

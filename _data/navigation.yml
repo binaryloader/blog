@@ -58,6 +58,9 @@ menu:
               - title: "Kiro"
                 url: /ko/development/ai/agentic-coding-assistant/kiro/
                 category: "Kiro"
+              - title: "Claude Code"
+                url: /ko/development/ai/agentic-coding-assistant/claude-code/
+                category: "Claude-Code"
               - title: "MCP"
                 url: /ko/development/ai/agentic-coding-assistant/mcp/
                 category: "MCP"
@@ -194,6 +197,9 @@ menu-en:
               - title: "Kiro"
                 url: /en/development/ai/agentic-coding-assistant/kiro/
                 category: "Kiro"
+              - title: "Claude Code"
+                url: /en/development/ai/agentic-coding-assistant/claude-code/
+                category: "Claude-Code"
               - title: "MCP"
                 url: /en/development/ai/agentic-coding-assistant/mcp/
                 category: "MCP"
@@ -330,6 +336,9 @@ menu-ja:
               - title: "Kiro"
                 url: /ja/development/ai/agentic-coding-assistant/kiro/
                 category: "Kiro"
+              - title: "Claude Code"
+                url: /ja/development/ai/agentic-coding-assistant/claude-code/
+                category: "Claude-Code"
               - title: "MCP"
                 url: /ja/development/ai/agentic-coding-assistant/mcp/
                 category: "MCP"
