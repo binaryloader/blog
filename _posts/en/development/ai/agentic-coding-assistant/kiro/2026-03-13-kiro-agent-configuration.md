@@ -177,21 +177,29 @@ Prompts can be split into modules for better reusability and maintainability.
 
 ```markdown
 # Common Rules
-## Language
-### Korean
+
+## 1. Language
+
+### 1.1. Korean
+
 - Use commas only when listing consecutive items
 - Do not use commas after conjunctive adverbs or connective endings
-## Tools
-### GitLab
+
+## 2. Tools
+
+### 2.1. GitLab
+
 - Use GitLab MCP for GitLab operations
-- Host: `gitlab.example.com`
+- The host is `gitlab.example.com`
 ```
 
 `developer-ios-rules.md` (iOS development rules)
 
 ```markdown
 # iOS Development Rules
-## Swift Style Convention
+
+## 1. Swift Style Convention
+
 - Add a blank line after type declarations
 - Put each parameter on a new line when there are 2 or more
 - Always add a blank line after guard statements
@@ -204,10 +212,13 @@ Prompts can be split into modules for better reusability and maintainability.
 
 ```markdown
 # iOS Developer Agent
+
 You are a senior iOS developer with over 10 years of experience. You are proficient in Swift and iOS frameworks, and skilled in clean code and architecture design.
-Follow these rules:
-- Common rules: `~/.kiro/prompts/modules/common-rules.md`
-- iOS development rules: `~/.kiro/prompts/modules/developer-ios-rules.md`
+
+Follow these rules.
+
+- Common rules are defined in `~/.kiro/prompts/modules/common-rules.md`
+- iOS development rules are defined in `~/.kiro/prompts/modules/developer-ios-rules.md`
 ```
 
 ### 5.4. Agent Configuration

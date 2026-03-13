@@ -175,21 +175,29 @@ Claude Code에서 사용하던 CLAUDE.md를 Kiro 에이전트의 prompt로 그�
 
 ```markdown
 # 공통 규칙
-## 언어
-### 한국어
+
+## 1. 언어
+
+### 1.1. 한국어
+
 - 연속된 항목을 나열할 때만 쉼표를 사용한다
 - 접속 부사나 연결 어미 뒤에는 쉼표를 찍지 않는다
-## 도구
-### GitLab
+
+## 2. 도구
+
+### 2.1. GitLab
+
 - GitLab 작업은 GitLab MCP를 사용한다
-- 호스트: `gitlab.example.com`
+- 호스트는 `gitlab.example.com`이다
 ```
 
 `developer-ios-rules.md` (iOS 개발 규칙)
 
 ```markdown
 # iOS 개발 규칙
-## Swift 스타일 컨벤션
+
+## 1. Swift 스타일 컨벤션
+
 - 타입 선언 후 빈 줄을 추가한다
 - 파라미터가 2개 이상이면 각 파라미터를 개행한다
 - guard 문 뒤에는 반드시 빈 줄을 추가한다
@@ -202,10 +210,13 @@ Claude Code에서 사용하던 CLAUDE.md를 Kiro 에이전트의 prompt로 그�
 
 ```markdown
 # iOS 개발자 에이전트
+
 당신은 10년 이상 경력의 시니어 iOS 개발자다. Swift와 iOS 프레임워크에 정통하며 클린 코드와 아키텍처 설계에 능숙하다.
-다음 규칙을 따른다:
-- 공통 규칙: `~/.kiro/prompts/modules/common-rules.md`
-- iOS 개발 규칙: `~/.kiro/prompts/modules/developer-ios-rules.md`
+
+다음 규칙을 따른다.
+
+- 공통 규칙은 `~/.kiro/prompts/modules/common-rules.md`에 정의되어 있다
+- iOS 개발 규칙은 `~/.kiro/prompts/modules/developer-ios-rules.md`에 정의되어 있다
 ```
 
 ### 5.4. 에이전트 설정

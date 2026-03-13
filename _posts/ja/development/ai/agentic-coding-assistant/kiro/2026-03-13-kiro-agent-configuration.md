@@ -177,21 +177,29 @@ Claude Codeで使っていたCLAUDE.mdをKiroエージェントのpromptとし�
 
 ```markdown
 # 共通ルール
-## 言語
-### 韓国語
+
+## 1. 言語
+
+### 1.1. 韓国語
+
 - 連続した項目を列挙するときのみカンマを使用する
 - 接続副詞や接続語尾の後にカンマを打たない
-## ツール
-### GitLab
+
+## 2. ツール
+
+### 2.1. GitLab
+
 - GitLab作業はGitLab MCPを使用する
-- ホスト: `gitlab.example.com`
+- ホストは`gitlab.example.com`である
 ```
 
 `developer-ios-rules.md`（iOS開発ルール）
 
 ```markdown
 # iOS開発ルール
-## Swiftスタイル規約
+
+## 1. Swiftスタイル規約
+
 - 型宣言の後に空行を追加する
 - パラメータが2つ以上の場合は各パラメータを改行する
 - guard文の後には必ず空行を追加する
@@ -204,10 +212,13 @@ Claude Codeで使っていたCLAUDE.mdをKiroエージェントのpromptとし�
 
 ```markdown
 # iOS開発者エージェント
+
 あなたは10年以上のキャリアを持つシニアiOS開発者です。SwiftとiOSフレームワークに精通しており、クリーンコードとアーキテクチャ設計に長けています。
-以下のルールに従います:
-- 共通ルール: `~/.kiro/prompts/modules/common-rules.md`
-- iOS開発ルール: `~/.kiro/prompts/modules/developer-ios-rules.md`
+
+以下のルールに従います。
+
+- 共通ルールは`~/.kiro/prompts/modules/common-rules.md`に定義されている
+- iOS開発ルールは`~/.kiro/prompts/modules/developer-ios-rules.md`に定義されている
 ```
 
 ### 5.4. エージェント設定
