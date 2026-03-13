@@ -3160,6 +3160,96 @@ function illustrationKiroMcpServerConfiguration() {
   `;
 }
 
+// Claude Code sub-agent team design
+function illustrationClaudeCodeSubAgentTeamDesign() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- CEO (User) at top -->
+    <rect x="440" y="60" width="200" height="50" rx="25" fill="none" stroke="#ffe66d" stroke-width="2"/>
+    <text x="540" y="92" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#ffe66d">CEO (User)</text>
+    <!-- Connection line down -->
+    <line x1="540" y1="110" x2="540" y2="150" stroke="#ffe66d" stroke-width="1.5"/>
+    <!-- Claude Code main session (Orchestrator) -->
+    <rect x="350" y="150" width="380" height="55" rx="10" fill="none" stroke="#00e5ff" stroke-width="2.5"/>
+    <text x="540" y="175" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#00e5ff">Claude Code Main Session</text>
+    <text x="540" y="195" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff" opacity="0.6">CTO / Orchestrator</text>
+    <!-- Branch lines from orchestrator to 4 teams -->
+    <line x1="540" y1="205" x2="160" y2="280" stroke="#333" stroke-width="1.5"/>
+    <line x1="540" y1="205" x2="400" y2="280" stroke="#333" stroke-width="1.5"/>
+    <line x1="540" y1="205" x2="680" y2="280" stroke="#333" stroke-width="1.5"/>
+    <line x1="540" y1="205" x2="920" y2="280" stroke="#333" stroke-width="1.5"/>
+    <!-- Team 1: Planning -->
+    <rect x="60" y="280" width="200" height="45" rx="8" fill="none" stroke="#ff6b9d" stroke-width="1.8"/>
+    <text x="160" y="308" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ff6b9d">Planning</text>
+    <!-- Planning agents -->
+    <line x1="110" y1="325" x2="110" y2="355" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+    <line x1="160" y1="325" x2="160" y2="355" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+    <line x1="210" y1="325" x2="210" y2="355" stroke="#ff6b9d" stroke-width="1" opacity="0.4"/>
+    <rect x="70" y="355" width="80" height="32" rx="5" fill="#ff6b9d" opacity="0.1" stroke="#ff6b9d" stroke-width="1"/>
+    <text x="110" y="375" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d">product</text>
+    <rect x="160" y="355" width="80" height="32" rx="5" fill="#ff6b9d" opacity="0.1" stroke="#ff6b9d" stroke-width="1"/>
+    <text x="200" y="375" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d">ui-design</text>
+    <rect x="70" y="395" width="80" height="32" rx="5" fill="#ff6b9d" opacity="0.1" stroke="#ff6b9d" stroke-width="1"/>
+    <text x="110" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d">tech-writer</text>
+    <!-- Team 2: Development -->
+    <rect x="300" y="280" width="200" height="45" rx="8" fill="none" stroke="#4ecdc4" stroke-width="1.8"/>
+    <text x="400" y="308" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#4ecdc4">Development</text>
+    <!-- Dev agents -->
+    <line x1="350" y1="325" x2="350" y2="355" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <line x1="400" y1="325" x2="400" y2="355" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <line x1="450" y1="325" x2="450" y2="355" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+    <rect x="310" y="355" width="80" height="32" rx="5" fill="#4ecdc4" opacity="0.1" stroke="#4ecdc4" stroke-width="1"/>
+    <text x="350" y="375" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4">dev-plan</text>
+    <rect x="400" y="355" width="80" height="32" rx="5" fill="#4ecdc4" opacity="0.1" stroke="#4ecdc4" stroke-width="1"/>
+    <text x="440" y="375" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4">ios-dev</text>
+    <rect x="310" y="395" width="80" height="32" rx="5" fill="#4ecdc4" opacity="0.1" stroke="#4ecdc4" stroke-width="1"/>
+    <text x="350" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4">server-dev</text>
+    <rect x="400" y="395" width="80" height="32" rx="5" fill="#4ecdc4" opacity="0.1" stroke="#4ecdc4" stroke-width="1"/>
+    <text x="440" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4">infra-dev</text>
+    <!-- Team 3: Review -->
+    <rect x="580" y="280" width="200" height="45" rx="8" fill="none" stroke="#a78bfa" stroke-width="1.8"/>
+    <text x="680" y="308" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#a78bfa">Review</text>
+    <!-- Review agents -->
+    <line x1="630" y1="325" x2="630" y2="355" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
+    <line x1="680" y1="325" x2="680" y2="355" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
+    <line x1="730" y1="325" x2="730" y2="355" stroke="#a78bfa" stroke-width="1" opacity="0.4"/>
+    <rect x="590" y="355" width="80" height="32" rx="5" fill="#a78bfa" opacity="0.1" stroke="#a78bfa" stroke-width="1"/>
+    <text x="630" y="375" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">arch</text>
+    <rect x="680" y="355" width="80" height="32" rx="5" fill="#a78bfa" opacity="0.1" stroke="#a78bfa" stroke-width="1"/>
+    <text x="720" y="375" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">quality</text>
+    <rect x="590" y="395" width="80" height="32" rx="5" fill="#a78bfa" opacity="0.1" stroke="#a78bfa" stroke-width="1"/>
+    <text x="630" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">security</text>
+    <rect x="680" y="395" width="80" height="32" rx="5" fill="#a78bfa" opacity="0.1" stroke="#a78bfa" stroke-width="1"/>
+    <text x="720" y="415" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">ops</text>
+    <!-- Team 4: QA/Security -->
+    <rect x="820" y="280" width="200" height="45" rx="8" fill="none" stroke="#ffe66d" stroke-width="1.8"/>
+    <text x="920" y="308" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ffe66d">QA / Security</text>
+    <!-- QA agents -->
+    <line x1="890" y1="325" x2="890" y2="355" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+    <line x1="950" y1="325" x2="950" y2="355" stroke="#ffe66d" stroke-width="1" opacity="0.4"/>
+    <rect x="850" y="355" width="80" height="32" rx="5" fill="#ffe66d" opacity="0.1" stroke="#ffe66d" stroke-width="1"/>
+    <text x="890" y="375" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d">qa-eng</text>
+    <rect x="910" y="355" width="80" height="32" rx="5" fill="#ffe66d" opacity="0.1" stroke="#ffe66d" stroke-width="1"/>
+    <text x="950" y="375" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d">sec-audit</text>
+    <!-- Bottom infrastructure bar: Skills + Rules + Hooks + MCP -->
+    <rect x="140" y="480" width="800" height="55" rx="10" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <rect x="170" y="493" width="120" height="28" rx="6" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.6"/>
+    <text x="230" y="512" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff" opacity="0.8">Skills</text>
+    <rect x="310" y="493" width="120" height="28" rx="6" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.6"/>
+    <text x="370" y="512" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4" opacity="0.8">Rules</text>
+    <rect x="450" y="493" width="120" height="28" rx="6" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.6"/>
+    <text x="510" y="512" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b9d" opacity="0.8">Hooks</text>
+    <rect x="590" y="493" width="120" height="28" rx="6" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
+    <text x="650" y="512" text-anchor="middle" font-family="monospace" font-size="10" fill="#a78bfa" opacity="0.8">MCP Server</text>
+    <rect x="730" y="493" width="150" height="28" rx="6" fill="none" stroke="#ffe66d" stroke-width="1" opacity="0.6"/>
+    <text x="805" y="512" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d" opacity="0.8">CLAUDE.md</text>
+    <!-- .claude/ directory label -->
+    <text x="540" y="565" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">.claude/  configuration layer</text>
+    <!-- Label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">SUBAGENT TEAM ARCHITECTURE</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -3241,6 +3331,7 @@ const ILLUSTRATION_MAP = {
   'kiro-cli-installation-and-settings': illustrationKiroCliInstallationAndSettings,
   'kiro-agent-configuration': illustrationKiroAgentConfiguration,
   'kiro-mcp-server-configuration': illustrationKiroMcpServerConfiguration,
+  'claude-code-sub-agent-team-design': illustrationClaudeCodeSubAgentTeamDesign,
 };
 
 function getIllustration(ref) {
