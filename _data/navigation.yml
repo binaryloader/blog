@@ -51,12 +51,19 @@ menu:
         url: /ko/development/ai/
         category: "AI"
         children:
+          - title: "Agentic Coding Assistant"
+            url: /ko/development/ai/agentic-coding-assistant/
+            category: "Agentic-Coding-Assistant"
+            children:
+              - title: "Kiro"
+                url: /ko/development/ai/agentic-coding-assistant/kiro/
+                category: "Kiro"
+              - title: "MCP"
+                url: /ko/development/ai/agentic-coding-assistant/mcp/
+                category: "MCP"
           - title: "LLM"
             url: /ko/development/ai/llm/
             category: "LLM"
-          - title: "MCP"
-            url: /ko/development/ai/mcp/
-            category: "MCP"
       - title: "Blog"
         url: /ko/development/blog/
         category: "Blog"
@@ -180,12 +187,19 @@ menu-en:
         url: /en/development/ai/
         category: "AI"
         children:
+          - title: "Agentic Coding Assistant"
+            url: /en/development/ai/agentic-coding-assistant/
+            category: "Agentic-Coding-Assistant"
+            children:
+              - title: "Kiro"
+                url: /en/development/ai/agentic-coding-assistant/kiro/
+                category: "Kiro"
+              - title: "MCP"
+                url: /en/development/ai/agentic-coding-assistant/mcp/
+                category: "MCP"
           - title: "LLM"
             url: /en/development/ai/llm/
             category: "LLM"
-          - title: "MCP"
-            url: /en/development/ai/mcp/
-            category: "MCP"
       - title: "Blog"
         url: /en/development/blog/
         category: "Blog"
@@ -309,12 +323,19 @@ menu-ja:
         url: /ja/development/ai/
         category: "AI"
         children:
+          - title: "Agentic Coding Assistant"
+            url: /ja/development/ai/agentic-coding-assistant/
+            category: "Agentic-Coding-Assistant"
+            children:
+              - title: "Kiro"
+                url: /ja/development/ai/agentic-coding-assistant/kiro/
+                category: "Kiro"
+              - title: "MCP"
+                url: /ja/development/ai/agentic-coding-assistant/mcp/
+                category: "MCP"
           - title: "LLM"
             url: /ja/development/ai/llm/
             category: "LLM"
-          - title: "MCP"
-            url: /ja/development/ai/mcp/
-            category: "MCP"
       - title: "Blog"
         url: /ja/development/blog/
         category: "Blog"

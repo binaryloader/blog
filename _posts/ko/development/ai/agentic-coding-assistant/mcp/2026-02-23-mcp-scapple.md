@@ -12,6 +12,7 @@ header:
 categories:
   - Development
   - AI
+  - Agentic-Coding-Assistant
   - MCP
 tags:
   - MCP
@@ -23,8 +24,10 @@ depth:
     url: /ko/development/
   - title: "AI"
     url: /ko/development/ai/
+  - title: "Agentic Coding Assistant"
+    url: /ko/development/ai/agentic-coding-assistant/
   - title: "MCP"
-    url: /ko/development/ai/mcp/
+    url: /ko/development/ai/agentic-coding-assistant/mcp/
 ---
 
 # 개요
