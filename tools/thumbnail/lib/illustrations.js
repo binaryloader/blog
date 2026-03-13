@@ -2978,6 +2978,188 @@ function illustrationAwsPocInfraUnder300kKrw() {
   `;
 }
 
+// Kiro × Claude: 3-Tier AI architecture
+function illustrationKiroClaude3TierAiArchitecture() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Client Layer -->
+    <text x="120" y="60" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff" letter-spacing="3" opacity="0.7">CLIENT LAYER</text>
+    <rect x="120" y="75" width="840" height="65" rx="8" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.4"/>
+    <circle cx="170" cy="107" r="18" fill="none" stroke="#888" stroke-width="1.5"/>
+    <text x="170" y="112" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">USER</text>
+    <text x="210" y="112" font-family="monospace" font-size="13" font-weight="bold" fill="#e0e0e0">Kiro IDE / CLI</text>
+    <!-- Arrow down -->
+    <line x1="540" y1="145" x2="540" y2="180" stroke="#555" stroke-width="1.5"/>
+    <polygon points="535,175 540,185 545,175" fill="#555"/>
+    <!-- 3-Tier label -->
+    <text x="120" y="210" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d" letter-spacing="3" opacity="0.7">3-TIER SERVICE LAYER</text>
+    <!-- App Provider -->
+    <rect x="120" y="225" width="840" height="95" rx="10" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.6"/>
+    <circle cx="170" cy="272" r="22" fill="#ff6b9d" opacity="0.15" stroke="#ff6b9d" stroke-width="1.5"/>
+    <text x="170" y="277" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ff6b9d">K</text>
+    <text x="210" y="265" font-family="monospace" font-size="15" font-weight="bold" fill="#e0e0e0">Kiro</text>
+    <text x="210" y="285" font-family="monospace" font-size="10" fill="#888">fka Amazon Q Developer</text>
+    <rect x="800" y="255" width="120" height="28" rx="14" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.5"/>
+    <text x="860" y="274" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b9d">App Provider</text>
+    <!-- Arrow down -->
+    <line x1="540" y1="325" x2="540" y2="355" stroke="#555" stroke-width="1.5"/>
+    <polygon points="535,350 540,360 545,350" fill="#555"/>
+    <!-- Managed AI Platform -->
+    <rect x="120" y="365" width="840" height="95" rx="10" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.6"/>
+    <circle cx="170" cy="412" r="22" fill="#4ecdc4" opacity="0.15" stroke="#4ecdc4" stroke-width="1.5"/>
+    <text x="170" y="417" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#4ecdc4">AWS</text>
+    <text x="210" y="405" font-family="monospace" font-size="15" font-weight="bold" fill="#e0e0e0">Amazon Bedrock</text>
+    <text x="210" y="425" font-family="monospace" font-size="10" fill="#888">Inference · Scaling · Auto Routing</text>
+    <rect x="760" y="395" width="160" height="28" rx="14" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+    <text x="840" y="414" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4">Managed AI Platform</text>
+    <!-- Arrow down -->
+    <line x1="540" y1="465" x2="540" y2="495" stroke="#555" stroke-width="1.5"/>
+    <polygon points="535,490 540,500 545,490" fill="#555"/>
+    <!-- Model Provider -->
+    <rect x="120" y="505" width="840" height="95" rx="10" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.6"/>
+    <circle cx="170" cy="552" r="22" fill="#a78bfa" opacity="0.15" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="170" y="557" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#a78bfa">C</text>
+    <text x="210" y="545" font-family="monospace" font-size="15" font-weight="bold" fill="#e0e0e0">Claude Models</text>
+    <text x="210" y="565" font-family="monospace" font-size="10" fill="#888">by Anthropic</text>
+    <rect x="790" y="535" width="130" height="28" rx="14" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+    <text x="855" y="554" text-anchor="middle" font-family="monospace" font-size="10" fill="#a78bfa">Model Provider</text>
+    <!-- Legend -->
+    <circle cx="300" cy="650" r="5" fill="#ff6b9d" opacity="0.8"/>
+    <text x="315" y="655" font-family="monospace" font-size="10" fill="#888">App Provider</text>
+    <circle cx="480" cy="650" r="5" fill="#4ecdc4" opacity="0.8"/>
+    <text x="495" y="655" font-family="monospace" font-size="10" fill="#888">Managed AI Platform</text>
+    <circle cx="700" cy="650" r="5" fill="#a78bfa" opacity="0.8"/>
+    <text x="715" y="655" font-family="monospace" font-size="10" fill="#888">Model Provider</text>
+  `;
+}
+
+// Kiro CLI installation and settings
+function illustrationKiroCliInstallationAndSettings() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Terminal window -->
+    <rect x="180" y="80" width="720" height="440" rx="12" fill="#1a1a2e" stroke="#00e5ff" stroke-width="2" opacity="0.8"/>
+    <circle cx="215" cy="108" r="6" fill="#ff5f56"/>
+    <circle cx="240" cy="108" r="6" fill="#ffbd2e"/>
+    <circle cx="265" cy="108" r="6" fill="#27c93f"/>
+    <!-- CLI prompt lines -->
+    <text x="220" y="160" font-family="monospace" font-size="14" fill="#4ecdc4">$</text>
+    <text x="245" y="160" font-family="monospace" font-size="14" fill="#e0e0e0">curl -fsSL https://cli.kiro.dev/install | bash</text>
+    <text x="220" y="195" font-family="monospace" font-size="12" fill="#888">Installing Kiro CLI...</text>
+    <text x="220" y="220" font-family="monospace" font-size="12" fill="#27c93f">✓ Kiro CLI installed successfully</text>
+    <!-- Divider -->
+    <line x1="220" y1="245" x2="860" y2="245" stroke="#333" stroke-width="1"/>
+    <!-- Settings section -->
+    <text x="220" y="280" font-family="monospace" font-size="14" fill="#4ecdc4">$</text>
+    <text x="245" y="280" font-family="monospace" font-size="14" fill="#e0e0e0">kiro-cli settings list</text>
+    <!-- Settings JSON -->
+    <text x="220" y="315" font-family="monospace" font-size="12" fill="#ffe66d">{</text>
+    <text x="240" y="340" font-family="monospace" font-size="11" fill="#a78bfa">"chat.defaultModel"</text>
+    <text x="448" y="340" font-family="monospace" font-size="11" fill="#888">:</text>
+    <text x="460" y="340" font-family="monospace" font-size="11" fill="#4ecdc4">"claude-opus-4-6"</text>
+    <text x="240" y="365" font-family="monospace" font-size="11" fill="#a78bfa">"chat.enableThinking"</text>
+    <text x="460" y="365" font-family="monospace" font-size="11" fill="#888">:</text>
+    <text x="472" y="365" font-family="monospace" font-size="11" fill="#ff6b9d">true</text>
+    <text x="240" y="390" font-family="monospace" font-size="11" fill="#a78bfa">"chat.enableCheckpoint"</text>
+    <text x="478" y="390" font-family="monospace" font-size="11" fill="#888">:</text>
+    <text x="490" y="390" font-family="monospace" font-size="11" fill="#ff6b9d">true</text>
+    <text x="220" y="415" font-family="monospace" font-size="12" fill="#ffe66d">}</text>
+    <!-- Gear icons -->
+    <g transform="translate(830, 480)" opacity="0.3">
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#00e5ff" stroke-width="2"/>
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#00e5ff" stroke-width="2"/>
+    </g>
+    <!-- Label -->
+    <text x="540" y="580" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">KIRO CLI SETTINGS</text>
+  `;
+}
+
+// Kiro agent configuration
+function illustrationKiroAgentConfiguration() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Central agent hub -->
+    <circle cx="540" cy="300" r="80" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.6"/>
+    <circle cx="540" cy="300" r="50" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.3"/>
+    <text x="540" y="295" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#00e5ff">AGENT</text>
+    <text x="540" y="315" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">HUB</text>
+    <!-- Agent 1: developer -->
+    <rect x="120" y="100" width="200" height="90" rx="10" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.7"/>
+    <text x="220" y="140" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ff6b9d">developer-ios</text>
+    <text x="220" y="165" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">fs_read · fs_write · bash</text>
+    <line x1="320" y1="145" x2="465" y2="270" stroke="#ff6b9d" stroke-width="1" opacity="0.3"/>
+    <!-- Agent 2: reviewer -->
+    <rect x="760" y="100" width="200" height="90" rx="10" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.7"/>
+    <text x="860" y="140" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#4ecdc4">reviewer-ios</text>
+    <text x="860" y="165" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">fs_read · grep · glob</text>
+    <line x1="760" y1="145" x2="615" y2="270" stroke="#4ecdc4" stroke-width="1" opacity="0.3"/>
+    <!-- Agent 3: infra -->
+    <rect x="120" y="420" width="200" height="90" rx="10" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.7"/>
+    <text x="220" y="460" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ffe66d">infra</text>
+    <text x="220" y="485" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">bash · code · mcp</text>
+    <line x1="320" y1="465" x2="465" y2="330" stroke="#ffe66d" stroke-width="1" opacity="0.3"/>
+    <!-- Agent 4: android -->
+    <rect x="760" y="420" width="200" height="90" rx="10" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.7"/>
+    <text x="860" y="460" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#a78bfa">developer-android</text>
+    <text x="860" y="485" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">fs_read · fs_write · bash</text>
+    <line x1="760" y1="465" x2="615" y2="330" stroke="#a78bfa" stroke-width="1" opacity="0.3"/>
+    <!-- Prompt module -->
+    <rect x="400" y="500" width="280" height="60" rx="8" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+    <text x="540" y="525" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">~/.kiro/prompts/modules/</text>
+    <text x="540" y="545" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4">common-rules.md · ios-rules.md</text>
+    <!-- Label -->
+    <text x="540" y="640" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">MULTI-AGENT ORCHESTRATION</text>
+  `;
+}
+
+// Kiro MCP server configuration
+function illustrationKiroMcpServerConfiguration() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Central Kiro node -->
+    <circle cx="540" cy="300" r="70" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.6"/>
+    <text x="540" y="295" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#00e5ff">Kiro</text>
+    <text x="540" y="318" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">MCP Client</text>
+    <!-- MCP Server 1: Git -->
+    <rect x="80" y="80" width="200" height="80" rx="10" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="120" cy="120" r="15" fill="#4ecdc4" opacity="0.15" stroke="#4ecdc4" stroke-width="1"/>
+    <text x="120" y="125" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4">Git</text>
+    <text x="200" y="115" font-family="monospace" font-size="11" font-weight="bold" fill="#e0e0e0">mcp-server-git</text>
+    <text x="200" y="135" font-family="monospace" font-size="9" fill="#888">status · commit · log</text>
+    <line x1="280" y1="120" x2="475" y2="270" stroke="#4ecdc4" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
+    <!-- MCP Server 2: GitHub -->
+    <rect x="800" y="80" width="200" height="80" rx="10" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="840" cy="120" r="15" fill="#ff6b9d" opacity="0.15" stroke="#ff6b9d" stroke-width="1"/>
+    <text x="840" y="125" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff6b9d">GH</text>
+    <text x="910" y="115" font-family="monospace" font-size="11" font-weight="bold" fill="#e0e0e0">GitHub</text>
+    <text x="910" y="135" font-family="monospace" font-size="9" fill="#888">PR · issues · review</text>
+    <line x1="800" y1="120" x2="605" y2="270" stroke="#ff6b9d" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
+    <!-- MCP Server 3: Context7 -->
+    <rect x="80" y="420" width="200" height="80" rx="10" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="120" cy="460" r="15" fill="#ffe66d" opacity="0.15" stroke="#ffe66d" stroke-width="1"/>
+    <text x="120" y="465" text-anchor="middle" font-family="monospace" font-size="10" fill="#ffe66d">C7</text>
+    <text x="200" y="455" font-family="monospace" font-size="11" font-weight="bold" fill="#e0e0e0">Context7</text>
+    <text x="200" y="475" font-family="monospace" font-size="9" fill="#888">docs · examples</text>
+    <line x1="280" y1="460" x2="475" y2="330" stroke="#ffe66d" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
+    <!-- MCP Server 4: Atlassian -->
+    <rect x="800" y="420" width="200" height="80" rx="10" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="840" cy="460" r="15" fill="#a78bfa" opacity="0.15" stroke="#a78bfa" stroke-width="1"/>
+    <text x="840" y="465" text-anchor="middle" font-family="monospace" font-size="10" fill="#a78bfa">AT</text>
+    <text x="910" y="455" font-family="monospace" font-size="11" font-weight="bold" fill="#e0e0e0">Atlassian</text>
+    <text x="910" y="475" font-family="monospace" font-size="9" fill="#888">Jira · Confluence</text>
+    <line x1="800" y1="460" x2="605" y2="330" stroke="#a78bfa" stroke-width="1" opacity="0.3" stroke-dasharray="4,4"/>
+    <!-- MCP protocol label -->
+    <rect x="420" y="195" width="240" height="25" rx="12" fill="none" stroke="#888" stroke-width="1" opacity="0.3"/>
+    <text x="540" y="213" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">Model Context Protocol</text>
+    <!-- Config file -->
+    <rect x="380" y="530" width="320" height="70" rx="8" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+    <text x="540" y="555" text-anchor="middle" font-family="monospace" font-size="10" fill="#888">~/.kiro/settings/mcp.json</text>
+    <text x="540" y="578" text-anchor="middle" font-family="monospace" font-size="10" fill="#4ecdc4">.kiro/settings/mcp.json</text>
+    <!-- Label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">MCP SERVER ECOSYSTEM</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -3055,6 +3237,10 @@ const ILLUSTRATION_MAP = {
   'mongodb-atlas-vs-documentdb': illustrationMongodbAtlasVsDocumentdb,
   'terraform-modules-s3-native-locking': illustrationTerraformModulesS3NativeLocking,
   'aws-poc-infra-under-300k-krw': illustrationAwsPocInfraUnder300kKrw,
+  'kiro-claude-3-tier-ai-architecture': illustrationKiroClaude3TierAiArchitecture,
+  'kiro-cli-installation-and-settings': illustrationKiroCliInstallationAndSettings,
+  'kiro-agent-configuration': illustrationKiroAgentConfiguration,
+  'kiro-mcp-server-configuration': illustrationKiroMcpServerConfiguration,
 };
 
 function getIllustration(ref) {
