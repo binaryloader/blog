@@ -4,7 +4,7 @@ ref: s3-cloudfront-react-spa-hosting
 excerpt: "S3バケットにReact SPAをデプロイし、CloudFront OACで安全に配信する方法、キャッシュ戦略、ライフサイクルポリシーを整理する。"
 date: 2026-03-02T12:30+09:00
 last_modified_at: 2026-03-02T12:30+09:00
-published: true
+published: false
 lang: ja
 permalink: /ja/:categories/:title/
 header:

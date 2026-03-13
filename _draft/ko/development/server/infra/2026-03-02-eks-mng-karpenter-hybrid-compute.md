@@ -4,7 +4,7 @@ ref: eks-mng-karpenter-hybrid-compute
 excerpt: "EKS의 컴퓨트 옵션(MNG, Fargate, Karpenter)을 비교하고 stateful 서비스에는 MNG, stateless 서비스에는 Karpenter를 조합하는 하이브리드 전략을 정리한다."
 date: 2026-03-02T12:00+09:00
 last_modified_at: 2026-03-02T12:00+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/eks-mng-karpenter-hybrid-compute.png"
   overlay_filter: "0"

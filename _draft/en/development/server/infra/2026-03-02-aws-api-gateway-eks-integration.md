@@ -6,7 +6,7 @@ permalink: /en/:categories/:title/
 excerpt: "Compare the differences between REST API, HTTP API, and WebSocket API, and outline Lambda Authorizer authentication and EKS integration via VPC Link."
 date: 2026-03-02T12:20+09:00
 last_modified_at: 2026-03-02T12:20+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/aws-api-gateway-eks-integration.png"
   overlay_filter: "0"

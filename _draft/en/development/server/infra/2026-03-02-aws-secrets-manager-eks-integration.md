@@ -6,7 +6,7 @@ permalink: /en/:categories/:title/
 excerpt: "Set up secret management, KMS encryption, and automatic rotation in AWS Secrets Manager, and integrate with EKS using External Secrets Operator (ESO)."
 date: 2026-03-02T12:10+09:00
 last_modified_at: 2026-03-02T12:10+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/aws-secrets-manager-eks-integration.png"
   overlay_filter: "0"

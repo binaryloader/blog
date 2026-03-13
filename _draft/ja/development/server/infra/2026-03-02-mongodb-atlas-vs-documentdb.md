@@ -4,7 +4,7 @@ ref: mongodb-atlas-vs-documentdb
 excerpt: "DocumentDBの互換性の限界を分析し、MongoDB Atlasを選択した理由、Atlas Search日本語検索、VPC Peering/PrivateLinkを通じたEKS連携方法を整理する。"
 date: 2026-03-02T12:40+09:00
 last_modified_at: 2026-03-02T12:40+09:00
-published: true
+published: false
 lang: ja
 permalink: /ja/:categories/:title/
 header:

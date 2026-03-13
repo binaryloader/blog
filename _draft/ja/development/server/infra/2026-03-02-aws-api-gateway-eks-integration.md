@@ -4,7 +4,7 @@ ref: aws-api-gateway-eks-integration
 excerpt: "REST API、HTTP API、WebSocket APIの違いを比較し、Lambda Authorizer認証、VPC Linkを通じたEKS連携方法を整理する。"
 date: 2026-03-02T12:20+09:00
 last_modified_at: 2026-03-02T12:20+09:00
-published: true
+published: false
 lang: ja
 permalink: /ja/:categories/:title/
 header:

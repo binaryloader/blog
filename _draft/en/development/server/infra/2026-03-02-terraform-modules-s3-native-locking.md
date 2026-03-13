@@ -6,7 +6,7 @@ permalink: /en/:categories/:title/
 excerpt: "Cover Terraform module-based directory design, S3 native state locking, and GitHub Actions CI/CD pipeline."
 date: 2026-03-02T12:50+09:00
 last_modified_at: 2026-03-02T12:50+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/terraform-modules-s3-native-locking.png"
   overlay_filter: "0"

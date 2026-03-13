@@ -4,7 +4,7 @@ ref: aws-secrets-manager-eks-integration
 excerpt: "AWS Secrets Manager의 시크릿 관리, KMS 암호화, 자동 로테이션을 설정하고 External Secrets Operator(ESO)로 EKS에 연동하는 방법을 정리한다."
 date: 2026-03-02T12:10+09:00
 last_modified_at: 2026-03-02T12:10+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/aws-secrets-manager-eks-integration.png"
   overlay_filter: "0"

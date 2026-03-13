@@ -4,7 +4,7 @@ ref: aws-poc-infra-under-300k-krw
 excerpt: "EKS、Karpenter、Secrets Manager、API Gateway、S3 + CloudFront、MongoDB Atlas、Terraformをすべて使用しながら月30万ウォン未満でPoCインフラを構成できるか設計を検討する。"
 date: 2026-03-02T13:00+09:00
 last_modified_at: 2026-03-02T13:00+09:00
-published: true
+published: false
 lang: ja
 permalink: /ja/:categories/:title/
 header:

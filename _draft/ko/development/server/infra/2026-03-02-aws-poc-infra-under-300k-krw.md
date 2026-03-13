@@ -4,7 +4,7 @@ ref: aws-poc-infra-under-300k-krw
 excerpt: "EKS, Karpenter, Secrets Manager, API Gateway, S3 + CloudFront, MongoDB Atlas, Terraform을 모두 사용하면서 월 30만원 미만으로 PoC 인프라를 구성할 수 있는지 설계를 검토한다."
 date: 2026-03-02T13:00+09:00
 last_modified_at: 2026-03-02T13:00+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/aws-poc-infra-under-300k-krw.png"
   overlay_filter: "0"

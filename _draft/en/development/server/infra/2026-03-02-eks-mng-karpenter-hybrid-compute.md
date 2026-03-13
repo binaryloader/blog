@@ -6,7 +6,7 @@ permalink: /en/:categories/:title/
 excerpt: "Compare EKS compute options (MNG, Fargate, Karpenter) and outline a hybrid strategy that combines MNG for stateful services with Karpenter for stateless services."
 date: 2026-03-02T12:00+09:00
 last_modified_at: 2026-03-02T12:00+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/eks-mng-karpenter-hybrid-compute.png"
   overlay_filter: "0"

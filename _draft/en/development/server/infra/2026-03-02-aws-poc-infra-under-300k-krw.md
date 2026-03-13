@@ -6,7 +6,7 @@ permalink: /en/:categories/:title/
 excerpt: "Reviewing whether a PoC infrastructure can be built under 300K KRW (~$220) per month while using all the same services: EKS, Karpenter, Secrets Manager, API Gateway, S3 + CloudFront, MongoDB Atlas, and Terraform."
 date: 2026-03-02T13:00+09:00
 last_modified_at: 2026-03-02T13:00+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/aws-poc-infra-under-300k-krw.png"
   overlay_filter: "0"

@@ -4,7 +4,7 @@ ref: terraform-modules-s3-native-locking
 excerpt: "Terraformモジュールベースのディレクトリ設計、S3 native state locking、GitHub Actions CI/CDパイプラインを整理する。"
 date: 2026-03-02T12:50+09:00
 last_modified_at: 2026-03-02T12:50+09:00
-published: true
+published: false
 lang: ja
 permalink: /ja/:categories/:title/
 header:

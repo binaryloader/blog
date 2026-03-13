@@ -6,7 +6,7 @@ permalink: /en/:categories/:title/
 excerpt: "Analyze the compatibility limitations of DocumentDB, explain why MongoDB Atlas was chosen, cover Atlas Search Korean full-text search, and outline EKS integration via VPC Peering/PrivateLink."
 date: 2026-03-02T12:40+09:00
 last_modified_at: 2026-03-02T12:40+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/mongodb-atlas-vs-documentdb.png"
   overlay_filter: "0"

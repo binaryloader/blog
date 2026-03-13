@@ -4,7 +4,7 @@ ref: terraform-modules-s3-native-locking
 excerpt: "Terraform 모듈 기반 디렉토리 설계, S3 native state locking, GitHub Actions CI/CD 파이프라인을 정리한다."
 date: 2026-03-02T12:50+09:00
 last_modified_at: 2026-03-02T12:50+09:00
-published: true
+published: false
 header:
   overlay_image: "/assets/image/thumbnail/header/terraform-modules-s3-native-locking.png"
   overlay_filter: "0"
