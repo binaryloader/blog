@@ -43,7 +43,7 @@ fastlane의 커스텀 Action을 만드는 방법을 정리한다.
 
 ## 1. Action 예시
 
-- [validate_ipa](https://github.com/hacoma/fastlane-plugin-validate_ipa/blob/main/lib/fastlane/plugin/validate_ipa/actions/validate_ipa_action.rb)
+- [validate_ipa](https://github.com/binaryloader/fastlane-plugin-validate_ipa/blob/main/lib/fastlane/plugin/validate_ipa/actions/validate_ipa_action.rb)
 
 ## 2. Action 템플릿 생성
 

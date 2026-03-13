@@ -44,7 +44,7 @@ This post covers how to create a custom fastlane Action.
 
 ## 1. Action Example
 
-- [validate_ipa](https://github.com/hacoma/fastlane-plugin-validate_ipa/blob/main/lib/fastlane/plugin/validate_ipa/actions/validate_ipa_action.rb)
+- [validate_ipa](https://github.com/binaryloader/fastlane-plugin-validate_ipa/blob/main/lib/fastlane/plugin/validate_ipa/actions/validate_ipa_action.rb)
 
 ## 2. Generating an Action Template
 

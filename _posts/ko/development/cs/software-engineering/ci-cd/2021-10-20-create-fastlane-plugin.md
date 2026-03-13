@@ -47,7 +47,7 @@ fastlane의 커스텀 Plugin을 만들고 배포하는 방법을 정리한다.
 
 ## 1. Plugin 예시
 
-- [fastlane-plugin-validate_ipa](https://github.com/hacoma/fastlane-plugin-validate_ipa/)
+- [fastlane-plugin-validate_ipa](https://github.com/binaryloader/fastlane-plugin-validate_ipa/)
 
 ## 2. Plugin 템플릿 생성
 

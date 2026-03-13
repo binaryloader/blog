@@ -48,7 +48,7 @@ This post covers how to create and distribute a custom fastlane Plugin.
 
 ## 1. Plugin Example
 
-- [fastlane-plugin-validate_ipa](https://github.com/hacoma/fastlane-plugin-validate_ipa/)
+- [fastlane-plugin-validate_ipa](https://github.com/binaryloader/fastlane-plugin-validate_ipa/)
 
 ## 2. Generating a Plugin Template
 
