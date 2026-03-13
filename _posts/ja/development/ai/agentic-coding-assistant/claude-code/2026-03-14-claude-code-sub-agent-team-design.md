@@ -111,7 +111,7 @@ Claude Code メインセッション（CTO / オーケストレーター）
 │
 ├── agents/                         # サブエージェント（15個）
 │   ├── product-planner.md          # 企画者（opus, plan, memory:project）
-│   ├── ui-designer.md              # デザイナー（sonnet, plan, MCP:figma）
+│   ├── ui-designer.md              # デザイナー（sonnet, plan）
 │   ├── tech-writer.md              # テクニカルライター（sonnet, acceptEdits）
 │   ├── dev-planner.md              # 開発プランナー（opus, plan, memory:project）
 │   ├── ios-developer.md            # iOS開発者（opus, worktree, memory:project, hooks）
@@ -182,11 +182,10 @@ my-project/
 - 役割: ユーザーストーリー定義、MoSCoW/RICE優先度、MVP範囲定義
 - 出力: PRDドキュメント（背景、目標、受け入れ基準、除外範囲）
 
-**ui-designer** — UI/UX設計、画面フロー定義、デザインシステム管理。Figma MCPと連携する。
+**ui-designer** — UI/UX設計、画面フロー定義、デザインシステム管理。Figma内蔵連携を使用する。
 
 - モデル: sonnet / 権限: plan
 - ツール: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
-- MCP: figma（デザインファイル参照）
 - 役割: 画面フロー、ワイヤーフレーム仕様、デザインシステム定義
 - 原則: モバイルファースト、HIG準拠、VoiceOver/Dynamic Type対応
 
@@ -216,7 +215,7 @@ my-project/
 - モデル: opus / 権限: default / 隔離: worktree
 - ツール: Read, Write, Edit, Glob, Grep, Bash, LSP
 - メモリ: project
-- MCP: github, figma, context7, jira, confluence
+- MCP: github, context7, jira, confluence
 - スキル: develop
 - hooks: PostToolUse — Write/Edit時に`swift-format` + `swiftlint --fix`を自動実行
 - スタック: Swift 6, SwiftUI, TCA, SPM, SwiftData, async/await
@@ -311,7 +310,6 @@ memory: project
 permissionMode: default
 mcpServers:
   - github
-  - figma
   - context7
   - jira
   - confluence
@@ -340,7 +338,7 @@ hooks:
 | `permissionMode` | `plan`=読み取り専用、`default`=書き込み、`acceptEdits`=自動承認 | `plan` |
 | `isolation` | `worktree`で隔離されたGit worktreeで実行 | `worktree` |
 | `memory` | メモリ範囲（`user`, `project`, `local`） | `project` |
-| `mcpServers` | アクセス可能なMCPサーバーを制限 | github, figma |
+| `mcpServers` | アクセス可能なMCPサーバーを制限 | github, context7 |
 | `skills` | このエージェントで使用可能なスキル | develop |
 | `hooks` | このエージェントでのみ実行されるフック | PostToolUse → swift-format |
 
@@ -696,7 +694,7 @@ exit 0
 | 項目 | 内容 |
 |---|---|
 | includeCoAuthoredBy | `false` — コミットにCo-Authored-Byトレーラーを含めない |
-| plugins | `swift-lsp`, `clangd-lsp`（LSP）、`figma`（デザイン連携） |
+| plugins | `swift-lsp`, `clangd-lsp`（LSP） |
 | language | 韓国語 |
 | env | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` |
 
@@ -716,7 +714,6 @@ exit 0
     "CONFLUENCE_API_TOKEN": "",
     "CONFLUENCE_USERNAME": "",
     "DATABASE_URL": "",
-    "FIGMA_ACCESS_TOKEN": ""
   }
 }
 ```
@@ -732,7 +729,6 @@ MCPサーバー設定はグローバル（`~/.claude/.mcp.json`）で管理す�
 | サーバー | タイプ | 用途 | 使用エージェント | 認証 |
 |---|---|---|---|---|
 | GitHub | stdio | PR, Issue, コードレビュー、ファイル参照 | ios-developer, server-developer, infra-developer, tech-writer | `gh` CLI |
-| Figma | http | デザインファイル参照、コンポーネント参照 | ios-developer, ui-designer | `FIGMA_ACCESS_TOKEN` |
 | Jira | stdio | チケット管理、スプリント、プロジェクト管理 | dev-planner, ios-developer, server-developer, infra-developer, tech-writer | `JIRA_API_TOKEN` |
 | Confluence | stdio | Wiki、ドキュメント管理 | dev-planner, ios-developer, server-developer, infra-developer, tech-writer | `CONFLUENCE_API_TOKEN` |
 | Context7 | http | ライブラリドキュメント参照 | ios-developer, server-developer, infra-developer | なし |
@@ -749,10 +745,9 @@ MCPサーバー設定はグローバル（`~/.claude/.mcp.json`）で管理す�
 
 | エージェント | アクセス可能なMCP |
 |---|---|
-| ios-developer | github, figma, context7, jira, confluence |
+| ios-developer | github, context7, jira, confluence |
 | server-developer | github, postgres, context7, jira, confluence |
 | infra-developer | github, context7, jira, confluence |
-| ui-designer | figma |
 | tech-writer | jira, confluence, github |
 | dev-planner | sequential-thinking, jira, confluence |
 | security-auditor | sequential-thinking |
@@ -1069,12 +1064,12 @@ EOF
 // .mcp.jsonに新しいサーバーを追加
 {
   "mcpServers": {
-    "figma": {
+    "sentry": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@anthropic/figma-mcp"],
+      "args": ["-y", "@sentry/mcp-server"],
       "env": {
-        "FIGMA_ACCESS_TOKEN": "$FIGMA_ACCESS_TOKEN"
+        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN"
       }
     }
   }
@@ -1094,7 +1089,7 @@ mcpServers:
   - confluence
 ---
 # → このエージェントはgithub, postgres, context7, jira, confluence MCPのみ使用可能
-# → figma等にはアクセス不可
+# → obsidian等にはアクセス不可
 ```
 
 # 参考

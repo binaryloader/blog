@@ -111,7 +111,7 @@ User-level settings applied globally to all projects. These are always loaded re
 │
 ├── agents/                         # Subagents (15 agents)
 │   ├── product-planner.md          # Planner (opus, plan, memory:project)
-│   ├── ui-designer.md              # Designer (sonnet, plan, MCP:figma)
+│   ├── ui-designer.md              # Designer (sonnet, plan)
 │   ├── tech-writer.md              # Technical Writer (sonnet, acceptEdits)
 │   ├── dev-planner.md              # Dev Planner (opus, plan, memory:project)
 │   ├── ios-developer.md                  # iOS Developer (opus, worktree, memory:project, hooks)
@@ -182,11 +182,10 @@ Agents are defined as Markdown files in the `.claude/agents/` directory. Metadat
 - Role: User story definition, MoSCoW/RICE prioritization, MVP scope definition
 - Output: PRD document (background, goals, acceptance criteria, exclusions)
 
-**ui-designer** — UI/UX design, screen flow definition, design system management. Integrates with Figma MCP.
+**ui-designer** — UI/UX design, screen flow definition, design system management. Uses built-in Figma integration.
 
 - Model: sonnet / Permission: plan
 - Tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
-- MCP: figma (design file reference)
 - Role: Screen flows, wireframe specs, design system definition
 - Principles: Mobile first, HIG compliance, VoiceOver/Dynamic Type support
 
@@ -216,7 +215,7 @@ All developer agents work in isolated Git worktrees with `isolation: worktree`, 
 - Model: opus / Permission: default / Isolation: worktree
 - Tools: Read, Write, Edit, Glob, Grep, Bash, LSP
 - Memory: project
-- MCP: github, figma, context7, jira, confluence
+- MCP: github, context7, jira, confluence
 - Skills: develop
 - Hooks: PostToolUse — auto-runs `swift-format` + `swiftlint --fix` on Write/Edit
 - Stack: Swift 6, SwiftUI, TCA, SPM, SwiftData, async/await
@@ -311,7 +310,6 @@ memory: project
 permissionMode: default
 mcpServers:
   - github
-  - figma
   - context7
   - jira
   - confluence
@@ -340,7 +338,7 @@ hooks:
 | `permissionMode` | `plan`=read-only, `default`=write, `acceptEdits`=auto-approve | `plan` |
 | `isolation` | Runs in an isolated Git worktree when set to `worktree` | `worktree` |
 | `memory` | Memory scope (`user`, `project`, `local`) | `project` |
-| `mcpServers` | Restricts accessible MCP servers | github, figma |
+| `mcpServers` | Restricts accessible MCP servers | github, context7 |
 | `skills` | Skills available to this agent | develop |
 | `hooks` | Hooks that run only during this agent's execution | PostToolUse → swift-format |
 
@@ -696,7 +694,7 @@ All permissions, hooks, environment variables, and plugins are managed globally 
 | Item | Content |
 |---|---|
 | includeCoAuthoredBy | `false` — Does not include Co-Authored-By trailer in commits |
-| plugins | `swift-lsp`, `clangd-lsp` (LSP), `figma` (design integration) |
+| plugins | `swift-lsp`, `clangd-lsp` (LSP) |
 | language | Korean |
 | env | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` |
 
@@ -716,7 +714,6 @@ All permissions, hooks, environment variables, and plugins are managed globally 
     "CONFLUENCE_API_TOKEN": "",
     "CONFLUENCE_USERNAME": "",
     "DATABASE_URL": "",
-    "FIGMA_ACCESS_TOKEN": ""
   }
 }
 ```
@@ -732,7 +729,6 @@ MCP server configuration is managed globally (`~/.claude/.mcp.json`). If additio
 | Server | Type | Purpose | Agents | Auth |
 |---|---|---|---|---|
 | GitHub | stdio | PRs, Issues, code review, file inspection | ios-developer, server-developer, infra-developer, tech-writer | `gh` CLI |
-| Figma | http | Design file reference, component inspection | ios-developer, ui-designer | `FIGMA_ACCESS_TOKEN` |
 | Jira | stdio | Ticket management, sprints, project management | dev-planner, ios-developer, server-developer, infra-developer, tech-writer | `JIRA_API_TOKEN` |
 | Confluence | stdio | Wiki, document management | dev-planner, ios-developer, server-developer, infra-developer, tech-writer | `CONFLUENCE_API_TOKEN` |
 | Context7 | http | Library documentation lookup | ios-developer, server-developer, infra-developer | None |
@@ -749,10 +745,9 @@ The `mcpServers` field in agents restricts accessible MCP servers. If not specif
 
 | Agent | Accessible MCP |
 |---|---|
-| ios-developer | github, figma, context7, jira, confluence |
+| ios-developer | github, context7, jira, confluence |
 | server-developer | github, postgres, context7, jira, confluence |
 | infra-developer | github, context7, jira, confluence |
-| ui-designer | figma |
 | tech-writer | jira, confluence, github |
 | dev-planner | sequential-thinking, jira, confluence |
 | security-auditor | sequential-thinking |
@@ -1069,12 +1064,12 @@ EOF
 // Add a new server to .mcp.json
 {
   "mcpServers": {
-    "figma": {
+    "sentry": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@anthropic/figma-mcp"],
+      "args": ["-y", "@sentry/mcp-server"],
       "env": {
-        "FIGMA_ACCESS_TOKEN": "$FIGMA_ACCESS_TOKEN"
+        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN"
       }
     }
   }
@@ -1094,7 +1089,7 @@ mcpServers:
   - confluence
 ---
 # → This agent can only use github, postgres, context7, jira, and confluence MCP
-# → Cannot access figma, etc.
+# → Cannot access obsidian, etc.
 ```
 
 # References

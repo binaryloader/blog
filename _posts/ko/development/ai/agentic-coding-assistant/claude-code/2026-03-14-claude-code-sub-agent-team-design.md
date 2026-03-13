@@ -107,7 +107,7 @@ Claude Code 메인 세션 (CTO / 오케스트레이터)
 │
 ├── agents/                         # 서브 에이전트 (15개)
 │   ├── product-planner.md          # 기획자 (opus, plan, memory:project)
-│   ├── ui-designer.md              # 디자이너 (sonnet, plan, MCP:figma)
+│   ├── ui-designer.md              # 디자이너 (sonnet, plan)
 │   ├── tech-writer.md              # 테크니컬 라이터 (sonnet, acceptEdits)
 │   ├── dev-planner.md              # 개발 플래너 (opus, plan, memory:project)
 │   ├── ios-developer.md            # iOS 개발자 (opus, worktree, memory:project, hooks)
@@ -178,11 +178,10 @@ my-project/
 - 역할: 사용자 스토리 정의, MoSCoW/RICE 우선순위, MVP 범위 정의
 - 출력: PRD 문서 (배경, 목표, 수용 기준, 제외 범위)
 
-**ui-designer** — UI/UX 설계, 화면 흐름 정의, 디자인 시스템 관리. Figma MCP와 연동한다.
+**ui-designer** — UI/UX 설계, 화면 흐름 정의, 디자인 시스템 관리. Figma 내장 연동을 사용한다.
 
 - 모델: sonnet / 권한: plan
 - 도구: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
-- MCP: figma (디자인 파일 참조)
 - 역할: 화면 흐름, 와이어프레임 명세, 디자인 시스템 정의
 - 원칙: 모바일 퍼스트, HIG 준수, VoiceOver/Dynamic Type 지원
 
@@ -212,7 +211,7 @@ my-project/
 - 모델: opus / 권한: default / 격리: worktree
 - 도구: Read, Write, Edit, Glob, Grep, Bash, LSP
 - 메모리: project
-- MCP: github, figma, context7, jira, confluence
+- MCP: github, context7, jira, confluence
 - 스킬: develop
 - hooks: PostToolUse — Write/Edit 시 `swift-format` + `swiftlint --fix` 자동 실행
 - 스택: Swift 6, SwiftUI, TCA, SPM, SwiftData, async/await
@@ -307,7 +306,6 @@ memory: project
 permissionMode: default
 mcpServers:
   - github
-  - figma
   - context7
   - jira
   - confluence
@@ -336,7 +334,7 @@ hooks:
 | `permissionMode` | `plan`=읽기 전용, `default`=쓰기, `acceptEdits`=자동 승인 | `plan` |
 | `isolation` | `worktree`로 격리된 Git worktree에서 실행 | `worktree` |
 | `memory` | 메모리 범위 (`user`, `project`, `local`) | `project` |
-| `mcpServers` | 접근 가능한 MCP 서버 제한 | github, figma |
+| `mcpServers` | 접근 가능한 MCP 서버 제한 | github, context7 |
 | `skills` | 이 에이전트에서 사용 가능한 스킬 | develop |
 | `hooks` | 이 에이전트에서만 실행되는 훅 | PostToolUse → swift-format |
 
@@ -692,7 +690,7 @@ exit 0
 | 항목 | 내용 |
 |---|---|
 | includeCoAuthoredBy | `false` — 커밋에 Co-Authored-By 트레일러를 포함하지 않는다 |
-| plugins | `swift-lsp`, `clangd-lsp` (LSP), `figma` (디자인 연동) |
+| plugins | `swift-lsp`, `clangd-lsp` (LSP) |
 | language | 한국어 |
 | env | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` |
 
@@ -712,7 +710,6 @@ exit 0
     "CONFLUENCE_API_TOKEN": "",
     "CONFLUENCE_USERNAME": "",
     "DATABASE_URL": "",
-    "FIGMA_ACCESS_TOKEN": ""
   }
 }
 ```
@@ -728,7 +725,6 @@ MCP 서버 설정은 전역(`~/.claude/.mcp.json`)에서 관리한다. 프로젝
 | 서버 | 타입 | 용도 | 사용 에이전트 | 인증 |
 |---|---|---|---|---|
 | GitHub | stdio | PR, Issue, 코드 리뷰, 파일 조회 | ios-developer, server-developer, infra-developer, tech-writer | `gh` CLI |
-| Figma | http | 디자인 파일 참조, 컴포넌트 조회 | ios-developer, ui-designer | `FIGMA_ACCESS_TOKEN` |
 | Jira | stdio | 티켓 관리, 스프린트, 프로젝트 관리 | dev-planner, ios-developer, server-developer, infra-developer, tech-writer | `JIRA_API_TOKEN` |
 | Confluence | stdio | 위키, 문서 관리 | dev-planner, ios-developer, server-developer, infra-developer, tech-writer | `CONFLUENCE_API_TOKEN` |
 | Context7 | http | 라이브러리 문서 조회 | ios-developer, server-developer, infra-developer | 없음 |
@@ -745,10 +741,9 @@ MCP 서버 설정은 전역(`~/.claude/.mcp.json`)에서 관리한다. 프로젝
 
 | 에이전트 | 접근 가능 MCP |
 |---|---|
-| ios-developer | github, figma, context7, jira, confluence |
+| ios-developer | github, context7, jira, confluence |
 | server-developer | github, postgres, context7, jira, confluence |
 | infra-developer | github, context7, jira, confluence |
-| ui-designer | figma |
 | tech-writer | jira, confluence, github |
 | dev-planner | sequential-thinking, jira, confluence |
 | security-auditor | sequential-thinking |
@@ -1065,12 +1060,12 @@ EOF
 // .mcp.json에 새 서버 추가
 {
   "mcpServers": {
-    "figma": {
+    "sentry": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@anthropic/figma-mcp"],
+      "args": ["-y", "@sentry/mcp-server"],
       "env": {
-        "FIGMA_ACCESS_TOKEN": "$FIGMA_ACCESS_TOKEN"
+        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN"
       }
     }
   }
@@ -1090,7 +1085,7 @@ mcpServers:
   - confluence
 ---
 # → 이 에이전트는 github, postgres, context7, jira, confluence MCP만 사용 가능
-# → figma 등에는 접근 불가
+# → obsidian 등에는 접근 불가
 ```
 
 # 참고
