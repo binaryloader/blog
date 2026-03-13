@@ -36,7 +36,7 @@ depth:
 
 An analysis of how Kiro calls Claude models through a Client Layer + 3-Tier Service Layer, and why the same model delivers different performance depending on the App Provider.
 
-Claude Code hasn't been approved at my company yet, so I've been using Kiro as the standard internal tool. While working with Kiro, I got curious about its internal architecture and put together this analysis based on official documentation and outage reports. Personally, I hope Claude Code gets approved at work soon.
+I had been using Claude Code at work, but a recent security notice classified it as an unapproved tool and banned its use. So I switched to Kiro, the company's standard tool, and the downgrade in experience has been significant. I got curious why the experience feels so different when both use the same Claude model, so I put together this analysis based on official documentation and outage reports.
 
 # Summary
 
