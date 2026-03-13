@@ -42,7 +42,7 @@ Claude Code hasn't been approved at my company yet, so I've been using Kiro as t
 
 ## 1. Architecture Overview
 
-It has been confirmed that Kiro calls Claude models through the path `Kiro → Amazon Bedrock → Claude`. Official documentation and past incidents where Kiro went down during Bedrock outages support this.
+It is estimated that Kiro calls Claude models through the path `Kiro → Amazon Bedrock → Claude`. Past incidents where Kiro went down during Bedrock outages and the use of Bedrock model IDs within Kiro support this.
 
 For the purpose of this analysis, I classify this architecture as `Client Layer` + `3-Tier Service Layer` (`App Provider` — `Managed AI Platform` — `Model Provider`). 3-Tier, App Provider, Managed AI Platform, and Model Provider are not official AWS terminology — they are categories I defined for analytical convenience. The actual internal architecture may differ.
 
@@ -84,7 +84,7 @@ Key features include the following.
 
 The intermediate layer between Kiro and Claude models, responsible for inference, scaling, security, and model routing.
 
-Auto mode is Kiro's default model selection, where Bedrock automatically routes to the optimal model based on task type. While Bedrock itself is a general-purpose platform hosting models from Amazon, Anthropic, Meta, Mistral, and others, Kiro currently uses only Claude models.
+Auto mode is Kiro's default model selection, which automatically routes to the optimal model based on task type. While Bedrock itself is a general-purpose platform hosting models from Amazon, Anthropic, Meta, Mistral, and others, Kiro currently uses only Claude models.
 
 ### 3.3. Model Provider -- Claude Models (by Anthropic)
 

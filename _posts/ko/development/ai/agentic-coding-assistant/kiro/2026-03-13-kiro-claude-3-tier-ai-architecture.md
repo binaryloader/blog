@@ -40,7 +40,7 @@ Kiro가 Claude 모델을 호출하는 경로를 Client Layer + 3-Tier Service La
 
 ## 1. 구조 요약
 
-Kiro가 Claude 모델을 호출하는 경로는 `Kiro → Amazon Bedrock → Claude`로 확인되어 있다. 공식 문서와 Bedrock 장애 시 Kiro 서비스가 중단된 사례가 이를 뒷받침한다.
+Kiro가 Claude 모델을 호출하는 경로는 `Kiro → Amazon Bedrock → Claude`로 추정된다. Bedrock 장애 시 Kiro 서비스가 중단된 사례와 Kiro에서 Bedrock 모델 ID를 사용하는 점이 이를 뒷받침한다.
 
 이 문서에서는 이 구조를 분석의 편의를 위해 `Client Layer` + `3-Tier Service Layer` (`App Provider` — `Managed AI Platform` — `Model Provider`)로 추정하여 분류한다. 3-Tier, App Provider, Managed AI Platform, Model Provider는 AWS 공식 용어가 아니라 필자가 분석 편의를 위해 정의한 분류 체계이다. 실제 내부 아키텍처는 다를 수 있다.
 
@@ -82,7 +82,7 @@ Amazon Q Developer와의 관계는 아래와 같다 (AWS 공식 문서 기준).
 
 Kiro와 Claude 모델 사이의 중간 레이어로 추론(inference), 스케일링, 보안, 모델 라우팅을 담당한다.
 
-Auto 모드는 Kiro의 기본 모델 선택이며 Bedrock이 태스크 유형에 따라 최적 모델을 자동 라우팅한다. Bedrock 자체는 Amazon, Anthropic, Meta, Mistral 등 다수 모델을 호스팅하는 범용 플랫폼이지만 Kiro는 현재 Claude 모델만 사용한다.
+Auto 모드는 Kiro의 기본 모델 선택이며 태스크 유형에 따라 최적 모델을 자동 라우팅한다. Bedrock 자체는 Amazon, Anthropic, Meta, Mistral 등 다수 모델을 호스팅하는 범용 플랫폼이지만 Kiro는 현재 Claude 모델만 사용한다.
 
 ### 3.3. Model Provider — Claude Models (by Anthropic)
 
