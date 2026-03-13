@@ -127,7 +127,7 @@ Claude Code メインセッション（CTO / オーケストレーター）
 │   └── security-auditor.md         # セキュリティ監査者（opus, plan）
 │
 ├── skills/                         # ワークフロー（5個）
-│   ├── plan-feature/SKILL.md       # /plan-feature <機能>
+│   ├── planning/SKILL.md       # /planning <機能>
 │   ├── develop/SKILL.md            # /develop <タスク>
 │   ├── review-all/SKILL.md         # /review-all [ブランチ]
 │   ├── release/SKILL.md            # /release <バージョン>
@@ -448,7 +448,7 @@ Skillsは繰り返しのワークフローを`/skill-name`で呼び出す自動�
 
 ### 5.3. スキルの詳細
 
-#### 5.3.1. /plan-feature <機能>
+#### 5.3.1. /planning <機能>
 
 新機能の企画から技術設計、タスク分解、ドキュメント化まで全フローを実行する。「機能企画」「PRD」「新機能プランニング」をリクエストした時に自動呼び出しされる。
 
@@ -815,10 +815,10 @@ API契約は@docs/api-contract.mdを参照する。
 
 ### 11.1. 新機能開発の全体フロー
 
-#### Phase 1: 企画（`/plan-feature`）
+#### Phase 1: 企画（`/planning`）
 
 ```
-/plan-feature ソーシャルログイン（Apple、Google、Kakao）
+/planning ソーシャルログイン（Apple、Google、Kakao）
 ```
 
 1. **product-planner** — PRD作成（ユーザーストーリー、受入基準、優先順位）
@@ -983,14 +983,14 @@ Claude Codeが`description`をもとに適切なエージェントを自動選�
 
 ```bash
 # スラッシュコマンドで呼び出し
-/plan-feature ソーシャルログイン（Apple, Google, Kakao）
+/planning ソーシャルログイン（Apple, Google, Kakao）
 /develop サーバーのソーシャルログインAPI実装
 /review-all
 /release 1.0.0
 /standup
 
 # 自然言語で呼び出し（disable-model-invocationがfalseのスキルのみ）
-"この機能を企画して"    → /plan-feature 自動呼び出し
+"この機能を企画して"    → /planning 自動呼び出し
 "開発して"              → /develop 自動呼び出し
 "レビューして"          → /review-all 自動呼び出し
 ```

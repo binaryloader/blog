@@ -127,7 +127,7 @@ User-level settings applied globally to all projects. These are always loaded re
 │   └── security-auditor.md         # Security Auditor (opus, plan)
 │
 ├── skills/                         # Workflows (5 skills)
-│   ├── plan-feature/SKILL.md       # /plan-feature <feature>
+│   ├── planning/SKILL.md       # /planning <feature>
 │   ├── develop/SKILL.md            # /develop <task>
 │   ├── review-all/SKILL.md         # /review-all [branch]
 │   ├── release/SKILL.md            # /release <version>
@@ -448,7 +448,7 @@ The `` !`command` `` syntax executes a shell command when a skill is loaded and 
 
 ### 5.3. Skill Details
 
-#### 5.3.1. /plan-feature <feature>
+#### 5.3.1. /planning <feature>
 
 Executes the full flow from new feature planning to technical design, task decomposition, and documentation. Auto-invoked when requesting "feature planning", "PRD", or "new feature planning".
 
@@ -815,10 +815,10 @@ See @docs/api-contract.md for the API contract.
 
 ### 11.1. Full Flow for New Feature Development
 
-#### Phase 1: Planning (`/plan-feature`)
+#### Phase 1: Planning (`/planning`)
 
 ```
-/plan-feature Social Login (Apple, Google, Kakao)
+/planning Social Login (Apple, Google, Kakao)
 ```
 
 1. **product-planner** — Write PRD (user stories, acceptance criteria, priorities)
@@ -983,14 +983,14 @@ Claude Code automatically selects the appropriate agent based on the `descriptio
 
 ```bash
 # Invoke via slash command
-/plan-feature Social login (Apple, Google, Kakao)
+/planning Social login (Apple, Google, Kakao)
 /develop Implement server social login API
 /review-all
 /release 1.0.0
 /standup
 
 # Natural language invocation (only for skills with disable-model-invocation set to false)
-"Plan this feature"      → /plan-feature auto-invoked
+"Plan this feature"      → /planning auto-invoked
 "Develop this"           → /develop auto-invoked
 "Review this"            → /review-all auto-invoked
 ```

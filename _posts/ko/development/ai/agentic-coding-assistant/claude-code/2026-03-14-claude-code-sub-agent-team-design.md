@@ -123,7 +123,7 @@ Claude Code 메인 세션 (CTO / 오케스트레이터)
 │   └── security-auditor.md         # 보안 감사자 (opus, plan)
 │
 ├── skills/                         # 워크플로우 (5개)
-│   ├── plan-feature/SKILL.md       # /plan-feature <기능>
+│   ├── planning/SKILL.md       # /planning <기능>
 │   ├── develop/SKILL.md            # /develop <작업>
 │   ├── review-all/SKILL.md         # /review-all [브랜치]
 │   ├── release/SKILL.md            # /release <버전>
@@ -444,7 +444,7 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 
 ### 5.3. 스킬 상세
 
-#### 5.3.1. /plan-feature <기능>
+#### 5.3.1. /planning <기능>
 
 새 기능의 기획부터 기술 설계, 작업 분해, 문서화까지 전체 플로우를 실행한다. "기능 기획", "PRD", "새 기능 플래닝"을 요청할 때 자동 호출된다.
 
@@ -811,10 +811,10 @@ API 계약은 @docs/api-contract.md를 참조한다.
 
 ### 11.1. 새 기능 개발 전체 플로우
 
-#### Phase 1: 기획 (`/plan-feature`)
+#### Phase 1: 기획 (`/planning`)
 
 ```
-/plan-feature 소셜 로그인 (Apple, Google, Kakao)
+/planning 소셜 로그인 (Apple, Google, Kakao)
 ```
 
 1. **product-planner** — PRD 작성 (사용자 스토리, 수용 기준, 우선순위)
@@ -979,14 +979,14 @@ Claude Code가 `description`을 기반으로 적합한 에이전트를 자동 �
 
 ```bash
 # 슬래시 커맨드로 호출
-/plan-feature 소셜 로그인 (Apple, Google, Kakao)
+/planning 소셜 로그인 (Apple, Google, Kakao)
 /develop 서버 소셜 로그인 API 구현
 /review-all
 /release 1.0.0
 /standup
 
 # 자연어 호출 (disable-model-invocation이 false인 스킬만)
-"이 기능 기획해줘"    → /plan-feature 자동 호출
+"이 기능 기획해줘"    → /planning 자동 호출
 "개발해줘"           → /develop 자동 호출
 "리뷰해줘"           → /review-all 자동 호출
 ```
