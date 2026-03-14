@@ -57,7 +57,7 @@ LLM은 같은 모델이라도 프롬프트에 따라 완전히 다른 품질의 
 
 프롬프트 엔지니어링은 LLM 활용에서 가장 적은 비용으로 가장 큰 성능 차이를 만드는 방법이다. 모델을 바꾸기 전에 프롬프트를 먼저 개선하는 것이 우선이고 AI 에이전트나 RAG 파이프라인을 구축할 때도 각 단계의 프롬프트 품질이 전체 시스템 성능을 결정한다.
 
-## 2. LCEL (LangChain Expression Language)
+## 2. LCEL(LangChain Expression Language)
 
 LCEL은 LangChain 컴포넌트를 **파이프 연산자(`|`)로 연결**해서 체인을 선언적으로 구성하는 문법이다. 모든 컴포넌트가 공통 `Runnable` 인터페이스를 구현하므로 자유롭게 조합할 수 있다.
 
@@ -149,7 +149,7 @@ prompt.invoke({
 |---|---|---|
 | 메시지 수 | human 1개만 | 여러 개 자유 구성 |
 | 시스템 메시지 | 불가능 | 가능 |
-| Few-shot 예시 | 불가능 | 가능 (human/ai 쌍 추가) |
+| Few-shot 예시 | 불가능 | 가능(human/ai 쌍 추가) |
 | 사용처 | 단순 질의 | 역할 부여, 대화 구조 |
 
 역할이나 제약 조건을 설정하는 시스템 메시지가 거의 항상 필요하므로 실무에서는 `from_messages`를 훨씬 많이 사용한다.
@@ -210,7 +210,7 @@ for txt in chain.stream({"input": "What's your name?"}):
 | 타입 | 용도 |
 |---|---|
 | `PromptTemplate` | 단순 문자열 completion 모델 |
-| `ChatPromptTemplate` | 채팅 모델 (system/human/ai 메시지 구조) |
+| `ChatPromptTemplate` | 채팅 모델(system/human/ai 메시지 구조) |
 | `FewShotChatMessagePromptTemplate` | Few-shot 예시 포함 |
 
 ## 4. 메시지 클래스

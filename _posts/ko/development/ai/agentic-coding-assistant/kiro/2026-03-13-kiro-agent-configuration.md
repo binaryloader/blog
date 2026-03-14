@@ -42,8 +42,8 @@ Kiro 에이전트의 생성, 설정, 프롬프트 모듈화, 서브 에이전트
 
 ### 1.2. 위치
 
-- 전역 에이전트 (사용자 전체): `~/.kiro/agents/<name>.json` — 모든 프로젝트에서 사용 가능
-- 워크스페이스 에이전트 (프로젝트별): `.kiro/agents/<name>.json` — 해당 프로젝트에서만 사용, 전역 에이전트보다 우선 적용
+- 전역 에이전트(사용자 전체): `~/.kiro/agents/<name>.json` — 모든 프로젝트에서 사용 가능
+- 워크스페이스 에이전트(프로젝트별): `.kiro/agents/<name>.json` — 해당 프로젝트에서만 사용, 전역 에이전트보다 우선 적용
 
 ### 1.3. 기본 구조
 
@@ -66,9 +66,9 @@ Kiro 에이전트의 생성, 설정, 프롬프트 모듈화, 서브 에이전트
 |---|---|
 | `name` | 에이전트 이름 |
 | `description` | 에이전트 설명 |
-| `prompt` | 시스템 프롬프트 (인라인 텍스트 또는 `file://` URI) |
+| `prompt` | 시스템 프롬프트(인라인 텍스트 또는 `file://` URI) |
 | `tools` | 사용 가능한 도구 목록 |
-| `allowedTools` | 자동 승인 도구 (확인 없이 실행) |
+| `allowedTools` | 자동 승인 도구(확인 없이 실행) |
 | `resources` | 매 대화마다 자동 로드할 컨텍스트 파일 |
 | `hooks` | 이벤트 기반 자동 실행 명령어 |
 | `mcpServers` | 에이전트 전용 MCP 서버 |
@@ -171,7 +171,7 @@ Claude Code에서 사용하던 CLAUDE.md를 Kiro 에이전트의 prompt로 그�
 
 ### 5.2. 모듈 파일 예시
 
-`common-rules.md` (공통 규칙)
+`common-rules.md`(공통 규칙)
 
 ```markdown
 # 공통 규칙
@@ -191,7 +191,7 @@ Claude Code에서 사용하던 CLAUDE.md를 Kiro 에이전트의 prompt로 그�
 - 호스트는 `gitlab.example.com`이다
 ```
 
-`developer-ios-rules.md` (iOS 개발 규칙)
+`developer-ios-rules.md`(iOS 개발 규칙)
 
 ```markdown
 # iOS 개발 규칙
@@ -206,7 +206,7 @@ Claude Code에서 사용하던 CLAUDE.md를 Kiro 에이전트의 prompt로 그�
 
 ### 5.3. 통합 프롬프트
 
-`developer-ios.md` (모듈 참조)
+`developer-ios.md`(모듈 참조)
 
 ```markdown
 # iOS 개발자 에이전트
@@ -278,7 +278,7 @@ reviewer-ios 에이전트로 현재 브랜치의 변경사항 리뷰해줘
 
 ## 7. 세션 중 임시 컨텍스트 추가
 
-에이전트 설정 외에 대화 중 임시로 파일을 컨텍스트에 추가할 수 있다 (세션 종료 시 사라짐).
+에이전트 설정 외에 대화 중 임시로 파일을 컨텍스트에 추가할 수 있다(세션 종료 시 사라짐).
 
 ```
 /context add README.md docs/**/*.md

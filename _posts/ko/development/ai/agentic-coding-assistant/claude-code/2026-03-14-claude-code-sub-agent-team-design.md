@@ -78,8 +78,8 @@ Claude Code 메인 세션 (CTO / 오케스트레이터)
 
 서브 에이전트와 에이전트 팀의 사용 기준은 아래와 같다.
 
-- **서브 에이전트**: 단일 작업 위임 후 결과 반환 (리뷰, 분석, 단일 기능 구현)
-- **에이전트 팀**: 여러 에이전트가 장시간 독립적으로 병렬 작업 (iOS + 서버 동시 개발)
+- **서브 에이전트**: 단일 작업 위임 후 결과 반환(리뷰, 분석, 단일 기능 구현)
+- **에이전트 팀**: 여러 에이전트가 장시간 독립적으로 병렬 작업(iOS + 서버 동시 개발)
 
 ## 2. 파일 맵
 
@@ -164,7 +164,7 @@ my-project/
 - `~/.claude/rules/*.md`의 `paths` 매칭은 현재 작업 중인 프로젝트의 파일 경로에 대해 적용된다
 - `~/.claude/settings.json`의 hooks도 모든 프로젝트에서 실행된다
 
-## 3. 에이전트 설계 (15명)
+## 3. 에이전트 설계(15명)
 
 에이전트는 `.claude/agents/` 디렉토리에 Markdown 파일로 정의한다. YAML Frontmatter로 메타데이터를 설정하고 본문에 역할 지시사항을 작성한다.
 
@@ -174,9 +174,9 @@ my-project/
 
 - 모델: opus / 권한: plan
 - 도구: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
-- 메모리: project (프로젝트별 기획 이력 기억)
+- 메모리: project(프로젝트별 기획 이력 기억)
 - 역할: 사용자 스토리 정의, MoSCoW/RICE 우선순위, MVP 범위 정의
-- 출력: PRD 문서 (배경, 목표, 수용 기준, 제외 범위)
+- 출력: PRD 문서(배경, 목표, 수용 기준, 제외 범위)
 
 **ui-designer** — UI/UX 설계, 화면 흐름 정의, 디자인 시스템 관리. Figma 내장 연동을 사용한다.
 
@@ -189,7 +189,7 @@ my-project/
 
 - 모델: sonnet / 권한: acceptEdits
 - 도구: Read, Write, Edit, Glob, Grep, WebFetch
-- MCP: jira (티켓), confluence (위키), github (PR/README)
+- MCP: jira(티켓), confluence(위키), github(PR/README)
 - 출력: 티켓, 위키, OpenAPI 문서, CHANGELOG, 릴리즈 노트
 - 형식: Mermaid 다이어그램 활용
 
@@ -199,8 +199,8 @@ my-project/
 
 - 모델: opus / 권한: plan
 - 도구: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
-- 메모리: project (설계 이력 기억)
-- MCP: sequential-thinking (복잡한 설계 의사결정), jira (요구사항 참조), confluence (설계 문서 참조)
+- 메모리: project(설계 이력 기억)
+- MCP: sequential-thinking(복잡한 설계 의사결정), jira(요구사항 참조), confluence(설계 문서 참조)
 - 역할: API 인터페이스, DB 스키마, iOS/서버/인프라 작업 분해, 의존성 그래프
 - 원칙: YAGNI, 작업 단위 1일 이내, API 계약 우선
 
@@ -236,7 +236,7 @@ my-project/
 - MCP: github, context7, jira, confluence
 - 스킬: develop
 - hooks: PostToolUse — Write/Edit 시 `terraform fmt` 자동 실행
-- 스택: AWS (ECS, RDS, S3, CloudFront, ALB), Terraform, GitHub Actions, Docker
+- 스택: AWS(ECS, RDS, S3, CloudFront, ALB), Terraform, GitHub Actions, Docker
 - 브랜치: `feature/infra-*`
 
 ### 3.3. 리뷰 팀
@@ -279,10 +279,10 @@ my-project/
 
 - 모델: opus / 권한: plan
 - 도구: Read, Glob, Grep, Bash
-- MCP: sequential-thinking (체계적 보안 분석)
+- MCP: sequential-thinking(체계적 보안 분석)
 - 점검: OWASP A01~A10 전체, JWT/세션, SQL/NoSQL Injection, CVE
 - iOS 보안: 키체인 사용, ATS, 인증서 고정
-- 심각도: 🔴 Critical, 🟠 High, 🟡 Medium, 🟢 Low (4단계)
+- 심각도: 🔴 Critical, 🟠 High, 🟡 Medium, 🟢 Low(4단계)
 
 ### 3.5. 에이전트 설정 상세
 
@@ -353,7 +353,7 @@ hooks:
 | `default` (기본) | 수정 시 사용자 승인 필요 | ios-developer, server-developer, infra-developer, qa-engineer |
 | `acceptEdits` | 파일 수정 자동 승인 | tech-writer |
 
-## 4. 에이전트 팀 (실험적)
+## 4. 에이전트 팀(실험적)
 
 ### 4.1. 서브 에이전트 vs 에이전트 팀
 
@@ -364,7 +364,7 @@ hooks:
 | 통신 | 메인에게만 보고 | 팀원 간 직접 메시지 |
 | 조율 | 메인이 모든 작업 관리 | 공유 작업 목록으로 자체 조율 |
 | 컨텍스트 | 결과만 반환 | 완전 독립 유지 |
-| 비용 | 낮음 | 높음 (독립 인스턴스) |
+| 비용 | 낮음 | 높음(독립 인스턴스) |
 | 적합한 작업 | 단일 작업 위임 | 장시간 병렬 개발 |
 
 ### 4.2. 활성화
@@ -419,12 +419,12 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 
 | 필드 | 설명 |
 |---|---|
-| `name` | 호출 이름 (`/name`) |
+| `name` | 호출 이름(`/name`) |
 | `description` | Claude가 자동 호출 시기를 판단하는 데 사용 |
-| `argument-hint` | 인자 힌트 (사용자에게 표시) |
+| `argument-hint` | 인자 힌트(사용자에게 표시) |
 | `context: fork` | 격리된 서브 에이전트 컨텍스트에서 실행 |
 | `agent` | `context: fork` 시 사용할 에이전트 |
-| `disable-model-invocation` | `true`면 수동 호출만 (자동 호출 안 함) |
+| `disable-model-invocation` | `true`면 수동 호출만(자동 호출 안 함) |
 | `allowed-tools` | 승인 없이 사용 가능한 도구 |
 
 ### 5.2. 동적 컨텍스트 주입
@@ -447,24 +447,24 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 새 기능의 기획부터 기술 설계, 작업 분해, 문서화까지 전체 플로우를 실행한다. "기능 기획", "PRD", "새 기능 플래닝"을 요청할 때 자동 호출된다.
 
 - 동적 주입: `git log --oneline -10`, `ls -la docs/`
-- 1단계: **product-planner** — PRD 작성 (사용자 스토리, 수용 기준, 우선순위, 제외 범위)
-- 2단계: **dev-planner** — 기술 설계 (API 인터페이스, DB 스키마, 작업 분해, 의존성 그래프)
-- 3단계: **ui-designer** — UI/UX 설계 (화면 흐름, UI 명세)
-- 4단계: **tech-writer** — 문서화 (MCP로 티켓 생성, 위키 등록, docs/ 저장)
-- 5단계: **메인 세션** — 최종 보고 (기능 요약, 예상 작업량, 리스크, 다음 단계)
+- 1단계: **product-planner** — PRD 작성(사용자 스토리, 수용 기준, 우선순위, 제외 범위)
+- 2단계: **dev-planner** — 기술 설계(API 인터페이스, DB 스키마, 작업 분해, 의존성 그래프)
+- 3단계: **ui-designer** — UI/UX 설계(화면 흐름, UI 명세)
+- 4단계: **tech-writer** — 문서화(MCP로 티켓 생성, 위키 등록, docs/ 저장)
+- 5단계: **메인 세션** — 최종 보고(기능 요약, 예상 작업량, 리스크, 다음 단계)
 
 #### 5.3.2. /develop <작업>
 
 개발, 테스트, 코드 리뷰를 순차적으로 실행한다. "개발해줘", "구현해줘", "코딩해줘"를 요청할 때 자동 호출된다.
 
 - 동적 주입: `git branch --show-current`, `git status -s`
-- 1단계: **작업 분석** — 파일 유형별 개발자 에이전트 결정 (*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer)
+- 1단계: **작업 분석** — 파일 유형별 개발자 에이전트 결정(*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer)
 - 2단계: **컨텍스트 수집** — 티켓 번호나 외부 문서 참조가 있으면 Jira 티켓, Confluence 설계 문서, API 스펙 등 관련 정보를 수집하여 이후 단계에 전달
 - 3단계: **\*-developer 에이전트** — 기능 브랜치에서 코드 작성, Conventional Commits
 - 4단계: **qa-engineer** — 유닛 테스트 작성 및 실행
 - 5단계: **리뷰어 2명** — 변경 파일 유형에 따른 병렬 리뷰
 - 6단계: **PR 생성** — 리뷰 결과에 🔴 항목이 없으면 GitHub에 PR을 생성한다. PR 제목과 본문을 자동 작성하며 리뷰 결과 요약을 포함한다
-- 7단계: **결과 보고** — 구현 요약, 테스트 결과, 리뷰 결과 (심각도별)
+- 7단계: **결과 보고** — 구현 요약, 테스트 결과, 리뷰 결과(심각도별)
 
 #### 5.3.3. /review-all [대상]
 
@@ -472,7 +472,7 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 
 - 동적 주입: `git diff --name-only main...HEAD`, `git diff --stat main...HEAD`
 - 1단계: **변경 파일 분류** — *.swift → iOS, *.kt → 서버, *.tf → 인프라
-- 2단계: **도메인별 리뷰어 2명** — 병렬 호출 (아키텍처 + 품질)
+- 2단계: **도메인별 리뷰어 2명** — 병렬 호출(아키텍처 + 품질)
 - 3단계: **security-auditor** — 전체 변경에 대한 보안 감사
 - 4단계: **종합 리포트** — 🔴 필수 수정 / 🟡 권장 / 🟢 참고 분류, 머지 go/no-go 판단
 
@@ -485,14 +485,14 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 - 2단계: **security-auditor** — 최종 보안 감사, 의존성 CVE 스캔
 - 3단계: **infra-developer** — 배포 스크립트, 환경 변수, 롤백 계획, DB 마이그레이션 확인
 - 4단계: **tech-writer** — CHANGELOG, 릴리즈 노트, API 문서 확인
-- 5단계: **Go/No-Go 판단** — 체크리스트 종합 (테스트, 보안, 배포, 문서)
+- 5단계: **Go/No-Go 판단** — 체크리스트 종합(테스트, 보안, 배포, 문서)
 
 #### 5.3.5. /standup
 
 일일 현황 보고서를 생성한다. `context: fork`로 격리 실행하며 `disable-model-invocation: true`로 수동 호출만 가능하다.
 
 - 동적 주입: `git log --since="24 hours ago"`, `git branch -a`, `git status -s`, `gh pr list`, `gh run list --status failure`
-- 출력: 어제 완료 / 오늘 진행 예정 / 블로커 / 수치 (커밋, PR, CI)
+- 출력: 어제 완료 / 오늘 진행 예정 / 블로커 / 수치(커밋, PR, CI)
 
 ## 6. 룰 설계
 
@@ -502,12 +502,12 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 
 10개 파일을 관리한다. 모든 프로젝트에 공통 적용된다.
 
-#### 6.1.1. 항상 로드 (paths 없음)
+#### 6.1.1. 항상 로드(paths 없음)
 
 | 파일 | 내용 |
 |---|---|
-| `markdown.md` | H2~H4 헤딩 번호 부여, 불렛 포인트 규칙 (콜론 금지, 완전한 문장), 개행 규칙 |
-| `korean.md` | 쉼표는 나열에만 사용 (접속 부사 뒤 금지), 종결어미 `~한다` 체 통일 |
+| `markdown.md` | H2~H4 헤딩 번호 부여, 불렛 포인트 규칙(콜론 금지, 완전한 문장), 개행 규칙 |
+| `korean.md` | 쉼표는 나열에만 사용(접속 부사 뒤 금지), 종결어미 `~한다` 체 통일 |
 | `git.md` | Conventional Commits, Co-Authored-By 금지, MCP GitHub 도구 활용, 저장소 네이밍 |
 | `security.md` | 시크릿 하드코딩 금지, JWT 만료/Refresh Token 관리, SQL Injection/XSS 방지 |
 
@@ -519,7 +519,7 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 | `xcode.md` | `**/*.swift`, `**/Package.swift`, `**/Project.swift` | Xcode 파일 헤더 주석, Swift Package 우선, 최소 iOS 16 |
 | `kotlin.md` | `server/**/*.kt` | Kotlin 공식 컨벤션, Spring Boot 계층 분리, N+1 방지 |
 | `terraform.md` | `infra/**/*.tf` | 환경별 분리, 모듈화, S3+DynamoDB 상태 관리, 최소 권한 |
-| `api-design.md` | `**/api/**`, `**/controller/**`, `**/Controller/**`, `**/routes/**` | REST 원칙, 통일 응답 포맷 (`data/error/meta`), Cursor 페이지네이션 |
+| `api-design.md` | `**/api/**`, `**/controller/**`, `**/Controller/**`, `**/routes/**` | REST 원칙, 통일 응답 포맷(`data/error/meta`), Cursor 페이지네이션 |
 | `image-metadata.md` | `**/*.jpg`, `**/*.png` 등 | ICC 프로파일 보존, 개인정보만 제거, HEIC→JPG 변환 |
 
 ### 6.2. 프로젝트 룰 (.claude/rules/)
@@ -678,19 +678,19 @@ exit 0
 
 `~/.claude/settings.json`에서 모든 권한, hooks, 환경 변수, 플러그인을 전역으로 관리한다.
 
-**권한 (permissions)**
+**권한(permissions)**
 
 | 구분 | 내용 |
 |---|---|
-| allow (자동 승인) | `Bash(git *)`, `Bash(swift-format *)`, `Bash(swiftlint *)`, `Bash(ktlint *)`, `Bash(terraform fmt *)`, `Bash(gh *)` |
-| deny (차단) | `Bash(rm -rf /)`, `Bash(git push --force *)`, `Bash(git reset --hard *)`, `Bash(terraform destroy *)` |
+| allow(자동 승인) | `Bash(git *)`, `Bash(swift-format *)`, `Bash(swiftlint *)`, `Bash(ktlint *)`, `Bash(terraform fmt *)`, `Bash(gh *)` |
+| deny(차단) | `Bash(rm -rf /)`, `Bash(git push --force *)`, `Bash(git reset --hard *)`, `Bash(terraform destroy *)` |
 
 **기타 설정**
 
 | 항목 | 내용 |
 |---|---|
 | includeCoAuthoredBy | `false` — 커밋에 Co-Authored-By 트레일러를 포함하지 않는다 |
-| plugins | `swift-lsp`, `clangd-lsp` (LSP) |
+| plugins | `swift-lsp`, `clangd-lsp`(LSP) |
 | language | 한국어 |
 | env | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` |
 
@@ -698,7 +698,7 @@ exit 0
 
 | 파일 | 범위 | 용도 |
 |---|---|---|
-| `.claude/settings.json` | 프로젝트 (팀 공유, git 커밋) | 프로젝트별 추가 권한, 환경 변수 |
+| `.claude/settings.json` | 프로젝트(팀 공유, git 커밋) | 프로젝트별 추가 권한, 환경 변수 |
 | `.claude/settings.local.json` | 로컬 전용 (.gitignore) | API 키, DB URL 등 시크릿 |
 
 ```json
@@ -714,13 +714,13 @@ exit 0
 }
 ```
 
-## 9. MCP 서버 (외부 연동)
+## 9. MCP 서버(외부 연동)
 
 ### 9.1. 전역 설정
 
 MCP 서버 설정은 전역(`~/.claude/.mcp.json`)에서 관리한다. 프로젝트별 추가 서버가 필요하면 프로젝트 루트에 `.mcp.json`을 생성한다.
 
-### 9.2. 서버 목록 (9개)
+### 9.2. 서버 목록(9개)
 
 | 서버 | 타입 | 용도 | 사용 에이전트 | 인증 |
 |---|---|---|---|---|
@@ -812,10 +812,10 @@ API 계약은 @docs/api-contract.md를 참조한다.
 /planning 소셜 로그인 (Apple, Google, Kakao)
 ```
 
-1. **product-planner** — PRD 작성 (사용자 스토리, 수용 기준, 우선순위)
-2. **dev-planner** — 기술 설계 (API 인터페이스, DB 스키마, 작업 분해)
-3. **ui-designer** — UI/UX 설계 (화면 흐름, 컴포넌트 명세)
-4. **tech-writer** — 티켓 생성 + 위키 작성 (Jira/Confluence MCP 연동)
+1. **product-planner** — PRD 작성(사용자 스토리, 수용 기준, 우선순위)
+2. **dev-planner** — 기술 설계(API 인터페이스, DB 스키마, 작업 분해)
+3. **ui-designer** — UI/UX 설계(화면 흐름, 컴포넌트 명세)
+4. **tech-writer** — 티켓 생성 + 위키 작성(Jira/Confluence MCP 연동)
 5. **메인 세션(CTO)** — 기획 결과 종합, 사용자에게 보고
 
 #### Phase 2: 개발 (`/develop`)
@@ -824,11 +824,11 @@ API 계약은 @docs/api-contract.md를 참조한다.
 /develop PROJ-123
 ```
 
-1. **메인 세션** — 작업 분석 (어떤 개발자 에이전트를 사용할지 결정)
-2. **메인 세션** — 컨텍스트 수집 (Jira 티켓, Confluence 설계 문서, API 스펙)
-3. **ios-developer + server-developer + infra-developer** — 병렬 개발 (에이전트 팀 또는 worktree 격리)
+1. **메인 세션** — 작업 분석(어떤 개발자 에이전트를 사용할지 결정)
+2. **메인 세션** — 컨텍스트 수집(Jira 티켓, Confluence 설계 문서, API 스펙)
+3. **ios-developer + server-developer + infra-developer** — 병렬 개발(에이전트 팀 또는 worktree 격리)
 4. **qa-engineer** — 테스트 작성 및 실행
-5. **메인 세션** — PR 생성 (리뷰 통과 시 자동)
+5. **메인 세션** — PR 생성(리뷰 통과 시 자동)
 6. **메인 세션(CTO)** — 개발 결과 종합, 사용자에게 보고
 
 #### Phase 3: 리뷰 (`/review-all`)
@@ -837,7 +837,7 @@ API 계약은 @docs/api-contract.md를 참조한다.
 /review-all
 ```
 
-1. **리뷰어 6명** — 아키텍처 + 품질 병렬 리뷰 (각 개발자당 2명)
+1. **리뷰어 6명** — 아키텍처 + 품질 병렬 리뷰(각 개발자당 2명)
 2. **security-auditor** — 보안 감사
 3. **메인 세션(CTO)** — 최종 결과 종합, 머지 판단, 사용자에게 보고
 
@@ -887,8 +887,8 @@ API 계약은 @docs/api-contract.md를 참조한다.
 
 ### 12.1. 모델 배분 전략
 
-- **Opus** (비쌈): 기획, 개발, 보안 감사 — 정확성과 창의성이 중요한 작업에만
-- **Sonnet** (저렴): 리뷰, QA, 문서 작성 — 패턴화된 작업은 Sonnet으로 충분
+- **Opus**(비쌈): 기획, 개발, 보안 감사 — 정확성과 창의성이 중요한 작업에만
+- **Sonnet**(저렴): 리뷰, QA, 문서 작성 — 패턴화된 작업은 Sonnet으로 충분
 
 ### 12.2. 컨텍스트 절약
 

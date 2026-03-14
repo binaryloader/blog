@@ -81,10 +81,10 @@ L2TP/IPSec VPN에 필요한 항목은 다음 두 가지다.
 
 | 항목 | 값 |
 |---|---|
-| **서비스 이름** | L2TP / IPSec VPN Server (식별용 이름) |
+| **서비스 이름** | L2TP / IPSec VPN Server(식별용 이름) |
 | **외부 포트** | 500, 1701, 4500 |
 | **내부 포트** | (외부 포트와 동일) |
-| **내부 IP 주소** | Synology NAS의 내부 IP 주소 (예: `192.168.x.x`) |
+| **내부 IP 주소** | Synology NAS의 내부 IP 주소(예: `192.168.x.x`) |
 | **프로토콜** | UDP |
 
 L2TP/IPSec은 UDP 프로토콜을 사용하므로 반드시 **UDP**로 설정해야 한다.
@@ -97,7 +97,7 @@ L2TP/IPSec은 UDP 프로토콜을 사용하므로 반드시 **UDP**로 설정해
 
 | Type | Host | Value | 설명 |
 |---|---|---|---|
-| **A Record** | vpn | 공인 IP 주소 (예: `210.x.x.x`) | `vpn.yourdomain.com`으로 VPN 서버에 접속할 수 있게 된다. |
+| **A Record** | vpn | 공인 IP 주소(예: `210.x.x.x`) | `vpn.yourdomain.com`으로 VPN 서버에 접속할 수 있게 된다. |
 
 A Record의 Host에 `vpn`을 입력하면 `vpn.yourdomain.com` 형태로 접속할 수 있다. Value에는 공유기의 공인 IP 주소를 입력한다.
 

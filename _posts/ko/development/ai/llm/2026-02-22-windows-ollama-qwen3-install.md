@@ -53,13 +53,13 @@ Ollama는 CPU만으로도 동작하지만 GPU가 있으면 훨씬 빠르다.
 |---|---|---|
 | OS | Windows 10 이상 | Windows 11 |
 | RAM | 8GB | 16GB 이상 |
-| GPU | 없어도 가능 | NVIDIA (VRAM 8GB 이상) |
+| GPU | 없어도 가능 | NVIDIA(VRAM 8GB 이상) |
 | 디스크 | 10GB 여유 공간 | SSD 권장 |
 
 이 포스트에서 사용한 환경은 아래와 같다.
 
 - CPU: AMD Ryzen 5 7500F
-- GPU: NVIDIA RTX 4070 (VRAM 12GB)
+- GPU: NVIDIA RTX 4070(VRAM 12GB)
 - RAM: 32GB
 - OS: Windows 11 64bit
 
@@ -87,7 +87,7 @@ Qwen3:8B는 Alibaba Cloud에서 공개한 80억 파라미터 모델이다. 한�
 ollama run qwen3:8b
 ```
 
-처음 실행하면 모델을 다운로드한다 (약 5GB). 다운로드가 끝나면 바로 대화를 시작할 수 있다.
+처음 실행하면 모델을 다운로드한다(약 5GB). 다운로드가 끝나면 바로 대화를 시작할 수 있다.
 
 ![Qwen3:8B 실행 화면](/assets/image/post/development/ai/llm/windows-ollama-qwen3-install/ollama-run-qwen3.png)
 
@@ -137,7 +137,7 @@ Invoke-RestMethod -Uri http://localhost:11434/api/generate -Method Post -Content
 | 명령어 | 설명 |
 |---|---|
 | `ollama list` | 설치된 모델 목록 확인 |
-| `ollama pull qwen3:8b` | 모델 다운로드 (실행 없이) |
+| `ollama pull qwen3:8b` | 모델 다운로드(실행 없이) |
 | `ollama rm qwen3:8b` | 모델 삭제 |
 | `ollama show qwen3:8b` | 모델 상세 정보 확인 |
 | `ollama ps` | 실행 중인 모델 확인 |

@@ -45,7 +45,7 @@ Objective-C는 ANSI C의 `strict superset`으로 ANSI C에서 제공하는 대�
 
 ## 1. 문자 데이터형
 
-### 1.1. char (32bit / 64bit)
+### 1.1. char(32bit / 64bit)
 
 | TYPE          | 크기  | 표현범위                  |
 | ------------- | ----- | ------------------------- |
@@ -57,35 +57,35 @@ Objective-C는 ANSI C의 `strict superset`으로 ANSI C에서 제공하는 대�
 
 ## 2. 정수 데이터형
 
-### 2.1. short int (32bit / 64bit)
+### 2.1. short int(32bit / 64bit)
 
 | TYPE               | 크기  | 표현범위                        |
 | ------------------ | ----- | ------------------------------- |
 | signed short int   | 2byte | Min : -32,768<br />Max : 32,767 |
 | unsigned short int | 2byte | Min : 0<br />Max : 65,535       |
 
-### 2.2. int (32bit / 64bit)
+### 2.2. int(32bit / 64bit)
 
 | TYPE         | 크기  | 표현범위                                      |
 | ------------ | ----- | --------------------------------------------- |
 | signed int   | 4byte | Min : -2,147,483,648<br />Max : 2,147,483,647 |
 | unsigned int | 4byte | Min : 0<br />Max : 4,294,967,295              |
 
-### 2.3. long int (32bit)
+### 2.3. long int(32bit)
 
 | TYPE              | 크기  | 표현범위                                      |
 | ----------------- | ----- | --------------------------------------------- |
 | signed long int   | 4byte | Min : -2,147,483,648<br />Max : 2,147,483,647 |
 | unsigned long int | 4byte | Min : 0<br />Max : 4,294,967,295              |
 
-### 2.4. long int (64bit)
+### 2.4. long int(64bit)
 
 | TYPE              | 크기  | 표현범위                                                              |
 | ----------------- | ----- | --------------------------------------------------------------------- |
 | signed long int   | 8byte | Min : -9,223,372,036,854,775,808<br />Max : 9,223,372,036,854,775,807 |
 | unsigned long int | 8byte | Min : 0<br />Max : 18,446,744,073,709,551,615                         |
 
-### 2.5. long long int (32bit / 64bit)
+### 2.5. long long int(32bit / 64bit)
 
 | TYPE                   | 크기  | 표현범위                                                              |
 | ---------------------- | ----- | --------------------------------------------------------------------- |
@@ -94,13 +94,13 @@ Objective-C는 ANSI C의 `strict superset`으로 ANSI C에서 제공하는 대�
 
 ## 3. 부동 소수 데이터형
 
-### 3.1. float (32bit / 64bit)
+### 3.1. float(32bit / 64bit)
 
 | TYPE  | 크기  | 표현범위                                   |
 | ----- | ----- | ------------------------------------------ |
 | float | 4byte | Min : 1.175494e-38<br />Max : 3.402823e+38 |
 
-### 3.2. double (32bit / 64bit)
+### 3.2. double(32bit / 64bit)
 
 | TYPE   | 크기  | 표현범위                                     |
 | ------ | ----- | -------------------------------------------- |
@@ -322,13 +322,13 @@ x86_64
 
 ## 5. 인스턴스 포인터형
 
-### 5.1. id (32bit)
+### 5.1. id(32bit)
 
 | TYPE | 크기  | 표현범위        |
 | ---- | ----- | --------------- |
 | id   | 4byte | 인스턴스 포인터 |
 
-### 5.2. id (64bit)
+### 5.2. id(64bit)
 
 | TYPE | 크기  | 표현범위        |
 | ---- | ----- | --------------- |
@@ -380,7 +380,7 @@ Xcode 12에서 테스트해봤는데 signed와 unsigned 간에 포맷 문자를 
 
 ### 1.1. 문자 데이터형
 
-#### 1.1.1. char (64bit)
+#### 1.1.1. char(64bit)
 
 ```objectivec
 NSLog(@"size of char is %ld", sizeof(char));
@@ -395,7 +395,7 @@ Program ended with exit code: 0
 
 ### 1.2. 정수 데이터형
 
-#### 1.2.1. short int (64bit)
+#### 1.2.1. short int(64bit)
 
 ```objectivec
 NSLog(@"size of short int is %ld", sizeof(short int));
@@ -408,7 +408,7 @@ size of unsigned short int is 2
 Program ended with exit code: 0
 ```
 
-#### 1.2.2. int (64bit)
+#### 1.2.2. int(64bit)
 
 ```objectivec
 NSLog(@"size of int is %ld", sizeof(int));
@@ -421,7 +421,7 @@ size of unsigned int is 4
 Program ended with exit code: 0
 ```
 
-#### 1.2.3. long int (64bit)
+#### 1.2.3. long int(64bit)
 
 ```objectivec
 NSLog(@"size of long int is %ld", sizeof(long int));
@@ -434,7 +434,7 @@ size of unsigned long int is 8
 Program ended with exit code: 0
 ```
 
-#### 1.2.4. long long int (64bit)
+#### 1.2.4. long long int(64bit)
 
 ```objectivec
 NSLog(@"size of long long int is %ld", sizeof(long long int));
@@ -449,7 +449,7 @@ Program ended with exit code: 0
 
 ### 1.3. 부동 소수 데이터형
 
-#### 1.3.1. float (64bit)
+#### 1.3.1. float(64bit)
 
 ```objectivec
 NSLog(@"size of float is %ld", sizeof(float));
@@ -460,7 +460,7 @@ size of float is 4
 Program ended with exit code: 0
 ```
 
-#### 1.3.2. double (64bit)
+#### 1.3.2. double(64bit)
 
 ```objectivec
 NSLog(@"size of double is %ld", sizeof(double));
@@ -473,7 +473,7 @@ Program ended with exit code: 0
 
 ### 1.4. 논리 데이터형
 
-#### 1.4.1. BOOL (64bit)
+#### 1.4.1. BOOL(64bit)
 
 ```objectivec
 NSLog(@"size of BOOL is %ld", sizeof(BOOL));
@@ -486,7 +486,7 @@ Program ended with exit code: 0
 
 ### 1.5. 인스턴스 포인터형
 
-#### 1.5.1. id (64bit)
+#### 1.5.1. id(64bit)
 
 ```objectivec
 NSLog(@"size of id is %ld", sizeof(id));
@@ -501,7 +501,7 @@ Program ended with exit code: 0
 
 ### 2.1. 문자 데이터형
 
-#### 2.1.1. char (64bit)
+#### 2.1.1. char(64bit)
 
 ```objectivec
 NSLog(@"CHAR MIN is %d, CHAR MAX is %d", CHAR_MIN, CHAR_MAX);
@@ -516,7 +516,7 @@ Program ended with exit code: 0
 
 ### 2.2. 정수 데이터형
 
-#### 2.2.1. short int (64bit)
+#### 2.2.1. short int(64bit)
 
 ```objectivec
 NSLog(@"SHRT MIN is %hd, SHRT MAX is %hd", SHRT_MIN, SHRT_MAX);
@@ -529,7 +529,7 @@ USHRT MAX is 65535
 Program ended with exit code: 0
 ```
 
-#### 2.2.2. int (64bit)
+#### 2.2.2. int(64bit)
 
 ```objectivec
 NSLog(@"INT MIN is %d, INT MAX is %d", INT_MIN, INT_MAX);
@@ -542,7 +542,7 @@ UINT MAX is 4294967295
 Program ended with exit code: 0
 ```
 
-#### 2.2.3. long int (64bit)
+#### 2.2.3. long int(64bit)
 
 ```objectivec
 NSLog(@"LONG MIN is %ld, LONG MAX is %ld", LONG_MIN, LONG_MAX);
@@ -555,7 +555,7 @@ ULONG MAX is 18446744073709551615
 Program ended with exit code: 0
 ```
 
-#### 2.2.4. long long int (64bit)
+#### 2.2.4. long long int(64bit)
 
 ```objectivec
 NSLog(@"LLONG MIN is %lld, LLONG MAX is %lld", LLONG_MIN, LLONG_MAX);
@@ -570,7 +570,7 @@ Program ended with exit code: 0
 
 ### 2.3. 부동 소수 데이터형
 
-#### 2.3.1. float (64bit)
+#### 2.3.1. float(64bit)
 
 ```objectivec
 NSLog(@"FLT MIN is %f, FLT MAX is %f", FLT_MIN, FLT_MAX);
@@ -581,7 +581,7 @@ FLT MIN is 0.000000, FLT MAX is 340282346638528859811704183484516925440.000000
 Program ended with exit code: 0
 ```
 
-#### 2.3.2. double (64bit)
+#### 2.3.2. double(64bit)
 
 ```objectivec
 NSLog(@"DBL MIN is %f, DBL MAX is %f", DBL_MIN, DBL_MAX);
@@ -594,7 +594,7 @@ Program ended with exit code: 0
 
 ### 2.4. 논리 데이터형
 
-#### 2.4.1. BOOL (64bit)
+#### 2.4.1. BOOL(64bit)
 
 ```objectivec
 BOOL yes = YES;
@@ -612,7 +612,7 @@ Program ended with exit code: 0
 
 ### 2.5. 인스턴스 포인터형
 
-#### 2.5.1. id (64bit)
+#### 2.5.1. id(64bit)
 
 ```objectivec
 id object = [[NSObject alloc] init];

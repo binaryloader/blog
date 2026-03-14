@@ -48,13 +48,13 @@ Kiro가 Claude 모델을 호출하는 경로는 `Kiro → Amazon Bedrock → Cla
 
 ## 2. Client Layer
 
-### 2.1. 사용자 (User)
+### 2.1. 사용자(User)
 
 개발자가 IDE 또는 터미널을 통해 Kiro와 상호작용하는 진입점이다.
 
 ### 2.2. Kiro IDE / CLI
 
-Kiro IDE는 Code OSS (VS Code 오픈소스) 포크 기반의 독립 데스크톱 애플리케이션이다. VS Code 설정, 테마, Open VSX 플러그인과 호환된다.
+Kiro IDE는 Code OSS(VS Code 오픈소스) 포크 기반의 독립 데스크톱 애플리케이션이다. VS Code 설정, 테마, Open VSX 플러그인과 호환된다.
 
 Kiro CLI는 Amazon Q Developer CLI에서 리브랜딩되었다. 기존 `q`, `q chat` 엔트리포인트는 하위 호환되며 `.amazonq` 폴더의 기존 설정도 계속 읽는다.
 
@@ -62,9 +62,9 @@ Kiro CLI는 Amazon Q Developer CLI에서 리브랜딩되었다. 기존 `q`, `q c
 
 ## 3. 3-Tier Service Layer
 
-### 3.1. App Provider — Kiro (fka Amazon Q Developer)
+### 3.1. App Provider — Kiro(fka Amazon Q Developer)
 
-Amazon Q Developer와의 관계는 아래와 같다 (AWS 공식 문서 기준).
+Amazon Q Developer와의 관계는 아래와 같다(AWS 공식 문서 기준).
 
 - Q Developer CLI → Kiro CLI로 리브랜딩 완료
 - Kiro 콘솔도 Q Developer 콘솔의 리브랜딩
@@ -72,11 +72,11 @@ Amazon Q Developer와의 관계는 아래와 같다 (AWS 공식 문서 기준).
 
 핵심 기능은 아래와 같다.
 
-- Spec-driven development (요구사항 → 설계 → 태스크 → 코딩)
-- Hooks (이벤트 기반 자동화)
-- Steering (프로젝트별 규칙 마크다운)
+- Spec-driven development(요구사항 → 설계 → 태스크 → 코딩)
+- Hooks(이벤트 기반 자동화)
+- Steering(프로젝트별 규칙 마크다운)
 - MCP 연동
-- Powers (원클릭 확장 — Aurora, IAM Policy Autopilot 등)
+- Powers(원클릭 확장 — Aurora, IAM Policy Autopilot 등)
 
 ### 3.2. Managed AI Platform — Amazon Bedrock
 
@@ -84,13 +84,13 @@ Kiro와 Claude 모델 사이의 중간 레이어로 추론(inference), 스케일
 
 Auto 모드는 Kiro의 기본 모델 선택이며 태스크 유형에 따라 최적 모델을 자동 라우팅한다. Bedrock 자체는 Amazon, Anthropic, Meta, Mistral 등 다수 모델을 호스팅하는 범용 플랫폼이지만 Kiro는 현재 Claude 모델만 사용한다.
 
-### 3.3. Model Provider — Claude Models (by Anthropic)
+### 3.3. Model Provider — Claude Models(by Anthropic)
 
 실제 LLM 추론을 수행하는 모델 제공자이다. Anthropic이 모델을 개발 및 제공하고 Bedrock을 통해 서빙한다.
 
-Kiro에서 지원하는 모델은 아래와 같다 (2026-03, kiro.dev/docs 기준).
+Kiro에서 지원하는 모델은 아래와 같다(2026-03, kiro.dev/docs 기준).
 
-- Claude Opus 4.6 (Experimental) — 최상위 모델, Pro/Pro+/Power 전용
+- Claude Opus 4.6(Experimental) — 최상위 모델, Pro/Pro+/Power 전용
 - Claude Opus 4.5 — Pro/Pro+/Power 전용
 - Claude Sonnet 4.6 — Sonnet 4.5의 후속 모델
 - Claude Sonnet 4.5 — Auto 모드의 주력 모델
@@ -99,11 +99,11 @@ Kiro에서 지원하는 모델은 아래와 같다 (2026-03, kiro.dev/docs 기�
 
 Anthropic은 순수 Model Provider로만 참여하며 인프라(Bedrock)나 앱(Kiro)에는 관여하지 않는다.
 
-### 3.4. Amazon 이중 역할 (수직통합)
+### 3.4. Amazon 이중 역할(수직통합)
 
-Amazon은 App Provider (Kiro) + Managed AI Platform (Bedrock) 두 레이어를 모두 소유한다. Q Developer CLI → Kiro CLI 리브랜딩이 완료되었고 Q Dev Pro 구독으로도 Kiro에 접근 가능하다 (병행 운영).
+Amazon은 App Provider(Kiro) + Managed AI Platform(Bedrock) 두 레이어를 모두 소유한다. Q Developer CLI → Kiro CLI 리브랜딩이 완료되었고 Q Dev Pro 구독으로도 Kiro에 접근 가능하다(병행 운영).
 
-Anthropic은 Model Provider로만 참여하지만 Kiro/Bedrock 경유와 자사 직접 판매 (Claude Code, claude.ai, API) 양쪽에서 수익이 발생한다.
+Anthropic은 Model Provider로만 참여하지만 Kiro/Bedrock 경유와 자사 직접 판매(Claude Code, claude.ai, API) 양쪽에서 수익이 발생한다.
 
 ## 4. 같은 모델이지만 다른 성능 — App Provider 레이어의 영향
 
@@ -117,7 +117,7 @@ Anthropic은 Model Provider로만 참여하지만 Kiro/Bedrock 경유와 자사 
 
 제한된 컨텍스트 윈도우에 어떤 정보를 채우느냐가 핵심이다. Kiro는 steering 파일, spec 문서, 코드베이스 요약을 자동 주입한다. Claude Code는 agentic search로 코드베이스를 자율 탐색하며 필요한 파일을 동적으로 retrieval한다. 어떤 청크를 어떤 시점에 넣느냐에 따라 같은 모델이라도 출력 품질이 달라진다.
 
-### 4.3. Tool Use (Function Calling)
+### 4.3. Tool Use(Function Calling)
 
 모델에 바인딩되는 도구 정의(tool schema)가 앱마다 다르다. 파일 읽기/쓰기, 셸 실행, 웹 검색, MCP 서버 연동 등 사용 가능한 도구셋과 호출 권한이 다르면 모델이 선택할 수 있는 action space 자체가 달라진다.
 

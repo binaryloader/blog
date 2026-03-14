@@ -173,7 +173,7 @@ Xcode에서 모델 파일을 선택하면 다음 정보를 확인할 수 있다.
 
 - **General** — 모델 타입, 크기, 작성자, 설명
 - **Preview** — 이미지를 드래그하여 추론 결과를 미리 확인
-- **Predictions** — 입출력 사양 (타입, 크기, 설명)
+- **Predictions** — 입출력 사양(타입, 크기, 설명)
 - **Utilities** — 모델의 Neural Network 구조
 
 ### 4.2. 자동 생성된 Swift 클래스
@@ -257,7 +257,7 @@ mlmodel_fp16.save("MobileNetV2_fp16.mlpackage")
 
 Float32에서 Float16으로 변환하면 모델 크기가 약 절반으로 줄어들며 대부분의 경우 정확도 손실이 거의 없다. Neural Engine은 Float16을 네이티브로 지원하므로 추론 속도도 향상될 수 있다.
 
-**Palettization (팔레트 양자화)**
+**Palettization(팔레트 양자화)**
 
 ```python
 config = cto.coreml.OptimizationConfig(
@@ -279,7 +279,7 @@ mlmodel_palettized.save("MobileNetV2_8bit.mlpackage")
 
 - **iOS 최소 버전** — `.mlpackage` 형식은 iOS 15 이상에서 지원된다. iOS 14 이하를 지원해야 하면 `.mlmodel` 형식을 사용한다
 - **모델 크기** — App Store는 앱 크기 제한이 있으므로 큰 모델은 On-Demand Resources나 Background Assets로 분리하는 것을 고려한다
-- **Neural Engine 지원** — A11 Bionic (iPhone 8/X) 이상에서 Neural Engine을 사용할 수 있다. 이전 기기에서는 GPU/CPU로 폴백된다
+- **Neural Engine 지원** — A11 Bionic(iPhone 8/X) 이상에서 Neural Engine을 사용할 수 있다. 이전 기기에서는 GPU/CPU로 폴백된다
 - **동적 입력 크기** — `ct.RangeDim`으로 가변 크기 입력을 지원할 수 있지만 고정 크기 대비 성능이 떨어질 수 있다
 - **모델 업데이트** — iOS 17 이상에서는 `MLModelCollection`을 통해 앱 업데이트 없이 모델을 교체할 수 있다
 

@@ -73,21 +73,21 @@ claude setup-token
 
 주의사항은 아래와 같다.
 
-- 토큰은 반드시 한 줄로 복사한다 (줄바꿈 포함 시 인증 실패)
+- 토큰은 반드시 한 줄로 복사한다(줄바꿈 포함 시 인증 실패)
 - Organization Secrets에 `CLAUDE_CODE_OAUTH_TOKEN` 이름으로 등록한다
 
 ### 3.2. GitHub App 생성
 
 기본 `github-actions[bot]` 대신 커스텀 봇 이름을 사용하기 위해 GitHub App을 생성했다. 설정은 아래와 같다.
 
-- App name: 원하는 봇 이름 (예: `myteam-review`)
+- App name: 원하는 봇 이름(예: `myteam-review`)
 - Permissions:
   - Contents: Read and write
   - Pull requests: Read and write
   - Issues: Read and write
 - Private key 생성 후 Organization Secrets 등록:
   - `REVIEW_APP_ID`: GitHub App ID
-  - `REVIEW_APP_PRIVATE_KEY`: Private key 전체 내용 (PEM 형식)
+  - `REVIEW_APP_PRIVATE_KEY`: Private key 전체 내용(PEM 형식)
 
 ### 3.3. 워크플로우 작성
 

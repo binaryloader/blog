@@ -36,8 +36,8 @@ Kiro에서 MCP 서버를 설정하고 관리하는 방법을 예제와 함께 �
 
 ## 1. 설정 파일 위치
 
-- 전역 설정 (사용자 전체): `~/.kiro/settings/mcp.json` — 모든 프로젝트에서 사용 가능
-- 워크스페이스 설정 (프로젝트별): `.kiro/settings/mcp.json` — 해당 프로젝트에서만 사용, 전역 설정보다 우선 적용
+- 전역 설정(사용자 전체): `~/.kiro/settings/mcp.json` — 모든 프로젝트에서 사용 가능
+- 워크스페이스 설정(프로젝트별): `.kiro/settings/mcp.json` — 해당 프로젝트에서만 사용, 전역 설정보다 우선 적용
 
 ## 2. 기본 설정 구조
 
@@ -80,11 +80,11 @@ kiro-cli mcp add \
 
 | 옵션 | 설명 |
 |---|---|
-| `--name` | 서버 이름 (필수) |
-| `--command` | 실행 명령어 (필수) |
+| `--name` | 서버 이름(필수) |
+| `--command` | 실행 명령어(필수) |
 | `--args` | 명령어 인자 |
 | `--env` | 환경 변수 |
-| `--scope` | 적용 범위 (default/workspace/global) |
+| `--scope` | 적용 범위(default/workspace/global) |
 | `--agent` | 특정 에이전트에만 추가 |
 | `--disabled` | 비활성화 상태로 추가 |
 | `--force` | 기존 서버 덮어쓰기 |
@@ -140,7 +140,7 @@ Tools: (not loaded)
 
 ## 6. MCP 서버 예제
 
-### 6.1. Context7 (문서 검색)
+### 6.1. Context7(문서 검색)
 
 ```json
 {
@@ -155,7 +155,7 @@ Tools: (not loaded)
 
 프로그래밍 라이브러리/프레임워크 문서 검색 및 코드 예제를 조회한다.
 
-### 6.2. Sequential Thinking (사고 과정 시각화)
+### 6.2. Sequential Thinking(사고 과정 시각화)
 
 ```json
 {
@@ -170,7 +170,7 @@ Tools: (not loaded)
 
 복잡한 문제를 단계별로 분석하고 해결 과정을 추적한다.
 
-### 6.3. Atlassian (Confluence + Jira)
+### 6.3. Atlassian(Confluence + Jira)
 
 ```json
 {
@@ -197,7 +197,7 @@ Confluence 페이지 읽기/쓰기/검색, Jira 이슈 생성/조회/업데이�
 
 - `CONFLUENCE_URL`: Confluence 인스턴스 URL
 - `CONFLUENCE_USERNAME`: 사용자 이메일
-- `CONFLUENCE_API_TOKEN`: API 토큰 (Atlassian 계정 설정에서 생성)
+- `CONFLUENCE_API_TOKEN`: API 토큰(Atlassian 계정 설정에서 생성)
 - `JIRA_URL`: Jira 인스턴스 URL
 - `JIRA_USERNAME`: 사용자 이메일
 - `JIRA_API_TOKEN`: API 토큰
@@ -234,12 +234,12 @@ GitLab 이슈/MR 관리, 코드 리뷰 및 커밋 조회, 프로젝트 정보 �
 
 선택 환경 변수는 아래와 같다.
 
-- `GITLAB_READ_ONLY_MODE`: 읽기 전용 모드 (true/false)
+- `GITLAB_READ_ONLY_MODE`: 읽기 전용 모드(true/false)
 - `USE_GITLAB_WIKI`: Wiki 기능 사용 여부
 - `USE_MILESTONE`: 마일스톤 기능 사용 여부
 - `USE_PIPELINE`: 파이프라인 기능 사용 여부
 
-### 6.5. Figma Dev Mode (SSE 방식)
+### 6.5. Figma Dev Mode(SSE 방식)
 
 ```json
 {

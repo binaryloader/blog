@@ -90,7 +90,7 @@ CLI 명령어로 MCP 서버 프로세스를 직접 실행하는 방식이다.
 | **args** | 명령어에 전달할 인자 배열이다. |
 | **env** | (선택) 환경 변수를 지정한다. API 토큰 등이 필요한 경우 사용한다. |
 
-### 3.2. SSE (Server-Sent Events)
+### 3.2. SSE(Server-Sent Events)
 
 로컬에서 실행 중인 MCP 서버에 HTTP로 연결하는 방식이다.
 
