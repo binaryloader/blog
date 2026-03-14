@@ -50,7 +50,7 @@ KiroがClaudeモデルを呼び出す経路は`Kiro → Amazon Bedrock → Claud
 
 ## 2. Client Layer
 
-### 2.1. ユーザー (User)
+### 2.1. ユーザー(User)
 
 開発者がIDEまたはターミナルを通じてKiroとやり取りするエントリーポイントである。
 
@@ -64,7 +64,7 @@ Kiro CLIはAmazon Q Developer CLIからリブランディングされた。既�
 
 ## 3. 3-Tier Service Layer
 
-### 3.1. App Provider — Kiro (fka Amazon Q Developer)
+### 3.1. App Provider — Kiro(fka Amazon Q Developer)
 
 Amazon Q Developerとの関係は以下のとおりである（AWS公式ドキュメント基準）。
 
@@ -86,13 +86,13 @@ KiroとClaudeモデルの間の中間レイヤーとして推論（inference）�
 
 AutoモードはKiroのデフォルトモデル選択であり、タスクの種類に応じて最適なモデルを自動ルーティングする。Bedrock自体はAmazon、Anthropic、Meta、Mistralなど多数のモデルをホスティングする汎用プラットフォームだが、Kiroは現在Claudeモデルのみを使用している。
 
-### 3.3. Model Provider — Claude Models (by Anthropic)
+### 3.3. Model Provider — Claude Models(by Anthropic)
 
 実際のLLM推論を実行するモデル提供者である。Anthropicがモデルを開発・提供し、Bedrockを通じてサービングする。
 
 Kiroで対応しているモデルは以下のとおりである（2026-03、kiro.dev/docs基準）。
 
-- Claude Opus 4.6 (Experimental) — 最上位モデル、Pro/Pro+/Power専用
+- Claude Opus 4.6(Experimental) — 最上位モデル、Pro/Pro+/Power専用
 - Claude Opus 4.5 — Pro/Pro+/Power専用
 - Claude Sonnet 4.6 — Sonnet 4.5の後継モデル
 - Claude Sonnet 4.5 — Autoモードの主力モデル
@@ -119,7 +119,7 @@ AnthropicはModel Providerとしてのみ参加しているが、Kiro/Bedrock経
 
 限られたコンテキストウィンドウにどの情報を入れるかが核心である。Kiroはsteeringファイル、specドキュメント、コードベースの要約を自動注入する。Claude Codeはagentic searchでコードベースを自律的に探索し、必要なファイルを動的にretrievalする。どのチャンクをどのタイミングで入れるかによって同じモデルでも出力品質が変わる。
 
-### 4.3. Tool Use (Function Calling)
+### 4.3. Tool Use(Function Calling)
 
 モデルにバインドされるツール定義（tool schema）がアプリごとに異なる。ファイルの読み書き、シェル実行、Web検索、MCPサーバー連携など、利用可能なツールセットと呼び出し権限が異なればモデルが選択できるaction space自体が変わる。
 

@@ -41,12 +41,12 @@ Objective-Cの演算子と式をまとめる。
 Objective-Cで提供される演算子と式を見る前に、大学でプログラミング言語論とコンパイラ論を受講した記憶を振り返ってみよう。
 ほとんどのコンパイラは以下のような一連のコンパイル過程を経ると学んだ。
 
-- 字句解析 (lexical analyze)
-- 構文解析 (syntax analyze)
-- 意味解析 (semantic analyze)
-- IR生成 (intermediate representation)
-- 最適化 (optimization)
-- コード生成 (code generation)
+- 字句解析(lexical analyze)
+- 構文解析(syntax analyze)
+- 意味解析(semantic analyze)
+- IR生成(intermediate representation)
+- 最適化(optimization)
+- コード生成(code generation)
 
 LL構文解析、LR構文解析、SLR構文解析、クロージャ、非終端記号など学校でコンパイラ論を勉強する時は頭が良くなくて苦労したが、少しでも覚えているということは無駄ではなかったようだ。
 
@@ -59,7 +59,7 @@ LL構文解析、LR構文解析、SLR構文解析、クロージャ、非終端�
 
 # まとめ
 
-## 1. 式 (Expressions)
+## 1. 式(Expressions)
 
 Objective-Cの基本的な式は以下のように演算子と2つのオペランド、1つの代入で構成される。
 
@@ -86,9 +86,9 @@ price = 37
 Program ended with exit code: 0
 ```
 
-## 2. 演算子 (Operators)
+## 2. 演算子(Operators)
 
-### 2.1. 代入演算子 (Assignment Operator)
+### 2.1. 代入演算子(Assignment Operator)
 
 代入演算子は演算子の右側にある値や値の演算結果を演算子の左側にある変数に代入する。
 
@@ -106,7 +106,7 @@ price = 12
 Program ended with exit code: 0
 ```
 
-### 2.2. 算術演算子 (Arithmetic Operators)
+### 2.2. 算術演算子(Arithmetic Operators)
 
 算術演算子は加算、減算、除算、乗算、剰余演算など数学式を記述するための演算子である。
 単項演算子または二項演算子として使用できる。
@@ -149,7 +149,7 @@ price = 1
 Program ended with exit code: 0
 ```
 
-### 2.3. 複合代入演算子 (Compound Assignment Operators)
+### 2.3. 複合代入演算子(Compound Assignment Operators)
 
 複合代入演算子はビット演算子や算術演算子が代入演算子と結合された形態である。
 
@@ -211,7 +211,7 @@ price = 622592
 Program ended with exit code: 0
 ```
 
-### 2.4. インクリメント・デクリメント演算子 (Increment and Decrement Operators)
+### 2.4. インクリメント・デクリメント演算子(Increment and Decrement Operators)
 
 インクリメント・デクリメント演算子はオペランドの値を1だけ増加または減少させるために使用される。
 前置と後置によって意図した結果が変わる可能性があるため注意して使用する必要がある。
@@ -242,7 +242,7 @@ price = 10
 Program ended with exit code: 0
 ```
 
-### 2.5. 比較演算子 (Comparison Operators)
+### 2.5. 比較演算子(Comparison Operators)
 
 比較演算子は文字通り与えられた2つのオペランドを比較するために使用される。
 
@@ -279,7 +279,7 @@ result6 = 1
 Program ended with exit code: 0
 ```
 
-### 2.6. 論理演算子 (Boolean Logical Operators)
+### 2.6. 論理演算子(Boolean Logical Operators)
 
 論理演算子も文字通り与えられたオペランドに対する論理演算を提供する。左側のオペランドの条件によって次のオペランドの条件確認をしない場合もある。(Short Circuit Evaluation)
 
@@ -304,7 +304,7 @@ result3 = 1
 Program ended with exit code: 0
 ```
 
-### 2.7. 三項演算子 (Ternary Operators)
+### 2.7. 三項演算子(Ternary Operators)
 
 三項演算子は`?`の前の与えられた条件を見て条件が真なら真の式を、偽なら偽の式を採用する。
 
@@ -336,7 +336,7 @@ result = 1
 Program ended with exit code: 0
 ```
 
-### 2.8. ビット演算子 (Bitwise Operators)
+### 2.8. ビット演算子(Bitwise Operators)
 
 ビット演算子はデータの2進演算を提供する。
 
@@ -383,7 +383,7 @@ result6 = 10
 Program ended with exit code: 0
 ```
 
-### 2.9. 型変換演算子 (Type Conversion Operator)
+### 2.9. 型変換演算子(Type Conversion Operator)
 
 型変換演算子は演算子の右側にあるデータを明示的に特定のデータ型に変換するために使用され、データ損失が発生する可能性もある。
 
@@ -410,7 +410,7 @@ Child *child = [[Child alloc] init];
 Parent *parent = (Parent *)child;
 ```
 
-## 3. 結合方向 (Associativity)
+## 3. 結合方向(Associativity)
 
 | Category       | Operator                            | Associativity |
 | -------------- | ----------------------------------- | ------------- |

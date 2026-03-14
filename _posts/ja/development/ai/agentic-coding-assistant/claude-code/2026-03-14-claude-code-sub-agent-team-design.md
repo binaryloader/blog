@@ -87,7 +87,7 @@ Claude Code メインセッション（CTO / オーケストレーター）
 
 ## 2. ファイルマップ
 
-### 2.1. グローバル設定 (~/.claude/)
+### 2.1. グローバル設定(~/.claude/)
 
 すべてのプロジェクトに共通適用されるユーザーレベルの設定である。どのディレクトリでClaude Codeを実行しても常にロードされる。
 
@@ -240,7 +240,7 @@ my-project/
 - MCP: github, context7, jira, confluence
 - スキル: develop
 - hooks: PostToolUse — Write/Edit時に`terraform fmt`を自動実行
-- スタック: AWS (ECS, RDS, S3, CloudFront, ALB), Terraform, GitHub Actions, Docker
+- スタック: AWS(ECS, RDS, S3, CloudFront, ALB), Terraform, GitHub Actions, Docker
 - ブランチ: `feature/infra-*`
 
 ### 3.3. レビューチーム
@@ -502,7 +502,7 @@ Skillsは繰り返しのワークフローを`/skill-name`で呼び出す自動�
 
 `rules/`ディレクトリにMarkdownファイルを置くと、`paths` frontmatterで特定のファイル作業時にのみ自動ロードされる。CLAUDE.mdでimportする必要なく、該当ファイルを扱う際に自動的にルールが適用される。
 
-### 6.1. グローバルルール (~/.claude/rules/)
+### 6.1. グローバルルール(~/.claude/rules/)
 
 10個のファイルを管理する。すべてのプロジェクトに共通適用される。
 
@@ -526,7 +526,7 @@ Skillsは繰り返しのワークフローを`/skill-name`で呼び出す自動�
 | `api-design.md` | `**/api/**`, `**/controller/**`, `**/Controller/**`, `**/routes/**` | REST原則、統一レスポンスフォーマット（`data/error/meta`）、Cursorページネーション |
 | `image-metadata.md` | `**/*.jpg`, `**/*.png`等 | ICCプロファイル保持、個人情報のみ削除、HEIC→JPG変換 |
 
-### 6.2. プロジェクトルール (.claude/rules/)
+### 6.2. プロジェクトルール(.claude/rules/)
 
 個別プロジェクトでのみ適用される特化ルールである。グローバルRulesで十分でないプロジェクト固有の要件がある場合に追加する。
 

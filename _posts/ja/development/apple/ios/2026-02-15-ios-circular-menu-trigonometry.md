@@ -158,7 +158,7 @@ cos(角度), sin(角度) = 比率
 中心 + 実際の距離 = 最終座標
 ```
 
-### 4.2. ステップ別計算 (8個のアイコン)
+### 4.2. ステップ別計算(8個のアイコン)
 
 中心(200, 200)、半径120で8個のアイコンを12時から時計回りに配置する。
 
@@ -281,7 +281,7 @@ let angle = atan2(point.y - center.y, point.x - center.x)
 
 ### 6.1. 回転量の計算
 
-#### 6.1.1. タッチ開始 (began)
+#### 6.1.1. タッチ開始(began)
 
 ```swift
 panStartAngle = angle(for: touchPoint) - currentRotation
@@ -296,7 +296,7 @@ panStartAngle = angle(for: touchPoint) - currentRotation
 
 オフセットを記録する理由はメニューが既に回転した状態でタッチしてもメニューがジャンプせず滑らかに続くようにするためだ。
 
-#### 6.1.2. タッチ移動 (changed)
+#### 6.1.2. タッチ移動(changed)
 
 ```swift
 currentRotation = angle(for: touchPoint) - panStartAngle
@@ -353,7 +353,7 @@ layoutMenuItems()                               // 再配置
 
 | 係数 | フレームごとの減少 | 感触 |
 |---|---|---|
-| 0.98 | 2% | 長く滑る (氷上) |
+| 0.98 | 2% | 長く滑る(氷上) |
 | 0.95 | 5% | 滑らかな減速 |
 | 0.92 | 8% | 適度な減速 |
 | 0.85 | 15% | 素早い停止 |

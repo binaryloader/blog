@@ -127,7 +127,7 @@ kiro-cli settings --delete --workspace chat.defaultModel
 | 役割 | Claude Code | Kiro |
 |---|---|---|
 | 機能/動作設定 | settings.json | cli.json |
-| プロジェクトコンテキスト/ルール | CLAUDE.md | Steering (`.kiro/steering/`) |
+| プロジェクトコンテキスト/ルール | CLAUDE.md | Steering(`.kiro/steering/`) |
 | エージェント別指示 | — | エージェント設定のpromptフィールド |
 | 自動コンテキストファイル | CLAUDE.mdのファイル参照 | Steering + エージェント設定のresourcesフィールド |
 | 会話中の記憶 | MEMORY.md | 該当なし |

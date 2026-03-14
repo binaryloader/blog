@@ -69,7 +69,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.251-b08, mixed mode)
 
 ## 2. Maven のインストール
 
-- [Apache Maven Project](https://maven.apache.org/download.cgi) にアクセスしてバイナリアーカイブ (tar.gz) をダウンロードする。
+- [Apache Maven Project](https://maven.apache.org/download.cgi) にアクセスしてバイナリアーカイブ(tar.gz) をダウンロードする。
 - 執筆時点のバージョンは 3.6.3 である。
 - 以下のコマンドを実行してアーカイブを解凍し、apache-maven-3.6.3 フォルダを`適切な場所`に移動する。
 

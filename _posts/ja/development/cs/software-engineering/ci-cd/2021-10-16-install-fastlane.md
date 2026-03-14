@@ -49,7 +49,7 @@ xcode-select --install
 
 - 既にインストール済みの場合は次のステップに進む。
 
-## 2. 方法1: Managed Ruby環境 + Bundler (macOS/Linux/Windows)
+## 2. 方法1: Managed Ruby環境 + Bundler(macOS/Linux/Windows)
 
 ### 2.1. Rubyバージョンの確認
 
@@ -71,7 +71,7 @@ gem install bundler
 brew install fastlane
 ```
 
-## 3. 方法2: System Ruby + RubyGems (macOS/Linux/Windows)
+## 3. 方法2: System Ruby + RubyGems(macOS/Linux/Windows)
 
 ### 3.1. RubyGemsでインストール
 

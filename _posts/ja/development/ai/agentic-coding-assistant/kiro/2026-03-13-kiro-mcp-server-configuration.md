@@ -172,7 +172,7 @@ Tools: (not loaded)
 
 複雑な問題をステップごとに分析し、解決過程を追跡する。
 
-### 6.3. Atlassian (Confluence + Jira)
+### 6.3. Atlassian(Confluence + Jira)
 
 ```json
 {
