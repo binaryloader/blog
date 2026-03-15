@@ -248,7 +248,7 @@ export const AGENTS: AgentDefinition[] = [
 ];
 ```
 
-韓国語の名前は意図的な選択である。COOがオーケストレーションメッセージで「Kim Soyeon」と言及すると、実際のチームと連携しているような感覚になる。また、ダッシュボードのサイドバーも「product-planner」「server-reviewer-quality」のようなIDの羅列より、はるかに読みやすくなる。
+韓国語の名前は意図的な選択である。COOがオーケストレーションメッセージで「Kim Soyeon(プロダクトプランナー)」と言及すると、実際のチームと連携しているような感覚になる。また、ダッシュボードのサイドバーも「product-planner」「server-reviewer-quality」のようなIDの羅列より、はるかに読みやすくなる。
 
 ## 7. 組織構造
 
@@ -325,13 +325,13 @@ COOが3つのtask-assignコールを発火し、3人のプランナーを並列�
 
 ![Phase 1 -- 企画 アクティブ](/assets/image/post/claude-code-agent-dashboard/01-phase1-active.png)
 
-ダッシュボードのActive Tasksに即座に4枚のカードが表示される。COOとプランナー3人である。Kim Soyeonがボイスメモ市場を調査している。Lee Junhyukが技術アーキテクチャを設計している。Han YeseulがUIワイヤーフレームを作成している。各カードの経過時間がリアルタイムでカウントアップされる。
+ダッシュボードのActive Tasksに即座に4枚のカードが表示される。COOとプランナー3人である。Kim Soyeon(プロダクトプランナー)がボイスメモ市場を調査している。Lee Junhyuk(テクニカルデザイナー)が技術アーキテクチャを設計している。Han Yeseul(UI/UXデザイナー)がUIワイヤーフレームを作成している。各カードの経過時間がリアルタイムでカウントアップされる。
 
 3人全員が完了すると、カードがActiveからCompletedにスライドする。サイドバーのドットが緑に変わる。
 
 ![Phase 1 -- 企画 完了](/assets/image/post/claude-code-agent-dashboard/02-phase1-done.png)
 
-企画エージェントたちは`docs/`ディレクトリに設計文書を生成する。김소연のPRDにはコア機能の優先度テーブルとユーザーストーリーが含まれ、한예슬のUI設計書にはカラーパレット、ワイヤーフレーム、インタラクションフローがまとめられている。
+企画エージェントたちは`docs/`ディレクトリに設計文書を生成する。김소연(プロダクトプランナー)のPRDにはコア機能の優先度テーブルとユーザーストーリーが含まれ、한예슬(UI/UXデザイナー)のUI設計書にはカラーパレット、ワイヤーフレーム、インタラクションフローがまとめられている。
 
 ![PRD文書 — プロダクトプランナーが生成した要件定義書](/assets/image/post/claude-code-agent-dashboard/20-prd-doc.png)
 
@@ -339,7 +339,7 @@ COOが3つのtask-assignコールを発火し、3人のプランナーを並列�
 
 ### 9.2. Phase 2 -- 開発(1エージェント)
 
-COOがプランナーたちの出力を読み、Web開発者をディスパッチする。Kang HarinがReactフロントエンドを構築する。リアルタイム文字起こしにWeb Speech API、メモの永続化にlocalStorageを使用する。ブラウザネイティブのPoCなので、バックエンドサーバーは不要である。
+COOがプランナーたちの出力を読み、Web開発者をディスパッチする。Kang Harin(Webデベロッパー)がReactフロントエンドを構築する。リアルタイム文字起こしにWeb Speech API、メモの永続化にlocalStorageを使用する。ブラウザネイティブのPoCなので、バックエンドサーバーは不要である。
 
 ![Phase 2 -- 開発 アクティブ](/assets/image/post/claude-code-agent-dashboard/03-phase2-active.png)
 
@@ -355,7 +355,7 @@ Claude Codeに入力する。
 
 > "Safari에서 음성 인식이 안 되는데? 폴백 처리해줘. 그리고 녹음 버튼 좀 키우고 Space 키로도 녹음 되게 해."
 
-COOがフィードバックを受け取り、タスクを「대표님 피드백 반영」に更新し、Kang Harinを再ディスパッチして修正を実装させる。
+COOがフィードバックを受け取り、タスクを「대표님 피드백 반영」に更新し、Kang Harin(Webデベロッパー)を再ディスパッチして修正を実装させる。
 
 ![CEOフィードバック -- Web開発者を再ディスパッチ](/assets/image/post/claude-code-agent-dashboard/17-ceo-feedback.png)
 
@@ -369,19 +369,19 @@ COOがフィードバックを受け取り、タスクを「대표님 피드백 
 
 ![Phase 3 -- 検証 アクティブ](/assets/image/post/claude-code-agent-dashboard/05-phase3-active.png)
 
-そこで事が起きる。セキュリティ監査者(Shin Jaewon)が2つの問題を発見する -- トランスクリプト表示のXSS脆弱性と、localStorageの暗号化されていないメモデータ。彼のカードが赤に変わり、Errorsカラムに移動する。
+そこで事が起きる。Shin Jaewon(セキュリティ監査)が2つの問題を発見する -- トランスクリプト表示のXSS脆弱性と、localStorageの暗号化されていないメモデータ。彼のカードが赤に変わり、Errorsカラムに移動する。
 
 ![Phase 3 -- セキュリティエラー検出](/assets/image/post/claude-code-agent-dashboard/06-phase3-error.png)
 
 これはまさにターミナルだけのワークフローでは見落としやすいイベントである。ダッシュボードではそれを見逃すことが不可能になる。エラーカウンターが増加し、カードが赤いErrorsカラムに表示され、サイドバーのドットが赤に変わる。
 
-COOがエラーを読み、Kang Harin(Web開発者)をディスパッチして修正させる。彼女がXSS防止にDOMPurifyを適用し、Web Crypto APIでlocalStorageデータを暗号化する。修正が完了するとCompletedカラムに表示される。
+COOがエラーを読み、Kang Harin(Webデベロッパー)をディスパッチして修正させる。彼女がXSS防止にDOMPurifyを適用し、Web Crypto APIでlocalStorageデータを暗号化する。修正が完了するとCompletedカラムに表示される。
 
 ![Phase 3 -- セキュリティ修正適用](/assets/image/post/claude-code-agent-dashboard/07-security-fixed.png)
 
 ### 9.5. Phase 4 -- QA & 再検証(2エージェント並列)
 
-セキュリティ問題が解決され、COOがQAテストとセキュリティ再監査を起動して修正を検証する。Oh Taeyunがフルテストスイートを実行し、Shin Jaewonがパッチ済みコードを再監査する。
+セキュリティ問題が解決され、COOがQAテストとセキュリティ再監査を起動して修正を検証する。Oh Taeyun(QAエンジニア)がフルテストスイートを実行し、Shin Jaewon(セキュリティ監査)がパッチ済みコードを再監査する。
 
 ![Phase 4 -- QA & 再検証 アクティブ](/assets/image/post/claude-code-agent-dashboard/08-phase4-active.png)
 
@@ -399,7 +399,7 @@ COOはすぐに開発者をディスパッチするのではなく、まずOh Ta
 
 ![バグ報告 -- QA再現中](/assets/image/post/claude-code-agent-dashboard/18-bug-report.png)
 
-QAエンジニアが確認する。`requestAnimationFrame`が非アクティブタブで停止し、復帰時に再起動しない。バグが確認され根本原因が特定されたところで、COOがKang Harinをディスパッチして修正させる。
+QAエンジニアが確認する。`requestAnimationFrame`が非アクティブタブで停止し、復帰時に再起動しない。バグが確認され根本原因が特定されたところで、COOがKang Harin(Webデベロッパー)をディスパッチして修正させる。
 
 ![バグ修正 -- 開発者パッチ中](/assets/image/post/claude-code-agent-dashboard/19-bug-fix.png)
 
@@ -409,7 +409,7 @@ QAエンジニアが確認する。`requestAnimationFrame`が非アクティブ�
 
 ### 9.7. Phase 5 -- ドキュメント(1エージェント)
 
-すべての検証が完了し、COOが最後のタスクを割り当てる。Jo Minji(조민지)、テクニカルライターが開発プロセス全体をドキュメント化する。
+すべての検証が完了し、COOが最後のタスクを割り当てる。Jo Minji(テクニカルライター)が開発プロセス全体をドキュメント化する。
 
 彼女がすべてのフェーズの出力 -- PRD、技術設計、コード変更、レビュー所見、セキュリティ修正、QA結果 -- をレビューし、ブログ記事、更新されたREADME、CHANGELOGエントリー、フック設定ガイドを作成する。
 
@@ -518,9 +518,9 @@ Claude Codeのフックシステムは強力だが、モニタリングダッシ
 
 ### 11.4. 韓国語名が人格を与える
 
-これは主観的だが、エージェントに韓国語名(Kim Soyeon、Park Dohyeon、Shin Jaewon)を付けたことで体験全体がより魅力的になった。「Shin JaewonがXSS脆弱性を発見した」は「security-auditorがXSS脆弱性を発見した」より記憶に残る。抽象的なツール使用が、チーム連携のように感じられるものに変わる。
+これは主観的だが、エージェントに韓国語名(Kim Soyeon(プロダクトプランナー)、Park Dohyeon(バックエンド開発者)、Shin Jaewon(セキュリティ監査))を付けたことで体験全体がより魅力的になった。「Shin Jaewon(セキュリティ監査)がXSS脆弱性を発見した」は「security-auditorがXSS脆弱性を発見した」より記憶に残る。抽象的なツール使用が、チーム連携のように感じられるものに変わる。
 
-名前はClaude Codeとの会話でも役立つ。COOが「Kim Soyeonを市場調査にディスパッチ」と言えば、関数呼び出しではなく自然な委任のように読める。
+名前はClaude Codeとの会話でも役立つ。COOが「Kim Soyeon(プロダクトプランナー)を市場調査にディスパッチ」と言えば、関数呼び出しではなく自然な委任のように読める。
 
 ## 12. 率直な評価 -- プロダクションレベルか?
 
