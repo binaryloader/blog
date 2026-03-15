@@ -502,7 +502,7 @@ launchctl unload ~/Library/LaunchAgents/com.binaryloader.agent-dashboard.plist \
 
 The 2D virtual office was a creative exploration. It had genuine charm -- watching agents walk to the cafeteria, seeing them scratch their heads on errors, and celebrating completions with confetti were all satisfying. But charm is not the same as utility. The moment I realized I was squinting at pixel sprites trying to figure out which agent was active, I knew the concept was wrong for the use case.
 
-The entire process -- from the initial Gather Town-style monitoring build to writing this blog post -- took about 9 hours across a Saturday night and Sunday. The server architecture was already solid, so the presentation layer swap was fast. The lesson: build the infrastructure generically enough that the presentation layer can change without rewriting the data pipeline.
+The entire process -- from the initial Gather Town-style monitoring build to writing this blog post -- took about 9 hours on a Saturday night. The server architecture was already solid, so the presentation layer swap was fast. The lesson: build the infrastructure generically enough that the presentation layer can change without rewriting the data pipeline.
 
 ### 11.2. Hook System Limitations and Workarounds
 
