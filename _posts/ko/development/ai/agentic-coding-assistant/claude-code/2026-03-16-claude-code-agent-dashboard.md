@@ -168,7 +168,7 @@ Claude Code를 대시보드에 연결하려면 `~/.claude/settings.json`에 HTTP
 
 ## 5. task-assign 패턴
 
-여기서 흥미로운 제약을 만났다. Claude Code가 `SubagentStart` 훅을 발생시킬 때 페이로드에 `agent_type`(예: "product-planner")은 있지만 에이전트에게 무엇을 요청했는지에 대한 설명은 없다. 훅 시스템은 *누가* 시작했는지는 알려주지만 *왜* 시작했는지는 알려주지 않는다.
+여기서 흥미로운 제약을 만났다. Claude Code가 `SubagentStart` 훅을 발생시킬 때 페이로드에 `agent_type`(예: "product-planner")은 있지만 에이전트에게 무엇을 요청했는지에 대한 설명은 없다. 훅 시스템은 누가 시작했는지는 알려주지만 왜 시작했는지는 알려주지 않는다.
 
 대시보드에서 이건 중요하다. "product-planner: working"이라고 보여주는 것보다 "product-planner: 음성 메모 기능 시장 조사 및 PRD 작성"이라고 보여주는 게 훨씬 유용하다.
 
