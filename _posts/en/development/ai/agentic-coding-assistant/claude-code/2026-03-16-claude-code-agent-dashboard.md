@@ -170,7 +170,7 @@ The server always returns HTTP 200, even on parse errors. This is critical -- a 
 
 ## 5. The task-assign Pattern
 
-Here is where I hit an interesting limitation. When Claude Code fires a `SubagentStart` hook, the payload contains the `agent_type` (e.g., "product-planner") but not a human-readable description of what the agent was asked to do. The hook system tells you *who* started but not *why*.
+Here is where I hit an interesting limitation. When Claude Code fires a `SubagentStart` hook, the payload contains the `agent_type` (e.g., "product-planner") but not a human-readable description of what the agent was asked to do. The hook system tells you who started but not why.
 
 This matters for the dashboard. Showing "product-planner: working" is far less useful than showing "product-planner: Market research and PRD for voice memo feature".
 
@@ -508,7 +508,7 @@ The entire process -- from the dashboard pivot to writing this blog post -- took
 
 ### 11.2. Hook System Limitations and Workarounds
 
-Claude Code's hook system is powerful but not designed for monitoring dashboards. The key gap is context: hooks tell you *what happened* (an agent started, a tool was used) but not *why* (what was the agent asked to do). The task-assign pattern fills this gap elegantly, but it requires discipline in the orchestration layer. Every agent invocation must be preceded by a task-assign call.
+Claude Code's hook system is powerful but not designed for monitoring dashboards. The key gap is context: hooks tell you what happened (an agent started, a tool was used) but not why (what was the agent asked to do). The task-assign pattern fills this gap elegantly, but it requires discipline in the orchestration layer. Every agent invocation must be preceded by a task-assign call.
 
 Encoding this as a rule in `~/.claude/rules/workflow.md` made it automatic. The COO always pre-registers tasks because its instructions say so. No manual discipline required.
 
