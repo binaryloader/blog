@@ -3250,6 +3250,135 @@ function illustrationClaudeCodeSubAgentTeamDesign() {
   `;
 }
 
+function illustrationClaudeCodeAgentDashboard() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Sidebar: Agent List -->
+    <rect x="40" y="60" width="200" height="520" rx="10" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="140" y="90" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#888">AGENTS</text>
+    <line x1="60" y1="100" x2="220" y2="100" stroke="#444" stroke-width="1"/>
+    <!-- Agent entries -->
+    <circle cx="70" cy="125" r="4" fill="#4ecdc4"/>
+    <text x="85" y="129" font-family="monospace" font-size="9" fill="#4ecdc4">web-developer</text>
+    <circle cx="70" cy="150" r="4" fill="#4ecdc4"/>
+    <text x="85" y="154" font-family="monospace" font-size="9" fill="#4ecdc4">ios-developer</text>
+    <circle cx="70" cy="175" r="4" fill="#00e5ff"/>
+    <text x="85" y="179" font-family="monospace" font-size="9" fill="#00e5ff">server-developer</text>
+    <circle cx="70" cy="200" r="4" fill="#a78bfa"/>
+    <text x="85" y="204" font-family="monospace" font-size="9" fill="#a78bfa">reviewer-arch</text>
+    <circle cx="70" cy="225" r="4" fill="#a78bfa"/>
+    <text x="85" y="229" font-family="monospace" font-size="9" fill="#a78bfa">reviewer-quality</text>
+    <circle cx="70" cy="250" r="4" fill="#ff6b9d"/>
+    <text x="85" y="254" font-family="monospace" font-size="9" fill="#ff6b9d">qa-engineer</text>
+    <circle cx="70" cy="275" r="4" fill="#ffe66d"/>
+    <text x="85" y="279" font-family="monospace" font-size="9" fill="#ffe66d">security-auditor</text>
+    <circle cx="70" cy="300" r="4" fill="#888"/>
+    <text x="85" y="304" font-family="monospace" font-size="9" fill="#888">tech-writer</text>
+    <circle cx="70" cy="325" r="4" fill="#888"/>
+    <text x="85" y="329" font-family="monospace" font-size="9" fill="#888">product-planner</text>
+    <circle cx="70" cy="350" r="4" fill="#888"/>
+    <text x="85" y="354" font-family="monospace" font-size="9" fill="#888">infra-developer</text>
+    <!-- Sidebar status summary -->
+    <line x1="60" y1="380" x2="220" y2="380" stroke="#444" stroke-width="1"/>
+    <text x="70" y="400" font-family="monospace" font-size="9" fill="#4ecdc4">Active: 3</text>
+    <text x="70" y="418" font-family="monospace" font-size="9" fill="#888">Idle: 7</text>
+    <!-- Top counters -->
+    <rect x="280" y="60" width="160" height="55" rx="8" fill="none" stroke="#4ecdc4" stroke-width="1.8"/>
+    <text x="360" y="82" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">ACTIVE TASKS</text>
+    <text x="360" y="104" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#4ecdc4">3</text>
+    <rect x="460" y="60" width="160" height="55" rx="8" fill="none" stroke="#00e5ff" stroke-width="1.8"/>
+    <text x="540" y="82" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">COMPLETED</text>
+    <text x="540" y="104" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#00e5ff">12</text>
+    <rect x="640" y="60" width="160" height="55" rx="8" fill="none" stroke="#ff6b9d" stroke-width="1.8"/>
+    <text x="720" y="82" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">ERRORS</text>
+    <text x="720" y="104" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#ff6b9d">0</text>
+    <rect x="820" y="60" width="160" height="55" rx="8" fill="none" stroke="#ffe66d" stroke-width="1.8"/>
+    <text x="900" y="82" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">UPTIME</text>
+    <text x="900" y="104" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#ffe66d">2h</text>
+    <!-- 3-Panel Layout -->
+    <!-- Panel 1: Active -->
+    <rect x="280" y="140" width="230" height="300" rx="8" fill="none" stroke="#4ecdc4" stroke-width="1.5"/>
+    <text x="395" y="165" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#4ecdc4">Active</text>
+    <line x1="295" y1="175" x2="495" y2="175" stroke="#4ecdc4" stroke-width="0.8" opacity="0.4"/>
+    <!-- Active task cards -->
+    <rect x="295" y="185" width="200" height="55" rx="5" fill="#4ecdc4" fill-opacity="0.05" stroke="#4ecdc4" stroke-width="1" opacity="0.8"/>
+    <text x="305" y="202" font-family="monospace" font-size="8" font-weight="bold" fill="#4ecdc4">web-developer</text>
+    <text x="305" y="215" font-family="monospace" font-size="7" fill="#888">Implement chat UI component</text>
+    <rect x="305" y="223" width="120" height="4" rx="2" fill="#333"/>
+    <rect x="305" y="223" width="84" height="4" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <text x="480" y="233" text-anchor="end" font-family="monospace" font-size="7" fill="#4ecdc4">70%</text>
+    <rect x="295" y="250" width="200" height="55" rx="5" fill="#4ecdc4" fill-opacity="0.05" stroke="#4ecdc4" stroke-width="1" opacity="0.8"/>
+    <text x="305" y="267" font-family="monospace" font-size="8" font-weight="bold" fill="#4ecdc4">ios-developer</text>
+    <text x="305" y="280" font-family="monospace" font-size="7" fill="#888">Fix navigation stack bug</text>
+    <rect x="305" y="288" width="120" height="4" rx="2" fill="#333"/>
+    <rect x="305" y="288" width="42" height="4" rx="2" fill="#4ecdc4" opacity="0.8"/>
+    <text x="480" y="298" text-anchor="end" font-family="monospace" font-size="7" fill="#4ecdc4">35%</text>
+    <rect x="295" y="315" width="200" height="55" rx="5" fill="#00e5ff" fill-opacity="0.05" stroke="#00e5ff" stroke-width="1" opacity="0.8"/>
+    <text x="305" y="332" font-family="monospace" font-size="8" font-weight="bold" fill="#00e5ff">server-developer</text>
+    <text x="305" y="345" font-family="monospace" font-size="7" fill="#888">Add SSE streaming endpoint</text>
+    <rect x="305" y="353" width="120" height="4" rx="2" fill="#333"/>
+    <rect x="305" y="353" width="108" height="4" rx="2" fill="#00e5ff" opacity="0.8"/>
+    <text x="480" y="363" text-anchor="end" font-family="monospace" font-size="7" fill="#00e5ff">90%</text>
+    <!-- Panel 2: Completed -->
+    <rect x="525" y="140" width="230" height="300" rx="8" fill="none" stroke="#00e5ff" stroke-width="1.5"/>
+    <text x="640" y="165" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff">Completed</text>
+    <line x1="540" y1="175" x2="740" y2="175" stroke="#00e5ff" stroke-width="0.8" opacity="0.4"/>
+    <!-- Completed task entries -->
+    <text x="545" y="195" font-family="monospace" font-size="8" fill="#888">reviewer-arch</text>
+    <text x="740" y="195" text-anchor="end" font-family="monospace" font-size="7" fill="#555">2m ago</text>
+    <text x="545" y="212" font-family="monospace" font-size="7" fill="#555">PR #42 architecture review</text>
+    <line x1="540" y1="220" x2="740" y2="220" stroke="#333" stroke-width="0.5"/>
+    <text x="545" y="238" font-family="monospace" font-size="8" fill="#888">reviewer-quality</text>
+    <text x="740" y="238" text-anchor="end" font-family="monospace" font-size="7" fill="#555">5m ago</text>
+    <text x="545" y="255" font-family="monospace" font-size="7" fill="#555">Code quality check passed</text>
+    <line x1="540" y1="263" x2="740" y2="263" stroke="#333" stroke-width="0.5"/>
+    <text x="545" y="281" font-family="monospace" font-size="8" fill="#888">tech-writer</text>
+    <text x="740" y="281" text-anchor="end" font-family="monospace" font-size="7" fill="#555">8m ago</text>
+    <text x="545" y="298" font-family="monospace" font-size="7" fill="#555">API docs updated</text>
+    <line x1="540" y1="306" x2="740" y2="306" stroke="#333" stroke-width="0.5"/>
+    <text x="545" y="324" font-family="monospace" font-size="8" fill="#888">qa-engineer</text>
+    <text x="740" y="324" text-anchor="end" font-family="monospace" font-size="7" fill="#555">12m ago</text>
+    <text x="545" y="341" font-family="monospace" font-size="7" fill="#555">Integration tests passed</text>
+    <!-- Panel 3: Errors / Logs -->
+    <rect x="770" y="140" width="230" height="300" rx="8" fill="none" stroke="#ff6b9d" stroke-width="1.5"/>
+    <text x="885" y="165" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d">Errors</text>
+    <line x1="785" y1="175" x2="985" y2="175" stroke="#ff6b9d" stroke-width="0.8" opacity="0.4"/>
+    <text x="885" y="260" text-anchor="middle" font-family="monospace" font-size="10" fill="#555">No errors</text>
+    <text x="885" y="280" text-anchor="middle" font-family="monospace" font-size="22" fill="#4ecdc4" opacity="0.3">&#x2713;</text>
+    <!-- WebSocket connection line -->
+    <rect x="280" y="470" width="720" height="50" rx="8" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="340" y="500" font-family="monospace" font-size="9" fill="#a78bfa" opacity="0.8">WebSocket</text>
+    <!-- Server icon -->
+    <rect x="420" y="480" width="60" height="30" rx="4" fill="none" stroke="#a78bfa" stroke-width="1"/>
+    <text x="450" y="500" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">Server</text>
+    <!-- Arrow -->
+    <line x1="490" y1="495" x2="560" y2="495" stroke="#a78bfa" stroke-width="1.5" opacity="0.6"/>
+    <polygon points="560,491 570,495 560,499" fill="#a78bfa" opacity="0.6"/>
+    <!-- Signal pulses -->
+    <circle cx="520" cy="495" r="3" fill="#a78bfa" opacity="0.4"/>
+    <circle cx="535" cy="495" r="3" fill="#a78bfa" opacity="0.25"/>
+    <circle cx="550" cy="495" r="3" fill="#a78bfa" opacity="0.15"/>
+    <!-- Browser icon -->
+    <rect x="575" y="480" width="80" height="30" rx="4" fill="none" stroke="#a78bfa" stroke-width="1"/>
+    <text x="615" y="500" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa">Browser</text>
+    <!-- Real-time events label -->
+    <text x="720" y="500" font-family="monospace" font-size="8" fill="#555">Real-time events</text>
+    <!-- Tech badges -->
+    <rect x="280" y="535" width="70" height="22" rx="4" fill="none" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+    <text x="315" y="550" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff" opacity="0.7">React</text>
+    <rect x="360" y="535" width="90" height="22" rx="4" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+    <text x="405" y="550" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.7">TypeScript</text>
+    <rect x="460" y="535" width="70" height="22" rx="4" fill="none" stroke="#ff6b9d" stroke-width="1" opacity="0.5"/>
+    <text x="495" y="550" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.7">Turborepo</text>
+    <rect x="540" y="535" width="70" height="22" rx="4" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+    <text x="575" y="550" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa" opacity="0.7">Express</text>
+    <rect x="620" y="535" width="90" height="22" rx="4" fill="none" stroke="#ffe66d" stroke-width="1" opacity="0.5"/>
+    <text x="665" y="550" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.7">shadcn/ui</text>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">AGENT DASHBOARD</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -3332,6 +3461,7 @@ const ILLUSTRATION_MAP = {
   'kiro-agent-configuration': illustrationKiroAgentConfiguration,
   'kiro-mcp-server-configuration': illustrationKiroMcpServerConfiguration,
   'claude-code-sub-agent-team-design': illustrationClaudeCodeSubAgentTeamDesign,
+  'claude-code-agent-dashboard': illustrationClaudeCodeAgentDashboard,
 };
 
 function getIllustration(ref) {
