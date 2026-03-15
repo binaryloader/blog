@@ -277,11 +277,10 @@ The dashboard replaced the 2D office with a clean, information-dense layout opti
 
 The left sidebar lists all agents grouped by team: Staff, Planning, Dev, Review, QA, and Security. Each agent shows a colored status dot.
 
-- Green -- idle (ready for work)
-- Blue -- working (actively processing)
-- Green check -- completed
-- Red -- error
-- Purple -- COO (orchestrating)
+- Gray -- idle (ready for work)
+- Blue (pulsing) -- working (actively processing)
+
+Completed and error states briefly show green or red for 10 seconds before returning to idle gray. This gives enough time to notice the transition without cluttering the sidebar.
 
 Clicking any agent opens the **Agent Detail** side sheet.
 
