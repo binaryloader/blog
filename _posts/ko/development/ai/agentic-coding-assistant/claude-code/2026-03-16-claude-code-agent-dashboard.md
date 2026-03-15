@@ -248,196 +248,7 @@ export const AGENTS: AgentDefinition[] = [
 
 한국어 이름을 사용한 것은 의도적인 선택이다. COO가 오케스트레이션 메시지에서 "김소연"을 언급하면 실제 팀과 협업하는 느낌이 난다. 대시보드 사이드바에서도 "product-planner"나 "server-reviewer-quality" 같은 ID 목록보다 훨씬 읽기 좋다.
 
-## 7. 대시보드 UI
-
-대시보드는 2D 오피스를 깔끔하고 정보 밀도가 높은 레이아웃으로 대체했다. 모니터링에 최적화된 구조이다.
-
-### 7.1. 사이드바 -- 에이전트 명단
-
-왼쪽 사이드바에 모든 에이전트가 팀별로 나열된다. Staff, Planning, Dev, Review, QA, Security. 각 에이전트 옆에 상태를 나타내는 색상 점이 표시된다.
-
-- 초록 -- 대기(idle, 작업 가능)
-- 파랑 -- 작업 중(working, 처리 중)
-- 초록 체크 -- 완료
-- 빨강 -- 에러
-- 보라 -- COO(오케스트레이션 중)
-
-에이전트를 클릭하면 **Agent Detail** 사이드 시트가 열린다.
-
-### 7.2. 3단 메인 영역
-
-메인 콘텐츠 영역은 3개 컬럼으로 나뉜다.
-
-![대시보드 대기 상태](/assets/image/post/claude-code-agent-dashboard/00-idle.png)
-
-**Active Tasks**는 현재 실행 중인 에이전트의 작업 설명과 경과 시간을 보여준다. 각 카드에 에이전트의 한국어 이름, 역할, 팀, 배정된 작업 그리고 실시간 타이머가 표시된다.
-
-**Completed**는 완료된 작업을 역순으로 나열한다. 각 카드는 펼칠 수 있다. 클릭하면 Tailwind Typography로 렌더링된 마크다운 전문이 표시된다. PRD 문서, 코드 리뷰 요약, 테스트 결과 등 실제 산출물을 여기서 확인할 수 있다.
-
-**Errors**는 문제가 발생한 에이전트를 보여준다. 에이전트의 `last_assistant_message`에서 가져온 에러 메시지가 표시되어 Claude Code의 트랜스크립트 파일을 뒤지지 않아도 무엇이 잘못됐는지 바로 파악할 수 있다.
-
-### 7.3. 요약 카운터
-
-상단의 3개 요약 카드가 현재 세션의 합계를 보여준다. 활성 수, 완료 수, 에러 수. 에이전트가 상태를 전환할 때마다 실시간으로 업데이트된다.
-
-### 7.4. Agent Detail 사이드 시트
-
-사이드바에서 에이전트를 클릭하면 디테일 패널이 열린다. 현재 상태, 작업 중이거나 완료한 작업, 연속 완료 횟수(streak, 에러 없이 연속 성공), 총 완료 작업 수, 타임스탬프를 보여준다.
-
-![Agent Detail 사이드 시트](/assets/image/post/claude-code-agent-dashboard/14-agent-detail.png)
-
-연속 완료 시스템은 2D 오피스에서 가져온 것이다. 에이전트가 에러 없이 연속으로 작업을 완료하면 streak이 쌓인다. 작은 요소지만 모니터링을 좀 더 흥미롭게 만든다.
-
-## 8. 실전 예제 -- 에이전트 팀으로 음성 메모 PoC 만들기
-
-대시보드를 이해하는 가장 좋은 방법은 실제 다단계 파이프라인을 처리하는 과정을 보는 것이다. Claude Code에게 음성 메모 PoC를 처음부터 만들라고 시키면 이런 모습이 된다.
-
-프롬프트는 간단하다.
-
-> "음성 메모 시장 조사하고 PoC 만들어줘."
-
-COO가 이 요청을 분석하고 다단계 계획을 세운 뒤 오케스트레이션을 시작한다.
-
-### 8.1. Phase 1 -- 기획(3명 병렬)
-
-COO가 task-assign 호출을 3번 보낸 뒤 3명의 기획자를 병렬 서브에이전트로 호출한다.
-
-![Phase 1 -- 기획 진행 중](/assets/image/post/claude-code-agent-dashboard/01-phase1-active.png)
-
-대시보드의 Active Tasks에 즉시 4개의 카드가 나타난다. COO와 기획자 3명이다. 김소연님은 음성 메모 시장을 조사하고 있다. 이준혁님은 기술 아키텍처를 설계하고 있다. 한예슬님은 UI 와이어프레임을 만들고 있다. 각 카드에 실시간으로 경과 시간이 올라간다.
-
-3명이 전부 끝나면 카드가 Active에서 Completed로 이동한다. 사이드바 점이 초록으로 바뀐다.
-
-![Phase 1 -- 기획 완료](/assets/image/post/claude-code-agent-dashboard/02-phase1-done.png)
-
-기획 에이전트들은 `docs/` 디렉토리에 설계 문서를 생성한다. 김소연님의 PRD에는 핵심 기능 우선순위 테이블과 사용자 스토리가 담겨 있고 한예슬님의 UI 설계서에는 컬러 팔레트, 와이어프레임, 인터랙션 플로우가 정리되어 있다.
-
-![PRD 문서 -- 제품 기획자가 생성한 요구사항 정의서](/assets/image/post/claude-code-agent-dashboard/20-prd-doc.png)
-
-![UI/UX 설계서 -- 디자이너가 생성한 화면 설계 문서](/assets/image/post/claude-code-agent-dashboard/21-ui-design-doc.png)
-
-### 8.2. Phase 2 -- 개발(1명)
-
-COO가 기획자들의 산출물을 읽고 웹 개발자를 투입한다. 강하린님이 Web Speech API로 실시간 음성 인식을 구현하고 localStorage로 메모를 저장하는 React 프론트엔드를 만든다. 브라우저 네이티브 PoC이므로 백엔드 서버는 필요 없다.
-
-![Phase 2 -- 개발 진행 중](/assets/image/post/claude-code-agent-dashboard/03-phase2-active.png)
-
-대시보드에 개발 카드가 Active Tasks에 표시된다. 기획팀의 항목들은 Completed 컬럼에 있다. 사이드바도 이를 반영한다. 기획 에이전트들은 초록이고 개발 에이전트는 파란색이다.
-
-![Phase 2 -- 개발 완료](/assets/image/post/claude-code-agent-dashboard/04-phase2-done.png)
-
-### 8.3. CEO 피드백 -- 테스트와 반복
-
-여기서부터 실전이다. PoC가 첫 시도에 완벽하게 나오지는 않는다. 앱을 열어서 테스트해 보니 바로 문제가 보인다. Web Speech API가 Chrome에서는 작동하지만 Safari에서는 아무 피드백 없이 실패한다. 녹음 버튼이 너무 작다. 키보드 단축키가 없다.
-
-Claude Code에 이렇게 입력한다.
-
-> "Safari에서 음성 인식이 안 되는데? 폴백 처리해줘. 그리고 녹음 버튼 좀 키우고 Space 키로도 녹음 되게 해."
-
-COO가 피드백을 받아서 작업을 "대표님 피드백 반영"으로 업데이트하고 강하린님을 다시 투입하여 수정을 구현한다.
-
-![CEO 피드백 -- 웹 개발자 재투입](/assets/image/post/claude-code-agent-dashboard/17-ceo-feedback.png)
-
-이 사이클 -- 만들고 테스트하고 피드백 주고 고치는 것 -- 은 실제 프로젝트에서 여러 번 반복된다. 대시보드가 이 과정을 가시화한다. COO가 새로운 지시를 처리하고 개발자가 재배정되는 것을 볼 수 있다. Completed 컬럼에 각 반복이 쌓이면서 피드백을 통해 제품이 어떻게 발전했는지 이력이 남는다.
-
-핵심 포인트는 이것이다. 에이전틱 코딩은 "프롬프트 하나 입력하면 완벽한 앱이 나오는 것"이 아니다. 대화이다. 에이전트가 무거운 작업을 하지만 인간이 방향을 잡는다.
-
-### 8.4. Phase 3 -- 리뷰(3명 병렬)
-
-3명의 에이전트가 동시에 실행된다. 리뷰어 2명이 아키텍처와 품질 관점에서 코드를 검토하고 보안 감사자가 전체 감사를 수행한다.
-
-![Phase 3 -- 검증 진행 중](/assets/image/post/claude-code-agent-dashboard/05-phase3-active.png)
-
-그런데 상황이 발생한다. 보안 감사자(신재원)가 2가지 이슈를 발견한다. 트랜스크립트 뷰의 XSS 취약점과 localStorage의 암호화되지 않은 메모 데이터. 카드가 빨간색으로 바뀌면서 Errors 컬럼으로 이동한다.
-
-![Phase 3 -- 보안 에러 감지](/assets/image/post/claude-code-agent-dashboard/06-phase3-error.png)
-
-터미널만 보는 워크플로우에서라면 쉽게 놓칠 수 있는 이벤트이다. 대시보드는 이걸 무시할 수 없게 만든다. 에러 카운터가 올라가고 카드가 빨간 Errors 컬럼에 나타나고 사이드바 점이 빨간색이 된다.
-
-COO가 에러를 읽고 강하린님(웹 개발자)을 투입하여 수정한다. DOMPurify로 XSS를 방지하고 Web Crypto API로 localStorage 데이터를 암호화한다. 수정이 완료되고 Completed 컬럼에 표시된다.
-
-![Phase 3 -- 보안 수정 적용](/assets/image/post/claude-code-agent-dashboard/07-security-fixed.png)
-
-### 8.5. Phase 4 -- QA & 재검증(2명 병렬)
-
-보안 이슈가 해결되자 COO가 QA 테스트와 보안 재감사를 실행하여 수정을 확인한다. 오태윤님이 전체 테스트 스위트를 돌리는 동안 신재원님이 패치된 코드를 재감사한다.
-
-![Phase 4 -- QA & 재검증 진행 중](/assets/image/post/claude-code-agent-dashboard/08-phase4-active.png)
-
-둘 다 통과한다. QA 엔지니어가 12개 테스트 전부 통과를 확인하고 보안 감사자가 XSS 취약점과 localStorage 암호화가 제대로 수정되었음을 검증한다.
-
-![전 단계 완료](/assets/image/post/claude-code-agent-dashboard/09-all-done.png)
-
-### 8.6. 버그 리포트 -- CEO가 이슈를 발견하다
-
-QA가 통과한 후에도 직접 앱을 테스트한다. 녹음 중에 다른 브라우저 탭으로 갔다가 돌아오면 파형 시각화가 멈추는 걸 발견한다. 녹음은 계속 되지만 파형만 안 움직인다. Claude Code에 이렇게 보고한다.
-
-> "녹음 중에 다른 탭 갔다오면 파형이 멈추는데? 녹음은 되는데 파형만 안 움직여."
-
-COO는 바로 개발자를 투입하지 않는다. 먼저 오태윤님(QA 엔지니어)에게 버그를 재현하고 확인하도록 한다.
-
-![버그 리포트 -- QA 재현 중](/assets/image/post/claude-code-agent-dashboard/18-bug-report.png)
-
-QA 엔지니어가 확인한다. `requestAnimationFrame`이 비활성 탭에서 멈추고 돌아왔을 때 재시작하지 않는 것이 원인이다. 버그가 확인되고 원인이 파악되자 COO가 강하린님을 투입하여 수정한다.
-
-![버그 수정 -- 개발자 패치 중](/assets/image/post/claude-code-agent-dashboard/19-bug-fix.png)
-
-`visibilitychange` 이벤트 리스너를 추가하여 탭이 다시 활성화되면 애니메이션 루프를 재시작하도록 한다. 파일 하나 수정으로 3분 이내에 완료된다.
-
-이것이 실제 워크플로우이다. CEO가 보고하고 QA가 재현하고 개발자가 수정한다. 프롬프트 하나로 마법처럼 완성품이 나오는 게 아니다.
-
-### 8.7. Phase 5 -- 문서화(1명)
-
-모든 검증이 끝나고 COO가 마지막 작업을 배정한다. 조민지님(테크니컬 라이터)가 전체 개발 과정을 문서화한다.
-
-모든 단계의 산출물을 검토한다. PRD, 기술 설계, 코드 변경, 리뷰 결과, 보안 수정, QA 결과. 이를 바탕으로 블로그 포스트, README 업데이트, CHANGELOG 항목, 훅 설정 가이드를 작성한다.
-
-![Phase 5 -- 문서화 진행 중](/assets/image/post/claude-code-agent-dashboard/10-techwriter-documenting.png)
-
-문서화가 완료되면 카드가 Completed로 이동하고 작성한 모든 산출물의 마크다운 요약이 표시된다.
-
-![Phase 5 -- 문서화 완료](/assets/image/post/claude-code-agent-dashboard/11-techwriter-done.png)
-
-생성된 기술 설계 문서의 모습이다. 목차, 아키텍처 개요, 데이터 플로우 다이어그램, API 스펙을 갖춘 Confluence 스타일 페이지이다.
-
-![테크니컬 라이터가 생성한 기술 설계 문서](/assets/image/post/claude-code-agent-dashboard/16-techwriter-doc.png)
-
-### 8.8. 완료 카드 펼치기
-
-완료된 카드를 클릭하면 Tailwind Typography로 렌더링된 마크다운 전문이 펼쳐진다. 웹 개발자의 완료 카드를 보면 구현 요약, 변경된 파일, 테스트 커버리지를 확인할 수 있다.
-
-![마크다운이 포함된 완료 카드 펼침](/assets/image/post/claude-code-agent-dashboard/12-completed-expanded.png)
-
-에러 카드를 펼치면 보안 감사자가 발견한 내용을 정확히 볼 수 있다.
-
-![에러 카드 펼침](/assets/image/post/claude-code-agent-dashboard/13-error-expanded.png)
-
-### 8.9. 최종 결과물
-
-에이전트들이 실제로 만든 음성 메모 앱이다. 실시간 음성-텍스트 변환, 파형 시각화, 메모 관리 기능을 갖춘 완전히 작동하는 PoC이다.
-
-![음성 메모 PoC 앱](/assets/image/post/claude-code-agent-dashboard/15-voice-memo-app.png)
-
-프롬프트 하나에서 동작하는 애플리케이션까지. 모든 단계가 대시보드에서 실시간으로 보였다.
-
-### 8.10. 전체 파이프라인 요약
-
-5개 단계에 걸친 전체 오케스트레이션 흐름이다.
-
-**CEO**: "음성 메모 PoC 개발" → **COO(윤시현)**: 분석 및 계획
-
-| 단계 | 에이전트 |
-|------|---------|
-| **1단계: 기획** | 김소연(PRD), 이준혁(기술 설계), 한예슬(와이어프레임) |
-| **2단계: 개발** | 강하린(React SPA) |
-| **CEO 피드백** | 강하린(Safari 폴백 + UI) |
-| **3단계: 리뷰** | 최유진(아키텍처 리뷰), 임수빈(품질 리뷰), 신재원(보안 감사) → **오류** |
-| **보안 수정** | 강하린(XSS + 암호화 수정) |
-| **4단계: QA 및 재검증** | 오태윤(QA), 신재원(보안 재감사) |
-| **버그 수정**(CEO 리포트) | 오태윤(재현 확인), 강하린(파형 버그 수정) |
-| **5단계: 문서화** | 조민지(블로그, README, CHANGELOG) |
-
-## 9. 조직 구조
+## 7. 조직 구조
 
 전체 시스템은 회사 조직 구조 메타포를 따른다.
 
@@ -455,6 +266,195 @@ QA 엔지니어가 확인한다. `requestAnimationFrame`이 비활성 탭에서 
 | | | 나영준(인프라 운영) | |
 
 CEO(사용자)가 고수준 지시를 내린다. COO(Claude Code 메인 세션)가 이를 분해하고 에이전트를 배정하고 단계를 조율하고 에러를 처리하고 보고한다. 각 에이전트는 정의된 역할, 모델 배정(Opus는 창의적/중요 작업, Sonnet은 패턴화된 작업), 권한 수준을 가진 서브에이전트이다.
+
+## 8. 대시보드 UI
+
+대시보드는 2D 오피스를 깔끔하고 정보 밀도가 높은 레이아웃으로 대체했다. 모니터링에 최적화된 구조이다.
+
+### 8.1. 사이드바 -- 에이전트 명단
+
+왼쪽 사이드바에 모든 에이전트가 팀별로 나열된다. Staff, Planning, Dev, Review, QA, Security. 각 에이전트 옆에 상태를 나타내는 색상 점이 표시된다.
+
+- 초록 -- 대기(idle, 작업 가능)
+- 파랑 -- 작업 중(working, 처리 중)
+- 초록 체크 -- 완료
+- 빨강 -- 에러
+- 보라 -- COO(오케스트레이션 중)
+
+에이전트를 클릭하면 **Agent Detail** 사이드 시트가 열린다.
+
+### 8.2. 3단 메인 영역
+
+메인 콘텐츠 영역은 3개 컬럼으로 나뉜다.
+
+![대시보드 대기 상태](/assets/image/post/claude-code-agent-dashboard/00-idle.png)
+
+**Active Tasks**는 현재 실행 중인 에이전트의 작업 설명과 경과 시간을 보여준다. 각 카드에 에이전트의 한국어 이름, 역할, 팀, 배정된 작업 그리고 실시간 타이머가 표시된다.
+
+**Completed**는 완료된 작업을 역순으로 나열한다. 각 카드는 펼칠 수 있다. 클릭하면 Tailwind Typography로 렌더링된 마크다운 전문이 표시된다. PRD 문서, 코드 리뷰 요약, 테스트 결과 등 실제 산출물을 여기서 확인할 수 있다.
+
+**Errors**는 문제가 발생한 에이전트를 보여준다. 에이전트의 `last_assistant_message`에서 가져온 에러 메시지가 표시되어 Claude Code의 트랜스크립트 파일을 뒤지지 않아도 무엇이 잘못됐는지 바로 파악할 수 있다.
+
+### 8.3. 요약 카운터
+
+상단의 3개 요약 카드가 현재 세션의 합계를 보여준다. 활성 수, 완료 수, 에러 수. 에이전트가 상태를 전환할 때마다 실시간으로 업데이트된다.
+
+### 8.4. Agent Detail 사이드 시트
+
+사이드바에서 에이전트를 클릭하면 디테일 패널이 열린다. 현재 상태, 작업 중이거나 완료한 작업, 연속 완료 횟수(streak, 에러 없이 연속 성공), 총 완료 작업 수, 타임스탬프를 보여준다.
+
+![Agent Detail 사이드 시트](/assets/image/post/claude-code-agent-dashboard/14-agent-detail.png)
+
+연속 완료 시스템은 2D 오피스에서 가져온 것이다. 에이전트가 에러 없이 연속으로 작업을 완료하면 streak이 쌓인다. 작은 요소지만 모니터링을 좀 더 흥미롭게 만든다.
+
+## 9. 실전 예제 -- 에이전트 팀으로 음성 메모 PoC 만들기
+
+대시보드를 이해하는 가장 좋은 방법은 실제 다단계 파이프라인을 처리하는 과정을 보는 것이다. Claude Code에게 음성 메모 PoC를 처음부터 만들라고 시키면 이런 모습이 된다.
+
+프롬프트는 간단하다.
+
+> "음성 메모 시장 조사하고 PoC 만들어줘."
+
+COO가 이 요청을 분석하고 다단계 계획을 세운 뒤 오케스트레이션을 시작한다.
+
+### 9.1. Phase 1 -- 기획(3명 병렬)
+
+COO가 task-assign 호출을 3번 보낸 뒤 3명의 기획자를 병렬 서브에이전트로 호출한다.
+
+![Phase 1 -- 기획 진행 중](/assets/image/post/claude-code-agent-dashboard/01-phase1-active.png)
+
+대시보드의 Active Tasks에 즉시 4개의 카드가 나타난다. COO와 기획자 3명이다. 김소연님(제품 기획자)은 음성 메모 시장을 조사하고 있다. 이준혁님(기술 설계자)은 기술 아키텍처를 설계하고 있다. 한예슬님(UI/UX 디자이너)은 UI 와이어프레임을 만들고 있다. 각 카드에 실시간으로 경과 시간이 올라간다.
+
+3명이 전부 끝나면 카드가 Active에서 Completed로 이동한다. 사이드바 점이 초록으로 바뀐다.
+
+![Phase 1 -- 기획 완료](/assets/image/post/claude-code-agent-dashboard/02-phase1-done.png)
+
+기획 에이전트들은 `docs/` 디렉토리에 설계 문서를 생성한다. 김소연님의 PRD에는 핵심 기능 우선순위 테이블과 사용자 스토리가 담겨 있고 한예슬님의 UI 설계서에는 컬러 팔레트, 와이어프레임, 인터랙션 플로우가 정리되어 있다.
+
+![PRD 문서 -- 제품 기획자가 생성한 요구사항 정의서](/assets/image/post/claude-code-agent-dashboard/20-prd-doc.png)
+
+![UI/UX 설계서 -- 디자이너가 생성한 화면 설계 문서](/assets/image/post/claude-code-agent-dashboard/21-ui-design-doc.png)
+
+### 9.2. Phase 2 -- 개발(1명)
+
+COO가 기획자들의 산출물을 읽고 웹 개발자를 투입한다. 강하린님(웹 개발자)이 Web Speech API로 실시간 음성 인식을 구현하고 localStorage로 메모를 저장하는 React 프론트엔드를 만든다. 브라우저 네이티브 PoC이므로 백엔드 서버는 필요 없다.
+
+![Phase 2 -- 개발 진행 중](/assets/image/post/claude-code-agent-dashboard/03-phase2-active.png)
+
+대시보드에 개발 카드가 Active Tasks에 표시된다. 기획팀의 항목들은 Completed 컬럼에 있다. 사이드바도 이를 반영한다. 기획 에이전트들은 초록이고 개발 에이전트는 파란색이다.
+
+![Phase 2 -- 개발 완료](/assets/image/post/claude-code-agent-dashboard/04-phase2-done.png)
+
+### 9.3. CEO 피드백 -- 테스트와 반복
+
+여기서부터 실전이다. PoC가 첫 시도에 완벽하게 나오지는 않는다. 앱을 열어서 테스트해 보니 바로 문제가 보인다. Web Speech API가 Chrome에서는 작동하지만 Safari에서는 아무 피드백 없이 실패한다. 녹음 버튼이 너무 작다. 키보드 단축키가 없다.
+
+Claude Code에 이렇게 입력한다.
+
+> "Safari에서 음성 인식이 안 되는데? 폴백 처리해줘. 그리고 녹음 버튼 좀 키우고 Space 키로도 녹음 되게 해."
+
+COO가 피드백을 받아서 작업을 "대표님 피드백 반영"으로 업데이트하고 강하린님(웹 개발자)을 다시 투입하여 수정을 구현한다.
+
+![CEO 피드백 -- 웹 개발자 재투입](/assets/image/post/claude-code-agent-dashboard/17-ceo-feedback.png)
+
+이 사이클 -- 만들고 테스트하고 피드백 주고 고치는 것 -- 은 실제 프로젝트에서 여러 번 반복된다. 대시보드가 이 과정을 가시화한다. COO가 새로운 지시를 처리하고 개발자가 재배정되는 것을 볼 수 있다. Completed 컬럼에 각 반복이 쌓이면서 피드백을 통해 제품이 어떻게 발전했는지 이력이 남는다.
+
+핵심 포인트는 이것이다. 에이전틱 코딩은 "프롬프트 하나 입력하면 완벽한 앱이 나오는 것"이 아니다. 대화이다. 에이전트가 무거운 작업을 하지만 인간이 방향을 잡는다.
+
+### 9.4. Phase 3 -- 리뷰(3명 병렬)
+
+3명의 에이전트가 동시에 실행된다. 리뷰어 2명이 아키텍처와 품질 관점에서 코드를 검토하고 보안 감사자가 전체 감사를 수행한다.
+
+![Phase 3 -- 검증 진행 중](/assets/image/post/claude-code-agent-dashboard/05-phase3-active.png)
+
+그런데 상황이 발생한다. 보안 감사자(신재원)가 2가지 이슈를 발견한다. 트랜스크립트 뷰의 XSS 취약점과 localStorage의 암호화되지 않은 메모 데이터. 카드가 빨간색으로 바뀌면서 Errors 컬럼으로 이동한다.
+
+![Phase 3 -- 보안 에러 감지](/assets/image/post/claude-code-agent-dashboard/06-phase3-error.png)
+
+터미널만 보는 워크플로우에서라면 쉽게 놓칠 수 있는 이벤트이다. 대시보드는 이걸 무시할 수 없게 만든다. 에러 카운터가 올라가고 카드가 빨간 Errors 컬럼에 나타나고 사이드바 점이 빨간색이 된다.
+
+COO가 에러를 읽고 강하린님(웹 개발자)을 투입하여 수정한다. DOMPurify로 XSS를 방지하고 Web Crypto API로 localStorage 데이터를 암호화한다. 수정이 완료되고 Completed 컬럼에 표시된다.
+
+![Phase 3 -- 보안 수정 적용](/assets/image/post/claude-code-agent-dashboard/07-security-fixed.png)
+
+### 9.5. Phase 4 -- QA & 재검증(2명 병렬)
+
+보안 이슈가 해결되자 COO가 QA 테스트와 보안 재감사를 실행하여 수정을 확인한다. 오태윤님(QA 엔지니어)이 전체 테스트 스위트를 돌리는 동안 신재원님(보안 감사관)이 패치된 코드를 재감사한다.
+
+![Phase 4 -- QA & 재검증 진행 중](/assets/image/post/claude-code-agent-dashboard/08-phase4-active.png)
+
+둘 다 통과한다. QA 엔지니어가 12개 테스트 전부 통과를 확인하고 보안 감사자가 XSS 취약점과 localStorage 암호화가 제대로 수정되었음을 검증한다.
+
+![전 단계 완료](/assets/image/post/claude-code-agent-dashboard/09-all-done.png)
+
+### 9.6. 버그 리포트 -- CEO가 이슈를 발견하다
+
+QA가 통과한 후에도 직접 앱을 테스트한다. 녹음 중에 다른 브라우저 탭으로 갔다가 돌아오면 파형 시각화가 멈추는 걸 발견한다. 녹음은 계속 되지만 파형만 안 움직인다. Claude Code에 이렇게 보고한다.
+
+> "녹음 중에 다른 탭 갔다오면 파형이 멈추는데? 녹음은 되는데 파형만 안 움직여."
+
+COO는 바로 개발자를 투입하지 않는다. 먼저 오태윤님(QA 엔지니어)에게 버그를 재현하고 확인하도록 한다.
+
+![버그 리포트 -- QA 재현 중](/assets/image/post/claude-code-agent-dashboard/18-bug-report.png)
+
+QA 엔지니어가 확인한다. `requestAnimationFrame`이 비활성 탭에서 멈추고 돌아왔을 때 재시작하지 않는 것이 원인이다. 버그가 확인되고 원인이 파악되자 COO가 강하린님(웹 개발자)을 투입하여 수정한다.
+
+![버그 수정 -- 개발자 패치 중](/assets/image/post/claude-code-agent-dashboard/19-bug-fix.png)
+
+`visibilitychange` 이벤트 리스너를 추가하여 탭이 다시 활성화되면 애니메이션 루프를 재시작하도록 한다. 파일 하나 수정으로 3분 이내에 완료된다.
+
+이것이 실제 워크플로우이다. CEO가 보고하고 QA가 재현하고 개발자가 수정한다. 프롬프트 하나로 마법처럼 완성품이 나오는 게 아니다.
+
+### 9.7. Phase 5 -- 문서화(1명)
+
+모든 검증이 끝나고 COO가 마지막 작업을 배정한다. 조민지님(테크니컬 라이터)가 전체 개발 과정을 문서화한다.
+
+모든 단계의 산출물을 검토한다. PRD, 기술 설계, 코드 변경, 리뷰 결과, 보안 수정, QA 결과. 이를 바탕으로 블로그 포스트, README 업데이트, CHANGELOG 항목, 훅 설정 가이드를 작성한다.
+
+![Phase 5 -- 문서화 진행 중](/assets/image/post/claude-code-agent-dashboard/10-techwriter-documenting.png)
+
+문서화가 완료되면 카드가 Completed로 이동하고 작성한 모든 산출물의 마크다운 요약이 표시된다.
+
+![Phase 5 -- 문서화 완료](/assets/image/post/claude-code-agent-dashboard/11-techwriter-done.png)
+
+생성된 기술 설계 문서의 모습이다. 목차, 아키텍처 개요, 데이터 플로우 다이어그램, API 스펙을 갖춘 Confluence 스타일 페이지이다.
+
+![테크니컬 라이터가 생성한 기술 설계 문서](/assets/image/post/claude-code-agent-dashboard/16-techwriter-doc.png)
+
+### 9.8. 완료 카드 펼치기
+
+완료된 카드를 클릭하면 Tailwind Typography로 렌더링된 마크다운 전문이 펼쳐진다. 웹 개발자의 완료 카드를 보면 구현 요약, 변경된 파일, 테스트 커버리지를 확인할 수 있다.
+
+![마크다운이 포함된 완료 카드 펼침](/assets/image/post/claude-code-agent-dashboard/12-completed-expanded.png)
+
+에러 카드를 펼치면 보안 감사자가 발견한 내용을 정확히 볼 수 있다.
+
+![에러 카드 펼침](/assets/image/post/claude-code-agent-dashboard/13-error-expanded.png)
+
+### 9.9. 최종 결과물
+
+에이전트들이 실제로 만든 음성 메모 앱이다. 실시간 음성-텍스트 변환, 파형 시각화, 메모 관리 기능을 갖춘 완전히 작동하는 PoC이다.
+
+![음성 메모 PoC 앱](/assets/image/post/claude-code-agent-dashboard/15-voice-memo-app.png)
+
+프롬프트 하나에서 동작하는 애플리케이션까지. 모든 단계가 대시보드에서 실시간으로 보였다.
+
+### 9.10. 전체 파이프라인 요약
+
+5개 단계에 걸친 전체 오케스트레이션 흐름이다.
+
+**CEO**: "음성 메모 PoC 개발" → **COO(윤시현)**: 분석 및 계획
+
+| 단계 | 에이전트 |
+|------|---------|
+| **1단계: 기획** | 김소연(PRD), 이준혁(기술 설계), 한예슬(와이어프레임) |
+| **2단계: 개발** | 강하린(React SPA) |
+| **CEO 피드백** | 강하린(Safari 폴백 + UI) |
+| **3단계: 리뷰** | 최유진(아키텍처 리뷰), 임수빈(품질 리뷰), 신재원(보안 감사) → **오류** |
+| **보안 수정** | 강하린(XSS + 암호화 수정) |
+| **4단계: QA 및 재검증** | 오태윤(QA), 신재원(보안 재감사) |
+| **버그 수정**(CEO 리포트) | 오태윤(재현 확인), 강하린(파형 버그 수정) |
+| **5단계: 문서화** | 조민지(블로그, README, CHANGELOG) |
 
 ## 10. macOS launchd 자동 시작
 
