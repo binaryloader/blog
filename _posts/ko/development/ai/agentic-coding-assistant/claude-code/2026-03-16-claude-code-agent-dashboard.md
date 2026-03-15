@@ -79,21 +79,19 @@ claude-code-agent-dashboard/
 핵심 아키텍처는 단방향 이벤트 파이프라인이다.
 
 ```
-Claude Code Hooks ──HTTP POST──▶ Hono Server (:3100)
-                                     │
-COO task-assign ───HTTP POST──▶      │
-                                     ▼
-                              ┌─────────────┐
-                              │ Agent Store  │
-                              └──────┬──────┘
-                                     │ State Change
-                                     ▼
-                              WebSocket Broadcast
-                                     │
-                                     ▼
-                              Browser Dashboard
-                                     │
-                              ──REST Query──▶ Hono Server
+┌──────────────────┐     HTTP POST     ┌──────────────────┐
+│ Claude Code      │──────────────────▶│                  │
+│ (Hooks)          │                   │  Hono Server     │
+├──────────────────┤     HTTP POST     │  (:3100)         │
+│ COO              │──────────────────▶│                  │
+│ (task-assign)    │                   │  ┌────────────┐  │
+└──────────────────┘                   │  │Agent Store │  │
+                                       │  └─────┬──────┘  │
+┌──────────────────┐    WebSocket      │        │         │
+│ Browser          │◀──────────────────│  State Change    │
+│ Dashboard        │                   │                  │
+│                  │──REST (init)─────▶│                  │
+└──────────────────┘                   └──────────────────┘
 ```
 
 Claude Code가 훅 이벤트(SubagentStart, SubagentStop, PreToolUse, PostToolUse 등)를 HTTP POST로 `http://localhost:3100/api/v1/events`에 보낸다. 서버가 각 이벤트를 처리하고 인메모리 에이전트 스토어를 업데이트한 뒤 WebSocket으로 연결된 모든 브라우저 클라이언트에 상태 변경을 브로드캐스트한다. 브라우저도 초기 로드 시 REST 호출로 전체 상태를 가져온다.

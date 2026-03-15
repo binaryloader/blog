@@ -83,21 +83,19 @@ The tech stack is deliberately simple. Hono handles both the REST API and WebSoc
 The core architecture is a unidirectional event pipeline.
 
 ```
-Claude Code Hooks ──HTTP POST──▶ Hono Server (:3100)
-                                     │
-COO task-assign ───HTTP POST──▶      │
-                                     ▼
-                              ┌─────────────┐
-                              │ Agent Store  │
-                              └──────┬──────┘
-                                     │ State Change
-                                     ▼
-                              WebSocket Broadcast
-                                     │
-                                     ▼
-                              Browser Dashboard
-                                     │
-                              ──REST Query──▶ Hono Server
+┌──────────────────┐     HTTP POST     ┌──────────────────┐
+│ Claude Code      │──────────────────▶│                  │
+│ (Hooks)          │                   │  Hono Server     │
+├──────────────────┤     HTTP POST     │  (:3100)         │
+│ COO              │──────────────────▶│                  │
+│ (task-assign)    │                   │  ┌────────────┐  │
+└──────────────────┘                   │  │Agent Store │  │
+                                       │  └─────┬──────┘  │
+┌──────────────────┐    WebSocket      │        │         │
+│ Browser          │◀──────────────────│  State Change    │
+│ Dashboard        │                   │                  │
+│                  │──REST (init)─────▶│                  │
+└──────────────────┘                   └──────────────────┘
 ```
 
 Claude Code fires hook events (SubagentStart, SubagentStop, PreToolUse, PostToolUse, etc.) as HTTP POST requests to `http://localhost:3100/api/v1/events`. The server processes each event, updates the in-memory agent store, and broadcasts the state change over WebSocket to all connected browser clients. The browser also makes REST calls on initial load to hydrate the full state.

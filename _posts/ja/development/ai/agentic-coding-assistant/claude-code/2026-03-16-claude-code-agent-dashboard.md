@@ -83,21 +83,19 @@ claude-code-agent-dashboard/
 コアアーキテクチャは単方向のイベントパイプラインである。
 
 ```
-Claude Code Hooks ──HTTP POST──▶ Hono Server (:3100)
-                                     │
-COO task-assign ───HTTP POST──▶      │
-                                     ▼
-                              ┌─────────────┐
-                              │ Agent Store  │
-                              └──────┬──────┘
-                                     │ State Change
-                                     ▼
-                              WebSocket Broadcast
-                                     │
-                                     ▼
-                              Browser Dashboard
-                                     │
-                              ──REST Query──▶ Hono Server
+┌──────────────────┐     HTTP POST     ┌──────────────────┐
+│ Claude Code      │──────────────────▶│                  │
+│ (Hooks)          │                   │  Hono Server     │
+├──────────────────┤     HTTP POST     │  (:3100)         │
+│ COO              │──────────────────▶│                  │
+│ (task-assign)    │                   │  ┌────────────┐  │
+└──────────────────┘                   │  │Agent Store │  │
+                                       │  └─────┬──────┘  │
+┌──────────────────┐    WebSocket      │        │         │
+│ Browser          │◀──────────────────│  State Change    │
+│ Dashboard        │                   │                  │
+│                  │──REST (init)─────▶│                  │
+└──────────────────┘                   └──────────────────┘
 ```
 
 Claude Codeがフックイベント(SubagentStart、SubagentStop、PreToolUse、PostToolUseなど)をHTTP POSTリクエストとして`http://localhost:3100/api/v1/events`に送信する。サーバーが各イベントを処理し、インメモリのエージェントストアを更新し、WebSocket経由で接続中のすべてのブラウザクライアントに状態変更をブロードキャストする。ブラウザも初回ロード時にRESTコールで全状態をハイドレートする。
