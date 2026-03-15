@@ -168,7 +168,7 @@ Claude Codeをダッシュボードに接続するには、`~/.claude/settings.j
 
 ## 5. task-assignパターン
 
-ここで興味深い制約にぶつかった。Claude Codeが`SubagentStart`フックを発火するとき、ペイロードには`agent_type`(例: "product-planner")が含まれるが、エージェントに何を依頼したかという人間が読める説明は含まれない。フックシステムは*誰が*開始したかを教えてくれるが、*なぜ*かは教えてくれない。
+ここで興味深い制約にぶつかった。Claude Codeが`SubagentStart`フックを発火するとき、ペイロードには`agent_type`(例: "product-planner")が含まれるが、エージェントに何を依頼したかという人間が読める説明は含まれない。フックシステムは誰が開始したかを教えてくれるが、なぜかは教えてくれない。
 
 これはダッシュボードにとって重要である。「product-planner: working」と表示するより、「product-planner: ボイスメモ機能の市場調査とPRD」と表示する方がはるかに有用である。
 
