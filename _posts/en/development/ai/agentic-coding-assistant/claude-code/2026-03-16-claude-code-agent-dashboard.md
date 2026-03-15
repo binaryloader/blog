@@ -54,7 +54,7 @@ With 19 agents and multi-phase pipelines, this became untenable. I needed visibi
 
 ## 2. The First Attempt -- Gather Town-Style 2D Office
 
-My first idea was ambitious, perhaps too ambitious. I wanted to build a Gather Town-style 2D virtual office where each agent had a desk, walked around with pixel-art sprites, and exhibited personality-driven idle behaviors. Kim Soyeon (the product planner) would be a socializer who chats in the cafeteria. Park Dohyeon (the backend developer) would snack at his desk. The CTO character would walk to the CEO's office to deliver reports, agents would queue up at the CTO's desk, and completed agents would celebrate with confetti particles.
+My first idea was ambitious, perhaps too ambitious. I wanted to build a Gather Town-style 2D virtual office where each agent had a desk, walked around with pixel-art sprites, and exhibited personality-driven idle behaviors. Kim Soyeon (the product planner) would be a socializer who chats in the cafeteria. Park Dohyeon (the backend developer) would snack at his desk. The COO character would walk to the CEO's office to deliver reports, agents would queue up at the COO's desk, and completed agents would celebrate with confetti particles.
 
 I actually built this. The README from the early version describes it in full detail: team zones for Dev, Planning, QA/Security, and Review. A cafeteria where idle agents grab coffee. A level-up system with desk decorations. Weather synced to real conditions via the Open-Meteo API. Time-of-day lighting that shifts from morning warmth to night-mode overtime glow. TTS voice reports where the COO reads summaries aloud using Google's Gemini or Chirp voices. An "encourage" button that sends heart particles to boost an agent's animation speed.
 
