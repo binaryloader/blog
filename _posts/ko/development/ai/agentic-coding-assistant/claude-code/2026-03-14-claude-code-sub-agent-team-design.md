@@ -91,7 +91,6 @@ Claude Code 메인 세션 (CTO / 오케스트레이터)
 ~/.claude/
 ├── CLAUDE.md                       # 전역 규칙 (CLAUDE.md/MEMORY.md 포맷, rules/ 참조)
 ├── settings.json                   # 전역 권한, 플러그인, 환경 변수, hooks
-├── .mcp.json                       # MCP 서버 설정 (9개)
 │
 ├── rules/                          # 전역 규칙 (10개)
 │   ├── markdown.md                 # Markdown 헤딩/불렛/개행 규칙 (항상 로드)
@@ -142,7 +141,6 @@ Claude Code 메인 세션 (CTO / 오케스트레이터)
 ```
 my-project/
 ├── CLAUDE.md                       # 프로젝트 루트 규칙 (기술 스택, 빌드, @import)
-├── .mcp.json                       # MCP 서버 설정 (프로젝트별)
 │
 ├── .claude/
 │   ├── settings.json               # 프로젝트 권한, 환경 변수 (팀 공유)
@@ -716,9 +714,18 @@ exit 0
 
 ## 9. MCP 서버(외부 연동)
 
-### 9.1. 전역 설정
+### 9.1. 설정 방법
 
-MCP 서버 설정은 전역(`~/.claude/.mcp.json`)에서 관리한다. 프로젝트별 추가 서버가 필요하면 프로젝트 루트에 `.mcp.json`을 생성한다.
+MCP 서버는 `claude mcp add` CLI 명령으로 등록한다. `.mcp.json`에 직접 작성하면 로드되지 않는 경우가 있으므로 반드시 CLI를 사용한다. 설정은 `~/.claude.json`의 `mcpServers` 섹션에 저장된다.
+
+```bash
+# 전역 등록 (-s user → ~/.claude.json)
+claude mcp add github -s user -- gh mcp
+claude mcp add context7 -s user -t http https://mcp.context7.com/mcp
+
+# 프로젝트별 등록 (-s project)
+claude mcp add sentry -s project -- npx -y @sentry/mcp-server
+```
 
 ### 9.2. 서버 목록(9개)
 
@@ -733,7 +740,7 @@ MCP 서버 설정은 전역(`~/.claude/.mcp.json`)에서 관리한다. 프로젝
 | PDF Reader | stdio | PDF 문서 읽기, 검색 | (전역 접근) | 없음 |
 | Scapple | stdio | 마인드맵, 아이디어 시각화 | (전역 접근) | 없음 |
 
-일부 MCP 서버는 전역 `.mcp.json`이 아닌 에이전트의 frontmatter에서 개별 설정한다. 예를 들어 postgres는 server-developer 에이전트의 `mcpServers` 필드에서 참조한다.
+일부 MCP 서버는 에이전트의 frontmatter에서 개별 설정한다. 예를 들어 postgres는 server-developer 에이전트의 `mcpServers` 필드에서 참조한다.
 
 ### 9.3. 에이전트별 MCP 접근
 
@@ -750,11 +757,14 @@ MCP 서버 설정은 전역(`~/.claude/.mcp.json`)에서 관리한다. 프로젝
 
 ### 9.4. 시크릿 관리
 
-API 키는 `.mcp.json`에 직접 넣지 않는다.
+API 키는 `claude mcp add` 명령의 `-e` 옵션으로 전달한다.
 
-- `.mcp.json`에서는 `$ENV_VAR` 형식으로 환경 변수 참조
-- 실제 값은 프로젝트의 `.claude/settings.local.json`의 `env` 섹션에 저장
-- `settings.local.json`은 `.gitignore`에 추가하여 커밋하지 않는다
+```bash
+claude mcp add jira -s user -e JIRA_API_TOKEN=xxx -- uvx mcp-atlassian --jira-url https://...
+```
+
+- `-e KEY=VALUE` 형식으로 환경 변수를 설정하면 `~/.claude.json`의 해당 서버 `env` 섹션에 저장된다
+- 프로젝트별 시크릿은 `.claude/settings.local.json`의 `env` 섹션에 저장하고 `.gitignore`에 추가한다
 
 ## 10. CLAUDE.md 체계
 
@@ -1056,20 +1066,20 @@ EOF
 
 ### 13.6. MCP 서버 추가
 
-```json
-// .mcp.json에 새 서버 추가
-{
-  "mcpServers": {
-    "sentry": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@sentry/mcp-server"],
-      "env": {
-        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN"
-      }
-    }
-  }
-}
+`claude mcp add` CLI 명령으로 등록한다. `.mcp.json`에 직접 작성하면 로드되지 않는 경우가 있다.
+
+```bash
+# stdio 서버 추가 (전역)
+claude mcp add sentry -s user -e SENTRY_AUTH_TOKEN=xxx -- npx -y @sentry/mcp-server
+
+# HTTP 서버 추가 (전역)
+claude mcp add context7 -s user -t http https://mcp.context7.com/mcp
+
+# 프로젝트 스코프로 추가
+claude mcp add my-db -s project -- npx -y @my/db-mcp-server
+
+# 등록된 서버 확인
+claude mcp list
 ```
 
 에이전트의 frontmatter에 `mcpServers`를 명시하면 해당 서버만 접근 가능하다.
