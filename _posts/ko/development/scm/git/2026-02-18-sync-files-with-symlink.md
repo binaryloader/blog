@@ -101,7 +101,7 @@ ln -s ~/repos/dotfiles/.ssh/config ~/.ssh/config
 심볼릭 링크를 삭제하고 원본 파일을 원래 위치로 복원한다.
 
 ```zsh
-# 심볼릭 링크 삭제 (원본은 영향 없음)
+# 심볼릭 링크 삭제(원본은 영향 없음)
 rm ~/.zshrc
 
 # 원본을 원래 위치로 복원
@@ -117,10 +117,10 @@ mv ~/repos/dotfiles/.zshrc ~/.zshrc
 심볼릭 링크 생성 시 원본 경로를 절대 경로로 지정하는 것이 안전하다. 상대 경로를 사용하면 링크 파일의 위치를 기준으로 해석되므로 링크를 이동하면 깨질 수 있다.
 
 ```zsh
-# 절대 경로 (권장)
+# 절대 경로(권장)
 ln -s /Users/user/repos/dotfiles/.zshrc ~/.zshrc
 
-# 상대 경로 (링크 위치 기준)
+# 상대 경로(링크 위치 기준)
 ln -s ../repos/dotfiles/.zshrc ~/.zshrc
 ```
 

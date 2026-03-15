@@ -78,7 +78,7 @@ llm = ChatOllama(
 )
 
 while True:
-    user_input = input("질문을 입력하세요 (종료: exit): ")
+    user_input = input("질문을 입력하세요(종료: exit): ")
     if user_input.lower() == "exit":
         break
 

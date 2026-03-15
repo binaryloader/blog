@@ -237,13 +237,13 @@ LangChain은 채팅 모델의 메시지를 역할별로 구분하는 클래스�
 ```python
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
-# 튜플 방식 (간편)
+# 튜플 방식(간편)
 prompt = ChatPromptTemplate.from_messages([
     ("system", "너는 도우미야."),
     ("human", "{input}"),
 ])
 
-# 객체 방식 (명시적)
+# 객체 방식(명시적)
 prompt = ChatPromptTemplate.from_messages([
     SystemMessage(content="너는 도우미야."),
     ("human", "{input}"),
@@ -437,7 +437,7 @@ LLM 응답 `"오늘 태풍이 옵니다"`가 아래 청크로 도착한다고 �
 청크2: " 태"
 │ buffer = "오늘 태"
 │ 공백 발견 → split → word="오늘", buffer="태"
-│ yield "오늘 " → ⏸️ 멈춤 (buffer="태" 유지)
+│ yield "오늘 " → ⏸️ 멈춤(buffer="태" 유지)
 │ └→ for 루프에서 chunk="오늘 " 수신 → print
 │ ▶️ 재개, buffer="태"에 공백 없음 → 다음 청크 기다림
 │

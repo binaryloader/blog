@@ -44,7 +44,7 @@ Claude Code는 메인 에이전트가 사용자와 대화하며 필요에 따라
 CEO (사용자)
     │
     ▼
-Claude Code 메인 세션 (CTO / 오케스트레이터)
+Claude Code 메인 세션(CTO / 오케스트레이터)
     │
     ├── 기획팀 ─── product-planner, ui-designer, tech-writer
     ├── 개발팀 ─── dev-planner, ios-developer, server-developer, infra-developer
@@ -83,52 +83,52 @@ Claude Code 메인 세션 (CTO / 오케스트레이터)
 
 ## 2. 파일 맵
 
-### 2.1. 전역 설정 (~/.claude/)
+### 2.1. 전역 설정(~/.claude/)
 
 모든 프로젝트에 공통 적용되는 사용자 레벨 설정이다. 어떤 디렉토리에서 Claude Code를 실행해도 항상 로드된다.
 
 ```
 ~/.claude/
-├── CLAUDE.md                       # 전역 규칙 (CLAUDE.md/MEMORY.md 포맷, rules/ 참조)
+├── CLAUDE.md                       # 전역 규칙(CLAUDE.md/MEMORY.md 포맷, rules/ 참조)
 ├── settings.json                   # 전역 권한, 플러그인, 환경 변수, hooks
 │
-├── rules/                          # 전역 규칙 (10개)
-│   ├── markdown.md                 # Markdown 헤딩/불렛/개행 규칙 (항상 로드)
-│   ├── korean.md                   # 한국어 쉼표/문체 규칙 (항상 로드)
-│   ├── git.md                      # Git 커밋/GitHub 저장소 규칙 (항상 로드)
-│   ├── security.md                 # 보안 규칙 (항상 로드)
+├── rules/                          # 전역 규칙(10개)
+│   ├── markdown.md                 # Markdown 헤딩/불렛/개행 규칙(항상 로드)
+│   ├── korean.md                   # 한국어 쉼표/문체 규칙(항상 로드)
+│   ├── git.md                      # Git 커밋/GitHub 저장소 규칙(항상 로드)
+│   ├── security.md                 # 보안 규칙(항상 로드)
 │   ├── swift.md                    # Swift 스타일/TCA (paths: **/*.swift)
-│   ├── xcode.md                    # Xcode 헤더/프로젝트 (paths: **/*.swift, **/Package.swift, **/Project.swift)
-│   ├── kotlin.md                   # Kotlin 서버 규칙 (paths: server/**/*.kt)
-│   ├── terraform.md                # Terraform 규칙 (paths: infra/**/*.tf)
-│   ├── api-design.md               # REST API 설계 (paths: **/api/**, **/controller/**, **/Controller/**, **/routes/**)
-│   └── image-metadata.md           # 이미지 메타데이터 (paths: **/*.jpg 등)
+│   ├── xcode.md                    # Xcode 헤더/프로젝트(paths: **/*.swift, **/Package.swift, **/Project.swift)
+│   ├── kotlin.md                   # Kotlin 서버 규칙(paths: server/**/*.kt)
+│   ├── terraform.md                # Terraform 규칙(paths: infra/**/*.tf)
+│   ├── api-design.md               # REST API 설계(paths: **/api/**, **/controller/**, **/Controller/**, **/routes/**)
+│   └── image-metadata.md           # 이미지 메타데이터(paths: **/*.jpg 등)
 │
-├── agents/                         # 서브 에이전트 (15개)
-│   ├── product-planner.md          # 기획자 (opus, plan, memory:project)
-│   ├── ui-designer.md              # 디자이너 (sonnet, plan)
-│   ├── tech-writer.md              # 테크니컬 라이터 (sonnet, acceptEdits)
-│   ├── dev-planner.md              # 개발 플래너 (opus, plan, memory:project)
-│   ├── ios-developer.md            # iOS 개발자 (opus, worktree, memory:project, hooks)
-│   ├── server-developer.md         # 서버 개발자 (opus, worktree, memory:project, hooks)
-│   ├── infra-developer.md          # 인프라 개발자 (opus, worktree, memory:project, hooks)
-│   ├── ios-reviewer-arch.md        # iOS 아키텍처 리뷰어 (sonnet, plan)
-│   ├── ios-reviewer-quality.md     # iOS 품질 리뷰어 (sonnet, plan)
-│   ├── server-reviewer-arch.md     # 서버 아키텍처 리뷰어 (sonnet, plan)
-│   ├── server-reviewer-quality.md  # 서버 품질 리뷰어 (sonnet, plan)
-│   ├── infra-reviewer-security.md  # 인프라 보안 리뷰어 (sonnet, plan)
-│   ├── infra-reviewer-ops.md       # 인프라 운영 리뷰어 (sonnet, plan)
-│   ├── qa-engineer.md              # QA 엔지니어 (sonnet, default)
-│   └── security-auditor.md         # 보안 감사자 (opus, plan)
+├── agents/                         # 서브 에이전트(15개)
+│   ├── product-planner.md          # 기획자(opus, plan, memory:project)
+│   ├── ui-designer.md              # 디자이너(sonnet, plan)
+│   ├── tech-writer.md              # 테크니컬 라이터(sonnet, acceptEdits)
+│   ├── dev-planner.md              # 개발 플래너(opus, plan, memory:project)
+│   ├── ios-developer.md            # iOS 개발자(opus, worktree, memory:project, hooks)
+│   ├── server-developer.md         # 서버 개발자(opus, worktree, memory:project, hooks)
+│   ├── infra-developer.md          # 인프라 개발자(opus, worktree, memory:project, hooks)
+│   ├── ios-reviewer-arch.md        # iOS 아키텍처 리뷰어(sonnet, plan)
+│   ├── ios-reviewer-quality.md     # iOS 품질 리뷰어(sonnet, plan)
+│   ├── server-reviewer-arch.md     # 서버 아키텍처 리뷰어(sonnet, plan)
+│   ├── server-reviewer-quality.md  # 서버 품질 리뷰어(sonnet, plan)
+│   ├── infra-reviewer-security.md  # 인프라 보안 리뷰어(sonnet, plan)
+│   ├── infra-reviewer-ops.md       # 인프라 운영 리뷰어(sonnet, plan)
+│   ├── qa-engineer.md              # QA 엔지니어(sonnet, default)
+│   └── security-auditor.md         # 보안 감사자(opus, plan)
 │
-├── skills/                         # 워크플로우 (5개)
+├── skills/                         # 워크플로우(5개)
 │   ├── planning/SKILL.md           # /planning <기능>
 │   ├── develop/SKILL.md            # /develop <작업>
 │   ├── review-all/SKILL.md         # /review-all [브랜치]
 │   ├── release/SKILL.md            # /release <버전>
 │   └── standup/SKILL.md            # /standup
 │
-└── hooks/                          # hooks 스크립트 (3개)
+└── hooks/                          # hooks 스크립트(3개)
     ├── lint-swift.sh               # Swift 파일 수정 전 린트 확인
     ├── lint-kotlin.sh              # Kotlin 파일 수정 전 린트 확인
     └── notify.sh                   # 서브 에이전트 완료 알림
@@ -140,18 +140,18 @@ Claude Code 메인 세션 (CTO / 오케스트레이터)
 
 ```
 my-project/
-├── CLAUDE.md                       # 프로젝트 루트 규칙 (기술 스택, 빌드, @import)
+├── CLAUDE.md                       # 프로젝트 루트 규칙(기술 스택, 빌드, @import)
 │
 ├── .claude/
-│   ├── settings.json               # 프로젝트 권한, 환경 변수 (팀 공유)
-│   ├── settings.local.json         # 로컬 전용 시크릿 (.gitignore)
-│   └── rules/                      # 프로젝트 특화 규칙 (선택사항)
+│   ├── settings.json               # 프로젝트 권한, 환경 변수(팀 공유)
+│   ├── settings.local.json         # 로컬 전용 시크릿(.gitignore)
+│   └── rules/                      # 프로젝트 특화 규칙(선택사항)
 │       ├── frontmatter.md          # 블로그 Front Matter 규칙 등
 │       └── writing.md              # 프로젝트 고유 작성 규칙 등
 │
-├── ios/                            # iOS 앱 소스 (Swift/SwiftUI)
-├── server/                         # 백엔드 서버 (Spring Boot/Kotlin)
-├── infra/                          # 인프라 코드 (Terraform)
+├── ios/                            # iOS 앱 소스(Swift/SwiftUI)
+├── server/                         # 백엔드 서버(Spring Boot/Kotlin)
+├── infra/                          # 인프라 코드(Terraform)
 └── docs/                           # 프로젝트 문서
 ```
 
@@ -327,11 +327,11 @@ hooks:
 |---|---|---|
 | `name` | 에이전트 고유 이름 | `ios-developer` |
 | `description` | Claude가 자동으로 적합한 에이전트를 선택하는 데 사용 | "iOS 앱 개발 전문가..." |
-| `model` | 사용할 모델 (`opus`, `sonnet`) | `opus` |
+| `model` | 사용할 모델(`opus`, `sonnet`) | `opus` |
 | `tools` | 접근 가능한 도구 목록 | Read, Write, Bash, LSP |
 | `permissionMode` | `plan`=읽기 전용, `default`=쓰기, `acceptEdits`=자동 승인 | `plan` |
 | `isolation` | `worktree`로 격리된 Git worktree에서 실행 | `worktree` |
-| `memory` | 메모리 범위 (`user`, `project`, `local`) | `project` |
+| `memory` | 메모리 범위(`user`, `project`, `local`) | `project` |
 | `mcpServers` | 접근 가능한 MCP 서버 제한 | github, context7 |
 | `skills` | 이 에이전트에서 사용 가능한 스킬 | develop |
 | `hooks` | 이 에이전트에서만 실행되는 훅 | PostToolUse → swift-format |
@@ -382,7 +382,7 @@ hooks:
 큰 기능을 iOS + 서버 + 인프라 동시 개발할 때 에이전트 팀을 사용한다.
 
 ```
-팀 리더 (메인 세션 = CTO)
+팀 리더(메인 세션 = CTO)
     │
     ├── 팀원 1: iOS 개발     ← ios-developer 에이전트 설정으로 실행
     │   └── feature/ios-social-login 브랜치
@@ -496,7 +496,7 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 
 `rules/` 디렉토리에 마크다운 파일을 두면 `paths` frontmatter로 특정 파일 작업 시에만 자동 로드된다. CLAUDE.md에서 import할 필요 없이 해당 파일을 다룰 때 자동으로 규칙이 적용된다.
 
-### 6.1. 전역 룰 (~/.claude/rules/)
+### 6.1. 전역 룰(~/.claude/rules/)
 
 10개 파일을 관리한다. 모든 프로젝트에 공통 적용된다.
 
@@ -520,7 +520,7 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 | `api-design.md` | `**/api/**`, `**/controller/**`, `**/Controller/**`, `**/routes/**` | REST 원칙, 통일 응답 포맷(`data/error/meta`), Cursor 페이지네이션 |
 | `image-metadata.md` | `**/*.jpg`, `**/*.png` 등 | ICC 프로파일 보존, 개인정보만 제거, HEIC→JPG 변환 |
 
-### 6.2. 프로젝트 룰 (.claude/rules/)
+### 6.2. 프로젝트 룰(.claude/rules/)
 
 개별 프로젝트에서만 적용되는 특화 규칙이다. 전역 Rules로 충분하지 않은 프로젝트 고유 요구사항이 있을 때 추가한다.
 
@@ -584,7 +584,7 @@ Swift/Kotlin 파일 수정 전 린트를 확인한다. error level 위반이 있
 ```bash
 #!/bin/bash
 # ~/.claude/hooks/lint-swift.sh
-# exit 0 = 통과, exit 2 = 차단 (stderr를 Claude에 피드백)
+# exit 0 = 통과, exit 2 = 차단(stderr를 Claude에 피드백)
 
 INPUT=$(cat)
 FILE=$(echo "$INPUT" | python3 -c \
@@ -697,7 +697,7 @@ exit 0
 | 파일 | 범위 | 용도 |
 |---|---|---|
 | `.claude/settings.json` | 프로젝트(팀 공유, git 커밋) | 프로젝트별 추가 권한, 환경 변수 |
-| `.claude/settings.local.json` | 로컬 전용 (.gitignore) | API 키, DB URL 등 시크릿 |
+| `.claude/settings.local.json` | 로컬 전용(.gitignore) | API 키, DB URL 등 시크릿 |
 
 ```json
 // .claude/settings.local.json (커밋하지 않음)
@@ -719,11 +719,11 @@ exit 0
 MCP 서버는 `claude mcp add` CLI 명령으로 등록한다. `.mcp.json`에 직접 작성하면 로드되지 않는 경우가 있으므로 반드시 CLI를 사용한다. 설정은 `~/.claude.json`의 `mcpServers` 섹션에 저장된다.
 
 ```bash
-# 전역 등록 (-s user → ~/.claude.json)
+# 전역 등록(-s user → ~/.claude.json)
 claude mcp add github -s user -- gh mcp
 claude mcp add context7 -s user -t http https://mcp.context7.com/mcp
 
-# 프로젝트별 등록 (-s project)
+# 프로젝트별 등록(-s project)
 claude mcp add sentry -s project -- npx -y @sentry/mcp-server
 ```
 
@@ -816,10 +816,10 @@ API 계약은 @docs/api-contract.md를 참조한다.
 
 ### 11.1. 새 기능 개발 전체 플로우
 
-#### Phase 1: 기획 (`/planning`)
+#### Phase 1: 기획(`/planning`)
 
 ```
-/planning 소셜 로그인 (Apple, Google, Kakao)
+/planning 소셜 로그인(Apple, Google, Kakao)
 ```
 
 1. **product-planner** — PRD 작성(사용자 스토리, 수용 기준, 우선순위)
@@ -828,7 +828,7 @@ API 계약은 @docs/api-contract.md를 참조한다.
 4. **tech-writer** — 티켓 생성 + 위키 작성(Jira/Confluence MCP 연동)
 5. **메인 세션(CTO)** — 기획 결과 종합, 사용자에게 보고
 
-#### Phase 2: 개발 (`/develop`)
+#### Phase 2: 개발(`/develop`)
 
 ```
 /develop PROJ-123
@@ -841,7 +841,7 @@ API 계약은 @docs/api-contract.md를 참조한다.
 5. **메인 세션** — PR 생성(리뷰 통과 시 자동)
 6. **메인 세션(CTO)** — 개발 결과 종합, 사용자에게 보고
 
-#### Phase 3: 리뷰 (`/review-all`)
+#### Phase 3: 리뷰(`/review-all`)
 
 ```
 /review-all
@@ -858,7 +858,7 @@ API 계약은 @docs/api-contract.md를 참조한다.
 ```
 
 ```
-변경 파일 분석 (git diff)
+변경 파일 분석(git diff)
     │
     ├── *.swift 변경 → ios-reviewer-arch + ios-reviewer-quality (병렬)
     ├── *.kt 변경   → server-reviewer-arch + server-reviewer-quality (병렬)
@@ -867,7 +867,7 @@ API 계약은 @docs/api-contract.md를 참조한다.
     └── 전체        → security-auditor
     │
     ▼
-종합 리포트 (심각도별 분류)
+종합 리포트(심각도별 분류)
   🔴 필수 수정 → 머지 차단 권고
   🟡 권장     → 선택적 수정
   🟢 참고     → 정보 제공
@@ -984,13 +984,13 @@ Claude Code가 `description`을 기반으로 적합한 에이전트를 자동 �
 
 ```bash
 # 슬래시 커맨드로 호출
-/planning 소셜 로그인 (Apple, Google, Kakao)
+/planning 소셜 로그인(Apple, Google, Kakao)
 /develop 서버 소셜 로그인 API 구현
 /review-all
 /release 1.0.0
 /standup
 
-# 자연어 호출 (disable-model-invocation이 false인 스킬만)
+# 자연어 호출(disable-model-invocation이 false인 스킬만)
 "이 기능 기획해줘"    → /planning 자동 호출
 "개발해줘"           → /develop 자동 호출
 "리뷰해줘"           → /review-all 자동 호출
@@ -1023,15 +1023,15 @@ argument-hint: "[버그 설명 또는 이슈 번호]"
 
 코드를 분석하여 원인을 파악한다.
 
-### 2단계: 수정 (해당 *-developer 에이전트)
+### 2단계: 수정(해당 *-developer 에이전트)
 
 최소한의 변경으로 수정한다.
 
-### 3단계: 테스트 (qa-engineer)
+### 3단계: 테스트(qa-engineer)
 
 해당 부분의 테스트만 실행한다.
 
-### 4단계: 배포 (infra-developer)
+### 4단계: 배포(infra-developer)
 
 핫픽스 배포를 준비한다.
 
@@ -1041,7 +1041,7 @@ argument-hint: "[버그 설명 또는 이슈 번호]"
 ### 13.5. 커스텀 룰 추가
 
 ```bash
-# 프로젝트 규칙 추가 (해당 프로젝트에만 적용)
+# 프로젝트 규칙 추가(해당 프로젝트에만 적용)
 cat > .claude/rules/testing.md << 'EOF'
 ---
 paths:
@@ -1069,10 +1069,10 @@ EOF
 `claude mcp add` CLI 명령으로 등록한다. `.mcp.json`에 직접 작성하면 로드되지 않는 경우가 있다.
 
 ```bash
-# stdio 서버 추가 (전역)
+# stdio 서버 추가(전역)
 claude mcp add sentry -s user -e SENTRY_AUTH_TOKEN=xxx -- npx -y @sentry/mcp-server
 
-# HTTP 서버 추가 (전역)
+# HTTP 서버 추가(전역)
 claude mcp add context7 -s user -t http https://mcp.context7.com/mcp
 
 # 프로젝트 스코프로 추가

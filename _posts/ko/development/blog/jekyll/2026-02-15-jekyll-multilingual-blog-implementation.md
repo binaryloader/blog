@@ -47,7 +47,7 @@ Jekyll 다국어 플러그인으로 `jekyll-polyglot`이나 `jekyll-multiple-lan
 
 ```
 _posts/
-├── ko/          # 한국어 (기본 언어)
+├── ko/          # 한국어(기본 언어)
 │   ├── development/
 │   ├── pc/
 │   └── ...

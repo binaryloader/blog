@@ -78,7 +78,7 @@ Text/JSON → Parser/Builder → XML(.scap) → Renderer → PNG
 
 ```
 src/
-├── index.ts                 # MCP 서버 (4개 도구 정의)
+├── index.ts                 # MCP 서버(4개 도구 정의)
 ├── types.ts                 # 타입 시스템 + DEFAULT_THEME
 ├── errors.ts                # 에러 클래스 계층
 ├── tools/

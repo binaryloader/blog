@@ -26,7 +26,7 @@ gallery_disassembly:
     alt: "Sonoff SNZB-04 개봉"
   - url: /assets/image/post/playground/smarthome/pressure-sensor-door-sensor-mod/sensor-disassembled.jpg
     image_path: /assets/image/post/playground/smarthome/pressure-sensor-door-sensor-mod/sensor-disassembled.jpg
-    alt: "도어 센서 분해 (CR2032 배터리, PCB, 케이스)"
+    alt: "도어 센서 분해(CR2032 배터리, PCB, 케이스)"
   - url: /assets/image/post/playground/smarthome/pressure-sensor-door-sensor-mod/pcb-reed-switch.jpg
     image_path: /assets/image/post/playground/smarthome/pressure-sensor-door-sensor-mod/pcb-reed-switch.jpg
     alt: "PCB 측면에서 보이는 리드 스위치"

@@ -109,7 +109,7 @@ class ModelWithSoftmax(torch.nn.Module):
 model = ModelWithSoftmax(base_model)
 model.eval()
 
-# 3. 예제 입력 생성 (배치 1, RGB 3채널, 224x224)
+# 3. 예제 입력 생성(배치 1, RGB 3채널, 224x224)
 example_input = torch.rand(1, 3, 224, 224)
 
 # 4. TorchScript로 트레이싱
@@ -147,7 +147,7 @@ mlmodel.save("MobileNetV2.mlpackage")
 
 ```python
 mlmodel.author = "CoreMLDemo"
-mlmodel.short_description = "MobileNetV2 이미지 분류 모델 (ImageNet 1000 클래스)"
+mlmodel.short_description = "MobileNetV2 이미지 분류 모델(ImageNet 1000 클래스)"
 mlmodel.version = "1.0"
 
 # 입출력 설명
@@ -183,7 +183,7 @@ Xcode는 `.mlpackage`를 추가하면 모델 이름과 동일한 Swift 클래스
 자동 생성된 클래스의 구조는 다음과 같다.
 
 ```swift
-// Xcode가 자동 생성 (직접 수정하지 않는다)
+// Xcode가 자동 생성(직접 수정하지 않는다)
 class MobileNetV2 {
 
     let model: MLModel

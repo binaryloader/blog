@@ -35,8 +35,8 @@ gallery_hardware:
     title: "벽면에 설치된 온수조절기"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-pcb.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-pcb.jpg
-    alt: "온수조절기 PCB 보드 (MC200N)"
-    title: "온수조절기 PCB 보드 (MC200N) — 파란색 스크류 터미널에 RS485 및 통신선이 연결되어 있다"
+    alt: "온수조절기 PCB 보드(MC200N)"
+    title: "온수조절기 PCB 보드(MC200N) — 파란색 스크류 터미널에 RS485 및 통신선이 연결되어 있다"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-terminal.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-terminal.jpg
     alt: "온수조절기 스크류 터미널 클로즈업"
@@ -495,7 +495,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 |---|---|
 | **Header** | 패킷 시작 바이트 `0xF7` |
 | **Len** | 전체 패킷 길이(Header~Tail 포함) |
-| **01/1a** | 기기 프로토콜 구분 (`01`: 일반, `1a`: 난방) |
+| **01/1a** | 기기 프로토콜 구분(`01`: 일반, `1a`: 난방) |
 | **Dev** | 기기 타입(조명: `19`, 난방: `18`, 가스: `1b`, 에어컨: `1c`, 스위치: `1f`, 환풍기: `2b` 등) |
 | **Cmd** | 명령 타입(스캔: `01`, 제어: `02`, 상태: `04`) |
 | **Func** | 기능 코드(On/Off: `40`, 온도: `45`, 모드: `46` 등) |
