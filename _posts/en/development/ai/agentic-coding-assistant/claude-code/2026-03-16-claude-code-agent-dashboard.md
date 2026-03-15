@@ -502,7 +502,7 @@ launchctl unload ~/Library/LaunchAgents/com.binaryloader.agent-dashboard.plist \
 
 The 2D virtual office was a creative exploration. It had genuine charm -- watching agents walk to the cafeteria, seeing them scratch their heads on errors, and celebrating completions with confetti were all satisfying. But charm is not the same as utility. The moment I realized I was squinting at pixel sprites trying to figure out which agent was active, I knew the concept was wrong for the use case.
 
-The entire process -- from the dashboard pivot to writing this blog post -- took about 14 hours across a Saturday night and Sunday. The server architecture was already solid, so the presentation layer swap was fast. The lesson: build the infrastructure generically enough that the presentation layer can change without rewriting the data pipeline.
+The entire process -- from the initial Gather Town-style monitoring build to writing this blog post -- took about 9 hours across a Saturday night and Sunday. The server architecture was already solid, so the presentation layer swap was fast. The lesson: build the infrastructure generically enough that the presentation layer can change without rewriting the data pipeline.
 
 ### 11.2. Hook System Limitations and Workarounds
 
@@ -546,7 +546,7 @@ Anthropic's CEO Dario Amodei [recently stated](https://www.finalroundai.com/blog
 
 Still, the direction itself is hard to deny. I wrote more about where this trend might lead in [The End of Developer Scarcity](/en/writing/column/the-end-of-developer-scarcity/). The short version: the demand for people who can code is not disappearing, but the definition of "coding" is expanding. Steering a team of AI agents is still software engineering. It just looks different from what we are used to.
 
-One meta note: this blog post itself was written with Claude Code. The dashboard development (pivoting from the 2D office), the Voice Memo PoC pipeline, and this post in three languages -- all of it happened across about 14 hours on a Saturday night and Sunday. Of course, none of it was fully autonomous. I tested each phase, gave feedback, steered direction, and caught the things the agents missed. The human-in-the-loop part is not optional; it is what makes the output usable.
+One meta note: this blog post itself was written with Claude Code. The dashboard development (pivoting from the 2D office), the Voice Memo PoC pipeline, and this post in three languages -- all of it happened across about 9 hours on a Saturday night. Of course, none of it was fully autonomous. I tested each phase, gave feedback, steered direction, and caught the things the agents missed. The human-in-the-loop part is not optional; it is what makes the output usable.
 
 These are interesting times.
 
