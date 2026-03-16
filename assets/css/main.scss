@@ -210,6 +210,10 @@ pre {
 }
 
 /* Base */
+html {
+  background-color: var(--bg-color);
+}
+
 [data-theme="dark"] body {
   background-color: var(--bg-color);
   color: var(--text-color);
