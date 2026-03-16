@@ -38,7 +38,7 @@ sidebar:
 
 How I built a real-time monitoring dashboard to visualize what 19 Claude Code subagents are doing -- from a failed Gather Town experiment to a practical WebSocket-powered control center.
 
-This is a sequel to [Designing an Expert Team with Subagents](/en/development/ai/agentic-coding-assistant/claude-code/claude-code-sub-agent-team-design/). In the previous post, I designed a team of 15 AI agents. Since then, the team has grown to 19 -- adding dedicated reviewers for each domain and separating the infra roles -- all orchestrated through Claude Code's subagent system. The team was built. The agents were defined. The skills and hooks were wired up. But one critical question remained: when all 19 agents are working at once, how do you know what is actually happening?
+This is a sequel to [[Claude Code] Designing an Expert Team with Subagents](/en/development/ai/agentic-coding-assistant/claude-code/claude-code-sub-agent-team-design/). In the previous post, I designed a team of 15 AI agents. Since then, the team has grown to 19 -- adding dedicated reviewers for each domain and separating the infra roles -- all orchestrated through Claude Code's subagent system. The team was built. The agents were defined. The skills and hooks were wired up. But one critical question remained: when all 19 agents are working at once, how do you know what is actually happening?
 
 # Steps
 
@@ -54,7 +54,7 @@ With 19 agents and multi-phase pipelines, this became untenable. I needed visibi
 
 ## 2. The First Attempt -- Gather Town-Style 2D Office
 
-My first idea was ambitious, perhaps too ambitious. I wanted to build a Gather Town-style 2D virtual office where each agent had a desk, walked around with pixel-art sprites, and exhibited personality-driven idle behaviors. Kim Soyeon (Product Planner) would be a socializer who chats in the cafeteria. Park Dohyeon (Backend Developer) would snack at his desk. The COO character would walk to the CEO's office to deliver reports, agents would queue up at the COO's desk, and completed agents would celebrate with confetti particles.
+My first idea was ambitious, perhaps too ambitious. I wanted to build a Gather Town-style 2D virtual office where each agent had a desk, walked around with pixel-art sprites, and exhibited personality-driven idle behaviors. Product Planner Kim Soyeon would be a socializer who chats in the cafeteria. Backend Developer Park Dohyeon would snack at his desk. The COO character would walk to the CEO's office to deliver reports, agents would queue up at the COO's desk, and completed agents would celebrate with confetti particles.
 
 I actually built this. The README from the early version describes it in full detail: team zones for Dev, Planning, QA/Security, and Review. A cafeteria where idle agents grab coffee. A level-up system with desk decorations. Weather synced to real conditions via the Open-Meteo API. Time-of-day lighting that shifts from morning warmth to night-mode overtime glow. TTS voice reports where the COO reads summaries aloud using Google's Gemini or Chirp voices. An "encourage" button that sends heart particles to boost an agent's animation speed.
 
@@ -230,25 +230,25 @@ export const AGENTS: AgentDefinition[] = [
     id: "product-planner",
     name: "김소연",
     team: "planning",
-    role: "제품 기획자",
+    role: "Product Planner",
   },
   {
     id: "dev-planner",
     name: "이준혁",
     team: "planning",
-    role: "기술 설계자",
+    role: "Technical Designer",
   },
   // ... 16 more agents
   {
     id: "coo",
     name: "윤시현",
     team: "coo",
-    role: "최고운영책임자",
+    role: "Chief Operating Officer",
   },
 ];
 ```
 
-The Korean names are a deliberate choice. When the COO references "Kim Soyeon (Product Planner)" in its orchestration messages, it feels like coordinating with a real team. It also makes the dashboard's sidebar much more readable than a list of IDs like "product-planner" and "server-reviewer-quality".
+The Korean names are a deliberate choice. When the COO references "Product Planner Kim Soyeon" in its orchestration messages, it feels like coordinating with a real team. It also makes the dashboard's sidebar much more readable than a list of IDs like "product-planner" and "server-reviewer-quality".
 
 ## 7. Organization Structure
 
@@ -258,14 +258,14 @@ The entire system follows a corporate hierarchy metaphor.
 
 | Planning Team | Dev Team | Review Team | QA & Security |
 |---------------|----------|-------------|---------------|
-| Kim Soyeon (Product Planner) | Kang Harin (Web Developer) | Choi Yujin (Web Arch) | Oh Taeyun (QA Engineer) |
-| Lee Junhyuk (Technical Designer) | Yun Seojin (iOS Developer) | Im Subin (Web Quality) | Shin Jaewon (Security Auditor) |
-| Han Yeseul (UI/UX Designer) | Park Dohyeon (Backend Developer) | Bae Jihun (iOS Arch) | |
-| Jo Minji (Technical Writer) | Jeong Wooseong (Infra Engineer) | Song Daeun (iOS Quality) | |
-| | | Hwang Minho (Server Arch) | |
-| | | Jeon Jisu (Server Quality) | |
-| | | Kwon Doyun (Infra Security) | |
-| | | Na Youngjun (Infra Ops) | |
+| Product Planner Kim Soyeon | Web Developer Kang Harin | Web Arch Choi Yujin | QA Engineer Oh Taeyun |
+| Technical Designer Lee Junhyuk | iOS Developer Yun Seojin | Web Quality Im Subin | Security Auditor Shin Jaewon |
+| UI/UX Designer Han Yeseul | Backend Developer Park Dohyeon | iOS Arch Bae Jihun | |
+| Technical Writer Jo Minji | Infra Engineer Jeong Wooseong | iOS Quality Song Daeun | |
+| | | Server Arch Hwang Minho | |
+| | | Server Quality Jeon Jisu | |
+| | | Infra Security Kwon Doyun | |
+| | | Infra Ops Na Youngjun | |
 
 The CEO (user) gives a high-level instruction. The COO (Claude Code main session) breaks it down, assigns agents, coordinates phases, handles errors, and reports back. Each agent is a subagent with a defined role, model assignment (Opus for creative/critical tasks, Sonnet for patterned work), and permission level.
 
@@ -324,13 +324,13 @@ The COO fires three task-assign calls, then invokes three planners as parallel s
 
 ![Phase 1 -- Planning active](/assets/image/post/claude-code-agent-dashboard/01-phase1-active.png)
 
-The dashboard immediately shows four cards in Active Tasks -- the COO plus three planners. Kim Soyeon (Product Planner) is researching the voice memo market. Lee Junhyuk (Technical Designer) is designing the technical architecture. Han Yeseul (UI/UX Designer) is creating UI wireframes. Each card shows elapsed time ticking up in real time.
+The dashboard immediately shows four cards in Active Tasks -- the COO plus three planners. Product Planner Kim Soyeon is researching the voice memo market. Technical Designer Lee Junhyuk is designing the technical architecture. UI/UX Designer Han Yeseul is creating UI wireframes. Each card shows elapsed time ticking up in real time.
 
 When all three complete, their cards slide from Active to Completed. The sidebar dots turn green.
 
 ![Phase 1 -- Planning complete](/assets/image/post/claude-code-agent-dashboard/02-phase1-done.png)
 
-The planning agents generate design documents in the `docs/` directory. Kim Soyeon (Product Planner)'s PRD contains a feature priority table and user stories. Han Yeseul (UI/UX Designer)'s UI design document includes the color palette, wireframes, and interaction flows.
+The planning agents generate design documents in the `docs/` directory. Product Planner Kim Soyeon's PRD contains a feature priority table and user stories. UI/UX Designer Han Yeseul's UI design document includes the color palette, wireframes, and interaction flows.
 
 ![PRD document -- requirements generated by the product planner](/assets/image/post/claude-code-agent-dashboard/20-prd-doc.png)
 
@@ -338,7 +338,7 @@ The planning agents generate design documents in the `docs/` directory. Kim Soye
 
 ### 9.2. Phase 2 -- Development (1 Agent)
 
-The COO reads the planners' outputs and dispatches the web developer. Kang Harin (Web Developer) builds the React frontend with Web Speech API for real-time transcription and localStorage for memo persistence. Since this is a browser-native PoC, no backend server is needed.
+The COO reads the planners' outputs and dispatches the web developer. Web Developer Kang Harin builds the React frontend with Web Speech API for real-time transcription and localStorage for memo persistence. Since this is a browser-native PoC, no backend server is needed.
 
 ![Phase 2 -- Development active](/assets/image/post/claude-code-agent-dashboard/03-phase2-active.png)
 
@@ -352,9 +352,9 @@ This is where things get real. A PoC does not come out perfectly on the first tr
 
 I type into Claude Code:
 
-> "Safari에서 음성 인식이 안 되는데? 폴백 처리해줘. 그리고 녹음 버튼 좀 키우고 Space 키로도 녹음 되게 해."
+> "Speech recognition doesn't work in Safari. Add a fallback. Also, make the recording button bigger and let me use the Space key to record."
 
-The COO receives my feedback, updates its task to "대표님 피드백 반영", and re-dispatches Kang Harin (Web Developer) to implement the fixes.
+The COO receives my feedback, updates its task to "Apply CEO feedback", and re-dispatches Web Developer Kang Harin to implement the fixes.
 
 ![CEO feedback -- web developer re-dispatched](/assets/image/post/claude-code-agent-dashboard/17-ceo-feedback.png)
 
@@ -368,19 +368,19 @@ Three agents launch simultaneously: two reviewers examine the code from architec
 
 ![Phase 3 -- Verification active](/assets/image/post/claude-code-agent-dashboard/05-phase3-active.png)
 
-Then something happens. Shin Jaewon (Security Auditor) finds two issues -- an XSS vulnerability in the transcript view and unencrypted memo data in localStorage. His card turns red and moves to the Errors column.
+Then something happens. Security Auditor Shin Jaewon finds two issues -- an XSS vulnerability in the transcript view and unencrypted memo data in localStorage. His card turns red and moves to the Errors column.
 
 ![Phase 3 -- Security error detected](/assets/image/post/claude-code-agent-dashboard/06-phase3-error.png)
 
 This is exactly the kind of event that would be easy to miss in a terminal-only workflow. The dashboard makes it impossible to ignore: the error counter increments, the card appears in the red Errors column, and the sidebar dot turns red.
 
-The COO reads the error, dispatches Kang Harin (Web Developer) to fix it. She applies DOMPurify for XSS prevention and encrypts localStorage data with Web Crypto API. Her fix completes and shows in the Completed column.
+The COO reads the error, dispatches Web Developer Kang Harin to fix it. She applies DOMPurify for XSS prevention and encrypts localStorage data with Web Crypto API. Her fix completes and shows in the Completed column.
 
 ![Phase 3 -- Security fix applied](/assets/image/post/claude-code-agent-dashboard/07-security-fixed.png)
 
 ### 9.5. Phase 4 -- QA & Re-verification (2 Agents in Parallel)
 
-With the security issue resolved, the COO launches QA testing and a security re-audit to verify the fixes. Oh Taeyun (QA Engineer) runs the full test suite while Shin Jaewon (Security Auditor) re-audits the patched code.
+With the security issue resolved, the COO launches QA testing and a security re-audit to verify the fixes. QA Engineer Oh Taeyun runs the full test suite while Security Auditor Shin Jaewon re-audits the patched code.
 
 ![Phase 4 -- QA & Re-verification active](/assets/image/post/claude-code-agent-dashboard/08-phase4-active.png)
 
@@ -392,13 +392,13 @@ Both pass. The QA engineer confirms all 12 tests pass, and the security auditor 
 
 After QA passes, I continue testing the app myself. I notice that when I switch to another browser tab during recording and come back, the waveform visualization freezes while the recording continues silently. I report this to Claude Code:
 
-> "녹음 중에 다른 탭 갔다오면 파형이 멈추는데? 녹음은 되는데 파형만 안 움직여."
+> "When I switch to another tab during recording and come back, the waveform freezes. The recording keeps going but the waveform stops moving."
 
-The COO does not immediately dispatch a developer. Instead, it first asks Oh Taeyun (QA Engineer) to reproduce and confirm the bug.
+The COO does not immediately dispatch a developer. Instead, it first asks QA Engineer Oh Taeyun to reproduce and confirm the bug.
 
 ![Bug report -- QA reproducing](/assets/image/post/claude-code-agent-dashboard/18-bug-report.png)
 
-The QA engineer confirms: `requestAnimationFrame` stops in inactive tabs and does not restart on return. With the bug confirmed and root cause identified, the COO dispatches Kang Harin (Web Developer) to fix it.
+The QA engineer confirms: `requestAnimationFrame` stops in inactive tabs and does not restart on return. With the bug confirmed and root cause identified, the COO dispatches Web Developer Kang Harin to fix it.
 
 ![Bug fix -- developer patching](/assets/image/post/claude-code-agent-dashboard/19-bug-fix.png)
 
@@ -408,7 +408,7 @@ This is the real workflow: CEO reports → QA reproduces → developer fixes. No
 
 ### 9.7. Phase 5 -- Documentation (1 Agent)
 
-With all verification complete, the COO assigns one final task. Jo Minji (Technical Writer) documents the entire development process.
+With all verification complete, the COO assigns one final task. Technical Writer Jo Minji documents the entire development process.
 
 She reviews the outputs from every phase -- the PRD, technical design, code changes, review findings, security fix, and QA results -- then produces a blog post, updated README, CHANGELOG entries, and a hook configuration guide.
 
@@ -501,7 +501,7 @@ launchctl unload ~/Library/LaunchAgents/com.binaryloader.agent-dashboard.plist \
 
 The 2D virtual office was a creative exploration. It had genuine charm -- watching agents walk to the cafeteria, seeing them scratch their heads on errors, and celebrating completions with confetti were all satisfying. But charm is not the same as utility. The moment I realized I was squinting at pixel sprites trying to figure out which agent was active, I knew the concept was wrong for the use case.
 
-The entire process -- from the initial Gather Town-style monitoring build to writing this blog post -- took about 9 hours starting on a Saturday night. The server architecture was already solid, so the presentation layer swap was fast. The lesson: build the infrastructure generically enough that the presentation layer can change without rewriting the data pipeline.
+The entire process -- from the initial Gather Town-style monitoring build to the finished dashboard -- took about 9 hours starting on a Saturday night. The server architecture was already solid, so the presentation layer swap was fast. The lesson: build the infrastructure generically enough that the presentation layer can change without rewriting the data pipeline.
 
 ### 11.2. Hook System Limitations and Workarounds
 
@@ -517,9 +517,9 @@ The difference between polling-based monitoring and WebSocket push is not just t
 
 ### 11.4. Korean Names Add Personality
 
-This one is subjective, but giving agents Korean names (Kim Soyeon (Product Planner), Park Dohyeon (Backend Developer), Shin Jaewon (Security Auditor)) made the entire experience more engaging. Reading "Shin Jaewon (Security Auditor) found an XSS vulnerability" is more memorable than "security-auditor found an XSS vulnerability". It turns abstract tool usage into something that feels like team coordination.
+This one is subjective, but giving agents Korean names made the entire experience more engaging. Reading "Security Auditor Shin Jaewon found an XSS vulnerability" is more memorable than "security-auditor found an XSS vulnerability". It turns abstract tool usage into something that feels like team coordination.
 
-The names also help in conversation with Claude Code. When the COO says "dispatching Kim Soyeon (Product Planner) for market research", it reads like a natural delegation rather than a function call.
+The names also help in conversation with Claude Code. When the COO says "dispatching Product Planner Kim Soyeon for market research", it reads like a natural delegation rather than a function call.
 
 ## 12. Honest Assessment -- Is This Production-Ready?
 
@@ -543,9 +543,7 @@ This does not mean developers become obsolete. If anything, the role shifts upwa
 
 Anthropic's CEO Dario Amodei [recently stated](https://www.finalroundai.com/blog/anthropic-ceo-ai-coding-six-months) that AI will handle most coding within three to six months. It does not sound entirely far-fetched anymore. But two practical hurdles remain. First, cost -- running AI agents at scale is not cheap, and whether the operational expense can compete with human developer salaries at production volumes is still an open question. Second, quality -- the code agents produce today is functional but rough. Small bugs, broken imports, browser-specific edge cases. The "fix it, no wait fix it again" cycle eats into the time savings. "Complete replacement" feels premature; "powerful accelerator" feels accurate.
 
-Still, the direction itself is hard to deny. I wrote more about where this trend might lead in [The End of Developer Scarcity](/en/writing/column/the-end-of-developer-scarcity/). The short version: the demand for people who can code is not disappearing, but the definition of "coding" is expanding. Steering a team of AI agents is still software engineering. It just looks different from what we are used to.
-
-One meta note: this blog post itself was written with Claude Code. The 2D office experiment, the dashboard pivot, the Voice Memo PoC pipeline, and this post in three languages -- all of it happened over about 9 hours starting Saturday night. Of course, none of it was fully autonomous. I tested each phase, gave feedback, steered direction, and caught the things the agents missed. The human-in-the-loop part is not optional; it is what makes the output usable.
+Still, the direction itself is hard to deny. I wrote more about where this trend might lead in [[Column] 'We Can't Build It Without a Developer' No Longer Holds](/en/writing/column/the-end-of-developer-scarcity/). The short version: the demand for people who can code is not disappearing, but the definition of "coding" is expanding. Steering a team of AI agents is still software engineering. It just looks different from what we are used to.
 
 These are interesting times.
 
