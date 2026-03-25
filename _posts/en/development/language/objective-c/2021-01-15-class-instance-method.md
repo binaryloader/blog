@@ -41,7 +41,7 @@ This post is based on `Objective-C 2.0`.
 # Introduction
 
 Objective-C is a language that supports object-oriented programming. In the early 1980s, Brad Cox and Tom Love introduced Smalltalk-style object-oriented concepts to the C language.
-Like other OOP languages, a real-world "something" can be implemented as an `object` in the computer world, and this object can be defined by a blueprint called a `class`.
+Like other OOP languages, a real-world something can be implemented as an `object` in the computer world, and this object can be defined by a blueprint called a `class`.
 Furthermore, an object defined by a class can be instantiated by allocating it in memory, creating an `instance`. In this post, I will summarize how Objective-C syntax supports such object-oriented programming.
 
 # Summary

@@ -477,7 +477,7 @@ for chunk in chain.stream({"chat_history": chat_history}):
 chat_history.append(AIMessage(content=result))
 ```
 
-Each iteration of the `for` loop requests the "next value" from the generator, `yield` executes to pass the value, and then pauses again. There's no need to hold the entire result in memory — output can be displayed as soon as it arrives.
+Each iteration of the `for` loop requests the next value from the generator, `yield` executes to pass the value, and then pauses again. There's no need to hold the entire result in memory — output can be displayed as soon as it arrives.
 
 # Resources
 

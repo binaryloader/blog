@@ -477,7 +477,7 @@ for chunk in chain.stream({"chat_history": chat_history}):
 chat_history.append(AIMessage(content=result))
 ```
 
-`for`ループが1回まわるたびにジェネレータに「次の値」をリクエストし、`yield`が実行されて値を渡した後再び一時停止する。結果全体をメモリに保持する必要がなく、到着するたびに画面に出力できる。
+`for`ループが1回まわるたびにジェネレータに次の値をリクエストし、`yield`が実行されて値を渡した後再び一時停止する。結果全体をメモリに保持する必要がなく、到着するたびに画面に出力できる。
 
 # リソース
 

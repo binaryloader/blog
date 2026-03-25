@@ -63,7 +63,7 @@ Fair points. All valid. But the timing of when those concerns matter is differen
 
 A service that needs maintenance is a service that has already succeeded. A service that needs to worry about scalability is one that users are flocking to. A service that needs a security audit is one where money is changing hands. The vast majority of startups die before they ever reach the maintenance stage. We've seen countless services with perfect architecture, clean code, and 90% test coverage get ignored by the market and disappear.
 
-It comes down to this: engineering excellence is something you need "after succeeding," not necessarily a prerequisite "in order to succeed." When you succeed, hire developers then. Refactor then. Redesign the architecture then. It's well known that many Silicon Valley unicorns started with terrible codebases. Facebook, Twitter, Airbnb — their early code was a mess. But they survived. They fixed it after surviving.
+It comes down to this: engineering excellence is something you need after succeeding, not necessarily a prerequisite in order to succeed. When you succeed, hire developers then. Refactor then. Redesign the architecture then. It's well known that many Silicon Valley unicorns started with terrible codebases. Facebook, Twitter, Airbnb — their early code was a mess. But they survived. They fixed it after surviving.
 
 What matters is getting the product out into the world. Not writing perfect code, but finding what customers want. Code quality comes after.
 
@@ -73,15 +73,15 @@ Make no mistake. This isn't saying that deep, challenging CS domains like engine
 
 Quite the opposite. In an era where AI handles code generation, understanding why that code behaves the way it does becomes even more critical. To figure out why an AI-generated query is slow, you need to be able to read execution plans and understand index structures. To judge whether AI-written encryption logic is actually secure, you need to understand cryptographic principles. To determine whether an AI-recommended architecture can handle your traffic, you need knowledge of memory hierarchies and network protocols.
 
-What's changed is when this knowledge matters. In the past, you had to understand variables and loops before writing a single line. CS knowledge was a prerequisite "to get started." Now it's a prerequisite "to go deeper." AI can handle the MVP-and-validate stage, but serving that product reliably to hundreds of thousands of users still requires people with strong foundations.
+What's changed is when this knowledge matters. In the past, you had to understand variables and loops before writing a single line. CS knowledge was a prerequisite to get started. Now it's a prerequisite to go deeper. AI can handle the MVP-and-validate stage, but serving that product reliably to hundreds of thousands of users still requires people with strong foundations.
 
-The gap between someone who can throw prompts at an AI and someone who can evaluate and improve what the AI generates — that gap is CS knowledge. It hasn't disappeared; it's shifted from the "entry point" to the "deep end."
+The gap between someone who can throw prompts at an AI and someone who can evaluate and improve what the AI generates — that gap is CS knowledge. It hasn't disappeared; it's shifted from the entry point to the deep end.
 
 # The Real Crisis for Developers: The End of Scarcity
 
 There was only one core reason developers commanded high compensation: there were few people who could write code. Demand was exploding while supply was short, so naturally the price went up.
 
-AI coding tools have completely eliminated that supply shortage. Now anyone with internet access can "write" code. The act of writing code itself is no longer a specialized skill.
+AI coding tools have completely eliminated that supply shortage. Now anyone with internet access can write code. The act of writing code itself is no longer a specialized skill.
 
 This is a historically recurring pattern. Before the printing press, scribes who could copy texts were rare and valuable. There was an era when typists were considered professionals. When computers became widespread, those roles vanished. When a skill becomes democratized, the scarcity of those who possess it evaporates. Coding is following the same path.
 
@@ -109,7 +109,7 @@ For the past two months, I've been feeling a real crisis. This isn't some vague 
 
 The rules of the game have changed.
 
-In the past, "the person who could build" won. Now, "the person who knows what to build" wins. The core skill is no longer technical ability but problem definition. Domain knowledge, customer understanding, market intuition — these have become far more important than coding ability.
+In the past, the person who could build won. Now, the person who knows what to build wins. The core skill is no longer technical ability but problem definition. Domain knowledge, customer understanding, market intuition — these have become far more important than coding ability.
 
 A nurse with ten years of hospital experience knows the problems in healthcare better than anyone. A logistics manager knows exactly where the supply chain is inefficient. These people can now build solutions directly with AI tools — without the overhead of convincing a developer, writing specs, and paying communication costs.
 
@@ -119,9 +119,9 @@ Countless domain experts who were hidden behind the technology barrier have star
 
 Faced with this shift, developers have two choices. Resist AI and insist that "real developers write their own code," or use AI as a lever to maximize their productivity. The gap between these two groups is widening fast.
 
-Developers who embrace AI as a tool are doing the work of entire teams on their own. Instead of spending time on boilerplate, they design architectures and focus on business logic. They delegate repetitive implementation to AI and invest their energy in "what to build and why." These developers' market value is actually going up.
+Developers who embrace AI as a tool are doing the work of entire teams on their own. Instead of spending time on boilerplate, they design architectures and focus on business logic. They delegate repetitive implementation to AI and invest their energy in what to build and why. These developers' market value is actually going up.
 
-The key is a shift in positioning. From "person who writes code" to "person who solves problems with technology." Code is a means, not an end. Understanding what problem needs solving, designing the solution, and implementing it through whatever method is most efficient — whether AI or hand-written. That's the role developers will be expected to fill going forward.
+The key is a shift in positioning. From person who writes code to person who solves problems with technology. Code is a means, not an end. Understanding what problem needs solving, designing the solution, and implementing it through whatever method is most efficient — whether AI or hand-written. That's the role developers will be expected to fill going forward.
 
 So what should you invest in? Domain knowledge. Healthcare, finance, logistics, education. A developer who deeply understands a specific industry's problems cannot be replaced. A developer who only knows how to code can be substituted by AI, but someone who understands the industry context and can also make technical decisions — AI can't replace that. Standing at the intersection of technology and domain expertise. That's the new competitive advantage.
 

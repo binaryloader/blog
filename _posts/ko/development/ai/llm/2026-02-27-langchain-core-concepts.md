@@ -475,7 +475,7 @@ for chunk in chain.stream({"chat_history": chat_history}):
 chat_history.append(AIMessage(content=result))
 ```
 
-`for` 루프가 한 바퀴 돌 때마다 제너레이터에 "다음 값"을 요청하고 `yield`가 실행되어 값을 넘긴 뒤 다시 멈춘다. 전체 결과를 메모리에 들고 있을 필요 없이 도착하는 대로 화면에 출력할 수 있다.
+`for` 루프가 한 바퀴 돌 때마다 제너레이터에 다음 값을 요청하고 `yield`가 실행되어 값을 넘긴 뒤 다시 멈춘다. 전체 결과를 메모리에 들고 있을 필요 없이 도착하는 대로 화면에 출력할 수 있다.
 
 # 리소스
 

@@ -360,7 +360,7 @@ The COO receives my feedback, updates its task to "Apply CEO feedback", and re-d
 
 This cycle -- build, test, give feedback, fix -- happens multiple times during any real project. The dashboard makes it visible: you can see the COO processing the new instructions and the developer being re-assigned. The Completed column accumulates each iteration, giving you a history of how the product evolved through feedback.
 
-The key point: agentic coding is not "type one prompt and get a perfect app". It is a conversation. The agents do the heavy lifting, but the human steers.
+The key point: agentic coding is not type one prompt and get a perfect app. It is a conversation. The agents do the heavy lifting, but the human steers.
 
 ### 9.4. Phase 3 -- Review (3 Agents in Parallel)
 
@@ -527,7 +527,7 @@ No. Let me be clear about that.
 
 The output from a multi-agent pipeline is rough. The code works, but it is not polished. You will find inconsistent naming, missing edge cases, and UI details that no human developer would ship without a second pass. The security auditor catches the obvious vulnerabilities, but subtle architectural issues can slip through. The QA engineer runs tests, but coverage is not comprehensive.
 
-The code agents generate does not work cleanly on the first run. You will encounter broken import paths, type mismatches, and browser-specific errors that only surface when you actually open the app. Fixing these small bugs still falls on the human. You can send them back to the agent -- "this doesn't work, fix it" -- and it will, but that back-and-forth cycle itself takes time. At this stage, an agent pipeline is closer to a "first draft generator" than a "finished product machine".
+The code agents generate does not work cleanly on the first run. You will encounter broken import paths, type mismatches, and browser-specific errors that only surface when you actually open the app. Fixing these small bugs still falls on the human. You can send them back to the agent -- "this doesn't work, fix it" -- and it will, but that back-and-forth cycle itself takes time. At this stage, an agent pipeline is closer to a first draft generator than a finished product machine.
 
 This is a PoC tool, and it excels at that. When you need to explore an idea quickly -- validate a concept, build a demo for a stakeholder meeting, or prototype a feature before committing engineering resources -- this workflow gets you there in hours instead of days. The agents handle the mechanical work: scaffolding, boilerplate, basic tests, documentation. You handle the judgment calls: is this the right architecture, does the UX make sense, should we even build this.
 
@@ -541,9 +541,9 @@ The traditional development workflow -- write specs, assign tickets, code review
 
 This does not mean developers become obsolete. If anything, the role shifts upward. You spend less time writing code and more time making decisions: which architecture fits, which tradeoff to accept, when the output is good enough. The agents are fast but lack judgment. The human is slow but provides direction. The combination is more productive than either alone.
 
-Anthropic's CEO Dario Amodei [recently stated](https://www.finalroundai.com/blog/anthropic-ceo-ai-coding-six-months) that AI will handle most coding within three to six months. It does not sound entirely far-fetched anymore. But two practical hurdles remain. First, cost -- running AI agents at scale is not cheap, and whether the operational expense can compete with human developer salaries at production volumes is still an open question. Second, quality -- the code agents produce today is functional but rough. Small bugs, broken imports, browser-specific edge cases. The "fix it, no wait fix it again" cycle eats into the time savings. "Complete replacement" feels premature; "powerful accelerator" feels accurate.
+Anthropic's CEO Dario Amodei [recently stated](https://www.finalroundai.com/blog/anthropic-ceo-ai-coding-six-months) that AI will handle most coding within three to six months. It does not sound entirely far-fetched anymore. But two practical hurdles remain. First, cost -- running AI agents at scale is not cheap, and whether the operational expense can compete with human developer salaries at production volumes is still an open question. Second, quality -- the code agents produce today is functional but rough. Small bugs, broken imports, browser-specific edge cases. The "fix it, no wait fix it again" cycle eats into the time savings. Complete replacement feels premature; powerful accelerator feels accurate.
 
-Still, the direction itself is hard to deny. I wrote more about where this trend might lead in [[Column] 'We Can't Build It Without a Developer' No Longer Holds](/en/writing/column/the-end-of-developer-scarcity/). The short version: the demand for people who can code is not disappearing, but the definition of "coding" is expanding. Steering a team of AI agents is still software engineering. It just looks different from what we are used to.
+Still, the direction itself is hard to deny. I wrote more about where this trend might lead in [[Column] 'We Can't Build It Without a Developer' No Longer Holds](/en/writing/column/the-end-of-developer-scarcity/). The short version: the demand for people who can code is not disappearing, but the definition of coding is expanding. Steering a team of AI agents is still software engineering. It just looks different from what we are used to.
 
 These are interesting times.
 

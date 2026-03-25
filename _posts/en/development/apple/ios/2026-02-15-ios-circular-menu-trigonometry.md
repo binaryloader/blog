@@ -94,7 +94,7 @@ sin = +0.7  →  downward 70% of the radius (iOS)
 sin = -0.7  →  upward 70% of the radius (iOS)
 ```
 
-cos/sin are a ratio table that answers: "at this angle, what fraction of the radius do you move horizontally/vertically?"
+cos/sin are a ratio table that answers: at this angle, what fraction of the radius do you move horizontally/vertically?
 
 ## 2. Radians
 
