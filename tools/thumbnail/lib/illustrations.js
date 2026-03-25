@@ -3379,6 +3379,78 @@ function illustrationClaudeCodeAgentDashboard() {
   `;
 }
 
+// the-end-of-selling-apps: 모놀리식 앱이 해체되어 모듈 경제로 재편되는 모습
+function illustrationTheEndOfSellingApps() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Left: Monolithic app (complete box) -->
+    <rect x="80" y="220" width="200" height="260" rx="20" fill="none" stroke="#888" stroke-width="2.5" opacity="0.6"/>
+    <rect x="100" y="245" width="160" height="30" rx="5" fill="#888" opacity="0.15"/>
+    <rect x="100" y="285" width="160" height="20" rx="4" fill="#888" opacity="0.1"/>
+    <rect x="100" y="315" width="160" height="20" rx="4" fill="#888" opacity="0.1"/>
+    <rect x="100" y="345" width="160" height="20" rx="4" fill="#888" opacity="0.08"/>
+    <rect x="100" y="375" width="160" height="20" rx="4" fill="#888" opacity="0.08"/>
+    <rect x="100" y="415" width="100" height="36" rx="8" fill="#888" opacity="0.12"/>
+    <text x="180" y="258" text-anchor="middle" font-family="monospace" font-size="10" fill="#888" opacity="0.7">CLIENT APP</text>
+    <text x="180" y="556" text-anchor="middle" font-family="monospace" font-size="11" fill="#888" opacity="0.5">MONOLITHIC</text>
+    <!-- Crack / disintegration lines from monolithic app -->
+    <line x1="280" y1="310" x2="370" y2="260" stroke="#ff6b9d" stroke-width="1.2" opacity="0.35" stroke-dasharray="5,4"/>
+    <line x1="280" y1="350" x2="370" y2="350" stroke="#ff6b9d" stroke-width="1.2" opacity="0.35" stroke-dasharray="5,4"/>
+    <line x1="280" y1="390" x2="370" y2="430" stroke="#ff6b9d" stroke-width="1.2" opacity="0.35" stroke-dasharray="5,4"/>
+    <!-- Center arrow indicating transformation -->
+    <line x1="380" y1="350" x2="480" y2="350" stroke="#555" stroke-width="2" opacity="0.4"/>
+    <polygon points="480,344 494,350 480,356" fill="#555" opacity="0.4"/>
+    <!-- Right: Scattered module blocks -->
+    <!-- Module 1: Auth -->
+    <rect x="510" y="110" width="120" height="65" rx="10" fill="none" stroke="#00e5ff" stroke-width="2"/>
+    <text x="570" y="139" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff">Auth</text>
+    <text x="570" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff" opacity="0.6">MODULE</text>
+    <!-- Module 2: Payment -->
+    <rect x="660" y="160" width="120" height="65" rx="10" fill="none" stroke="#4ecdc4" stroke-width="2"/>
+    <text x="720" y="189" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#4ecdc4">Payment</text>
+    <text x="720" y="207" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.6">MODULE</text>
+    <!-- Module 3: Notification -->
+    <rect x="510" y="230" width="120" height="65" rx="10" fill="none" stroke="#ff6b9d" stroke-width="2"/>
+    <text x="570" y="259" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d">Notify</text>
+    <text x="570" y="277" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.6">MODULE</text>
+    <!-- Module 4: Analytics -->
+    <rect x="810" y="120" width="120" height="65" rx="10" fill="none" stroke="#ffe66d" stroke-width="2"/>
+    <text x="870" y="149" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ffe66d">Analytics</text>
+    <text x="870" y="167" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.6">MODULE</text>
+    <!-- Module 5: Storage -->
+    <rect x="660" y="315" width="120" height="65" rx="10" fill="none" stroke="#a78bfa" stroke-width="2"/>
+    <text x="720" y="344" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#a78bfa">Storage</text>
+    <text x="720" y="362" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa" opacity="0.6">MODULE</text>
+    <!-- Module 6: UI -->
+    <rect x="510" y="350" width="120" height="65" rx="10" fill="none" stroke="#a8e6cf" stroke-width="2"/>
+    <text x="570" y="379" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#a8e6cf">UI Kit</text>
+    <text x="570" y="397" text-anchor="middle" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.6">MODULE</text>
+    <!-- Module 7: API -->
+    <rect x="810" y="280" width="120" height="65" rx="10" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.8"/>
+    <text x="870" y="309" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d" opacity="0.8">API</text>
+    <text x="870" y="327" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.5">MODULE</text>
+    <!-- Module 8: AI Agent -->
+    <rect x="660" y="460" width="120" height="65" rx="10" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.7"/>
+    <text x="720" y="489" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff" opacity="0.7">AI Agent</text>
+    <text x="720" y="507" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff" opacity="0.45">MODULE</text>
+    <!-- Module 9: Search -->
+    <rect x="510" y="470" width="120" height="65" rx="10" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.6"/>
+    <text x="570" y="499" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ffe66d" opacity="0.6">Search</text>
+    <text x="570" y="517" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.38">MODULE</text>
+    <!-- Module 10: Messaging (far right) -->
+    <rect x="810" y="420" width="120" height="65" rx="10" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.55"/>
+    <text x="870" y="449" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#4ecdc4" opacity="0.55">Messaging</text>
+    <text x="870" y="467" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.35">MODULE</text>
+    <!-- Connecting lines between some modules (module economy connections) -->
+    <line x1="630" y1="158" x2="660" y2="192" stroke="#555" stroke-width="1" opacity="0.3"/>
+    <line x1="630" y1="263" x2="660" y2="348" stroke="#555" stroke-width="1" opacity="0.25"/>
+    <line x1="780" y1="192" x2="810" y2="155" stroke="#555" stroke-width="1" opacity="0.25"/>
+    <line x1="780" y1="348" x2="810" y2="312" stroke="#555" stroke-width="1" opacity="0.25"/>
+    <!-- Bottom label -->
+    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">MODULE ECONOMY</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -3462,6 +3534,7 @@ const ILLUSTRATION_MAP = {
   'kiro-mcp-server-configuration': illustrationKiroMcpServerConfiguration,
   'claude-code-sub-agent-team-design': illustrationClaudeCodeSubAgentTeamDesign,
   'claude-code-agent-dashboard': illustrationClaudeCodeAgentDashboard,
+  'the-end-of-selling-apps': illustrationTheEndOfSellingApps,
 };
 
 function getIllustration(ref) {
