@@ -1,7 +1,7 @@
 ---
 title: "[Jekyll] Implementing Multilingual Support (KO/EN/JA) Without Plugins"
 ref: jekyll-multilingual-blog-implementation
-excerpt: "Sharing the experience of implementing Korean, English, and Japanese support in a Jekyll blog with the Minimal Mistakes theme — without any plugins."
+excerpt: "Sharing the experience of implementing Korean, English, and Japanese support in a Jekyll blog with the Minimal Mistakes theme - without any plugins."
 date: 2026-02-15T00:30+09:00
 last_modified_at: 2026-02-15T00:30+09:00
 published: true
@@ -33,7 +33,7 @@ depth:
 
 # Overview
 
-Sharing the experience of implementing Korean, English, and Japanese support in a Jekyll blog with the Minimal Mistakes theme — without any plugins.
+Sharing the experience of implementing Korean, English, and Japanese support in a Jekyll blog with the Minimal Mistakes theme - without any plugins.
 
 # Background
 
@@ -184,7 +184,7 @@ When a user manually selects a language, the choice is saved to localStorage and
 
 ## 4. Maintaining Language on Back Navigation
 
-There was an issue where pressing the browser's back button would break the language context. For example, if you were reading in English, switched to Korean, then pressed back — you'd see the English page again. This was solved by detecting back/forward navigation via `performance.getEntriesByType('navigation')` and redirecting to the preferred language version.
+There was an issue where pressing the browser's back button would break the language context. For example, if you were reading in English, switched to Korean, then pressed back - you'd see the English page again. This was solved by detecting back/forward navigation via `performance.getEntriesByType('navigation')` and redirecting to the preferred language version.
 
 ```javascript
 var nav = performance.getEntriesByType('navigation')[0];
@@ -259,14 +259,20 @@ UI strings used in layouts (previous post, next post, etc.) are defined in `_dat
 ko:
   prev_post: "이전 글"
   next_post: "다음 글"
+  no_prev_post: "이전 글 없음"
+  no_next_post: "다음 글 없음"
 
 en:
   prev_post: "Previous"
   next_post: "Next"
+  no_prev_post: "No previous post"
+  no_next_post: "No next post"
 
 ja:
   prev_post: "前の記事"
   next_post: "次の記事"
+  no_prev_post: "前の記事なし"
+  no_next_post: "次の記事なし"
 ```
 
 Used in layouts like this:

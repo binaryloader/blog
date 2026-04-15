@@ -259,14 +259,20 @@ menu-ja:   # 日本語サイドバー
 ko:
   prev_post: "이전 글"
   next_post: "다음 글"
+  no_prev_post: "이전 글 없음"
+  no_next_post: "다음 글 없음"
 
 en:
   prev_post: "Previous"
   next_post: "Next"
+  no_prev_post: "No previous post"
+  no_next_post: "No next post"
 
 ja:
   prev_post: "前の記事"
   next_post: "次の記事"
+  no_prev_post: "前の記事なし"
+  no_next_post: "次の記事なし"
 ```
 
 レイアウトではこのように使用する。

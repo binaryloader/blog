@@ -119,9 +119,9 @@ ollama run qwen3:8b
 
 会話中に使えるコマンドは以下の通りだ。
 
-- `/bye` — 会話終了
-- `/clear` — 会話履歴のクリア
-- `/set parameter temperature 0.7` — パラメータ変更
+- `/bye`：会話終了
+- `/clear`：会話履歴のクリア
+- `/set parameter temperature 0.7`：パラメータ変更
 
 ### 6.2. REST API
 

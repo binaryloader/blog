@@ -119,16 +119,16 @@ ollama run qwen3:8b
 
 Commands available during a conversation are as follows.
 
-- `/bye` — Exit the conversation
-- `/clear` — Clear conversation history
-- `/set parameter temperature 0.7` — Change parameters
+- `/bye` - Exit the conversation
+- `/clear` - Clear conversation history
+- `/set parameter temperature 0.7` - Change parameters
 
 ### 6.2. REST API
 
 Ollama automatically starts an API server on `localhost:11434` upon installation. You can call it directly from other apps or scripts.
 
 ```powershell
-$body = '{"model":"qwen3:8b","prompt":"Explain how to set environment variables on Windows.","stream":false}'
+$body = '{"model":"qwen3:8b","prompt":"Explain how to set environment variables on Windows. Answer in Korean.","stream":false}'
 Invoke-RestMethod -Uri http://localhost:11434/api/generate -Method Post -ContentType "application/json" -Body $body
 ```
 

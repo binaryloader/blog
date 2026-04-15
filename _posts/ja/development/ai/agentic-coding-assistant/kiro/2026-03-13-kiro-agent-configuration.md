@@ -44,8 +44,8 @@ Kiroエージェントの作成、設定、プロンプトのモジュール化�
 
 ### 1.2. 場所
 
-- グローバルエージェント（ユーザー全体）: `~/.kiro/agents/<name>.json` — すべてのプロジェクトで使用可能
-- ワークスペースエージェント（プロジェクト別）: `.kiro/agents/<name>.json` — 該当プロジェクトでのみ使用、グローバルエージェントより優先適用
+- グローバルエージェント（ユーザー全体）: `~/.kiro/agents/<name>.json`（すべてのプロジェクトで使用可能）
+- ワークスペースエージェント（プロジェクト別）: `.kiro/agents/<name>.json`（該当プロジェクトでのみ使用、グローバルエージェントより優先適用）
 
 ### 1.3. 基本構造
 
@@ -128,7 +128,7 @@ kiro-cli agent set-default my-project
 ```json
 {
   "name": "my-project",
-  "description": "配達の民族 iOS開発エージェント",
+  "description": "iOS開発エージェント",
   "prompt": "file:///Users/username/.kiro/prompts/my-project.txt",
   "tools": ["fs_read", "fs_write", "execute_bash", "grep", "glob", "code"],
   "allowedTools": ["fs_read", "grep", "glob", "code"],

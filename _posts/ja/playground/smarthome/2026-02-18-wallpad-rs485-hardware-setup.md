@@ -38,11 +38,11 @@ gallery_hardware:
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-pcb.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-pcb.jpg
     alt: "温水コントローラーPCBボード（MC200N）"
-    title: "温水コントローラーPCBボード（MC200N）— 青いスクリューターミナルにRS485および通信線が接続されている"
+    title: "温水コントローラーPCBボード（MC200N）：青いスクリューターミナルにRS485および通信線が接続されている"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-terminal.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-terminal.jpg
     alt: "温水コントローラースクリューターミナルのクローズアップ"
-    title: "温水コントローラースクリューターミナルのクローズアップ — UTPケーブルが接続されている"
+    title: "温水コントローラースクリューターミナルのクローズアップ：UTPケーブルが接続されている"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/rs485-twisted-pair.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/rs485-twisted-pair.jpg
     alt: "UTPケーブルから分離したRS485ツイストペア"
@@ -54,12 +54,12 @@ gallery_hardware:
 gallery_dashboard:
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-living.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-living.jpg
-    alt: "Home Assistantダッシュボード — リビング"
-    title: "Home Assistantダッシュボード — リビング"
+    alt: "Home Assistantダッシュボード：リビング"
+    title: "Home Assistantダッシュボード：リビング"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-room.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-room.jpg
-    alt: "Home Assistantダッシュボード — 部屋"
-    title: "Home Assistantダッシュボード — 部屋"
+    alt: "Home Assistantダッシュボード：部屋"
+    title: "Home Assistantダッシュボード：部屋"
 ---
 
 # 概要

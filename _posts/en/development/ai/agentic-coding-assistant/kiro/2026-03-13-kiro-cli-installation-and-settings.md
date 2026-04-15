@@ -128,7 +128,7 @@ kiro-cli settings --delete --workspace chat.defaultModel
 |---|---|---|
 | Feature/behavior settings | settings.json | cli.json |
 | Project context/rules | CLAUDE.md | Steering (`.kiro/steering/`) |
-| Agent-specific instructions | — | Agent configuration prompt field |
+| Agent-specific instructions | - | Agent configuration prompt field |
 | Auto-loaded context files | File references in CLAUDE.md | Steering + agent configuration resources field |
 | In-session memory | MEMORY.md | N/A |
 

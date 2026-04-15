@@ -49,13 +49,13 @@ macOSのQuickTime Playerは画面収録時にマイク入力しか録音でき�
 Audio MIDI設定を開き左下の`+`ボタンをクリックして`複数出力装置を作成`を選択する。
 
 ![Audio MIDI設定]({{ img_path }}/audio-midi-setup.png){: .align-center}
-*Audio MIDI設定 — 下部の`+`ボタンでデバイスを作成する*
+*Audio MIDI設定（下部の`+`ボタンでデバイスを作成する）*
 {: .text-center}
 
 右パネルで実際に音を聞く出力デバイス（AirPods、スピーカーなど）とBlackHole 16chの両方にチェックを入れる。BlackHoleのドリフト補正もチェックする。
 
 ![複数出力装置]({{ img_path }}/multi-output-device.png){: .align-center}
-*複数出力装置 — スピーカーとBlackHoleを同時に選択する*
+*複数出力装置（スピーカーとBlackHoleを同時に選択する）*
 {: .text-center}
 
 これでシステムオーディオがスピーカーとBlackHoleの両方に同時出力される。
@@ -67,7 +67,7 @@ Audio MIDI設定を開き左下の`+`ボタンをクリックして`複数出力
 再度`+`ボタンをクリックして`機器セットを作成`を選択する。右パネルでマイク（AirPods Proなど）とBlackHole 16chの両方にチェックを入れる。BlackHoleのドリフト補正をチェックする。
 
 ![機器セット]({{ img_path }}/aggregate-device.png){: .align-center}
-*機器セット — マイクとBlackHoleを一つの入力デバイスにまとめる*
+*機器セット（マイクとBlackHoleを一つの入力デバイスにまとめる）*
 {: .text-center}
 
 機器セットはマイクの物理入力チャンネルとBlackHoleの仮想入力チャンネルを一つにまとめてQuickTime Playerが両方のソースを同時にキャプチャできるようにする。
@@ -87,7 +87,7 @@ Audio MIDI設定を開き左下の`+`ボタンをクリックして`複数出力
 QuickTime Playerを開き`⌘⇧5`またはメニューから`ファイル → 新規画面収録`を選択する。下部ツールバーの`オプション`をクリックするとマイク項目が表示される。ここで`機器セット`を選択する。
 
 ![QuickTime録音設定]({{ img_path }}/quicktime-recording.png){: .align-center style="max-width: min(400px, 100%);"}
-*QuickTime画面収録 — マイクを機器セットに選択する*
+*QuickTime画面収録（マイクを機器セットに選択する）*
 {: .text-center}
 
 録画を開始するとマイク入力とシステムオーディオが一緒に録音される。

@@ -52,7 +52,7 @@ Here is what each setting does:
 | **Maximum connection number** | The maximum number of clients that can connect to the VPN simultaneously. |
 | **Maximum number of connections with same account** | The maximum number of simultaneous connections allowed per account. |
 | **Authentication** | Selects the client authentication method. **MS-CHAP v2** is recommended as it provides encrypted authentication. |
-| **MTU** | Maximum Transmission Unit — the maximum packet size for a single transmission. The default value of `1400` works well in most cases. |
+| **MTU** | Maximum Transmission Unit - the maximum packet size for a single transmission. The default value of `1400` works well in most cases. |
 | **Manual DNS** | Allows you to manually specify the DNS server used during VPN connections. If unchecked, it follows the Synology DNS settings. |
 | **Run in kernel mode** | Processes VPN at the kernel level for improved performance. Enabling this is recommended. |
 | **Pre-shared key** | The shared key used for IPSec encryption. Clients must enter this key when connecting to the VPN. Set a sufficiently complex value. |
@@ -119,7 +119,7 @@ Select **L2TP** as the type and fill in each field:
 | **Description** | The name for this VPN connection. Enter any name that is easy to identify. (e.g., Home) |
 | **Server** | Enter the VPN server address. If you set up a domain, enter `vpn.yourdomain.com`. |
 | **Account** | Enter your Synology DSM username. |
-| **RSA SecurID** | Not used — leave this disabled. |
+| **RSA SecurID** | Not used - leave this disabled. |
 | **Password** | Enter the password for your DSM user account. |
 | **Secret** | Enter the **pre-shared key** configured on the VPN server. |
 | **Send All Traffic** | When enabled, all internet traffic is routed through the VPN connection. Enabling this is recommended for security. |

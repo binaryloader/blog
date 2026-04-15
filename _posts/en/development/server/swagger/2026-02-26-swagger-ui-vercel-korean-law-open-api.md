@@ -36,7 +36,7 @@ Writing an OpenAPI Spec for Korea's Legislative Service Open API, building Swagg
 
 ## 1. Writing the OpenAPI Spec
 
-Korea's Legislative Service (법제처) Open API provides various legal information services. This project documents 4 endpoints for case law and legislation — list search and detail retrieval for each.
+Korea's Legislative Service (법제처) Open API provides various legal information services. This project documents 4 endpoints for case law and legislation - list search and detail retrieval for each.
 
 | Endpoint | Description |
 |---|---|
@@ -154,7 +154,7 @@ To resolve this, Vercel Rewrites are used as a server-side proxy. The client's r
 }
 ```
 
-Requests to `/api/*` are rewritten to `http://www.law.go.kr/DRF/*`. From the browser's perspective, it is calling an HTTPS endpoint on the same domain, so no Mixed Content issue occurs. This is also why the OpenAPI Spec's `servers.url` was set to `/api` — so that requests are routed through this proxy.
+Requests to `/api/*` are rewritten to `http://www.law.go.kr/DRF/*`. From the browser's perspective, it is calling an HTTPS endpoint on the same domain, so no Mixed Content issue occurs. This is also why the OpenAPI Spec's `servers.url` was set to `/api` - so that requests are routed through this proxy.
 
 The `headers` configuration sets CORS allowance and the correct Content-Type for `openapi.yaml` to ensure Swagger UI can load the spec file properly.
 

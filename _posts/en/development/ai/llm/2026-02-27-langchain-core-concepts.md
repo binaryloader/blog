@@ -1,5 +1,5 @@
 ---
-title: "[LLM] LangChain Core Concepts — LCEL, Prompt Templates, Message Classes"
+title: "[LLM] LangChain Core Concepts - LCEL, Prompt Templates, Message Classes"
 ref: langchain-core-concepts
 excerpt: "An overview of LangChain's LCEL, prompt templates, message classes, MessagesPlaceholder, and RunnableGenerator."
 date: 2026-02-27T17:40+09:00
@@ -41,11 +41,11 @@ LLMs produce vastly different output quality depending on the prompt, even with 
 
 Here's why prompt engineering matters.
 
-- **Cost efficiency** — Performance can be improved through prompt refinement alone, without fine-tuning or upgrading to a larger model
-- **Hallucination reduction** — Role assignment, constraint specification, and output format specification guide the model toward fact-based responses
-- **Consistent output** — Specifying formats like JSON or markdown tables yields structured results usable without post-processing
-- **Complex reasoning** — Techniques like Chain-of-Thought and Few-shot enable the model to think step-by-step, improving logical accuracy
-- **Safety** — System prompts set boundaries to defend against inappropriate responses and prompt injection
+- **Cost efficiency** - Performance can be improved through prompt refinement alone, without fine-tuning or upgrading to a larger model
+- **Hallucination reduction** - Role assignment, constraint specification, and output format specification guide the model toward fact-based responses
+- **Consistent output** - Specifying formats like JSON or markdown tables yields structured results usable without post-processing
+- **Complex reasoning** - Techniques like Chain-of-Thought and Few-shot enable the model to think step-by-step, improving logical accuracy
+- **Safety** - System prompts set boundaries to defend against inappropriate responses and prompt injection
 
 Key techniques are summarized below.
 
@@ -72,19 +72,19 @@ Data flows through the pipeline in order: prompt → LLM → output parser, expr
 
 ### 2.1. Advantages
 
-- **Concise declarative composition** — Even complex chains can be expressed intuitively with the pipe operator
-- **Unified interface** — All components implement `Runnable`, so `invoke`, `stream`, `batch`, `ainvoke` etc. can be used consistently
-- **Streaming/async built-in** — `.stream()`, `.ainvoke()` work immediately without separate code
-- **Composability** — Retriever, prompt, LLM, parser etc. can be assembled like Lego blocks for patterns like RAG
-- **Parallel execution** — `RunnableParallel` allows independent tasks to run simultaneously
+- **Concise declarative composition** - Even complex chains can be expressed intuitively with the pipe operator
+- **Unified interface** - All components implement `Runnable`, so `invoke`, `stream`, `batch`, `ainvoke` etc. can be used consistently
+- **Streaming/async built-in** - `.stream()`, `.ainvoke()` work immediately without separate code
+- **Composability** - Retriever, prompt, LLM, parser etc. can be assembled like Lego blocks for patterns like RAG
+- **Parallel execution** - `RunnableParallel` allows independent tasks to run simultaneously
 
 ### 2.2. Disadvantages
 
-- **Debugging difficulty** — When errors occur mid-pipeline, it's hard to trace which step caused the problem
-- **Learning curve** — LCEL-specific concepts like `RunnablePassthrough`, `RunnableParallel`, `RunnableLambda` must be learned separately
-- **Implicit data flow** — It can be hard to determine what data is passed between steps just by reading the code
-- **Complex branching** — Conditional branching and error handling can become more complex than pure Python code
-- **Over-abstraction** — Even simple tasks require Runnable wrapping, which can feel like overhead
+- **Debugging difficulty** - When errors occur mid-pipeline, it's hard to trace which step caused the problem
+- **Learning curve** - LCEL-specific concepts like `RunnablePassthrough`, `RunnableParallel`, `RunnableLambda` must be learned separately
+- **Implicit data flow** - It can be hard to determine what data is passed between steps just by reading the code
+- **Complex branching** - Conditional branching and error handling can become more complex than pure Python code
+- **Over-abstraction** - Even simple tasks require Runnable wrapping, which can feel like overhead
 
 ### 2.3. RAG Example
 
@@ -107,7 +107,7 @@ chain = (
 answer = chain.invoke("What is LCEL?")
 ```
 
-`retriever | format_docs` chains intermediate processing with pipes, and wrapping in a dict enables parallel execution — results are combined and passed to the next step.
+`retriever | format_docs` chains intermediate processing with pipes, and wrapping in a dict enables parallel execution - results are combined and passed to the next step.
 
 ## 3. Prompt Templates
 
@@ -230,7 +230,7 @@ LangChain provides classes that distinguish chat model messages by role. All mes
 | `AIMessageChunk` | ai | Partial fragment of a response arriving during streaming. Accumulate `content` to build the full response |
 | `ToolMessage` | tool | Delivers tool execution results to the model. Links to the call via `tool_call_id` |
 | `ChatMessage` | custom | A generic message with an arbitrary `role`. Used when standard roles don't apply |
-| `FunctionMessage` | function | For OpenAI's legacy function calling API. **Deprecated** — use `ToolMessage` instead |
+| `FunctionMessage` | function | For OpenAI's legacy function calling API. **Deprecated** - use `ToolMessage` instead |
 
 ### 4.2. Basic Usage
 
@@ -467,7 +467,7 @@ The final output is `오늘 🌪️ 이 옵니다`.
 
 ### 6.4. Consumer
 
-`yield`ed values are not stored anywhere — they are generated and delivered one at a time whenever the consumer (`for` loop) requests them.
+`yield`ed values are not stored anywhere - they are generated and delivered one at a time whenever the consumer (`for` loop) requests them.
 
 ```python
 result = ""
@@ -477,7 +477,7 @@ for chunk in chain.stream({"chat_history": chat_history}):
 chat_history.append(AIMessage(content=result))
 ```
 
-Each iteration of the `for` loop requests the next value from the generator, `yield` executes to pass the value, and then pauses again. There's no need to hold the entire result in memory — output can be displayed as soon as it arrives.
+Each iteration of the `for` loop requests the next value from the generator, `yield` executes to pass the value, and then pauses again. There's no need to hold the entire result in memory - output can be displayed as soon as it arrives.
 
 # Resources
 

@@ -30,7 +30,7 @@ depth:
 
 # Overview
 
-This guide covers how to generate SSH keys on macOS.
+How to generate SSH keys on macOS.
 
 # Steps
 

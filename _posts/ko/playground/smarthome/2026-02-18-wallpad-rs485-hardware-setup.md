@@ -36,11 +36,11 @@ gallery_hardware:
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-pcb.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-pcb.jpg
     alt: "온수조절기 PCB 보드(MC200N)"
-    title: "온수조절기 PCB 보드(MC200N) — 파란색 스크류 터미널에 RS485 및 통신선이 연결되어 있다"
+    title: "온수조절기 PCB 보드(MC200N) - 파란색 스크류 터미널에 RS485 및 통신선이 연결되어 있다"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-terminal.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-terminal.jpg
     alt: "온수조절기 스크류 터미널 클로즈업"
-    title: "온수조절기 스크류 터미널 클로즈업 — UTP 케이블이 연결되어 있다"
+    title: "온수조절기 스크류 터미널 클로즈업 - UTP 케이블이 연결되어 있다"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/rs485-twisted-pair.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/rs485-twisted-pair.jpg
     alt: "UTP 케이블에서 분리한 RS485 트위스티드 페어"
@@ -52,12 +52,12 @@ gallery_hardware:
 gallery_dashboard:
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-living.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-living.jpg
-    alt: "Home Assistant 대시보드 — 거실"
-    title: "Home Assistant 대시보드 — 거실"
+    alt: "Home Assistant 대시보드 - 거실"
+    title: "Home Assistant 대시보드 - 거실"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-room.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-room.jpg
-    alt: "Home Assistant 대시보드 — 방"
-    title: "Home Assistant 대시보드 — 방"
+    alt: "Home Assistant 대시보드 - 방"
+    title: "Home Assistant 대시보드 - 방"
 ---
 
 # 개요

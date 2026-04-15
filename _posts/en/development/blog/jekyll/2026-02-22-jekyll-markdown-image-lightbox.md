@@ -133,7 +133,7 @@ Since the JS was modified, a build step is required.
 npm run build:js
 ```
 
-This command uglifies `_main.js` into `main.min.js`. Commit the built file and deploy — all markdown images will automatically get lightbox support.
+This command uglifies `_main.js` into `main.min.js`. Commit the built file and deploy - all markdown images will automatically get lightbox support.
 
 # References
 

@@ -32,9 +32,9 @@ depth:
 
 # Overview
 
-This post covers resolving two issues encountered when running a Milvus stack with Docker Compose: GHCR private image authentication errors and RocksDB WAL volume conflicts.
+Resolving GHCR private image authentication errors and RocksDB WAL volume conflicts when running a Milvus stack with Docker Compose.
 
-# Notes
+# Steps
 
 ## 1. GHCR Private Image Authentication
 

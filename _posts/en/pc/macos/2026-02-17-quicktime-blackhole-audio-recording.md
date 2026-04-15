@@ -34,7 +34,7 @@ How to record both microphone input and system audio simultaneously in QuickTime
 
 # Steps
 
-QuickTime Player on macOS can only capture microphone input during screen recording — it cannot record system audio (the sound coming out of your speakers). To record both, you need a virtual audio driver called BlackHole to loop back system audio, then combine it with microphone input into a single input device.
+QuickTime Player on macOS can only capture microphone input during screen recording - it cannot record system audio (the sound coming out of your speakers). To record both, you need a virtual audio driver called BlackHole to loop back system audio, then combine it with microphone input into a single input device.
 
 ## 1. Install BlackHole
 
@@ -49,13 +49,13 @@ To hear system audio through your speakers (or headphones) while simultaneously 
 Open Audio MIDI Setup, click the `+` button at the bottom left, and select `Create Multi-Output Device`.
 
 ![Audio MIDI Setup]({{ img_path }}/audio-midi-setup.png){: .align-center}
-*Audio MIDI Setup — click the `+` button at the bottom to create a device*
+*Audio MIDI Setup - click the `+` button at the bottom to create a device*
 {: .text-center}
 
 In the right panel, check both your actual output device (AirPods, speakers, etc.) and BlackHole 16ch. Also enable drift correction for BlackHole.
 
 ![Multi-Output Device]({{ img_path }}/multi-output-device.png){: .align-center}
-*Multi-Output Device — select both your speakers and BlackHole*
+*Multi-Output Device - select both your speakers and BlackHole*
 {: .text-center}
 
 This routes system audio to both your speakers and BlackHole simultaneously.
@@ -67,7 +67,7 @@ To combine microphone input and BlackHole input into a single device, you need a
 Click the `+` button again and select `Create Aggregate Device`. In the right panel, check both your microphone (e.g. AirPods Pro) and BlackHole 16ch. Enable drift correction for BlackHole.
 
 ![Aggregate Device]({{ img_path }}/aggregate-device.png){: .align-center}
-*Aggregate Device — combines microphone and BlackHole into one input device*
+*Aggregate Device - combines microphone and BlackHole into one input device*
 {: .text-center}
 
 The Aggregate Device merges the physical input channels of your microphone with BlackHole's virtual input channels, allowing QuickTime Player to capture both sources simultaneously.
@@ -87,7 +87,7 @@ In this state, system audio is sent to both your speakers and BlackHole. You can
 Open QuickTime Player and press `⌘⇧5` or select `File → New Screen Recording` from the menu. Click `Options` in the bottom toolbar, and under the microphone section, select `Aggregate Device`.
 
 ![QuickTime recording settings]({{ img_path }}/quicktime-recording.png){: .align-center style="max-width: min(400px, 100%);"}
-*QuickTime screen recording — select Aggregate Device as the microphone*
+*QuickTime screen recording - select Aggregate Device as the microphone*
 {: .text-center}
 
 Start recording, and both microphone input and system audio will be captured together.

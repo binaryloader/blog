@@ -72,7 +72,7 @@ When my parents moved to a new apartment, we discovered that the previous reside
 
 ### 1.1. Inspecting the Floor Outlet
 
-I opened the floor-mounted outlet box near the TV and found the LAN port cables had been severed. They weren't cut cleanly — they looked like they had been ripped apart — so the existing cables were beyond repair. I decided to replace both the keystone jack and the RJ45 connector from scratch.
+I opened the floor-mounted outlet box near the TV and found the LAN port cables had been severed. They weren't cut cleanly - they looked like they had been ripped apart - so the existing cables were beyond repair. I decided to replace both the keystone jack and the RJ45 connector from scratch.
 
 ![Damaged keystone jack](/assets/image/post/playground/smarthome/diy-lan-wiring-cable-management/keystone-jack-wiring.jpg){: style="max-width: min(400px, 100%);"}
 
@@ -94,7 +94,7 @@ Keystone jacks and RJ45 connectors are inexpensive online, and the crimping tool
 
 First, strip the cable sheath using a UTP cable stripper. Clamp the stripper onto the cable and rotate it once for a clean cut. Inside the sheath are 4 twisted pairs (8 wires) that need to be untwisted and separated individually.
 
-Arrange the separated wires in T568B order: White/Orange - Orange - White/Green - Blue - White/Blue - Green - White/Brown - Brown. Terminate one end into a CAT.5E keystone jack and crimp the other end with an RJ45 connector. The keystone jack has both T568A and T568B color guides printed on the back — just follow the B side.
+Arrange the separated wires in T568B order: White/Orange - Orange - White/Green - Blue - White/Blue - Green - White/Brown - Brown. Terminate one end into a CAT.5E keystone jack and crimp the other end with an RJ45 connector. The keystone jack has both T568A and T568B color guides printed on the back - just follow the B side.
 
 {% include gallery id="gallery_wiring" caption="Cable stripping → Wire arrangement → RJ45 crimping → Tester pass → Floor outlet work" %}
 
@@ -104,7 +104,7 @@ After wiring is complete, verify with the cable tester. Plug each end of the cab
 
 ## 2. TV Cable Management
 
-While I was at it, I also organized the cables behind the wall-mounted TV. Behind a wall-mounted TV, power cables, HDMI, soundbar optical cables, and LAN cables all tangle together quickly if left alone. If cables dangle below the bracket, they're visible from below the TV — defeating the purpose of wall mounting.
+While I was at it, I also organized the cables behind the wall-mounted TV. Behind a wall-mounted TV, power cables, HDMI, soundbar optical cables, and LAN cables all tangle together quickly if left alone. If cables dangle below the bracket, they're visible from below the TV - defeating the purpose of wall mounting.
 
 I zip-tied a power strip to the top of the wall mount bracket. This way, the power cables connect directly behind the TV without hanging down. The router was placed in the space behind the TV where it's invisible from the front. Hiding the router behind the TV had no noticeable impact on WiFi signal. All remaining cables were routed behind the bracket to keep everything looking clean from the outside.
 
@@ -118,4 +118,4 @@ The work itself wasn't hard, but working inside the tight floor outlet box was r
 
 Still, anyone can do this with the right tools. Hiring a technician would cost tens of thousands of won including the service call fee, but buying the tools once means you can reuse them indefinitely. It's also convenient to be able to fix LAN ports in other rooms or make custom-length cables whenever needed.
 
-When I proudly showed the photos to a senior colleague, he asked if I'd served as a signal corps soldier. Unfortunately, I was military police. That said, I'm moving this August myself — and I'm definitely calling a professional for that one.
+When I proudly showed the photos to a senior colleague, he asked if I'd served as a signal corps soldier. Unfortunately, I was military police. That said, I'm moving this August myself - and I'm definitely calling a professional for that one.

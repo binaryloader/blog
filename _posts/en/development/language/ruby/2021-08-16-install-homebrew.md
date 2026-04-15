@@ -44,4 +44,4 @@ How to install Homebrew on macOS.
 
 # References
 
-- <https://brew.sh/index_ko>
+- <https://brew.sh>

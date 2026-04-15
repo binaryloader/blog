@@ -4,6 +4,7 @@ title: "[CocoaPods] Installing CocoaPods"
 ref: install-cocoapods
 excerpt: "How to install CocoaPods on macOS."
 lang: en
+permalink: /en/:categories/:title/
 last_modified_at: 2021-08-16T08:04+09:00
 published: true
 header:

@@ -34,7 +34,7 @@ depth:
 
 # 概要
 
-macOSでEclipse Temurin OpenJDKをインストールする方法をまとめます。
+macOSでEclipse Temurin OpenJDKをインストールする方法をまとめる。
 
 # 手順
 

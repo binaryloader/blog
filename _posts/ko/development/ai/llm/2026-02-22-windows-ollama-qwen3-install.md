@@ -117,9 +117,9 @@ ollama run qwen3:8b
 
 대화 중 사용할 수 있는 명령어는 아래와 같다.
 
-- `/bye` — 대화 종료
-- `/clear` — 대화 기록 초기화
-- `/set parameter temperature 0.7` — 파라미터 변경
+- `/bye` - 대화 종료
+- `/clear` - 대화 기록 초기화
+- `/set parameter temperature 0.7` - 파라미터 변경
 
 ### 6.2. REST API
 

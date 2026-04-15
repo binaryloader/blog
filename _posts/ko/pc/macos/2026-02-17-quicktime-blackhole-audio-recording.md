@@ -47,13 +47,13 @@ macOS의 QuickTime Player는 화면 녹화 시 마이크 입력만 녹음할 수
 오디오 MIDI 설정을 열고 왼쪽 하단의 `+` 버튼을 클릭한 뒤 `다중 출력 기기 생성`을 선택한다.
 
 ![오디오 MIDI 설정]({{ img_path }}/audio-midi-setup.png){: .align-center}
-*오디오 MIDI 설정 — 하단 `+` 버튼으로 기기를 생성한다*
+*오디오 MIDI 설정 - 하단 `+` 버튼으로 기기를 생성한다*
 {: .text-center}
 
 오른쪽 패널에서 실제로 소리를 들을 출력 장치(AirPods, 스피커 등)와 BlackHole 16ch를 모두 체크한다. BlackHole의 드리프트 보정도 체크해 준다.
 
 ![다중 출력 기기]({{ img_path }}/multi-output-device.png){: .align-center}
-*다중 출력 기기 — 스피커와 BlackHole을 함께 선택한다*
+*다중 출력 기기 - 스피커와 BlackHole을 함께 선택한다*
 {: .text-center}
 
 이렇게 하면 시스템 오디오가 스피커와 BlackHole 양쪽으로 동시에 출력된다.
@@ -65,7 +65,7 @@ macOS의 QuickTime Player는 화면 녹화 시 마이크 입력만 녹음할 수
 다시 `+` 버튼을 클릭해 `통합 기기 생성`을 선택한다. 오른쪽 패널에서 마이크(AirPods Pro 등)와 BlackHole 16ch를 모두 체크한다. BlackHole의 드리프트 보정을 체크한다.
 
 ![통합 기기]({{ img_path }}/aggregate-device.png){: .align-center}
-*통합 기기 — 마이크와 BlackHole을 하나의 입력 장치로 합친다*
+*통합 기기 - 마이크와 BlackHole을 하나의 입력 장치로 합친다*
 {: .text-center}
 
 통합 기기는 마이크의 물리적 입력 채널과 BlackHole의 가상 입력 채널을 하나로 묶어서 QuickTime Player가 두 소스를 동시에 캡처할 수 있게 해준다.
@@ -85,7 +85,7 @@ macOS의 QuickTime Player는 화면 녹화 시 마이크 입력만 녹음할 수
 QuickTime Player를 열고 `⌘⇧5` 또는 메뉴에서 `파일 → 새로운 화면 기록`을 선택한다. 하단 툴바에서 `옵션`을 클릭하면 마이크 항목이 나타난다. 여기서 `통합 기기`를 선택한다.
 
 ![QuickTime 녹음 설정]({{ img_path }}/quicktime-recording.png){: .align-center style="max-width: min(400px, 100%);"}
-*QuickTime 화면 기록 — 마이크를 통합 기기로 선택한다*
+*QuickTime 화면 기록 - 마이크를 통합 기기로 선택한다*
 {: .text-center}
 
 녹화를 시작하면 마이크 입력과 시스템 오디오가 함께 녹음된다.

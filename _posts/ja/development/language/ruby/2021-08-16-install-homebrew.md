@@ -44,4 +44,4 @@ macOSでHomebrewをインストールする方法をまとめる。
 
 # 参考
 
-- <https://brew.sh/index_ko>
+- <https://brew.sh>

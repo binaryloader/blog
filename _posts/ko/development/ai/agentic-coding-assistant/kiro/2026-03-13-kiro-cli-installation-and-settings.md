@@ -56,8 +56,8 @@ Kiro CLI의 동작을 제어하는 설정 파일이다. 기능 on/off, 기본 �
 
 ### 2.2. 위치
 
-- 전역 설정(사용자 전체): `~/.kiro/settings/cli.json` — 모든 프로젝트에서 사용 가능
-- 워크스페이스 설정(프로젝트별): `.kiro/settings/cli.json` — 해당 프로젝트에서만 사용, 전역 설정보다 우선 적용
+- 전역 설정(사용자 전체): `~/.kiro/settings/cli.json` - 모든 프로젝트에서 사용 가능
+- 워크스페이스 설정(프로젝트별): `.kiro/settings/cli.json` - 해당 프로젝트에서만 사용, 전역 설정보다 우선 적용
 
 ### 2.3. 주요 설정 항목
 
@@ -126,7 +126,7 @@ kiro-cli settings --delete --workspace chat.defaultModel
 |---|---|---|
 | 기능/동작 설정 | settings.json | cli.json |
 | 프로젝트 컨텍스트/규칙 | CLAUDE.md | Steering(`.kiro/steering/`) |
-| 에이전트별 지시사항 | — | 에이전트 설정의 prompt 필드 |
+| 에이전트별 지시사항 | - | 에이전트 설정의 prompt 필드 |
 | 자동 컨텍스트 파일 | CLAUDE.md의 파일 참조 | Steering + 에이전트 설정의 resources 필드 |
 | 대화 중 기억 | MEMORY.md | 해당 없음 |
 

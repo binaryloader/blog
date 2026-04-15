@@ -44,7 +44,7 @@ I had been using Claude Code at work, but a recent security notice classified it
 
 It is estimated that Kiro calls Claude models through the path `Kiro → Amazon Bedrock → Claude`. Past incidents where Kiro went down during Bedrock outages and the use of Bedrock model IDs within Kiro support this.
 
-For the purpose of this analysis, I classify this architecture as `Client Layer` + `3-Tier Service Layer` (`App Provider` — `Managed AI Platform` — `Model Provider`). 3-Tier, App Provider, Managed AI Platform, and Model Provider are not official AWS terminology — they are categories I defined for analytical convenience. The actual internal architecture may differ.
+For the purpose of this analysis, I classify this architecture as `Client Layer` + `3-Tier Service Layer` (`App Provider` - `Managed AI Platform` - `Model Provider`). 3-Tier, App Provider, Managed AI Platform, and Model Provider are not official AWS terminology - they are categories I defined for analytical convenience. The actual internal architecture may differ.
 
 ![Kiro x Claude: 3-Tier AI Service Architecture](/assets/image/post/development/ai/agentic-coding-assistant/kiro/kiro-claude-3-tier-ai-architecture/kiro-3-tier-architecture.png)
 

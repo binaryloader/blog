@@ -3,7 +3,7 @@ title: "[Claude Code] リアルタイムエージェントダッシュボード�
 lang: ja
 permalink: /ja/:categories/:title/
 ref: claude-code-agent-dashboard
-excerpt: "19人のClaude Codeサブエージェントが何をしているかリアルタイムで可視化するモニタリングダッシュボードを構築した過程 — Gather Town実験の失敗からWebSocketベースのコントロールセンターまで。"
+excerpt: "19人のClaude Codeサブエージェントが何をしているかリアルタイムで可視化するモニタリングダッシュボードを構築した過程。Gather Town実験の失敗からWebSocketベースのコントロールセンターまで。"
 date: 2026-03-16T01:00+09:00
 last_modified_at: 2026-03-16T01:00+09:00
 published: true
@@ -332,9 +332,9 @@ COOが3つのtask-assignコールを発火し、3人のプランナーを並列�
 
 企画エージェントたちは`docs/`ディレクトリに設計文書を生成する。プロダクトプランナーのKim SoyeonのPRDにはコア機能の優先度テーブルとユーザーストーリーが含まれ、UI/UXデザイナーのHan YeseulのUI設計書にはカラーパレット、ワイヤーフレーム、インタラクションフローがまとめられている。
 
-![PRD文書 — プロダクトプランナーが生成した要件定義書](/assets/image/post/claude-code-agent-dashboard/20-prd-doc.png)
+![PRD文書（プロダクトプランナーが生成した要件定義書）](/assets/image/post/claude-code-agent-dashboard/20-prd-doc.png)
 
-![UI/UX設計書 — デザイナーが生成した画面設計文書](/assets/image/post/claude-code-agent-dashboard/21-ui-design-doc.png)
+![UI/UX設計書（デザイナーが生成した画面設計文書）](/assets/image/post/claude-code-agent-dashboard/21-ui-design-doc.png)
 
 ### 9.2. Phase 2 -- 開発(1エージェント)
 

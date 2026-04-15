@@ -58,8 +58,8 @@ Kiro CLIの動作を制御する設定ファイルである。機能のon/off、
 
 ### 2.2. 場所
 
-- グローバル設定（ユーザー全体）: `~/.kiro/settings/cli.json` — すべてのプロジェクトで使用可能
-- ワークスペース設定（プロジェクト別）: `.kiro/settings/cli.json` — 該当プロジェクトでのみ使用、グローバル設定より優先適用
+- グローバル設定（ユーザー全体）: `~/.kiro/settings/cli.json`（すべてのプロジェクトで使用可能）
+- ワークスペース設定（プロジェクト別）: `.kiro/settings/cli.json`（該当プロジェクトでのみ使用、グローバル設定より優先適用）
 
 ### 2.3. 主要設定項目
 
@@ -128,7 +128,7 @@ kiro-cli settings --delete --workspace chat.defaultModel
 |---|---|---|
 | 機能/動作設定 | settings.json | cli.json |
 | プロジェクトコンテキスト/ルール | CLAUDE.md | Steering(`.kiro/steering/`) |
-| エージェント別指示 | — | エージェント設定のpromptフィールド |
+| エージェント別指示 | なし | エージェント設定のpromptフィールド |
 | 自動コンテキストファイル | CLAUDE.mdのファイル参照 | Steering + エージェント設定のresourcesフィールド |
 | 会話中の記憶 | MEMORY.md | 該当なし |
 

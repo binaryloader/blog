@@ -95,7 +95,6 @@ User-level settings applied globally to all projects. These are always loaded re
 ~/.claude/
 ├── CLAUDE.md                       # Global rules (CLAUDE.md/MEMORY.md format, rules/ reference)
 ├── settings.json                   # Global permissions, plugins, env vars, hooks
-├── .mcp.json                       # MCP server config (9 servers)
 │
 ├── rules/                          # Global rules (10 files)
 │   ├── markdown.md                 # Markdown heading/bullet/line break rules (always loaded)
@@ -146,7 +145,6 @@ All agents, skills, rules, and hooks are managed globally (`~/.claude/`). Indivi
 ```
 my-project/
 ├── CLAUDE.md                       # Project root rules (tech stack, build, @import)
-├── .mcp.json                       # MCP server config (per project)
 │
 ├── .claude/
 │   ├── settings.json               # Project permissions, env vars (team shared)
@@ -174,7 +172,7 @@ Agents are defined as Markdown files in the `.claude/agents/` directory. Metadat
 
 ### 3.1. Planning Team
 
-**product-planner** — Product planning, user stories, PRD writing. Conducts market research using WebSearch.
+**product-planner** - Product planning, user stories, PRD writing. Conducts market research using WebSearch.
 
 - Model: opus / Permission: plan
 - Tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -182,14 +180,14 @@ Agents are defined as Markdown files in the `.claude/agents/` directory. Metadat
 - Role: User story definition, MoSCoW/RICE prioritization, MVP scope definition
 - Output: PRD document (background, goals, acceptance criteria, exclusions)
 
-**ui-designer** — UI/UX design, screen flow definition, design system management. Uses built-in Figma integration.
+**ui-designer** - UI/UX design, screen flow definition, design system management. Uses built-in Figma integration.
 
 - Model: sonnet / Permission: plan
 - Tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
 - Role: Screen flows, wireframe specs, design system definition
 - Principles: Mobile first, HIG compliance, VoiceOver/Dynamic Type support
 
-**tech-writer** — Tickets, wiki, API docs, README writing. Writes directly to external tools via MCP.
+**tech-writer** - Tickets, wiki, API docs, README writing. Writes directly to external tools via MCP.
 
 - Model: sonnet / Permission: acceptEdits
 - Tools: Read, Write, Edit, Glob, Grep, WebFetch
@@ -199,7 +197,7 @@ Agents are defined as Markdown files in the `.claude/agents/` directory. Metadat
 
 ### 3.2. Development Team
 
-**dev-planner** — PRD-based technical design (TDD), task decomposition, API interface design. Reads and analyzes the codebase.
+**dev-planner** - PRD-based technical design (TDD), task decomposition, API interface design. Reads and analyzes the codebase.
 
 - Model: opus / Permission: plan
 - Tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -210,36 +208,36 @@ Agents are defined as Markdown files in the `.claude/agents/` directory. Metadat
 
 All developer agents work in isolated Git worktrees with `isolation: worktree`, enabling parallel development without conflicts.
 
-**ios-developer** — Swift/SwiftUI iOS app development. Works in an isolated worktree.
+**ios-developer** - Swift/SwiftUI iOS app development. Works in an isolated worktree.
 
 - Model: opus / Permission: default / Isolation: worktree
 - Tools: Read, Write, Edit, Glob, Grep, Bash, LSP
 - Memory: project
 - MCP: github, context7, jira, confluence
 - Skills: develop
-- Hooks: PostToolUse — auto-runs `swift-format` + `swiftlint --fix` on Write/Edit
+- Hooks: PostToolUse - auto-runs `swift-format` + `swiftlint --fix` on Write/Edit
 - Stack: Swift 6, SwiftUI, TCA, SPM, SwiftData, async/await
 - Branch: `feature/ios-*`
 
-**server-developer** — Spring Boot/Kotlin server development. API implementation, DB design.
+**server-developer** - Spring Boot/Kotlin server development. API implementation, DB design.
 
 - Model: opus / Permission: default / Isolation: worktree
 - Tools: Read, Write, Edit, Glob, Grep, Bash, LSP
 - Memory: project
 - MCP: github, postgres, context7, jira, confluence
 - Skills: develop
-- Hooks: PostToolUse — auto-runs `ktlint --format` on Write/Edit
+- Hooks: PostToolUse - auto-runs `ktlint --format` on Write/Edit
 - Stack: Spring Boot 3, Kotlin, PostgreSQL, Redis, Flyway
 - Branch: `feature/server-*`
 
-**infra-developer** — AWS infrastructure provisioning, Terraform IaC, CI/CD pipelines.
+**infra-developer** - AWS infrastructure provisioning, Terraform IaC, CI/CD pipelines.
 
 - Model: opus / Permission: default / Isolation: worktree
 - Tools: Read, Write, Edit, Glob, Grep, Bash
 - Memory: project
 - MCP: github, context7, jira, confluence
 - Skills: develop
-- Hooks: PostToolUse — auto-runs `terraform fmt` on Write/Edit
+- Hooks: PostToolUse - auto-runs `terraform fmt` on Write/Edit
 - Stack: AWS (ECS, RDS, S3, CloudFront, ALB), Terraform, GitHub Actions, Docker
 - Branch: `feature/infra-*`
 
@@ -270,7 +268,7 @@ Two reviewers per developer separate architecture and quality perspectives for m
 
 ### 3.4. QA/Security Team
 
-**qa-engineer** — Unit/integration test writing, test scenario design, edge case exploration
+**qa-engineer** - Unit/integration test writing, test scenario design, edge case exploration
 
 - Model: sonnet / Permission: default
 - Tools: Read, Write, Edit, Glob, Grep, Bash
@@ -279,7 +277,7 @@ Two reviewers per developer separate architecture and quality perspectives for m
 - Server: JUnit 5, MockK, Testcontainers
 - Principles: Prefer real implementations over mocks, boundary values/null/exceptions required
 
-**security-auditor** — OWASP Top 10, authentication/authorization, sensitive data exposure, dependency vulnerability audit
+**security-auditor** - OWASP Top 10, authentication/authorization, sensitive data exposure, dependency vulnerability audit
 
 - Model: opus / Permission: plan
 - Tools: Read, Glob, Grep, Bash
@@ -347,7 +345,7 @@ hooks:
 | Model | Agent Count | Agent List | Purpose |
 |---|---|---|---|
 | `opus` | 6 | product-planner, dev-planner, ios-developer, server-developer, infra-developer, security-auditor | Creative thinking, accurate code generation, deep analysis |
-| `sonnet` | 9 | ui-designer, 6 reviewers, qa-engineer, tech-writer | Patterned tasks, read-only analysis, documentation — cost-efficient |
+| `sonnet` | 9 | ui-designer, 6 reviewers, qa-engineer, tech-writer | Patterned tasks, read-only analysis, documentation - cost-efficient |
 
 #### 3.5.3. Permission Modes
 
@@ -451,45 +449,45 @@ The `` !`command` `` syntax executes a shell command when a skill is loaded and 
 Executes the full flow from new feature planning to technical design, task decomposition, and documentation. Auto-invoked when requesting "feature planning", "PRD", or "new feature planning".
 
 - Dynamic injection: `git log --oneline -10`, `ls -la docs/`
-- Step 1: **product-planner** — Write PRD (user stories, acceptance criteria, priorities, exclusions)
-- Step 2: **dev-planner** — Technical design (API interfaces, DB schema, task decomposition, dependency graph)
-- Step 3: **ui-designer** — UI/UX design (screen flows, UI specs)
-- Step 4: **tech-writer** — Documentation (create tickets via MCP, register wiki, save to docs/)
-- Step 5: **Main session** — Final report (feature summary, estimated effort, risks, next steps)
+- Step 1: **product-planner** - Write PRD (user stories, acceptance criteria, priorities, exclusions)
+- Step 2: **dev-planner** - Technical design (API interfaces, DB schema, task decomposition, dependency graph)
+- Step 3: **ui-designer** - UI/UX design (screen flows, UI specs)
+- Step 4: **tech-writer** - Documentation (create tickets via MCP, register wiki, save to docs/)
+- Step 5: **Main session** - Final report (feature summary, estimated effort, risks, next steps)
 
 #### 5.3.2. /develop <task>
 
 Executes development, testing, and code review sequentially. Auto-invoked when requesting "develop", "implement", or "code".
 
 - Dynamic injection: `git branch --show-current`, `git status -s`
-- Step 1: **Task analysis** — Determine developer agent by file type (*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer)
-- Step 2: **Context gathering** — If the task includes ticket numbers or external document references, gather Jira tickets, Confluence design docs, API specs, and pass the context to subsequent steps
-- Step 3: **\*-developer agent** — Write code on feature branch, Conventional Commits
-- Step 4: **qa-engineer** — Write and run unit tests
-- Step 5: **2 reviewers** — Parallel review based on changed file types
-- Step 6: **PR Creation** — If no 🔴 items exist in the review results, create a PR on GitHub. Auto-generate the PR title and body, including a summary of review results
-- Step 7: **Results report** — Implementation summary, test results, review results (by severity)
+- Step 1: **Task analysis** - Determine developer agent by file type (*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer)
+- Step 2: **Context gathering** - If the task includes ticket numbers or external document references, gather Jira tickets, Confluence design docs, API specs, and pass the context to subsequent steps
+- Step 3: **\*-developer agent** - Write code on feature branch, Conventional Commits
+- Step 4: **qa-engineer** - Write and run unit tests
+- Step 5: **2 reviewers** - Parallel review based on changed file types
+- Step 6: **PR Creation** - If no 🔴 items exist in the review results, create a PR on GitHub. Auto-generate the PR title and body, including a summary of review results
+- Step 7: **Results report** - Implementation summary, test results, review results (by severity)
 
 #### 5.3.3. /review-all [target]
 
 Runs architecture, quality, and security reviews in parallel for the current branch's changes. Auto-invoked when requesting "review", "code review", or "PR review".
 
 - Dynamic injection: `git diff --name-only main...HEAD`, `git diff --stat main...HEAD`
-- Step 1: **Classify changed files** — *.swift → iOS, *.kt → Server, *.tf → Infra
-- Step 2: **2 reviewers per domain** — Parallel invocation (architecture + quality)
-- Step 3: **security-auditor** — Security audit on all changes
-- Step 4: **Comprehensive report** — Classified as 🔴 Required fix / 🟡 Recommended / 🟢 Informational, merge go/no-go decision
+- Step 1: **Classify changed files** - *.swift → iOS, *.kt → Server, *.tf → Infra
+- Step 2: **2 reviewers per domain** - Parallel invocation (architecture + quality)
+- Step 3: **security-auditor** - Security audit on all changes
+- Step 4: **Comprehensive report** - Classified as 🔴 Required fix / 🟡 Recommended / 🟢 Informational, merge go/no-go decision
 
 #### 5.3.4. /release <version>
 
 Executes the release checklist. Only manual invocation is available with `disable-model-invocation: true`.
 
 - Dynamic injection: `git log --oneline main..HEAD`, `git tag --list --sort=-version:refname | head -5`
-- Step 1: **qa-engineer** — Full test suite + coverage check
-- Step 2: **security-auditor** — Final security audit, dependency CVE scan
-- Step 3: **infra-developer** — Deployment scripts, environment variables, rollback plan, DB migration check
-- Step 4: **tech-writer** — CHANGELOG, release notes, API docs check
-- Step 5: **Go/No-Go decision** — Comprehensive checklist (tests, security, deployment, documentation)
+- Step 1: **qa-engineer** - Full test suite + coverage check
+- Step 2: **security-auditor** - Final security audit, dependency CVE scan
+- Step 3: **infra-developer** - Deployment scripts, environment variables, rollback plan, DB migration check
+- Step 4: **tech-writer** - CHANGELOG, release notes, API docs check
+- Step 5: **Go/No-Go decision** - Comprehensive checklist (tests, security, deployment, documentation)
 
 #### 5.3.5. /standup
 
@@ -569,7 +567,7 @@ Hooks are handlers that auto-execute at specific points in the Claude Code lifec
 
 Configured in `~/.claude/settings.json` and applied to all agents.
 
-#### 7.2.1. SessionStart — Project Status Dashboard
+#### 7.2.1. SessionStart - Project Status Dashboard
 
 Automatically displays the current branch, last 5 commits, and file change status at session start.
 
@@ -583,7 +581,7 @@ Automatically displays the current branch, last 5 commits, and file change statu
 }]
 ```
 
-#### 7.2.2. PreToolUse — Pre-Write Validation
+#### 7.2.2. PreToolUse - Pre-Write Validation
 
 Checks lint before modifying Swift/Kotlin files. Blocks modifications if error-level violations are found.
 
@@ -613,7 +611,7 @@ exit 0
 
 Dangerous commands are also blocked preemptively. Destructive commands like `rm -rf /`, `drop database`, and `DROP TABLE` are detected via the Bash matcher.
 
-#### 7.2.3. PostToolUse — Auto-Formatting After Write
+#### 7.2.3. PostToolUse - Auto-Formatting After Write
 
 Runs the appropriate auto-formatter based on file extension after Write/Edit tool execution.
 
@@ -635,7 +633,7 @@ Runs the appropriate auto-formatter based on file extension after Write/Edit too
 | `*.kt` | `ktlint --format` |
 | `*.tf` | `terraform fmt` |
 
-#### 7.2.4. SubagentStop / TaskCompleted — Completion Notification
+#### 7.2.4. SubagentStop / TaskCompleted - Completion Notification
 
 Sends a macOS desktop notification when a subagent or team task completes. Runs asynchronously with `async: true` to avoid blocking the main flow.
 
@@ -693,7 +691,7 @@ All permissions, hooks, environment variables, and plugins are managed globally 
 
 | Item | Content |
 |---|---|
-| includeCoAuthoredBy | `false` — Does not include Co-Authored-By trailer in commits |
+| includeCoAuthoredBy | `false` - Does not include Co-Authored-By trailer in commits |
 | plugins | `swift-lsp`, `clangd-lsp` (LSP) |
 | language | Korean |
 | env | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` |
@@ -720,9 +718,18 @@ All permissions, hooks, environment variables, and plugins are managed globally 
 
 ## 9. MCP Servers (External Integration)
 
-### 9.1. Global Configuration
+### 9.1. How to Configure
 
-MCP server configuration is managed globally (`~/.claude/.mcp.json`). If additional servers are needed per project, create a `.mcp.json` at the project root.
+MCP servers are registered using the `claude mcp add` CLI command. Writing directly to `.mcp.json` may cause servers to fail to load, so always use the CLI. Settings are saved in the `mcpServers` section of `~/.claude.json`.
+
+```bash
+# Global registration (-s user → ~/.claude.json)
+claude mcp add github -s user -- gh mcp
+claude mcp add context7 -s user -t http https://mcp.context7.com/mcp
+
+# Per-project registration (-s project)
+claude mcp add sentry -s project -- npx -y @sentry/mcp-server
+```
 
 ### 9.2. Server List (9 Servers)
 
@@ -737,7 +744,7 @@ MCP server configuration is managed globally (`~/.claude/.mcp.json`). If additio
 | PDF Reader | stdio | PDF document reading, search | (global access) | None |
 | Scapple | stdio | Mind maps, idea visualization | (global access) | None |
 
-Some MCP servers are configured per-agent in their frontmatter rather than globally in `.mcp.json`. For example, postgres is referenced in the server-developer agent's `mcpServers` field.
+Some MCP servers are configured per-agent in their frontmatter rather than globally. For example, postgres is referenced in the server-developer agent's `mcpServers` field.
 
 ### 9.3. Per-Agent MCP Access
 
@@ -754,11 +761,14 @@ The `mcpServers` field in agents restricts accessible MCP servers. If not specif
 
 ### 9.4. Secret Management
 
-API keys are not placed directly in `.mcp.json`.
+API keys are passed via the `-e` option of the `claude mcp add` command.
 
-- `.mcp.json` references environment variables in the `$ENV_VAR` format
-- Actual values are stored in the project's `.claude/settings.local.json` under the `env` section
-- `settings.local.json` is added to `.gitignore` and not committed
+```bash
+claude mcp add jira -s user -e JIRA_API_TOKEN=xxx -- uvx mcp-atlassian --jira-url https://...
+```
+
+- Using `-e KEY=VALUE` stores the environment variable in the `env` section of the corresponding server entry in `~/.claude.json`
+- Per-project secrets are stored in the `env` section of `.claude/settings.local.json` and added to `.gitignore`
 
 ## 10. CLAUDE.md Hierarchy
 
@@ -816,11 +826,11 @@ See @docs/api-contract.md for the API contract.
 /planning Social Login (Apple, Google, Kakao)
 ```
 
-1. **product-planner** — Write PRD (user stories, acceptance criteria, priorities)
-2. **dev-planner** — Technical design (API interfaces, DB schema, task breakdown)
-3. **ui-designer** — UI/UX design (screen flows, component specs)
-4. **tech-writer** — Create tickets + wiki docs (Jira/Confluence MCP integration)
-5. **Main session (CTO)** — Consolidate planning results, report to user
+1. **product-planner** - Write PRD (user stories, acceptance criteria, priorities)
+2. **dev-planner** - Technical design (API interfaces, DB schema, task breakdown)
+3. **ui-designer** - UI/UX design (screen flows, component specs)
+4. **tech-writer** - Create tickets + wiki docs (Jira/Confluence MCP integration)
+5. **Main session (CTO)** - Consolidate planning results, report to user
 
 #### Phase 2: Development (`/develop`)
 
@@ -828,12 +838,12 @@ See @docs/api-contract.md for the API contract.
 /develop PROJ-123
 ```
 
-1. **Main session** — Task analysis (determine which developer agent to use)
-2. **Main session** — Context gathering (Jira tickets, Confluence design docs, API specs)
-3. **ios-developer + server-developer + infra-developer** — Parallel development (Agent Teams or worktree isolation)
-4. **qa-engineer** — Write and run tests
-5. **Main session** — Create PR (automatic if review passes)
-6. **Main session (CTO)** — Consolidate development results, report to user
+1. **Main session** - Task analysis (determine which developer agent to use)
+2. **Main session** - Context gathering (Jira tickets, Confluence design docs, API specs)
+3. **ios-developer + server-developer + infra-developer** - Parallel development (Agent Teams or worktree isolation)
+4. **qa-engineer** - Write and run tests
+5. **Main session** - Create PR (automatic if review passes)
+6. **Main session (CTO)** - Consolidate development results, report to user
 
 #### Phase 3: Review (`/review-all`)
 
@@ -841,9 +851,9 @@ See @docs/api-contract.md for the API contract.
 /review-all
 ```
 
-1. **6 reviewers** — Architecture + quality parallel review (2 per developer)
-2. **security-auditor** — Security audit
-3. **Main session (CTO)** — Final consolidation, merge decision, report to user
+1. **6 reviewers** - Architecture + quality parallel review (2 per developer)
+2. **security-auditor** - Security audit
+3. **Main session (CTO)** - Final consolidation, merge decision, report to user
 
 ### 11.2. Code Review Flow
 
@@ -873,11 +883,11 @@ Comprehensive report (classified by severity)
 /release 1.0.0
 ```
 
-1. **qa-engineer** — Run full test suite, check coverage
-2. **security-auditor** — Final security audit, dependency vulnerability scan
-3. **infra-developer** — Verify deployment scripts, validate rollback plan
-4. **tech-writer** — Write CHANGELOG, generate release notes
-5. **Main session** — Consolidate checklist, report go/no-go decision
+1. **qa-engineer** - Run full test suite, check coverage
+2. **security-auditor** - Final security audit, dependency vulnerability scan
+3. **infra-developer** - Verify deployment scripts, validate rollback plan
+4. **tech-writer** - Write CHANGELOG, generate release notes
+5. **Main session** - Consolidate checklist, report go/no-go decision
 
 ### 11.4. Daily Standup
 
@@ -891,20 +901,20 @@ Automatically collects git logs, PR status, and CI results via dynamic context i
 
 ### 12.1. Model Distribution Strategy
 
-- **Opus** (expensive): Planning, development, security audit — only for tasks where accuracy and creativity matter
-- **Sonnet** (affordable): Review, QA, documentation — Sonnet is sufficient for patterned tasks
+- **Opus** (expensive): Planning, development, security audit - only for tasks where accuracy and creativity matter
+- **Sonnet** (affordable): Review, QA, documentation - Sonnet is sufficient for patterned tasks
 
 ### 12.2. Context Savings
 
 - Load only necessary rules via `paths` matching in `~/.claude/rules/`
-- Reviewers are read-only with `permissionMode: plan` — minimizes tool calls
-- Isolated execution with `context: fork` skills — prevents main context pollution
-- Subagent results are returned summarized — detailed results do not consume main context
+- Reviewers are read-only with `permissionMode: plan` - minimizes tool calls
+- Isolated execution with `context: fork` skills - prevents main context pollution
+- Subagent results are returned summarized - detailed results do not consume main context
 
 ### 12.3. Agent Teams vs Subagent Cost
 
-- Agent Teams use **independent instances** so costs are high — use only for large-scale parallel tasks
-- Single reviews, analysis, etc. are sufficient with **subagents** — cost-efficient
+- Agent Teams use **independent instances** so costs are high - use only for large-scale parallel tasks
+- Single reviews, analysis, etc. are sufficient with **subagents** - cost-efficient
 
 ## 13. Usage Guide
 
@@ -963,13 +973,13 @@ claude
 Claude Code automatically selects the appropriate agent based on the `description`. Simply make requests in natural language.
 
 ```bash
-# Auto-invocation — Claude determines the appropriate agent
+# Auto-invocation - Claude determines the appropriate agent
 "Plan a social login feature"                → product-planner auto-invoked
 "Implement the login API"                    → server-developer auto-invoked
 "Review the current code"                    → review-all skill → reviewers invoked in parallel
 "Create a login screen in the iOS app"       → ios-developer auto-invoked
 
-# Explicit invocation — directly specify the agent
+# Explicit invocation - directly specify the agent
 "Write a social login PRD with the product-planner agent"
 "Audit the current code with security-auditor"
 ```
@@ -1060,20 +1070,20 @@ EOF
 
 ### 13.6. Adding MCP Servers
 
-```json
-// Add a new server to .mcp.json
-{
-  "mcpServers": {
-    "sentry": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@sentry/mcp-server"],
-      "env": {
-        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN"
-      }
-    }
-  }
-}
+Register using the `claude mcp add` CLI command. Writing directly to `.mcp.json` may cause servers to fail to load.
+
+```bash
+# Add a stdio server (global)
+claude mcp add sentry -s user -e SENTRY_AUTH_TOKEN=xxx -- npx -y @sentry/mcp-server
+
+# Add an HTTP server (global)
+claude mcp add context7 -s user -t http https://mcp.context7.com/mcp
+
+# Add with project scope
+claude mcp add my-db -s project -- npx -y @my/db-mcp-server
+
+# List registered servers
+claude mcp list
 ```
 
 Specifying `mcpServers` in the agent's frontmatter restricts access to only those servers.

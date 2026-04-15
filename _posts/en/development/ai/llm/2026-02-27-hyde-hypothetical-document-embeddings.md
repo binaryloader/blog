@@ -1,5 +1,5 @@
 ---
-title: "[LLM] HyDE — Hypothetical Document Embeddings"
+title: "[LLM] HyDE - Hypothetical Document Embeddings"
 ref: hyde-hypothetical-document-embeddings
 excerpt: "An overview of HyDE (Hypothetical Document Embeddings), a technique for improving retrieval quality in RAG."
 date: 2026-02-27T18:00+09:00

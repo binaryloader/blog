@@ -38,11 +38,11 @@ gallery_hardware:
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-pcb.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-pcb.jpg
     alt: "Water temperature controller PCB board (MC200N)"
-    title: "Water temperature controller PCB board (MC200N) — RS485 and communication wires connected to blue screw terminals"
+    title: "Water temperature controller PCB board (MC200N) - RS485 and communication wires connected to blue screw terminals"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-terminal.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/water-controller-terminal.jpg
     alt: "Water temperature controller screw terminal close-up"
-    title: "Water temperature controller screw terminal close-up — UTP cable connected"
+    title: "Water temperature controller screw terminal close-up - UTP cable connected"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/rs485-twisted-pair.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/rs485-twisted-pair.jpg
     alt: "RS485 twisted pair separated from UTP cable"
@@ -54,12 +54,12 @@ gallery_hardware:
 gallery_dashboard:
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-living.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-living.jpg
-    alt: "Home Assistant Dashboard — Living Room"
-    title: "Home Assistant Dashboard — Living Room"
+    alt: "Home Assistant Dashboard - Living Room"
+    title: "Home Assistant Dashboard - Living Room"
   - url: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-room.jpg
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-room.jpg
-    alt: "Home Assistant Dashboard — Room"
-    title: "Home Assistant Dashboard — Room"
+    alt: "Home Assistant Dashboard - Room"
+    title: "Home Assistant Dashboard - Room"
 ---
 
 # Overview
@@ -116,11 +116,11 @@ The wallpad controls various devices such as lights, heating, gas valves, ventil
 | Feature | Waveshare RS485 TO WIFI/ETH | Waveshare RS232/485 TO WIFI ETH (B) | Hi-Flying HF2211S | Hi-Flying EW11A-0 |
 |---|---|---|---|---|
 | **Connectivity** | WiFi + Ethernet (RJ45) | WiFi + Ethernet (RJ45) | WiFi only | WiFi only |
-| **Power** | Screw terminal (5–36V) or PoE | DC 5.5mm jack + screw terminal (6–36V), PoE capable | Screw terminal (5–36V) | Screw terminal (5–18V) or DC jack |
+| **Power** | Screw terminal (5-36V) or PoE | DC 5.5mm jack + screw terminal (6-36V), PoE capable | Screw terminal (5-36V) | Screw terminal (5-18V) or DC jack |
 | **RS485 Connection** | Screw terminal (A+, B-, GND) | Screw terminal (A+, B-) | Screw terminal (A, B, GND) | Screw terminal (A+, B-, VCC, GND) |
 | **Enclosure** | Plastic | Metal case (84x64x24mm) | Plastic (79x53x25mm) | Plastic |
 | **Configuration** | Web UI (browser) | Web UI (browser) | Web UI (browser) | Web UI (browser) |
-| **Pros** | Ethernet support for stability, PoE capable | DC jack for easy power connection, metal enclosure, PoE capable | Wide voltage range (5–36V), RS485 8kV ESD protection | Small form factor, easy to install in tight spaces |
+| **Pros** | Ethernet support for stability, PoE capable | DC jack for easy power connection, metal enclosure, PoE capable | Wide voltage range (5-36V), RS485 8kV ESD protection | Small form factor, easy to install in tight spaces |
 | **Cons** | Screw terminal power connection is inconvenient | Relatively higher price | WiFi-only, internal antenna with lower reception sensitivity | WiFi-only, potentially unstable depending on environment |
 
 If wired Ethernet is available, the Waveshare is recommended. If space is limited or only WiFi is available, the EW11A-0 is a better choice. If a wide input voltage range or ESD protection is important, choose the HF2211S. If dealing with screw terminals is inconvenient, consider the RS232/485 TO WIFI ETH (B) model which supports a DC 5.5mm jack.
@@ -130,7 +130,7 @@ If wired Ethernet is available, the Waveshare is recommended. If space is limite
 | Part | Purpose |
 |---|---|
 | **DC Jack to Screw Terminal Adapter** | Convenient for connecting a DC adapter to the EW11A-0. |
-| **Silicone Wire (AWG 22–24)** | Used for extending RS485 wiring. Has excellent heat resistance. |
+| **Silicone Wire (AWG 22-24)** | Used for extending RS485 wiring. Has excellent heat resistance. |
 | **Ferrule Terminals** | Securely fasten wires to screw terminals. |
 | **Electrical Tape or Heat Shrink Tubing** | Insulates exposed wire connections. |
 
@@ -199,7 +199,7 @@ Here is how to find the RS485 communication lines inside the junction box.
 
 - Check the connectors behind the wallpad for terminals labeled RS485
 - They typically consist of 2 wires (A+, B-); colors may vary depending on the installer
-- Measuring the voltage between the two wires with a multimeter will show fluctuations in the 0–5V range during active communication
+- Measuring the voltage between the two wires with a multimeter will show fluctuations in the 0-5V range during active communication
 - When communication is idle, you will measure approximately 0V or a steady DC voltage
 
 ### 5.3. Wiring from the Honeywell Water Distributor
@@ -268,7 +268,7 @@ The Waveshare RS485 TO WIFI/ETH can be powered in two ways.
 
 #### Method 1: DC Adapter (WiFi Mode)
 
-Connect a 5–36V adapter to the screw terminal (VIN/GND). This is the simplest method.
+Connect a 5-36V adapter to the screw terminal (VIN/GND). This is the simplest method.
 
 ```
 +---------------------+
@@ -301,7 +301,7 @@ Using a PoE switch or PoE injector allows you to supply both data and power thro
 
 PoE eliminates the need for a separate power adapter, resulting in a cleaner installation.
 
-The RS232/485 TO WIFI ETH (B) model supports a DC 5.5mm jack, allowing direct adapter connection without dealing with screw terminals. The input voltage range is 6–36V and PoE is also supported.
+The RS232/485 TO WIFI ETH (B) model supports a DC 5.5mm jack, allowing direct adapter connection without dealing with screw terminals. The input voltage range is 6-36V and PoE is also supported.
 
 ```
 +-----------------------------+
@@ -318,7 +318,7 @@ The RS232/485 TO WIFI ETH (B) model supports a DC 5.5mm jack, allowing direct ad
 
 ### 6.2. HF2211S Power Supply
 
-The HF2211S receives power through its screw terminals. It accepts a wide input voltage range of 5–36V, allowing various adapters to be used.
+The HF2211S receives power through its screw terminals. It accepts a wide input voltage range of 5-36V, allowing various adapters to be used.
 
 ```
 +------------------------------+
@@ -360,9 +360,9 @@ DC Adapter ---- [DC Jack] ---- [Screw Terminal Adapter] ---- EW11A-0 [VCC/GND]
 Keep the following in mind when supplying power.
 
 - Use a certified power adapter (fire prevention)
-- Verify the adapter output voltage is within the 5–18V range
+- Verify the adapter output voltage is within the 5-18V range
 - Always check VCC and GND polarity before connecting (reverse polarity can cause damage)
-- Use heat-resistant silicone wire (AWG 22–24) when installing inside a junction box
+- Use heat-resistant silicone wire (AWG 22-24) when installing inside a junction box
 
 ## 7. Waveshare Initial Setup
 

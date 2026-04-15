@@ -168,7 +168,7 @@ my-project/
 
 ### 3.1. 기획 팀
 
-**product-planner** — 제품 기획, 사용자 스토리, PRD 작성. WebSearch로 시장 조사까지 수행한다.
+**product-planner** - 제품 기획, 사용자 스토리, PRD 작성. WebSearch로 시장 조사까지 수행한다.
 
 - 모델: opus / 권한: plan
 - 도구: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -176,14 +176,14 @@ my-project/
 - 역할: 사용자 스토리 정의, MoSCoW/RICE 우선순위, MVP 범위 정의
 - 출력: PRD 문서(배경, 목표, 수용 기준, 제외 범위)
 
-**ui-designer** — UI/UX 설계, 화면 흐름 정의, 디자인 시스템 관리. Figma 내장 연동을 사용한다.
+**ui-designer** - UI/UX 설계, 화면 흐름 정의, 디자인 시스템 관리. Figma 내장 연동을 사용한다.
 
 - 모델: sonnet / 권한: plan
 - 도구: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
 - 역할: 화면 흐름, 와이어프레임 명세, 디자인 시스템 정의
 - 원칙: 모바일 퍼스트, HIG 준수, VoiceOver/Dynamic Type 지원
 
-**tech-writer** — 티켓, 위키, API 문서, README 작성. MCP로 외부 도구에 직접 작성한다.
+**tech-writer** - 티켓, 위키, API 문서, README 작성. MCP로 외부 도구에 직접 작성한다.
 
 - 모델: sonnet / 권한: acceptEdits
 - 도구: Read, Write, Edit, Glob, Grep, WebFetch
@@ -193,7 +193,7 @@ my-project/
 
 ### 3.2. 개발 팀
 
-**dev-planner** — PRD 기반 기술 설계(TDD), 작업 분해, API 인터페이스 설계. 코드베이스를 읽고 분석한다.
+**dev-planner** - PRD 기반 기술 설계(TDD), 작업 분해, API 인터페이스 설계. 코드베이스를 읽고 분석한다.
 
 - 모델: opus / 권한: plan
 - 도구: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -204,36 +204,36 @@ my-project/
 
 모든 개발자 에이전트는 `isolation: worktree`로 격리된 Git worktree에서 작업하여 서로 충돌 없이 병렬 개발이 가능하다.
 
-**ios-developer** — Swift/SwiftUI iOS 앱 개발. 격리된 worktree에서 작업한다.
+**ios-developer** - Swift/SwiftUI iOS 앱 개발. 격리된 worktree에서 작업한다.
 
 - 모델: opus / 권한: default / 격리: worktree
 - 도구: Read, Write, Edit, Glob, Grep, Bash, LSP
 - 메모리: project
 - MCP: github, context7, jira, confluence
 - 스킬: develop
-- hooks: PostToolUse — Write/Edit 시 `swift-format` + `swiftlint --fix` 자동 실행
+- hooks: PostToolUse - Write/Edit 시 `swift-format` + `swiftlint --fix` 자동 실행
 - 스택: Swift 6, SwiftUI, TCA, SPM, SwiftData, async/await
 - 브랜치: `feature/ios-*`
 
-**server-developer** — Spring Boot/Kotlin 서버 개발. API 구현, DB 설계.
+**server-developer** - Spring Boot/Kotlin 서버 개발. API 구현, DB 설계.
 
 - 모델: opus / 권한: default / 격리: worktree
 - 도구: Read, Write, Edit, Glob, Grep, Bash, LSP
 - 메모리: project
 - MCP: github, postgres, context7, jira, confluence
 - 스킬: develop
-- hooks: PostToolUse — Write/Edit 시 `ktlint --format` 자동 실행
+- hooks: PostToolUse - Write/Edit 시 `ktlint --format` 자동 실행
 - 스택: Spring Boot 3, Kotlin, PostgreSQL, Redis, Flyway
 - 브랜치: `feature/server-*`
 
-**infra-developer** — AWS 인프라 구축, Terraform IaC, CI/CD 파이프라인.
+**infra-developer** - AWS 인프라 구축, Terraform IaC, CI/CD 파이프라인.
 
 - 모델: opus / 권한: default / 격리: worktree
 - 도구: Read, Write, Edit, Glob, Grep, Bash
 - 메모리: project
 - MCP: github, context7, jira, confluence
 - 스킬: develop
-- hooks: PostToolUse — Write/Edit 시 `terraform fmt` 자동 실행
+- hooks: PostToolUse - Write/Edit 시 `terraform fmt` 자동 실행
 - 스택: AWS(ECS, RDS, S3, CloudFront, ALB), Terraform, GitHub Actions, Docker
 - 브랜치: `feature/infra-*`
 
@@ -264,7 +264,7 @@ my-project/
 
 ### 3.4. QA/보안 팀
 
-**qa-engineer** — 유닛/통합 테스트 작성, 테스트 시나리오 설계, 엣지 케이스 탐색
+**qa-engineer** - 유닛/통합 테스트 작성, 테스트 시나리오 설계, 엣지 케이스 탐색
 
 - 모델: sonnet / 권한: default
 - 도구: Read, Write, Edit, Glob, Grep, Bash
@@ -273,7 +273,7 @@ my-project/
 - 서버: JUnit 5, MockK, Testcontainers
 - 원칙: Mock보다 실제 구현 우선, 경계값/null/예외 필수
 
-**security-auditor** — OWASP Top 10, 인증/인가, 민감 정보 노출, 의존성 취약점 감사
+**security-auditor** - OWASP Top 10, 인증/인가, 민감 정보 노출, 의존성 취약점 감사
 
 - 모델: opus / 권한: plan
 - 도구: Read, Glob, Grep, Bash
@@ -341,7 +341,7 @@ hooks:
 | 모델 | 에이전트 수 | 에이전트 목록 | 용도 |
 |---|---|---|---|
 | `opus` | 6명 | product-planner, dev-planner, ios-developer, server-developer, infra-developer, security-auditor | 창의적 사고, 정확한 코드 생성, 깊은 분석 |
-| `sonnet` | 9명 | ui-designer, 리뷰어 6명, qa-engineer, tech-writer | 패턴화된 작업, 읽기 전용 분석, 문서 작성 — 비용 효율적 |
+| `sonnet` | 9명 | ui-designer, 리뷰어 6명, qa-engineer, tech-writer | 패턴화된 작업, 읽기 전용 분석, 문서 작성 - 비용 효율적 |
 
 #### 3.5.3. 권한 모드
 
@@ -445,45 +445,45 @@ Skills는 반복되는 워크플로우를 `/skill-name`으로 호출하는 자�
 새 기능의 기획부터 기술 설계, 작업 분해, 문서화까지 전체 플로우를 실행한다. "기능 기획", "PRD", "새 기능 플래닝"을 요청할 때 자동 호출된다.
 
 - 동적 주입: `git log --oneline -10`, `ls -la docs/`
-- 1단계: **product-planner** — PRD 작성(사용자 스토리, 수용 기준, 우선순위, 제외 범위)
-- 2단계: **dev-planner** — 기술 설계(API 인터페이스, DB 스키마, 작업 분해, 의존성 그래프)
-- 3단계: **ui-designer** — UI/UX 설계(화면 흐름, UI 명세)
-- 4단계: **tech-writer** — 문서화(MCP로 티켓 생성, 위키 등록, docs/ 저장)
-- 5단계: **메인 세션** — 최종 보고(기능 요약, 예상 작업량, 리스크, 다음 단계)
+- 1단계: **product-planner** - PRD 작성(사용자 스토리, 수용 기준, 우선순위, 제외 범위)
+- 2단계: **dev-planner** - 기술 설계(API 인터페이스, DB 스키마, 작업 분해, 의존성 그래프)
+- 3단계: **ui-designer** - UI/UX 설계(화면 흐름, UI 명세)
+- 4단계: **tech-writer** - 문서화(MCP로 티켓 생성, 위키 등록, docs/ 저장)
+- 5단계: **메인 세션** - 최종 보고(기능 요약, 예상 작업량, 리스크, 다음 단계)
 
 #### 5.3.2. /develop <작업>
 
 개발, 테스트, 코드 리뷰를 순차적으로 실행한다. "개발해줘", "구현해줘", "코딩해줘"를 요청할 때 자동 호출된다.
 
 - 동적 주입: `git branch --show-current`, `git status -s`
-- 1단계: **작업 분석** — 파일 유형별 개발자 에이전트 결정(*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer)
-- 2단계: **컨텍스트 수집** — 티켓 번호나 외부 문서 참조가 있으면 Jira 티켓, Confluence 설계 문서, API 스펙 등 관련 정보를 수집하여 이후 단계에 전달
-- 3단계: **\*-developer 에이전트** — 기능 브랜치에서 코드 작성, Conventional Commits
-- 4단계: **qa-engineer** — 유닛 테스트 작성 및 실행
-- 5단계: **리뷰어 2명** — 변경 파일 유형에 따른 병렬 리뷰
-- 6단계: **PR 생성** — 리뷰 결과에 🔴 항목이 없으면 GitHub에 PR을 생성한다. PR 제목과 본문을 자동 작성하며 리뷰 결과 요약을 포함한다
-- 7단계: **결과 보고** — 구현 요약, 테스트 결과, 리뷰 결과(심각도별)
+- 1단계: **작업 분석** - 파일 유형별 개발자 에이전트 결정(*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer)
+- 2단계: **컨텍스트 수집** - 티켓 번호나 외부 문서 참조가 있으면 Jira 티켓, Confluence 설계 문서, API 스펙 등 관련 정보를 수집하여 이후 단계에 전달
+- 3단계: **\*-developer 에이전트** - 기능 브랜치에서 코드 작성, Conventional Commits
+- 4단계: **qa-engineer** - 유닛 테스트 작성 및 실행
+- 5단계: **리뷰어 2명** - 변경 파일 유형에 따른 병렬 리뷰
+- 6단계: **PR 생성** - 리뷰 결과에 🔴 항목이 없으면 GitHub에 PR을 생성한다. PR 제목과 본문을 자동 작성하며 리뷰 결과 요약을 포함한다
+- 7단계: **결과 보고** - 구현 요약, 테스트 결과, 리뷰 결과(심각도별)
 
 #### 5.3.3. /review-all [대상]
 
 현재 브랜치의 변경 사항에 대해 아키텍처, 품질, 보안 리뷰를 병렬로 실행한다. "리뷰해줘", "코드 리뷰", "PR 리뷰"를 요청할 때 자동 호출된다.
 
 - 동적 주입: `git diff --name-only main...HEAD`, `git diff --stat main...HEAD`
-- 1단계: **변경 파일 분류** — *.swift → iOS, *.kt → 서버, *.tf → 인프라
-- 2단계: **도메인별 리뷰어 2명** — 병렬 호출(아키텍처 + 품질)
-- 3단계: **security-auditor** — 전체 변경에 대한 보안 감사
-- 4단계: **종합 리포트** — 🔴 필수 수정 / 🟡 권장 / 🟢 참고 분류, 머지 go/no-go 판단
+- 1단계: **변경 파일 분류** - *.swift → iOS, *.kt → 서버, *.tf → 인프라
+- 2단계: **도메인별 리뷰어 2명** - 병렬 호출(아키텍처 + 품질)
+- 3단계: **security-auditor** - 전체 변경에 대한 보안 감사
+- 4단계: **종합 리포트** - 🔴 필수 수정 / 🟡 권장 / 🟢 참고 분류, 머지 go/no-go 판단
 
 #### 5.3.4. /release <버전>
 
 릴리즈 체크리스트를 실행한다. `disable-model-invocation: true`로 수동 호출만 가능하다.
 
 - 동적 주입: `git log --oneline main..HEAD`, `git tag --list --sort=-version:refname | head -5`
-- 1단계: **qa-engineer** — 전체 테스트 + 커버리지 확인
-- 2단계: **security-auditor** — 최종 보안 감사, 의존성 CVE 스캔
-- 3단계: **infra-developer** — 배포 스크립트, 환경 변수, 롤백 계획, DB 마이그레이션 확인
-- 4단계: **tech-writer** — CHANGELOG, 릴리즈 노트, API 문서 확인
-- 5단계: **Go/No-Go 판단** — 체크리스트 종합(테스트, 보안, 배포, 문서)
+- 1단계: **qa-engineer** - 전체 테스트 + 커버리지 확인
+- 2단계: **security-auditor** - 최종 보안 감사, 의존성 CVE 스캔
+- 3단계: **infra-developer** - 배포 스크립트, 환경 변수, 롤백 계획, DB 마이그레이션 확인
+- 4단계: **tech-writer** - CHANGELOG, 릴리즈 노트, API 문서 확인
+- 5단계: **Go/No-Go 판단** - 체크리스트 종합(테스트, 보안, 배포, 문서)
 
 #### 5.3.5. /standup
 
@@ -563,7 +563,7 @@ Claude Code 수명 주기의 특정 지점에서 자동 실행되는 핸들러�
 
 `~/.claude/settings.json`에 설정하며 모든 에이전트에 적용된다.
 
-#### 7.2.1. SessionStart — 프로젝트 상태 대시보드
+#### 7.2.1. SessionStart - 프로젝트 상태 대시보드
 
 세션 시작 시 현재 브랜치, 최근 커밋 5개, 파일 변경 상태를 자동 표시한다.
 
@@ -577,7 +577,7 @@ Claude Code 수명 주기의 특정 지점에서 자동 실행되는 핸들러�
 }]
 ```
 
-#### 7.2.2. PreToolUse — 코드 작성 전 검증
+#### 7.2.2. PreToolUse - 코드 작성 전 검증
 
 Swift/Kotlin 파일 수정 전 린트를 확인한다. error level 위반이 있으면 수정을 차단한다.
 
@@ -607,7 +607,7 @@ exit 0
 
 위험 명령어도 사전 차단한다. `rm -rf /`, `drop database`, `DROP TABLE` 등 파괴적 명령어를 Bash 매처로 감지한다.
 
-#### 7.2.3. PostToolUse — 코드 작성 후 자동 포맷팅
+#### 7.2.3. PostToolUse - 코드 작성 후 자동 포맷팅
 
 Write/Edit 도구 실행 후 파일 확장자에 따라 자동 포맷터를 실행한다.
 
@@ -629,7 +629,7 @@ Write/Edit 도구 실행 후 파일 확장자에 따라 자동 포맷터를 실�
 | `*.kt` | `ktlint --format` |
 | `*.tf` | `terraform fmt` |
 
-#### 7.2.4. SubagentStop / TaskCompleted — 완료 알림
+#### 7.2.4. SubagentStop / TaskCompleted - 완료 알림
 
 서브 에이전트 또는 팀 작업 완료 시 macOS 데스크톱 알림을 보낸다. `async: true`로 비동기 실행하여 메인 흐름을 차단하지 않는다.
 
@@ -687,7 +687,7 @@ exit 0
 
 | 항목 | 내용 |
 |---|---|
-| includeCoAuthoredBy | `false` — 커밋에 Co-Authored-By 트레일러를 포함하지 않는다 |
+| includeCoAuthoredBy | `false` - 커밋에 Co-Authored-By 트레일러를 포함하지 않는다 |
 | plugins | `swift-lsp`, `clangd-lsp`(LSP) |
 | language | 한국어 |
 | env | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` |
@@ -822,11 +822,11 @@ API 계약은 @docs/api-contract.md를 참조한다.
 /planning 소셜 로그인(Apple, Google, Kakao)
 ```
 
-1. **product-planner** — PRD 작성(사용자 스토리, 수용 기준, 우선순위)
-2. **dev-planner** — 기술 설계(API 인터페이스, DB 스키마, 작업 분해)
-3. **ui-designer** — UI/UX 설계(화면 흐름, 컴포넌트 명세)
-4. **tech-writer** — 티켓 생성 + 위키 작성(Jira/Confluence MCP 연동)
-5. **메인 세션(CTO)** — 기획 결과 종합, 사용자에게 보고
+1. **product-planner** - PRD 작성(사용자 스토리, 수용 기준, 우선순위)
+2. **dev-planner** - 기술 설계(API 인터페이스, DB 스키마, 작업 분해)
+3. **ui-designer** - UI/UX 설계(화면 흐름, 컴포넌트 명세)
+4. **tech-writer** - 티켓 생성 + 위키 작성(Jira/Confluence MCP 연동)
+5. **메인 세션(CTO)** - 기획 결과 종합, 사용자에게 보고
 
 #### Phase 2: 개발(`/develop`)
 
@@ -834,12 +834,12 @@ API 계약은 @docs/api-contract.md를 참조한다.
 /develop PROJ-123
 ```
 
-1. **메인 세션** — 작업 분석(어떤 개발자 에이전트를 사용할지 결정)
-2. **메인 세션** — 컨텍스트 수집(Jira 티켓, Confluence 설계 문서, API 스펙)
-3. **ios-developer + server-developer + infra-developer** — 병렬 개발(에이전트 팀 또는 worktree 격리)
-4. **qa-engineer** — 테스트 작성 및 실행
-5. **메인 세션** — PR 생성(리뷰 통과 시 자동)
-6. **메인 세션(CTO)** — 개발 결과 종합, 사용자에게 보고
+1. **메인 세션** - 작업 분석(어떤 개발자 에이전트를 사용할지 결정)
+2. **메인 세션** - 컨텍스트 수집(Jira 티켓, Confluence 설계 문서, API 스펙)
+3. **ios-developer + server-developer + infra-developer** - 병렬 개발(에이전트 팀 또는 worktree 격리)
+4. **qa-engineer** - 테스트 작성 및 실행
+5. **메인 세션** - PR 생성(리뷰 통과 시 자동)
+6. **메인 세션(CTO)** - 개발 결과 종합, 사용자에게 보고
 
 #### Phase 3: 리뷰(`/review-all`)
 
@@ -847,9 +847,9 @@ API 계약은 @docs/api-contract.md를 참조한다.
 /review-all
 ```
 
-1. **리뷰어 6명** — 아키텍처 + 품질 병렬 리뷰(각 개발자당 2명)
-2. **security-auditor** — 보안 감사
-3. **메인 세션(CTO)** — 최종 결과 종합, 머지 판단, 사용자에게 보고
+1. **리뷰어 6명** - 아키텍처 + 품질 병렬 리뷰(각 개발자당 2명)
+2. **security-auditor** - 보안 감사
+3. **메인 세션(CTO)** - 최종 결과 종합, 머지 판단, 사용자에게 보고
 
 ### 11.2. 코드 리뷰 플로우
 
@@ -879,11 +879,11 @@ API 계약은 @docs/api-contract.md를 참조한다.
 /release 1.0.0
 ```
 
-1. **qa-engineer** — 전체 테스트 스위트 실행, 커버리지 확인
-2. **security-auditor** — 최종 보안 감사, 의존성 취약점 스캔
-3. **infra-developer** — 배포 스크립트 확인, 롤백 계획 검증
-4. **tech-writer** — CHANGELOG 작성, 릴리즈 노트 생성
-5. **메인 세션** — 체크리스트 종합, go/no-go 판단 보고
+1. **qa-engineer** - 전체 테스트 스위트 실행, 커버리지 확인
+2. **security-auditor** - 최종 보안 감사, 의존성 취약점 스캔
+3. **infra-developer** - 배포 스크립트 확인, 롤백 계획 검증
+4. **tech-writer** - CHANGELOG 작성, 릴리즈 노트 생성
+5. **메인 세션** - 체크리스트 종합, go/no-go 판단 보고
 
 ### 11.4. 일일 스탠드업
 
@@ -897,20 +897,20 @@ API 계약은 @docs/api-contract.md를 참조한다.
 
 ### 12.1. 모델 배분 전략
 
-- **Opus**(비쌈): 기획, 개발, 보안 감사 — 정확성과 창의성이 중요한 작업에만
-- **Sonnet**(저렴): 리뷰, QA, 문서 작성 — 패턴화된 작업은 Sonnet으로 충분
+- **Opus**(비쌈): 기획, 개발, 보안 감사 - 정확성과 창의성이 중요한 작업에만
+- **Sonnet**(저렴): 리뷰, QA, 문서 작성 - 패턴화된 작업은 Sonnet으로 충분
 
 ### 12.2. 컨텍스트 절약
 
 - `~/.claude/rules/`의 `paths` 매칭으로 필요한 규칙만 로드
-- 리뷰어는 `permissionMode: plan`으로 읽기 전용 — 도구 호출 최소화
-- `context: fork` skill로 격리 실행 — 메인 컨텍스트 오염 방지
-- 서브 에이전트 결과는 요약되어 반환 — 상세 결과가 메인 컨텍스트를 소비하지 않음
+- 리뷰어는 `permissionMode: plan`으로 읽기 전용 - 도구 호출 최소화
+- `context: fork` skill로 격리 실행 - 메인 컨텍스트 오염 방지
+- 서브 에이전트 결과는 요약되어 반환 - 상세 결과가 메인 컨텍스트를 소비하지 않음
 
 ### 12.3. 에이전트 팀 vs 서브 에이전트 비용
 
-- 에이전트 팀은 **독립 인스턴스**라서 비용이 높다 — 대규모 병렬 작업에만 사용
-- 단일 리뷰, 분석 등은 **서브 에이전트**로 충분 — 비용 효율적
+- 에이전트 팀은 **독립 인스턴스**라서 비용이 높다 - 대규모 병렬 작업에만 사용
+- 단일 리뷰, 분석 등은 **서브 에이전트**로 충분 - 비용 효율적
 
 ## 13. 사용 가이드
 
@@ -969,13 +969,13 @@ claude
 Claude Code가 `description`을 기반으로 적합한 에이전트를 자동 선택한다. 자연어로 요청하면 된다.
 
 ```bash
-# 자동 호출 — Claude가 적절한 에이전트를 판단
+# 자동 호출 - Claude가 적절한 에이전트를 판단
 "소셜 로그인 기능을 기획해줘"           → product-planner 자동 호출
 "로그인 API를 구현해줘"                 → server-developer 자동 호출
 "현재 코드를 리뷰해줘"                  → review-all 스킬 → 리뷰어 병렬 호출
 "iOS 앱에서 로그인 화면을 만들어줘"     → ios-developer 자동 호출
 
-# 명시적 호출 — 에이전트를 직접 지정
+# 명시적 호출 - 에이전트를 직접 지정
 "product-planner 에이전트로 소셜 로그인 PRD를 작성해줘"
 "security-auditor로 현재 코드를 감사해줘"
 ```

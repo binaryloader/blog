@@ -52,7 +52,7 @@ Parses a `.scap` file and returns structured JSON. It extracts all note position
 
 ## 2. write-scapple
 
-Takes structured note data and creates a `.scap` file. You can specify coordinates, text, and styles for each note, with support for both bidirectional connections and unidirectional arrows. Bidirectional connections are automatically synchronized — connecting A to B automatically adds the reverse connection from B to A.
+Takes structured note data and creates a `.scap` file. You can specify coordinates, text, and styles for each note, with support for both bidirectional connections and unidirectional arrows. Bidirectional connections are automatically synchronized - connecting A to B automatically adds the reverse connection from B to A.
 
 ## 3. text-to-scapple
 
@@ -72,9 +72,9 @@ The entire pipeline is divided into three stages.
 Text/JSON → Parser/Builder → XML(.scap) → Renderer → PNG
 ```
 
-- **Parser** — Parses XML into a `ScappleDocument` typed object
-- **Builder** — Serializes a `ScappleDocument` object into an XML string
-- **Renderer** — Converts a `ScappleDocument` to SVG, then generates PNG
+- **Parser** - Parses XML into a `ScappleDocument` typed object
+- **Builder** - Serializes a `ScappleDocument` object into an XML string
+- **Renderer** - Converts a `ScappleDocument` to SVG, then generates PNG
 
 The project file structure is as follows.
 
@@ -107,7 +107,7 @@ src/
 
 ## 2. XML Parsing and Color Handling
 
-Scapple's XML format has a few unique characteristics. First, it represents colors as RGB floats in the 0–1 range. A value like `"0.5 0.25 0.75"` differs from the usual hex colors, so a conversion layer is needed.
+Scapple's XML format has a few unique characteristics. First, it represents colors as RGB floats in the 0-1 range. A value like `"0.5 0.25 0.75"` differs from the usual hex colors, so a conversion layer is needed.
 
 ```typescript
 export function rgbToHex(color: RGBColor): string {
@@ -230,7 +230,7 @@ function buildCloudPath(x: number, y: number, w: number, h: number): string {
 }
 ```
 
-The note's width and height are divided by `bumpRadius * 2` to calculate the number of bumps, so larger notes get more bumps while smaller ones are guaranteed a minimum of 2. The four sides — top, right, bottom, left — are traversed in order, appending curves to form a single closed path.
+The note's width and height are divided by `bumpRadius * 2` to calculate the number of bumps, so larger notes get more bumps while smaller ones are guaranteed a minimum of 2. The four sides - top, right, bottom, left - are traversed in order, appending curves to form a single closed path.
 
 The generated SVG is converted to PNG using the sharp library. By setting the `density` option to `72 * scale`, high-resolution images for Retina displays can be generated.
 

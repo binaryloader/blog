@@ -95,7 +95,6 @@ Claude Code メインセッション（CTO / オーケストレーター）
 ~/.claude/
 ├── CLAUDE.md                       # グローバルルール（CLAUDE.md/MEMORY.mdフォーマット、rules/参照）
 ├── settings.json                   # グローバル権限、プラグイン、環境変数、hooks
-├── .mcp.json                       # MCPサーバー設定（9個）
 │
 ├── rules/                          # グローバルルール（10個）
 │   ├── markdown.md                 # Markdownヘディング/ブレット/改行ルール（常にロード）
@@ -146,7 +145,6 @@ Claude Code メインセッション（CTO / オーケストレーター）
 ```
 my-project/
 ├── CLAUDE.md                       # プロジェクトルートルール（技術スタック、ビルド、@import）
-├── .mcp.json                       # MCPサーバー設定（プロジェクト別）
 │
 ├── .claude/
 │   ├── settings.json               # プロジェクト権限、環境変数（チーム共有）
@@ -174,7 +172,7 @@ my-project/
 
 ### 3.1. 企画チーム
 
-**product-planner** — プロダクト企画、ユーザーストーリー、PRD作成。WebSearchで市場調査まで行う。
+**product-planner**：プロダクト企画、ユーザーストーリー、PRD作成。WebSearchで市場調査まで行う。
 
 - モデル: opus / 権限: plan
 - ツール: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -182,14 +180,14 @@ my-project/
 - 役割: ユーザーストーリー定義、MoSCoW/RICE優先度、MVP範囲定義
 - 出力: PRDドキュメント（背景、目標、受け入れ基準、除外範囲）
 
-**ui-designer** — UI/UX設計、画面フロー定義、デザインシステム管理。Figma内蔵連携を使用する。
+**ui-designer**：UI/UX設計、画面フロー定義、デザインシステム管理。Figma内蔵連携を使用する。
 
 - モデル: sonnet / 権限: plan
 - ツール: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
 - 役割: 画面フロー、ワイヤーフレーム仕様、デザインシステム定義
 - 原則: モバイルファースト、HIG準拠、VoiceOver/Dynamic Type対応
 
-**tech-writer** — チケット、Wiki、APIドキュメント、README作成。MCPで外部ツールに直接書き込む。
+**tech-writer**：チケット、Wiki、APIドキュメント、README作成。MCPで外部ツールに直接書き込む。
 
 - モデル: sonnet / 権限: acceptEdits
 - ツール: Read, Write, Edit, Glob, Grep, WebFetch
@@ -199,7 +197,7 @@ my-project/
 
 ### 3.2. 開発チーム
 
-**dev-planner** — PRDベースの技術設計（TDD）、タスク分解、APIインターフェース設計。コードベースを読み込んで分析する。
+**dev-planner**：PRDベースの技術設計（TDD）、タスク分解、APIインターフェース設計。コードベースを読み込んで分析する。
 
 - モデル: opus / 権限: plan
 - ツール: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -210,36 +208,36 @@ my-project/
 
 すべての開発者エージェントは`isolation: worktree`で隔離されたGit worktreeで作業し、互いに衝突なく並列開発が可能である。
 
-**ios-developer** — Swift/SwiftUI iOSアプリ開発。隔離されたworktreeで作業する。
+**ios-developer**：Swift/SwiftUI iOSアプリ開発。隔離されたworktreeで作業する。
 
 - モデル: opus / 権限: default / 隔離: worktree
 - ツール: Read, Write, Edit, Glob, Grep, Bash, LSP
 - メモリ: project
 - MCP: github, context7, jira, confluence
 - スキル: develop
-- hooks: PostToolUse — Write/Edit時に`swift-format` + `swiftlint --fix`を自動実行
+- hooks: PostToolUse：Write/Edit時に`swift-format` + `swiftlint --fix`を自動実行
 - スタック: Swift 6, SwiftUI, TCA, SPM, SwiftData, async/await
 - ブランチ: `feature/ios-*`
 
-**server-developer** — Spring Boot/Kotlinサーバー開発。API実装、DB設計。
+**server-developer**：Spring Boot/Kotlinサーバー開発。API実装、DB設計。
 
 - モデル: opus / 権限: default / 隔離: worktree
 - ツール: Read, Write, Edit, Glob, Grep, Bash, LSP
 - メモリ: project
 - MCP: github, postgres, context7, jira, confluence
 - スキル: develop
-- hooks: PostToolUse — Write/Edit時に`ktlint --format`を自動実行
+- hooks: PostToolUse：Write/Edit時に`ktlint --format`を自動実行
 - スタック: Spring Boot 3, Kotlin, PostgreSQL, Redis, Flyway
 - ブランチ: `feature/server-*`
 
-**infra-developer** — AWSインフラ構築、Terraform IaC、CI/CDパイプライン。
+**infra-developer**：AWSインフラ構築、Terraform IaC、CI/CDパイプライン。
 
 - モデル: opus / 権限: default / 隔離: worktree
 - ツール: Read, Write, Edit, Glob, Grep, Bash
 - メモリ: project
 - MCP: github, context7, jira, confluence
 - スキル: develop
-- hooks: PostToolUse — Write/Edit時に`terraform fmt`を自動実行
+- hooks: PostToolUse：Write/Edit時に`terraform fmt`を自動実行
 - スタック: AWS(ECS, RDS, S3, CloudFront, ALB), Terraform, GitHub Actions, Docker
 - ブランチ: `feature/infra-*`
 
@@ -270,7 +268,7 @@ my-project/
 
 ### 3.4. QA/セキュリティチーム
 
-**qa-engineer** — ユニット/統合テスト作成、テストシナリオ設計、エッジケース探索
+**qa-engineer**：ユニット/統合テスト作成、テストシナリオ設計、エッジケース探索
 
 - モデル: sonnet / 権限: default
 - ツール: Read, Write, Edit, Glob, Grep, Bash
@@ -279,7 +277,7 @@ my-project/
 - サーバー: JUnit 5, MockK, Testcontainers
 - 原則: Mockより実際の実装を優先、境界値/null/例外は必須
 
-**security-auditor** — OWASP Top 10、認証/認可、機密情報漏洩、依存関係の脆弱性監査
+**security-auditor**：OWASP Top 10、認証/認可、機密情報漏洩、依存関係の脆弱性監査
 
 - モデル: opus / 権限: plan
 - ツール: Read, Glob, Grep, Bash
@@ -347,7 +345,7 @@ hooks:
 | モデル | エージェント数 | エージェント一覧 | 用途 |
 |---|---|---|---|
 | `opus` | 6名 | product-planner, dev-planner, ios-developer, server-developer, infra-developer, security-auditor | 創造的思考、正確なコード生成、深い分析 |
-| `sonnet` | 9名 | ui-designer, レビュアー6名, qa-engineer, tech-writer | パターン化された作業、読み取り専用分析、ドキュメント作成 — コスト効率的 |
+| `sonnet` | 9名 | ui-designer, レビュアー6名, qa-engineer, tech-writer | パターン化された作業、読み取り専用分析、ドキュメント作成（コスト効率的） |
 
 #### 3.5.3. 権限モード
 
@@ -451,45 +449,45 @@ Skillsは繰り返しのワークフローを`/skill-name`で呼び出す自動�
 新機能の企画から技術設計、タスク分解、ドキュメント化まで全フローを実行する。「機能企画」「PRD」「新機能プランニング」をリクエストした時に自動呼び出しされる。
 
 - 動的注入: `git log --oneline -10`, `ls -la docs/`
-- ステップ1: **product-planner** — PRD作成（ユーザーストーリー、受け入れ基準、優先度、除外範囲）
-- ステップ2: **dev-planner** — 技術設計（APIインターフェース、DBスキーマ、タスク分解、依存関係グラフ）
-- ステップ3: **ui-designer** — UI/UX設計（画面フロー、UI仕様）
-- ステップ4: **tech-writer** — ドキュメント化（MCPでチケット作成、Wiki登録、docs/に保存）
-- ステップ5: **メインセッション** — 最終報告（機能概要、予想作業量、リスク、次のステップ）
+- ステップ1: **product-planner**：PRD作成（ユーザーストーリー、受け入れ基準、優先度、除外範囲）
+- ステップ2: **dev-planner**：技術設計（APIインターフェース、DBスキーマ、タスク分解、依存関係グラフ）
+- ステップ3: **ui-designer**：UI/UX設計（画面フロー、UI仕様）
+- ステップ4: **tech-writer**：ドキュメント化（MCPでチケット作成、Wiki登録、docs/に保存）
+- ステップ5: **メインセッション**：最終報告（機能概要、予想作業量、リスク、次のステップ）
 
 #### 5.3.2. /develop <タスク>
 
 開発、テスト、コードレビューを順次実行する。「開発して」「実装して」「コーディングして」をリクエストした時に自動呼び出しされる。
 
 - 動的注入: `git branch --show-current`, `git status -s`
-- ステップ1: **タスク分析** — ファイルタイプ別に開発者エージェントを決定（*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer）
-- ステップ2: **コンテキスト収集** — チケット番号や外部ドキュメント参照がある場合、Jiraチケット、Confluence設計ドキュメント、APIスペック等の関連情報を収集し、以降のステップに渡す
-- ステップ3: **\*-developerエージェント** — フィーチャーブランチでコード作成、Conventional Commits
-- ステップ4: **qa-engineer** — ユニットテスト作成と実行
-- ステップ5: **レビュアー2名** — 変更ファイルタイプに応じた並列レビュー
-- ステップ6: **PR作成** — レビュー結果に🔴項目がなければ、GitHubにPRを作成する。PRタイトルと本文を自動生成し、レビュー結果のサマリーを含める
-- ステップ7: **結果報告** — 実装概要、テスト結果、レビュー結果（深刻度別）
+- ステップ1: **タスク分析**：ファイルタイプ別に開発者エージェントを決定（*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer）
+- ステップ2: **コンテキスト収集**：チケット番号や外部ドキュメント参照がある場合、Jiraチケット、Confluence設計ドキュメント、APIスペック等の関連情報を収集し、以降のステップに渡す
+- ステップ3: **\*-developerエージェント**：フィーチャーブランチでコード作成、Conventional Commits
+- ステップ4: **qa-engineer**：ユニットテスト作成と実行
+- ステップ5: **レビュアー2名**：変更ファイルタイプに応じた並列レビュー
+- ステップ6: **PR作成**：レビュー結果に🔴項目がなければ、GitHubにPRを作成する。PRタイトルと本文を自動生成し、レビュー結果のサマリーを含める
+- ステップ7: **結果報告**：実装概要、テスト結果、レビュー結果（深刻度別）
 
 #### 5.3.3. /review-all [対象]
 
 現在のブランチの変更に対してアーキテクチャ、品質、セキュリティレビューを並列で実行する。「レビューして」「コードレビュー」「PRレビュー」をリクエストした時に自動呼び出しされる。
 
 - 動的注入: `git diff --name-only main...HEAD`, `git diff --stat main...HEAD`
-- ステップ1: **変更ファイル分類** — *.swift → iOS, *.kt → サーバー, *.tf → インフラ
-- ステップ2: **ドメイン別レビュアー2名** — 並列呼び出し（アーキテクチャ + 品質）
-- ステップ3: **security-auditor** — 全変更に対するセキュリティ監査
-- ステップ4: **総合レポート** — 🔴 必須修正 / 🟡 推奨 / 🟢 参考に分類、マージgo/no-go判断
+- ステップ1: **変更ファイル分類**：*.swift → iOS, *.kt → サーバー, *.tf → インフラ
+- ステップ2: **ドメイン別レビュアー2名**：並列呼び出し（アーキテクチャ + 品質）
+- ステップ3: **security-auditor**：全変更に対するセキュリティ監査
+- ステップ4: **総合レポート**：🔴 必須修正 / 🟡 推奨 / 🟢 参考に分類、マージgo/no-go判断
 
 #### 5.3.4. /release <バージョン>
 
 リリースチェックリストを実行する。`disable-model-invocation: true`で手動呼び出しのみ可能である。
 
 - 動的注入: `git log --oneline main..HEAD`, `git tag --list --sort=-version:refname | head -5`
-- ステップ1: **qa-engineer** — 全テスト + カバレッジ確認
-- ステップ2: **security-auditor** — 最終セキュリティ監査、依存関係CVEスキャン
-- ステップ3: **infra-developer** — デプロイスクリプト、環境変数、ロールバック計画、DBマイグレーション確認
-- ステップ4: **tech-writer** — CHANGELOG、リリースノート、APIドキュメント確認
-- ステップ5: **Go/No-Go判断** — チェックリスト総合（テスト、セキュリティ、デプロイ、ドキュメント）
+- ステップ1: **qa-engineer**：全テスト + カバレッジ確認
+- ステップ2: **security-auditor**：最終セキュリティ監査、依存関係CVEスキャン
+- ステップ3: **infra-developer**：デプロイスクリプト、環境変数、ロールバック計画、DBマイグレーション確認
+- ステップ4: **tech-writer**：CHANGELOG、リリースノート、APIドキュメント確認
+- ステップ5: **Go/No-Go判断**：チェックリスト総合（テスト、セキュリティ、デプロイ、ドキュメント）
 
 #### 5.3.5. /standup
 
@@ -569,7 +567,7 @@ Claude Codeのライフサイクルの特定ポイントで自動実行される
 
 `~/.claude/settings.json`に設定し、すべてのエージェントに適用される。
 
-#### 7.2.1. SessionStart — プロジェクトステータスダッシュボード
+#### 7.2.1. SessionStart：プロジェクトステータスダッシュボード
 
 セッション開始時に現在のブランチ、直近5件のコミット、ファイル変更状態を自動表示する。
 
@@ -583,7 +581,7 @@ Claude Codeのライフサイクルの特定ポイントで自動実行される
 }]
 ```
 
-#### 7.2.2. PreToolUse — コード作成前の検証
+#### 7.2.2. PreToolUse：コード作成前の検証
 
 Swift/Kotlinファイル修正前にリントを確認する。error levelの違反がある場合は修正をブロックする。
 
@@ -613,7 +611,7 @@ exit 0
 
 危険なコマンドも事前にブロックする。`rm -rf /`、`drop database`、`DROP TABLE`など破壊的コマンドをBashマッチャーで検出する。
 
-#### 7.2.3. PostToolUse — コード作成後の自動フォーマット
+#### 7.2.3. PostToolUse：コード作成後の自動フォーマット
 
 Write/Editツール実行後、ファイル拡張子に応じて自動フォーマッターを実行する。
 
@@ -635,7 +633,7 @@ Write/Editツール実行後、ファイル拡張子に応じて自動フォー�
 | `*.kt` | `ktlint --format` |
 | `*.tf` | `terraform fmt` |
 
-#### 7.2.4. SubagentStop / TaskCompleted — 完了通知
+#### 7.2.4. SubagentStop / TaskCompleted：完了通知
 
 サブエージェントまたはチームタスク完了時にmacOSデスクトップ通知を送信する。`async: true`で非同期実行し、メインフローをブロックしない。
 
@@ -693,7 +691,7 @@ exit 0
 
 | 項目 | 内容 |
 |---|---|
-| includeCoAuthoredBy | `false` — コミットにCo-Authored-Byトレーラーを含めない |
+| includeCoAuthoredBy | `false`（コミットにCo-Authored-Byトレーラーを含めない） |
 | plugins | `swift-lsp`, `clangd-lsp`（LSP） |
 | language | 韓国語 |
 | env | `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` |
@@ -720,9 +718,18 @@ exit 0
 
 ## 9. MCPサーバー（外部連携）
 
-### 9.1. グローバル設定
+### 9.1. 設定方法
 
-MCPサーバー設定はグローバル（`~/.claude/.mcp.json`）で管理する。プロジェクト別に追加サーバーが必要な場合はプロジェクトルートに`.mcp.json`を作成する。
+MCPサーバーは`claude mcp add` CLIコマンドで登録する。`.mcp.json`に直接書くとロードされない場合があるため、必ずCLIを使用する。設定は`~/.claude.json`の`mcpServers`セクションに保存される。
+
+```bash
+# グローバル登録（-s user → ~/.claude.json）
+claude mcp add github -s user -- gh mcp
+claude mcp add context7 -s user -t http https://mcp.context7.com/mcp
+
+# プロジェクト別登録（-s project）
+claude mcp add sentry -s project -- npx -y @sentry/mcp-server
+```
 
 ### 9.2. サーバー一覧（9個）
 
@@ -737,7 +744,7 @@ MCPサーバー設定はグローバル（`~/.claude/.mcp.json`）で管理す�
 | PDF Reader | stdio | PDFドキュメントの読み取り、検索 | （グローバルアクセス） | なし |
 | Scapple | stdio | マインドマップ、アイデアの視覚化 | （グローバルアクセス） | なし |
 
-一部のMCPサーバーはグローバルの`.mcp.json`ではなく、エージェントのfrontmatterで個別に設定する。例えばpostgresはserver-developerエージェントの`mcpServers`フィールドで参照する。
+一部のMCPサーバーはグローバルではなく、エージェントのfrontmatterで個別に設定する。例えばpostgresはserver-developerエージェントの`mcpServers`フィールドで参照する。
 
 ### 9.3. エージェント別MCPアクセス
 
@@ -754,11 +761,14 @@ MCPサーバー設定はグローバル（`~/.claude/.mcp.json`）で管理す�
 
 ### 9.4. シークレット管理
 
-APIキーは`.mcp.json`に直接入れない。
+APIキーは`claude mcp add`コマンドの`-e`オプションで渡す。
 
-- `.mcp.json`では`$ENV_VAR`形式で環境変数を参照
-- 実際の値はプロジェクトの`.claude/settings.local.json`の`env`セクションに保存
-- `settings.local.json`は`.gitignore`に追加してコミットしない
+```bash
+claude mcp add jira -s user -e JIRA_API_TOKEN=xxx -- uvx mcp-atlassian --jira-url https://...
+```
+
+- `-e KEY=VALUE`形式で環境変数を設定すると`~/.claude.json`の該当サーバーの`env`セクションに保存される
+- プロジェクト別シークレットは`.claude/settings.local.json`の`env`セクションに保存して`.gitignore`に追加する
 
 ## 10. CLAUDE.md体系
 
@@ -816,11 +826,11 @@ API契約は@docs/api-contract.mdを参照する。
 /planning ソーシャルログイン（Apple、Google、Kakao）
 ```
 
-1. **product-planner** — PRD作成（ユーザーストーリー、受入基準、優先順位）
-2. **dev-planner** — 技術設計（APIインターフェース、DBスキーマ、タスク分解）
-3. **ui-designer** — UI/UX設計（画面フロー、コンポーネント仕様）
-4. **tech-writer** — チケット作成 + Wiki作成（Jira/Confluence MCP連携）
-5. **メインセッション（CTO）** — 企画結果を統合、ユーザーに報告
+1. **product-planner**：PRD作成（ユーザーストーリー、受入基準、優先順位）
+2. **dev-planner**：技術設計（APIインターフェース、DBスキーマ、タスク分解）
+3. **ui-designer**：UI/UX設計（画面フロー、コンポーネント仕様）
+4. **tech-writer**：チケット作成 + Wiki作成（Jira/Confluence MCP連携）
+5. **メインセッション（CTO）**：企画結果を統合、ユーザーに報告
 
 #### Phase 2: 開発（`/develop`）
 
@@ -828,12 +838,12 @@ API契約は@docs/api-contract.mdを参照する。
 /develop PROJ-123
 ```
 
-1. **メインセッション** — タスク分析（どの開発者エージェントを使用するか決定）
-2. **メインセッション** — コンテキスト収集（Jiraチケット、Confluence設計ドキュメント、APIスペック）
-3. **ios-developer + server-developer + infra-developer** — 並行開発（エージェントチームまたはworktree分離）
-4. **qa-engineer** — テスト作成および実行
-5. **メインセッション** — PR作成（レビュー通過時自動）
-6. **メインセッション（CTO）** — 開発結果を統合、ユーザーに報告
+1. **メインセッション**：タスク分析（どの開発者エージェントを使用するか決定）
+2. **メインセッション**：コンテキスト収集（Jiraチケット、Confluence設計ドキュメント、APIスペック）
+3. **ios-developer + server-developer + infra-developer**：並行開発（エージェントチームまたはworktree分離）
+4. **qa-engineer**：テスト作成および実行
+5. **メインセッション**：PR作成（レビュー通過時自動）
+6. **メインセッション（CTO）**：開発結果を統合、ユーザーに報告
 
 #### Phase 3: レビュー（`/review-all`）
 
@@ -841,9 +851,9 @@ API契約は@docs/api-contract.mdを参照する。
 /review-all
 ```
 
-1. **レビュアー6名** — アーキテクチャ + 品質の並行レビュー（各開発者につき2名）
-2. **security-auditor** — セキュリティ監査
-3. **メインセッション（CTO）** — 最終結果統合、マージ判断、ユーザーに報告
+1. **レビュアー6名**：アーキテクチャ + 品質の並行レビュー（各開発者につき2名）
+2. **security-auditor**：セキュリティ監査
+3. **メインセッション（CTO）**：最終結果統合、マージ判断、ユーザーに報告
 
 ### 11.2. コードレビューフロー
 
@@ -873,11 +883,11 @@ API契約は@docs/api-contract.mdを参照する。
 /release 1.0.0
 ```
 
-1. **qa-engineer** — 全テストスイート実行、カバレッジ確認
-2. **security-auditor** — 最終セキュリティ監査、依存関係の脆弱性スキャン
-3. **infra-developer** — デプロイスクリプト確認、ロールバック計画検証
-4. **tech-writer** — CHANGELOG作成、リリースノート生成
-5. **メインセッション** — チェックリスト総合、go/no-go判断報告
+1. **qa-engineer**：全テストスイート実行、カバレッジ確認
+2. **security-auditor**：最終セキュリティ監査、依存関係の脆弱性スキャン
+3. **infra-developer**：デプロイスクリプト確認、ロールバック計画検証
+4. **tech-writer**：CHANGELOG作成、リリースノート生成
+5. **メインセッション**：チェックリスト総合、go/no-go判断報告
 
 ### 11.4. デイリースタンドアップ
 
@@ -891,20 +901,20 @@ API契約は@docs/api-contract.mdを参照する。
 
 ### 12.1. モデル配分戦略
 
-- **Opus**（高価）: 企画、開発、セキュリティ監査 — 正確性と創造性が重要なタスクのみ
-- **Sonnet**（安価）: レビュー、QA、ドキュメント作成 — パターン化されたタスクはSonnetで十分
+- **Opus**（高価）：企画、開発、セキュリティ監査（正確性と創造性が重要なタスクのみ）
+- **Sonnet**（安価）：レビュー、QA、ドキュメント作成（パターン化されたタスクはSonnetで十分）
 
 ### 12.2. コンテキスト節約
 
 - `~/.claude/rules/`の`paths`マッチングで必要なルールのみロード
-- レビュアーは`permissionMode: plan`で読み取り専用 — ツール呼び出しを最小化
-- `context: fork` skillで隔離実行 — メインコンテキストの汚染を防止
-- サブエージェントの結果は要約されて返却 — 詳細結果がメインコンテキストを消費しない
+- レビュアーは`permissionMode: plan`で読み取り専用（ツール呼び出しを最小化）
+- `context: fork` skillで隔離実行（メインコンテキストの汚染を防止）
+- サブエージェントの結果は要約されて返却（詳細結果がメインコンテキストを消費しない）
 
 ### 12.3. エージェントチーム vs サブエージェントのコスト
 
-- エージェントチームは**独立インスタンス**なのでコストが高い — 大規模な並列作業にのみ使用
-- 単一レビュー、分析等は**サブエージェント**で十分 — コスト効率的
+- エージェントチームは**独立インスタンス**なのでコストが高い（大規模な並列作業にのみ使用）
+- 単一レビュー、分析等は**サブエージェント**で十分（コスト効率的）
 
 ## 13. 使い方ガイド
 
@@ -963,13 +973,13 @@ claude
 Claude Codeが`description`をもとに適切なエージェントを自動選択する。自然言語でリクエストすれば良い。
 
 ```bash
-# 自動呼び出し — Claudeが適切なエージェントを判断
+# 自動呼び出し（Claudeが適切なエージェントを判断）
 "ソーシャルログイン機能を企画して"           → product-planner 自動呼び出し
 "ログインAPIを実装して"                     → server-developer 自動呼び出し
 "現在のコードをレビューして"                 → review-all スキル → レビュアー並列呼び出し
 "iOSアプリでログイン画面を作って"            → ios-developer 自動呼び出し
 
-# 明示的呼び出し — エージェントを直接指定
+# 明示的呼び出し（エージェントを直接指定）
 "product-planner エージェントでソーシャルログインのPRDを作成して"
 "security-auditorで現在のコードを監査して"
 ```
@@ -1060,20 +1070,20 @@ EOF
 
 ### 13.6. MCPサーバーの追加
 
-```json
-// .mcp.jsonに新しいサーバーを追加
-{
-  "mcpServers": {
-    "sentry": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@sentry/mcp-server"],
-      "env": {
-        "SENTRY_AUTH_TOKEN": "$SENTRY_AUTH_TOKEN"
-      }
-    }
-  }
-}
+`claude mcp add` CLIコマンドで登録する。`.mcp.json`に直接書くとロードされない場合がある。
+
+```bash
+# stdioサーバーを追加（グローバル）
+claude mcp add sentry -s user -e SENTRY_AUTH_TOKEN=xxx -- npx -y @sentry/mcp-server
+
+# HTTPサーバーを追加（グローバル）
+claude mcp add context7 -s user -t http https://mcp.context7.com/mcp
+
+# プロジェクトスコープで追加
+claude mcp add my-db -s project -- npx -y @my/db-mcp-server
+
+# 登録済みサーバーの確認
+claude mcp list
 ```
 
 エージェントのfrontmatterに`mcpServers`を明示すると、そのサーバーのみアクセス可能になる。

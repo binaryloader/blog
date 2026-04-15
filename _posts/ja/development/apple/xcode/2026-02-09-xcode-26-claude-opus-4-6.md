@@ -34,19 +34,19 @@ depth:
 
 # 概要
 
-Xcode 26.3ではAgentic Coding AssistantとしてClaude Codeをサポートしています。しかし、デフォルトで使用されるモデルが最新バージョンではない場合があります。この記事では、Xcode 26.3 Release CandidateでClaude Opus 4.6モデルを使用するための設定方法をまとめます。
+Xcode 26.3ではAgentic Coding AssistantとしてClaude Codeをサポートする。しかしデフォルトで使用されるモデルが最新バージョンではない場合がある。この記事ではXcode 26.3 Release CandidateでClaude Opus 4.6モデルを使用するための設定方法をまとめる。
 
 # 手順
 
 ## 1. Claude Codeバイナリのコピー
 
-XcodeのAgentic Coding Assistantは内部的にClaude Codeバイナリを使用しています。目的のバージョンのバイナリを以下のパスにコピーします。
+XcodeのAgentic Coding Assistantは内部的にClaude Codeバイナリを使用する。目的のバージョンのバイナリを以下のパスにコピーする。
 
 ```zsh
 cp $(which claude) ~/Library/Developer/Xcode/CodingAssistant/Agents/Versions/26.3/claude
 ```
 
-`claude`バイナリがインストールされていない場合は、まずClaude Code CLIをインストールしてください。
+`claude`バイナリがインストールされていない場合はまずClaude Code CLIをインストールする。
 
 ```zsh
 curl -fsSL https://claude.ai/install.sh | bash
@@ -54,7 +54,7 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 ## 2. settings.jsonの作成
 
-モデルをClaude Opus 4.6に変更するために`settings.json`ファイルを作成します。
+モデルをClaude Opus 4.6に変更するために`settings.json`ファイルを作成する。
 
 ```zsh
 cat <<'EOF' > ~/Library/Developer/Xcode/CodingAssistant/ClaudeAgentConfig/settings.json
@@ -66,11 +66,11 @@ EOF
 
 ## 3. 確認
 
-設定が完了したら、Xcodeを再起動してください。Agentic Coding Assistantを使用する際にClaude Opus 4.6モデルが適用されます。
+設定が完了したらXcodeを再起動する。Agentic Coding Assistantを使用する際にClaude Opus 4.6モデルが適用される。
 
 ### 3.1. ディレクトリ構造
 
-設定完了後のディレクトリ構造は以下の通りです。
+設定完了後のディレクトリ構造は以下の通りだ。
 
 ```
 ~/Library/Developer/Xcode/CodingAssistant/

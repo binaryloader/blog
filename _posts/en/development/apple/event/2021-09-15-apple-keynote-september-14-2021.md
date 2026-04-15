@@ -4,6 +4,7 @@ title: "[Apple] Keynote - September 14, 2021"
 ref: apple-keynote-september-14-2021
 excerpt: "A summary of the new devices and services announced at the Apple September 2021 keynote."
 lang: en
+permalink: /en/:categories/:title/
 last_modified_at: 2021-09-15T19:17+09:00
 published: true
 header:

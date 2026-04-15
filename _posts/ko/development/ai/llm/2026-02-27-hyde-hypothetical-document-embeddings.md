@@ -1,5 +1,5 @@
 ---
-title: "[LLM] HyDE — Hypothetical Document Embeddings"
+title: "[LLM] HyDE - Hypothetical Document Embeddings"
 ref: hyde-hypothetical-document-embeddings
 excerpt: "RAG에서 검색 품질을 높이기 위한 HyDE(Hypothetical Document Embeddings) 기법을 정리한다."
 date: 2026-02-27T18:00+09:00

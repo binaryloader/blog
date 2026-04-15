@@ -41,10 +41,10 @@ Core ML은 Apple의 온디바이스 머신러닝 프레임워크다. 학습된 �
 
 온디바이스 추론의 핵심 장점은 다음과 같다.
 
-- **프라이버시** — 데이터가 기기를 떠나지 않으므로 서버로 전송할 필요가 없다
-- **속도** — 네트워크 지연 없이 Neural Engine, GPU, CPU를 직접 활용한다
-- **오프라인 동작** — 인터넷 연결 없이도 추론이 가능하다
-- **비용 절감** — 서버 인프라 없이 모델을 실행할 수 있다
+- **프라이버시** - 데이터가 기기를 떠나지 않으므로 서버로 전송할 필요가 없다
+- **속도** - 네트워크 지연 없이 Neural Engine, GPU, CPU를 직접 활용한다
+- **오프라인 동작** - 인터넷 연결 없이도 추론이 가능하다
+- **비용 절감** - 서버 인프라 없이 모델을 실행할 수 있다
 
 Core ML은 하드웨어 가속을 자동으로 관리한다. Apple Neural Engine이 있는 기기에서는 Neural Engine을, 없으면 GPU나 CPU로 자동 전환한다. 개발자가 하드웨어별 최적화를 직접 처리할 필요가 없다.
 
@@ -52,11 +52,11 @@ Core ML은 하드웨어 가속을 자동으로 관리한다. Apple Neural Engine
 
 Apple은 Core ML 위에 도메인별 상위 프레임워크를 제공한다.
 
-- **Vision** — 이미지 분류, 객체 감지, 얼굴 인식, 텍스트 인식
-- **Natural Language** — 텍스트 분류, 감정 분석, 언어 감지, 토큰화
-- **Speech** — 음성 인식, 음성-텍스트 변환
-- **Sound Analysis** — 소리 분류, 환경음 인식
-- **Create ML** — Xcode 내에서 직접 모델을 학습할 수 있는 도구
+- **Vision** - 이미지 분류, 객체 감지, 얼굴 인식, 텍스트 인식
+- **Natural Language** - 텍스트 분류, 감정 분석, 언어 감지, 토큰화
+- **Speech** - 음성 인식, 음성-텍스트 변환
+- **Sound Analysis** - 소리 분류, 환경음 인식
+- **Create ML** - Xcode 내에서 직접 모델을 학습할 수 있는 도구
 
 이 프레임워크들은 내부적으로 Core ML을 사용하지만 더 높은 수준의 API를 제공한다. 예를 들어 Vision의 `VNClassifyImageRequest`를 사용하면 이미지 분류를 몇 줄의 코드로 구현할 수 있다.
 
@@ -136,12 +136,12 @@ mlmodel.save("MobileNetV2.mlpackage")
 
 변환 과정을 단계별로 살펴보면 다음과 같다.
 
-- `ModelWithSoftmax` — ImageNet 정규화(mean/std)를 적용하고 softmax로 raw logit을 0~1 범위의 확률로 변환한다
-- `model.eval()` — 모델을 추론 모드로 전환한다. Dropout이나 BatchNorm이 학습 모드로 동작하는 것을 방지한다
-- `torch.jit.trace` — 예제 입력을 모델에 통과시켜 연산 그래프를 기록한다. coremltools는 이 TorchScript 형식을 입력으로 받는다
-- `ct.ImageType` — 입력이 이미지임을 명시한다. `scale=1/255.0`으로 0~255 픽셀값을 0~1 범위로 정규화한다
-- `ct.ClassifierConfig` — 모델 출력을 클래스 레이블에 매핑한다. ImageNet 1000개 클래스명을 torchvision에서 가져온다
-- `minimum_deployment_target` — 최소 배포 대상을 지정한다. iOS 16 이상으로 설정하면 최신 최적화가 적용된다
+- `ModelWithSoftmax` - ImageNet 정규화(mean/std)를 적용하고 softmax로 raw logit을 0~1 범위의 확률로 변환한다
+- `model.eval()` - 모델을 추론 모드로 전환한다. Dropout이나 BatchNorm이 학습 모드로 동작하는 것을 방지한다
+- `torch.jit.trace` - 예제 입력을 모델에 통과시켜 연산 그래프를 기록한다. coremltools는 이 TorchScript 형식을 입력으로 받는다
+- `ct.ImageType` - 입력이 이미지임을 명시한다. `scale=1/255.0`으로 0~255 픽셀값을 0~1 범위로 정규화한다
+- `ct.ClassifierConfig` - 모델 출력을 클래스 레이블에 매핑한다. ImageNet 1000개 클래스명을 torchvision에서 가져온다
+- `minimum_deployment_target` - 최소 배포 대상을 지정한다. iOS 16 이상으로 설정하면 최신 최적화가 적용된다
 
 ### 3.3. 모델 메타데이터 설정
 
@@ -171,10 +171,10 @@ mlmodel.save("MobileNetV2.mlpackage")
 
 Xcode에서 모델 파일을 선택하면 다음 정보를 확인할 수 있다.
 
-- **General** — 모델 타입, 크기, 작성자, 설명
-- **Preview** — 이미지를 드래그하여 추론 결과를 미리 확인
-- **Predictions** — 입출력 사양(타입, 크기, 설명)
-- **Utilities** — 모델의 Neural Network 구조
+- **General** - 모델 타입, 크기, 작성자, 설명
+- **Preview** - 이미지를 드래그하여 추론 결과를 미리 확인
+- **Predictions** - 입출력 사양(타입, 크기, 설명)
+- **Utilities** - 모델의 Neural Network 구조
 
 ### 4.2. 자동 생성된 Swift 클래스
 
@@ -277,11 +277,11 @@ mlmodel_palettized.save("MobileNetV2_8bit.mlpackage")
 
 ## 6. 주의사항
 
-- **iOS 최소 버전** — `.mlpackage` 형식은 iOS 15 이상에서 지원된다. iOS 14 이하를 지원해야 하면 `.mlmodel` 형식을 사용한다
-- **모델 크기** — App Store는 앱 크기 제한이 있으므로 큰 모델은 On-Demand Resources나 Background Assets로 분리하는 것을 고려한다
-- **Neural Engine 지원** — A11 Bionic(iPhone 8/X) 이상에서 Neural Engine을 사용할 수 있다. 이전 기기에서는 GPU/CPU로 폴백된다
-- **동적 입력 크기** — `ct.RangeDim`으로 가변 크기 입력을 지원할 수 있지만 고정 크기 대비 성능이 떨어질 수 있다
-- **모델 업데이트** — iOS 17 이상에서는 `MLModelCollection`을 통해 앱 업데이트 없이 모델을 교체할 수 있다
+- **iOS 최소 버전** - `.mlpackage` 형식은 iOS 15 이상에서 지원된다. iOS 14 이하를 지원해야 하면 `.mlmodel` 형식을 사용한다
+- **모델 크기** - App Store는 앱 크기 제한이 있으므로 큰 모델은 On-Demand Resources나 Background Assets로 분리하는 것을 고려한다
+- **Neural Engine 지원** - A11 Bionic(iPhone 8/X) 이상에서 Neural Engine을 사용할 수 있다. 이전 기기에서는 GPU/CPU로 폴백된다
+- **동적 입력 크기** - `ct.RangeDim`으로 가변 크기 입력을 지원할 수 있지만 고정 크기 대비 성능이 떨어질 수 있다
+- **모델 업데이트** - iOS 17 이상에서는 `MLModelCollection`을 통해 앱 업데이트 없이 모델을 교체할 수 있다
 
 # 참고
 

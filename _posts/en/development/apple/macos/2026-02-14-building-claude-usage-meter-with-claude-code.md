@@ -1,7 +1,7 @@
 ---
 title: "[macOS] Building a Claude Code Monitor with Claude Code"
 ref: building-claude-usage-meter-with-claude-code
-excerpt: "Sharing the experience of building a macOS menu bar app that monitors Claude Code's own usage — using Claude Code itself."
+excerpt: "Sharing the experience of building a macOS menu bar app that monitors Claude Code's own usage - using Claude Code itself."
 date: 2026-02-14T23:00+09:00
 last_modified_at: 2026-02-14T23:00+09:00
 published: true
@@ -36,14 +36,14 @@ depth:
 
 # Overview
 
-Sharing the experience of building a macOS menu bar app that monitors Claude Code's own usage — using Claude Code itself.
+Sharing the experience of building a macOS menu bar app that monitors Claude Code's own usage - using Claude Code itself.
 
 # Background
 
 While using the Claude Code Max plan, I often wondered how many tokens I'd consumed in the current session or how many messages I'd sent. Checking the usage page in a browser every time was cumbersome.
 
 Claude Code stores daily usage data locally in `~/.claude/stats-cache.json`. The idea was simple: read this file and display the stats in the menu bar so they're always visible.
-And here's the twist — this app itself was built entirely with Claude Code. Claude Code building an app to monitor its own usage.
+And here's the twist - this app itself was built entirely with Claude Code. Claude Code building an app to monitor its own usage.
 
 # Data Sources
 
@@ -92,7 +92,7 @@ The structure of `stats-cache.json` looks like this:
 
 # Tech Stack
 
-The project uses only Swift Package Manager — no Xcode project file needed.
+The project uses only Swift Package Manager - no Xcode project file needed.
 
 - **SwiftUI** + **MenuBarExtra** (macOS 14+, `.window` style)
 - **@Observable** macro + **@MainActor**
@@ -190,7 +190,7 @@ ClaudeUsageMeter.app/
 Initially, I planned to show a progress bar visualizing daily usage against the plan limit. However, the usage percentages shown on the web (e.g., "current session 5%, weekly 10%") are computed server-side, and there's no public API to fetch them.
 Anthropic does offer a Usage & Cost API, but it requires an organization Admin API key (`sk-ant-admin...`) and tracks different metrics from the per-plan session/weekly limits.
 
-I ended up removing the progress bar and focusing on data that `stats-cache.json` reliably provides — messages, tokens, sessions, and per-model breakdowns.
+I ended up removing the progress bar and focusing on data that `stats-cache.json` reliably provides - messages, tokens, sessions, and per-model breakdowns.
 
 ## 2. macOS Icon Cache
 
@@ -203,7 +203,7 @@ killall Finder Dock
 
 # Result
 
-From planning to implementation, icon generation, and GitHub push — all completed in a single session. The final project structure:
+From planning to implementation, icon generation, and GitHub push - all completed in a single session. The final project structure:
 
 ```
 Sources/
@@ -232,7 +232,7 @@ Clicking the menu bar icon reveals account info, today's activity, a 7-day trend
 
 ![ClaudeUsageMeter popover]({{ img_path }}/popover.png){: .align-center style="max-width: min(400px, 100%);"}
 
-For the record, the only thing a human did in this project was say "build this." App development, GitHub repo creation, icon generation — Claude Code handled all of it. My sole contribution was sitting nearby and occasionally saying "that's not right."
+For the record, the only thing a human did in this project was say "build this." App development, GitHub repo creation, icon generation - Claude Code handled all of it. My sole contribution was sitting nearby and occasionally saying "that's not right."
 
 # References
 

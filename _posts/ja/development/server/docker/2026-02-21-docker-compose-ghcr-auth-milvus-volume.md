@@ -34,7 +34,7 @@ depth:
 
 Docker ComposeでMilvusスタックを実行する際に発生したGHCRプライベートイメージの認証エラーとRocksDB WALボリューム競合の解決方法をまとめる。
 
-# まとめ
+# 手順
 
 ## 1. GHCRプライベートイメージの認証
 

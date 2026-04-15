@@ -42,7 +42,7 @@ Kiro가 Claude 모델을 호출하는 경로를 Client Layer + 3-Tier Service La
 
 Kiro가 Claude 모델을 호출하는 경로는 `Kiro → Amazon Bedrock → Claude`로 추정된다. Bedrock 장애 시 Kiro 서비스가 중단된 사례와 Kiro에서 Bedrock 모델 ID를 사용하는 점이 이를 뒷받침한다.
 
-이 문서에서는 이 구조를 분석의 편의를 위해 `Client Layer` + `3-Tier Service Layer` (`App Provider` — `Managed AI Platform` — `Model Provider`)로 추정하여 분류한다. 3-Tier, App Provider, Managed AI Platform, Model Provider는 AWS 공식 용어가 아니라 필자가 분석 편의를 위해 정의한 분류 체계이다. 실제 내부 아키텍처는 다를 수 있다.
+이 문서에서는 이 구조를 분석의 편의를 위해 `Client Layer` + `3-Tier Service Layer` (`App Provider` - `Managed AI Platform` - `Model Provider`)로 추정하여 분류한다. 3-Tier, App Provider, Managed AI Platform, Model Provider는 AWS 공식 용어가 아니라 필자가 분석 편의를 위해 정의한 분류 체계이다. 실제 내부 아키텍처는 다를 수 있다.
 
 ![Kiro × Claude: 3-Tier AI 서비스 아키텍처](/assets/image/post/development/ai/agentic-coding-assistant/kiro/kiro-claude-3-tier-ai-architecture/kiro-3-tier-architecture.png)
 
@@ -62,7 +62,7 @@ Kiro CLI는 Amazon Q Developer CLI에서 리브랜딩되었다. 기존 `q`, `q c
 
 ## 3. 3-Tier Service Layer
 
-### 3.1. App Provider — Kiro(fka Amazon Q Developer)
+### 3.1. App Provider - Kiro(fka Amazon Q Developer)
 
 Amazon Q Developer와의 관계는 아래와 같다(AWS 공식 문서 기준).
 
@@ -76,26 +76,26 @@ Amazon Q Developer와의 관계는 아래와 같다(AWS 공식 문서 기준).
 - Hooks(이벤트 기반 자동화)
 - Steering(프로젝트별 규칙 마크다운)
 - MCP 연동
-- Powers(원클릭 확장 — Aurora, IAM Policy Autopilot 등)
+- Powers(원클릭 확장 - Aurora, IAM Policy Autopilot 등)
 
-### 3.2. Managed AI Platform — Amazon Bedrock
+### 3.2. Managed AI Platform - Amazon Bedrock
 
 Kiro와 Claude 모델 사이의 중간 레이어로 추론(inference), 스케일링, 보안, 모델 라우팅을 담당한다.
 
 Auto 모드는 Kiro의 기본 모델 선택이며 태스크 유형에 따라 최적 모델을 자동 라우팅한다. Bedrock 자체는 Amazon, Anthropic, Meta, Mistral 등 다수 모델을 호스팅하는 범용 플랫폼이지만 Kiro는 현재 Claude 모델만 사용한다.
 
-### 3.3. Model Provider — Claude Models(by Anthropic)
+### 3.3. Model Provider - Claude Models(by Anthropic)
 
 실제 LLM 추론을 수행하는 모델 제공자이다. Anthropic이 모델을 개발 및 제공하고 Bedrock을 통해 서빙한다.
 
 Kiro에서 지원하는 모델은 아래와 같다(2026-03, kiro.dev/docs 기준).
 
-- Claude Opus 4.6(Experimental) — 최상위 모델, Pro/Pro+/Power 전용
-- Claude Opus 4.5 — Pro/Pro+/Power 전용
-- Claude Sonnet 4.6 — Sonnet 4.5의 후속 모델
-- Claude Sonnet 4.5 — Auto 모드의 주력 모델
-- Claude Sonnet 4.0 — 안정적 범용 모델
-- Claude Haiku 4.5 — 가장 빠른 경량 모델
+- Claude Opus 4.6(Experimental) - 최상위 모델, Pro/Pro+/Power 전용
+- Claude Opus 4.5 - Pro/Pro+/Power 전용
+- Claude Sonnet 4.6 - Sonnet 4.5의 후속 모델
+- Claude Sonnet 4.5 - Auto 모드의 주력 모델
+- Claude Sonnet 4.0 - 안정적 범용 모델
+- Claude Haiku 4.5 - 가장 빠른 경량 모델
 
 Anthropic은 순수 Model Provider로만 참여하며 인프라(Bedrock)나 앱(Kiro)에는 관여하지 않는다.
 
@@ -105,7 +105,7 @@ Amazon은 App Provider(Kiro) + Managed AI Platform(Bedrock) 두 레이어를 모
 
 Anthropic은 Model Provider로만 참여하지만 Kiro/Bedrock 경유와 자사 직접 판매(Claude Code, claude.ai, API) 양쪽에서 수익이 발생한다.
 
-## 4. 같은 모델이지만 다른 성능 — App Provider 레이어의 영향
+## 4. 같은 모델이지만 다른 성능 - App Provider 레이어의 영향
 
 이 구조에서 주목할 점은 동일한 Claude 모델을 사용하더라도 App Provider 레이어에 따라 코딩 성능이 크게 달라진다는 것이다. 예를 들어 Claude Opus 4.6를 Kiro, Claude Code, Cursor에서 각각 사용하면 체감 품질이 다르다. 이는 모델 자체의 능력이 아니라 모델을 감싸는 에이전트 아키텍처가 다르기 때문이다.
 

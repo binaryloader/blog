@@ -57,7 +57,7 @@ Modifying a Sonoff SNZB-04 Zigbee door sensor by wiring a thin-film contact sens
 
 # Steps
 
-I came across a group buy for thin-film contact sensors on a Korean smart home community. The idea was simple — place a thin-film contact sensor under a chair cushion or a kitchen step mat, and use it to detect whether someone is sitting or standing. I immediately bought some and decided to wire them into Zigbee door sensors for home automation.
+I came across a group buy for thin-film contact sensors on a Korean smart home community. The idea was simple - place a thin-film contact sensor under a chair cushion or a kitchen step mat, and use it to detect whether someone is sitting or standing. I immediately bought some and decided to wire them into Zigbee door sensors for home automation.
 
 ## 1. How It Works
 
@@ -81,9 +81,9 @@ The thin-film contact sensors were inexpensive through the group buy, and the So
 
 ## 3. Disassembly
 
-Disassemble the Sonoff SNZB-04. The case is simple enough to open with just a fingernail — no screwdriver needed. Inside, you'll find a CR2032 battery and a small PCB.
+Disassemble the Sonoff SNZB-04. The case is simple enough to open with just a fingernail - no screwdriver needed. Inside, you'll find a CR2032 battery and a small PCB.
 
-Take the PCB out and look at it from the side — you'll see the reed switch. A reed switch is a component with two metal contacts sealed inside a glass tube that responds to external magnetic fields. By connecting wires to both terminals of this reed switch, you can control the circuit externally with a thin-film contact sensor.
+Take the PCB out and look at it from the side - you'll see the reed switch. A reed switch is a component with two metal contacts sealed inside a glass tube that responds to external magnetic fields. By connecting wires to both terminals of this reed switch, you can control the circuit externally with a thin-film contact sensor.
 
 {% include gallery id="gallery_disassembly" caption="Unboxing → Disassembly → Reed switch identification" %}
 
@@ -91,7 +91,7 @@ Take the PCB out and look at it from the side — you'll see the reed switch. A 
 
 ### 4.1. Case Modification
 
-First, drill a small hole in the side of the door sensor case for the wire to pass through. It only needs to be big enough for two thin wires. The plastic is thin, so it penetrates easily — keep the drill speed low and go slowly to avoid cracking.
+First, drill a small hole in the side of the door sensor case for the wire to pass through. It only needs to be big enough for two thin wires. The plastic is thin, so it penetrates easily - keep the drill speed low and go slowly to avoid cracking.
 
 ### 4.2. Wiring
 
@@ -118,6 +118,6 @@ Register the sensor in SmartThings through the eWeLink integration, and you can 
 
 # Afterthoughts
 
-The whole mod takes about 30 minutes. The Sonoff SNZB-04 is cheap and structurally simple, so there's no real risk in trying. You don't even need a soldering iron — just wrapping the wires tightly around the contacts works fine. Just be careful with the tiny reed switch contacts when wrapping the wires, and control your drill speed when making the hole to avoid cracking the plastic.
+The whole mod takes about 30 minutes. The Sonoff SNZB-04 is cheap and structurally simple, so there's no real risk in trying. You don't even need a soldering iron - just wrapping the wires tightly around the contacts works fine. Just be careful with the tiny reed switch contacts when wrapping the wires, and control your drill speed when making the hole to avoid cracking the plastic.
 
-After actually using it, the chair automation is especially convenient. Sit down and the monitor and lights turn on automatically; stand up and everything turns off. The kitchen works great too — step onto the mat and the lights come on instantly without reaching for a switch. These small automations really add up to make a home noticeably more comfortable.
+After actually using it, the chair automation is especially convenient. Sit down and the monitor and lights turn on automatically; stand up and everything turns off. The kitchen works great too - step onto the mat and the lights come on instantly without reaching for a switch. These small automations really add up to make a home noticeably more comfortable.
