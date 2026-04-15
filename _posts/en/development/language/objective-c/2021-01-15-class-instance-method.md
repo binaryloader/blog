@@ -141,7 +141,7 @@ The basic syntax is as follows:
 
 The implementation of the Caculator class implements the three methods defined in the interface. It also declares an int data type instance variable, which, as mentioned earlier, is not directly exposed externally or inherited by child classes.
 
-Objective-C classes occasionally have the interface and implementation written in a single file, but in most cases they are written in separate files -- the interface in a file with the `*.h` extension and the implementation in a file with the `*.m` extension.
+Objective-C classes occasionally have the interface and implementation written in a single file, but in most cases they are written in separate files - the interface in a file with the `*.h` extension and the implementation in a file with the `*.m` extension.
 
 ### 1.3. self
 
@@ -269,7 +269,7 @@ Program ended with exit code: 0
 ```
 
 Although the instance variable \_operator does not have accessor methods, since it is publicly exposed, it can be accessed using the Arrow Operator, just like accessing struct members in C.
-However, directly referencing instance variables from outside the class as shown above is extremely rare. This code was written to explain classes more simply -- **you should never do this in production**.
+However, directly referencing instance variables from outside the class as shown above is extremely rare. This code was written to explain classes more simply - **you should never do this in production**.
 
 The following code performs the exact same functionality as the code above:
 

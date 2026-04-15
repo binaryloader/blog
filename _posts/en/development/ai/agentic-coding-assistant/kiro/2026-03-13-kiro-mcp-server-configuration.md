@@ -38,8 +38,8 @@ A guide on how to configure and manage MCP servers in Kiro, with practical examp
 
 ## 1. Configuration File Location
 
-- Global settings (user-wide): `~/.kiro/settings/mcp.json` -- available across all projects
-- Workspace settings (per-project): `.kiro/settings/mcp.json` -- available only in that project, takes precedence over global settings
+- Global settings (user-wide): `~/.kiro/settings/mcp.json` - available across all projects
+- Workspace settings (per-project): `.kiro/settings/mcp.json` - available only in that project, takes precedence over global settings
 
 ## 2. Basic Configuration Structure
 

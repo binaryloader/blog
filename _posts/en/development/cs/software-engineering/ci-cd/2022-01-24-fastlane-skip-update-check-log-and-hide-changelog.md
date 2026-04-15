@@ -41,7 +41,7 @@ This post covers how to disable fastlane's update check log and changelog log.
 
 # Introduction
 
-When a lane execution finishes, regardless of whether it succeeds or fails, an update check and changelog log like the one below is printed, making it inconvenient to review the lane execution logs. We get it, there's an update -- now stop the logs!
+When a lane execution finishes, regardless of whether it succeeds or fails, an update check and changelog log like the one below is printed, making it inconvenient to review the lane execution logs. We get it, there's an update - now stop the logs!
 
 ```
 #######################################################################

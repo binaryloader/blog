@@ -65,7 +65,7 @@ No. They've become more meaningful than ever.
 
 AI is great at explaining general concepts. But concrete, contextualized experiences - like the Liquid filtering issues encountered while [implementing Jekyll multilingual support](/en/development/blog/jekyll/jekyll-multilingual-blog-implementation/), where leaving the lang field empty while setting Korean as the default language caused unexpected problems - can only be written by someone who has actually gone through it. Cutting-edge experiences absent from AI training data, debugging logs from specific environments, unexpected problems and solutions when combining multiple tools. These are the real value of tech blogs.
 
-The role of tech blogs in the AI era is shifting from information provider to experience chronicler. How do you do this -- ask AI. Here's what actually happened when I tried this -- that's value only a blog can provide.
+The role of tech blogs in the AI era is shifting from information provider to experience chronicler. How do you do this - ask AI. Here's what actually happened when I tried this - that's value only a blog can provide.
 
 # An Era Where Anyone Can Run a Global Blog
 

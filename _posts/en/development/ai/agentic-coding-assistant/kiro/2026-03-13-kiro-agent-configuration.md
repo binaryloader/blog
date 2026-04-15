@@ -44,8 +44,8 @@ A configuration file that defines the agent's behavioral rules, available tools,
 
 ### 1.2. Location
 
-- Global agent (user-wide): `~/.kiro/agents/<name>.json` -- available across all projects
-- Workspace agent (per-project): `.kiro/agents/<name>.json` -- available only in that project, takes precedence over global agents
+- Global agent (user-wide): `~/.kiro/agents/<name>.json` - available across all projects
+- Workspace agent (per-project): `.kiro/agents/<name>.json` - available only in that project, takes precedence over global agents
 
 ### 1.3. Basic Structure
 

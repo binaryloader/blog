@@ -48,7 +48,7 @@ We learned that most compilers go through the following series of compilation ph
 - Optimization (optimization)
 - Code generation (code generation)
 
-LL parsing, LR parsing, SLR parsing, closures, non-terminals -- I struggled a lot studying compiler theory in school because I was not the sharpest, but the fact that I remember at least something tells me it was not entirely in vain.
+LL parsing, LR parsing, SLR parsing, closures, non-terminals - I struggled a lot studying compiler theory in school because I was not the sharpest, but the fact that I remember at least something tells me it was not entirely in vain.
 
 Among the phases above, during lexical analysis, syntax analysis, and semantic analysis, the compiler uses the symbol table to generate tokens, parse trees, and abstract syntax trees, and checks whether the code conforms to the language's grammatical or semantic definitions.
 Typically, these phases constitute the compiler's front-end. Objective-C performs these phases through `Clang`, which is the front-end of `LLVM`.

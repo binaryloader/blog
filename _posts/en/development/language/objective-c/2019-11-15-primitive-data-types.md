@@ -277,7 +277,7 @@ Oh! Then we could also say the following:
 "When running an iOS Single View App built with Xcode 11.5 and iOS 13.5 SDK on iPhone 11 Pro, arm64, iOS 13.5.1, BOOL is a data type that redefines int.
 Because BOOL is a redefined form of bool, and bool is a redefined form of int."
 
-Wrong -- that was not the case. In the last C development environment I used, bool was int, so I naturally assumed it would also be int in Objective-C, but it turned out to be a char data type.
+Wrong - that was not the case. In the last C development environment I used, bool was int, so I naturally assumed it would also be int in Objective-C, but it turned out to be a char data type.
 At first I was puzzled when sizeof returned 1, but after checking the [Apple developer documentation](https://developer.apple.com/documentation/objectivec/bool), the details were well documented.
 
 In the end, BOOL can be summarized in the following table:
@@ -349,7 +349,7 @@ typedef struct objc_object *id;
 ```
 
 Although we said that the data id can represent is an instance pointer, to be more precise, it can hold a pointer to the struct objc_object that has an isa pointer as an instance variable.
-It serves the same role as a void pointer in C, and polymorphism -- that is, dynamic binding and dynamic typing -- can be implemented using id pointers. The details of isa will be covered when we discuss the Objective-C runtime.
+It serves the same role as a void pointer in C, and polymorphism - that is, dynamic binding and dynamic typing - can be implemented using id pointers. The details of isa will be covered when we discuss the Objective-C runtime.
 
 ## 6. Format Specifiers Type
 

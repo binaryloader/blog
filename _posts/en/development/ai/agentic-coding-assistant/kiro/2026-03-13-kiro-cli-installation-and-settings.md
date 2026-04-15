@@ -58,8 +58,8 @@ A configuration file that controls Kiro CLI behavior. It manages feature toggles
 
 ### 2.2. Location
 
-- Global settings (user-wide): `~/.kiro/settings/cli.json` -- available across all projects
-- Workspace settings (per-project): `.kiro/settings/cli.json` -- available only in that project, takes precedence over global settings
+- Global settings (user-wide): `~/.kiro/settings/cli.json` - available across all projects
+- Workspace settings (per-project): `.kiro/settings/cli.json` - available only in that project, takes precedence over global settings
 
 ### 2.3. Key Settings
 

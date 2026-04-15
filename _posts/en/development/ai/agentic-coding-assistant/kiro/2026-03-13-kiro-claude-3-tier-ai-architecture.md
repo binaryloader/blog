@@ -64,7 +64,7 @@ Login supports GitHub, Google, AWS Builder ID, and AWS IAM Identity Center, and 
 
 ## 3. 3-Tier Service Layer
 
-### 3.1. App Provider -- Kiro (fka Amazon Q Developer)
+### 3.1. App Provider - Kiro (fka Amazon Q Developer)
 
 The relationship with Amazon Q Developer is as follows (per official AWS documentation).
 
@@ -78,26 +78,26 @@ Key features include the following.
 - Hooks (event-driven automation)
 - Steering (per-project rule markdown files)
 - MCP integration
-- Powers (one-click extensions -- Aurora, IAM Policy Autopilot, etc.)
+- Powers (one-click extensions - Aurora, IAM Policy Autopilot, etc.)
 
-### 3.2. Managed AI Platform -- Amazon Bedrock
+### 3.2. Managed AI Platform - Amazon Bedrock
 
 The intermediate layer between Kiro and Claude models, responsible for inference, scaling, security, and model routing.
 
 Auto mode is Kiro's default model selection, which automatically routes to the optimal model based on task type. While Bedrock itself is a general-purpose platform hosting models from Amazon, Anthropic, Meta, Mistral, and others, Kiro currently uses only Claude models.
 
-### 3.3. Model Provider -- Claude Models (by Anthropic)
+### 3.3. Model Provider - Claude Models (by Anthropic)
 
 The model provider that performs the actual LLM inference. Anthropic develops and provides the models, which are served through Bedrock.
 
 The models supported in Kiro are as follows (as of 2026-03, per kiro.dev/docs).
 
-- Claude Opus 4.6 (Experimental) -- Top-tier model, Pro/Pro+/Power only
-- Claude Opus 4.5 -- Pro/Pro+/Power only
-- Claude Sonnet 4.6 -- Successor to Sonnet 4.5
-- Claude Sonnet 4.5 -- Primary model in Auto mode
-- Claude Sonnet 4.0 -- Stable general-purpose model
-- Claude Haiku 4.5 -- Fastest lightweight model
+- Claude Opus 4.6 (Experimental) - Top-tier model, Pro/Pro+/Power only
+- Claude Opus 4.5 - Pro/Pro+/Power only
+- Claude Sonnet 4.6 - Successor to Sonnet 4.5
+- Claude Sonnet 4.5 - Primary model in Auto mode
+- Claude Sonnet 4.0 - Stable general-purpose model
+- Claude Haiku 4.5 - Fastest lightweight model
 
 Anthropic participates purely as a Model Provider and is not involved in the infrastructure (Bedrock) or the app (Kiro).
 
@@ -107,7 +107,7 @@ Amazon owns both the App Provider (Kiro) and the Managed AI Platform (Bedrock) l
 
 Anthropic participates only as a Model Provider, but generates revenue from both the Kiro/Bedrock pathway and its own direct offerings (Claude Code, claude.ai, API).
 
-## 4. Same Model, Different Performance -- The Impact of the App Provider Layer
+## 4. Same Model, Different Performance - The Impact of the App Provider Layer
 
 A notable aspect of this architecture is that even when using the same Claude model, coding performance varies significantly depending on the App Provider layer. For example, using Claude Opus 4.6 through Kiro, Claude Code, and Cursor respectively yields noticeably different quality. This is not due to the model's capabilities but rather the different agent architectures wrapping the model.
 
@@ -121,7 +121,7 @@ The key factor is what information fills the limited context window. Kiro automa
 
 ### 4.3. Tool Use (Function Calling)
 
-The tool definitions (tool schemas) bound to the model differ across apps. When the available toolsets and invocation permissions differ -- file read/write, shell execution, web search, MCP server integration, etc. -- the action space available to the model is fundamentally different.
+The tool definitions (tool schemas) bound to the model differ across apps. When the available toolsets and invocation permissions differ - file read/write, shell execution, web search, MCP server integration, etc. - the action space available to the model is fundamentally different.
 
 ### 4.4. Agentic Loop & Orchestration Patterns
 

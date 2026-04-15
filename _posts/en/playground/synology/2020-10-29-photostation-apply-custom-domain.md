@@ -40,7 +40,7 @@ After purchasing a personal domain and setting up reverse proxy, I successfully 
 - drive.mydomain.com
 
 However, connecting a subdomain to Photo Station turned out to be a bit tricky.
-The methods that had been previously shared online didn't work -- possibly because of a DSM version upgrade or because I was applying them incorrectly.
+The methods that had been previously shared online didn't work - possibly because of a DSM version upgrade or because I was applying them incorrectly.
 While searching for a solution, I found a relevant Gist and applied it successfully.
 
 I'm sharing this in case anyone else is struggling with the same issue.

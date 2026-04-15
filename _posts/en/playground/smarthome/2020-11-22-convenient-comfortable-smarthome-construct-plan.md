@@ -93,4 +93,4 @@ I'll redraw it as I actually build things out one by one.
 {% include gallery id="gallery_infra" %}
 
 I plan to build the smart home in my new place after moving in February. Since I live with my family, I'll start with my own room and gradually expand the coverage.
-The key thing to remember is that a smart home should be about creating a comfortable and cozy environment -- it should never turn into a situation where you implement various features and then tolerate the inconveniences. If even one family member feels uncomfortable or has complaints about the smart home, that device should be immediately repaired or removed.
+The key thing to remember is that a smart home should be about creating a comfortable and cozy environment - it should never turn into a situation where you implement various features and then tolerate the inconveniences. If even one family member feels uncomfortable or has complaints about the smart home, that device should be immediately repaired or removed.

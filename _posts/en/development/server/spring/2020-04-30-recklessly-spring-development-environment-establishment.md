@@ -56,7 +56,7 @@ I plan to document all my trial and error while studying the Spring Framework th
 
 - Download and install [Java SE Development Kit 8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html).
 - The version at the time of writing was 8u251.
-- You may need to set up environment variables separately -- look it up and handle this step on your own.
+- You may need to set up environment variables separately - look it up and handle this step on your own.
 - Run the following command to verify that the JDK was installed correctly.
 
 ```zsh
