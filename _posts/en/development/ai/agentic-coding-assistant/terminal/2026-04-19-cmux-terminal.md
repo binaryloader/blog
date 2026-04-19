@@ -1,5 +1,5 @@
 ---
-title: "[Cmux] A Ghostty-Powered Native macOS Terminal for Parallel AI Agents"
+title: "[cmux] A Ghostty-Powered Native macOS Terminal for Parallel AI Agents"
 lang: en
 permalink: /en/:categories/:title/
 ref: cmux-terminal
@@ -17,7 +17,7 @@ categories:
   - Agentic-Coding-Assistant
   - Terminal
 tags:
-  - Cmux
+  - cmux
   - Ghostty
   - Terminal
   - macOS

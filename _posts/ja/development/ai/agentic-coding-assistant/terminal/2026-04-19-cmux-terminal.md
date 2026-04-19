@@ -1,5 +1,5 @@
 ---
-title: "[Cmux] AIエージェントの並列運用に特化したGhostty製ネイティブmacOSターミナル"
+title: "[cmux] AIエージェントの並列運用に特化したGhostty製ネイティブmacOSターミナル"
 lang: ja
 permalink: /ja/:categories/:title/
 ref: cmux-terminal
@@ -17,7 +17,7 @@ categories:
   - Agentic-Coding-Assistant
   - Terminal
 tags:
-  - Cmux
+  - cmux
   - Ghostty
   - Terminal
   - macOS

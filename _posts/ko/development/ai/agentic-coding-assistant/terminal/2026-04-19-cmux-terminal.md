@@ -1,5 +1,5 @@
 ---
-title: "[Cmux] AI 에이전트 병렬 운영을 위한 Ghostty 기반 네이티브 macOS 터미널"
+title: "[cmux] AI 에이전트 병렬 운영을 위한 Ghostty 기반 네이티브 macOS 터미널"
 ref: cmux-terminal
 excerpt: "Ghostty 엔진을 내장한 Swift + AppKit 네이티브 터미널 cmux. Claude Code, Aider, Cline 같은 여러 에이전틱 코딩 어시스턴트를 한 창에서 병렬로 돌리기 위해 설계된 오픈소스 macOS 앱의 설치와 활용법을 정리한다."
 date: 2026-04-19T10:20+09:00
@@ -15,7 +15,7 @@ categories:
   - Agentic-Coding-Assistant
   - Terminal
 tags:
-  - Cmux
+  - cmux
   - Ghostty
   - Terminal
   - macOS
