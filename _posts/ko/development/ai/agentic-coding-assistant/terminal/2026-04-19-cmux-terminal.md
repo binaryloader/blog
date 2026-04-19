@@ -1,7 +1,7 @@
 ---
 title: "[Cmux] AI 에이전트 병렬 운영을 위한 Ghostty 기반 네이티브 macOS 터미널"
 ref: cmux-terminal
-excerpt: "Ghostty 엔진을 내장한 Swift + AppKit 네이티브 터미널 cmux. Claude Code, Aider, Cline 같은 여러 AI 코딩 에이전트를 한 창에서 병렬로 돌리기 위해 설계된 오픈소스 macOS 앱의 설치와 활용법을 정리한다."
+excerpt: "Ghostty 엔진을 내장한 Swift + AppKit 네이티브 터미널 cmux. Claude Code, Aider, Cline 같은 여러 에이전틱 코딩 어시스턴트를 한 창에서 병렬로 돌리기 위해 설계된 오픈소스 macOS 앱의 설치와 활용법을 정리한다."
 date: 2026-04-19T10:20+09:00
 last_modified_at: 2026-04-19T10:20+09:00
 published: true
@@ -34,7 +34,7 @@ depth:
 
 # 개요
 
-Ghostty 엔진을 내장한 Swift + AppKit 네이티브 터미널 cmux. Claude Code, Aider, Cline 같은 여러 AI 코딩 에이전트를 한 창에서 병렬로 돌리기 위해 설계된 오픈소스 macOS 앱의 설치와 활용법을 정리한다.
+Ghostty 엔진을 내장한 Swift + AppKit 네이티브 터미널 cmux. Claude Code, Aider, Cline 같은 여러 에이전틱 코딩 어시스턴트를 한 창에서 병렬로 돌리기 위해 설계된 오픈소스 macOS 앱의 설치와 활용법을 정리한다.
 
 # 정리
 
@@ -42,7 +42,7 @@ Ghostty 엔진을 내장한 Swift + AppKit 네이티브 터미널 cmux. Claude C
 
 cmux는 [manaflow-ai](https://github.com/manaflow-ai/cmux)가 공개한 오픈소스 macOS 터미널이다. 내부적으로 Ghostty의 엔진인 libghostty를 사용하지만 Ghostty 본체와는 별개의 앱으로 배포된다. 경량 GPU 가속 렌더링을 유지하면서도 Swift와 AppKit으로 작성된 완전한 네이티브 앱이다. Electron 기반이 아니기 때문에 메모리 점유와 시작 속도 모두 가볍다.
 
-cmux가 일반 터미널과 구분되는 지점은 만든 목적이다. 하나의 창에서 Claude Code, Aider, Cline 같은 AI 코딩 에이전트를 동시에 여러 개 돌리기 위해 설계되었다. 각 에이전트의 입출력을 독립된 탭과 분할 창으로 분리하면서 알림 배지, 작업 디렉토리, 포트, git 브랜치 등의 상태를 사이드바 한곳에서 보여주는 구조이다. 에이전틱 코딩 워크플로우에서 "지금 어느 에이전트가 내 입력을 기다리는가"를 놓치지 않기 위한 UX이다.
+cmux가 일반 터미널과 구분되는 지점은 만든 목적이다. 하나의 창에서 Claude Code, Aider, Cline 같은 에이전틱 코딩 어시스턴트를 동시에 여러 개 돌리기 위해 설계되었다. 각 에이전트의 입출력을 독립된 탭과 분할 창으로 분리하면서 알림 배지, 작업 디렉토리, 포트, git 브랜치 등의 상태를 사이드바 한곳에서 보여주는 구조이다. 에이전틱 코딩 워크플로우에서 "지금 어느 에이전트가 내 입력을 기다리는가"를 놓치지 않기 위한 UX이다.
 
 지원 환경은 macOS 14.0 이상이며 Apple Silicon과 Intel Mac을 모두 지원한다. 라이선스는 오픈소스이고 무료로 사용할 수 있다.
 
@@ -168,7 +168,7 @@ cmux 고유 단축키는 Ghostty 설정과 분리되어 있다. 설정 창에서
 
 ## 6. 마치며
 
-cmux는 에이전틱 코딩 워크플로우가 늘어날수록 확실한 이득을 준다. 터미널 여러 개를 띄워놓고 창 전환을 반복하던 방식을 사이드바 한 번 훑기로 대체한다. Ghostty의 렌더링 성능과 네이티브 macOS 앱의 가벼움을 그대로 가져가면서 다중 에이전트 운영에 필요한 UX만 덧붙인 구조이다. AI 코딩 에이전트를 일상적으로 쓰는 환경이라면 한 번쯤 기본 터미널을 교체해볼 만한 선택지이다.
+cmux는 에이전틱 코딩 워크플로우가 늘어날수록 확실한 이득을 준다. 터미널 여러 개를 띄워놓고 창 전환을 반복하던 방식을 사이드바 한 번 훑기로 대체한다. Ghostty의 렌더링 성능과 네이티브 macOS 앱의 가벼움을 그대로 가져가면서 다중 에이전트 운영에 필요한 UX만 덧붙인 구조이다. 에이전틱 코딩 어시스턴트를 일상적으로 쓰는 환경이라면 한 번쯤 기본 터미널을 교체해볼 만한 선택지이다.
 
 # 참고
 

@@ -3,7 +3,7 @@ title: "[Cmux] A Ghostty-Powered Native macOS Terminal for Parallel AI Agents"
 lang: en
 permalink: /en/:categories/:title/
 ref: cmux-terminal
-excerpt: "cmux is a native Swift + AppKit macOS terminal that embeds the Ghostty engine and is built specifically for running multiple AI coding agents like Claude Code, Aider, and Cline side by side. This post covers installation, core features, and keyboard shortcuts."
+excerpt: "cmux is a native Swift + AppKit macOS terminal that embeds the Ghostty engine and is built specifically for running multiple agentic coding assistants like Claude Code, Aider, and Cline side by side. This post covers installation, core features, and keyboard shortcuts."
 date: 2026-04-19T10:20+09:00
 last_modified_at: 2026-04-19T10:20+09:00
 published: true
@@ -38,7 +38,7 @@ sidebar:
 
 # Overview
 
-cmux is a native Swift + AppKit macOS terminal that embeds the Ghostty engine and is built specifically for running multiple AI coding agents like Claude Code, Aider, and Cline side by side. This post covers installation, core features, and keyboard shortcuts.
+cmux is a native Swift + AppKit macOS terminal that embeds the Ghostty engine and is built specifically for running multiple agentic coding assistants like Claude Code, Aider, and Cline side by side. This post covers installation, core features, and keyboard shortcuts.
 
 # Steps
 
@@ -46,7 +46,7 @@ cmux is a native Swift + AppKit macOS terminal that embeds the Ghostty engine an
 
 cmux is an open source macOS terminal released by [manaflow-ai](https://github.com/manaflow-ai/cmux). Internally it uses libghostty - the same engine that powers Ghostty - but it ships as a separate app. It keeps the lightweight GPU-accelerated rendering of Ghostty while being written entirely in Swift and AppKit, so it behaves like any other native macOS app. Because it is not built on Electron, startup and memory footprint stay light.
 
-What sets cmux apart from a generic terminal is its intent. The app is designed to run several AI coding agents (Claude Code, Aider, Cline, and similar tools) in parallel inside a single window. Each agent gets its own tab or split pane, while a shared sidebar surfaces the state you actually care about during agentic workflows - notification badges, working directories, listening ports, and the current git branch. The UX is tuned so you never miss the moment an agent switches into a "waiting for input" state.
+What sets cmux apart from a generic terminal is its intent. The app is designed to run several agentic coding assistants (Claude Code, Aider, Cline, and similar tools) in parallel inside a single window. Each agent gets its own tab or split pane, while a shared sidebar surfaces the state you actually care about during agentic workflows - notification badges, working directories, listening ports, and the current git branch. The UX is tuned so you never miss the moment an agent switches into a "waiting for input" state.
 
 cmux supports macOS 14.0 and above on both Apple Silicon and Intel Macs. The project is open source and free to use.
 
@@ -172,7 +172,7 @@ cmux-specific shortcuts live outside the Ghostty config. Edit them through the i
 
 ## 6. Wrapping Up
 
-cmux pays off more as your agentic coding workflow grows. Instead of juggling a stack of terminal windows and flipping between them, you keep everything in one window and rely on the sidebar to tell you where attention is needed. You get Ghostty's rendering performance and the lightness of a native macOS app, with the multi-agent UX layered on top. If AI coding agents are part of your daily workflow, cmux is worth swapping in for your default terminal.
+cmux pays off more as your agentic coding workflow grows. Instead of juggling a stack of terminal windows and flipping between them, you keep everything in one window and rely on the sidebar to tell you where attention is needed. You get Ghostty's rendering performance and the lightness of a native macOS app, with the multi-agent UX layered on top. If agentic coding assistants are part of your daily workflow, cmux is worth swapping in for your default terminal.
 
 # References
 
