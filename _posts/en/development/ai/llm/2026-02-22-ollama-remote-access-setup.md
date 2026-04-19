@@ -45,7 +45,7 @@ However, Ollama only listens on `127.0.0.1:11434` by default. This works fine on
 
 Setting the `OLLAMA_HOST` environment variable to `0.0.0.0:11434` on Windows makes Ollama accept requests from all network interfaces.
 
-`Windows + S` → Search "environment variables" → **Edit the system environment variables** → **Environment Variables** button → **New** under **User variables**.
+`Windows + S` → Search "environment variables" → Edit the system environment variables → Environment Variables button → New under User variables.
 
 - Variable name: `OLLAMA_HOST`
 - Variable value: `0.0.0.0:11434`

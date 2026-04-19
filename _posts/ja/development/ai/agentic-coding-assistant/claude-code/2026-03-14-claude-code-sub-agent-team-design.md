@@ -82,8 +82,8 @@ Claude Code メインセッション（CTO / オーケストレーター）
 
 サブエージェントとエージェントチームの使い分け基準は以下の通りである。
 
-- **サブエージェント**: 単一タスクを委任して結果を返す（レビュー、分析、単一機能の実装）
-- **エージェントチーム**: 複数のエージェントが長時間独立して並列作業（iOS + サーバー同時開発）
+- サブエージェント: 単一タスクを委任して結果を返す（レビュー、分析、単一機能の実装）
+- エージェントチーム: 複数のエージェントが長時間独立して並列作業（iOS + サーバー同時開発）
 
 ## 2. ファイルマップ
 
@@ -172,7 +172,7 @@ my-project/
 
 ### 3.1. 企画チーム
 
-**product-planner**：プロダクト企画、ユーザーストーリー、PRD作成。WebSearchで市場調査まで行う。
+product-planner：プロダクト企画、ユーザーストーリー、PRD作成。WebSearchで市場調査まで行う。
 
 - モデル: opus / 権限: plan
 - ツール: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -180,14 +180,14 @@ my-project/
 - 役割: ユーザーストーリー定義、MoSCoW/RICE優先度、MVP範囲定義
 - 出力: PRDドキュメント（背景、目標、受け入れ基準、除外範囲）
 
-**ui-designer**：UI/UX設計、画面フロー定義、デザインシステム管理。Figma内蔵連携を使用する。
+ui-designer：UI/UX設計、画面フロー定義、デザインシステム管理。Figma内蔵連携を使用する。
 
 - モデル: sonnet / 権限: plan
 - ツール: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
 - 役割: 画面フロー、ワイヤーフレーム仕様、デザインシステム定義
 - 原則: モバイルファースト、HIG準拠、VoiceOver/Dynamic Type対応
 
-**tech-writer**：チケット、Wiki、APIドキュメント、README作成。MCPで外部ツールに直接書き込む。
+tech-writer：チケット、Wiki、APIドキュメント、README作成。MCPで外部ツールに直接書き込む。
 
 - モデル: sonnet / 権限: acceptEdits
 - ツール: Read, Write, Edit, Glob, Grep, WebFetch
@@ -197,7 +197,7 @@ my-project/
 
 ### 3.2. 開発チーム
 
-**dev-planner**：PRDベースの技術設計（TDD）、タスク分解、APIインターフェース設計。コードベースを読み込んで分析する。
+dev-planner：PRDベースの技術設計（TDD）、タスク分解、APIインターフェース設計。コードベースを読み込んで分析する。
 
 - モデル: opus / 権限: plan
 - ツール: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -208,7 +208,7 @@ my-project/
 
 すべての開発者エージェントは`isolation: worktree`で隔離されたGit worktreeで作業し、互いに衝突なく並列開発が可能である。
 
-**ios-developer**：Swift/SwiftUI iOSアプリ開発。隔離されたworktreeで作業する。
+ios-developer：Swift/SwiftUI iOSアプリ開発。隔離されたworktreeで作業する。
 
 - モデル: opus / 権限: default / 隔離: worktree
 - ツール: Read, Write, Edit, Glob, Grep, Bash, LSP
@@ -219,7 +219,7 @@ my-project/
 - スタック: Swift 6, SwiftUI, TCA, SPM, SwiftData, async/await
 - ブランチ: `feature/ios-*`
 
-**server-developer**：Spring Boot/Kotlinサーバー開発。API実装、DB設計。
+server-developer：Spring Boot/Kotlinサーバー開発。API実装、DB設計。
 
 - モデル: opus / 権限: default / 隔離: worktree
 - ツール: Read, Write, Edit, Glob, Grep, Bash, LSP
@@ -230,7 +230,7 @@ my-project/
 - スタック: Spring Boot 3, Kotlin, PostgreSQL, Redis, Flyway
 - ブランチ: `feature/server-*`
 
-**infra-developer**：AWSインフラ構築、Terraform IaC、CI/CDパイプライン。
+infra-developer：AWSインフラ構築、Terraform IaC、CI/CDパイプライン。
 
 - モデル: opus / 権限: default / 隔離: worktree
 - ツール: Read, Write, Edit, Glob, Grep, Bash
@@ -245,21 +245,21 @@ my-project/
 
 開発者ごとに2名で、アーキテクチャ観点と品質観点を分離して多角的にレビューする。すべてのレビュアーは`permissionMode: plan`で読み取り専用である。
 
-**iOSレビュー**
+iOSレビュー
 
 | エージェント | 観点 | 必須（🔴） | 推奨（🟡） |
 |---|---|---|---|
 | `ios-reviewer-arch` | TCAパターン準拠、モジュール依存方向、責務分離、SOLID原則 | アーキテクチャ違反、循環依存、レイヤー侵害 | 構造改善提案 |
 | `ios-reviewer-quality` | オプショナル処理、循環参照、不要な再レンダリング、MainActor/Sendable | クラッシュ、メモリリーク、データレース | パフォーマンス改善、可読性 |
 
-**サーバーレビュー**
+サーバーレビュー
 
 | エージェント | 観点 | 必須（🔴） | 推奨（🟡） |
 |---|---|---|---|
 | `server-reviewer-arch` | REST原則、正規化、Controller/Service/Repository分離、拡張性 | API契約違反、データ整合性リスク | 設計改善、パフォーマンス最適化 |
 | `server-reviewer-quality` | SQL Injection, XSS, CSRF, N+1, Bean Validation, ロギング | セキュリティ脆弱性、データ損失、リソースリーク | エラー処理強化 |
 
-**インフラレビュー**
+インフラレビュー
 
 | エージェント | 観点 | 必須（🔴） | 推奨（🟡） |
 |---|---|---|---|
@@ -268,7 +268,7 @@ my-project/
 
 ### 3.4. QA/セキュリティチーム
 
-**qa-engineer**：ユニット/統合テスト作成、テストシナリオ設計、エッジケース探索
+qa-engineer：ユニット/統合テスト作成、テストシナリオ設計、エッジケース探索
 
 - モデル: sonnet / 権限: default
 - ツール: Read, Write, Edit, Glob, Grep, Bash
@@ -277,7 +277,7 @@ my-project/
 - サーバー: JUnit 5, MockK, Testcontainers
 - 原則: Mockより実際の実装を優先、境界値/null/例外は必須
 
-**security-auditor**：OWASP Top 10、認証/認可、機密情報漏洩、依存関係の脆弱性監査
+security-auditor：OWASP Top 10、認証/認可、機密情報漏洩、依存関係の脆弱性監査
 
 - モデル: opus / 権限: plan
 - ツール: Read, Glob, Grep, Bash
@@ -403,9 +403,9 @@ hooks:
 
 エージェントチームを使用する基準は以下の通りである。
 
-- iOS + サーバー + インフラを**同時に長時間**開発する場合
-- メンバー同士で**API契約を調整**する必要がある場合
-- 作業が**30分以上**かかると予想される場合
+- iOS + サーバー + インフラを同時に長時間開発する場合
+- メンバー同士でAPI契約を調整する必要がある場合
+- 作業が30分以上かかると予想される場合
 
 サブエージェントを使用する基準は以下の通りである。
 
@@ -449,45 +449,45 @@ Skillsは繰り返しのワークフローを`/skill-name`で呼び出す自動�
 新機能の企画から技術設計、タスク分解、ドキュメント化まで全フローを実行する。「機能企画」「PRD」「新機能プランニング」をリクエストした時に自動呼び出しされる。
 
 - 動的注入: `git log --oneline -10`, `ls -la docs/`
-- ステップ1: **product-planner**：PRD作成（ユーザーストーリー、受け入れ基準、優先度、除外範囲）
-- ステップ2: **dev-planner**：技術設計（APIインターフェース、DBスキーマ、タスク分解、依存関係グラフ）
-- ステップ3: **ui-designer**：UI/UX設計（画面フロー、UI仕様）
-- ステップ4: **tech-writer**：ドキュメント化（MCPでチケット作成、Wiki登録、docs/に保存）
-- ステップ5: **メインセッション**：最終報告（機能概要、予想作業量、リスク、次のステップ）
+- ステップ1: product-planner：PRD作成（ユーザーストーリー、受け入れ基準、優先度、除外範囲）
+- ステップ2: dev-planner：技術設計（APIインターフェース、DBスキーマ、タスク分解、依存関係グラフ）
+- ステップ3: ui-designer：UI/UX設計（画面フロー、UI仕様）
+- ステップ4: tech-writer：ドキュメント化（MCPでチケット作成、Wiki登録、docs/に保存）
+- ステップ5: メインセッション：最終報告（機能概要、予想作業量、リスク、次のステップ）
 
 #### 5.3.2. /develop <タスク>
 
 開発、テスト、コードレビューを順次実行する。「開発して」「実装して」「コーディングして」をリクエストした時に自動呼び出しされる。
 
 - 動的注入: `git branch --show-current`, `git status -s`
-- ステップ1: **タスク分析**：ファイルタイプ別に開発者エージェントを決定（*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer）
-- ステップ2: **コンテキスト収集**：チケット番号や外部ドキュメント参照がある場合、Jiraチケット、Confluence設計ドキュメント、APIスペック等の関連情報を収集し、以降のステップに渡す
-- ステップ3: **\*-developerエージェント**：フィーチャーブランチでコード作成、Conventional Commits
-- ステップ4: **qa-engineer**：ユニットテスト作成と実行
-- ステップ5: **レビュアー2名**：変更ファイルタイプに応じた並列レビュー
-- ステップ6: **PR作成**：レビュー結果に🔴項目がなければ、GitHubにPRを作成する。PRタイトルと本文を自動生成し、レビュー結果のサマリーを含める
-- ステップ7: **結果報告**：実装概要、テスト結果、レビュー結果（深刻度別）
+- ステップ1: タスク分析：ファイルタイプ別に開発者エージェントを決定（*.swift→ios-developer, server/→server-developer, infra/→infra-developer）
+- ステップ2: コンテキスト収集：チケット番号や外部ドキュメント参照がある場合、Jiraチケット、Confluence設計ドキュメント、APIスペック等の関連情報を収集し、以降のステップに渡す
+- ステップ3: \*-developerエージェント：フィーチャーブランチでコード作成、Conventional Commits
+- ステップ4: qa-engineer：ユニットテスト作成と実行
+- ステップ5: レビュアー2名：変更ファイルタイプに応じた並列レビュー
+- ステップ6: PR作成：レビュー結果に🔴項目がなければ、GitHubにPRを作成する。PRタイトルと本文を自動生成し、レビュー結果のサマリーを含める
+- ステップ7: 結果報告：実装概要、テスト結果、レビュー結果（深刻度別）
 
 #### 5.3.3. /review-all [対象]
 
 現在のブランチの変更に対してアーキテクチャ、品質、セキュリティレビューを並列で実行する。「レビューして」「コードレビュー」「PRレビュー」をリクエストした時に自動呼び出しされる。
 
 - 動的注入: `git diff --name-only main...HEAD`, `git diff --stat main...HEAD`
-- ステップ1: **変更ファイル分類**：*.swift → iOS, *.kt → サーバー, *.tf → インフラ
-- ステップ2: **ドメイン別レビュアー2名**：並列呼び出し（アーキテクチャ + 品質）
-- ステップ3: **security-auditor**：全変更に対するセキュリティ監査
-- ステップ4: **総合レポート**：🔴 必須修正 / 🟡 推奨 / 🟢 参考に分類、マージgo/no-go判断
+- ステップ1: 変更ファイル分類：*.swift → iOS, *.kt → サーバー, *.tf → インフラ
+- ステップ2: ドメイン別レビュアー2名：並列呼び出し（アーキテクチャ + 品質）
+- ステップ3: security-auditor：全変更に対するセキュリティ監査
+- ステップ4: 総合レポート：🔴 必須修正 / 🟡 推奨 / 🟢 参考に分類、マージgo/no-go判断
 
 #### 5.3.4. /release <バージョン>
 
 リリースチェックリストを実行する。`disable-model-invocation: true`で手動呼び出しのみ可能である。
 
 - 動的注入: `git log --oneline main..HEAD`, `git tag --list --sort=-version:refname | head -5`
-- ステップ1: **qa-engineer**：全テスト + カバレッジ確認
-- ステップ2: **security-auditor**：最終セキュリティ監査、依存関係CVEスキャン
-- ステップ3: **infra-developer**：デプロイスクリプト、環境変数、ロールバック計画、DBマイグレーション確認
-- ステップ4: **tech-writer**：CHANGELOG、リリースノート、APIドキュメント確認
-- ステップ5: **Go/No-Go判断**：チェックリスト総合（テスト、セキュリティ、デプロイ、ドキュメント）
+- ステップ1: qa-engineer：全テスト + カバレッジ確認
+- ステップ2: security-auditor：最終セキュリティ監査、依存関係CVEスキャン
+- ステップ3: infra-developer：デプロイスクリプト、環境変数、ロールバック計画、DBマイグレーション確認
+- ステップ4: tech-writer：CHANGELOG、リリースノート、APIドキュメント確認
+- ステップ5: Go/No-Go判断：チェックリスト総合（テスト、セキュリティ、デプロイ、ドキュメント）
 
 #### 5.3.5. /standup
 
@@ -680,14 +680,14 @@ exit 0
 
 `~/.claude/settings.json`ですべての権限、hooks、環境変数、プラグインをグローバルに管理する。
 
-**権限（permissions）**
+権限（permissions）
 
 | 区分 | 内容 |
 |---|---|
 | allow（自動承認） | `Bash(git *)`, `Bash(swift-format *)`, `Bash(swiftlint *)`, `Bash(ktlint *)`, `Bash(terraform fmt *)`, `Bash(gh *)` |
 | deny（ブロック） | `Bash(rm -rf /)`, `Bash(git push --force *)`, `Bash(git reset --hard *)`, `Bash(terraform destroy *)` |
 
-**その他の設定**
+その他の設定
 
 | 項目 | 内容 |
 |---|---|
@@ -826,11 +826,11 @@ API契約は@docs/api-contract.mdを参照する。
 /planning ソーシャルログイン（Apple、Google、Kakao）
 ```
 
-1. **product-planner**：PRD作成（ユーザーストーリー、受入基準、優先順位）
-2. **dev-planner**：技術設計（APIインターフェース、DBスキーマ、タスク分解）
-3. **ui-designer**：UI/UX設計（画面フロー、コンポーネント仕様）
-4. **tech-writer**：チケット作成 + Wiki作成（Jira/Confluence MCP連携）
-5. **メインセッション（CTO）**：企画結果を統合、ユーザーに報告
+1. product-planner：PRD作成（ユーザーストーリー、受入基準、優先順位）
+2. dev-planner：技術設計（APIインターフェース、DBスキーマ、タスク分解）
+3. ui-designer：UI/UX設計（画面フロー、コンポーネント仕様）
+4. tech-writer：チケット作成 + Wiki作成（Jira/Confluence MCP連携）
+5. メインセッション（CTO）：企画結果を統合、ユーザーに報告
 
 #### Phase 2: 開発（`/develop`）
 
@@ -838,12 +838,12 @@ API契約は@docs/api-contract.mdを参照する。
 /develop PROJ-123
 ```
 
-1. **メインセッション**：タスク分析（どの開発者エージェントを使用するか決定）
-2. **メインセッション**：コンテキスト収集（Jiraチケット、Confluence設計ドキュメント、APIスペック）
-3. **ios-developer + server-developer + infra-developer**：並行開発（エージェントチームまたはworktree分離）
-4. **qa-engineer**：テスト作成および実行
-5. **メインセッション**：PR作成（レビュー通過時自動）
-6. **メインセッション（CTO）**：開発結果を統合、ユーザーに報告
+1. メインセッション：タスク分析（どの開発者エージェントを使用するか決定）
+2. メインセッション：コンテキスト収集（Jiraチケット、Confluence設計ドキュメント、APIスペック）
+3. ios-developer + server-developer + infra-developer：並行開発（エージェントチームまたはworktree分離）
+4. qa-engineer：テスト作成および実行
+5. メインセッション：PR作成（レビュー通過時自動）
+6. メインセッション（CTO）：開発結果を統合、ユーザーに報告
 
 #### Phase 3: レビュー（`/review-all`）
 
@@ -851,9 +851,9 @@ API契約は@docs/api-contract.mdを参照する。
 /review-all
 ```
 
-1. **レビュアー6名**：アーキテクチャ + 品質の並行レビュー（各開発者につき2名）
-2. **security-auditor**：セキュリティ監査
-3. **メインセッション（CTO）**：最終結果統合、マージ判断、ユーザーに報告
+1. レビュアー6名：アーキテクチャ + 品質の並行レビュー（各開発者につき2名）
+2. security-auditor：セキュリティ監査
+3. メインセッション（CTO）：最終結果統合、マージ判断、ユーザーに報告
 
 ### 11.2. コードレビューフロー
 
@@ -883,11 +883,11 @@ API契約は@docs/api-contract.mdを参照する。
 /release 1.0.0
 ```
 
-1. **qa-engineer**：全テストスイート実行、カバレッジ確認
-2. **security-auditor**：最終セキュリティ監査、依存関係の脆弱性スキャン
-3. **infra-developer**：デプロイスクリプト確認、ロールバック計画検証
-4. **tech-writer**：CHANGELOG作成、リリースノート生成
-5. **メインセッション**：チェックリスト総合、go/no-go判断報告
+1. qa-engineer：全テストスイート実行、カバレッジ確認
+2. security-auditor：最終セキュリティ監査、依存関係の脆弱性スキャン
+3. infra-developer：デプロイスクリプト確認、ロールバック計画検証
+4. tech-writer：CHANGELOG作成、リリースノート生成
+5. メインセッション：チェックリスト総合、go/no-go判断報告
 
 ### 11.4. デイリースタンドアップ
 
@@ -901,8 +901,8 @@ API契約は@docs/api-contract.mdを参照する。
 
 ### 12.1. モデル配分戦略
 
-- **Opus**（高価）：企画、開発、セキュリティ監査（正確性と創造性が重要なタスクのみ）
-- **Sonnet**（安価）：レビュー、QA、ドキュメント作成（パターン化されたタスクはSonnetで十分）
+- Opus（高価）：企画、開発、セキュリティ監査（正確性と創造性が重要なタスクのみ）
+- Sonnet（安価）：レビュー、QA、ドキュメント作成（パターン化されたタスクはSonnetで十分）
 
 ### 12.2. コンテキスト節約
 
@@ -913,8 +913,8 @@ API契約は@docs/api-contract.mdを参照する。
 
 ### 12.3. エージェントチーム vs サブエージェントのコスト
 
-- エージェントチームは**独立インスタンス**なのでコストが高い（大規模な並列作業にのみ使用）
-- 単一レビュー、分析等は**サブエージェント**で十分（コスト効率的）
+- エージェントチームは独立インスタンスなのでコストが高い（大規模な並列作業にのみ使用）
+- 単一レビュー、分析等はサブエージェントで十分（コスト効率的）
 
 ## 13. 使い方ガイド
 

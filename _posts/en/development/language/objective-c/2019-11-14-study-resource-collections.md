@@ -57,7 +57,7 @@ If I get the chance later, I would also like to translate and organize the remai
 - [Advanced Memory Management Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html#//apple_ref/doc/uid/10000011i)
 - [Object-Oriented Programming with Objective-C](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/OOP_ObjC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40005149)
 
-**Warning:** Apple developer documentation may be removed at any time.
+Warning: Apple developer documentation may be removed at any time.
 {: .notice--warning}
 
 ## 2. Clang 11 Documentation

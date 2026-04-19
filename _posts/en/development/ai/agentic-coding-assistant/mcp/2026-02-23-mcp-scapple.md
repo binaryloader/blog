@@ -72,9 +72,9 @@ The entire pipeline is divided into three stages.
 Text/JSON → Parser/Builder → XML(.scap) → Renderer → PNG
 ```
 
-- **Parser** - Parses XML into a `ScappleDocument` typed object
-- **Builder** - Serializes a `ScappleDocument` object into an XML string
-- **Renderer** - Converts a `ScappleDocument` to SVG, then generates PNG
+- Parser - Parses XML into a `ScappleDocument` typed object
+- Builder - Serializes a `ScappleDocument` object into an XML string
+- Renderer - Converts a `ScappleDocument` to SVG, then generates PNG
 
 The project file structure is as follows.
 

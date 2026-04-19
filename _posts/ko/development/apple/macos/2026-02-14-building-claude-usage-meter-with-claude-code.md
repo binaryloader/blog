@@ -92,9 +92,9 @@ Claude Code가 로컬에 저장하는 두 개의 JSON 파일을 사용한다.
 
 Xcode 프로젝트 없이 Swift Package Manager만으로 구성했다.
 
-- **SwiftUI** + **MenuBarExtra**(macOS 14+, `.window` 스타일)
-- **@Observable** 매크로 + **@MainActor**
-- **DispatchSource** 파일 감시
+- SwiftUI + MenuBarExtra(macOS 14+, `.window` 스타일)
+- @Observable 매크로 + @MainActor
+- DispatchSource 파일 감시
 - 외부 의존성 없음
 
 ```swift

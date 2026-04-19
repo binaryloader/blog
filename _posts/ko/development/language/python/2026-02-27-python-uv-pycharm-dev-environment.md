@@ -78,9 +78,9 @@ macOS에 번들된 Xcode Python 3.9 대신 최신 버전을 설치해서 사용�
 
 PyCharm에서 uv 프로젝트를 실행하려면 `.venv`의 Python 인터프리터를 설정해야 한다.
 
-1. **설정** (⌘ + ,) → **프로젝트** → **Python 인터프리터**
-2. **인터프리터 추가** → **로컬 인터프리터 추가**
-3. **기존 항목 선택** → 경로를 프로젝트의 `.venv/bin/python3`으로 지정
+1. 설정 (⌘ + ,) → 프로젝트 → Python 인터프리터
+2. 인터프리터 추가 → 로컬 인터프리터 추가
+3. 기존 항목 선택 → 경로를 프로젝트의 `.venv/bin/python3`으로 지정
 
 시스템 Python(`/usr/bin/python3`)을 사용하면 uv로 설치한 패키지를 인식하지 못한다.
 
@@ -88,7 +88,7 @@ PyCharm에서 uv 프로젝트를 실행하려면 `.venv`의 Python 인터프리�
 
 PyCharm에서 같은 네트워크의 다른 기기에 접속하려면 macOS의 로컬 네트워크 권한이 필요하다. 터미널에서는 정상 동작하는데 PyCharm에서만 `No route to host` 또는 `ConnectionError`가 발생하면 이 설정을 확인한다.
 
-**시스템 설정** → **개인정보 보호 및 보안** → **로컬 네트워크**에서 PyCharm을 허용하면 된다.
+시스템 설정 → 개인정보 보호 및 보안 → 로컬 네트워크에서 PyCharm을 허용하면 된다.
 
 ## 5. PyCharm 한국어 입력 UnicodeEncodeError
 
@@ -102,14 +102,14 @@ UnicodeEncodeError: 'utf-8' codec can't encode character '\udce3' in position 15
 
 ### 5.1. 해결 방법
 
-**도움말** → **사용자 지정 VM 옵션 편집...**을 열고 아래 두 줄을 추가한 뒤 PyCharm을 재시작한다.
+도움말 → 사용자 지정 VM 옵션 편집...을 열고 아래 두 줄을 추가한 뒤 PyCharm을 재시작한다.
 
 ```
 -Dfile.encoding=UTF-8
 -Dconsole.encoding=UTF-8
 ```
 
-**설정** → **에디터** → **파일 인코딩**에서 모든 항목이 `UTF-8`로 되어 있는지도 확인한다.
+설정 → 에디터 → 파일 인코딩에서 모든 항목이 `UTF-8`로 되어 있는지도 확인한다.
 
 ### 5.2. 확인 방법
 

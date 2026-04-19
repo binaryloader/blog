@@ -37,14 +37,14 @@ This post covers how to set up an MCP server so Claude Code can directly read an
 
 The Claude Code MCP plugin is not listed in the community plugins directory, so it must be installed via BRAT.
 
-1. **Settings** > **Community Plugins** > **Browse**
+1. Settings > Community Plugins > Browse
 2. Search for `BRAT`, install & enable
 
 ## 2. Install the Claude Code MCP Plugin
 
-1. **Settings** > **BRAT** > **Add Beta Plugin**
+1. Settings > BRAT > Add Beta Plugin
 2. Enter `iansinnott/obsidian-claude-code-mcp` and add
-3. Enable **Claude Code MCP** in **Settings** > **Community Plugins**
+3. Enable Claude Code MCP in Settings > Community Plugins
 4. The MCP server starts automatically on the default port `22360`
 
 ## 3. Register the MCP Server in Claude Code
@@ -57,7 +57,7 @@ claude mcp add obsidian -- npx mcp-remote http://localhost:22360/sse
 
 ## 4. Verify the Integration
 
-- You must **start a new conversation** in Claude Code for the MCP tools to load
+- You must start a new conversation in Claude Code for the MCP tools to load
 - Once connected, tools with the `mcp__obsidian__` prefix become available:
   - `get_workspace_files` - List vault files
   - `view` - Read note contents

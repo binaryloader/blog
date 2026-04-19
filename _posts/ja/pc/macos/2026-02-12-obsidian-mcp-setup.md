@@ -37,14 +37,14 @@ Claude Code から Obsidian ボルトを直接読み書きできるように MCP
 
 Claude Code MCP プラグインはコミュニティプラグイン一覧に登録されていないため、BRAT 経由でインストールする必要がある。
 
-1. **設定** > **コミュニティプラグイン** > **閲覧**
+1. 設定 > コミュニティプラグイン > 閲覧
 2. `BRAT` を検索してインストール＆有効化
 
 ## 2. Claude Code MCP プラグインのインストール
 
-1. **設定** > **BRAT** > **Add Beta Plugin**
+1. 設定 > BRAT > Add Beta Plugin
 2. `iansinnott/obsidian-claude-code-mcp` を入力して追加
-3. **設定** > **コミュニティプラグイン**で **Claude Code MCP** を有効化
+3. 設定 > コミュニティプラグインで Claude Code MCP を有効化
 4. デフォルトポート `22360` で MCP サーバーが自動起動する
 
 ## 3. Claude Code に MCP サーバーを登録
@@ -57,7 +57,7 @@ claude mcp add obsidian -- npx mcp-remote http://localhost:22360/sse
 
 ## 4. 連携の確認
 
-- Claude Code を**新しい会話で開始**しないと MCP ツールがロードされない
+- Claude Code を新しい会話で開始しないと MCP ツールがロードされない
 - 連携されると `mcp__obsidian__` プレフィックスのツールが有効になる
   - `get_workspace_files` - ボルトのファイル一覧を取得
   - `view` - ノートの内容を読み取り

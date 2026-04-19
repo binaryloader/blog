@@ -154,13 +154,13 @@ Claude Code를 대시보드에 연결하려면 `~/.claude/settings.json`에 HTTP
 
 이벤트 처리 흐름은 아래와 같다.
 
-- **SubagentStart** - 에이전트가 생성되었다. 서버가 해당 에이전트의 상태를 "working"으로 생성 또는 업데이트하고 시작 시간을 기록한다
-- **SubagentStop** - 에이전트가 종료되었다. `reason` 필드가 `"error"` 또는 `"failure"`이면 에러로 판별하고 상태를 "error"로 설정한다. 그 외에는 "completed"이다. 초기에는 `last_assistant_message`에서 "error" 키워드를 검색하는 방식이었는데 "ErrorHistory.tsx" 같은 파일명이 매칭되어 false positive가 발생해서 `reason` 필드 기반으로 변경했다
-- **Stop** - 응답이 완료될 때마다 발생한다. 서브에이전트에 대해서는 상태를 업데이트하지만 COO는 건드리지 않는다. COO를 여기서 idle로 바꾸면 다음 에이전트를 호출하기 전에 잠깐 깜빡이는 문제가 생긴다. COO는 `SessionEnd`에서만 idle로 전환한다
-- **PreToolUse / PostToolUse** - 에이전트가 도구를 사용 중이다. 에이전트가 아직 살아서 작업하고 있음을 확인하는 이벤트이다
-- **TaskCompleted** - 팀 작업이 끝났다. Agent Teams 조율에 사용한다
-- **UserPromptSubmit** - 사용자가 프롬프트를 입력했다. 이 이벤트가 올 때마다 COO의 기본 작업명을 "대표님 지시 수행"으로 설정한다. 이후 task-assign 요청이 오면 작업명을 덮어쓴다
-- **SessionStart / SessionEnd** - 메인 Claude Code 세션의 생명 주기이다. `SessionEnd`에서 COO를 idle로 전환한다
+- SubagentStart - 에이전트가 생성되었다. 서버가 해당 에이전트의 상태를 "working"으로 생성 또는 업데이트하고 시작 시간을 기록한다
+- SubagentStop - 에이전트가 종료되었다. `reason` 필드가 `"error"` 또는 `"failure"`이면 에러로 판별하고 상태를 "error"로 설정한다. 그 외에는 "completed"이다. 초기에는 `last_assistant_message`에서 "error" 키워드를 검색하는 방식이었는데 "ErrorHistory.tsx" 같은 파일명이 매칭되어 false positive가 발생해서 `reason` 필드 기반으로 변경했다
+- Stop - 응답이 완료될 때마다 발생한다. 서브에이전트에 대해서는 상태를 업데이트하지만 COO는 건드리지 않는다. COO를 여기서 idle로 바꾸면 다음 에이전트를 호출하기 전에 잠깐 깜빡이는 문제가 생긴다. COO는 `SessionEnd`에서만 idle로 전환한다
+- PreToolUse / PostToolUse - 에이전트가 도구를 사용 중이다. 에이전트가 아직 살아서 작업하고 있음을 확인하는 이벤트이다
+- TaskCompleted - 팀 작업이 끝났다. Agent Teams 조율에 사용한다
+- UserPromptSubmit - 사용자가 프롬프트를 입력했다. 이 이벤트가 올 때마다 COO의 기본 작업명을 "대표님 지시 수행"으로 설정한다. 이후 task-assign 요청이 오면 작업명을 덮어쓴다
+- SessionStart / SessionEnd - 메인 Claude Code 세션의 생명 주기이다. `SessionEnd`에서 COO를 idle로 전환한다
 
 에이전트가 완료되면 10초 후 자동으로 idle 상태로 전환한다. 즉시 전환하면 완료 카드를 확인하기도 전에 사이드바가 바뀌어서 혼란스럽다. 10초 지연이 "방금 끝났구나"를 인식할 여유를 주면서도 대시보드가 지저분해지지 않게 유지한다.
 
@@ -172,7 +172,7 @@ Claude Code를 대시보드에 연결하려면 `~/.claude/settings.json`에 HTTP
 
 대시보드에서 이건 중요하다. "product-planner: working"이라고 보여주는 것보다 "product-planner: 음성 메모 기능 시장 조사 및 PRD 작성"이라고 보여주는 게 훨씬 유용하다.
 
-해결책은 **task-assign** 패턴이다. COO 윤시현님(메인 세션)이 서브에이전트를 호출하기 전에 대시보드 서버에 사전 등록 요청을 보낸다.
+해결책은 task-assign 패턴이다. COO 윤시현님(메인 세션)이 서브에이전트를 호출하기 전에 대시보드 서버에 사전 등록 요청을 보낸다.
 
 ```bash
 curl -s -X POST http://localhost:3100/api/v1/task-assign \
@@ -252,7 +252,7 @@ export const AGENTS: AgentDefinition[] = [
 
 전체 시스템은 회사 조직 구조 메타포를 따른다.
 
-**CEO(사용자)** → **COO 윤시현님(오케스트레이터)**
+CEO(사용자) → COO 윤시현님(오케스트레이터)
 
 | 기획팀 | 개발팀 | 리뷰팀 | QA & 보안팀 |
 |--------|--------|--------|-----------|
@@ -280,7 +280,7 @@ CEO(사용자)가 고수준 지시를 내린다. COO(Claude Code 메인 세션)�
 
 완료나 에러 상태는 초록 또는 빨간색으로 10초간 표시된 후 회색(idle)으로 돌아간다. 상태 변화를 인식할 여유를 주면서도 사이드바가 지저분해지지 않게 한다.
 
-에이전트를 클릭하면 **Agent Detail** 사이드 시트가 열린다.
+에이전트를 클릭하면 Agent Detail 사이드 시트가 열린다.
 
 ### 8.2. 3단 메인 영역
 
@@ -288,11 +288,11 @@ CEO(사용자)가 고수준 지시를 내린다. COO(Claude Code 메인 세션)�
 
 ![대시보드 대기 상태](/assets/image/post/claude-code-agent-dashboard/00-idle.png)
 
-**Active Tasks**는 현재 실행 중인 에이전트의 작업 설명과 경과 시간을 보여준다. 각 카드에 에이전트의 한국어 이름, 역할, 팀, 배정된 작업 그리고 실시간 타이머가 표시된다.
+Active Tasks는 현재 실행 중인 에이전트의 작업 설명과 경과 시간을 보여준다. 각 카드에 에이전트의 한국어 이름, 역할, 팀, 배정된 작업 그리고 실시간 타이머가 표시된다.
 
-**Completed**는 완료된 작업을 역순으로 나열한다. 각 카드는 펼칠 수 있다. 클릭하면 Tailwind Typography로 렌더링된 마크다운 전문이 표시된다. PRD 문서, 코드 리뷰 요약, 테스트 결과 등 실제 산출물을 여기서 확인할 수 있다.
+Completed는 완료된 작업을 역순으로 나열한다. 각 카드는 펼칠 수 있다. 클릭하면 Tailwind Typography로 렌더링된 마크다운 전문이 표시된다. PRD 문서, 코드 리뷰 요약, 테스트 결과 등 실제 산출물을 여기서 확인할 수 있다.
 
-**Errors**는 문제가 발생한 에이전트를 보여준다. 에이전트의 `last_assistant_message`에서 가져온 에러 메시지가 표시되어 Claude Code의 트랜스크립트 파일을 뒤지지 않아도 무엇이 잘못됐는지 바로 파악할 수 있다.
+Errors는 문제가 발생한 에이전트를 보여준다. 에이전트의 `last_assistant_message`에서 가져온 에러 메시지가 표시되어 Claude Code의 트랜스크립트 파일을 뒤지지 않아도 무엇이 잘못됐는지 바로 파악할 수 있다.
 
 ### 8.3. 요약 카운터
 
@@ -442,18 +442,18 @@ QA 엔지니어가 확인한다. `requestAnimationFrame`이 비활성 탭에서 
 
 5개 단계에 걸친 전체 오케스트레이션 흐름이다.
 
-**CEO**: "음성 메모 PoC 개발" → **COO 윤시현님**: 분석 및 계획
+CEO: "음성 메모 PoC 개발" → COO 윤시현님: 분석 및 계획
 
 | 단계 | 에이전트 |
 |------|---------|
-| **1단계: 기획** | 김소연님(PRD), 이준혁님(기술 설계), 한예슬님(와이어프레임) |
-| **2단계: 개발** | 강하린님(React SPA) |
-| **CEO 피드백** | 강하린님(Safari 폴백 + UI) |
-| **3단계: 리뷰** | 최유진님(아키텍처 리뷰), 임수빈님(품질 리뷰), 신재원님(보안 감사) → **오류** |
-| **보안 수정** | 강하린님(XSS + 암호화 수정) |
-| **4단계: QA 및 재검증** | 오태윤님(QA), 신재원님(보안 재감사) |
-| **버그 수정**(CEO 리포트) | 오태윤님(재현 확인), 강하린님(파형 버그 수정) |
-| **5단계: 문서화** | 조민지님(블로그, README, CHANGELOG) |
+| 1단계: 기획 | 김소연님(PRD), 이준혁님(기술 설계), 한예슬님(와이어프레임) |
+| 2단계: 개발 | 강하린님(React SPA) |
+| CEO 피드백 | 강하린님(Safari 폴백 + UI) |
+| 3단계: 리뷰 | 최유진님(아키텍처 리뷰), 임수빈님(품질 리뷰), 신재원님(보안 감사) → 오류 |
+| 보안 수정 | 강하린님(XSS + 암호화 수정) |
+| 4단계: QA 및 재검증 | 오태윤님(QA), 신재원님(보안 재감사) |
+| 버그 수정(CEO 리포트) | 오태윤님(재현 확인), 강하린님(파형 버그 수정) |
+| 5단계: 문서화 | 조민지님(블로그, README, CHANGELOG) |
 
 ## 10. macOS launchd 자동 시작
 

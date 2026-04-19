@@ -70,9 +70,9 @@ MCP는 Anthropic이 공개한 프로토콜로 AI 어시스턴트에 외부 도�
 Text/JSON → Parser/Builder → XML(.scap) → Renderer → PNG
 ```
 
-- **Parser** - XML을 파싱해서 `ScappleDocument` 타입의 객체로 변환한다
-- **Builder** - `ScappleDocument` 객체를 XML 문자열로 직렬화한다
-- **Renderer** - `ScappleDocument`를 SVG로 변환한 뒤 PNG를 생성한다
+- Parser - XML을 파싱해서 `ScappleDocument` 타입의 객체로 변환한다
+- Builder - `ScappleDocument` 객체를 XML 문자열로 직렬화한다
+- Renderer - `ScappleDocument`를 SVG로 변환한 뒤 PNG를 생성한다
 
 프로젝트의 파일 구조는 아래와 같다.
 

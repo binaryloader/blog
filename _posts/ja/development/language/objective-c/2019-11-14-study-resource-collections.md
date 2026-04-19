@@ -57,7 +57,7 @@ Objective-C != Foundation
 - [Advanced Memory Management Programming Guide](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html#//apple_ref/doc/uid/10000011i)
 - [Object-Oriented Programming with Objective-C](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/OOP_ObjC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40005149)
 
-**警告:** Apple開発者ドキュメントはいつでも削除される可能性がある。
+警告: Apple開発者ドキュメントはいつでも削除される可能性がある。
 {: .notice--warning}
 
 ## 2. Clang 11ドキュメント

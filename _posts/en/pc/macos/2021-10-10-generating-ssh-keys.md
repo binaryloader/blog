@@ -40,7 +40,7 @@ This post covers how to generate SSH keys on macOS.
 cd ~/.ssh
 ```
 
-**Warning:** If the directory does not exist, create it first.
+Warning: If the directory does not exist, create it first.
 {: .notice--warning}
 
 ## 2. Generate a key

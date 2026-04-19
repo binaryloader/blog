@@ -34,11 +34,11 @@ Alfred에서 터미널 커맨드를 실행할 때 기본 Terminal.app 대신 iTe
 
 ## 1. Alfred 터미널 설정 열기
 
-Alfred Preferences에서 **Features > Terminal**로 이동한다.
+Alfred Preferences에서 Features > Terminal로 이동한다.
 
 ## 2. Application을 Custom으로 변경
 
-**Application** 드롭다운을 **Custom**으로 변경하면 AppleScript를 입력할 수 있는 텍스트 영역이 나타난다.
+Application 드롭다운을 Custom으로 변경하면 AppleScript를 입력할 수 있는 텍스트 영역이 나타난다.
 
 ## 3. AppleScript 입력
 

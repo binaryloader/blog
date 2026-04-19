@@ -87,10 +87,10 @@ Launches the MCP server process directly via a CLI command.
 
 | Field | Description |
 |---|---|
-| **type** | Set to `"stdio"`. |
-| **command** | The absolute path to the executable. (e.g., `npx`, `uvx`) |
-| **args** | An array of arguments to pass to the command. |
-| **env** | (Optional) Environment variables. Used when API tokens are required. |
+| type | Set to `"stdio"`. |
+| command | The absolute path to the executable. (e.g., `npx`, `uvx`) |
+| args | An array of arguments to pass to the command. |
+| env | (Optional) Environment variables. Used when API tokens are required. |
 
 ### 3.2. SSE (Server-Sent Events)
 
@@ -113,8 +113,8 @@ Connects to a locally running MCP server via HTTP.
 
 | Field | Description |
 |---|---|
-| **type** | Set to `"sse"`. |
-| **url** | The SSE endpoint URL of the MCP server. |
+| type | Set to `"sse"`. |
+| url | The SSE endpoint URL of the MCP server. |
 
 ## 4. Configuration Example
 
@@ -160,14 +160,14 @@ An example with multiple MCP servers configured together.
 
 | MCP Server | Purpose |
 |---|---|
-| **context7** | Provides library documentation as context. |
-| **sequential-thinking** | Adds step-by-step reasoning for complex problems. |
-| **mcp-atlassian** | Enables access to Jira issues and Confluence documents. |
-| **Figma Dev Mode MCP** | Allows referencing Figma design files from code. |
+| context7 | Provides library documentation as context. |
+| sequential-thinking | Adds step-by-step reasoning for complex problems. |
+| mcp-atlassian | Enables access to Jira issues and Confluence documents. |
+| Figma Dev Mode MCP | Allows referencing Figma design files from code. |
 
 ## 5. Notes
 
-- The `command` field requires the **absolute path** to the binary. If you manage Node.js with nvm, check the path with `which npx`.
+- The `command` field requires the absolute path to the binary. If you manage Node.js with nvm, check the path with `which npx`.
 - Be careful not to expose the settings file externally when it contains API tokens or passwords in `env`.
 - Restart Xcode after changing the configuration for it to take effect.
 

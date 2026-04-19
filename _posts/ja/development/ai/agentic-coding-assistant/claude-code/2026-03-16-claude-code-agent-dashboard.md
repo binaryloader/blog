@@ -158,11 +158,11 @@ Claude Codeをダッシュボードに接続するには、`~/.claude/settings.j
 
 イベント処理のフローは以下の通りである。
 
-- **SubagentStart**：エージェントが生成された。サーバーがエージェントの状態を「working」に作成または更新し、開始時間を記録する
-- **SubagentStop / Stop**：エージェントが完了した。サーバーは`SubagentStop`ペイロードの`reason`フィールドに`"error"`または`"failure"`が含まれるかを確認し、ステータスを設定する。初期実装では`last_assistant_message`に「error」というキーワードが含まれるかを検索していたが、これは誤検知を引き起こした。エージェントがレスポンスで「ErrorHistory.tsx」に言及しただけでエラー状態がトリガーされてしまう。`reason`フィールドの検出に切り替えることで解決した。`Stop`には注意すべき点がある。セッション終了時だけでなく、毎回のレスポンス後に発火する。毎回の`Stop`でCOOをリセットすると、レスポンス間でアイドル状態にちらつく。解決策として`Stop`はCOOを完全にスキップする。COOがアイドルに戻るのは`SessionEnd`のみである。`UserPromptSubmit`でCOOのデフォルトタスクを「CEOの指示を処理中」に設定し、`task-assign`で具体的な説明に上書きできるようにした
-- **PreToolUse / PostToolUse**：エージェントがツールを使用中である。これらのイベントはエージェントがまだ生きて動作していることを確認する
-- **TaskCompleted**：チームタスクが完了した。エージェントチームの調整に使用される
-- **SessionStart / SessionEnd**：メインのClaude Codeセッションのライフサイクル
+- SubagentStart：エージェントが生成された。サーバーがエージェントの状態を「working」に作成または更新し、開始時間を記録する
+- SubagentStop / Stop：エージェントが完了した。サーバーは`SubagentStop`ペイロードの`reason`フィールドに`"error"`または`"failure"`が含まれるかを確認し、ステータスを設定する。初期実装では`last_assistant_message`に「error」というキーワードが含まれるかを検索していたが、これは誤検知を引き起こした。エージェントがレスポンスで「ErrorHistory.tsx」に言及しただけでエラー状態がトリガーされてしまう。`reason`フィールドの検出に切り替えることで解決した。`Stop`には注意すべき点がある。セッション終了時だけでなく、毎回のレスポンス後に発火する。毎回の`Stop`でCOOをリセットすると、レスポンス間でアイドル状態にちらつく。解決策として`Stop`はCOOを完全にスキップする。COOがアイドルに戻るのは`SessionEnd`のみである。`UserPromptSubmit`でCOOのデフォルトタスクを「CEOの指示を処理中」に設定し、`task-assign`で具体的な説明に上書きできるようにした
+- PreToolUse / PostToolUse：エージェントがツールを使用中である。これらのイベントはエージェントがまだ生きて動作していることを確認する
+- TaskCompleted：チームタスクが完了した。エージェントチームの調整に使用される
+- SessionStart / SessionEnd：メインのClaude Codeセッションのライフサイクル
 
 サーバーはパースエラーが発生しても常にHTTP 200を返す。これは重要で、ダッシュボードフックの障害がClaude Codeのエージェント実行をブロックしてはならないからである。
 
@@ -172,7 +172,7 @@ Claude Codeをダッシュボードに接続するには、`~/.claude/settings.j
 
 これはダッシュボードにとって重要である。「product-planner: working」と表示するより、「product-planner: ボイスメモ機能の市場調査とPRD」と表示する方がはるかに有用である。
 
-解決策が**task-assign**パターンである。COO(メインセッション)がサブエージェントを呼び出す前に、ダッシュボードサーバーに事前登録リクエストを送信する。
+解決策がtask-assignパターンである。COO(メインセッション)がサブエージェントを呼び出す前に、ダッシュボードサーバーに事前登録リクエストを送信する。
 
 ```bash
 curl -s -X POST http://localhost:3100/api/v1/task-assign \
@@ -254,7 +254,7 @@ export const AGENTS: AgentDefinition[] = [
 
 システム全体が企業の階層構造メタファーに従っている。
 
-**CEO(ユーザー)** → **COO Yun Sihyeon(オーケストレーター)**
+CEO(ユーザー) → COO Yun Sihyeon(オーケストレーター)
 
 | 企画チーム | 開発チーム | レビューチーム | QA & セキュリティ |
 |-----------|----------|-------------|----------------|
@@ -282,7 +282,7 @@ CEO(ユーザー)がハイレベルな指示を出す。COO(Claude Codeメイン
 
 completedやerror状態は緑または赤で10秒間表示された後グレー(idle)に戻る。状態変化を認識する余裕を与えつつサイドバーが雑然とならないようにしている。
 
-エージェントをクリックすると**Agent Detail**サイドシートが開く。
+エージェントをクリックするとAgent Detailサイドシートが開く。
 
 ### 8.2. 3パネルメインエリア
 
@@ -290,11 +290,11 @@ completedやerror状態は緑または赤で10秒間表示された後グレー(
 
 ![ダッシュボード アイドル状態](/assets/image/post/claude-code-agent-dashboard/00-idle.png)
 
-**Active Tasks**には、現在稼働中のエージェントがタスク説明と経過時間とともに表示される。各カードにはエージェントの韓国語名、役割、チーム、割り当てられたタスク、リアルタイムタイマーが表示される。
+Active Tasksには、現在稼働中のエージェントがタスク説明と経過時間とともに表示される。各カードにはエージェントの韓国語名、役割、チーム、割り当てられたタスク、リアルタイムタイマーが表示される。
 
-**Completed**には、完了したタスクが新しい順に一覧表示される。各カードは展開可能で、クリックするとTailwind Typographyでレンダリングされた完全なMarkdown結果が表示される。ここにPRDドキュメント、コードレビューサマリー、テスト結果などの実際の出力が表示される。
+Completedには、完了したタスクが新しい順に一覧表示される。各カードは展開可能で、クリックするとTailwind Typographyでレンダリングされた完全なMarkdown結果が表示される。ここにPRDドキュメント、コードレビューサマリー、テスト結果などの実際の出力が表示される。
 
-**Errors**には、問題が発生したエージェントが表示される。エージェントの`last_assistant_message`からのエラーメッセージが表示されるため、Claude Codeのトランスクリプトファイルを掘り返さなくても何が問題だったかすぐにわかる。
+Errorsには、問題が発生したエージェントが表示される。エージェントの`last_assistant_message`からのエラーメッセージが表示されるため、Claude Codeのトランスクリプトファイルを掘り返さなくても何が問題だったかすぐにわかる。
 
 ### 8.3. サマリーカウンター
 
@@ -444,18 +444,18 @@ QAエンジニアが確認する。`requestAnimationFrame`が非アクティブ�
 
 5つのフェーズにわたる完全なオーケストレーションフロー。
 
-**CEO**: "音声メモPoC開発" → **COO**: 分析・計画
+CEO: "音声メモPoC開発" → COO: 分析・計画
 
 | フェーズ | エージェント |
 |---------|------------|
-| **Phase 1: 企画** | Kim Soyeon(PRD), Lee Junhyuk(技術設計), Han Yeseul(ワイヤーフレーム) |
-| **Phase 2: 開発** | Kang Harin(React SPA) |
-| **CEOフィードバック** | Kang Harin(Safari対応 + UI) |
-| **Phase 3: レビュー** | Choi Yujin(アーキテクチャ), Im Subin(品質), Shin Jaewon(セキュリティ) → **エラー** |
-| **セキュリティ修正** | Kang Harin(XSS + 暗号化) |
-| **Phase 4: QA・再検証** | Oh Taeyun(QA), Shin Jaewon(再監査) |
-| **バグ修正**(CEOレポート) | Oh Taeyun(再現確認), Kang Harin(波形修正) |
-| **Phase 5: 文書化** | Jo Minji(Blog, README, CHANGELOG) |
+| Phase 1: 企画 | Kim Soyeon(PRD), Lee Junhyuk(技術設計), Han Yeseul(ワイヤーフレーム) |
+| Phase 2: 開発 | Kang Harin(React SPA) |
+| CEOフィードバック | Kang Harin(Safari対応 + UI) |
+| Phase 3: レビュー | Choi Yujin(アーキテクチャ), Im Subin(品質), Shin Jaewon(セキュリティ) → エラー |
+| セキュリティ修正 | Kang Harin(XSS + 暗号化) |
+| Phase 4: QA・再検証 | Oh Taeyun(QA), Shin Jaewon(再監査) |
+| バグ修正(CEOレポート) | Oh Taeyun(再現確認), Kang Harin(波形修正) |
+| Phase 5: 文書化 | Jo Minji(Blog, README, CHANGELOG) |
 
 ## 10. macOS自動起動(launchd)
 

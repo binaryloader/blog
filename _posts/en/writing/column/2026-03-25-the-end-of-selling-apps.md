@@ -96,7 +96,7 @@ What's even more important is that these custom apps aren't a one-and-done affai
 
 Imagine a general-purpose to-do app used by 500,000 people alongside a custom-built to-do app made just for you. If both are free, which one would you use? The answer is obvious.
 
-The moment the reason for general-purpose services to exist - **because you can't build your own** - disappears, the value of those services drops sharply. This is the fundamental crisis facing existing software companies.
+The moment the reason for general-purpose services to exist - because you can't build your own - disappears, the value of those services drops sharply. This is the fundamental crisis facing existing software companies.
 
 # The Dilemma of Existing Companies
 
@@ -132,7 +132,7 @@ Think about what this means.
 
 When users start using their own custom apps instead of general-purpose free apps, the touchpoints for showing ads shrink. The channels through which companies can collect user behavior data narrow. The foundation of the ad-based business model - access to a massive user pool - weakens.
 
-Google Search and YouTube aren't going to vanish overnight, of course. But for small and mid-sized apps and services, the ad-based model will become increasingly difficult. The moment users can choose **my own app + no ads** over **free app + ads**, the appeal of the advertising model plummets.
+Google Search and YouTube aren't going to vanish overnight, of course. But for small and mid-sized apps and services, the ad-based model will become increasingly difficult. The moment users can choose my own app + no ads over free app + ads, the appeal of the advertising model plummets.
 
 The data collection model faces the same pressure. Many services have been built on the implicit deal of use it for free, just give us your data. Most users either didn't realize this deal existed or accepted it because there was no alternative. But now there is an alternative. You can build your own service without handing over your data.
 
@@ -144,7 +144,7 @@ What remains is software that exists purely for its owner's purpose. Perhaps tha
 
 # The Arrival of the Module Economy
 
-So what direction should existing software companies pivot toward? I dare to predict that the answer lies in the **module economy**. This is my personal speculation. But it is speculation with what I believe to be solid reasoning behind it.
+So what direction should existing software companies pivot toward? I dare to predict that the answer lies in the module economy. This is my personal speculation. But it is speculation with what I believe to be solid reasoning behind it.
 
 Until now, software companies sold finished products. They planned, designed, developed, tested, and delivered completed apps or web services to users. Users used those finished products as-is.
 
@@ -166,7 +166,7 @@ What holds value in this structure? Not the finished app, but the individual cap
 
 Think of processing payments safely and conveniently, real-time communication that handles millions of simultaneous connections, accurate and fast map rendering. These are things non-developers can't easily build with AI alone. They require deep expertise, infrastructure, and economies of scale.
 
-A critical reversal happens here. In the past, companies told users: use our app. In the future, companies will tell users (and their AIs): use our capability. The relationship with users shifts from B2C to B2B2C, or more precisely, **B2AI2C**.
+A critical reversal happens here. In the past, companies told users: use our app. In the future, companies will tell users (and their AIs): use our capability. The relationship with users shifts from B2C to B2B2C, or more precisely, B2AI2C.
 
 # The Block-Assembly Service Ecosystem
 
@@ -184,9 +184,9 @@ Tell an AI "Add payment functionality to my app" and the AI finds the right paym
 
 This raises another interesting question. In such an ecosystem, what are the most valuable modules?
 
-I see two types. The first is **capabilities with infrastructure-level complexity**. Payment processing, authentication, real-time communication, media processing, and search engines all belong here. Implementing these properly requires enormous expertise and infrastructure. A non-developer asking AI to "build a payment system from scratch" won't be able to handle financial regulations, PCI DSS compliance, fraud detection, or multi-currency processing. Specialized companies providing these as modules makes overwhelmingly more sense.
+I see two types. The first is capabilities with infrastructure-level complexity. Payment processing, authentication, real-time communication, media processing, and search engines all belong here. Implementing these properly requires enormous expertise and infrastructure. A non-developer asking AI to "build a payment system from scratch" won't be able to handle financial regulations, PCI DSS compliance, fraud detection, or multi-currency processing. Specialized companies providing these as modules makes overwhelmingly more sense.
 
-The second is **domain-specific capabilities**. Examples include electronic prescription systems in healthcare, delivery route optimization engines in logistics, risk assessment models in finance, and learning progress tracking systems in education. These require deep domain knowledge and regulatory compliance for specific industries. Non-developers can't easily implement these with AI alone either. But if specialized companies provide well-built modules, even non-developers can integrate them into their services.
+The second is domain-specific capabilities. Examples include electronic prescription systems in healthcare, delivery route optimization engines in logistics, risk assessment models in finance, and learning progress tracking systems in education. These require deep domain knowledge and regulatory compliance for specific industries. Non-developers can't easily implement these with AI alone either. But if specialized companies provide well-built modules, even non-developers can integrate them into their services.
 
 Ultimately, the software companies of the future will need to evolve toward building deep expertise in one of these two types and delivering it as modules.
 
@@ -198,7 +198,7 @@ This reshapes the very capability structure of software companies. If frontend d
 
 Not every software service will be replaced by modules. It's important to distinguish what survives from what's at risk in this transformation.
 
-**What survives.**
+What survives.
 
 First, services where network effects are core. This category includes social networks and messaging platforms like KakaoTalk, Instagram, YouTube, and LinkedIn. The value of these services isn't in their features - it's in the fact that other people are there. No matter how good a messenger I build, it's meaningless if my friends aren't on it. Network effects are a barrier to entry that individuals cannot replicate.
 
@@ -208,7 +208,7 @@ Third, cloud infrastructure. Cloud platforms like AWS, Azure, and GCP fall into 
 
 Fourth, AI platforms themselves. AI model providers like OpenAI, Anthropic, and Google belong here. These companies provide the core engines of agentic coding assistants. They are the infrastructure on top of the infrastructure in the module economy. The more users build services through AI, the more value AI platforms accrue. They are the biggest beneficiaries of this paradigm shift.
 
-**What's at risk.**
+What's at risk.
 
 First, simple CRUD apps. To-do apps, note apps, habit trackers, budget trackers, and journal apps all fall in this category. The core features of these apps can be easily replicated by AI. When users can build their own tailored versions, the reason to use a general-purpose app diminishes. The fact that searching to-do app on app stores already returns thousands of results is evidence this market is oversaturated. Add infinite customization as an option and survival for existing to-do app companies becomes extremely difficult.
 
@@ -218,23 +218,23 @@ Third, ad-supported free apps. As discussed, when users can build their own ad-f
 
 Fourth, simple wrapper services. These are services whose entire value is a pretty interface layered on top of existing APIs. Since AI can create interfaces, the value of this intermediary layer decreases. In fact, many wrapper services are already being hit by AI's emergence. Services that charged monthly subscriptions for a thin UI on top of AI APIs are losing their reason to exist as users gain the ability to call APIs directly.
 
-The essence is this: **services with irreplaceable assets survive, while services whose value is purely functional are at risk.** Network effects, massive data, deep expertise, and physical infrastructure are the assets in question. These cannot be replicated by AI. But features built in code can be.
+The essence is this: services with irreplaceable assets survive, while services whose value is purely functional are at risk. Network effects, massive data, deep expertise, and physical infrastructure are the assets in question. These cannot be replicated by AI. But features built in code can be.
 
 # Survival Strategies for Companies
 
 What strategies should companies that recognize this shift adopt?
 
-First, **transition from service provider to capability provider.** Move from a model of delivering end-user services through proprietary apps and websites to a model of providing core capabilities as APIs, SDKs, and modules. Companies need to identify what their deepest expertise is and modularize it into independently usable components.
+First, transition from service provider to capability provider. Move from a model of delivering end-user services through proprietary apps and websites to a model of providing core capabilities as APIs, SDKs, and modules. Companies need to identify what their deepest expertise is and modularize it into independently usable components.
 
-Second, **design AI-agent-friendly interfaces.** The user of the future may not be a person but an AI agent. APIs must be designed so that AI can automatically search, evaluate, and integrate modules. Well-organized documentation, clear error messages, and available test environments become table stakes. These will become the criteria by which AI agents select capabilities.
+Second, design AI-agent-friendly interfaces. The user of the future may not be a person but an AI agent. APIs must be designed so that AI can automatically search, evaluate, and integrate modules. Well-organized documentation, clear error messages, and available test environments become table stakes. These will become the criteria by which AI agents select capabilities.
 
-Third, **build irreplaceable assets.** Features written in code can be replicated. But data accumulated over years, compliance with industry regulations, a track record of reliability, and partner networks cannot be easily copied. Companies must deliberately build these irreplaceable assets.
+Third, build irreplaceable assets. Features written in code can be replicated. But data accumulated over years, compliance with industry regulations, a track record of reliability, and partner networks cannot be easily copied. Companies must deliberately build these irreplaceable assets.
 
-Fourth, **module domain expertise.** If a company has deep understanding of a specific industry, packaging that understanding into code becomes a powerful strategy. Think of a patient data management module that fully complies with healthcare regulations, a transaction processing engine that meets financial regulations, or a delivery management SDK equipped with logistics optimization algorithms. The combination of domain knowledge and technology creates the highest-defense moat.
+Fourth, module domain expertise. If a company has deep understanding of a specific industry, packaging that understanding into code becomes a powerful strategy. Think of a patient data management module that fully complies with healthcare regulations, a transaction processing engine that meets financial regulations, or a delivery management SDK equipped with logistics optimization algorithms. The combination of domain knowledge and technology creates the highest-defense moat.
 
-Fifth, **ecosystem strategy.** Rather than trying to build a monopolistic platform, aim to be the best component in an open ecosystem. Many companies have pursued the do everything on our platform all-in-one strategy. But in an era where users assemble their own services, being the best at a specific capability and fitting seamlessly into any combination is more advantageous. Stripe's hold on payments is a textbook example of that positioning.
+Fifth, ecosystem strategy. Rather than trying to build a monopolistic platform, aim to be the best component in an open ecosystem. Many companies have pursued the do everything on our platform all-in-one strategy. But in an era where users assemble their own services, being the best at a specific capability and fitting seamlessly into any combination is more advantageous. Stripe's hold on payments is a textbook example of that positioning.
 
-One principle runs through all these strategies: the shift from **building for** to **enabling**. In the past, companies built services on behalf of users. Going forward, they transition into helping users build for themselves. Providing ingredients rather than finished dishes. Selling raw materials rather than recipes. This shift in perspective may be the hardest part. For a company that has operated for 20 years with the mindset of we'll build the best app and deliver it to you, declaring we're becoming a component supplier is partly a matter of pride.
+One principle runs through all these strategies: the shift from building for to enabling. In the past, companies built services on behalf of users. Going forward, they transition into helping users build for themselves. Providing ingredients rather than finished dishes. Selling raw materials rather than recipes. This shift in perspective may be the hardest part. For a company that has operated for 20 years with the mindset of we'll build the best app and deliver it to you, declaring we're becoming a component supplier is partly a matter of pride.
 
 But pride that runs against the market's direction is a luxury.
 

@@ -40,8 +40,8 @@ A symbolic link (symlink) is a special file that points to another file or direc
 
 The difference from a hard link is as follows.
 
-- **Symbolic link**: References the **path** of the original file. If the original is deleted, the link breaks (dangling link).
-- **Hard link**: Shares the **inode** of the original file. Data remains accessible even if the original is deleted.
+- Symbolic link: References the path of the original file. If the original is deleted, the link breaks (dangling link).
+- Hard link: Shares the inode of the original file. Data remains accessible even if the original is deleted.
 
 Symbolic links are well-suited for syncing configuration files because the original location is clear and it's easy to see which file a link points to.
 

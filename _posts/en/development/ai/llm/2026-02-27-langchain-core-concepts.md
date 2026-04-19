@@ -41,11 +41,11 @@ LLMs produce vastly different output quality depending on the prompt, even with 
 
 Here's why prompt engineering matters.
 
-- **Cost efficiency** - Performance can be improved through prompt refinement alone, without fine-tuning or upgrading to a larger model
-- **Hallucination reduction** - Role assignment, constraint specification, and output format specification guide the model toward fact-based responses
-- **Consistent output** - Specifying formats like JSON or markdown tables yields structured results usable without post-processing
-- **Complex reasoning** - Techniques like Chain-of-Thought and Few-shot enable the model to think step-by-step, improving logical accuracy
-- **Safety** - System prompts set boundaries to defend against inappropriate responses and prompt injection
+- Cost efficiency - Performance can be improved through prompt refinement alone, without fine-tuning or upgrading to a larger model
+- Hallucination reduction - Role assignment, constraint specification, and output format specification guide the model toward fact-based responses
+- Consistent output - Specifying formats like JSON or markdown tables yields structured results usable without post-processing
+- Complex reasoning - Techniques like Chain-of-Thought and Few-shot enable the model to think step-by-step, improving logical accuracy
+- Safety - System prompts set boundaries to defend against inappropriate responses and prompt injection
 
 Key techniques are summarized below.
 
@@ -61,7 +61,7 @@ Prompt engineering is the method that creates the biggest performance difference
 
 ## 2. LCEL (LangChain Expression Language)
 
-LCEL is a syntax for declaratively composing chains by **connecting LangChain components with the pipe operator (`|`)**. All components implement a common `Runnable` interface, allowing free combination.
+LCEL is a syntax for declaratively composing chains by connecting LangChain components with the pipe operator (`|`). All components implement a common `Runnable` interface, allowing free combination.
 
 ```python
 chain = prompt | llm | StrOutputParser()
@@ -72,19 +72,19 @@ Data flows through the pipeline in order: prompt → LLM → output parser, expr
 
 ### 2.1. Advantages
 
-- **Concise declarative composition** - Even complex chains can be expressed intuitively with the pipe operator
-- **Unified interface** - All components implement `Runnable`, so `invoke`, `stream`, `batch`, `ainvoke` etc. can be used consistently
-- **Streaming/async built-in** - `.stream()`, `.ainvoke()` work immediately without separate code
-- **Composability** - Retriever, prompt, LLM, parser etc. can be assembled like Lego blocks for patterns like RAG
-- **Parallel execution** - `RunnableParallel` allows independent tasks to run simultaneously
+- Concise declarative composition - Even complex chains can be expressed intuitively with the pipe operator
+- Unified interface - All components implement `Runnable`, so `invoke`, `stream`, `batch`, `ainvoke` etc. can be used consistently
+- Streaming/async built-in - `.stream()`, `.ainvoke()` work immediately without separate code
+- Composability - Retriever, prompt, LLM, parser etc. can be assembled like Lego blocks for patterns like RAG
+- Parallel execution - `RunnableParallel` allows independent tasks to run simultaneously
 
 ### 2.2. Disadvantages
 
-- **Debugging difficulty** - When errors occur mid-pipeline, it's hard to trace which step caused the problem
-- **Learning curve** - LCEL-specific concepts like `RunnablePassthrough`, `RunnableParallel`, `RunnableLambda` must be learned separately
-- **Implicit data flow** - It can be hard to determine what data is passed between steps just by reading the code
-- **Complex branching** - Conditional branching and error handling can become more complex than pure Python code
-- **Over-abstraction** - Even simple tasks require Runnable wrapping, which can feel like overhead
+- Debugging difficulty - When errors occur mid-pipeline, it's hard to trace which step caused the problem
+- Learning curve - LCEL-specific concepts like `RunnablePassthrough`, `RunnableParallel`, `RunnableLambda` must be learned separately
+- Implicit data flow - It can be hard to determine what data is passed between steps just by reading the code
+- Complex branching - Conditional branching and error handling can become more complex than pure Python code
+- Over-abstraction - Even simple tasks require Runnable wrapping, which can feel like overhead
 
 ### 2.3. RAG Example
 
@@ -111,7 +111,7 @@ answer = chain.invoke("What is LCEL?")
 
 ## 3. Prompt Templates
 
-A prompt template is a **prompt frame containing variables**. Fixed text with `{variable_name}` placeholders is filled with actual values at runtime to produce completed prompts.
+A prompt template is a prompt frame containing variables. Fixed text with `{variable_name}` placeholders is filled with actual values at runtime to produce completed prompts.
 
 ### 3.1. PromptTemplate
 
@@ -207,7 +207,7 @@ for txt in chain.stream({"input": "What's your name?"}):
     print(txt, end="")
 ```
 
-The key point is managing prompts as **reusable templates** rather than hardcoding them, allowing different inputs to be handled by simply changing variables.
+The key point is managing prompts as reusable templates rather than hardcoding them, allowing different inputs to be handled by simply changing variables.
 
 | Type | Purpose |
 |---|---|
@@ -230,7 +230,7 @@ LangChain provides classes that distinguish chat model messages by role. All mes
 | `AIMessageChunk` | ai | Partial fragment of a response arriving during streaming. Accumulate `content` to build the full response |
 | `ToolMessage` | tool | Delivers tool execution results to the model. Links to the call via `tool_call_id` |
 | `ChatMessage` | custom | A generic message with an arbitrary `role`. Used when standard roles don't apply |
-| `FunctionMessage` | function | For OpenAI's legacy function calling API. **Deprecated** - use `ToolMessage` instead |
+| `FunctionMessage` | function | For OpenAI's legacy function calling API. Deprecated - use `ToolMessage` instead |
 
 ### 4.2. Basic Usage
 
@@ -301,11 +301,11 @@ msg = ChatMessage(
 
 ## 5. MessagesPlaceholder
 
-`MessagesPlaceholder` is a placeholder for **dynamically inserting a list of messages** into a prompt template. While regular variables (`{input}`) substitute a single string, `MessagesPlaceholder` inserts multiple message objects as a whole.
+`MessagesPlaceholder` is a placeholder for dynamically inserting a list of messages into a prompt template. While regular variables (`{input}`) substitute a single string, `MessagesPlaceholder` inserts multiple message objects as a whole.
 
 ### 5.1. Why It's Needed
 
-Chat history is a **list** of alternating human/ai messages. Regular string variables cannot represent this structure, so a dedicated message-list placeholder is necessary.
+Chat history is a list of alternating human/ai messages. Regular string variables cannot represent this structure, so a dedicated message-list placeholder is necessary.
 
 ### 5.2. Usage
 
@@ -360,7 +360,7 @@ HumanMessage:   "What was my name?"              <- input
 ]
 ```
 
-`{question}` is a **string variable**. `{}` marks the substitution position within a string, using Python's format syntax. On the other hand, `MessagesPlaceholder("chat_history")` is already declared as a separate object, so `"chat_history"` is simply **a constructor argument specifying the variable name**. It's not string substitution; rather, it inserts the message list passed under that name as a whole, so `{}` is unnecessary.
+`{question}` is a string variable. `{}` marks the substitution position within a string, using Python's format syntax. On the other hand, `MessagesPlaceholder("chat_history")` is already declared as a separate object, so `"chat_history"` is simply a constructor argument specifying the variable name. It's not string substitution; rather, it inserts the message list passed under that name as a whole, so `{}` is unnecessary.
 
 ### 5.5. The `optional` Parameter
 
@@ -376,7 +376,7 @@ LangChain's `StrOutputParser` is a general-purpose parser that converts LLM outp
 
 ### 6.1. yield and Generators
 
-`yield` is a `return` that sends values one at a time. While `return` terminates the function, `yield` **pauses the function** and passes a value. On the next request, execution continues from where it paused.
+`yield` is a `return` that sends values one at a time. While `return` terminates the function, `yield` pauses the function and passes a value. On the next request, execution continues from where it paused.
 
 ```python
 # return: collects everything and returns at once
@@ -393,7 +393,7 @@ for n in get_one_by_one():
     print(n)  # 1, 2, 3
 ```
 
-Functions that use `yield` are called **generators**. The key point is that since the function doesn't terminate, **local variables are preserved**. This property enables maintaining state (like a buffer) while processing streaming data.
+Functions that use `yield` are called generators. The key point is that since the function doesn't terminate, local variables are preserved. This property enables maintaining state (like a buffer) while processing streaming data.
 
 ### 6.2. Implementing a Custom Streaming Parser
 
@@ -425,7 +425,7 @@ streaming_parser = RunnableGenerator(streaming_parse)
 chain = prompt | llm | streaming_parser
 ```
 
-Since replacement must happen at the word level, chunks are **accumulated in a buffer and split by spaces** rather than processed character by character. If emitted character by character, `"태"` and `"풍"` would be separated, making it impossible to recognize `"태풍"`.
+Since replacement must happen at the word level, chunks are accumulated in a buffer and split by spaces rather than processed character by character. If emitted character by character, `"태"` and `"풍"` would be separated, making it impossible to recognize `"태풍"`.
 
 ### 6.3. Execution Flow
 

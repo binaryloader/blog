@@ -53,7 +53,7 @@ Objective-C는 ANSI C의 `strict superset`으로 ANSI C에서 제공하는 대�
 | unsigned char | 1byte | Min : 0<br />Max : 255    |
 
 {: .notice--info}
-**참고:** char에 담기는 데이터 자체는 정수이지만 문자 데이터형으로 취급하는 경우가 있어서 정수 데이터형과는 별개로 나눴다. char는 정수 데이터형이자 문자 데이터형이다.
+참고: char에 담기는 데이터 자체는 정수이지만 문자 데이터형으로 취급하는 경우가 있어서 정수 데이터형과는 별개로 나눴다. char는 정수 데이터형이자 문자 데이터형이다.
 
 ## 2. 정수 데이터형
 
@@ -227,7 +227,7 @@ Objective-C 역시 BOOL은 컴파일러의 종류나 버전 혹은 플랫폼 환
 #endif
 ```
 
-**결정 조건 1**과 **결정 조건 2**에 따라 결정된 `OBJC_BOOL_IS_BOOL`가 참이면 bool을 BOOL로 재정의, 거짓이면 signed char을 BOOL로 재정의한다.
+결정 조건 1과 결정 조건 2에 따라 결정된 `OBJC_BOOL_IS_BOOL`가 참이면 bool을 BOOL로 재정의, 거짓이면 signed char을 BOOL로 재정의한다.
 
 #### 4.1.4. 결정 조건이 맞는지 테스트 해보자
 

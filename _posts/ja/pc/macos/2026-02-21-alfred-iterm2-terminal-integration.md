@@ -35,11 +35,11 @@ Alfred でターミナルコマンドを実行する際にデフォルトの Ter
 
 ## 1. Alfred のターミナル設定を開く
 
-Alfred Preferences で **Features > Terminal** に移動する。
+Alfred Preferences で Features > Terminal に移動する。
 
 ## 2. Application を Custom に変更
 
-**Application** ドロップダウンを **Custom** に変更すると AppleScript を入力できるテキストエリアが表示される。
+Application ドロップダウンを Custom に変更すると AppleScript を入力できるテキストエリアが表示される。
 
 ## 3. AppleScript を入力
 

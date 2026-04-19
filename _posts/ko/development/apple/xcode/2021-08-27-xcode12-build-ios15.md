@@ -39,7 +39,7 @@ Xcode 12에서 iOS 15 또는 iPadOS 15 기기에 빌드를 올리는 방법을 �
 
 - <https://developer.apple.com/download/>
 
-**경고:** Xcode 13이 정식 릴리즈 되었다면 릴리즈 버전을 받으면 된다.
+경고: Xcode 13이 정식 릴리즈 되었다면 릴리즈 버전을 받으면 된다.
 {: .notice--warning}
 
 ## 2. 아래 경로에서 15.0 폴더 복사

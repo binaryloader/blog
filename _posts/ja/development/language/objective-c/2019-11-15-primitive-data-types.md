@@ -54,7 +54,7 @@ Objective-CはANSI Cの`strict superset`であるため、ANSI Cが提供する�
 | unsigned char | 1byte  | Min : 0<br />Max : 255    |
 
 {: .notice--info}
-**参考:** charに格納されるデータ自体は整数だが、文字データ型として扱われる場合があるため整数データ型とは別に分類した。charは整数データ型であり文字データ型でもある。
+参考: charに格納されるデータ自体は整数だが、文字データ型として扱われる場合があるため整数データ型とは別に分類した。charは整数データ型であり文字データ型でもある。
 
 ## 2. 整数データ型
 
@@ -227,7 +227,7 @@ typedef _Bool bool;
 #endif
 ```
 
-**決定条件1**と**決定条件2**によって決定された`OBJC_BOOL_IS_BOOL`が真であればboolをBOOLとして再定義し、偽であればsigned charをBOOLとして再定義する。
+決定条件1と決定条件2によって決定された`OBJC_BOOL_IS_BOOL`が真であればboolをBOOLとして再定義し、偽であればsigned charをBOOLとして再定義する。
 
 #### 4.1.4. 決定条件が正しいかテストしてみよう
 

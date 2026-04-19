@@ -82,8 +82,8 @@ The key constraints are as follows.
 
 The criteria for choosing between subagents and agent teams are as follows.
 
-- **Subagent**: Delegate a single task and receive results (review, analysis, single feature implementation)
-- **Agent Team**: Multiple agents work independently in parallel over extended periods (iOS + server simultaneous development)
+- Subagent: Delegate a single task and receive results (review, analysis, single feature implementation)
+- Agent Team: Multiple agents work independently in parallel over extended periods (iOS + server simultaneous development)
 
 ## 2. File Map
 
@@ -172,7 +172,7 @@ Agents are defined as Markdown files in the `.claude/agents/` directory. Metadat
 
 ### 3.1. Planning Team
 
-**product-planner** - Product planning, user stories, PRD writing. Conducts market research using WebSearch.
+product-planner - Product planning, user stories, PRD writing. Conducts market research using WebSearch.
 
 - Model: opus / Permission: plan
 - Tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -180,14 +180,14 @@ Agents are defined as Markdown files in the `.claude/agents/` directory. Metadat
 - Role: User story definition, MoSCoW/RICE prioritization, MVP scope definition
 - Output: PRD document (background, goals, acceptance criteria, exclusions)
 
-**ui-designer** - UI/UX design, screen flow definition, design system management. Uses built-in Figma integration.
+ui-designer - UI/UX design, screen flow definition, design system management. Uses built-in Figma integration.
 
 - Model: sonnet / Permission: plan
 - Tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
 - Role: Screen flows, wireframe specs, design system definition
 - Principles: Mobile first, HIG compliance, VoiceOver/Dynamic Type support
 
-**tech-writer** - Tickets, wiki, API docs, README writing. Writes directly to external tools via MCP.
+tech-writer - Tickets, wiki, API docs, README writing. Writes directly to external tools via MCP.
 
 - Model: sonnet / Permission: acceptEdits
 - Tools: Read, Write, Edit, Glob, Grep, WebFetch
@@ -197,7 +197,7 @@ Agents are defined as Markdown files in the `.claude/agents/` directory. Metadat
 
 ### 3.2. Development Team
 
-**dev-planner** - PRD-based technical design (TDD), task decomposition, API interface design. Reads and analyzes the codebase.
+dev-planner - PRD-based technical design (TDD), task decomposition, API interface design. Reads and analyzes the codebase.
 
 - Model: opus / Permission: plan
 - Tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch
@@ -208,7 +208,7 @@ Agents are defined as Markdown files in the `.claude/agents/` directory. Metadat
 
 All developer agents work in isolated Git worktrees with `isolation: worktree`, enabling parallel development without conflicts.
 
-**ios-developer** - Swift/SwiftUI iOS app development. Works in an isolated worktree.
+ios-developer - Swift/SwiftUI iOS app development. Works in an isolated worktree.
 
 - Model: opus / Permission: default / Isolation: worktree
 - Tools: Read, Write, Edit, Glob, Grep, Bash, LSP
@@ -219,7 +219,7 @@ All developer agents work in isolated Git worktrees with `isolation: worktree`, 
 - Stack: Swift 6, SwiftUI, TCA, SPM, SwiftData, async/await
 - Branch: `feature/ios-*`
 
-**server-developer** - Spring Boot/Kotlin server development. API implementation, DB design.
+server-developer - Spring Boot/Kotlin server development. API implementation, DB design.
 
 - Model: opus / Permission: default / Isolation: worktree
 - Tools: Read, Write, Edit, Glob, Grep, Bash, LSP
@@ -230,7 +230,7 @@ All developer agents work in isolated Git worktrees with `isolation: worktree`, 
 - Stack: Spring Boot 3, Kotlin, PostgreSQL, Redis, Flyway
 - Branch: `feature/server-*`
 
-**infra-developer** - AWS infrastructure provisioning, Terraform IaC, CI/CD pipelines.
+infra-developer - AWS infrastructure provisioning, Terraform IaC, CI/CD pipelines.
 
 - Model: opus / Permission: default / Isolation: worktree
 - Tools: Read, Write, Edit, Glob, Grep, Bash
@@ -245,21 +245,21 @@ All developer agents work in isolated Git worktrees with `isolation: worktree`, 
 
 Two reviewers per developer separate architecture and quality perspectives for multi-angle reviews. All reviewers are read-only with `permissionMode: plan`.
 
-**iOS Review**
+iOS Review
 
 | Agent | Perspective | Required (🔴) | Recommended (🟡) |
 |---|---|---|---|
 | `ios-reviewer-arch` | TCA pattern compliance, module dependency direction, separation of concerns, SOLID principles | Architecture violations, circular dependencies, layer breaches | Structural improvement suggestions |
 | `ios-reviewer-quality` | Optional handling, retain cycles, unnecessary re-renders, MainActor/Sendable | Crashes, memory leaks, data races | Performance improvements, readability |
 
-**Server Review**
+Server Review
 
 | Agent | Perspective | Required (🔴) | Recommended (🟡) |
 |---|---|---|---|
 | `server-reviewer-arch` | REST principles, normalization, Controller/Service/Repository separation, scalability | API contract violations, data integrity risks | Design improvements, performance optimization |
 | `server-reviewer-quality` | SQL Injection, XSS, CSRF, N+1, Bean Validation, logging | Security vulnerabilities, data loss, resource leaks | Error handling improvements |
 
-**Infra Review**
+Infra Review
 
 | Agent | Perspective | Required (🔴) | Recommended (🟡) |
 |---|---|---|---|
@@ -268,7 +268,7 @@ Two reviewers per developer separate architecture and quality perspectives for m
 
 ### 3.4. QA/Security Team
 
-**qa-engineer** - Unit/integration test writing, test scenario design, edge case exploration
+qa-engineer - Unit/integration test writing, test scenario design, edge case exploration
 
 - Model: sonnet / Permission: default
 - Tools: Read, Write, Edit, Glob, Grep, Bash
@@ -277,7 +277,7 @@ Two reviewers per developer separate architecture and quality perspectives for m
 - Server: JUnit 5, MockK, Testcontainers
 - Principles: Prefer real implementations over mocks, boundary values/null/exceptions required
 
-**security-auditor** - OWASP Top 10, authentication/authorization, sensitive data exposure, dependency vulnerability audit
+security-auditor - OWASP Top 10, authentication/authorization, sensitive data exposure, dependency vulnerability audit
 
 - Model: opus / Permission: plan
 - Tools: Read, Glob, Grep, Bash
@@ -403,9 +403,9 @@ Team Leader (Main Session = CTO)
 
 The criteria for using Agent Teams are as follows.
 
-- When developing iOS + server + infra **simultaneously over an extended period**
-- When team members need to **coordinate API contracts**
-- When the work is expected to take **more than 30 minutes**
+- When developing iOS + server + infra simultaneously over an extended period
+- When team members need to coordinate API contracts
+- When the work is expected to take more than 30 minutes
 
 The criteria for using subagents are as follows.
 
@@ -449,45 +449,45 @@ The `` !`command` `` syntax executes a shell command when a skill is loaded and 
 Executes the full flow from new feature planning to technical design, task decomposition, and documentation. Auto-invoked when requesting "feature planning", "PRD", or "new feature planning".
 
 - Dynamic injection: `git log --oneline -10`, `ls -la docs/`
-- Step 1: **product-planner** - Write PRD (user stories, acceptance criteria, priorities, exclusions)
-- Step 2: **dev-planner** - Technical design (API interfaces, DB schema, task decomposition, dependency graph)
-- Step 3: **ui-designer** - UI/UX design (screen flows, UI specs)
-- Step 4: **tech-writer** - Documentation (create tickets via MCP, register wiki, save to docs/)
-- Step 5: **Main session** - Final report (feature summary, estimated effort, risks, next steps)
+- Step 1: product-planner - Write PRD (user stories, acceptance criteria, priorities, exclusions)
+- Step 2: dev-planner - Technical design (API interfaces, DB schema, task decomposition, dependency graph)
+- Step 3: ui-designer - UI/UX design (screen flows, UI specs)
+- Step 4: tech-writer - Documentation (create tickets via MCP, register wiki, save to docs/)
+- Step 5: Main session - Final report (feature summary, estimated effort, risks, next steps)
 
 #### 5.3.2. /develop <task>
 
 Executes development, testing, and code review sequentially. Auto-invoked when requesting "develop", "implement", or "code".
 
 - Dynamic injection: `git branch --show-current`, `git status -s`
-- Step 1: **Task analysis** - Determine developer agent by file type (*.swift→ios-developer, server/**→server-developer, infra/**→infra-developer)
-- Step 2: **Context gathering** - If the task includes ticket numbers or external document references, gather Jira tickets, Confluence design docs, API specs, and pass the context to subsequent steps
-- Step 3: **\*-developer agent** - Write code on feature branch, Conventional Commits
-- Step 4: **qa-engineer** - Write and run unit tests
-- Step 5: **2 reviewers** - Parallel review based on changed file types
-- Step 6: **PR Creation** - If no 🔴 items exist in the review results, create a PR on GitHub. Auto-generate the PR title and body, including a summary of review results
-- Step 7: **Results report** - Implementation summary, test results, review results (by severity)
+- Step 1: Task analysis - Determine developer agent by file type (*.swift→ios-developer, server/→server-developer, infra/→infra-developer)
+- Step 2: Context gathering - If the task includes ticket numbers or external document references, gather Jira tickets, Confluence design docs, API specs, and pass the context to subsequent steps
+- Step 3: \*-developer agent - Write code on feature branch, Conventional Commits
+- Step 4: qa-engineer - Write and run unit tests
+- Step 5: 2 reviewers - Parallel review based on changed file types
+- Step 6: PR Creation - If no 🔴 items exist in the review results, create a PR on GitHub. Auto-generate the PR title and body, including a summary of review results
+- Step 7: Results report - Implementation summary, test results, review results (by severity)
 
 #### 5.3.3. /review-all [target]
 
 Runs architecture, quality, and security reviews in parallel for the current branch's changes. Auto-invoked when requesting "review", "code review", or "PR review".
 
 - Dynamic injection: `git diff --name-only main...HEAD`, `git diff --stat main...HEAD`
-- Step 1: **Classify changed files** - *.swift → iOS, *.kt → Server, *.tf → Infra
-- Step 2: **2 reviewers per domain** - Parallel invocation (architecture + quality)
-- Step 3: **security-auditor** - Security audit on all changes
-- Step 4: **Comprehensive report** - Classified as 🔴 Required fix / 🟡 Recommended / 🟢 Informational, merge go/no-go decision
+- Step 1: Classify changed files - *.swift → iOS, *.kt → Server, *.tf → Infra
+- Step 2: 2 reviewers per domain - Parallel invocation (architecture + quality)
+- Step 3: security-auditor - Security audit on all changes
+- Step 4: Comprehensive report - Classified as 🔴 Required fix / 🟡 Recommended / 🟢 Informational, merge go/no-go decision
 
 #### 5.3.4. /release <version>
 
 Executes the release checklist. Only manual invocation is available with `disable-model-invocation: true`.
 
 - Dynamic injection: `git log --oneline main..HEAD`, `git tag --list --sort=-version:refname | head -5`
-- Step 1: **qa-engineer** - Full test suite + coverage check
-- Step 2: **security-auditor** - Final security audit, dependency CVE scan
-- Step 3: **infra-developer** - Deployment scripts, environment variables, rollback plan, DB migration check
-- Step 4: **tech-writer** - CHANGELOG, release notes, API docs check
-- Step 5: **Go/No-Go decision** - Comprehensive checklist (tests, security, deployment, documentation)
+- Step 1: qa-engineer - Full test suite + coverage check
+- Step 2: security-auditor - Final security audit, dependency CVE scan
+- Step 3: infra-developer - Deployment scripts, environment variables, rollback plan, DB migration check
+- Step 4: tech-writer - CHANGELOG, release notes, API docs check
+- Step 5: Go/No-Go decision - Comprehensive checklist (tests, security, deployment, documentation)
 
 #### 5.3.5. /standup
 
@@ -680,14 +680,14 @@ Developer agents (ios-developer, server-developer, infra-developer) define agent
 
 All permissions, hooks, environment variables, and plugins are managed globally in `~/.claude/settings.json`.
 
-**Permissions**
+Permissions
 
 | Category | Content |
 |---|---|
 | allow (auto-approve) | `Bash(git *)`, `Bash(swift-format *)`, `Bash(swiftlint *)`, `Bash(ktlint *)`, `Bash(terraform fmt *)`, `Bash(gh *)` |
 | deny (block) | `Bash(rm -rf /)`, `Bash(git push --force *)`, `Bash(git reset --hard *)`, `Bash(terraform destroy *)` |
 
-**Other Settings**
+Other Settings
 
 | Item | Content |
 |---|---|
@@ -826,11 +826,11 @@ See @docs/api-contract.md for the API contract.
 /planning Social Login (Apple, Google, Kakao)
 ```
 
-1. **product-planner** - Write PRD (user stories, acceptance criteria, priorities)
-2. **dev-planner** - Technical design (API interfaces, DB schema, task breakdown)
-3. **ui-designer** - UI/UX design (screen flows, component specs)
-4. **tech-writer** - Create tickets + wiki docs (Jira/Confluence MCP integration)
-5. **Main session (CTO)** - Consolidate planning results, report to user
+1. product-planner - Write PRD (user stories, acceptance criteria, priorities)
+2. dev-planner - Technical design (API interfaces, DB schema, task breakdown)
+3. ui-designer - UI/UX design (screen flows, component specs)
+4. tech-writer - Create tickets + wiki docs (Jira/Confluence MCP integration)
+5. Main session (CTO) - Consolidate planning results, report to user
 
 #### Phase 2: Development (`/develop`)
 
@@ -838,12 +838,12 @@ See @docs/api-contract.md for the API contract.
 /develop PROJ-123
 ```
 
-1. **Main session** - Task analysis (determine which developer agent to use)
-2. **Main session** - Context gathering (Jira tickets, Confluence design docs, API specs)
-3. **ios-developer + server-developer + infra-developer** - Parallel development (Agent Teams or worktree isolation)
-4. **qa-engineer** - Write and run tests
-5. **Main session** - Create PR (automatic if review passes)
-6. **Main session (CTO)** - Consolidate development results, report to user
+1. Main session - Task analysis (determine which developer agent to use)
+2. Main session - Context gathering (Jira tickets, Confluence design docs, API specs)
+3. ios-developer + server-developer + infra-developer - Parallel development (Agent Teams or worktree isolation)
+4. qa-engineer - Write and run tests
+5. Main session - Create PR (automatic if review passes)
+6. Main session (CTO) - Consolidate development results, report to user
 
 #### Phase 3: Review (`/review-all`)
 
@@ -851,9 +851,9 @@ See @docs/api-contract.md for the API contract.
 /review-all
 ```
 
-1. **6 reviewers** - Architecture + quality parallel review (2 per developer)
-2. **security-auditor** - Security audit
-3. **Main session (CTO)** - Final consolidation, merge decision, report to user
+1. 6 reviewers - Architecture + quality parallel review (2 per developer)
+2. security-auditor - Security audit
+3. Main session (CTO) - Final consolidation, merge decision, report to user
 
 ### 11.2. Code Review Flow
 
@@ -883,11 +883,11 @@ Comprehensive report (classified by severity)
 /release 1.0.0
 ```
 
-1. **qa-engineer** - Run full test suite, check coverage
-2. **security-auditor** - Final security audit, dependency vulnerability scan
-3. **infra-developer** - Verify deployment scripts, validate rollback plan
-4. **tech-writer** - Write CHANGELOG, generate release notes
-5. **Main session** - Consolidate checklist, report go/no-go decision
+1. qa-engineer - Run full test suite, check coverage
+2. security-auditor - Final security audit, dependency vulnerability scan
+3. infra-developer - Verify deployment scripts, validate rollback plan
+4. tech-writer - Write CHANGELOG, generate release notes
+5. Main session - Consolidate checklist, report go/no-go decision
 
 ### 11.4. Daily Standup
 
@@ -901,8 +901,8 @@ Automatically collects git logs, PR status, and CI results via dynamic context i
 
 ### 12.1. Model Distribution Strategy
 
-- **Opus** (expensive): Planning, development, security audit - only for tasks where accuracy and creativity matter
-- **Sonnet** (affordable): Review, QA, documentation - Sonnet is sufficient for patterned tasks
+- Opus (expensive): Planning, development, security audit - only for tasks where accuracy and creativity matter
+- Sonnet (affordable): Review, QA, documentation - Sonnet is sufficient for patterned tasks
 
 ### 12.2. Context Savings
 
@@ -913,8 +913,8 @@ Automatically collects git logs, PR status, and CI results via dynamic context i
 
 ### 12.3. Agent Teams vs Subagent Cost
 
-- Agent Teams use **independent instances** so costs are high - use only for large-scale parallel tasks
-- Single reviews, analysis, etc. are sufficient with **subagents** - cost-efficient
+- Agent Teams use independent instances so costs are high - use only for large-scale parallel tasks
+- Single reviews, analysis, etc. are sufficient with subagents - cost-efficient
 
 ## 13. Usage Guide
 

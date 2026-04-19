@@ -80,9 +80,9 @@ Running `uv init` creates a `.venv` directory at the project root. `uv run` auto
 
 To run a uv project in PyCharm, the `.venv` Python interpreter must be configured.
 
-1. **Settings** (⌘ + ,) → **Project** → **Python Interpreter**
-2. **Add Interpreter** → **Add Local Interpreter**
-3. **Existing** → Set path to the project's `.venv/bin/python3`
+1. Settings (⌘ + ,) → Project → Python Interpreter
+2. Add Interpreter → Add Local Interpreter
+3. Existing → Set path to the project's `.venv/bin/python3`
 
 Using the system Python (`/usr/bin/python3`) will not recognize packages installed via uv.
 
@@ -90,7 +90,7 @@ Using the system Python (`/usr/bin/python3`) will not recognize packages install
 
 To access devices on the same network from PyCharm, macOS local network permission is required. If the terminal works fine but PyCharm throws `No route to host` or `ConnectionError`, check this setting.
 
-Go to **System Settings** → **Privacy & Security** → **Local Network** and enable PyCharm.
+Go to System Settings → Privacy & Security → Local Network and enable PyCharm.
 
 ## 5. UnicodeEncodeError with Korean Input in PyCharm
 
@@ -104,14 +104,14 @@ UnicodeEncodeError: 'utf-8' codec can't encode character '\udce3' in position 15
 
 ### 5.1. Solution
 
-Open **Help** → **Edit Custom VM Options...** and add the following two lines, then restart PyCharm.
+Open Help → Edit Custom VM Options... and add the following two lines, then restart PyCharm.
 
 ```
 -Dfile.encoding=UTF-8
 -Dconsole.encoding=UTF-8
 ```
 
-Also check that all items under **Settings** → **Editor** → **File Encodings** are set to `UTF-8`.
+Also check that all items under Settings → Editor → File Encodings are set to `UTF-8`.
 
 ### 5.2. Verification
 

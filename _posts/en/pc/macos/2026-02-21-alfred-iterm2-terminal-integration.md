@@ -35,11 +35,11 @@ This post covers how to configure Alfred to use iTerm2 instead of the default Te
 
 ## 1. Open Alfred Terminal Settings
 
-In Alfred Preferences, navigate to **Features > Terminal**.
+In Alfred Preferences, navigate to Features > Terminal.
 
 ## 2. Change Application to Custom
 
-Change the **Application** dropdown to **Custom**. A text area for entering AppleScript will appear.
+Change the Application dropdown to Custom. A text area for entering AppleScript will appear.
 
 ## 3. Enter the AppleScript
 

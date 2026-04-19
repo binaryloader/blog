@@ -106,22 +106,22 @@ The wallpad controls various devices such as lights, heating, gas valves, ventil
 
 | Part | Purpose |
 |---|---|
-| **RS485-WiFi Converter** | Converts RS485 signals to TCP/IP. Choose from the Waveshare RS485 TO WIFI/ETH, Waveshare RS232/485 TO WIFI ETH (B), Hi-Flying HF2211S, or Hi-Flying EW11A-0. |
-| **DC Adapter (5V or 12V)** | Powers the RS485-WiFi converter. Select the appropriate voltage for your converter. |
-| **UTP Cable (Cat.5e or higher)** | Used for RS485 A+/B- signal wiring. Required if no existing wiring is available. |
-| **Home Assistant Server** | The home automation server that receives wallpad packets and controls devices. |
+| RS485-WiFi Converter | Converts RS485 signals to TCP/IP. Choose from the Waveshare RS485 TO WIFI/ETH, Waveshare RS232/485 TO WIFI ETH (B), Hi-Flying HF2211S, or Hi-Flying EW11A-0. |
+| DC Adapter (5V or 12V) | Powers the RS485-WiFi converter. Select the appropriate voltage for your converter. |
+| UTP Cable (Cat.5e or higher) | Used for RS485 A+/B- signal wiring. Required if no existing wiring is available. |
+| Home Assistant Server | The home automation server that receives wallpad packets and controls devices. |
 
 ### 3.2. RS485-WiFi Converter Comparison
 
 | Feature | Waveshare RS485 TO WIFI/ETH | Waveshare RS232/485 TO WIFI ETH (B) | Hi-Flying HF2211S | Hi-Flying EW11A-0 |
 |---|---|---|---|---|
-| **Connectivity** | WiFi + Ethernet (RJ45) | WiFi + Ethernet (RJ45) | WiFi only | WiFi only |
-| **Power** | Screw terminal (5-36V) or PoE | DC 5.5mm jack + screw terminal (6-36V), PoE capable | Screw terminal (5-36V) | Screw terminal (5-18V) or DC jack |
-| **RS485 Connection** | Screw terminal (A+, B-, GND) | Screw terminal (A+, B-) | Screw terminal (A, B, GND) | Screw terminal (A+, B-, VCC, GND) |
-| **Enclosure** | Plastic | Metal case (84x64x24mm) | Plastic (79x53x25mm) | Plastic |
-| **Configuration** | Web UI (browser) | Web UI (browser) | Web UI (browser) | Web UI (browser) |
-| **Pros** | Ethernet support for stability, PoE capable | DC jack for easy power connection, metal enclosure, PoE capable | Wide voltage range (5-36V), RS485 8kV ESD protection | Small form factor, easy to install in tight spaces |
-| **Cons** | Screw terminal power connection is inconvenient | Relatively higher price | WiFi-only, internal antenna with lower reception sensitivity | WiFi-only, potentially unstable depending on environment |
+| Connectivity | WiFi + Ethernet (RJ45) | WiFi + Ethernet (RJ45) | WiFi only | WiFi only |
+| Power | Screw terminal (5-36V) or PoE | DC 5.5mm jack + screw terminal (6-36V), PoE capable | Screw terminal (5-36V) | Screw terminal (5-18V) or DC jack |
+| RS485 Connection | Screw terminal (A+, B-, GND) | Screw terminal (A+, B-) | Screw terminal (A, B, GND) | Screw terminal (A+, B-, VCC, GND) |
+| Enclosure | Plastic | Metal case (84x64x24mm) | Plastic (79x53x25mm) | Plastic |
+| Configuration | Web UI (browser) | Web UI (browser) | Web UI (browser) | Web UI (browser) |
+| Pros | Ethernet support for stability, PoE capable | DC jack for easy power connection, metal enclosure, PoE capable | Wide voltage range (5-36V), RS485 8kV ESD protection | Small form factor, easy to install in tight spaces |
+| Cons | Screw terminal power connection is inconvenient | Relatively higher price | WiFi-only, internal antenna with lower reception sensitivity | WiFi-only, potentially unstable depending on environment |
 
 If wired Ethernet is available, the Waveshare is recommended. If space is limited or only WiFi is available, the EW11A-0 is a better choice. If a wide input voltage range or ESD protection is important, choose the HF2211S. If dealing with screw terminals is inconvenient, consider the RS232/485 TO WIFI ETH (B) model which supports a DC 5.5mm jack.
 
@@ -129,10 +129,10 @@ If wired Ethernet is available, the Waveshare is recommended. If space is limite
 
 | Part | Purpose |
 |---|---|
-| **DC Jack to Screw Terminal Adapter** | Convenient for connecting a DC adapter to the EW11A-0. |
-| **Silicone Wire (AWG 22-24)** | Used for extending RS485 wiring. Has excellent heat resistance. |
-| **Ferrule Terminals** | Securely fasten wires to screw terminals. |
-| **Electrical Tape or Heat Shrink Tubing** | Insulates exposed wire connections. |
+| DC Jack to Screw Terminal Adapter | Convenient for connecting a DC adapter to the EW11A-0. |
+| Silicone Wire (AWG 22-24) | Used for extending RS485 wiring. Has excellent heat resistance. |
+| Ferrule Terminals | Securely fasten wires to screw terminals. |
+| Electrical Tape or Heat Shrink Tubing | Insulates exposed wire connections. |
 
 ## 4. RS485 Basics
 
@@ -163,10 +163,10 @@ The Hyundai Communication wallpad uses the following RS485 communication paramet
 
 | Parameter | Value | Description |
 |---|---|---|
-| **Baud Rate** | 9600 | Transmits 9600 bits per second. |
-| **Data Bits** | 8 | Each frame contains 8 data bits. |
-| **Parity** | None (N) | No parity bit is used. |
-| **Stop Bits** | 1 | Uses 1 stop bit. |
+| Baud Rate | 9600 | Transmits 9600 bits per second. |
+| Data Bits | 8 | Each frame contains 8 data bits. |
+| Parity | None (N) | No parity bit is used. |
+| Stop Bits | 1 | Uses 1 stop bit. |
 
 These settings must be identically configured on the RS485-WiFi converter's serial parameters.
 
@@ -375,8 +375,8 @@ The initial setup procedure for the Waveshare device is as follows.
 1. Power on the Waveshare and its built-in AP will activate
 2. Connect to the `Waveshare_xxxx` AP from a PC or smartphone
 3. Open a browser and navigate to `http://10.10.100.254`
-4. Go to **WiFi** settings from the left menu
-5. Enable **STA Mode** and enter your home router's SSID and password
+4. Go to WiFi settings from the left menu
+5. Enable STA Mode and enter your home router's SSID and password
 6. Save the settings and reboot the device
 
 ### 7.2. TCP Server Mode Configuration
@@ -385,9 +385,9 @@ To receive packets via TCP socket in Home Assistant, configure TCP Server mode.
 
 | Setting | Value |
 |---|---|
-| **Working Mode** | TCP Server |
-| **Local Port** | 8899 |
-| **Max Clients** | 4 (default) |
+| Working Mode | TCP Server |
+| Local Port | 8899 |
+| Max Clients | 4 (default) |
 
 ### 7.3. Serial Parameter Configuration
 
@@ -395,18 +395,18 @@ Match the wallpad's RS485 communication parameters.
 
 | Setting | Value |
 |---|---|
-| **Baud Rate** | 9600 |
-| **Data Bits** | 8 |
-| **Parity** | None |
-| **Stop Bits** | 1 |
-| **Flow Control** | Disable |
+| Baud Rate | 9600 |
+| Data Bits | 8 |
+| Parity | None |
+| Stop Bits | 1 |
+| Flow Control | Disable |
 
 ### 7.4. Static IP Assignment
 
 Since Home Assistant will lose connection if the converter's IP changes, a static IP must be assigned. There are two methods.
 
-- **Router DHCP Reservation**: Assign a static IP to the Waveshare's MAC address in your router's admin page
-- **Device Static IP Setting**: Set the IP to Static in the Waveshare web UI under STA Mode and manually enter the IP, subnet mask, and gateway
+- Router DHCP Reservation: Assign a static IP to the Waveshare's MAC address in your router's admin page
+- Device Static IP Setting: Set the IP to Static in the Waveshare web UI under STA Mode and manually enter the IP, subnet mask, and gateway
 
 Router DHCP reservation is recommended. Setting a static IP directly on the device requires reconfiguration when changing routers.
 
@@ -423,9 +423,9 @@ The initial setup procedure for the EW11A-0 is as follows.
 1. Power on the EW11A-0 and its built-in AP will activate
 2. Connect to the `EW11A-0_xxxx` AP from a PC or smartphone
 3. Open a browser and navigate to `http://10.10.100.254`
-4. Log in at **System Settings** with the default credentials (admin/admin)
-5. Select **STA Mode** in **WiFi Settings**
-6. Click the **Scan** button to list nearby access points
+4. Log in at System Settings with the default credentials (admin/admin)
+5. Select STA Mode in WiFi Settings
+6. Click the Scan button to list nearby access points
 7. Select your home router's SSID and enter the password
 8. Save the settings and reboot the device
 
@@ -433,25 +433,25 @@ After rebooting, the EW11A-0 will automatically connect to your router. Check th
 
 ### 9.2. TCP Server Mode Configuration
 
-Configure the following in **Communication Settings**.
+Configure the following in Communication Settings.
 
 | Setting | Value |
 |---|---|
-| **Protocol** | TCP Server |
-| **Local Port** | 8899 |
-| **Max Clients** | 4 |
+| Protocol | TCP Server |
+| Local Port | 8899 |
+| Max Clients | 4 |
 
 ### 9.3. Serial Parameter Configuration
 
-Configure the following in **Serial Port Settings** to match the wallpad's RS485 communication parameters.
+Configure the following in Serial Port Settings to match the wallpad's RS485 communication parameters.
 
 | Setting | Value |
 |---|---|
-| **Baud Rate** | 9600 |
-| **Data Bits** | 8 |
-| **Parity** | None |
-| **Stop Bits** | 1 |
-| **Flow Control** | Disable |
+| Baud Rate | 9600 |
+| Data Bits | 8 |
+| Parity | None |
+| Stop Bits | 1 |
+| Flow Control | Disable |
 
 ### 9.4. Static IP Assignment
 
@@ -495,17 +495,17 @@ The RS485 packet structure of the Hyundai Communication (IMAZU) wallpad is as fo
 
 | Field | Description |
 |---|---|
-| **Header** | Packet start byte `0xF7` |
-| **Len** | Total packet length (including Header through Tail) |
-| **01/1a** | Device protocol identifier (`01`: general, `1a`: heating) |
-| **Dev** | Device type (Light: `19`, Heating: `18`, Gas: `1b`, AC: `1c`, Switch: `1f`, Fan: `2b`, etc.) |
-| **Cmd** | Command type (Scan: `01`, Control: `02`, Status: `04`) |
-| **Func** | Function code (On/Off: `40`, Temperature: `45`, Mode: `46`, etc.) |
-| **Sub** | Room number and sub-device ID |
-| **Val** | Value (On: `01`, Off: `02`, etc.) |
-| **Data** | Additional data (variable length depending on device) |
-| **Checksum** | XOR checksum (XOR of all bytes from Header to Data) |
-| **Tail** | Packet end byte `0xEE` |
+| Header | Packet start byte `0xF7` |
+| Len | Total packet length (including Header through Tail) |
+| 01/1a | Device protocol identifier (`01`: general, `1a`: heating) |
+| Dev | Device type (Light: `19`, Heating: `18`, Gas: `1b`, AC: `1c`, Switch: `1f`, Fan: `2b`, etc.) |
+| Cmd | Command type (Scan: `01`, Control: `02`, Status: `04`) |
+| Func | Function code (On/Off: `40`, Temperature: `45`, Mode: `46`, etc.) |
+| Sub | Room number and sub-device ID |
+| Val | Value (On: `01`, Off: `02`, etc.) |
+| Data | Additional data (variable length depending on device) |
+| Checksum | XOR checksum (XOR of all bytes from Header to Data) |
+| Tail | Packet end byte `0xEE` |
 
 ### 10.3. Normal Reception Example
 
@@ -550,10 +550,10 @@ Verify that the adapter's output current meets the converter's specifications. G
 
 If the RS485-WiFi converter frequently disconnects in a WiFi environment, check the following.
 
-- **Static IP Assignment**: Prevents disconnections caused by DHCP lease renewal failures
-- **Fixed WiFi Channel**: Set the router's WiFi channel to a specific channel instead of auto. Automatic channel switching can cause reconnection delays
-- **Use 2.4GHz**: Has better wall penetration than 5GHz, providing more stable connections inside junction boxes
-- **Converter Placement**: Install as far as possible from metal structures inside the junction box
+- Static IP Assignment: Prevents disconnections caused by DHCP lease renewal failures
+- Fixed WiFi Channel: Set the router's WiFi channel to a specific channel instead of auto. Automatic channel switching can cause reconnection delays
+- Use 2.4GHz: Has better wall penetration than 5GHz, providing more stable connections inside junction boxes
+- Converter Placement: Install as far as possible from metal structures inside the junction box
 
 ### 11.5. Fire Safety Precautions
 

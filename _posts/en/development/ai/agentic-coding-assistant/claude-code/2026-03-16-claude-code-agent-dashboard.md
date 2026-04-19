@@ -158,11 +158,11 @@ Each hook fires an HTTP POST with a JSON payload containing the `hook_event_name
 
 The event processing flow looks like this.
 
-- **SubagentStart** - An agent has been spawned. The server creates or updates the agent's state to "working" and records the start time
-- **SubagentStop / Stop** - An agent has finished. The server checks the `reason` field in the `SubagentStop` payload for `"error"` or `"failure"` and sets the status accordingly. An early implementation searched `last_assistant_message` for the keyword "error", but this caused false positives - an agent mentioning "ErrorHistory.tsx" in its response would trigger an error state. Switching to `reason` field detection solved this. One subtlety with `Stop`: it fires after every response, not just at session end. If we reset the COO on every `Stop`, it would flicker to idle between responses. The solution: `Stop` skips the COO entirely. COO only returns to idle on `SessionEnd`. `UserPromptSubmit` sets the COO's default task to a generic "processing CEO instruction", which `task-assign` can override with a specific description
-- **PreToolUse / PostToolUse** - An agent is actively using tools. These events confirm the agent is still alive and working
-- **TaskCompleted** - A team task has finished. Used for Agent Teams coordination
-- **SessionStart / SessionEnd** - The main Claude Code session lifecycle
+- SubagentStart - An agent has been spawned. The server creates or updates the agent's state to "working" and records the start time
+- SubagentStop / Stop - An agent has finished. The server checks the `reason` field in the `SubagentStop` payload for `"error"` or `"failure"` and sets the status accordingly. An early implementation searched `last_assistant_message` for the keyword "error", but this caused false positives - an agent mentioning "ErrorHistory.tsx" in its response would trigger an error state. Switching to `reason` field detection solved this. One subtlety with `Stop`: it fires after every response, not just at session end. If we reset the COO on every `Stop`, it would flicker to idle between responses. The solution: `Stop` skips the COO entirely. COO only returns to idle on `SessionEnd`. `UserPromptSubmit` sets the COO's default task to a generic "processing CEO instruction", which `task-assign` can override with a specific description
+- PreToolUse / PostToolUse - An agent is actively using tools. These events confirm the agent is still alive and working
+- TaskCompleted - A team task has finished. Used for Agent Teams coordination
+- SessionStart / SessionEnd - The main Claude Code session lifecycle
 
 The server always returns HTTP 200, even on parse errors. This is critical - a failing dashboard hook must never block Claude Code's agent execution.
 
@@ -172,7 +172,7 @@ Here is where I hit an interesting limitation. When Claude Code fires a `Subagen
 
 This matters for the dashboard. Showing "product-planner: working" is far less useful than showing "product-planner: Market research and PRD for voice memo feature".
 
-The solution is the **task-assign** pattern. Before the COO (main session) invokes a subagent, it sends a pre-registration request to the dashboard server.
+The solution is the task-assign pattern. Before the COO (main session) invokes a subagent, it sends a pre-registration request to the dashboard server.
 
 ```bash
 curl -s -X POST http://localhost:3100/api/v1/task-assign \
@@ -254,7 +254,7 @@ The Korean names are a deliberate choice. When the COO references "Product Plann
 
 The entire system follows a corporate hierarchy metaphor.
 
-**CEO (User)** → **COO - Yun Sihyeon (Orchestrator)**
+CEO (User) → COO - Yun Sihyeon (Orchestrator)
 
 | Planning Team | Dev Team | Review Team | QA & Security |
 |---------------|----------|-------------|---------------|
@@ -282,7 +282,7 @@ The left sidebar lists all agents grouped by team: Staff, Planning, Dev, Review,
 
 Completed and error states briefly show green or red for 10 seconds before returning to idle gray. This gives enough time to notice the transition without cluttering the sidebar.
 
-Clicking any agent opens the **Agent Detail** side sheet.
+Clicking any agent opens the Agent Detail side sheet.
 
 ### 8.2. Three-Panel Main Area
 
@@ -290,11 +290,11 @@ The main content area is split into three columns.
 
 ![Dashboard idle state](/assets/image/post/claude-code-agent-dashboard/00-idle.png)
 
-**Active Tasks** shows currently running agents with their task descriptions and elapsed time. Each card displays the agent's Korean name, role, team, the task they were assigned, and a real-time timer.
+Active Tasks shows currently running agents with their task descriptions and elapsed time. Each card displays the agent's Korean name, role, team, the task they were assigned, and a real-time timer.
 
-**Completed** lists finished tasks in reverse chronological order. Each card is expandable - clicking it reveals the full result rendered as markdown with Tailwind Typography. This is where you see the actual output: PRD documents, code review summaries, test results.
+Completed lists finished tasks in reverse chronological order. Each card is expandable - clicking it reveals the full result rendered as markdown with Tailwind Typography. This is where you see the actual output: PRD documents, code review summaries, test results.
 
-**Errors** shows agents that encountered problems. The error message from the agent's `last_assistant_message` is displayed, making it easy to identify what went wrong without digging through Claude Code's transcript files.
+Errors shows agents that encountered problems. The error message from the agent's `last_assistant_message` is displayed, making it easy to identify what went wrong without digging through Claude Code's transcript files.
 
 ### 8.3. Summary Counters
 
@@ -444,18 +444,18 @@ The entire flow, from a single prompt to a working application, was visible on t
 
 The complete orchestration flow across all five phases.
 
-**CEO**: "Build voice memo PoC" → **COO**: Analyze & Plan
+CEO: "Build voice memo PoC" → COO: Analyze & Plan
 
 | Phase | Agents |
 |-------|--------|
-| **Phase 1: Planning** | Kim Soyeon (PRD), Lee Junhyuk (TDD), Han Yeseul (Wireframes) |
-| **Phase 2: Development** | Kang Harin (React SPA) |
-| **CEO Feedback** | Kang Harin (Safari fallback + UI) |
-| **Phase 3: Review** | Choi Yujin (Arch Review), Im Subin (Quality Review), Shin Jaewon (Security Audit) → **ERR** |
-| **Security Fix** | Kang Harin (XSS fix + crypto) |
-| **Phase 4: QA & Recheck** | Oh Taeyun (QA), Shin Jaewon (Security Re-audit) |
-| **Bug Fix** (CEO report) | Oh Taeyun (Reproduce), Kang Harin (Fix waveform) |
-| **Phase 5: Documentation** | Jo Minji (Blog, README, CHANGELOG) |
+| Phase 1: Planning | Kim Soyeon (PRD), Lee Junhyuk (TDD), Han Yeseul (Wireframes) |
+| Phase 2: Development | Kang Harin (React SPA) |
+| CEO Feedback | Kang Harin (Safari fallback + UI) |
+| Phase 3: Review | Choi Yujin (Arch Review), Im Subin (Quality Review), Shin Jaewon (Security Audit) → ERR |
+| Security Fix | Kang Harin (XSS fix + crypto) |
+| Phase 4: QA & Recheck | Oh Taeyun (QA), Shin Jaewon (Security Re-audit) |
+| Bug Fix (CEO report) | Oh Taeyun (Reproduce), Kang Harin (Fix waveform) |
+| Phase 5: Documentation | Jo Minji (Blog, README, CHANGELOG) |
 
 ## 10. macOS Auto-Start with launchd
 

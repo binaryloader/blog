@@ -64,10 +64,10 @@ The project consists of four layers.
 
 | Layer | Role | Examples |
 |---|---|---|
-| **Foundation** | General-purpose libraries not tied to the app | BinaryLoaderNetwork, BinaryLoaderExtensions |
-| **Module** | App-specific services and dependency interfaces | APIService/Auth, Dependencies/Login |
-| **Scene** | Self-contained feature modules per screen | LoginScene |
-| **App** | Entry point responsible for assembling modules and navigation | Synstagram |
+| Foundation | General-purpose libraries not tied to the app | BinaryLoaderNetwork, BinaryLoaderExtensions |
+| Module | App-specific services and dependency interfaces | APIService/Auth, Dependencies/Login |
+| Scene | Self-contained feature modules per screen | LoginScene |
+| App | Entry point responsible for assembling modules and navigation | Synstagram |
 
 Lower layers are unaware of upper layers. Foundation doesn't know about Module, and Module doesn't know about Scene. Dependencies always flow downward.
 
@@ -77,8 +77,8 @@ A modularized project requires two types of repositories.
 
 | Repository Type | Role | Examples |
 |---|---|---|
-| **Source repo** | Contains the actual code | `binaryloader-network`, `synstagram-scene-login` |
-| **Spec repo** | Manages podspec files by version | `cocoapods-specs`, `synstagram-scene-cocoapods-specs` |
+| Source repo | Contains the actual code | `binaryloader-network`, `synstagram-scene-login` |
+| Spec repo | Manages podspec files by version | `cocoapods-specs`, `synstagram-scene-cocoapods-specs` |
 
 Spec repos are separated by layer.
 
@@ -293,7 +293,7 @@ public protocol AlbumListDependency {
 }
 ```
 
-The key here is that **a Scene never directly imports another Scene**. When LoginScene needs to navigate to AlbumListScene, it obtains the ViewController through the `AlbumListDependency` protocol. The actual implementation is injected by the App layer via the DI Container.
+The key here is that a Scene never directly imports another Scene. When LoginScene needs to navigate to AlbumListScene, it obtains the ViewController through the `AlbumListDependency` protocol. The actual implementation is injected by the App layer via the DI Container.
 
 ## 5. Scene Layer
 

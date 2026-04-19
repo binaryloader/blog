@@ -62,18 +62,18 @@ Imagine a ladder leaning against a wall.
 
 Lay the ladder flat and the horizontal distance increases while the vertical height decreases. Stand it upright and the opposite happens. The distribution between horizontal and vertical changes with the angle.
 
-If the ladder length is 100%, you can express the horizontal and vertical portions as percentages. The name for the horizontal ratio is **cos** and the vertical ratio is **sin**.
+If the ladder length is 100%, you can express the horizontal and vertical portions as percentages. The name for the horizontal ratio is cos and the vertical ratio is sin.
 
 ### 1.2. Why cos = x and sin = y
 
-In a right triangle, cos = adjacent ÷ hypotenuse and sin = opposite ÷ hypotenuse. When the hypotenuse (ladder length) is **1**, the division disappears.
+In a right triangle, cos = adjacent ÷ hypotenuse and sin = opposite ÷ hypotenuse. When the hypotenuse (ladder length) is 1, the division disappears.
 
 ```
 cos = adjacent ÷ 1 = the adjacent side itself
 sin = opposite ÷ 1 = the opposite side itself
 ```
 
-Place this triangle on a coordinate plane: adjacent = x-axis direction, opposite = y-axis direction. So **cos is the x-coordinate** and **sin is the y-coordinate**.
+Place this triangle on a coordinate plane: adjacent = x-axis direction, opposite = y-axis direction. So cos is the x-coordinate and sin is the y-coordinate.
 
 ### 1.3. The Unit Circle
 
@@ -85,7 +85,7 @@ Any point on this circle can be expressed as `(cos θ, sin θ)`.
 
 ### 1.4. Value Range: -1 to 1
 
-You can never leave the unit circle, so cos and sin are always between **-1 and 1**.
+You can never leave the unit circle, so cos and sin are always between -1 and 1.
 
 ```
 cos = +0.7  →  rightward 70% of the radius
@@ -100,14 +100,14 @@ cos/sin are a ratio table that answers: at this angle, what fraction of the radi
 
 ### 2.1. What Is a Radian
 
-A radian is the **distance walked** along the circumference of a unit circle (radius = 1).
+A radian is the distance walked along the circumference of a unit circle (radius = 1).
 
 <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/radian.svg" alt="Radian: arc length on a unit circle" style="max-width: min(360px, 100%);">
 
-- Circumference = 2 × π × 1 = 2π ≈ **6.28**
-- Full circle = 6.28 radians = **360°**
-- Half circle = π ≈ 3.14 radians = **180°**
-- Quarter circle = π/2 ≈ 1.57 radians = **90°**
+- Circumference = 2 × π × 1 = 2π ≈ 6.28
+- Full circle = 6.28 radians = 360°
+- Half circle = π ≈ 3.14 radians = 180°
+- Quarter circle = π/2 ≈ 1.57 radians = 90°
 
 ### 2.2. Key Conversion Values
 
@@ -125,7 +125,7 @@ Radians → Degrees: radians × 57.3    (= radians × 180 ÷ π)
 
 ### 2.3. Radians in Swift
 
-Swift's `cos()` and `sin()` only accept **radians**.
+Swift's `cos()` and `sin()` only accept radians.
 
 ```swift
 cos(90)        // ❌ Interpreted as 90 radians = 5156°
@@ -138,13 +138,13 @@ cos(.pi / 2)   // ✅ This is 90°
 
 <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/coordinates.svg" alt="Math coordinates vs iOS coordinates" style="max-width: min(520px, 100%);">
 
-In math, y increases upward. In iOS, **y increases downward**.
+In math, y increases upward. In iOS, y increases downward.
 
 ### 3.2. Rotation Direction
 
 <img src="/assets/image/post/development/apple/ios/ios-circular-menu-trigonometry/rotation.svg" alt="Rotation direction: Math (counter-clockwise) vs iOS (clockwise)" style="max-width: min(520px, 100%);">
 
-Because the y-axis is flipped, the same code produces **counter-clockwise in math = clockwise in iOS**. Thanks to this, **starting at -π/2 (12 o'clock) naturally places items clockwise**.
+Because the y-axis is flipped, the same code produces counter-clockwise in math = clockwise in iOS. Thanks to this, starting at -π/2 (12 o'clock) naturally places items clockwise.
 
 ## 4. Circular Placement Calculation
 
@@ -259,7 +259,7 @@ atan2(y, x) → angle       coordinates → angle
 
 `atan2(y, x)` returns the angle in radians from the origin `(0, 0)` to the direction of (x, y).
 
-- Return range: **-π to π** (-180° to 180°)
+- Return range: -π to π (-180° to 180°)
 - 3 o'clock = 0, 6 o'clock = π/2, 9 o'clock = ±π, 12 o'clock = -π/2
 
 The circular menu's center is not the origin but the screen center (e.g. `(200, 300)`). Passing raw touch coordinates to `atan2` would give an origin-relative angle, so you subtract the center to convert to center-relative coordinates.
@@ -277,7 +277,7 @@ let angle = atan2(point.y - center.y, point.x - center.x)
 
 ## 6. Rotation with Pan Gesture
 
-To rotate the placed menu by dragging, you need to track the **change in angle** of the touch point.
+To rotate the placed menu by dragging, you need to track the change in angle of the touch point.
 
 ### 6.1. Calculating Rotation
 
@@ -287,7 +287,7 @@ To rotate the placed menu by dragging, you need to track the **change in angle**
 panStartAngle = angle(for: touchPoint) - currentRotation
 ```
 
-Subtract the current rotation from the touch angle to record the **offset**. This offset is the difference between the touch point and the menu's rotation state.
+Subtract the current rotation from the touch angle to record the offset. This offset is the difference between the touch point and the menu's rotation state.
 
 ```
 touch angle = 0.5 rad, current rotation = 0.3 rad
@@ -317,7 +317,7 @@ angularVelocity = newRotation - previousAngle
 previousAngle = newRotation
 ```
 
-The change in rotation between frames is recorded as **angular velocity**. When the touch ends, this value becomes the initial speed for the deceleration animation.
+The change in rotation between frames is recorded as angular velocity. When the touch ends, this value becomes the initial speed for the deceleration animation.
 
 ### 6.2. Deceleration Animation
 
@@ -341,10 +341,10 @@ currentRotation += angularVelocity              // apply rotation
 layoutMenuItems()                               // re-layout
 ```
 
-- **dt**: time elapsed since the last frame in seconds. At 60fps this is about 0.0167s; it grows larger when frames are dropped.
-- **0.92**: decay factor. Speed decreases by 8% each frame.
-- **pow(a, b)**: a raised to the power of b. `pow(0.92, 3)` = 0.92³ ≈ 0.779.
-- **pow(0.92, dt × 60)**: ensures consistent deceleration regardless of frame rate. If dt is 1/60s (one frame), 0.92¹ = 0.92. If dt is 1/30s (frame drop), 0.92² ≈ 0.846.
+- dt: time elapsed since the last frame in seconds. At 60fps this is about 0.0167s; it grows larger when frames are dropped.
+- 0.92: decay factor. Speed decreases by 8% each frame.
+- pow(a, b): a raised to the power of b. `pow(0.92, 3)` = 0.92³ ≈ 0.779.
+- pow(0.92, dt × 60): ensures consistent deceleration regardless of frame rate. If dt is 1/60s (one frame), 0.92¹ = 0.92. If dt is 1/30s (frame drop), 0.92² ≈ 0.846.
 - The timer stops when angular velocity falls below 0.0001.
 
 #### 6.2.3. How the Decay Factor Feels

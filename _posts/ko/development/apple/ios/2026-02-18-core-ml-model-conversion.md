@@ -41,10 +41,10 @@ Core ML은 Apple의 온디바이스 머신러닝 프레임워크다. 학습된 �
 
 온디바이스 추론의 핵심 장점은 다음과 같다.
 
-- **프라이버시** - 데이터가 기기를 떠나지 않으므로 서버로 전송할 필요가 없다
-- **속도** - 네트워크 지연 없이 Neural Engine, GPU, CPU를 직접 활용한다
-- **오프라인 동작** - 인터넷 연결 없이도 추론이 가능하다
-- **비용 절감** - 서버 인프라 없이 모델을 실행할 수 있다
+- 프라이버시 - 데이터가 기기를 떠나지 않으므로 서버로 전송할 필요가 없다
+- 속도 - 네트워크 지연 없이 Neural Engine, GPU, CPU를 직접 활용한다
+- 오프라인 동작 - 인터넷 연결 없이도 추론이 가능하다
+- 비용 절감 - 서버 인프라 없이 모델을 실행할 수 있다
 
 Core ML은 하드웨어 가속을 자동으로 관리한다. Apple Neural Engine이 있는 기기에서는 Neural Engine을, 없으면 GPU나 CPU로 자동 전환한다. 개발자가 하드웨어별 최적화를 직접 처리할 필요가 없다.
 
@@ -52,11 +52,11 @@ Core ML은 하드웨어 가속을 자동으로 관리한다. Apple Neural Engine
 
 Apple은 Core ML 위에 도메인별 상위 프레임워크를 제공한다.
 
-- **Vision** - 이미지 분류, 객체 감지, 얼굴 인식, 텍스트 인식
-- **Natural Language** - 텍스트 분류, 감정 분석, 언어 감지, 토큰화
-- **Speech** - 음성 인식, 음성-텍스트 변환
-- **Sound Analysis** - 소리 분류, 환경음 인식
-- **Create ML** - Xcode 내에서 직접 모델을 학습할 수 있는 도구
+- Vision - 이미지 분류, 객체 감지, 얼굴 인식, 텍스트 인식
+- Natural Language - 텍스트 분류, 감정 분석, 언어 감지, 토큰화
+- Speech - 음성 인식, 음성-텍스트 변환
+- Sound Analysis - 소리 분류, 환경음 인식
+- Create ML - Xcode 내에서 직접 모델을 학습할 수 있는 도구
 
 이 프레임워크들은 내부적으로 Core ML을 사용하지만 더 높은 수준의 API를 제공한다. 예를 들어 Vision의 `VNClassifyImageRequest`를 사용하면 이미지 분류를 몇 줄의 코드로 구현할 수 있다.
 
@@ -171,10 +171,10 @@ mlmodel.save("MobileNetV2.mlpackage")
 
 Xcode에서 모델 파일을 선택하면 다음 정보를 확인할 수 있다.
 
-- **General** - 모델 타입, 크기, 작성자, 설명
-- **Preview** - 이미지를 드래그하여 추론 결과를 미리 확인
-- **Predictions** - 입출력 사양(타입, 크기, 설명)
-- **Utilities** - 모델의 Neural Network 구조
+- General - 모델 타입, 크기, 작성자, 설명
+- Preview - 이미지를 드래그하여 추론 결과를 미리 확인
+- Predictions - 입출력 사양(타입, 크기, 설명)
+- Utilities - 모델의 Neural Network 구조
 
 ### 4.2. 자동 생성된 Swift 클래스
 
@@ -243,7 +243,7 @@ Vision 프레임워크의 `VNCoreMLRequest`를 사용하면 이미지 전처리(
 
 앱에 모델을 포함하면 앱 크기가 증가한다. coremltools는 모델 크기를 줄이는 최적화 옵션을 제공한다.
 
-**Float16 변환**
+Float16 변환
 
 ```python
 import coremltools.optimize as cto
@@ -257,7 +257,7 @@ mlmodel_fp16.save("MobileNetV2_fp16.mlpackage")
 
 Float32에서 Float16으로 변환하면 모델 크기가 약 절반으로 줄어들며 대부분의 경우 정확도 손실이 거의 없다. Neural Engine은 Float16을 네이티브로 지원하므로 추론 속도도 향상될 수 있다.
 
-**Palettization(팔레트 양자화)**
+Palettization(팔레트 양자화)
 
 ```python
 config = cto.coreml.OptimizationConfig(
@@ -277,11 +277,11 @@ mlmodel_palettized.save("MobileNetV2_8bit.mlpackage")
 
 ## 6. 주의사항
 
-- **iOS 최소 버전** - `.mlpackage` 형식은 iOS 15 이상에서 지원된다. iOS 14 이하를 지원해야 하면 `.mlmodel` 형식을 사용한다
-- **모델 크기** - App Store는 앱 크기 제한이 있으므로 큰 모델은 On-Demand Resources나 Background Assets로 분리하는 것을 고려한다
-- **Neural Engine 지원** - A11 Bionic(iPhone 8/X) 이상에서 Neural Engine을 사용할 수 있다. 이전 기기에서는 GPU/CPU로 폴백된다
-- **동적 입력 크기** - `ct.RangeDim`으로 가변 크기 입력을 지원할 수 있지만 고정 크기 대비 성능이 떨어질 수 있다
-- **모델 업데이트** - iOS 17 이상에서는 `MLModelCollection`을 통해 앱 업데이트 없이 모델을 교체할 수 있다
+- iOS 최소 버전 - `.mlpackage` 형식은 iOS 15 이상에서 지원된다. iOS 14 이하를 지원해야 하면 `.mlmodel` 형식을 사용한다
+- 모델 크기 - App Store는 앱 크기 제한이 있으므로 큰 모델은 On-Demand Resources나 Background Assets로 분리하는 것을 고려한다
+- Neural Engine 지원 - A11 Bionic(iPhone 8/X) 이상에서 Neural Engine을 사용할 수 있다. 이전 기기에서는 GPU/CPU로 폴백된다
+- 동적 입력 크기 - `ct.RangeDim`으로 가변 크기 입력을 지원할 수 있지만 고정 크기 대비 성능이 떨어질 수 있다
+- 모델 업데이트 - iOS 17 이상에서는 `MLModelCollection`을 통해 앱 업데이트 없이 모델을 교체할 수 있다
 
 # 참고
 

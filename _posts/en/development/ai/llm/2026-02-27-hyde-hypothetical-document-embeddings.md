@@ -113,10 +113,10 @@ Disadvantages:
 
 HyDE was proposed in the following paper.
 
-- **Title**: Precise Zero-Shot Dense Retrieval without Relevance Labels
-- **Authors**: Luyu Gao, Xueguang Ma, Jimmy Lin, Jamie Callan
-- **Venue**: ACL 2023
-- **arXiv**: [2212.10496](https://arxiv.org/abs/2212.10496)
+- Title: Precise Zero-Shot Dense Retrieval without Relevance Labels
+- Authors: Luyu Gao, Xueguang Ma, Jimmy Lin, Jamie Callan
+- Venue: ACL 2023
+- arXiv: [2212.10496](https://arxiv.org/abs/2212.10496)
 
 The key contribution of the paper is demonstrating that dense retrieval performance can be improved without relevance labels. In experiments using InstructGPT to generate hypothetical documents and Contriever for embedding, significant performance improvements over existing zero-shot methods were achieved.
 

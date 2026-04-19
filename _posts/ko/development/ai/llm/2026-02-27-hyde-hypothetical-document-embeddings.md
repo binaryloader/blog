@@ -111,10 +111,10 @@ hypothetical_doc = hyde_chain.invoke({"question": "Python에서 비동기 처리
 
 HyDE는 아래 논문에서 제안되었다.
 
-- **제목**: Precise Zero-Shot Dense Retrieval without Relevance Labels
-- **저자**: Luyu Gao, Xueguang Ma, Jimmy Lin, Jamie Callan
-- **학회**: ACL 2023
-- **arXiv**: [2212.10496](https://arxiv.org/abs/2212.10496)
+- 제목: Precise Zero-Shot Dense Retrieval without Relevance Labels
+- 저자: Luyu Gao, Xueguang Ma, Jimmy Lin, Jamie Callan
+- 학회: ACL 2023
+- arXiv: [2212.10496](https://arxiv.org/abs/2212.10496)
 
 논문의 핵심 기여는 relevance label(정답 문서 라벨) 없이도 dense retrieval의 성능을 높일 수 있음을 보인 것이다. InstructGPT로 가상 문서를 생성하고 Contriever로 임베딩한 실험에서 기존 zero-shot 방법 대비 큰 성능 향상을 달성했다.
 

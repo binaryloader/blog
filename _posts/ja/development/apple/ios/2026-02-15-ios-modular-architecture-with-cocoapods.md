@@ -64,10 +64,10 @@ CocoaPods Private Spec Repoを活用してiOSプロジェクトをレイヤー�
 
 | レイヤー | 役割 | 例 |
 |---|---|---|
-| **Foundation** | アプリに依存しない汎用ライブラリ | BinaryLoaderNetwork, BinaryLoaderExtensions |
-| **Module** | アプリ固有のサービスと依存性インターフェース | APIService/Auth, Dependencies/Login |
-| **Scene** | 画面単位の独立した機能モジュール | LoginScene |
-| **App** | モジュールの組み立てと画面遷移を担当するエントリポイント | Synstagram |
+| Foundation | アプリに依存しない汎用ライブラリ | BinaryLoaderNetwork, BinaryLoaderExtensions |
+| Module | アプリ固有のサービスと依存性インターフェース | APIService/Auth, Dependencies/Login |
+| Scene | 画面単位の独立した機能モジュール | LoginScene |
+| App | モジュールの組み立てと画面遷移を担当するエントリポイント | Synstagram |
 
 下位レイヤーは上位レイヤーを知らない。FoundationはModuleを知らずModuleはSceneを知らない。依存性は常に上から下へのみ流れる。
 
@@ -77,8 +77,8 @@ CocoaPods Private Spec Repoを活用してiOSプロジェクトをレイヤー�
 
 | リポジトリ種類 | 役割 | 例 |
 |---|---|---|
-| **ソースリポジトリ** | 実際のコードを含むリポジトリ | `binaryloader-network`, `synstagram-scene-login` |
-| **スペックリポジトリ** | podspecファイルをバージョン別に管理するリポジトリ | `cocoapods-specs`, `synstagram-scene-cocoapods-specs` |
+| ソースリポジトリ | 実際のコードを含むリポジトリ | `binaryloader-network`, `synstagram-scene-login` |
+| スペックリポジトリ | podspecファイルをバージョン別に管理するリポジトリ | `cocoapods-specs`, `synstagram-scene-cocoapods-specs` |
 
 スペックリポジトリはレイヤー別に分離した。
 
@@ -293,7 +293,7 @@ public protocol AlbumListDependency {
 }
 ```
 
-このパターンの核心は**Sceneが他のSceneを直接importしないこと**である。LoginSceneがAlbumListSceneへ画面遷移する必要がある場合`AlbumListDependency`プロトコルを通じてViewControllerを取得する。実際の実装はAppレイヤーでDI Containerにより注入される。
+このパターンの核心はSceneが他のSceneを直接importしないことである。LoginSceneがAlbumListSceneへ画面遷移する必要がある場合`AlbumListDependency`プロトコルを通じてViewControllerを取得する。実際の実装はAppレイヤーでDI Containerにより注入される。
 
 ## 5. Sceneレイヤー
 

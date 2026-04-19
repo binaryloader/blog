@@ -40,7 +40,7 @@ This post covers how to deploy builds to iOS 15 or iPadOS 15 devices using Xcode
 
 - <https://developer.apple.com/download/>
 
-**Warning:** If Xcode 13 has been officially released, simply download the release version.
+Warning: If Xcode 13 has been officially released, simply download the release version.
 {: .notice--warning}
 
 ## 2. Copy the 15.0 Folder from the Following Path

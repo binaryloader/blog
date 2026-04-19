@@ -43,10 +43,10 @@ Core ML is Apple's on-device machine learning framework. It enables running trai
 
 The key advantages of on-device inference are as follows.
 
-- **Privacy** - Data never leaves the device, eliminating the need to send it to a server
-- **Speed** - Leverages the Neural Engine, GPU, and CPU directly without network latency
-- **Offline Operation** - Inference works without an internet connection
-- **Cost Reduction** - Models run without server infrastructure
+- Privacy - Data never leaves the device, eliminating the need to send it to a server
+- Speed - Leverages the Neural Engine, GPU, and CPU directly without network latency
+- Offline Operation - Inference works without an internet connection
+- Cost Reduction - Models run without server infrastructure
 
 Core ML automatically manages hardware acceleration. On devices with an Apple Neural Engine, it uses the Neural Engine; otherwise, it falls back to GPU or CPU. Developers don't need to handle hardware-specific optimizations manually.
 
@@ -54,11 +54,11 @@ Core ML automatically manages hardware acceleration. On devices with an Apple Ne
 
 Apple provides domain-specific frameworks on top of Core ML.
 
-- **Vision** - Image classification, object detection, face recognition, text recognition
-- **Natural Language** - Text classification, sentiment analysis, language detection, tokenization
-- **Speech** - Speech recognition, speech-to-text conversion
-- **Sound Analysis** - Sound classification, environmental sound recognition
-- **Create ML** - A tool for training models directly within Xcode
+- Vision - Image classification, object detection, face recognition, text recognition
+- Natural Language - Text classification, sentiment analysis, language detection, tokenization
+- Speech - Speech recognition, speech-to-text conversion
+- Sound Analysis - Sound classification, environmental sound recognition
+- Create ML - A tool for training models directly within Xcode
 
 These frameworks use Core ML internally but provide higher-level APIs. For example, using Vision's `VNClassifyImageRequest`, you can implement image classification in just a few lines of code.
 
@@ -173,10 +173,10 @@ Simply drag and drop the converted `.mlpackage` file into your Xcode project. Xc
 
 When you select the model file in Xcode, you can inspect the following information.
 
-- **General** - Model type, size, author, description
-- **Preview** - Drag an image to preview inference results
-- **Predictions** - Input/output specifications (type, size, description)
-- **Utilities** - The model's Neural Network structure
+- General - Model type, size, author, description
+- Preview - Drag an image to preview inference results
+- Predictions - Input/output specifications (type, size, description)
+- Utilities - The model's Neural Network structure
 
 ### 4.2. Auto-Generated Swift Classes
 
@@ -245,7 +245,7 @@ Using Vision framework's `VNCoreMLRequest` automatically handles image preproces
 
 Including a model in your app increases the app size. coremltools provides optimization options to reduce model size.
 
-**Float16 Conversion**
+Float16 Conversion
 
 ```python
 import coremltools.optimize as cto
@@ -259,7 +259,7 @@ mlmodel_fp16.save("MobileNetV2_fp16.mlpackage")
 
 Converting from Float32 to Float16 reduces model size by roughly half with negligible accuracy loss in most cases. Since the Neural Engine natively supports Float16, inference speed may also improve.
 
-**Palettization**
+Palettization
 
 ```python
 config = cto.coreml.OptimizationConfig(
@@ -279,11 +279,11 @@ Palettization maps weight values to a limited set of representative values. Usin
 
 ## 6. Considerations
 
-- **Minimum iOS Version** - The `.mlpackage` format is supported on iOS 15 and later. Use the `.mlmodel` format if you need to support iOS 14 or earlier
-- **Model Size** - The App Store has app size limits, so consider separating large models using On-Demand Resources or Background Assets
-- **Neural Engine Support** - Neural Engine is available on A11 Bionic (iPhone 8/X) and later. Earlier devices fall back to GPU/CPU
-- **Dynamic Input Size** - Variable-size inputs can be supported using `ct.RangeDim`, but performance may be lower compared to fixed sizes
-- **Model Updates** - On iOS 17 and later, `MLModelCollection` allows replacing models without an app update
+- Minimum iOS Version - The `.mlpackage` format is supported on iOS 15 and later. Use the `.mlmodel` format if you need to support iOS 14 or earlier
+- Model Size - The App Store has app size limits, so consider separating large models using On-Demand Resources or Background Assets
+- Neural Engine Support - Neural Engine is available on A11 Bionic (iPhone 8/X) and later. Earlier devices fall back to GPU/CPU
+- Dynamic Input Size - Variable-size inputs can be supported using `ct.RangeDim`, but performance may be lower compared to fixed sizes
+- Model Updates - On iOS 17 and later, `MLModelCollection` allows replacing models without an app update
 
 # References
 

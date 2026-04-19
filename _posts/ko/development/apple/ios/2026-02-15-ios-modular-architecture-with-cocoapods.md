@@ -62,10 +62,10 @@ CocoaPods Private Spec Repo를 활용하여 iOS 프로젝트를 계층별 모듈
 
 | 계층 | 역할 | 예시 |
 |---|---|---|
-| **Foundation** | 앱에 종속되지 않는 범용 라이브러리 | BinaryLoaderNetwork, BinaryLoaderExtensions |
-| **Module** | 앱 고유의 서비스 및 의존성 인터페이스 | APIService/Auth, Dependencies/Login |
-| **Scene** | 화면 단위의 독립적인 기능 모듈 | LoginScene |
-| **App** | 모듈 조립과 화면 전환을 담당하는 진입점 | Synstagram |
+| Foundation | 앱에 종속되지 않는 범용 라이브러리 | BinaryLoaderNetwork, BinaryLoaderExtensions |
+| Module | 앱 고유의 서비스 및 의존성 인터페이스 | APIService/Auth, Dependencies/Login |
+| Scene | 화면 단위의 독립적인 기능 모듈 | LoginScene |
+| App | 모듈 조립과 화면 전환을 담당하는 진입점 | Synstagram |
 
 하위 계층은 상위 계층을 알지 못한다. Foundation은 Module을 모르고 Module은 Scene을 모른다. 의존성은 항상 위에서 아래로만 흐른다.
 
@@ -75,8 +75,8 @@ CocoaPods Private Spec Repo를 활용하여 iOS 프로젝트를 계층별 모듈
 
 | 저장소 종류 | 역할 | 예시 |
 |---|---|---|
-| **소스 저장소** | 실제 코드가 있는 저장소 | `binaryloader-network`, `synstagram-scene-login` |
-| **스펙 저장소** | podspec 파일을 버전별로 관리하는 저장소 | `cocoapods-specs`, `synstagram-scene-cocoapods-specs` |
+| 소스 저장소 | 실제 코드가 있는 저장소 | `binaryloader-network`, `synstagram-scene-login` |
+| 스펙 저장소 | podspec 파일을 버전별로 관리하는 저장소 | `cocoapods-specs`, `synstagram-scene-cocoapods-specs` |
 
 스펙 저장소는 계층별로 분리했다.
 
@@ -291,7 +291,7 @@ public protocol AlbumListDependency {
 }
 ```
 
-이 패턴의 핵심은 **Scene이 다른 Scene을 직접 import하지 않는 것**이다. LoginScene이 AlbumListScene으로 화면 전환을 해야 할 때 `AlbumListDependency` 프로토콜을 통해 ViewController를 가져온다. 실제 구현체는 App 레이어에서 DI Container로 주입한다.
+이 패턴의 핵심은 Scene이 다른 Scene을 직접 import하지 않는 것이다. LoginScene이 AlbumListScene으로 화면 전환을 해야 할 때 `AlbumListDependency` 프로토콜을 통해 ViewController를 가져온다. 실제 구현체는 App 레이어에서 DI Container로 주입한다.
 
 ## 5. Scene 레이어
 

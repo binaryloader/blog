@@ -269,7 +269,7 @@ Program ended with exit code: 0
 ```
 
 Although the instance variable \_operator does not have accessor methods, since it is publicly exposed, it can be accessed using the Arrow Operator, just like accessing struct members in C.
-However, directly referencing instance variables from outside the class as shown above is extremely rare. This code was written to explain classes more simply - **you should never do this in production**.
+However, directly referencing instance variables from outside the class as shown above is extremely rare. This code was written to explain classes more simply - you should never do this in production.
 
 The following code performs the exact same functionality as the code above:
 

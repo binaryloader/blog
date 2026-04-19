@@ -94,9 +94,9 @@ The structure of `stats-cache.json` looks like this:
 
 The project uses only Swift Package Manager - no Xcode project file needed.
 
-- **SwiftUI** + **MenuBarExtra** (macOS 14+, `.window` style)
-- **@Observable** macro + **@MainActor**
-- **DispatchSource** file watching
+- SwiftUI + MenuBarExtra (macOS 14+, `.window` style)
+- @Observable macro + @MainActor
+- DispatchSource file watching
 - No external dependencies
 
 ```swift

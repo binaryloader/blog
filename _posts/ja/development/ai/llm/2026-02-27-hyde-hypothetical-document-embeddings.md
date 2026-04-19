@@ -113,10 +113,10 @@ hypothetical_doc = hyde_chain.invoke({"question": "Pythonで非同期処理は�
 
 HyDEは以下の論文で提案された。
 
-- **タイトル**: Precise Zero-Shot Dense Retrieval without Relevance Labels
-- **著者**: Luyu Gao, Xueguang Ma, Jimmy Lin, Jamie Callan
-- **学会**: ACL 2023
-- **arXiv**: [2212.10496](https://arxiv.org/abs/2212.10496)
+- タイトル: Precise Zero-Shot Dense Retrieval without Relevance Labels
+- 著者: Luyu Gao, Xueguang Ma, Jimmy Lin, Jamie Callan
+- 学会: ACL 2023
+- arXiv: [2212.10496](https://arxiv.org/abs/2212.10496)
 
 論文の核心的な貢献はrelevance label（正解文書ラベル）なしでもdense retrievalの性能を向上できることを示したことだ。InstructGPTで仮想文書を生成しContrieverでエンベディングした実験で、既存のzero-shot方法に比べて大幅な性能向上を達成した。
 

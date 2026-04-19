@@ -54,7 +54,7 @@ Objective-C is a `strict superset` of ANSI C, so you can use most of the data ty
 | unsigned char | 1byte | Min : 0<br />Max : 255    |
 
 {: .notice--info}
-**Note:** Although the data stored in char is actually an integer, it is sometimes treated as a character data type, so I separated it from the integer data types. char is both an integer data type and a character data type.
+Note: Although the data stored in char is actually an integer, it is sometimes treated as a character data type, so I separated it from the integer data types. char is both an integer data type and a character data type.
 
 ## 2. Integer Data Types
 
@@ -227,7 +227,7 @@ When `__OBJC_BOOL_IS_BOOL` is not defined, `OBJC_BOOL_IS_BOOL` is defined as `0`
 #endif
 ```
 
-If `OBJC_BOOL_IS_BOOL`, determined by **Decision Condition 1** and **Decision Condition 2**, is true, then bool is redefined as BOOL. If false, signed char is redefined as BOOL.
+If `OBJC_BOOL_IS_BOOL`, determined by Decision Condition 1 and Decision Condition 2, is true, then bool is redefined as BOOL. If false, signed char is redefined as BOOL.
 
 #### 4.1.4. Let Us Test Whether the Decision Conditions Are Correct
 
