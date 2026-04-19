@@ -64,6 +64,9 @@ menu:
               - title: "MCP"
                 url: /ko/development/ai/agentic-coding-assistant/mcp/
                 category: "MCP"
+              - title: "Terminal"
+                url: /ko/development/ai/agentic-coding-assistant/terminal/
+                category: "Terminal"
           - title: "LLM"
             url: /ko/development/ai/llm/
             category: "LLM"
@@ -203,6 +206,9 @@ menu-en:
               - title: "MCP"
                 url: /en/development/ai/agentic-coding-assistant/mcp/
                 category: "MCP"
+              - title: "Terminal"
+                url: /en/development/ai/agentic-coding-assistant/terminal/
+                category: "Terminal"
           - title: "LLM"
             url: /en/development/ai/llm/
             category: "LLM"
@@ -342,6 +348,9 @@ menu-ja:
               - title: "MCP"
                 url: /ja/development/ai/agentic-coding-assistant/mcp/
                 category: "MCP"
+              - title: "Terminal"
+                url: /ja/development/ai/agentic-coding-assistant/terminal/
+                category: "Terminal"
           - title: "LLM"
             url: /ja/development/ai/llm/
             category: "LLM"

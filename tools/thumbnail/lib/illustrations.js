@@ -3379,75 +3379,238 @@ function illustrationClaudeCodeAgentDashboard() {
   `;
 }
 
-// the-end-of-selling-apps: 모놀리식 앱이 해체되어 모듈 경제로 재편되는 모습
+// the-end-of-selling-apps: 앱을 사야만 했던 시대(앱 스토어 그리드)가 사라지고 사용자+AI가 직접 만드는 시대로 전환
 function illustrationTheEndOfSellingApps() {
   return `
     <rect x="0" y="0" width="1080" height="700" fill="none"/>
-    <!-- Left: Monolithic app (complete box) -->
-    <rect x="80" y="220" width="200" height="260" rx="20" fill="none" stroke="#888" stroke-width="2.5" opacity="0.6"/>
-    <rect x="100" y="245" width="160" height="30" rx="5" fill="#888" opacity="0.15"/>
-    <rect x="100" y="285" width="160" height="20" rx="4" fill="#888" opacity="0.1"/>
-    <rect x="100" y="315" width="160" height="20" rx="4" fill="#888" opacity="0.1"/>
-    <rect x="100" y="345" width="160" height="20" rx="4" fill="#888" opacity="0.08"/>
-    <rect x="100" y="375" width="160" height="20" rx="4" fill="#888" opacity="0.08"/>
-    <rect x="100" y="415" width="100" height="36" rx="8" fill="#888" opacity="0.12"/>
-    <text x="180" y="258" text-anchor="middle" font-family="monospace" font-size="10" fill="#888" opacity="0.7">CLIENT APP</text>
-    <text x="180" y="556" text-anchor="middle" font-family="monospace" font-size="11" fill="#888" opacity="0.5">MONOLITHIC</text>
-    <!-- Crack / disintegration lines from monolithic app -->
-    <line x1="280" y1="310" x2="370" y2="260" stroke="#ff6b9d" stroke-width="1.2" opacity="0.35" stroke-dasharray="5,4"/>
-    <line x1="280" y1="350" x2="370" y2="350" stroke="#ff6b9d" stroke-width="1.2" opacity="0.35" stroke-dasharray="5,4"/>
-    <line x1="280" y1="390" x2="370" y2="430" stroke="#ff6b9d" stroke-width="1.2" opacity="0.35" stroke-dasharray="5,4"/>
-    <!-- Center arrow indicating transformation -->
-    <line x1="380" y1="350" x2="480" y2="350" stroke="#555" stroke-width="2" opacity="0.4"/>
-    <polygon points="480,344 494,350 480,356" fill="#555" opacity="0.4"/>
-    <!-- Right: Scattered module blocks -->
-    <!-- Module 1: Auth -->
-    <rect x="510" y="110" width="120" height="65" rx="10" fill="none" stroke="#00e5ff" stroke-width="2"/>
-    <text x="570" y="139" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff">Auth</text>
-    <text x="570" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff" opacity="0.6">MODULE</text>
-    <!-- Module 2: Payment -->
-    <rect x="660" y="160" width="120" height="65" rx="10" fill="none" stroke="#4ecdc4" stroke-width="2"/>
-    <text x="720" y="189" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#4ecdc4">Payment</text>
-    <text x="720" y="207" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.6">MODULE</text>
-    <!-- Module 3: Notification -->
-    <rect x="510" y="230" width="120" height="65" rx="10" fill="none" stroke="#ff6b9d" stroke-width="2"/>
-    <text x="570" y="259" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d">Notify</text>
-    <text x="570" y="277" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.6">MODULE</text>
-    <!-- Module 4: Analytics -->
-    <rect x="810" y="120" width="120" height="65" rx="10" fill="none" stroke="#ffe66d" stroke-width="2"/>
-    <text x="870" y="149" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ffe66d">Analytics</text>
-    <text x="870" y="167" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.6">MODULE</text>
-    <!-- Module 5: Storage -->
-    <rect x="660" y="315" width="120" height="65" rx="10" fill="none" stroke="#a78bfa" stroke-width="2"/>
-    <text x="720" y="344" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#a78bfa">Storage</text>
-    <text x="720" y="362" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa" opacity="0.6">MODULE</text>
-    <!-- Module 6: UI -->
-    <rect x="510" y="350" width="120" height="65" rx="10" fill="none" stroke="#a8e6cf" stroke-width="2"/>
-    <text x="570" y="379" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#a8e6cf">UI Kit</text>
-    <text x="570" y="397" text-anchor="middle" font-family="monospace" font-size="8" fill="#a8e6cf" opacity="0.6">MODULE</text>
-    <!-- Module 7: API -->
-    <rect x="810" y="280" width="120" height="65" rx="10" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.8"/>
-    <text x="870" y="309" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d" opacity="0.8">API</text>
-    <text x="870" y="327" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.5">MODULE</text>
-    <!-- Module 8: AI Agent -->
-    <rect x="660" y="460" width="120" height="65" rx="10" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.7"/>
-    <text x="720" y="489" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff" opacity="0.7">AI Agent</text>
-    <text x="720" y="507" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff" opacity="0.45">MODULE</text>
-    <!-- Module 9: Search -->
-    <rect x="510" y="470" width="120" height="65" rx="10" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.6"/>
-    <text x="570" y="499" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ffe66d" opacity="0.6">Search</text>
-    <text x="570" y="517" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.38">MODULE</text>
-    <!-- Module 10: Messaging (far right) -->
-    <rect x="810" y="420" width="120" height="65" rx="10" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.55"/>
-    <text x="870" y="449" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#4ecdc4" opacity="0.55">Messaging</text>
-    <text x="870" y="467" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.35">MODULE</text>
-    <!-- Connecting lines between some modules (module economy connections) -->
-    <line x1="630" y1="158" x2="660" y2="192" stroke="#555" stroke-width="1" opacity="0.3"/>
-    <line x1="630" y1="263" x2="660" y2="348" stroke="#555" stroke-width="1" opacity="0.25"/>
-    <line x1="780" y1="192" x2="810" y2="155" stroke="#555" stroke-width="1" opacity="0.25"/>
-    <line x1="780" y1="348" x2="810" y2="312" stroke="#555" stroke-width="1" opacity="0.25"/>
+
+    <!-- LEFT: Fading app store grid (the era of buying apps is ending) -->
+    <!-- App store shelf label -->
+    <text x="210" y="115" text-anchor="middle" font-family="monospace" font-size="10" fill="#666" opacity="0.5" letter-spacing="2">APP STORE</text>
+    <!-- Row 1 app icons: fading out (opacity decreasing left to right) -->
+    <rect x="80"  y="130" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1.5" opacity="0.50"/>
+    <rect x="100" y="150" width="32" height="8"  rx="3"  fill="#666" opacity="0.25"/>
+    <rect x="100" y="164" width="24" height="6"  rx="3"  fill="#666" opacity="0.18"/>
+
+    <rect x="168" y="130" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1.5" opacity="0.38"/>
+    <rect x="188" y="150" width="32" height="8"  rx="3"  fill="#666" opacity="0.19"/>
+    <rect x="188" y="164" width="24" height="6"  rx="3"  fill="#666" opacity="0.13"/>
+
+    <rect x="256" y="130" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1.5" opacity="0.24"/>
+    <rect x="276" y="150" width="32" height="8"  rx="3"  fill="#666" opacity="0.12"/>
+    <rect x="276" y="164" width="24" height="6"  rx="3"  fill="#666" opacity="0.08"/>
+
+    <!-- Row 2 -->
+    <rect x="80"  y="218" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1.5" opacity="0.44"/>
+    <rect x="100" y="238" width="32" height="8"  rx="3"  fill="#666" opacity="0.22"/>
+    <rect x="100" y="252" width="24" height="6"  rx="3"  fill="#666" opacity="0.15"/>
+
+    <rect x="168" y="218" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1.5" opacity="0.30"/>
+    <rect x="188" y="238" width="32" height="8"  rx="3"  fill="#666" opacity="0.15"/>
+    <rect x="188" y="252" width="24" height="6"  rx="3"  fill="#666" opacity="0.10"/>
+
+    <rect x="256" y="218" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1.5" opacity="0.16"/>
+    <rect x="276" y="238" width="32" height="8"  rx="3"  fill="#666" opacity="0.08"/>
+    <rect x="276" y="252" width="24" height="6"  rx="3"  fill="#666" opacity="0.05"/>
+
+    <!-- Row 3 (almost invisible) -->
+    <rect x="80"  y="306" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1.5" opacity="0.28"/>
+    <rect x="168" y="306" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1.5" opacity="0.16"/>
+    <rect x="256" y="306" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1.5" opacity="0.07"/>
+
+    <!-- Row 4 (ghost) -->
+    <rect x="80"  y="394" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1"   opacity="0.14"/>
+    <rect x="168" y="394" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1"   opacity="0.08"/>
+    <rect x="256" y="394" width="72" height="72" rx="16" fill="none" stroke="#666" stroke-width="1"   opacity="0.04"/>
+
+    <!-- Download button (greyed out, era ending) -->
+    <rect x="100" y="490" width="220" height="36" rx="18" fill="none" stroke="#555" stroke-width="1.5" opacity="0.20"/>
+    <text x="210" y="513" text-anchor="middle" font-family="monospace" font-size="11" fill="#555" opacity="0.22">DOWNLOAD</text>
+
+    <!-- VERTICAL DIVIDER: crack / fault line -->
+    <line x1="490" y1="80"  x2="510" y2="620" stroke="#ff6b9d" stroke-width="1" opacity="0.35" stroke-dasharray="6,5"/>
+    <line x1="510" y1="80"  x2="530" y2="620" stroke="#ff6b9d" stroke-width="0.5" opacity="0.15" stroke-dasharray="4,7"/>
+
+    <!-- Transition label at center -->
+    <text x="510" y="660" text-anchor="middle" font-family="monospace" font-size="11" fill="#ff6b9d" opacity="0.45" letter-spacing="1">END OF SELLING APPS</text>
+
+    <!-- RIGHT: User + AI building a custom app -->
+    <!-- User silhouette (simple) -->
+    <circle cx="660" cy="210" r="30" fill="none" stroke="#4ecdc4" stroke-width="2" opacity="0.7"/>
+    <line   x1="660" y1="240" x2="660" y2="330" stroke="#4ecdc4" stroke-width="2"   opacity="0.5"/>
+    <line   x1="660" y1="265" x2="620" y2="300" stroke="#4ecdc4" stroke-width="2"   opacity="0.45"/>
+    <line   x1="660" y1="265" x2="700" y2="300" stroke="#4ecdc4" stroke-width="2"   opacity="0.45"/>
+    <line   x1="660" y1="330" x2="630" y2="390" stroke="#4ecdc4" stroke-width="2"   opacity="0.4"/>
+    <line   x1="660" y1="330" x2="690" y2="390" stroke="#4ecdc4" stroke-width="2"   opacity="0.4"/>
+
+    <!-- Speech/prompt bubble from user -->
+    <rect x="700" y="175" width="180" height="54" rx="10" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.55"/>
+    <line x1="703" y1="200" x2="693" y2="210" stroke="#4ecdc4" stroke-width="1.5" opacity="0.55"/>
+    <text x="790" y="200" text-anchor="middle" font-family="monospace" font-size="9"  fill="#4ecdc4" opacity="0.8">"Make me an app</text>
+    <text x="790" y="218" text-anchor="middle" font-family="monospace" font-size="9"  fill="#4ecdc4" opacity="0.8"> for my workflow"</text>
+
+    <!-- AI spark (agentic coding assistant) -->
+    <polygon points="870,120 878,140 900,148 878,156 870,176 862,156 840,148 862,140" fill="none" stroke="#ffe66d" stroke-width="2" opacity="0.85"/>
+    <polygon points="870,132 874,142 884,146 874,150 870,160 866,150 856,146 866,142" fill="#ffe66d" opacity="0.25"/>
+    <text x="870" y="194" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.7" letter-spacing="1">AI</text>
+
+    <!-- Arrow: AI responds to user -->
+    <line x1="870" y1="200" x2="870" y2="255" stroke="#ffe66d" stroke-width="1.5" opacity="0.4" stroke-dasharray="4,3"/>
+    <polygon points="864,255 870,268 876,255" fill="#ffe66d" opacity="0.4"/>
+
+    <!-- Custom app being built (assembling blocks) -->
+    <!-- Main app frame -->
+    <rect x="760" y="285" width="220" height="280" rx="14" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.7"/>
+    <!-- App top bar -->
+    <rect x="760" y="285" width="220" height="32" rx="14" fill="#00e5ff" fill-opacity="0.08"/>
+    <rect x="760" y="303" width="220" height="14" fill="#00e5ff" fill-opacity="0.08"/>
+    <circle cx="783" cy="301" r="5" fill="#00e5ff" opacity="0.4"/>
+    <rect x="800" y="297" width="80" height="8" rx="3" fill="#00e5ff" opacity="0.25"/>
+    <!-- Content blocks (custom-fitted, glowing) -->
+    <rect x="778" y="330" width="184" height="36" rx="7" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.55"/>
+    <rect x="788" y="340" width="90" height="7"  rx="3" fill="#00e5ff" opacity="0.3"/>
+    <rect x="788" y="352" width="60" height="5"  rx="3" fill="#00e5ff" opacity="0.18"/>
+
+    <rect x="778" y="378" width="84"  height="60" rx="7" fill="none" stroke="#4ecdc4" stroke-width="1.5" opacity="0.5"/>
+    <rect x="788" y="389" width="60"  height="6"  rx="3" fill="#4ecdc4" opacity="0.25"/>
+    <rect x="788" y="400" width="50"  height="5"  rx="3" fill="#4ecdc4" opacity="0.18"/>
+    <rect x="788" y="411" width="55"  height="5"  rx="3" fill="#4ecdc4" opacity="0.13"/>
+    <rect x="788" y="422" width="45"  height="5"  rx="3" fill="#4ecdc4" opacity="0.10"/>
+
+    <rect x="874" y="378" width="88"  height="60" rx="7" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5"/>
+    <rect x="884" y="389" width="60"  height="6"  rx="3" fill="#ff6b9d" opacity="0.25"/>
+    <rect x="884" y="400" width="50"  height="5"  rx="3" fill="#ff6b9d" opacity="0.18"/>
+    <rect x="884" y="411" width="55"  height="5"  rx="3" fill="#ff6b9d" opacity="0.13"/>
+
+    <rect x="778" y="450" width="184" height="36" rx="7" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.45"/>
+    <rect x="788" y="461" width="70"  height="6"  rx="3" fill="#ffe66d" opacity="0.25"/>
+    <rect x="788" y="472" width="50"  height="5"  rx="3" fill="#ffe66d" opacity="0.17"/>
+
+    <rect x="778" y="498" width="84"  height="48" rx="7" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.4"/>
+    <rect x="874" y="498" width="88"  height="48" rx="7" fill="none" stroke="#a8e6cf" stroke-width="1.5" opacity="0.4"/>
+
+    <!-- "MY APP" label on custom app -->
+    <text x="870" y="566" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff" opacity="0.6" letter-spacing="2">MY APP</text>
+  `;
+}
+
+// cmux-terminal: Ghostty 기반 AI 에이전트 멀티 패널 터미널 - 세로 탭 사이드바 + 창 분할 + 알림 링
+function illustrationCmuxTerminal() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- macOS window chrome -->
+    <rect x="80" y="80" width="920" height="540" rx="14" fill="none" stroke="#333" stroke-width="2"/>
+    <!-- Title bar -->
+    <rect x="80" y="80" width="920" height="40" rx="14" fill="#1a1a1a"/>
+    <rect x="80" y="105" width="920" height="15" fill="#1a1a1a"/>
+    <circle cx="110" cy="101" r="7" fill="#ff6b6b" opacity="0.7"/>
+    <circle cx="133" cy="101" r="7" fill="#ffe66d" opacity="0.7"/>
+    <circle cx="156" cy="101" r="7" fill="#4ecdc4" opacity="0.7"/>
+    <text x="540" y="106" text-anchor="middle" font-family="monospace" font-size="12" fill="#555">cmux</text>
+    <!-- Vertical sidebar -->
+    <rect x="80" y="120" width="180" height="500" rx="0" fill="#111" stroke="#222" stroke-width="1"/>
+    <!-- Sidebar label -->
+    <text x="170" y="150" text-anchor="middle" font-family="monospace" font-size="9" fill="#555">WORKSPACES</text>
+    <line x1="95" y1="158" x2="245" y2="158" stroke="#222" stroke-width="1"/>
+    <!-- Sidebar Tab 1: Claude Code - active + notification ring -->
+    <rect x="88" y="165" width="164" height="68" rx="7" fill="#00e5ff" fill-opacity="0.08" stroke="#00e5ff" stroke-width="1.5"/>
+    <!-- Notification ring on tab 1 -->
+    <rect x="88" y="165" width="164" height="68" rx="7" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.6"/>
+    <text x="108" y="189" font-family="monospace" font-size="10" font-weight="bold" fill="#00e5ff">Claude Code</text>
+    <text x="108" y="205" font-family="monospace" font-size="8" fill="#888">feat/chat-ui</text>
+    <text x="108" y="221" font-family="monospace" font-size="8" fill="#555">:8080</text>
+    <!-- Badge (waiting for input) -->
+    <circle cx="236" cy="185" r="8" fill="#00e5ff" opacity="0.9"/>
+    <text x="236" y="189" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#000">!</text>
+    <!-- Sidebar Tab 2: Aider -->
+    <rect x="88" y="242" width="164" height="60" rx="7" fill="#4ecdc4" fill-opacity="0.05" stroke="#333" stroke-width="1"/>
+    <text x="108" y="265" font-family="monospace" font-size="10" font-weight="bold" fill="#4ecdc4">Aider</text>
+    <text x="108" y="281" font-family="monospace" font-size="8" fill="#888">fix/api-bug</text>
+    <text x="108" y="295" font-family="monospace" font-size="8" fill="#555">committing...</text>
+    <!-- Sidebar Tab 3: Cline - notification ring -->
+    <rect x="88" y="311" width="164" height="60" rx="7" fill="#ff6b9d" fill-opacity="0.04" stroke="#ff6b9d" stroke-width="1.5" opacity="0.6"/>
+    <text x="108" y="334" font-family="monospace" font-size="10" font-weight="bold" fill="#ff6b9d">Cline</text>
+    <text x="108" y="350" font-family="monospace" font-size="8" fill="#888">refactor/auth</text>
+    <text x="108" y="364" font-family="monospace" font-size="8" fill="#555">waiting...</text>
+    <circle cx="236" cy="327" r="7" fill="#ff6b9d" opacity="0.8"/>
+    <text x="236" y="331" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#fff">!</text>
+    <!-- Sidebar Tab 4: Terminal -->
+    <rect x="88" y="380" width="164" height="50" rx="7" fill="none" stroke="#333" stroke-width="1"/>
+    <text x="108" y="400" font-family="monospace" font-size="10" fill="#555">Shell</text>
+    <text x="108" y="418" font-family="monospace" font-size="8" fill="#444">~/projects/app</text>
+    <!-- Sidebar Tab 5: Browser -->
+    <rect x="88" y="439" width="164" height="50" rx="7" fill="none" stroke="#333" stroke-width="1"/>
+    <text x="108" y="459" font-family="monospace" font-size="10" fill="#555">Browser</text>
+    <text x="108" y="477" font-family="monospace" font-size="8" fill="#444">localhost:3000</text>
+    <!-- Main content area - split panes -->
+    <!-- Top-left pane: Claude Code active -->
+    <rect x="261" y="120" width="419" height="295" rx="0" fill="#0d0d0d" stroke="#00e5ff" stroke-width="1.5"/>
+    <!-- Top-left pane header -->
+    <rect x="261" y="120" width="419" height="28" fill="#141414"/>
+    <text x="278" y="138" font-family="monospace" font-size="10" fill="#00e5ff">Claude Code</text>
+    <text x="660" y="138" text-anchor="end" font-family="monospace" font-size="9" fill="#555">feat/chat-ui</text>
+    <!-- Terminal prompt lines in Claude pane -->
+    <text x="278" y="170" font-family="monospace" font-size="11" fill="#4ecdc4">&#x276F;</text>
+    <text x="294" y="170" font-family="monospace" font-size="11" fill="#888">claude --model opus</text>
+    <text x="278" y="192" font-family="monospace" font-size="10" fill="#555">&#x25B6; Analyzing codebase...</text>
+    <rect x="278" y="203" width="200" height="4" rx="2" fill="#333"/>
+    <rect x="278" y="203" width="140" height="4" rx="2" fill="#00e5ff" opacity="0.5"/>
+    <text x="278" y="228" font-family="monospace" font-size="10" fill="#e0e0e0">Created src/components/</text>
+    <text x="278" y="244" font-family="monospace" font-size="10" fill="#e0e0e0">  ChatMessage.tsx</text>
+    <text x="278" y="260" font-family="monospace" font-size="10" fill="#e0e0e0">  ChatInput.tsx</text>
+    <text x="278" y="276" font-family="monospace" font-size="10" fill="#4ecdc4">&#x2713; 3 files modified</text>
+    <text x="278" y="298" font-family="monospace" font-size="11" fill="#00e5ff">&#x276F;</text>
+    <rect x="294" y="285" width="8" height="14" fill="#00e5ff" opacity="0.8"/>
+    <!-- Notification ring highlight on top-left pane border -->
+    <rect x="261" y="120" width="419" height="295" rx="0" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+    <!-- Top-right pane: Aider -->
+    <rect x="680" y="120" width="320" height="295" rx="0" fill="#0d0d0d" stroke="#333" stroke-width="1"/>
+    <rect x="680" y="120" width="320" height="28" fill="#141414"/>
+    <text x="697" y="138" font-family="monospace" font-size="10" fill="#4ecdc4">Aider</text>
+    <text x="990" y="138" text-anchor="end" font-family="monospace" font-size="9" fill="#555">fix/api-bug</text>
+    <text x="697" y="170" font-family="monospace" font-size="11" fill="#4ecdc4">&#x276F;</text>
+    <text x="713" y="170" font-family="monospace" font-size="11" fill="#888">aider --model gpt-4o</text>
+    <text x="697" y="192" font-family="monospace" font-size="10" fill="#555">Aider v0.52.0</text>
+    <text x="697" y="212" font-family="monospace" font-size="10" fill="#e0e0e0">Fixed: api/auth.ts:42</text>
+    <text x="697" y="232" font-family="monospace" font-size="10" fill="#e0e0e0">  null check added</text>
+    <text x="697" y="256" font-family="monospace" font-size="10" fill="#4ecdc4">Committing changes...</text>
+    <text x="697" y="276" font-family="monospace" font-size="10" fill="#555">fix: add null guard in</text>
+    <text x="697" y="292" font-family="monospace" font-size="10" fill="#555">  auth middleware</text>
+    <text x="697" y="312" font-family="monospace" font-size="11" fill="#4ecdc4">&#x276F;</text>
+    <!-- Bottom-left pane: Cline -->
+    <rect x="261" y="415" width="280" height="205" rx="0" fill="#0d0d0d" stroke="#ff6b9d" stroke-width="1.5" opacity="0.7"/>
+    <rect x="261" y="415" width="280" height="26" fill="#141414"/>
+    <text x="278" y="432" font-family="monospace" font-size="10" fill="#ff6b9d">Cline</text>
+    <text x="533" y="432" text-anchor="end" font-family="monospace" font-size="9" fill="#555">refactor/auth</text>
+    <text x="278" y="460" font-family="monospace" font-size="11" fill="#ff6b9d">&#x276F;</text>
+    <text x="294" y="460" font-family="monospace" font-size="11" fill="#888">cline</text>
+    <text x="278" y="480" font-family="monospace" font-size="10" fill="#555">Refactoring auth module</text>
+    <text x="278" y="498" font-family="monospace" font-size="10" fill="#e0e0e0">Awaiting approval...</text>
+    <text x="278" y="518" font-family="monospace" font-size="9" fill="#ff6b9d">&#x25CF; Waiting for input</text>
+    <!-- Notification ring on Cline pane -->
+    <rect x="261" y="415" width="280" height="205" rx="0" fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.5"/>
+    <!-- Bottom-right pane: Browser / Server log -->
+    <rect x="541" y="415" width="459" height="205" rx="0" fill="#0d0d0d" stroke="#333" stroke-width="1"/>
+    <rect x="541" y="415" width="459" height="26" fill="#141414"/>
+    <!-- Browser URL bar -->
+    <rect x="560" y="419" width="380" height="16" rx="4" fill="#222"/>
+    <text x="570" y="430" font-family="monospace" font-size="8" fill="#888">http://localhost:3000</text>
+    <text x="278" y="475" font-family="monospace" font-size="10" fill="#555"/>
+    <!-- Browser content (simplified web page) -->
+    <rect x="558" y="442" width="424" height="168" fill="#111"/>
+    <rect x="570" y="452" width="200" height="12" rx="3" fill="#333"/>
+    <rect x="570" y="472" width="380" height="6" rx="2" fill="#222"/>
+    <rect x="570" y="484" width="340" height="6" rx="2" fill="#222"/>
+    <rect x="570" y="496" width="360" height="6" rx="2" fill="#222"/>
+    <rect x="570" y="516" width="120" height="40" rx="6" fill="#00e5ff" fill-opacity="0.15" stroke="#00e5ff" stroke-width="1"/>
+    <text x="630" y="541" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff">Chat UI</text>
+    <text x="560" y="624" font-family="monospace" font-size="9" fill="#555">localhost:3000</text>
+    <!-- Vertical split divider line -->
+    <line x1="680" y1="120" x2="680" y2="620" stroke="#222" stroke-width="2"/>
+    <!-- Horizontal split divider line -->
+    <line x1="261" y1="415" x2="1000" y2="415" stroke="#222" stroke-width="2"/>
     <!-- Bottom label -->
-    <text x="540" y="650" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">MODULE ECONOMY</text>
+    <text x="540" y="670" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">MULTI-AGENT TERMINAL</text>
   `;
 }
 
@@ -3535,6 +3698,7 @@ const ILLUSTRATION_MAP = {
   'claude-code-sub-agent-team-design': illustrationClaudeCodeSubAgentTeamDesign,
   'claude-code-agent-dashboard': illustrationClaudeCodeAgentDashboard,
   'the-end-of-selling-apps': illustrationTheEndOfSellingApps,
+  'cmux-terminal': illustrationCmuxTerminal,
 };
 
 function getIllustration(ref) {
