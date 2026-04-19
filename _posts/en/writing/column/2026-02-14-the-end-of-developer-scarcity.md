@@ -37,13 +37,13 @@ Just two or three years ago, "We have the idea but no developer" was the most le
 
 Now look around.
 
-ChatGPT, Claude, Cursor, Bolt, Lovable, v0. These tools have changed everything. People who have never written a line of code are deploying web services in a single day. College students are shipping SaaS products over the weekend. Designers are building their own frontends. This is not an exaggeration - it's what's happening every day, right now.
+ChatGPT, Claude, Cursor, Bolt, Lovable, and v0 have arrived, and these tools have changed everything. People who have never written a line of code are deploying web services in a single day. College students are shipping SaaS products over the weekend. Designers are building their own frontends. This is not an exaggeration - it's what's happening every day, right now.
 
-This phenomenon already has a name. Vibe coding. Coined by OpenAI co-founder Andrej Karpathy, the term describes a style of programming where you describe what you want in natural language and accept whatever the AI generates - without even reading the code. We've entered an era where software gets built without anyone looking at the source.
+This phenomenon already has a name: vibe coding. Coined by OpenAI co-founder Andrej Karpathy, the term describes a style of programming where you describe what you want in natural language and accept whatever the AI generates - without even reading the code. We've entered an era where software gets built without anyone looking at the source.
 
 # MVP Validation Is Now Open to Everyone
 
-What is the essence of a startup? Throwing an idea at the market quickly and checking the response. MVP (Minimum Viable Product) validation. In the past, even this step was impossible without a developer. You needed a frontend developer just for a simple landing page and a backend developer to hook up a server.
+What is the essence of a startup? Throwing an idea at the market quickly and checking the response - what's known as MVP (Minimum Viable Product) validation. In the past, even this step was impossible without a developer. You needed a frontend developer just for a simple landing page and a backend developer to hook up a server.
 
 Not anymore. Tell an AI "Build me a to-do app with sign-up" and you get a working prototype in five minutes. Say "Add payments" and it generates Stripe integration code. Firebase, Supabase, Vercel deployment - AI walks you through all of it.
 
@@ -59,7 +59,7 @@ There's a counter-argument that always comes up at this point.
 "Who's going to maintain it?"  
 "Scalability, security, architecture… you can't ignore software engineering."
 
-Fair points. All valid. But the timing of when those concerns matter is different.
+These are fair points - all valid. But the timing of when those concerns matter is different.
 
 A service that needs maintenance is a service that has already succeeded. A service that needs to worry about scalability is one that users are flocking to. A service that needs a security audit is one where money is changing hands. The vast majority of startups die before they ever reach the maintenance stage. We've seen countless services with perfect architecture, clean code, and 90% test coverage get ignored by the market and disappear.
 
@@ -75,7 +75,7 @@ Quite the opposite. In an era where AI handles code generation, understanding wh
 
 What's changed is when this knowledge matters. In the past, you had to understand variables and loops before writing a single line. CS knowledge was a prerequisite to get started. Now it's a prerequisite to go deeper. AI can handle the MVP-and-validate stage, but serving that product reliably to hundreds of thousands of users still requires people with strong foundations.
 
-The gap between someone who can throw prompts at an AI and someone who can evaluate and improve what the AI generates - that gap is CS knowledge. It hasn't disappeared; it's shifted from the entry point to the deep end.
+There's a clear gap between someone who can throw prompts at an AI and someone who can evaluate and improve what the AI generates, and that gap is CS knowledge. It hasn't disappeared; it's shifted from the entry point to the deep end.
 
 # The Real Crisis for Developers: The End of Scarcity
 
@@ -93,17 +93,17 @@ I'm no exception to what I've been writing about.
 
 I'm someone who likes to dig to the very bottom when studying development. I can't move on without understanding the underlying principles. I've built a kernel from scratch to implement my own operating system - that's the kind of developer I am. And yet, even I have been watching LLMs since their earliest days. From the GPT-2 era when it strung together awkward sentences, even when GPT-3 drew reactions of "this is something different," I shook my head at code generation demos. It couldn't even write a simple function properly - replace developers? When I actually used these tools for real work, the limitations were clear. They lost context, generated nonsensical code, and fell apart at the slightest complexity. The gap between impressive demos and real-world work was wider than people thought.
 
-This pattern repeated with every new model. A splashy launch, stunning benchmarks, ecstatic reactions. Then the limits revealed themselves once you applied it to actual work. "Impressive, but still far off" was my conclusion every time. Honestly, I was skeptical about the prospect of AI replacing the entire development field. I believed coding was a fundamentally different problem from simply generating text. The ability to understand systems, maintain context, and grasp how hundreds of files interlock - I was convinced this was a domain LLMs couldn't reach.
+This pattern repeated with every new model. There would be a splashy launch, stunning benchmarks, and ecstatic reactions. Then the limits revealed themselves once you applied it to actual work. "Impressive, but still far off" was my conclusion every time. Honestly, I was skeptical about the prospect of AI replacing the entire development field. I believed coding was a fundamentally different problem from simply generating text. The ability to understand systems, maintain context, and grasp how hundreds of files interlock - I was convinced this was a domain LLMs couldn't reach.
 
-As models advanced through generations, that conviction slowly wavered. Code assistants became increasingly useful and clearly saved time on repetitive tasks. "Maybe in five years the landscape will look quite different." Five became four. Four became three. Still, I felt relatively at ease, because I believed there was a fundamental difference between AI boosting developer productivity as an assistive tool and AI replacing developers altogether. I reassured myself that my lifespan as a developer was still considerable.
+As models advanced through generations, that conviction slowly wavered. Code assistants became increasingly useful and clearly saved time on repetitive tasks. I would think to myself, "Maybe in five years the landscape will look quite different." Then five became four. Four became three. Still, I felt relatively at ease, because I believed there was a fundamental difference between AI boosting developer productivity as an assistive tool and AI replacing developers altogether. I reassured myself that my lifespan as a developer was still considerable.
 
 That was until just two months ago.
 
-When I first used Claude Opus 4.6, two emotions hit me at once. This is serious. And this is exciting. The fear of my standing as a developer being shaken to its core. Yet at the same time, the thrill of realizing I could now have the kind of reassurance you feel working alongside dependable colleagues at the office - except available anywhere, 24 hours a day. It was like having several trustworthy, highly skilled technicians by my side at all times. There was something qualitatively different from previous models. I no longer needed to give detailed follow-up instructions on every output. Before, I had to meticulously review AI-generated code, make corrections, and go through rounds of re-prompting. Now it's different. I can review it the way I'd review a colleague's pull request - drop a single comment like "wouldn't this approach be better here?" - and that's enough. It grasps the intent precisely, maintains context, and delivers results that reflect the direction I suggested. Sometimes it even proposes a better approach than what I had in mind.
+When I first used Claude Opus 4.6, two emotions hit me at once. This is serious, and this is exciting. I felt the fear of my standing as a developer being shaken to its core. Yet at the same time, I felt the thrill of realizing I could now have the kind of reassurance you feel working alongside dependable colleagues at the office - except available anywhere, 24 hours a day. It was like having several trustworthy, highly skilled technicians by my side at all times. There was something qualitatively different from previous models. I no longer needed to give detailed follow-up instructions on every output. Before, I had to meticulously review AI-generated code, make corrections, and go through rounds of re-prompting. Now it's different. I can review it the way I'd review a colleague's pull request - drop a single comment like "wouldn't this approach be better here?" - and that's enough. It grasps the intent precisely, maintains context, and delivers results that reflect the direction I suggested. Sometimes it even proposes a better approach than what I had in mind.
 
-What sent a deeper chill down my spine was using a code review agent. Write up review guidelines in a document and run the agent, and it reviews code more thoroughly than I do. Naming consistency, missing error handling, potential performance issues, security vulnerabilities - things I miss when I'm tired or unfocused, the AI catches at the same quality level every time. An entity that follows my own guidelines more faithfully than I do. I was speechless at the irony.
+What sent a deeper chill down my spine was using a code review agent. Write up review guidelines in a document and run the agent, and it reviews code more thoroughly than I do. Naming consistency, missing error handling, potential performance issues, security vulnerabilities - things I miss when I'm tired or unfocused, the AI catches at the same quality level every time. It is an entity that follows my own guidelines more faithfully than I do. I was speechless at the irony.
 
-For the past two months, I've been feeling a real crisis. This isn't some vague story about the future - it's a reality I'm experiencing every single day. AI is better today than yesterday. It will be better tomorrow than today. At this pace, even the three years I was comfortably counting down might be a luxurious expectation. The chilling thought that my lifespan as a developer may not have much left. Like water that had risen to my chin - the reality had crept up right in front of me before I noticed.
+For the past two months, I've been feeling a real crisis. This isn't some vague story about the future - it's a reality I'm experiencing every single day. AI is better today than yesterday. It will be better tomorrow than today. At this pace, even the three years I was comfortably counting down might be a luxurious expectation. The chilling thought that my lifespan as a developer may not have much left has settled in. Like water that had risen to my chin, the reality had crept up right in front of me before I noticed.
 
 # The New Rules of the Game
 
@@ -121,9 +121,9 @@ Faced with this shift, developers have two choices. Resist AI and insist that "r
 
 Developers who embrace AI as a tool are doing the work of entire teams on their own. Instead of spending time on boilerplate, they design architectures and focus on business logic. They delegate repetitive implementation to AI and invest their energy in what to build and why. These developers' market value is actually going up.
 
-The key is a shift in positioning. From person who writes code to person who solves problems with technology. Code is a means, not an end. Understanding what problem needs solving, designing the solution, and implementing it through whatever method is most efficient - whether AI or hand-written. That's the role developers will be expected to fill going forward.
+The key is a shift in positioning - from a person who writes code to a person who solves problems with technology. Code is a means, not an end. Understanding what problem needs solving, designing the solution, and implementing it through whatever method is most efficient, whether AI or hand-written, is what counts. That's the role developers will be expected to fill going forward.
 
-So what should you invest in? Domain knowledge. Healthcare, finance, logistics, education. A developer who deeply understands a specific industry's problems cannot be replaced. A developer who only knows how to code can be substituted by AI, but someone who understands the industry context and can also make technical decisions - AI can't replace that. Standing at the intersection of technology and domain expertise. That's the new competitive advantage.
+So what should you invest in? Domain knowledge - in fields like healthcare, finance, logistics, and education. A developer who deeply understands a specific industry's problems cannot be replaced. A developer who only knows how to code can be substituted by AI, but someone who understands the industry context and can also make technical decisions - AI can't replace that. Standing at the intersection of technology and domain expertise is the new competitive advantage.
 
 # Code Has Become a Tool, Not a Weapon
 

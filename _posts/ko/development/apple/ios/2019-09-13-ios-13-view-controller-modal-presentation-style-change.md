@@ -92,11 +92,11 @@ public enum UIModalPresentationStyle : Int {
 
 UIModalPresentationStyle Enum이 정의된 부분을 찾아보니 `automatic`이라는 케이스가 추가된 것을 확인할 수 있다. 또한 modalPresentationStyle 인스턴스 프로퍼티 선언 부분을 가보니 주석으로 관련 내용을 설명을 하고 있었다. 필요한 부분을 해석하여 정리하면 아래와 같다.
 
-- modalPresentationStyle은 뷰컨이 모달 형태로 표시될 때 사용되는 스타일을 정의함.
-- 이 프로퍼티는 노출시키는 컨트롤러가 아닌 노출될 컨트롤러에 설정해야 함.
-- 이 프로퍼티가 automatic으로 설정되어 있다면 이것은 항상 구체적인 스타일로 변환됨.
-- 기본적으로 `automatic`은 `pageSheet`으로 해석됨.
-- default value는 iOS 13.0 부터 `automatic`, 이전 버전에서는 `fullScreen`임.
+- modalPresentationStyle은 뷰컨이 모달 형태로 표시될 때 사용되는 스타일을 정의한다.
+- 이 프로퍼티는 노출시키는 컨트롤러가 아닌 노출될 컨트롤러에 설정해야 한다.
+- 이 프로퍼티가 automatic으로 설정되어 있다면 이것은 항상 구체적인 스타일로 변환된다.
+- 기본적으로 `automatic`은 `pageSheet`으로 해석된다.
+- default value는 iOS 13.0 부터 `automatic`이고 이전 버전에서는 `fullScreen`이다.
 
 이제 디버깅을 위한 사전 정보 탐색은 다 끝났다. 관련된 정보를 어느 정도 찾아봤으니 디버깅을 해보고 iOS 13 이전 버전처럼 `fullScreen` 형태로 표시되도록 수정해보자.
 

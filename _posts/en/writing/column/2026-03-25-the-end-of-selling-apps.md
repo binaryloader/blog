@@ -32,7 +32,7 @@ In an era where non-developers can build their own services, what happens to the
 
 # This Time, It's About the Companies
 
-In my previous piece, [[Column] 'We Can't Build It Without a Developer' No Longer Holds](/en/writing/column/the-end-of-developer-scarcity/), I wrote about the crisis facing individual developers. How agentic coding assistants have democratized the act of writing code, dissolving the scarcity that once made developers so valuable.
+In my previous piece, [[Column] 'We Can't Build It Without a Developer' No Longer Holds](/en/writing/column/the-end-of-developer-scarcity/), I wrote about the crisis facing individual developers. My argument was that agentic coding assistants have democratized the act of writing code, dissolving the scarcity that once made developers so valuable.
 
 But after spending over a month chewing on the topic after publishing that piece, I realized I had missed something. I had been so focused on the crisis of individual developers that I lost sight of the bigger picture. Behind the crisis of individual developers lies a far larger tectonic shift. If developers are being shaken, what happens to the companies that hired those developers to build services? In a world where everyone can write code, what is the purpose of software companies that build and sell apps and web services?
 
@@ -42,7 +42,7 @@ That's what this piece is about. If the age of developers has changed, the age o
 
 Let's start with the current state of things.
 
-In the previous piece, I mentioned a phenomenon called vibe coding. A style of building software where you describe what you want to an AI in natural language instead of writing code yourself. This has been spreading explosively over just the past few months.
+In the previous piece, I mentioned a phenomenon called vibe coding. It's a style of building software where you describe what you want to an AI in natural language instead of writing code yourself. This has been spreading explosively over just the past few months.
 
 A marketer builds a lead management tool for their team over the weekend and deploys it on Monday. An accountant builds their own client management dashboard. A real estate agent creates a property management app and shares it with colleagues. A fitness trainer builds their own member management and workout program app. These aren't hypothetical scenarios. They're happening right now.
 
@@ -64,7 +64,7 @@ This raises a question. If non-developers can build the services they need for t
 
 Let's step back for a moment and think about why we use apps and web services built by companies.
 
-In most cases, the answer is simple. Because we can't build our own. When you need a to-do app, you download Todoist. When you need notes, you use Notion. When you need project management, you use Jira. Not because these services fit you perfectly. But because you can't build what you actually want, so you pick the closest option available.
+In most cases, the answer is simple. It's because we can't build our own. When you need a to-do app, you download Todoist. When you need notes, you use Notion. When you need project management, you use Jira. Not because these services fit you perfectly, but because you can't build what you actually want, so you pick the closest option available.
 
 If we're being honest, we've all had this experience. Using an app and thinking "why is this feature designed this way?", "this isn't how I want it to work," "I don't need this feature, I wish it had that one instead." But there were no alternatives. Unless you learned to code or hired a developer, you had to accept existing services as they were.
 
@@ -72,7 +72,7 @@ On top of that, we've been perpetually forced to choose within the app ecosystem
 
 This was never really a process of finding what fits me. It was a process of finding what fits me least badly.
 
-This is how the software industry has worked until now. Companies build services for an average user. A to-do app used by 500,000 people fits none of those 500,000 perfectly. But it fits all of them well enough, and that's why it can exist. The compromise of generality. That's the essence of the traditional software business.
+This is how the software industry has worked until now. Companies build services for an average user. A to-do app used by 500,000 people fits none of those 500,000 perfectly. But it fits all of them well enough, and that's why it can exist. It stands on a compromise of generality. That's the essence of the traditional software business.
 
 As a service scales, this compromise deepens. To satisfy 500,000 users, features must become more generic and the interface more averaged out. Features for power users confuse beginners; simplicity for beginners frustrates power users. Companies perpetually tug between these extremes. And inevitably, they produce a product that fully satisfies no one.
 
@@ -94,7 +94,7 @@ A lawyer builds their own case management system. A small cafe owner builds an i
 
 What's even more important is that these custom apps aren't a one-and-done affair. When you find something inconvenient while using it, you just tell the AI "change this part to work like this." What used to require submitting a feature request and waiting months for the development team to act on it gets resolved instantly. Users control their own product roadmap. What features to add, in what order to improve things - every decision is in the user's own hands.
 
-A general-purpose to-do app used by 500,000 people versus a custom-built to-do app made just for you. If both are free, which one would you use? The answer is obvious.
+Imagine a general-purpose to-do app used by 500,000 people alongside a custom-built to-do app made just for you. If both are free, which one would you use? The answer is obvious.
 
 The moment the reason for general-purpose services to exist - **because you can't build your own** - disappears, the value of those services drops sharply. This is the fundamental crisis facing existing software companies.
 
@@ -102,9 +102,9 @@ The moment the reason for general-purpose services to exist - **because you can'
 
 This shift won't impact all software companies equally. But a significant number will find themselves in a serious dilemma.
 
-The first to take a hit are simple CRUD-based utility apps and productivity tools. To-do apps, note apps, habit trackers, budget apps, calendar managers. The core functionality of these apps is creating, reading, updating, and deleting data. Precisely the area where agentic coding assistants excel.
+The first to take a hit are simple CRUD-based utility apps and productivity tools. To-do apps, note apps, habit trackers, budget apps, and calendar managers all fit this description. The core functionality of these apps is creating, reading, updating, and deleting data, which is precisely the area where agentic coding assistants excel.
 
-Think about the business model of companies running these apps. Most use freemium. Free basic features, monthly subscription for premium ones. Or they show ads to free users and monetize through advertising.
+Think about the business model of companies running these apps. Most use freemium. Basic features are free, and premium ones sit behind a monthly subscription. Or they show ads to free users and monetize through advertising.
 
 But when users can build their own apps, the foundation of this business model starts to crack. Why pay $5 a month for someone else's to-do app? I can build one with exactly the features I want. Why endure ads in a free app? I can build my own without ads.
 
@@ -112,7 +112,7 @@ This isn't just about one or two apps. It's a structural problem for the softwar
 
 Until now, the competitive strategies of software companies have broadly been two things: offer more features at a lower price, or offer a better user experience. But when users can build services that fit them exactly, both strategies lose their meaning. More features? Users only want the features they need. Better UX? Users design it themselves in whatever way is most comfortable.
 
-There's another uncomfortable truth here. The feature additions of existing software companies were often not for users but for the business. Artificially segmenting features to justify a subscription model, restricting core functionality in the free tier, creating premium features designed for upselling.
+There's another uncomfortable truth here. The feature additions of existing software companies were often not for users but for the business. They would artificially segment features to justify a subscription model, restrict core functionality in the free tier, and create premium features designed purely for upselling.
 
 As a user, you've probably had the experience of needing to subscribe to a "Pro plan" loaded with features you'll never use, just to access the one feature you actually need. When you build your own app, these artificial restrictions vanish. You include what you need and nothing more.
 
@@ -124,7 +124,7 @@ This is not a change in technology. It's a transfer of power. The power to creat
 
 There's another thread worth pulling on here. The advertising model.
 
-A substantial portion of the internet economy currently runs on advertising. Google, Meta, countless free apps and services. Their business models are fundamentally the same. Provide a free service to users and sell those users' attention to advertisers. Collect user data to run sophisticated targeted ads. This model has dominated the internet economy for the past 20 years.
+A substantial portion of the internet economy currently runs on advertising. Google, Meta, and countless free apps and services all fit the pattern. Their business models are fundamentally the same. They provide a free service to users and sell those users' attention to advertisers. They collect user data to run sophisticated targeted ads. This model has dominated the internet economy for the past 20 years.
 
 But there are no ads in apps users build themselves. Obviously. Why would I put ads in an app I built for my own needs? There's no data collection either. My data lives in my app, on my server (or my cloud). There's no reason for it to reach a third party.
 
@@ -140,7 +140,7 @@ This isn't just a problem for the ad industry. It's a challenge to the very stru
 
 Take it one step further. If the advertising model weakens, the very concept of free services starts to shake. The countless free services we've been enjoying were never actually free. We were paying with our attention and our data. When users build their own apps, they exit this implicit transaction entirely. No ads, no tracking, no push notifications nagging you to come back.
 
-Software that exists purely for its owner's purpose. Perhaps that's what software was always supposed to be.
+What remains is software that exists purely for its owner's purpose. Perhaps that's what software was always supposed to be.
 
 # The Arrival of the Module Economy
 
@@ -148,7 +148,7 @@ So what direction should existing software companies pivot toward? I dare to pre
 
 Until now, software companies sold finished products. They planned, designed, developed, tested, and delivered completed apps or web services to users. Users used those finished products as-is.
 
-Future software companies will sell components. Payment functionality, authentication, maps, chat, delivery tracking, booking systems, payment settlement. These capabilities will be offered as independent modules, and users (or their AIs) will assemble them to build their own services.
+Future software companies will sell components. Think payment functionality, authentication, maps, chat, delivery tracking, booking systems, and payment settlement. These capabilities will be offered as independent modules, and users (or their AIs) will assemble them to build their own services.
 
 The pioneers of this model already exist. And they happen to be among the most highly valued companies in the software industry.
 
@@ -164,7 +164,7 @@ Think about it. When you tell an agentic coding assistant "Build me an online st
 
 What holds value in this structure? Not the finished app, but the individual capability modules that compose it.
 
-Processing payments safely and conveniently. Real-time communication that handles millions of simultaneous connections. Accurate and fast map rendering. These are things non-developers can't easily build with AI alone. They require deep expertise, infrastructure, and economies of scale.
+Think of processing payments safely and conveniently, real-time communication that handles millions of simultaneous connections, accurate and fast map rendering. These are things non-developers can't easily build with AI alone. They require deep expertise, infrastructure, and economies of scale.
 
 A critical reversal happens here. In the past, companies told users: use our app. In the future, companies will tell users (and their AIs): use our capability. The relationship with users shifts from B2C to B2B2C, or more precisely, **B2AI2C**.
 
@@ -176,7 +176,7 @@ Today, building a service means either implementing everything from start to fin
 
 The payment block comes from Stripe, the authentication block from Auth0, the map block from Mapbox, the search block from Algolia. Add your own business logic, and you have a complete service. This assembly process can be done by a human or by AI.
 
-In this kind of ecosystem, new forms of marketplaces will emerge. If app stores were marketplaces for finished apps, the marketplace of the future could be one that trades capability modules. Whether built by companies or individual developers, specific capabilities are packaged as modules and published, and other users assemble them into their own services.
+In this kind of ecosystem, new forms of marketplaces will emerge. If app stores were marketplaces for finished apps, the marketplace of the future could be one that trades capability modules. Whether built by companies or individual developers, specific capabilities will be packaged as modules and published so that other users can assemble them into their own services.
 
 Think of package managers like npm or PyPI. Right now, only developers use this ecosystem. But with agentic coding assistants acting as interpreters in between, non-developers can tap into it too.
 
@@ -184,9 +184,9 @@ Tell an AI "Add payment functionality to my app" and the AI finds the right paym
 
 This raises another interesting question. In such an ecosystem, what are the most valuable modules?
 
-I see two types. The first is **capabilities with infrastructure-level complexity**. Payment processing, authentication, real-time communication, media processing, search engines. Implementing these properly requires enormous expertise and infrastructure. A non-developer asking AI to "build a payment system from scratch" won't be able to handle financial regulations, PCI DSS compliance, fraud detection, or multi-currency processing. Specialized companies providing these as modules makes overwhelmingly more sense.
+I see two types. The first is **capabilities with infrastructure-level complexity**. Payment processing, authentication, real-time communication, media processing, and search engines all belong here. Implementing these properly requires enormous expertise and infrastructure. A non-developer asking AI to "build a payment system from scratch" won't be able to handle financial regulations, PCI DSS compliance, fraud detection, or multi-currency processing. Specialized companies providing these as modules makes overwhelmingly more sense.
 
-The second is **domain-specific capabilities**. Electronic prescription systems in healthcare, delivery route optimization engines in logistics, risk assessment models in finance, learning progress tracking systems in education. These require deep domain knowledge and regulatory compliance for specific industries. Non-developers can't easily implement these with AI alone either. But if specialized companies provide well-built modules, even non-developers can integrate them into their services.
+The second is **domain-specific capabilities**. Examples include electronic prescription systems in healthcare, delivery route optimization engines in logistics, risk assessment models in finance, and learning progress tracking systems in education. These require deep domain knowledge and regulatory compliance for specific industries. Non-developers can't easily implement these with AI alone either. But if specialized companies provide well-built modules, even non-developers can integrate them into their services.
 
 Ultimately, the software companies of the future will need to evolve toward building deep expertise in one of these two types and delivering it as modules.
 
@@ -200,25 +200,25 @@ Not every software service will be replaced by modules. It's important to distin
 
 **What survives.**
 
-First, services where network effects are core. Social networks and messaging platforms like KakaoTalk, Instagram, YouTube, and LinkedIn. The value of these services isn't in their features - it's in the fact that other people are there. No matter how good a messenger I build, it's meaningless if my friends aren't on it. Network effects are a barrier to entry that individuals cannot replicate.
+First, services where network effects are core. This category includes social networks and messaging platforms like KakaoTalk, Instagram, YouTube, and LinkedIn. The value of these services isn't in their features - it's in the fact that other people are there. No matter how good a messenger I build, it's meaningless if my friends aren't on it. Network effects are a barrier to entry that individuals cannot replicate.
 
-Second, services where massive data is the source of value. Google Search, Google Maps, Spotify, Netflix. Their value lies in data assets: billions of indexed web pages, global road and location data, tens of millions of licensed songs, tens of thousands of video titles. These data assets cannot be replicated by individuals.
+Second, services where massive data is the source of value. Google Search, Google Maps, Spotify, and Netflix are prime examples. Their value lies in data assets: billions of indexed web pages, global road and location data, tens of millions of licensed songs, tens of thousands of video titles. These data assets cannot be replicated by individuals.
 
-Third, cloud infrastructure. Cloud platforms like AWS, Azure, and GCP. Even when users build their own apps, those apps need to be hosted somewhere. Demand for server infrastructure may actually increase. If everyone builds their own app, the total volume of apps needing hosting explodes.
+Third, cloud infrastructure. Cloud platforms like AWS, Azure, and GCP fall into this bucket. Even when users build their own apps, those apps need to be hosted somewhere. Demand for server infrastructure may actually increase. If everyone builds their own app, the total volume of apps needing hosting explodes.
 
-Fourth, AI platforms themselves. AI model providers like OpenAI, Anthropic, and Google. These companies provide the core engines of agentic coding assistants. They are the infrastructure on top of the infrastructure in the module economy. The more users build services through AI, the more value AI platforms accrue. They are the biggest beneficiaries of this paradigm shift.
+Fourth, AI platforms themselves. AI model providers like OpenAI, Anthropic, and Google belong here. These companies provide the core engines of agentic coding assistants. They are the infrastructure on top of the infrastructure in the module economy. The more users build services through AI, the more value AI platforms accrue. They are the biggest beneficiaries of this paradigm shift.
 
 **What's at risk.**
 
-First, simple CRUD apps. To-do apps, note apps, habit trackers, budget trackers, journal apps. The core features of these apps can be easily replicated by AI. When users can build their own tailored versions, the reason to use a general-purpose app diminishes. The fact that searching to-do app on app stores already returns thousands of results is evidence this market is oversaturated. Add infinite customization as an option and survival for existing to-do app companies becomes extremely difficult.
+First, simple CRUD apps. To-do apps, note apps, habit trackers, budget trackers, and journal apps all fall in this category. The core features of these apps can be easily replicated by AI. When users can build their own tailored versions, the reason to use a general-purpose app diminishes. The fact that searching to-do app on app stores already returns thousands of results is evidence this market is oversaturated. Add infinite customization as an option and survival for existing to-do app companies becomes extremely difficult.
 
-Second, small and mid-sized SaaS products. SaaS targeting specific niches whose differentiator is a convenient interface or all-in-one features. The value proposition of these services is something agentic coding assistants can replicate.
+Second, small and mid-sized SaaS products. Niche SaaS whose only differentiator is a convenient interface or all-in-one feature bundle are especially exposed. The value proposition of these services is something agentic coding assistants can replicate.
 
 Third, ad-supported free apps. As discussed, when users can build their own ad-free apps, the incentive to endure ads in free apps disappears.
 
-Fourth, simple wrapper services. Services whose entire value is a pretty interface layered on top of existing APIs. Since AI can create interfaces, the value of this intermediary layer decreases. In fact, many wrapper services are already being hit by AI's emergence. Services that charged monthly subscriptions for a thin UI on top of AI APIs are losing their reason to exist as users gain the ability to call APIs directly.
+Fourth, simple wrapper services. These are services whose entire value is a pretty interface layered on top of existing APIs. Since AI can create interfaces, the value of this intermediary layer decreases. In fact, many wrapper services are already being hit by AI's emergence. Services that charged monthly subscriptions for a thin UI on top of AI APIs are losing their reason to exist as users gain the ability to call APIs directly.
 
-The essence is this: **services with irreplaceable assets survive, while services whose value is purely functional are at risk.** Network effects, massive data, deep expertise, physical infrastructure. These cannot be replicated by AI. But features built in code can be.
+The essence is this: **services with irreplaceable assets survive, while services whose value is purely functional are at risk.** Network effects, massive data, deep expertise, and physical infrastructure are the assets in question. These cannot be replicated by AI. But features built in code can be.
 
 # Survival Strategies for Companies
 
@@ -226,13 +226,13 @@ What strategies should companies that recognize this shift adopt?
 
 First, **transition from service provider to capability provider.** Move from a model of delivering end-user services through proprietary apps and websites to a model of providing core capabilities as APIs, SDKs, and modules. Companies need to identify what their deepest expertise is and modularize it into independently usable components.
 
-Second, **design AI-agent-friendly interfaces.** The user of the future may not be a person but an AI agent. APIs must be designed so that AI can automatically search, evaluate, and integrate modules. Well-organized documentation, clear error messages, and available test environments. These will become the criteria by which AI agents select capabilities.
+Second, **design AI-agent-friendly interfaces.** The user of the future may not be a person but an AI agent. APIs must be designed so that AI can automatically search, evaluate, and integrate modules. Well-organized documentation, clear error messages, and available test environments become table stakes. These will become the criteria by which AI agents select capabilities.
 
 Third, **build irreplaceable assets.** Features written in code can be replicated. But data accumulated over years, compliance with industry regulations, a track record of reliability, and partner networks cannot be easily copied. Companies must deliberately build these irreplaceable assets.
 
-Fourth, **module domain expertise.** If a company has deep understanding of a specific industry, packaging that understanding into code becomes a powerful strategy. A patient data management module that fully complies with healthcare regulations, a transaction processing engine that meets financial regulations, a delivery management SDK equipped with logistics optimization algorithms. The combination of domain knowledge and technology creates the highest-defense moat.
+Fourth, **module domain expertise.** If a company has deep understanding of a specific industry, packaging that understanding into code becomes a powerful strategy. Think of a patient data management module that fully complies with healthcare regulations, a transaction processing engine that meets financial regulations, or a delivery management SDK equipped with logistics optimization algorithms. The combination of domain knowledge and technology creates the highest-defense moat.
 
-Fifth, **ecosystem strategy.** Rather than trying to build a monopolistic platform, aim to be the best component in an open ecosystem. Many companies have pursued the do everything on our platform all-in-one strategy. But in an era where users assemble their own services, being the best at a specific capability and fitting seamlessly into any combination is more advantageous. Just as Stripe has claimed that position in payments.
+Fifth, **ecosystem strategy.** Rather than trying to build a monopolistic platform, aim to be the best component in an open ecosystem. Many companies have pursued the do everything on our platform all-in-one strategy. But in an era where users assemble their own services, being the best at a specific capability and fitting seamlessly into any combination is more advantageous. Stripe's hold on payments is a textbook example of that positioning.
 
 One principle runs through all these strategies: the shift from **building for** to **enabling**. In the past, companies built services on behalf of users. Going forward, they transition into helping users build for themselves. Providing ingredients rather than finished dishes. Selling raw materials rather than recipes. This shift in perspective may be the hardest part. For a company that has operated for 20 years with the mindset of we'll build the best app and deliver it to you, declaring we're becoming a component supplier is partly a matter of pride.
 
@@ -242,7 +242,7 @@ But pride that runs against the market's direction is a luxury.
 
 This might sound like a story about the distant future. But the change has already started.
 
-The concept of the API economy has existed for years now. Stripe, Twilio, Auth0, SendGrid, Cloudinary, Algolia. These companies are already succeeding with a sell capabilities business model. They're not from the future - they're models validated in today's market.
+The concept of the API economy has existed for years now. Stripe, Twilio, Auth0, SendGrid, Cloudinary, and Algolia are the names that come to mind. These companies are already succeeding with a sell capabilities business model. They're not from the future - they're models validated in today's market.
 
 What's changing is the scope of this model's application. In the past, the consumers of capability modules were developers and companies. Technical skills were needed to integrate APIs and incorporate SDKs. But as agentic coding assistants lower this technical barrier, the potential consumers of capability modules expand to everyone.
 
@@ -280,7 +280,7 @@ agentic coding assistants are undermining that premise. When users can build thi
 
 This is similar to what already happened in manufacturing. In the past, buying furniture meant buying a finished product from a furniture store. Then IKEA came along and started selling components. Consumers could assemble them, getting cheaper products and combinations that matched their taste. With 3D printers becoming widely available, you can now even make the components themselves if you have the design files.
 
-The software industry is following a similar trajectory. From the era of finished products to the era of semi-finished goods (modules), and ultimately to an era where users build everything from scratch alongside AI. The final stage will take time, of course. But the transition to the intermediate stage - the module economy - is already right in front of us.
+The software industry is following a similar trajectory. It's moving from the era of finished products to the era of semi-finished goods (modules), and ultimately to an era where users build everything from scratch alongside AI. The final stage will take time, of course. But the transition to the intermediate stage - the module economy - is already right in front of us.
 
 There's a positive side to this transition as well. The idea that everyone can have software tailored to their needs represents the completion of software democratization. Until now, software has had a separation between makers and users. That separation is dissolving. Not everyone becomes a developer, but every user becomes the owner of their own software. Instead of adapting to features and interfaces decided by companies, people define software that fits their own lives and work.
 

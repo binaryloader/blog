@@ -43,8 +43,8 @@ When I was building a mobile app-based controller panel for smart home devices a
 
 ## 1. Think About the Purpose
 
-- To leverage IoT technology for a more convenient and comfortable lifestyle.
-- To integrate all electronics, devices, and furniture into a single network and control the home through touch, voice commands, and automation via an application.
+- The goal is to leverage IoT technology for a more convenient and comfortable lifestyle.
+- Another goal is to integrate all electronics, devices, and furniture into a single network and control the home through touch, voice commands, and automation via an application.
 - Honestly, the main reason is that it just looks fun.
 
 ## 2. Research and Explore

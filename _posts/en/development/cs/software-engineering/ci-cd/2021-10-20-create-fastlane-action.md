@@ -163,7 +163,7 @@ validate_ipa(
 - Solves a specific use case for only a small number of developers.
 - Accesses third-party service APIs while the third-party service owns or maintains the Action.
 - A complex Action that will require significant maintenance in the future.
-- Anything unrelated to mobile development.
+- Performs tasks unrelated to mobile development.
 
 # References
 

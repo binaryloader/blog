@@ -438,7 +438,7 @@ And this is the voice memo app the agents actually built - a fully functional Po
 
 ![Voice Memo PoC app](/assets/image/post/claude-code-agent-dashboard/15-voice-memo-app.png)
 
-From a single prompt to a working application, with every phase visible on the dashboard in real time.
+The entire flow, from a single prompt to a working application, was visible on the dashboard in real time, phase by phase.
 
 ### 9.10. Full Pipeline Summary
 

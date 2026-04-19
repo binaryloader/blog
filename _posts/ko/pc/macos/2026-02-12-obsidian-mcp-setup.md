@@ -43,7 +43,7 @@ Claude Code MCP 플러그인은 커뮤니티 플러그인 목록에 등록되어
 1. **설정** > **BRAT** > **Add Beta Plugin**
 2. `iansinnott/obsidian-claude-code-mcp` 입력 후 추가
 3. **설정** > **커뮤니티 플러그인**에서 **Claude Code MCP** 활성화
-4. 기본 포트 `22360`으로 MCP 서버가 자동 실행됨
+4. 기본 포트 `22360`으로 MCP 서버가 자동 실행된다
 
 ## 3. Claude Code에 MCP 서버 등록
 
@@ -55,8 +55,8 @@ claude mcp add obsidian -- npx mcp-remote http://localhost:22360/sse
 
 ## 4. 연동 확인
 
-- Claude Code를 **새 대화로 시작**해야 MCP 도구가 로드됨
-- 연동되면 `mcp__obsidian__` 접두사의 도구들이 활성화됨
+- Claude Code를 **새 대화로 시작**해야 MCP 도구가 로드된다
+- 연동되면 `mcp__obsidian__` 접두사의 도구들이 활성화된다
   - `get_workspace_files` - 볼트 파일 목록 조회
   - `view` - 노트 내용 읽기
   - `create` - 새 노트 생성

@@ -30,7 +30,7 @@ depth:
 
 # Overview
 
-How to record both microphone input and system audio simultaneously in QuickTime Player using BlackHole.
+This post covers how to record both microphone input and system audio simultaneously in QuickTime Player using BlackHole.
 
 # Steps
 

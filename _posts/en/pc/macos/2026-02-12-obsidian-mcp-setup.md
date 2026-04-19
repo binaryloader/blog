@@ -29,7 +29,7 @@ depth:
 
 # Overview
 
-How to set up an MCP server so Claude Code can directly read and write to your Obsidian vault.
+This post covers how to set up an MCP server so Claude Code can directly read and write to your Obsidian vault.
 
 # Steps
 
