@@ -194,6 +194,7 @@ jobs:
 
 A workflow that responds interactively when a trigger phrase is mentioned in comments.
 
+{% raw %}
 ```yaml
 name: Claude Assistant
 on:
@@ -331,6 +332,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
 ```
+{% endraw %}
 
 ### 3.4. Supporting fork-based Git Flow
 

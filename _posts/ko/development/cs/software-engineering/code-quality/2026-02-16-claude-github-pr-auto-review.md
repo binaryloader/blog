@@ -192,6 +192,7 @@ jobs:
 
 코멘트에 트리거 문구를 멘션하면 인터랙티브하게 응답하는 워크플로우다.
 
+{% raw %}
 ```yaml
 name: Claude Assistant
 on:
@@ -329,6 +330,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
 ```
+{% endraw %}
 
 ### 3.4. fork 기반 Git Flow 대응
 

@@ -194,6 +194,7 @@ jobs:
 
 コメントでトリガーフレーズをメンションするとインタラクティブに応答するワークフローだ。
 
+{% raw %}
 ```yaml
 name: Claude Assistant
 on:
@@ -331,6 +332,7 @@ jobs:
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
 ```
+{% endraw %}
 
 ### 3.4. fork基盤Git Flow対応
 
