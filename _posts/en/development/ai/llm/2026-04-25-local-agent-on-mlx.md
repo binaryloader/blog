@@ -670,28 +670,47 @@ Key observations are below.
 - The total 22.4 tok/s for long_prompt reflects the effect of processing 1222 prefill tokens very quickly. Prefill speed is estimated at 30-40 tok/s, which is 4-5x faster than decode.
 - The stable operating point for this machine is 8-9 tok/s in terms of user-perceived speed (first-token latency and decode speed).
 
-### 8.9. Conclusion
+### 8.9. Streaming (TTFT, ITL)
 
-#### 8.9.1. Memory Limits
+The SSE streaming response is parsed directly to measure time to first token (TTFT) and inter-token latency (ITL).
+
+| label | tokens | elapsed | TTFT | ITL avg | ITL p50 | ITL p95 | ITL max |
+|-------|--------|---------|------|---------|---------|---------|---------|
+| short(cold) | 100 | 15.7s | 4.77s | 110.6ms | 110.1ms | 114.2ms | 121.9ms |
+| medium(warm) | 392 | 44.8s | 0.68s | 112.8ms | 110.4ms | 114.0ms | 332.0ms |
+| long(warm) | 786 | 88.8s | 0.71s | 112.2ms | 109.7ms | 115.4ms | 329.9ms |
+
+Key observations are below.
+
+- TTFT is about 4.77s cold (immediately after weight page-in) and about 0.7s warm, a significant difference.
+- ITL p50 is approximately 110ms and very consistent, which matches the 9 tok/s decode rate.
+- ITL p95 stays within 115ms, so the distribution is tight.
+- Occasional 330ms spikes occur, which translates to a brief stutter in the UI.
+- User-perceived responsiveness is good in the warm state. The near-5-second first-call latency requires pre-warming for chat UX.
+
+### 8.10. Conclusion
+
+#### 8.10.1. Memory Limits
 
 - With the model active, wired memory occupies approximately 33GB as a baseline. Of the 48GB unified memory, 15GB remains free.
 - The safe operating context is approximately 12K actual prompt tokens. Beyond that, KV cache pressure causes elapsed time to spike.
 - The hard limit is around 24K actual prompt tokens. Beyond that, thrashing makes processing effectively impossible.
 - A 5-turn multi-turn conversation (approximately 1.8K accumulated tokens) places almost no memory burden.
 
-#### 8.9.2. Performance
+#### 8.10.2. Performance
 
-- Decode throughput is stable at 8-9 tok/s.
+- Decode throughput is stable at 8-9 tok/s, with a tight ITL p50 of 110ms.
 - Prefill is estimated at 30-40 tok/s. For short prompts, the prefill contribution is small, so response time is proportional to decode length.
+- TTFT is about 4.8s cold (weight page-in) and about 0.7s warm.
 - The first call takes approximately 30 seconds longer due to weight paging-in. This can be ignored for workloads with frequent calls.
 
-#### 8.9.3. Features
+#### 8.10.3. Features
 
 - Tool calling works correctly and parallel function calling is supported.
 - Reasoning defaults to thinking on. Explicitly setting `enable_thinking=False` accelerates responses by 4.3x.
 - Korean, English, and Japanese baseline quality all pass the bar.
 
-### 8.10. Recommended Usage Guidelines
+### 8.11. Recommended Usage Guidelines
 
 - General chatbot/QA (2-4K context) works without issues. Responses come back at approximately 9 tok/s decode speed.
 - Multi-turn conversations (up to approximately 10K accumulated context) are stable.
@@ -701,7 +720,7 @@ Key observations are below.
 - For immediate-response workloads, setting `chat_template_kwargs.enable_thinking=False` provides a 4x speedup.
 - When running other heavy apps simultaneously (such as Xcode builds or virtual machines), it is recommended to operate with a narrower context.
 
-### 8.11. Measurement Limitations and Future Items
+### 8.12. Measurement Limitations and Future Items
 
 - Concurrent inference is not measured. Since `mlx_lm.server` processes requests in a single queue, this may not be particularly meaningful.
 - GPU utilization, power, and temperature via `powermetrics` are not measured because they require sudo. This can be done in a separate session.
