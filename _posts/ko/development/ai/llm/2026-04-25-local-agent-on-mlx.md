@@ -1,7 +1,7 @@
 ---
-title: "[LLM] Apple Silicon MLX로 로컬 LLM 에이전트 프레임워크 직접 구현하기"
+title: "[LLM] Apple Silicon에서 MLX로 로컬 LLM 환경 구축하기"
 ref: local-agent-on-mlx
-excerpt: "Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델을 사용해 로컬 LLM 에이전트 프레임워크를 직접 구현하기 위한 환경 구성과 학습 로드맵을 정리한다."
+excerpt: "Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델로 로컬 LLM 환경을 구축하고 에이전트 프레임워크 학습을 위한 사전 준비를 정리한다."
 date: 2026-04-25T15:00+09:00
 last_modified_at: 2026-04-25T15:00+09:00
 published: true
@@ -32,7 +32,7 @@ depth:
 
 # 개요
 
-Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델을 사용해 로컬 LLM 에이전트 프레임워크를 직접 구현하기 위한 환경 구성과 학습 로드맵을 정리한다.
+Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델로 로컬 LLM 환경을 구축하고 에이전트 프레임워크 학습을 위한 사전 준비를 정리한다.
 
 # 정리
 

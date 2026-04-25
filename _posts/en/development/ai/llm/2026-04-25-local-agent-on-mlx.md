@@ -1,7 +1,7 @@
 ---
-title: "[LLM] Building a Local LLM Agent Framework from Scratch on Apple Silicon MLX"
+title: "[LLM] Setting Up a Local LLM Environment on Apple Silicon with MLX"
 ref: local-agent-on-mlx
-excerpt: "A learning notebook for setting up MLX with Qwen 3.6 on a MacBook Pro M5 Pro and building a local LLM agent framework from scratch."
+excerpt: "Setting up a local LLM environment with MLX and Qwen 3.6 on a MacBook Pro M5 Pro and laying the groundwork for studying agent frameworks."
 date: 2026-04-25T15:00+09:00
 last_modified_at: 2026-04-25T15:00+09:00
 published: true
@@ -34,7 +34,7 @@ depth:
 
 # Overview
 
-A learning notebook for setting up MLX with Qwen 3.6 on a MacBook Pro M5 Pro and building a local LLM agent framework from scratch.
+Setting up a local LLM environment with MLX and Qwen 3.6 on a MacBook Pro M5 Pro and laying the groundwork for studying agent frameworks.
 
 # Steps
 

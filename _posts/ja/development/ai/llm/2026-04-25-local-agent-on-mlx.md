@@ -1,7 +1,7 @@
 ---
-title: "[LLM] Apple Silicon MLXでローカルLLMエージェントフレームワークを自作する"
+title: "[LLM] Apple SiliconでMLXを使ってローカルLLM環境を構築する"
 ref: local-agent-on-mlx
-excerpt: "Apple Silicon MacBook Pro M5 Pro環境でMLXとQwen 3.6モデルを使い、ローカルLLMエージェントフレームワークを自作するための環境構築と学習ロードマップを整理する。"
+excerpt: "Apple Silicon MacBook Pro M5 Pro環境でMLXとQwen 3.6モデルを使ってローカルLLM環境を構築し、エージェントフレームワーク学習のための事前準備を整理する。"
 date: 2026-04-25T15:00+09:00
 last_modified_at: 2026-04-25T15:00+09:00
 published: true
@@ -34,7 +34,7 @@ depth:
 
 # 概要
 
-Apple Silicon MacBook Pro M5 Pro環境でMLXとQwen 3.6モデルを使い、ローカルLLMエージェントフレームワークを自作するための環境構築と学習ロードマップを整理する。
+Apple Silicon MacBook Pro M5 Pro環境でMLXとQwen 3.6モデルを使ってローカルLLM環境を構築し、エージェントフレームワーク学習のための事前準備を整理する。
 
 # 手順
 
