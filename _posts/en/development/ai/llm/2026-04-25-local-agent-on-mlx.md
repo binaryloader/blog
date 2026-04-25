@@ -532,7 +532,183 @@ A 404 response on a POST request usually means the path is wrong. mlx_lm.server 
 
 A 411 response on a POST request means the `Content-Length` header is missing. curl adds it automatically, but specify it explicitly when working with raw sockets.
 
-## 8. Learning Roadmap
+## 8. Comprehensive Benchmark (Qwen3.6 27B 6bit)
+
+The `unsloth/Qwen3.6-27B-UD-MLX-6bit` model is loaded into `mlx_lm.server` and memory limits and performance are measured across six scenarios: length stress, multi-turn, tool call, deep reasoning, general capability, and GPU throughput. The test machine is Apple Silicon with 48GB unified memory.
+
+### 8.1. Environment
+
+The test environment is below.
+
+- Model: `unsloth/Qwen3.6-27B-UD-MLX-6bit` (Dense 27B, 6bit quantization)
+- Weight size on disk: approximately 22GB
+- Server: `mlx_lm.server` v0.31.3, port 8080
+- System: Apple Silicon, 48GB unified memory, macOS Darwin 25.4
+
+The measurement tools are below.
+
+- Process RSS: `ps -o rss=`
+- System memory: `vm_stat` (Pages free / inactive / wired / Swapouts)
+- HTTP calls: standard library `urllib.request`
+- Measurement scripts: `/tmp/mlx_stress.py`, `/tmp/mlx_extra.py`, `/tmp/mlx_gpu.py`
+
+### 8.2. Difference Between RSS and Wired Memory
+
+RSS showed only 2.8GB at the start of measurement, which was unexpected. The cause is macOS's mmap and memory compression behavior.
+
+- `mlx_lm` loads weights via `mmap`. Pages are brought into physical memory only when actually accessed.
+- macOS compresses idle pages. RSS may not reflect compressed memory.
+- `Pages wired down` (wired) is more accurate for actual GPU occupancy. MLX holds Metal tensors as wired pages.
+- Measurement result: wired jumps from 3.23GB at idle to 32.71GB when the model is active, an increase of approximately 29.5GB. This is the actual GPU memory occupancy.
+
+For this reason, wired memory is used as the primary memory metric in this benchmark.
+
+### 8.3. Length Stress (Incremental Prompt Token Growth)
+
+prompt and `max_tokens` are increased incrementally in a single call to measure the length limit.
+
+| target prompt | actual prompt | output | elapsed | RSS peak | swap Δ | min free+inactive | finish |
+|---------------|---------------|--------|---------|----------|--------|-------------------|--------|
+| 128 | 222 | 128 | 15.7s | 2.80GB | 0.0GB | 7.87GB | length |
+| 512 | 796 | 422 | 50.8s | 2.84GB | 0.0GB | 7.51GB | stop |
+| 2048 | 3089 | 420 | 55.9s | 2.84GB | 0.0GB | 7.58GB | stop |
+| 4096 | 6147 | 597 | 83.2s | 2.86GB | 0.0GB | 5.65GB | stop |
+| 8192 | 12264 | 339 | 69.5s | 2.86GB | 0.0GB | 4.96GB | stop |
+| 16384 | 24492 | 376 | 200.6s | 1.94GB | 2.34GB | 3.11GB | stop |
+| 24576 | - | - | - | - | thrashing | <1GB | (aborted) |
+
+Key observations are below.
+
+- Up to 12K prompt, calls are stable at 50-90 seconds each. The first call after idle takes longer due to weight paging-in.
+- At an actual prompt of 24K (target 16384), elapsed spikes to 200 seconds and 2.3GB of swap occurs. This is a signal that the processing limit has been reached.
+- At target 24576, system free drops to 0.5GB, wired reaches 25GB, and swap accumulates at 1.5-2GB every 5 seconds, causing thrashing. Processing is effectively impossible.
+
+### 8.4. Multi-Turn (5-Turn Accumulated Conversation)
+
+Measurement uses a 5-turn conversation on the TCA pattern as the topic. Each turn is called with the accumulated context.
+
+| turn | prompt | completion | total | elapsed | RSS peak | swap Δ |
+|------|--------|------------|-------|---------|----------|--------|
+| 1 | 28 | 400 | 428 | 46.1s | 18.00GB | 0.00GB |
+| 2 | 191 | 400 | 591 | 44.5s | 18.02GB | 0.03GB |
+| 3 | 615 | 400 | 1015 | 45.5s | 18.02GB | 0.00GB |
+| 4 | 1036 | 400 | 1436 | 46.2s | 18.02GB | 0.00GB |
+| 5 | 1457 | 400 | 1857 | 45.4s | 18.02GB | 0.00GB |
+
+Key observations are below.
+
+- RSS is very stable at 18GB for an accumulated 1857 tokens across 5 turns.
+- Elapsed time is nearly identical across turns (44-46s). At the 1500-token context level, the prefill overhead is negligible.
+- Total swap across 5 turns is 0.03GB, which is effectively zero.
+
+### 8.5. Tool Call (Function Calling)
+
+The `get_weather` function is registered and a request is made to compare the weather in Seoul and Tokyo. The full cycle of tool call request, result return, and final response is measured.
+
+| step | stage | elapsed | RSS peak |
+|------|-------|---------|----------|
+| 1 | tool_call_request | 37.0s | 18.02GB |
+| 2 | final_answer | 17.9s | 18.02GB |
+
+Key observations are below.
+
+- In step 1, the model issues parallel `tool_calls` for both cities in a single call (parallel function calling is supported). Two `tool_calls` come back together in a single response.
+- In step 2, two tool results are added to messages and a call is made, generating a natural comparison response.
+- Response: "Seoul 18 degrees clear, Tokyo 22 degrees clear, Tokyo is 4 degrees warmer"
+- Tool calling for Qwen3.6 works correctly in `mlx_lm.server` v0.31.3.
+
+### 8.6. Deep Reasoning (Thinking Mode)
+
+A seating inference puzzle ("Who is sitting across from the mother?") is used for measurement. Thinking mode is controlled via `chat_template_kwargs`.
+
+| mode | elapsed | RSS peak | reasoning field |
+|------|---------|----------|-----------------|
+| default | 113.5s | 18.10GB | present |
+| `enable_thinking=True` | 112.5s | 18.10GB | present |
+| `enable_thinking=False` | 26.3s | 18.09GB | absent |
+
+Key observations are below.
+
+- Qwen3.6 has thinking on by default (the reasoning field is populated automatically).
+- Switching to thinking_off makes responses 4.3x faster. This is recommended for simple responses or when an immediate answer is needed.
+- With thinking_on, the reasoning process goes into the reasoning field and the final answer is separated into the content field.
+- Memory usage is independent of mode.
+
+### 8.7. General Capability (Code / Math / Korean / Translation)
+
+Four short cases are used to quickly verify the model's general capability.
+
+| case | elapsed | RSS peak | Note |
+|------|---------|----------|------|
+| code (Python deep merge) | 67.1s | 18.10GB | Response includes thinking process |
+| math (Sum of multiples of 7 from 1 to 100) | 67.4s | 18.10GB | Correct solution |
+| korean_reasoning (Ungrammatical sentence correction) | 68.4s | 18.10GB | Natural correction |
+| translation (Korean to English/Japanese) | 67.1s | 18.10GB | Natural translation |
+
+Key observations are below.
+
+- All 4 cases have a consistent elapsed time of 67-68 seconds, which matches the expected decode speed of approximately 9 tok/s at max_tokens 600.
+- Response quality passes the baseline bar. No separate quantitative evaluation is performed.
+- No obvious errors are found in Korean reasoning or translation.
+
+### 8.8. GPU / Throughput
+
+prefill and decode speeds are measured separately.
+
+| label | prompt | completion | elapsed | total tok/s | decode tok/s | wired before | wired after |
+|-------|--------|------------|---------|-------------|--------------|--------------|-------------|
+| baseline | 13 | 50 | 6.4s | 9.9 | 7.9 | 3.23GB | 32.71GB |
+| medium | 24 | 400 | 44.5s | 9.5 | 9.0 | 32.71GB | 32.44GB |
+| long_decode | 25 | 1500 | 163.7s | 9.3 | 9.2 | 32.44GB | 32.72GB |
+| long_prompt | 1222 | 800 | 90.4s | 22.4 | 8.8 | 32.72GB | 32.79GB |
+
+Key observations are below.
+
+- Decode throughput is consistently 8-9 tok/s, which is the expected range for a 27B 6bit model on the M series.
+- On the baseline first call, wired jumps from 3.23GB to 32.71GB. Model weights and Metal buffers are locked as wired pages.
+- Subsequent calls are stable at 32.4-32.8GB wired. The KV cache fluctuates by 0.2-0.3GB depending on context length.
+- The total 22.4 tok/s for long_prompt reflects the effect of processing 1222 prefill tokens very quickly. Prefill speed is estimated at 30-40 tok/s, which is 4-5x faster than decode.
+- The stable operating point for this machine is 8-9 tok/s in terms of user-perceived speed (first-token latency and decode speed).
+
+### 8.9. Conclusion
+
+#### 8.9.1. Memory Limits
+
+- With the model active, wired memory occupies approximately 33GB as a baseline. Of the 48GB unified memory, 15GB remains free.
+- The safe operating context is approximately 12K actual prompt tokens. Beyond that, KV cache pressure causes elapsed time to spike.
+- The hard limit is around 24K actual prompt tokens. Beyond that, thrashing makes processing effectively impossible.
+- A 5-turn multi-turn conversation (approximately 1.8K accumulated tokens) places almost no memory burden.
+
+#### 8.9.2. Performance
+
+- Decode throughput is stable at 8-9 tok/s.
+- Prefill is estimated at 30-40 tok/s. For short prompts, the prefill contribution is small, so response time is proportional to decode length.
+- The first call takes approximately 30 seconds longer due to weight paging-in. This can be ignored for workloads with frequent calls.
+
+#### 8.9.3. Features
+
+- Tool calling works correctly and parallel function calling is supported.
+- Reasoning defaults to thinking on. Explicitly setting `enable_thinking=False` accelerates responses by 4.3x.
+- Korean, English, and Japanese baseline quality all pass the bar.
+
+### 8.10. Recommended Usage Guidelines
+
+- General chatbot/QA (2-4K context) works without issues. Responses come back at approximately 9 tok/s decode speed.
+- Multi-turn conversations (up to approximately 10K accumulated context) are stable.
+- Long document summarization (8-12K prompt) is possible. Responses take 60-90 seconds.
+- Long document analysis (16K+ prompt) is possible but responses take 200 seconds or more and swap begins to occur.
+- Very long inputs (20K+) are not recommended due to the risk of thrashing.
+- For immediate-response workloads, setting `chat_template_kwargs.enable_thinking=False` provides a 4x speedup.
+- When running other heavy apps simultaneously (such as Xcode builds or virtual machines), it is recommended to operate with a narrower context.
+
+### 8.11. Measurement Limitations and Future Items
+
+- Concurrent inference is not measured. Since `mlx_lm.server` processes requests in a single queue, this may not be particularly meaningful.
+- GPU utilization, power, and temperature via `powermetrics` are not measured because they require sudo. This can be done in a separate session.
+- Quantization comparison (4bit vs 6bit vs 8bit) will be covered in a separate quantization comparison note.
+- A comparison of the 35B-A3B MoE 4bit model under the same scenarios is planned as a follow-up.
+
+## 9. Learning Roadmap
 
 A step-by-step roadmap for studying and building an agent framework is below.
 

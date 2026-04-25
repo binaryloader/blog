@@ -530,7 +530,183 @@ POST 요청에 404가 떨어지면 경로를 다시 본다. mlx_lm.server는 경
 
 POST 요청에 411 응답이 떨어지면 `Content-Length` 헤더가 빠진 경우다. curl은 자동으로 붙여주지만 직접 소켓을 다룰 때는 명시한다.
 
-## 8. 학습 로드맵
+## 8. 종합 벤치마크(Qwen3.6 27B 6bit)
+
+mlx_lm.server에 `unsloth/Qwen3.6-27B-UD-MLX-6bit` 모델을 올린 상태에서 6가지 시나리오(길이 스트레스, 멀티턴, 툴 콜, 딥 리즈닝, 일반 능력, GPU 스루풋)로 메모리 한계와 성능을 측정한다. 측정 머신은 Apple Silicon, 통합 메모리 48GB이다.
+
+### 8.1. 환경
+
+측정 환경은 아래와 같다.
+
+- 모델: `unsloth/Qwen3.6-27B-UD-MLX-6bit`(Dense 27B, 6bit 양자화)
+- 가중치 디스크 크기: 약 22GB
+- 서버: `mlx_lm.server` v0.31.3, port 8080
+- 시스템: Apple Silicon, 통합 메모리 48GB, macOS Darwin 25.4
+
+측정 도구는 아래와 같다.
+
+- 프로세스 RSS: `ps -o rss=`
+- 시스템 메모리: `vm_stat`(Pages free / inactive / wired / Swapouts)
+- HTTP 호출: 표준 라이브러리 `urllib.request`
+- 측정 스크립트: `/tmp/mlx_stress.py`, `/tmp/mlx_extra.py`, `/tmp/mlx_gpu.py`
+
+### 8.2. RSS와 wired 메모리의 차이
+
+측정 초반에 RSS가 2.8GB로 나와 의아했는데 원인은 macOS의 mmap + 메모리 압축 동작이다.
+
+- mlx_lm은 가중치를 `mmap`으로 로드한다. 페이지가 실제로 접근되어야 물리 메모리에 올라간다
+- macOS는 idle 페이지를 압축하여 보관한다. RSS는 압축된 메모리를 반영하지 않을 수 있다
+- 실제 GPU 점유는 `Pages wired down`(wired)이 더 정확하다. MLX는 Metal 텐서를 wired 페이지로 잡는다
+- 측정 결과 idle 시 wired 3.23GB → 모델 활성 시 wired 32.71GB로 약 29.5GB 추가된다. 이 값이 실제 GPU 메모리 점유량이다
+
+이런 이유로 본 측정에서는 wired 메모리를 주된 메모리 지표로 사용한다.
+
+### 8.3. 길이 스트레스(prompt 토큰 점진 증가)
+
+단일 호출에서 prompt와 max_tokens를 점진적으로 늘려 길이 한계를 측정한다.
+
+| target prompt | actual prompt | output | elapsed | RSS peak | swap Δ | min free+inactive | finish |
+|---------------|---------------|--------|---------|----------|--------|-------------------|--------|
+| 128 | 222 | 128 | 15.7s | 2.80GB | 0.0GB | 7.87GB | length |
+| 512 | 796 | 422 | 50.8s | 2.84GB | 0.0GB | 7.51GB | stop |
+| 2048 | 3089 | 420 | 55.9s | 2.84GB | 0.0GB | 7.58GB | stop |
+| 4096 | 6147 | 597 | 83.2s | 2.86GB | 0.0GB | 5.65GB | stop |
+| 8192 | 12264 | 339 | 69.5s | 2.86GB | 0.0GB | 4.96GB | stop |
+| 16384 | 24492 | 376 | 200.6s | 1.94GB | 2.34GB | 3.11GB | stop |
+| 24576 | - | - | - | - | thrashing | <1GB | (중단) |
+
+핵심 관찰은 아래와 같다.
+
+- 12K prompt까지는 호출당 50-90초로 안정적이다(idle 후 첫 호출은 가중치 paging-in으로 더 걸린다)
+- 24K 실제 prompt(target 16384)에서 elapsed가 200초로 급증하고 swap 2.3GB가 발생한다. 처리 한계 신호다
+- target 24576 시점에서 시스템 free 0.5GB, wired 25GB, swap이 5초당 1.5-2GB 누적되며 thrashing이 발생한다. 사실상 처리 불가능하다
+
+### 8.4. 멀티턴(5턴 누적 대화)
+
+TCA 패턴을 주제로 한 5턴 대화로 측정한다. 매 턴 누적된 컨텍스트로 호출한다.
+
+| turn | prompt | completion | total | elapsed | RSS peak | swap Δ |
+|------|--------|------------|-------|---------|----------|--------|
+| 1 | 28 | 400 | 428 | 46.1s | 18.00GB | 0.00GB |
+| 2 | 191 | 400 | 591 | 44.5s | 18.02GB | 0.03GB |
+| 3 | 615 | 400 | 1015 | 45.5s | 18.02GB | 0.00GB |
+| 4 | 1036 | 400 | 1436 | 46.2s | 18.02GB | 0.00GB |
+| 5 | 1457 | 400 | 1857 | 45.4s | 18.02GB | 0.00GB |
+
+핵심 관찰은 아래와 같다.
+
+- 5턴 누적 1857 토큰 수준에서 RSS 18GB로 매우 안정적이다
+- 턴 간 elapsed가 거의 동일하다(44-46s). 컨텍스트 1500 토큰 수준에서는 prefill 부담이 미미하다
+- 멀티턴 5턴 누적 swap 0.03GB로 사실상 0이다
+
+### 8.5. 툴 콜(function calling)
+
+`get_weather` 함수를 등록하고 "서울이랑 도쿄 날씨 비교"를 요청한다. 툴 호출 → 결과 반환 → 최종 응답까지 전체 사이클을 측정한다.
+
+| step | stage | elapsed | RSS peak |
+|------|-------|---------|----------|
+| 1 | tool_call_request | 37.0s | 18.02GB |
+| 2 | final_answer | 17.9s | 18.02GB |
+
+핵심 관찰은 아래와 같다.
+
+- 1단계에서 모델이 두 도시를 병렬 tool_call로 호출한다(parallel function calling 지원). 단일 호출에 두 개의 `tool_calls`가 함께 나온다
+- 2단계에서 tool 결과 두 개를 messages에 넣어 호출하면 자연스러운 비교 응답이 생성된다
+- 응답: "서울 18도 맑음, 도쿄 22도 맑음, 도쿄가 4도 더 따뜻"
+- mlx_lm.server v0.31.3에서 Qwen3.6 툴 콜은 정상 동작한다
+
+### 8.6. 딥 리즈닝(thinking mode)
+
+좌석 추론 퍼즐("어머니 맞은편에 앉은 사람은?")로 측정한다. `chat_template_kwargs`로 thinking 모드를 제어한다.
+
+| mode | elapsed | RSS peak | reasoning 필드 |
+|------|---------|----------|----------------|
+| default | 113.5s | 18.10GB | O |
+| `enable_thinking=True` | 112.5s | 18.10GB | O |
+| `enable_thinking=False` | 26.3s | 18.09GB | X |
+
+핵심 관찰은 아래와 같다.
+
+- Qwen3.6은 default가 이미 thinking on 상태다(reasoning 필드를 자동으로 채운다)
+- thinking_off로 전환하면 4.3배 빨라진다. 단순 응답이나 즉답이 필요한 경우 권장한다
+- thinking_on 응답은 reasoning 필드에 사고 과정이 들어가고 content 필드에 최종 답이 분리되어 들어온다
+- 메모리 사용량은 모드와 무관하다
+
+### 8.7. 일반 능력(코드/수학/한국어/번역)
+
+4개 짧은 케이스로 모델 일반 능력을 빠르게 점검한다.
+
+| case | elapsed | RSS peak | 비고 |
+|------|---------|----------|------|
+| code(Python deep merge) | 67.1s | 18.10GB | thinking process 포함 응답 |
+| math(1-100 7배수 합) | 67.4s | 18.10GB | 정상 풀이 |
+| korean_reasoning(비문법 교정) | 68.4s | 18.10GB | 자연스러운 교정 |
+| translation(한→영/일) | 67.1s | 18.10GB | 자연스러운 번역 |
+
+핵심 관찰은 아래와 같다.
+
+- 4개 케이스 모두 elapsed가 67-68초로 일정하다. max_tokens 600 기준 약 9 tok/s 디코드 속도와 일치한다
+- 응답 품질은 기본 합격선이다. 별도 정량 평가는 수행하지 않는다
+- 한국어 추론과 번역에서 명백한 오류는 없다
+
+### 8.8. GPU/스루풋
+
+prefill과 decode 속도를 분리해서 측정한다.
+
+| label | prompt | completion | elapsed | total tok/s | decode tok/s | wired before | wired after |
+|-------|--------|------------|---------|-------------|--------------|--------------|-------------|
+| baseline | 13 | 50 | 6.4s | 9.9 | 7.9 | 3.23GB | 32.71GB |
+| medium | 24 | 400 | 44.5s | 9.5 | 9.0 | 32.71GB | 32.44GB |
+| long_decode | 25 | 1500 | 163.7s | 9.3 | 9.2 | 32.44GB | 32.72GB |
+| long_prompt | 1222 | 800 | 90.4s | 22.4 | 8.8 | 32.72GB | 32.79GB |
+
+핵심 관찰은 아래와 같다.
+
+- 디코드 스루풋이 일관되게 8-9 tok/s로 나온다(M 시리즈 27B 6bit 기대치)
+- baseline 첫 호출에서 wired가 3.23GB → 32.71GB로 점프한다. 모델 가중치 + Metal 버퍼가 wired에 잡힌다
+- 이후 호출은 wired 32.4-32.8GB에서 안정한다. 컨텍스트 길이에 따라 KV 캐시가 0.2-0.3GB 변동한다
+- long_prompt의 total 22.4 tok/s는 prefill 1222 토큰을 매우 빠르게 처리한 효과다. prefill은 30-40 tok/s 수준으로 추정된다(decode 대비 4-5배 빠름)
+- 사용자 체감 속도(첫 토큰 latency, 디코드 속도) 기준 8-9 tok/s가 이 머신의 안정 운영점이다
+
+### 8.9. 결론
+
+#### 8.9.1. 메모리 한계
+
+- 모델 활성 시 wired 약 33GB가 기본 점유량이다. 통합 메모리 48GB 중 15GB가 여유다
+- 안전 운영 컨텍스트는 약 12K 실제 prompt 토큰이다. 그 이상은 KV 캐시 압박으로 elapsed가 급증한다
+- 절대 한계는 24K 실제 prompt 부근이다. 그 이상은 thrashing으로 사실상 불가능하다
+- 멀티턴 5턴(누적 약 1.8K 토큰)은 메모리 부담이 거의 없다
+
+#### 8.9.2. 성능
+
+- 디코드 스루풋이 8-9 tok/s로 안정적이다
+- prefill은 30-40 tok/s로 추정된다. 짧은 프롬프트에서는 prefill 비중이 작아 응답 시간이 디코드 길이에 비례한다
+- 첫 호출은 가중치 paging-in으로 추가 30초 정도 더 걸린다. 자주 호출되는 워크로드에서는 무시 가능하다
+
+#### 8.9.3. 기능
+
+- Tool calling은 정상 동작하고 parallel function calling을 지원한다
+- Reasoning은 default로 thinking on 상태다. 명시적으로 `enable_thinking=False`로 끄면 4.3배 가속한다
+- 한국어/영어/일본어 기본 품질이 합격선이다
+
+### 8.10. 권장 사용 가이드라인
+
+- 일반 챗봇/QA(2-4K 컨텍스트)는 무난하다. 디코드 9 tok/s 수준으로 응답한다
+- 멀티턴 대화(누적 약 10K까지)는 안정적이다
+- 긴 문서 요약(prompt 8-12K)은 가능하다. 응답이 60-90초 걸린다
+- 긴 문서 분석(prompt 16K+)은 가능하지만 응답이 200초 이상 걸리고 swap이 발생하기 시작한다
+- 초장문(20K+)은 권장하지 않는다. thrashing 위험이 있다
+- 즉답형 워크로드는 `chat_template_kwargs.enable_thinking=False`로 4배 가속한다
+- 다른 무거운 앱(Xcode 빌드, 가상머신 등)을 동시 실행할 때는 더 좁은 컨텍스트로 운영하기를 권장한다
+
+### 8.11. 측정 한계와 차후 측정 항목
+
+- 동시 요청(concurrent inference)은 미측정이다. mlx_lm.server는 단일 큐로 처리하므로 큰 의미는 없을 가능성이 있다
+- powermetrics 기반 GPU 활용률/전력/온도는 sudo가 필요해 미측정이다. 별도 세션에서 진행할 수 있다
+- 양자화 비교(4bit vs 6bit vs 8bit)는 양자화 비교 노트에서 다룬다
+- 35B-A3B MoE 4bit 모델 동일 시나리오 비교는 후속으로 측정할 예정이다
+
+## 9. 학습 로드맵
 
 에이전트 프레임워크 학습과 구현을 위한 단계별 로드맵은 아래와 같다.
 
