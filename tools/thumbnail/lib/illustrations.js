@@ -3494,6 +3494,110 @@ function illustrationTheEndOfSellingApps() {
   `;
 }
 
+// local-agent-on-mlx: Apple Silicon 칩 위에서 돌아가는 MLX 로컬 LLM 에이전트 - ReAct 루프 + Tool Calling
+function illustrationLocalAgentOnMlx() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+    <!-- Apple Silicon chip (center) -->
+    <g transform="translate(540, 310)">
+      <!-- Chip outer package -->
+      <rect x="-110" y="-110" width="220" height="220" rx="18" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.8"/>
+      <!-- Chip inner die -->
+      <rect x="-72" y="-72" width="144" height="144" rx="8" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.5"/>
+      <!-- CPU cores grid (4x4) -->
+      <rect x="-60" y="-60" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.6"/>
+      <rect x="-26" y="-60" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.6"/>
+      <rect x="8"  y="-60" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.6"/>
+      <rect x="42" y="-60" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.6"/>
+      <rect x="-60" y="-26" width="28" height="28" rx="3" fill="#4ecdc4" fill-opacity="0.12" stroke="#4ecdc4" stroke-width="1" opacity="0.7"/>
+      <rect x="-26" y="-26" width="28" height="28" rx="3" fill="#4ecdc4" fill-opacity="0.12" stroke="#4ecdc4" stroke-width="1" opacity="0.7"/>
+      <rect x="8"  y="-26" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+      <rect x="42" y="-26" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+      <rect x="-60" y="8"  width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+      <rect x="-26" y="8"  width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+      <rect x="8"  y="8"  width="28" height="28" rx="3" fill="#4ecdc4" fill-opacity="0.10" stroke="#4ecdc4" stroke-width="1" opacity="0.6"/>
+      <rect x="42" y="8"  width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.5"/>
+      <rect x="-60" y="42" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+      <rect x="-26" y="42" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+      <rect x="8"  y="42" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+      <rect x="42" y="42" width="28" height="28" rx="3" fill="none" stroke="#4ecdc4" stroke-width="1" opacity="0.4"/>
+      <!-- MLX label on chip -->
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" fill="#00e5ff" opacity="0.9">MLX</text>
+      <!-- Chip pin rows -->
+      <line x1="-110" y1="-70" x2="-130" y2="-70" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="-110" y1="-40" x2="-130" y2="-40" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="-110" y1="-10" x2="-130" y2="-10" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="-110" y1="20"  x2="-130" y2="20"  stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="-110" y1="50"  x2="-130" y2="50"  stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="-110" y1="80"  x2="-130" y2="80"  stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="110"  y1="-70" x2="130"  y2="-70" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="110"  y1="-40" x2="130"  y2="-40" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="110"  y1="-10" x2="130"  y2="-10" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="110"  y1="20"  x2="130"  y2="20"  stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="110"  y1="50"  x2="130"  y2="50"  stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="110"  y1="80"  x2="130"  y2="80"  stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="-70"  y1="-110" x2="-70"  y2="-130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="-35"  y1="-110" x2="-35"  y2="-130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="0"    y1="-110" x2="0"    y2="-130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="35"   y1="-110" x2="35"   y2="-130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="70"   y1="-110" x2="70"   y2="-130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="-70"  y1="110" x2="-70"  y2="130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="-35"  y1="110" x2="-35"  y2="130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="0"    y1="110" x2="0"    y2="130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="35"   y1="110" x2="35"   y2="130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+      <line x1="70"   y1="110" x2="70"   y2="130" stroke="#00e5ff" stroke-width="2" opacity="0.4"/>
+    </g>
+    <!-- ReAct loop: circular arrows around chip -->
+    <!-- Top arc label: Thought -->
+    <path d="M 390,175 A 185,185 0 0,1 690,175" fill="none" stroke="#ffe66d" stroke-width="2" stroke-dasharray="8,5" opacity="0.6"/>
+    <polygon points="686,172 698,168 692,182" fill="#ffe66d" opacity="0.6"/>
+    <text x="540" y="145" text-anchor="middle" font-family="monospace" font-size="13" fill="#ffe66d" opacity="0.8">Thought</text>
+    <!-- Right arc label: Action -->
+    <path d="M 700,210 A 185,185 0 0,1 700,430" fill="none" stroke="#ff6b9d" stroke-width="2" stroke-dasharray="8,5" opacity="0.6"/>
+    <polygon points="703,427 697,440 708,436" fill="#ff6b9d" opacity="0.6"/>
+    <text x="800" y="328" text-anchor="middle" font-family="monospace" font-size="13" fill="#ff6b9d" opacity="0.8">Action</text>
+    <!-- Bottom arc label: Observation -->
+    <path d="M 690,455 A 185,185 0 0,1 390,455" fill="none" stroke="#a8e6cf" stroke-width="2" stroke-dasharray="8,5" opacity="0.6"/>
+    <polygon points="394,458 382,462 388,448" fill="#a8e6cf" opacity="0.6"/>
+    <text x="540" y="502" text-anchor="middle" font-family="monospace" font-size="13" fill="#a8e6cf" opacity="0.8">Observation</text>
+    <!-- Left arc label: Reason -->
+    <path d="M 380,430 A 185,185 0 0,1 380,210" fill="none" stroke="#4ecdc4" stroke-width="2" stroke-dasharray="8,5" opacity="0.6"/>
+    <polygon points="377,213 383,200 372,206" fill="#4ecdc4" opacity="0.6"/>
+    <text x="280" y="328" text-anchor="middle" font-family="monospace" font-size="13" fill="#4ecdc4" opacity="0.8">Reason</text>
+    <!-- Tool calling boxes (right side) -->
+    <g transform="translate(870, 240)">
+      <rect x="-80" y="-28" width="160" height="56" rx="8" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.7"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d" opacity="0.8">tool_call()</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.5">web_search</text>
+    </g>
+    <g transform="translate(870, 340)">
+      <rect x="-80" y="-28" width="160" height="56" rx="8" fill="none" stroke="#ff6b9d" stroke-width="1.5" opacity="0.5"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d" opacity="0.6">tool_call()</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.4">run_python</text>
+    </g>
+    <!-- Qwen model label (top-left) -->
+    <g transform="translate(175, 210)">
+      <rect x="-90" y="-35" width="180" height="70" rx="10" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.7"/>
+      <text x="0" y="-10" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#ffe66d" opacity="0.85">Qwen 3.6B</text>
+      <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.5">4-bit quantized</text>
+      <text x="0" y="26" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.4">mlx_lm.server</text>
+    </g>
+    <!-- Terminal snippet (bottom-left) -->
+    <g transform="translate(175, 430)">
+      <rect x="-120" y="-55" width="240" height="110" rx="8" fill="#111" stroke="#333" stroke-width="1.5"/>
+      <circle cx="-100" cy="-40" r="4" fill="#ff6b9d" opacity="0.7"/>
+      <circle cx="-84"  cy="-40" r="4" fill="#ffe66d" opacity="0.7"/>
+      <circle cx="-68"  cy="-40" r="4" fill="#4ecdc4" opacity="0.7"/>
+      <text x="-108" y="-16" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.8">$ mlx_lm.server \</text>
+      <text x="-108" y="2"  font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.7">  --model qwen3-4bit</text>
+      <text x="-108" y="20" font-family="monospace" font-size="9" fill="#888" opacity="0.7">Serving on :8080</text>
+      <text x="-108" y="38" font-family="monospace" font-size="9" fill="#a8e6cf" opacity="0.6">OpenAI-compatible API</text>
+    </g>
+    <!-- Bottom label -->
+    <text x="540" y="648" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">LOCAL LLM AGENT ON APPLE SILICON</text>
+  `;
+}
+
 // cmux-terminal: Ghostty 기반 AI 에이전트 멀티 패널 터미널 - 세로 탭 사이드바 + 창 분할 + 알림 링
 function illustrationCmuxTerminal() {
   return `
@@ -3699,6 +3803,7 @@ const ILLUSTRATION_MAP = {
   'claude-code-agent-dashboard': illustrationClaudeCodeAgentDashboard,
   'the-end-of-selling-apps': illustrationTheEndOfSellingApps,
   'cmux-terminal': illustrationCmuxTerminal,
+  'local-agent-on-mlx': illustrationLocalAgentOnMlx,
 };
 
 function getIllustration(ref) {
