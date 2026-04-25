@@ -38,8 +38,6 @@ Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델로 로컬 L
 
 ## 1. 학습 목적과 환경
 
-Apple Silicon에서 MLX로 로컬 LLM 에이전트 프레임워크를 직접 구현하면서 학습하기 위한 노트 모음이다.
-
 학습 목적은 아래와 같다.
 
 - 에이전트 프레임워크 직접 구현(ReAct, Reflection, Plan-and-Execute)
@@ -175,7 +173,7 @@ uv tool run --from mlx-lm python -c \
 
 ## 4. Qwen 3.6 모델 선택(Dense vs MoE)
 
-학습 + 에이전트 프레임워크 직접 구현 목적에 맞게 Dense와 MoE를 함께 두 종류 운영한다.
+학습과 에이전트 프레임워크 구현 목적에 맞게 Dense와 MoE를 함께 두 종류 운영한다.
 
 ### 4.1. Qwen 3.6 라인업(2026년 4월 기준)
 
@@ -269,7 +267,7 @@ Dynamic 양자화 이점이 큰 조합은 아래와 같다.
 
 ### 5.5. 결론
 
-학습 + 에이전트 프레임워크 구현 목적에서 가장 균형 잡힌 선택은 unsloth UD-MLX-6bit이다.
+학습과 에이전트 프레임워크 구현 목적에서 가장 균형 잡힌 선택은 unsloth UD-MLX-6bit이다.
 
 - 메모리 마진을 확보한다(22GB로 KV 캐시 여유)
 - 8bit 수준의 품질을 유지한다(Dynamic 양자화)
@@ -534,7 +532,7 @@ POST 요청에 411 응답이 떨어지면 `Content-Length` 헤더가 빠진 경�
 
 ## 8. 학습 로드맵
 
-에이전트 프레임워크 직접 구현을 위한 단계별 학습 로드맵은 아래와 같다.
+에이전트 프레임워크 학습과 구현을 위한 단계별 로드맵은 아래와 같다.
 
 1. 환경 구축
    - uv tool install mlx-lm 완료

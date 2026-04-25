@@ -40,8 +40,6 @@ Setting up a local LLM environment with MLX and Qwen 3.6 on a MacBook Pro M5 Pro
 
 ## 1. Learning Goals and Environment
 
-This is a collection of notes for learning by implementing a local LLM agent framework from scratch on Apple Silicon with MLX.
-
 The learning goals are below.
 
 - Implement an agent framework from scratch (ReAct, Reflection, Plan-and-Execute)
@@ -177,7 +175,7 @@ The output should be `Metal: True` and `Device: Device(gpu, 0)`.
 
 ## 4. Choosing the Qwen 3.6 Model (Dense vs MoE)
 
-Run two model variants in parallel, Dense and MoE, to fit the goal of learning while implementing an agent framework from scratch.
+Run two model variants in parallel, Dense and MoE, to fit the goal of learning and building an agent framework.
 
 ### 4.1. Qwen 3.6 Lineup (as of April 2026)
 
@@ -271,7 +269,7 @@ Combinations where Dynamic quantization shines are below.
 
 ### 5.5. Conclusion
 
-For the goal of learning while building an agent framework, the most balanced choice is unsloth UD-MLX-6bit.
+For the goal of learning and building an agent framework, the most balanced choice is unsloth UD-MLX-6bit.
 
 - Secures a memory margin (22GB leaves room for KV cache)
 - Maintains 8bit-level quality (Dynamic quantization)
@@ -536,7 +534,7 @@ A 411 response on a POST request means the `Content-Length` header is missing. c
 
 ## 8. Learning Roadmap
 
-A step-by-step learning roadmap for building the agent framework from scratch is below.
+A step-by-step roadmap for studying and building an agent framework is below.
 
 1. Environment setup
    - Complete uv tool install mlx-lm
