@@ -32,7 +32,7 @@ In an era where non-developers can build their own services, what happens to the
 
 # This Time, It's About the Companies
 
-In my previous piece, [[Column] 'We Can't Build It Without a Developer' No Longer Holds](/en/writing/column/the-end-of-developer-scarcity/), I wrote about the crisis facing individual developers. My argument was that agentic coding assistants have democratized the act of writing code, dissolving the scarcity that once made developers so valuable.
+In my previous piece, [[Column] 'We Can't Build It Without a Developer' No Longer Holds](/en/writing/column/the-end-of-developer-scarcity/), I wrote about the crisis facing individual developers. My argument was that agentic coding assistants have put the act of writing code within everyone's reach, dissolving the scarcity that once made developers so valuable.
 
 But after spending over a month chewing on the topic after publishing that piece, I realized I had missed something. I had been so focused on the crisis of individual developers that I lost sight of the bigger picture. Behind the crisis of individual developers lies a far larger tectonic shift. If developers are being shaken, what happens to the companies that hired those developers to build services? In a world where everyone can write code, what is the purpose of software companies that build and sell apps and web services?
 
@@ -194,6 +194,20 @@ There's one more thing to consider. Module quality will be evaluated on an entir
 
 This reshapes the very capability structure of software companies. If frontend designers and UX specialists were key talent in the past, module companies will need API architects, documentation writers, and DX (Developer Experience) specialists as their core team. And going forward, it might not be DX but AX (AI Experience) - the ability to design experiences that are easy for AI to consume - that becomes the critical competency.
 
+# The Era of Plugging Directly Into AI Agents
+
+There is one more current worth tracing within this picture of the module economy. The very channel through which capabilities are exposed to the outside is changing.
+
+The API economy as we have known it has, at its core, been aimed at developers. Stripe, Twilio, Auth0 - all of them required a human developer to install an SDK, generate keys, and write code before anything would run. From a user's standpoint, there was no occasion to even notice that those modules were running underneath. The recently emerging MCP (Model Context Protocol) shifts this structure one step further. It is a protocol that standardizes how an AI agent talks to external services so it can call them directly. Without going through a human developer, an assistant like Claude or ChatGPT picks the right capability from its connected tool list and executes it on the spot. The future this piece has been describing - AI assembling modules - is no longer an abstract metaphor but is settling into a concrete implementation mechanism.
+
+For companies, what this shift means is unambiguous. Exposing your core vertical service as an MCP server becomes equivalent to opening up a new distribution channel. Domain-specific capabilities like flight booking, hotel reservations, food delivery, financial transactions, medical record lookups, real estate listings, or course enrollment - if you wrap them in MCP, users no longer have to launch your app to use them. They invoke your service from inside whatever AI assistant they happen to be using. When a user says "Book me a KTX to Busan this Saturday and grab a hotel near Gwangalli too," Korail's MCP and a hotel booking service's MCP get called together, and both transactions wrap up inside a single conversation. Some of this is already happening in the wild. The Claude app is directly wired into Uber Eats, so the moment a user asks "what should I get for dinner tonight" inside the chat, Claude can recommend menu items and place the order right there. This is no longer a hypothesis - it is a shift already underway at the global service layer.
+
+What is interesting is that this same channel is wide open to non-developer individuals. From the perspective of the build-your-own-app users we discussed earlier, MCP is the most natural way to attach external capabilities to that app. The freelance translator who builds a workflow management app can hand payments off to a Stripe MCP, invoice delivery to a mail service MCP, and exchange rate lookups to a financial data MCP. The point I made earlier - that the consumers of the module economy expand from people alone to AI agents - shows up most clearly right here. The buyer of capability modules flows from developer to AI, and through that AI back down to ordinary individuals.
+
+Once a company recognizes this shift, the strategic question is no longer "how do we get users into our app." It becomes "how do we get our service into every AI assistant's tool list." Adding more channels through which users consume your service without ever opening your app stops being a threat and starts looking like an opportunity. The deeper you embed your service inside an AI assistant's tool list, the more likely a user is to encounter your service no matter which interface they came in through. Conversely, companies that fail to ride this wave will hand their entire user touchpoint over to AI assistants and find themselves reduced to a backend data store. The moment an AI is talking to the user directly, a service that does not appear anywhere in that AI's tool list effectively does not exist.
+
+In my view, this is the most practical conclusion of the whole module economy argument. We are entering an era where it is no longer enough to abstractly turn your capabilities into modules - you also have to design which AI agent's mouth those modules end up inside. If the corporate task of the past 20 years was getting onto the first page of search results, the task ahead is getting into the tool list of AI assistants. Just as being absent from search results meant being invisible to users, being absent from the AI tool list now means never being called by users at all.
+
 # What Survives and What Fades
 
 Not every software service will be replaced by modules. It's important to distinguish what survives from what's at risk in this transformation.
@@ -218,21 +232,23 @@ Third, ad-supported free apps. As discussed, when users can build their own ad-f
 
 Fourth, simple wrapper services. These are services whose entire value is a pretty interface layered on top of existing APIs. Since AI can create interfaces, the value of this intermediary layer decreases. In fact, many wrapper services are already being hit by AI's emergence. Services that charged monthly subscriptions for a thin UI on top of AI APIs are losing their reason to exist as users gain the ability to call APIs directly.
 
+Fifth, large portal-style conglomerates. Operators that bundle search, mail, news, shopping, maps, payments, and finance into a single app and portal fall into this category. Their value proposition has rested on the all-in-one convenience of solving everything in one place, but once the user touchpoint shifts to the AI assistant, the meaning of that bundle itself weakens. Instead of entering a portal and picking from a menu, users state their intent to the AI in natural language, and the AI calls the most suitable service (an MCP server or tool entry) and returns only the result. Traditional assets like the portal home page, recommendation slots, ad inventory, and menu structure are bypassed wholesale, and the revenue structure built on advertising and traffic funneling shakes along with it. The advertising-model crisis discussed earlier applies just as well at this giant-corporate scale. The likely outcome is that these companies cede the user touchpoint to AI assistants and retreat into being backend data warehouses and single-purpose module suppliers. Some areas with clear moats such as network effects or massive data will survive, but the value proposition of being merely an all-in-one bundle can no longer hold its ground.
+
 The essence is this: services with irreplaceable assets survive, while services whose value is purely functional are at risk. Network effects, massive data, deep expertise, and physical infrastructure are the assets in question. These cannot be replicated by AI. But features built in code can be.
 
 # Survival Strategies for Companies
 
 What strategies should companies that recognize this shift adopt?
 
-First, transition from service provider to capability provider. Move from a model of delivering end-user services through proprietary apps and websites to a model of providing core capabilities as APIs, SDKs, and modules. Companies need to identify what their deepest expertise is and modularize it into independently usable components.
+First, transition from service provider to capability provider. Move from a model of delivering end-user services through proprietary apps and websites to a model of providing core capabilities as APIs, SDKs, MCP servers, and modules. Companies need to identify what their deepest expertise is, modularize it into independently usable components, and expose it through channels that both humans and AI agents can call.
 
-Second, design AI-agent-friendly interfaces. The user of the future may not be a person but an AI agent. APIs must be designed so that AI can automatically search, evaluate, and integrate modules. Well-organized documentation, clear error messages, and available test environments become table stakes. These will become the criteria by which AI agents select capabilities.
+Second, design AI-agent-friendly interfaces. The user of the future may not be a person but an AI agent. Exposing your capabilities over a standard protocol like MCP so that they enter the tool list of major AI assistants becomes the most concrete task of this era. On top of that foundation, APIs must be designed so that AI can automatically search, evaluate, and integrate modules. Well-organized documentation, clear error messages, and available test environments become table stakes. These will become the criteria by which AI agents select capabilities.
 
 Third, build irreplaceable assets. Features written in code can be replicated. But data accumulated over years, compliance with industry regulations, a track record of reliability, and partner networks cannot be easily copied. Companies must deliberately build these irreplaceable assets.
 
-Fourth, module domain expertise. If a company has deep understanding of a specific industry, packaging that understanding into code becomes a powerful strategy. Think of a patient data management module that fully complies with healthcare regulations, a transaction processing engine that meets financial regulations, or a delivery management SDK equipped with logistics optimization algorithms. The combination of domain knowledge and technology creates the highest-defense moat.
+Fourth, modularize domain expertise. If a company has deep understanding of a specific industry, packaging that understanding into code becomes a powerful strategy. Think of a patient data management module that fully complies with healthcare regulations, a transaction processing engine that meets financial regulations, or a delivery management SDK equipped with logistics optimization algorithms. The combination of domain knowledge and technology creates the highest-defense moat.
 
-Fifth, ecosystem strategy. Rather than trying to build a monopolistic platform, aim to be the best component in an open ecosystem. Many companies have pursued the do everything on our platform all-in-one strategy. But in an era where users assemble their own services, being the best at a specific capability and fitting seamlessly into any combination is more advantageous. Stripe's hold on payments is a textbook example of that positioning.
+Fifth, pursue an ecosystem strategy. Rather than trying to build a monopolistic platform, aim to be the best component in an open ecosystem. Many companies have pursued the do everything on our platform all-in-one strategy. But in an era where users assemble their own services, being the best at a specific capability and fitting seamlessly into any combination is more advantageous. Stripe's hold on payments is a textbook example of that positioning.
 
 One principle runs through all these strategies: the shift from building for to enabling. In the past, companies built services on behalf of users. Going forward, they transition into helping users build for themselves. Providing ingredients rather than finished dishes. Selling raw materials rather than recipes. This shift in perspective may be the hardest part. For a company that has operated for 20 years with the mindset of we'll build the best app and deliver it to you, declaring we're becoming a component supplier is partly a matter of pride.
 
@@ -250,9 +266,9 @@ A marketer will be able to tell an AI: "Build me an email marketing automation t
 
 The AI combines the right modules to build the service.
 
-This is both an expansion and a democratization of the API economy. The module ecosystem that was accessible only to developers is being opened to everyone through AI.
+This is both an expansion and an opening up of the API economy. The module ecosystem that was accessible only to developers is being opened to everyone through AI.
 
-And this democratization creates a feedback loop. As the number of module consumers grows, so does the number of module providers. As more capability modules emerge, the variety of services AI can assemble expands. As the variety expands, more users think I could build something too. Once this virtuous cycle kicks in, the module economy accelerates.
+And this opening up creates a feedback loop. As the number of module consumers grows, so does the number of module providers. As more capability modules emerge, the variety of services AI can assemble expands. As the variety expands, more users think I could build something too. Once this virtuous cycle kicks in, the module economy accelerates.
 
 # Addressing the Counterarguments
 
@@ -282,9 +298,9 @@ This is similar to what already happened in manufacturing. In the past, buying f
 
 The software industry is following a similar trajectory. It's moving from the era of finished products to the era of semi-finished goods (modules), and ultimately to an era where users build everything from scratch alongside AI. The final stage will take time, of course. But the transition to the intermediate stage - the module economy - is already right in front of us.
 
-There's a positive side to this transition as well. The idea that everyone can have software tailored to their needs represents the completion of software democratization. Until now, software has had a separation between makers and users. That separation is dissolving. Not everyone becomes a developer, but every user becomes the owner of their own software. Instead of adapting to features and interfaces decided by companies, people define software that fits their own lives and work.
+There's a positive side to this transition as well. The idea that everyone can have software tailored to their needs means software is no longer the exclusive domain of a select few. Until now, software has had a separation between makers and users. That separation is dissolving. Not everyone becomes a developer, but every user becomes the owner of their own software. Instead of adapting to features and interfaces decided by companies, people define software that fits their own lives and work.
 
-This may be the biggest shift in computing paradigms since the PC revolution. If PCs democratized using computers, agentic coding assistants are democratizing telling computers what to do.
+This may be the biggest shift in computing paradigms since the PC revolution. If PCs put computer use in everyone's hands, agentic coding assistants are putting the act of telling computers what to do in everyone's hands.
 
 In the previous piece, I wrote: "I want to ask developers: does your value lie in the act of writing code, or in the problems you solve with it?" This time, I'm posing the same question to software companies.
 
