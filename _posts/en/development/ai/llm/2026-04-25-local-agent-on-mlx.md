@@ -762,8 +762,14 @@ The learning highlights are below.
 The next steps after completing the learning roadmap are below.
 
 - Compare your implementation with existing frameworks such as LangGraph
-- Write your own MCP (Model Context Protocol) server
-- Experiment with multi-agent collaboration patterns
+- Design guardrails (input/output validation, policy violation blocking, PII masking)
+- Implement a memory system (short-term context, long-term storage, context compression)
+- Apply tool permission management (allowlists, user approval gating)
+- Experiment with multi-agent orchestration patterns (routing, handoff, task decomposition)
+- Build observability infrastructure (tracing, token/cost monitoring, structured logging)
+- Build an evaluation pipeline (automated evaluation, regression testing, human labeling)
+- Integrate human-in-the-loop (approval gates, interrupt handling)
+- Handle state persistence (checkpointing, resumption, session storage)
 - Build domain-specific agents (code review, document writing, etc.)
 
 # References
