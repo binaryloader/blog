@@ -3718,6 +3718,106 @@ function illustrationCmuxTerminal() {
   `;
 }
 
+// native-agent-framework-mollo-core-assets: 여러 프레임워크(LangGraph, Koog, OpenAI SDK, Pydantic AI, Mastra, MCP, Apple)의 핵심 자산을 분석해 Mollo로 합성하는 구조
+function illustrationNativeAgentFrameworkMolloCoreAssets() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+
+    <!-- CENTER: Mollo core node -->
+    <g transform="translate(540, 340)">
+      <!-- Outer ring -->
+      <circle cx="0" cy="0" r="90" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.85"/>
+      <!-- Inner ring -->
+      <circle cx="0" cy="0" r="62" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.45"/>
+      <!-- Apple-style inner fill -->
+      <circle cx="0" cy="0" r="58" fill="#00e5ff" fill-opacity="0.06"/>
+      <!-- Mollo label -->
+      <text x="0" y="-10" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#00e5ff" opacity="0.95">Mollo</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="10" fill="#00e5ff" opacity="0.55">CORE</text>
+      <!-- Small dot pattern inside ring -->
+      <circle cx="-30" cy="-30" r="3" fill="#00e5ff" opacity="0.3"/>
+      <circle cx="30"  cy="-30" r="3" fill="#00e5ff" opacity="0.3"/>
+      <circle cx="-30" cy="30"  r="3" fill="#00e5ff" opacity="0.3"/>
+      <circle cx="30"  cy="30"  r="3" fill="#00e5ff" opacity="0.3"/>
+    </g>
+
+    <!-- SOURCE NODES (6 frameworks + Apple platform = 7, arranged around center) -->
+
+    <!-- 1. LangGraph (top-left) -->
+    <g transform="translate(168, 158)">
+      <rect x="-72" y="-30" width="144" height="60" rx="10" fill="none" stroke="#ffe66d" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ffe66d" opacity="0.9">LangGraph</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.55">graph / channel</text>
+    </g>
+    <!-- Arrow: LangGraph -> Mollo -->
+    <line x1="240" y1="176" x2="440" y2="295" stroke="#ffe66d" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+    <polygon points="436,292 452,290 441,303" fill="#ffe66d" opacity="0.55"/>
+
+    <!-- 2. Koog (top-center) -->
+    <g transform="translate(540, 105)">
+      <rect x="-68" y="-28" width="136" height="56" rx="10" fill="none" stroke="#4ecdc4" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#4ecdc4" opacity="0.9">Koog</text>
+      <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.55">coroutine agent</text>
+    </g>
+    <!-- Arrow: Koog -> Mollo -->
+    <line x1="540" y1="161" x2="540" y2="242" stroke="#4ecdc4" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+    <polygon points="534,240 540,254 546,240" fill="#4ecdc4" opacity="0.55"/>
+
+    <!-- 3. OpenAI Agents SDK (top-right) -->
+    <g transform="translate(912, 158)">
+      <rect x="-82" y="-30" width="164" height="60" rx="10" fill="none" stroke="#ff6b9d" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d" opacity="0.9">OpenAI SDK</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.55">handoff / guardrail</text>
+    </g>
+    <!-- Arrow: OpenAI SDK -> Mollo -->
+    <line x1="830" y1="176" x2="638" y2="295" stroke="#ff6b9d" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+    <polygon points="644,302 628,290 641,279" fill="#ff6b9d" opacity="0.55"/>
+
+    <!-- 4. Pydantic AI (middle-left) -->
+    <g transform="translate(112, 360)">
+      <rect x="-78" y="-28" width="156" height="56" rx="10" fill="none" stroke="#a78bfa" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#a78bfa" opacity="0.9">Pydantic AI</text>
+      <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="9" fill="#a78bfa" opacity="0.55">typed tool schema</text>
+    </g>
+    <!-- Arrow: Pydantic AI -> Mollo -->
+    <line x1="268" y1="360" x2="448" y2="348" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+    <polygon points="446,342 462,346 449,357" fill="#a78bfa" opacity="0.55"/>
+
+    <!-- 5. Mastra (middle-right) -->
+    <g transform="translate(968, 360)">
+      <rect x="-78" y="-28" width="156" height="56" rx="10" fill="none" stroke="#a8e6cf" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#a8e6cf" opacity="0.9">Mastra</text>
+      <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="9" fill="#a8e6cf" opacity="0.55">workflow step</text>
+    </g>
+    <!-- Arrow: Mastra -> Mollo -->
+    <line x1="812" y1="360" x2="632" y2="350" stroke="#a8e6cf" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+    <polygon points="634,344 618,348 631,359" fill="#a8e6cf" opacity="0.55"/>
+
+    <!-- 6. MCP (bottom-left) -->
+    <g transform="translate(168, 545)">
+      <rect x="-68" y="-28" width="136" height="56" rx="10" fill="none" stroke="#fb923c" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#fb923c" opacity="0.9">MCP</text>
+      <text x="0" y="16" text-anchor="middle" font-family="monospace" font-size="9" fill="#fb923c" opacity="0.55">tool / resource</text>
+    </g>
+    <!-- Arrow: MCP -> Mollo -->
+    <line x1="236" y1="524" x2="444" y2="406" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+    <polygon points="440,414 456,402 449,416" fill="#fb923c" opacity="0.55"/>
+
+    <!-- 7. Apple Platform (bottom-right) -->
+    <g transform="translate(912, 545)">
+      <rect x="-82" y="-30" width="164" height="60" rx="10" fill="none" stroke="#60a5fa" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#60a5fa" opacity="0.9">Apple Platform</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#60a5fa" opacity="0.55">Foundation / Combine</text>
+    </g>
+    <!-- Arrow: Apple -> Mollo -->
+    <line x1="830" y1="524" x2="638" y2="406" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.55"/>
+    <polygon points="634,414 618,402 627,416" fill="#60a5fa" opacity="0.55"/>
+
+    <!-- Bottom label -->
+    <text x="540" y="660" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">CORE ASSETS SYNTHESIS</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -3804,6 +3904,7 @@ const ILLUSTRATION_MAP = {
   'the-end-of-selling-apps': illustrationTheEndOfSellingApps,
   'cmux-terminal': illustrationCmuxTerminal,
   'local-agent-on-mlx': illustrationLocalAgentOnMlx,
+  'native-agent-framework-mollo-core-assets': illustrationNativeAgentFrameworkMolloCoreAssets,
 };
 
 function getIllustration(ref) {
