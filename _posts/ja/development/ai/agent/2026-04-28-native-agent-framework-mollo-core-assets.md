@@ -1,11 +1,11 @@
 ---
-title: "[LLM] ネイティブエージェントフレームワークMolloの企画 - 既存フレームワークの中核資産分析"
+title: "[Agent] ネイティブエージェントフレームワークMolloの企画 - 既存フレームワークの中核資産分析"
 ref: native-agent-framework-mollo-core-assets
 lang: ja
 permalink: /ja/:categories/:title/
 excerpt: "AppleプラットフォームネイティブのエージェントフレームワークMolloの実装に入る前に、LangGraph、Koog、OpenAI Agents SDK、Pydantic AI、Mastra、MCP、Appleフレームワークの中核資産を整理する。"
-date: 2026-04-28T20:35+09:00
-last_modified_at: 2026-04-28T20:35+09:00
+date: 2026-04-28T22:00+09:00
+last_modified_at: 2026-04-28T22:00+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/native-agent-framework-mollo-core-assets.png"
@@ -14,23 +14,26 @@ header:
 categories:
   - Development
   - AI
-  - LLM
+  - Agent
 tags:
   - Agent
   - Mollo
   - LangGraph
   - LangChain
   - Koog
+  - Mastra
+  - Pydantic AI
   - MCP
   - Swift
-  - Apple-Silicon
+  - Apple Silicon
+  - Side Project
 depth:
   - title: "Development"
     url: /ja/development/
   - title: "AI"
     url: /ja/development/ai/
-  - title: "LLM"
-    url: /ja/development/ai/llm/
+  - title: "Agent"
+    url: /ja/development/ai/agent/
 ---
 
 # 概要
@@ -41,15 +44,17 @@ Appleプラットフォームネイティブのエージェントフレームワ
 
 ## 1. 背景
 
-直前の記事ではMacBook Pro M5 Pro上にMLXとQwen 3.6 27B 6bitを載せ、ローカルLLM環境を構築した。その作業の本当の目的は単なる推論サーバの構築ではなく、その上で動くエージェントフレームワークの事前準備である。本記事はその上で動く本体に当たるMolloの企画ノートである。
+先行する記事[[LLM] Apple SiliconでMLXによるローカルLLM環境を構築する](/ja/development/ai/llm/local-agent-on-mlx/)では、MacBook Pro M5 Pro上にMLXとQwen 3.6 27B 6bitを載せ、ローカルLLM環境を構築した。その作業の本当の目的は単なる推論サーバの構築ではなく、その上で動くエージェントフレームワークの事前準備である。本記事はその上で動く本体に当たるMolloの企画ノートである。
 
 MolloはiOS 15+／macOS 12+で動作するSwift 6ベースのエージェントフレームワークであり、外部依存を0に保つ。企画段階で定めた一行の定義は「iOS版LangGraph」である。Python LangGraphの中核抽象であるState Channel + Reducer、Durable Execution、Interrupt／Command、Parallel／Map、SubgraphをSwift 6のtyped throwsとactor並行性の上に正統な形で移植しつつ、AppIntents、CloudKit、Keychain、BackgroundTasks、NaturalLanguage、Vision、SpeechといったAppleネイティブを一等市民として統合するという方向性である。
 
-活用は大きく三つの軸で描いている。一つ目はアプリのサービス機能自体にエージェントを埋め込みユーザーインテントを処理する方向であり、二つ目はアプリ内QA自動化ツールとして画面フローを点検する方向であり、三つ目は予定整理、文書要約、検索といったユーティリティエージェントをモジュールとして配置する方向である。三つの軸ともに、データを端末の外に出さなくて済むという性質が核である。
+活用は大きく三つの軸で描いている。一つ目はアプリのサービス機能自体にエージェントを埋め込みユーザーインテントを処理する方向であり、二つ目はプロジェクトに直接連動するQA自動化を含めたアプリ開発プロセス全般のハーネスを構築する基盤であり、三つ目は予定整理、文書要約、検索といったユーティリティエージェントの基盤となるフレームワークである。三つの軸ともに、データを端末の外に出さなくて済むという性質が核である。
 
 実装に入る前に意図的に一段階を空けておいた。すでに市場で地位を築いているフレームワークを精読し、何を取り込み何を空けておくかから整理した。本記事はその整理の結果である。
 
 付け加えておくと、Molloは商用プロダクトの場で誰かと競うためのプロジェクトではない。フレームワークを自分で作ってみたら面白そうだという学術的な好奇心から始めた個人の研究プロジェクトである。正直なところ、これを最後まで磨いて公開する頃には、似たコンセプトのSwiftネイティブフレームワークが先に出ている確率の方が高い。それでも第一の動機は、Swift 6の並行性モデル、モバイル環境のライフサイクル、Appleネイティブ資産を直接扱う経験を最後までやり遂げてみることである。何であれ本当に使いこなすには、それがどう動いているのかを底から掘り下げて見てみる必要があるという日頃の信念も底に敷かれている。したがって本文の分析は、どのフレームワークがより優れているかという比較ではなく、すでに検証済みの抽象をAppleプラットフォーム上にどう丁寧に移植するかという企画ノートに近い。
+
+動機をもう一つ書き添えると、直前に進めたヤン室長(양실장)というサイドプロジェクトが決め手になった。およそ二か月、ヤン室長のRAGパイプラインと韓国語トークナイザのビルド、埋め込み・リランカー比較に明け方6時まで張り付いて1サイクルを終えた直後、自然に「では自分のドメインでは何をやってみられるか」という問いが続いた。整えられた商用のエージェンティックコーディングアシスタントや誰かが書いたエージェントをそのまま使う席に留まることもできた。しかし自分のドメインはモバイル開発であり、その領域で一度は自分の手でフレームワークを書いてみる方が自然だと感じた。ヤン室長が自分の知らない領域であるRAG、ベクトル検索、データ取り込みパイプラインを弟から学んでこなした作業だったとすれば、Molloは逆に最も馴染みのある領域に同じ深さで入っていく作業である。
 
 ## 2. 分析対象と観点
 
@@ -147,7 +152,7 @@ MCPはMolloがそのまま取り込む標準である。MolloMCPモジュール�
 
 ### 9.6. MLX Swift／Core ML
 
-`MLXProvider`と`CoreMLProvider`はエンジン用のシムを備える。MolloはMLX SwiftやCore MLの特定モデル一つに強く縛られないようにしつつ、呼び出し側が望む時にどちらでも差し込める設計とする。直前の記事で立てたmlx_lm.serverはOpenAI互換エンドポイントを提供するため、OpenAICompatibleプロバイダーでもそのまま接続できる。
+`MLXProvider`と`CoreMLProvider`はエンジン用のシムを備える。MolloはMLX SwiftやCore MLの特定モデル一つに強く縛られないようにしつつ、呼び出し側が望む時にどちらでも差し込める設計とする。先行するLLM環境構築記事で立てたmlx_lm.serverはOpenAI互換エンドポイントを提供するため、OpenAICompatibleプロバイダーでもそのまま接続できる。
 
 ### 9.7. NLEmbedding
 

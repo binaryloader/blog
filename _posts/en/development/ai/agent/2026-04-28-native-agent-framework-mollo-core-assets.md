@@ -1,11 +1,11 @@
 ---
-title: "[LLM] Planning a Native Agent Framework Mollo - Analyzing Core Assets of Existing Frameworks"
+title: "[Agent] Planning a Native Agent Framework Mollo - Analyzing Core Assets of Existing Frameworks"
 ref: native-agent-framework-mollo-core-assets
 lang: en
 permalink: /en/:categories/:title/
 excerpt: "Before implementing Mollo, an Apple-platform-native agent framework, I summarize the core assets of LangGraph, Koog, OpenAI Agents SDK, Pydantic AI, Mastra, MCP, and Apple frameworks."
-date: 2026-04-28T20:35+09:00
-last_modified_at: 2026-04-28T20:35+09:00
+date: 2026-04-28T22:00+09:00
+last_modified_at: 2026-04-28T22:00+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/native-agent-framework-mollo-core-assets.png"
@@ -14,23 +14,26 @@ header:
 categories:
   - Development
   - AI
-  - LLM
+  - Agent
 tags:
   - Agent
   - Mollo
   - LangGraph
   - LangChain
   - Koog
+  - Mastra
+  - Pydantic AI
   - MCP
   - Swift
-  - Apple-Silicon
+  - Apple Silicon
+  - Side Project
 depth:
   - title: "Development"
     url: /en/development/
   - title: "AI"
     url: /en/development/ai/
-  - title: "LLM"
-    url: /en/development/ai/llm/
+  - title: "Agent"
+    url: /en/development/ai/agent/
 ---
 
 # Overview
@@ -41,15 +44,17 @@ Before implementing Mollo, an Apple-platform-native agent framework, I summarize
 
 ## 1. Background
 
-The previous post built a local LLM environment on a MacBook Pro M5 Pro with MLX and Qwen 3.6 27B 6bit. The real goal of that work was not just an inference server but the groundwork for an agent framework that would run on top of it. This post is a planning note for that body of work, Mollo.
+An earlier post, [[LLM] Building a Local LLM Environment on Apple Silicon with MLX](/en/development/ai/llm/local-agent-on-mlx/), built a local LLM environment on a MacBook Pro M5 Pro with MLX and Qwen 3.6 27B 6bit. The real goal of that work was not just an inference server but the groundwork for an agent framework that would run on top of it. This post is a planning note for that body of work, Mollo.
 
 Mollo is a Swift 6 agent framework that targets iOS 15+ / macOS 12+ and keeps zero external dependencies. The one-line definition I settled on during planning is "iOS-equivalent of LangGraph". The plan is to port the core abstractions of Python LangGraph - State Channel + Reducer, Durable Execution, Interrupt/Command, Parallel/Map, and Subgraph - onto Swift 6 typed throws and actor concurrency in a faithful way, while treating Apple-native services such as AppIntents, CloudKit, Keychain, BackgroundTasks, NaturalLanguage, Vision, and Speech as first-class citizens.
 
-I picture three usage tracks. The first embeds an agent inside an app's service features to handle user intents. The second uses agents as in-app QA automation that walks through screen flows. The third positions schedule organization, document summarization, and search as utility agent modules. All three share a property: data does not have to leave the device.
+I picture three usage tracks. The first embeds an agent inside an app's service features to handle user intents. The second is a foundation for project-integrated harnesses tied closely to the app development process, including QA automation. The third is a foundation for utility agents such as schedule organization, document summarization, and search. All three share a property: data does not have to leave the device.
 
 I deliberately left a step empty before implementation. I read through the frameworks already established in the market and decided what to bring in and what to leave out first. This post is the result of that triage.
 
 To add some context, Mollo is not a project I am building to compete with anyone in the commercial product space. It is a personal research project that started from academic curiosity, simply because building the framework myself sounded like it would be fun. To be honest, by the time I finish polishing this and put it out, another Swift-native framework with a similar concept will likely have appeared first. Even so, the primary motivation is to see the experience of directly handling Swift 6's concurrency model, the mobile lifecycle, and Apple-native assets all the way through to completion. Underneath sits a long-standing conviction that to really use something well you have to dig into how it actually works from the ground up. So the analysis that follows reads less as a comparison of who is better and more as a planning note on how to carefully port already-validated abstractions onto the Apple platform.
+
+One more piece of motivation comes from the Yangsiljang side project I had just wrapped. After spending nearly two months staying up until 6 AM on Yangsiljang's RAG pipeline, Korean tokenizer build, and embedding/reranker comparisons to finish one full cycle, a natural follow-up question came up: what could I try in my own domain? I could have stayed in the seat of using polished commercial agentic coding assistants or someone else's agents, but my domain is mobile development, and in that domain it felt right to write a framework with my own hands at least once. If Yangsiljang was a project where I learned an unfamiliar area - RAG, vector search, data-ingestion pipelines - from my brother and worked through it, Mollo is the opposite: going to the same depth in the area I am most familiar with.
 
 ## 2. Targets and Perspective of the Analysis
 
@@ -147,7 +152,7 @@ This is where none of the analyzed frameworks fill the gap. None of them treat A
 
 ### 9.6. MLX Swift / Core ML
 
-`MLXProvider` and `CoreMLProvider` ship with an engine seam. Mollo is designed not to be tightly bound to one specific MLX Swift or Core ML model while still letting callers plug in either side when they want to. The mlx_lm.server built in the previous post exposes an OpenAI-compatible endpoint, so it also connects directly through the OpenAICompatible provider.
+`MLXProvider` and `CoreMLProvider` ship with an engine seam. Mollo is designed not to be tightly bound to one specific MLX Swift or Core ML model while still letting callers plug in either side when they want to. The mlx_lm.server set up in the earlier LLM environment post exposes an OpenAI-compatible endpoint, so it also connects directly through the OpenAICompatible provider.
 
 ### 9.7. NLEmbedding
 

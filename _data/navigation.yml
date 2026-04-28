@@ -51,6 +51,9 @@ menu:
         url: /ko/development/ai/
         category: "AI"
         children:
+          - title: "Agent"
+            url: /ko/development/ai/agent/
+            category: "Agent"
           - title: "Agentic Coding Assistant"
             url: /ko/development/ai/agentic-coding-assistant/
             category: "Agentic-Coding-Assistant"
@@ -121,9 +124,6 @@ menu:
           - title: "Docker"
             url: /ko/development/server/docker/
             category: "Docker"
-          - title: "Infra"
-            url: /ko/development/server/infra/
-            category: "Infra"
           - title: "Spring"
             url: /ko/development/server/spring/
             category: "Spring"
@@ -193,6 +193,9 @@ menu-en:
         url: /en/development/ai/
         category: "AI"
         children:
+          - title: "Agent"
+            url: /en/development/ai/agent/
+            category: "Agent"
           - title: "Agentic Coding Assistant"
             url: /en/development/ai/agentic-coding-assistant/
             category: "Agentic-Coding-Assistant"
@@ -263,9 +266,6 @@ menu-en:
           - title: "Docker"
             url: /en/development/server/docker/
             category: "Docker"
-          - title: "Infra"
-            url: /en/development/server/infra/
-            category: "Infra"
           - title: "Spring"
             url: /en/development/server/spring/
             category: "Spring"
@@ -335,6 +335,9 @@ menu-ja:
         url: /ja/development/ai/
         category: "AI"
         children:
+          - title: "Agent"
+            url: /ja/development/ai/agent/
+            category: "Agent"
           - title: "Agentic Coding Assistant"
             url: /ja/development/ai/agentic-coding-assistant/
             category: "Agentic-Coding-Assistant"
@@ -405,9 +408,6 @@ menu-ja:
           - title: "Docker"
             url: /ja/development/server/docker/
             category: "Docker"
-          - title: "Infra"
-            url: /ja/development/server/infra/
-            category: "Infra"
           - title: "Spring"
             url: /ja/development/server/spring/
             category: "Spring"

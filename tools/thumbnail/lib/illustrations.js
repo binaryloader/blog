@@ -3818,6 +3818,111 @@ function illustrationNativeAgentFrameworkMolloCoreAssets() {
   `;
 }
 
+// yangsiljang-real-estate-rag-chatbot
+function illustrationYangsiljangRealEstateRagChatbot() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+
+    <!-- House icon (top-center) -->
+    <g transform="translate(540, 155)">
+      <!-- Roof -->
+      <polygon points="0,-70 90,10 -90,10" fill="none" stroke="#e8c87a" stroke-width="2.5" opacity="0.85"/>
+      <!-- Walls -->
+      <rect x="-65" y="10" width="130" height="80" rx="3" fill="none" stroke="#e8c87a" stroke-width="2.5" opacity="0.85"/>
+      <!-- Door -->
+      <rect x="-18" y="42" width="36" height="48" rx="4" fill="none" stroke="#e8c87a" stroke-width="1.8" opacity="0.6"/>
+      <!-- Window left -->
+      <rect x="-52" y="22" width="26" height="22" rx="3" fill="none" stroke="#e8c87a" stroke-width="1.4" opacity="0.45"/>
+      <!-- Window right -->
+      <rect x="26" y="22" width="26" height="22" rx="3" fill="none" stroke="#e8c87a" stroke-width="1.4" opacity="0.45"/>
+    </g>
+
+    <!-- Law scroll (left side) -->
+    <g transform="translate(205, 350)">
+      <!-- Scroll body -->
+      <rect x="-55" y="-80" width="110" height="160" rx="6" fill="none" stroke="#a8c8f0" stroke-width="2" opacity="0.8"/>
+      <!-- Scroll top roll -->
+      <ellipse cx="0" cy="-80" rx="55" ry="12" fill="none" stroke="#a8c8f0" stroke-width="2" opacity="0.8"/>
+      <!-- Scroll bottom roll -->
+      <ellipse cx="0" cy="80" rx="55" ry="12" fill="none" stroke="#a8c8f0" stroke-width="2" opacity="0.8"/>
+      <!-- Text lines on scroll -->
+      <line x1="-35" y1="-48" x2="35" y2="-48" stroke="#a8c8f0" stroke-width="1.2" opacity="0.45"/>
+      <line x1="-35" y1="-28" x2="35" y2="-28" stroke="#a8c8f0" stroke-width="1.2" opacity="0.4"/>
+      <line x1="-35" y1="-8" x2="35" y2="-8" stroke="#a8c8f0" stroke-width="1.2" opacity="0.35"/>
+      <line x1="-35" y1="12" x2="35" y2="12" stroke="#a8c8f0" stroke-width="1.2" opacity="0.3"/>
+      <line x1="-35" y1="32" x2="20" y2="32" stroke="#a8c8f0" stroke-width="1.2" opacity="0.25"/>
+      <!-- Article number label -->
+      <text x="0" y="-64" text-anchor="middle" font-family="monospace" font-size="9" fill="#a8c8f0" opacity="0.7">제3조 (임대차)</text>
+      <text x="0" y="-44" text-anchor="middle" font-family="monospace" font-size="8" fill="#a8c8f0" opacity="0.5">① 보증금 반환...</text>
+    </g>
+
+    <!-- RAG pipeline flow (center horizontal) -->
+    <!-- SEARCH node -->
+    <g transform="translate(370, 390)">
+      <rect x="-68" y="-28" width="136" height="56" rx="10" fill="none" stroke="#4ecdc4" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#4ecdc4" opacity="0.9">SEARCH</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.55">BM25 + ANN</text>
+    </g>
+    <!-- Arrow search -> rerank -->
+    <line x1="440" y1="390" x2="496" y2="390" stroke="#4ecdc4" stroke-width="1.5" opacity="0.55"/>
+    <polygon points="491,385 503,390 491,395" fill="#4ecdc4" opacity="0.6"/>
+
+    <!-- RERANK node -->
+    <g transform="translate(570, 390)">
+      <rect x="-62" y="-28" width="124" height="56" rx="10" fill="none" stroke="#ff6b9d" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ff6b9d" opacity="0.9">RERANK</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.55">Qwen3-8B</text>
+    </g>
+    <!-- Arrow rerank -> generate -->
+    <line x1="634" y1="390" x2="690" y2="390" stroke="#ff6b9d" stroke-width="1.5" opacity="0.55"/>
+    <polygon points="685,385 697,390 685,395" fill="#ff6b9d" opacity="0.6"/>
+
+    <!-- GENERATE node -->
+    <g transform="translate(775, 390)">
+      <rect x="-68" y="-28" width="136" height="56" rx="10" fill="none" stroke="#00e5ff" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#00e5ff" opacity="0.9">GENERATE</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.55">GPT-5.4</text>
+    </g>
+
+    <!-- Chat bubbles (right side, stacked) -->
+    <!-- User bubble -->
+    <g transform="translate(875, 210)">
+      <rect x="-100" y="-28" width="200" height="52" rx="16" fill="none" stroke="#e8c87a" stroke-width="1.6" opacity="0.7"/>
+      <polygon points="80,20 100,30 72,24" fill="none" stroke="#e8c87a" stroke-width="1.3" opacity="0.5"/>
+      <text x="-80" y="-6" font-family="monospace" font-size="9" fill="#e8c87a" opacity="0.75">전세보증금 못 받으면?</text>
+    </g>
+    <!-- Bot bubble (양실장) -->
+    <g transform="translate(875, 290)">
+      <rect x="-120" y="-30" width="240" height="60" rx="16" fill="none" stroke="#00e5ff" stroke-width="1.6" opacity="0.7"/>
+      <polygon points="-80,28 -100,40 -72,26" fill="none" stroke="#00e5ff" stroke-width="1.3" opacity="0.5"/>
+      <text x="-100" y="-10" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.75">「주택임대차보호법</text>
+      <text x="-100" y="8" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.65">제3조의3」에 따라...</text>
+    </g>
+
+    <!-- Citation card (right bottom) -->
+    <g transform="translate(875, 490)">
+      <rect x="-120" y="-38" width="240" height="76" rx="8" fill="none" stroke="#a8c8f0" stroke-width="1.5" opacity="0.6"/>
+      <!-- citation icon line -->
+      <line x1="-108" y1="-18" x2="-88" y2="-18" stroke="#a8c8f0" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+      <text x="-78" y="-12" font-family="monospace" font-size="9" fill="#a8c8f0" opacity="0.75">주택임대차보호법 제3조</text>
+      <text x="-108" y="6" font-family="monospace" font-size="8" fill="#a8c8f0" opacity="0.5">대법원 2021다12345</text>
+      <text x="-108" y="24" font-family="monospace" font-size="8" fill="#a8c8f0" opacity="0.4">law.go.kr →</text>
+    </g>
+
+    <!-- HyDE label (below pipeline) -->
+    <text x="540" y="468" text-anchor="middle" font-family="monospace" font-size="10" fill="#555" opacity="0.7">HyDE · ko-dic · lindera</text>
+
+    <!-- Connection: scroll to pipeline -->
+    <line x1="262" y1="350" x2="300" y2="390" stroke="#a8c8f0" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.4"/>
+
+    <!-- Connection: house to pipeline top -->
+    <line x1="540" y1="235" x2="540" y2="362" stroke="#e8c87a" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.35"/>
+
+    <!-- Bottom label -->
+    <text x="540" y="660" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">REAL ESTATE RAG CHATBOT</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -3905,6 +4010,7 @@ const ILLUSTRATION_MAP = {
   'cmux-terminal': illustrationCmuxTerminal,
   'local-agent-on-mlx': illustrationLocalAgentOnMlx,
   'native-agent-framework-mollo-core-assets': illustrationNativeAgentFrameworkMolloCoreAssets,
+  'yangsiljang-real-estate-rag-chatbot': illustrationYangsiljangRealEstateRagChatbot,
 };
 
 function getIllustration(ref) {

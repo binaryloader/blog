@@ -1,9 +1,9 @@
 ---
-title: "[LLM] 네이티브 에이전트 프레임워크 Mollo 기획 - 기존 프레임워크 핵심 자산 분석"
+title: "[Agent] 네이티브 에이전트 프레임워크 Mollo 기획 - 기존 프레임워크 핵심 자산 분석"
 ref: native-agent-framework-mollo-core-assets
 excerpt: "Apple 플랫폼 네이티브 에이전트 프레임워크 Mollo 구현에 들어가기 전에 LangGraph, Koog, OpenAI Agents SDK, Pydantic AI, Mastra, MCP, Apple 프레임워크의 핵심 자산을 정리한다."
-date: 2026-04-28T20:35+09:00
-last_modified_at: 2026-04-28T20:35+09:00
+date: 2026-04-28T22:00+09:00
+last_modified_at: 2026-04-28T22:00+09:00
 published: true
 header:
   overlay_image: "/assets/image/thumbnail/header/native-agent-framework-mollo-core-assets.png"
@@ -12,23 +12,26 @@ header:
 categories:
   - Development
   - AI
-  - LLM
+  - Agent
 tags:
   - Agent
   - Mollo
   - LangGraph
   - LangChain
   - Koog
+  - Mastra
+  - Pydantic AI
   - MCP
   - Swift
-  - Apple-Silicon
+  - Apple Silicon
+  - Side Project
 depth:
   - title: "Development"
     url: /ko/development/
   - title: "AI"
     url: /ko/development/ai/
-  - title: "LLM"
-    url: /ko/development/ai/llm/
+  - title: "Agent"
+    url: /ko/development/ai/agent/
 ---
 
 # 개요
@@ -39,19 +42,21 @@ Apple 플랫폼 네이티브 에이전트 프레임워크 Mollo 구현에 들어
 
 ## 1. 배경
 
-직전 글에서는 MacBook Pro M5 Pro 위에 MLX와 Qwen 3.6 27B 6bit를 올려 로컬 LLM 환경을 만들었다. 그 작업의 진짜 목표는 단순한 추론 서버 구축이 아니라 그 위에서 굴릴 에이전트 프레임워크의 사전 준비다. 이번 글은 그 위에서 동작할 본체에 해당하는 Mollo의 기획 노트다.
+앞서 MacBook Pro M5 Pro 위에 MLX와 Qwen 3.6 27B 6bit를 올려 [[LLM] Apple Silicon에서 MLX로 로컬 LLM 환경 구축하기](/ko/development/ai/llm/local-agent-on-mlx/) 작업을 정리한 글이 있었다. 그 작업의 진짜 목표는 단순한 추론 서버 구축이 아니라 그 위에서 굴릴 에이전트 프레임워크의 사전 준비다. 이번 글은 그 위에서 동작할 본체에 해당하는 Mollo의 기획 노트다.
 
 Mollo는 iOS 15+/macOS 12+에서 동작하는 Swift 6 기반 에이전트 프레임워크이며 외부 의존성을 0으로 유지한다. 기획 단계에서 잡은 한 줄 정의는 iOS판 LangGraph다. Python LangGraph의 핵심 추상인 State Channel + Reducer, Durable Execution, Interrupt/Command, Parallel/Map, Subgraph를 Swift 6의 typed throws와 actor 동시성 위에 정통성 있게 이식하되 AppIntents, CloudKit, Keychain, BackgroundTasks, NaturalLanguage, Vision, Speech 같은 Apple 네이티브를 1등 시민으로 통합한다는 방향이다.
 
-활용은 크게 세 갈래로 그리고 있다. 첫째는 앱 서비스 기능 자체에 에이전트를 심어 사용자 인텐트를 처리하는 방향이고 둘째는 앱 내 QA 자동화 도구로 화면 흐름을 점검하는 방향이며 셋째는 일정 정리, 문서 요약, 검색 같은 유틸리티 에이전트를 모듈로 두는 방향이다. 세 갈래 모두 데이터를 기기 밖으로 내보내지 않아도 되는 형태가 핵심이다.
+활용은 크게 세 갈래로 그리고 있다. 첫째는 앱 서비스 기능 자체에 에이전트를 심어 사용자 인텐트를 처리하는 방향이고 둘째는 프로젝트에 직접 연동되어 QA 자동화를 비롯한 앱 개발 프로세스 전반에 밀접한 하네스를 구축하는 기반이며 셋째는 일정 정리, 문서 요약, 검색 같은 유틸리티 에이전트의 기반이 되는 프레임워크다. 세 갈래 모두 데이터를 기기 밖으로 내보내지 않아도 되는 형태가 핵심이다.
 
 구현 들어가기 전에 의도적으로 한 단계를 비워뒀다. 이미 시장에 자리 잡은 프레임워크들을 정독하고 무엇을 가져오고 무엇을 비워둘지부터 정리했다. 이 글은 그 정리의 결과다.
 
 덧붙여 두자면 Mollo는 상업 제품을 두고 누구와 경쟁하려는 프로젝트가 아니다. 그냥 직접 프레임워크를 만들어 보면 재미있을 것 같다는 학술적 호기심에서 출발한 개인 연구 프로젝트다. 솔직히 말하면 이 프레임워크를 끝까지 다듬어 공개할 즈음에는 비슷한 컨셉의 다른 Swift 네이티브 프레임워크가 먼저 나와 있을 확률이 더 크다. 그럼에도 1차 동기는 Swift 6의 동시성 모델, 모바일 환경의 라이프사이클, Apple 네이티브 자산을 직접 다루는 경험을 끝까지 완수해 보는 것이다. 무엇이든 제대로 쓰려면 그게 어떻게 돌아가는지 밑바닥부터 파고들어 봐야 한다는 평소 신념도 함께 깔려 있다. 그래서 본문의 분석은 어떤 프레임워크가 더 우월하다는 식의 비교가 아니라 이미 검증된 추상을 Apple 플랫폼 위에 어떻게 정성스럽게 옮길지에 대한 기획 노트에 가깝다.
 
+동기 하나를 더 적자면 직전에 진행한 [[Agent] 양실장 - 사이드 프로젝트로 만든 부동산 법령·판례 RAG 챗봇](/ko/development/ai/agent/yangsiljang-real-estate-rag-chatbot/)이 결정적이었다. 두 달 가까이를 새벽 6시까지 양실장의 RAG 파이프라인과 한국어 토크나이저 빌드, 임베딩/리랭커 비교에 매달려 한 사이클을 끝내고 나니 자연스럽게 그럼 내 도메인에서는 뭘 해볼 수 있을까 하는 질문이 따라붙었다. 잘 만들어진 상용 에이전틱 코딩 어시스턴트나 누군가가 짜둔 에이전트를 가져다 쓰는 자리에 머물 수도 있었다. 그러나 내 도메인은 모바일 개발이고 그 영역에서 한 번은 직접 프레임워크를 구현해 보자는 결론에 도달했다. 양실장이 내가 모르던 영역인 RAG와 벡터 검색, 데이터 인제스트 파이프라인을 동생에게 배워 풀어낸 작업이었다면 Mollo는 반대로 가장 익숙한 영역에 같은 깊이로 한번 들어가 보는 작업이다.
+
 ## 2. 분석 대상과 관점
 
-분석 대상은 동시대에 활발히 움직이는 7개 프레임워크와 도구 프로토콜 1개, 그리고 그 위에 얹을 Apple 플랫폼이다. 구체적으로는 LangGraph, LangChain, Koog, OpenAI Agents SDK, Pydantic AI, Mastra, CrewAI를 살펴봤고 도구 표준으로 MCP를 함께 다뤘다. 수치와 버전은 별도 팩트시트의 2026-04-18 기준을 그대로 사용한다.
+분석 대상은 현시점에 활발히 움직이는 7개 프레임워크와 도구 프로토콜 1개, 그리고 그 위에 얹을 Apple 플랫폼이다. 구체적으로는 LangGraph, LangChain, Koog, OpenAI Agents SDK, Pydantic AI, Mastra, CrewAI를 살펴봤고 도구 표준으로 MCP를 함께 다뤘다. 수치와 버전은 별도 팩트시트의 2026-04-18 기준을 그대로 사용한다.
 
 분석 관점은 일곱 가지로 잡았다. 그래프와 실행 모델, 상태 관리 방식, HITL과 인터럽트, LLM 프로바이더 추상, 도구 정의와 호출, 구조화 출력과 타입 안전, 그리고 플랫폼 통합이다. 이 일곱 가지는 Mollo의 모듈 경계와 거의 1:1로 대응한다. 각 프레임워크가 잘 풀어둔 자산을 그 자리에 그대로 떨어뜨릴 수 있는지를 기준으로 본다.
 
@@ -145,7 +150,7 @@ MCP는 Mollo가 그대로 가져오는 표준이다. MolloMCP 모듈은 JSON-RPC
 
 ### 9.6. MLX Swift / Core ML
 
-`MLXProvider`와 `CoreMLProvider`는 엔진을 외부에서 주입할 수 있는 이음매를 갖는다. Mollo는 MLX Swift나 Core ML 모델 하나에 강하게 묶이지 않으면서도 호출자가 원할 때 둘 중 어느 쪽이든 끼워 넣을 수 있도록 설계한다. 직전 글에서 만든 mlx_lm.server는 OpenAI 호환 엔드포인트를 제공하므로 OpenAICompatible 프로바이더로도 그대로 붙는다.
+`MLXProvider`와 `CoreMLProvider`는 엔진을 외부에서 주입할 수 있는 이음매를 갖는다. Mollo는 MLX Swift나 Core ML 모델 하나에 강하게 묶이지 않으면서도 호출자가 원할 때 둘 중 어느 쪽이든 끼워 넣을 수 있도록 설계한다. 앞서 정리한 LLM 환경 구축 글의 mlx_lm.server는 OpenAI 호환 엔드포인트를 제공하므로 OpenAICompatible 프로바이더로도 그대로 붙는다.
 
 ### 9.7. NLEmbedding
 
