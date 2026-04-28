@@ -734,8 +734,8 @@ SSEストリーミング応答を直接パースして、最初のトークン�
 エージェントフレームワーク学習と実装のためのステップ別ロードマップは以下のとおりである。
 
 1. 環境構築
-   - uv tool install mlx-lm完了
-   - Metal GPUの動作確認完了
+   - uv tool install mlx-lm
+   - Metal GPUの動作確認
    - Qwen 3.6 27B Dense 6bitのダウンロード
 2. 単一モデルの検証
    - mlx_lm.generateで初回応答を確認

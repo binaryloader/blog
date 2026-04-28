@@ -732,8 +732,8 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
 에이전트 프레임워크 학습과 구현을 위한 단계별 로드맵은 아래와 같다.
 
 1. 환경 구축
-   - uv tool install mlx-lm 완료
-   - Metal GPU 동작 확인 완료
+   - uv tool install mlx-lm
+   - Metal GPU 동작 확인
    - Qwen 3.6 27B Dense 6bit 다운로드
 2. 단일 모델 검증
    - mlx_lm.generate로 첫 응답 확인

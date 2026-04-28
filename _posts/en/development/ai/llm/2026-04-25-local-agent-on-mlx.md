@@ -734,7 +734,7 @@ Key observations are below.
 A step-by-step roadmap for studying and building an agent framework is below.
 
 1. Environment setup
-   - Complete uv tool install mlx-lm
+   - Run uv tool install mlx-lm
    - Confirm Metal GPU works
    - Download Qwen 3.6 27B Dense 6bit
 2. Single-model verification
