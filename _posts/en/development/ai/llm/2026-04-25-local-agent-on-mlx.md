@@ -1,7 +1,7 @@
 ---
 title: "[LLM] Setting Up a Local LLM Environment on Apple Silicon with MLX"
 ref: local-agent-on-mlx
-excerpt: "Setting up a local LLM environment with MLX and Qwen 3.6 on a MacBook Pro M5 Pro and laying the groundwork for studying agent frameworks."
+excerpt: "Setting up a local LLM environment with MLX and Qwen 3.6 on a MacBook Pro M5 Pro and laying the groundwork for researching agent frameworks."
 date: 2026-04-25T15:00+09:00
 last_modified_at: 2026-04-25T15:00+09:00
 published: true
@@ -34,13 +34,13 @@ depth:
 
 # Overview
 
-Setting up a local LLM environment with MLX and Qwen 3.6 on a MacBook Pro M5 Pro and laying the groundwork for studying agent frameworks.
+Setting up a local LLM environment with MLX and Qwen 3.6 on a MacBook Pro M5 Pro and laying the groundwork for researching agent frameworks.
 
 # Steps
 
-## 1. Learning Goals and Environment
+## 1. Research Goals and Environment
 
-The learning goals are below.
+The research goals are below.
 
 - Implement an agent framework from scratch (ReAct, Reflection, Plan-and-Execute)
 - Understand the raw tool calling format and write a parser
@@ -58,7 +58,7 @@ The key decisions are summarized below.
 
 - The main model is `unsloth/Qwen3.6-27B-UD-MLX-6bit` (Dense, about 22GB)
 - The sub model is `unsloth/Qwen3.6-35B-A3B-UD-MLX-4bit` (MoE, about 19GB)
-- Start with the built-in `mlx_lm.server`, then verify with `mlx-openai-server` later in the learning cycle
+- Start with the built-in `mlx_lm.server`, then verify with `mlx-openai-server` later in the research cycle
 - 6bit is the default quantization. 8bit lacks memory margin and 4bit risks noise
 
 ## 2. Hardware and Unified Memory Analysis
@@ -96,7 +96,7 @@ Apple Silicon shares the same RAM between CPU and GPU. Unlike NVIDIA setups, you
 
 ### 2.5. Conclusion
 
-Model weights should stay at or below 20-22GB so that multi-turn agents (8K-32K context) can hold their KV cache stably. 8bit quantization at 28GB or more risks triggering swap and is not recommended during the learning phase.
+Model weights should stay at or below 20-22GB so that multi-turn agents (8K-32K context) can hold their KV cache stably. 8bit quantization at 28GB or more risks triggering swap and is not recommended during the research phase.
 
 ## 3. Installing MLX (mlx-lm + uv tool)
 
@@ -175,7 +175,7 @@ The output should be `Metal: True` and `Device: Device(gpu, 0)`.
 
 ## 4. Choosing the Qwen 3.6 Model (Dense vs MoE)
 
-Run two model variants in parallel, Dense and MoE, to fit the goal of learning and building an agent framework.
+Run two model variants in parallel, Dense and MoE, to fit the goal of researching and building an agent framework.
 
 ### 4.1. Qwen 3.6 Lineup (as of April 2026)
 
@@ -209,9 +209,9 @@ Run two model variants in parallel, Dense and MoE, to fit the goal of learning a
 
 The reason for choosing Dense as the main model is as follows. Because of expert routing, MoE produces subtly different responses for the same input. When you trace why an agent made a particular decision, routing non-determinism becomes noise.
 
-The reason for keeping MoE as a sub model is that running the same agent code on both models alternately turns the Dense vs MoE behavioral difference into the most valuable learning point.
+The reason for keeping MoE as a sub model is that running the same agent code on both models alternately turns the Dense vs MoE behavioral difference into the most valuable research point.
 
-### 4.5. Learning Value of Qwen 3.6
+### 4.5. Research Value of Qwen 3.6
 
 - Thinking Preservation: Preserves reasoning traces in `<think>` blocks across multi-turn dialogue
 - Tool calling stability: Trained on Hermes-style tool use, so OpenAI-compatible function calls are stable
@@ -235,7 +235,7 @@ Analyze the trade-offs along two axes: bit width and quantization scheme.
 
 ### 5.2. Bit Width Selection Guide
 
-- 8bit is effectively identical in quality to full precision but risks triggering macOS swap, which is fatal for the learning cycle
+- 8bit is effectively identical in quality to full precision but risks triggering macOS swap, which is fatal for the research cycle
 - 4bit has measurable quantization noise. Using it as the main model causes you to mistake response quality drops for model limitations
 - 6bit is the sweet spot. The memory footprint is 22GB and Unsloth UD 6bit shows essentially negligible quality difference from 8bit
 
@@ -269,11 +269,11 @@ Combinations where Dynamic quantization shines are below.
 
 ### 5.5. Conclusion
 
-For the goal of learning and building an agent framework, the most balanced choice is unsloth UD-MLX-6bit.
+For the goal of researching and building an agent framework, the most balanced choice is unsloth UD-MLX-6bit.
 
 - Secures a memory margin (22GB leaves room for KV cache)
 - Maintains 8bit-level quality (Dynamic quantization)
-- Lets you use the model's actual capability as learning material
+- Lets you use the model's actual capability as research material
 
 ## 6. Inference Server Options
 
@@ -333,15 +333,15 @@ The installation command is below.
 uv tool install mlx-openai-server
 ```
 
-### 6.3. Selection by Learning Stage
+### 6.3. Selection by Research Stage
 
-- Early stage: Use the built-in server. The raw tool call output becomes learning material
+- Early stage: Use the built-in server. The raw tool call output becomes research material
 - Middle stage: Write your own parser using the built-in server's raw tool calls. Learn to implement ReAct and Reflection patterns
 - Late stage: Use mlx-openai-server to verify that your parser matches the standard
 
 ### 6.4. Other Options
 
-| Tool | Features | Suitability for Learning |
+| Tool | Features | Suitability for Research |
 |------|----------|---------------------------|
 | `mlx_lm.server` (built-in) | OpenAI compatible, single model, standard | Starting point |
 | mlx-openai-server | Multi-model, standardized parsers, reasoning split | Verification |
@@ -727,11 +727,11 @@ Key observations are below.
 - Quantization comparison (4bit vs 6bit vs 8bit) will be covered in a separate quantization comparison note.
 - A comparison of the 35B-A3B MoE 4bit model under the same scenarios is planned as a follow-up.
 
-## 9. Learning Roadmap
+## 9. Research Roadmap
 
 ### 9.1. Step-by-Step Roadmap
 
-A step-by-step roadmap for studying and building an agent framework is below.
+A step-by-step roadmap for researching and building an agent framework is below.
 
 1. Environment setup
    - Run uv tool install mlx-lm
@@ -741,7 +741,7 @@ A step-by-step roadmap for studying and building an agent framework is below.
    - Confirm the first response with mlx_lm.generate
    - Launch mlx_lm.server
    - Call the compatible API with curl or the OpenAI SDK
-3. Tool calling study
+3. Tool calling research
    - Verify single tool calls
    - Analyze raw responses in Hermes format
    - Write a tool call parser by hand
@@ -749,29 +749,29 @@ A step-by-step roadmap for studying and building an agent framework is below.
    - Build a ReAct loop
    - Apply the Reflection pattern
    - Apply the Plan-and-Execute pattern
-5. Comparative learning
+5. Comparative research
    - Run the same code on 35B-A3B and confirm behavior
    - Observe Dense vs MoE behavioral differences
    - Verify your own parser with mlx-openai-server
 
-### 9.2. Learning Highlights
+### 9.2. Research Highlights
 
-The learning highlights are below.
+The research highlights are below.
 
 - Reasoning visualization through Qwen's `<think>` blocks
 - Feeling the determinism of Dense versus the routing variance of MoE
 - Hands-on parsing of the tool call format (Hermes style)
 - Understanding KV cache behavior and the cost of multi-turn
 
-### 9.3. Custom Framework Mollo Implementation - Design Complete
+### 9.3. Custom Framework Mollo Implementation
 
-In parallel with this learning roadmap, I designed Mollo, a Swift 6-based native agent framework for macOS, iOS, and visionOS. It has zero external dependencies and treats Apple platform services as first-class citizens. The core elements planned for implementation are below.
+In parallel with this research roadmap, I designed Mollo, a Swift 6-based native agent framework for macOS, iOS, and visionOS. It has zero external dependencies and treats Apple platform services as first-class citizens. The core elements planned for implementation are below.
 
 - StateChannel + Reducer-based Strategy Graph (10+ node types, DFS cycle detection, `@StrategyBuilder` DSL)
 - Durable execution (Checkpointer protocol, `ChannelSnapshot` state capture, resume API for OS-termination recovery)
 - Interrupt/Command-based human-in-the-loop (`Interrupt` enum with userDecision/approval/custom, `Command` resume semantics)
 - Parallel/Map nodes (Swift 6 TaskGroup concurrent execution, `maxConcurrency` backpressure)
-- Subgraph node (reusing existing `Agent<Output>` while preserving guardrails, hooks, plugins, permissions, and memory)
+- Subgraph node (reusing an already-defined `Agent<Output>` as a node in another graph while preserving guardrails, hooks, plugins, permissions, and memory)
 - Multi-provider LLM (Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama, OpenAI-compatible endpoints) with router (fallback/roundRobin/priority) and decorators (rate limiter, cache, cost tracker)
 - MCP client (JSON-RPC 2.0 over stdio/HTTP+SSE/WebSocket transports, server-initiated request handling, multi-server lifecycle)
 - Multimodal (Image/Audio/Video source abstraction, `SpeechInputTool`, `VisionTool`)
@@ -782,14 +782,18 @@ In parallel with this learning roadmap, I designed Mollo, a Swift 6-based native
 - Observability (`TraceSpan` + JSON file exporter, unified `os.Logger`, rate limiter, cost tracker)
 - Permissions/guardrails/plugins (3-tier permission model, input/output guardrails, 11 lifecycle hooks)
 - Swift 6 typed throws (`throws(AgentError)`, `@Sendable` closures, actor-based concurrency)
-- Applications (supporting domain-specific agents such as code review and document writing)
+- The framework supports three usage angles
+  - App service support - the agent calls, combines, or extends the app's features on the user's behalf (a chatbot or conversational UI is just one form)
+  - In-app QA automation - the agent invokes native tools such as screen navigation, scroll-offset adjustment, view capture, and snapshot testing to drive the actual app at runtime and verify it
+  - Utility agents - serves as the native foundation for tool-style agents such as file organization, data transformation, and local automation
 
-### 9.4. Comparative Study - Reference Frameworks
+### 9.4. Comparative Research - Reference Frameworks
 
 Compare the trade-offs between the frameworks referenced during Mollo's design and your own implementation. The references are below.
 
 - LangGraph (Python) - the original of the State Channel + Reducer, Durable Execution, Interrupt/Command, and Parallel/Map abstractions
 - LangChain - BaseChatModel and BaseTool interface patterns
+- Koog - JetBrains' Kotlin agent framework with DSL-based graph definitions and strategy patterns
 - OpenAI Agents SDK - Handoff and AgentExecutor patterns
 - Pydantic AI - the `Agent[Output]` generic structured-output pattern
 - MCP (Model Context Protocol) - JSON-RPC 2.0-based tool protocol
@@ -809,6 +813,7 @@ Compare the trade-offs between the frameworks referenced during Mollo's design a
 - <https://github.com/langchain-ai/langchain>
 - <https://github.com/langchain-ai/langgraph>
 - <https://github.com/ml-explore/mlx>
+- <https://koog.ai/>
 - <https://github.com/ml-explore/mlx-lm>
 - <https://github.com/ml-explore/mlx-swift>
 - <https://github.com/openai/openai-agents-python>

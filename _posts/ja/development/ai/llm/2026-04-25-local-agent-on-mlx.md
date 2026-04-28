@@ -1,7 +1,7 @@
 ---
 title: "[LLM] Apple SiliconでMLXを使ってローカルLLM環境を構築する"
 ref: local-agent-on-mlx
-excerpt: "Apple Silicon MacBook Pro M5 Pro環境でMLXとQwen 3.6モデルを使ってローカルLLM環境を構築し、エージェントフレームワーク学習のための事前準備を整理する。"
+excerpt: "Apple Silicon MacBook Pro M5 Pro環境でMLXとQwen 3.6モデルを使ってローカルLLM環境を構築し、エージェントフレームワーク研究のための事前準備を整理する。"
 date: 2026-04-25T15:00+09:00
 last_modified_at: 2026-04-25T15:00+09:00
 published: true
@@ -34,17 +34,17 @@ depth:
 
 # 概要
 
-Apple Silicon MacBook Pro M5 Pro環境でMLXとQwen 3.6モデルを使ってローカルLLM環境を構築し、エージェントフレームワーク学習のための事前準備を整理する。
+Apple Silicon MacBook Pro M5 Pro環境でMLXとQwen 3.6モデルを使ってローカルLLM環境を構築し、エージェントフレームワーク研究のための事前準備を整理する。
 
 # 手順
 
-## 1. 学習目的と環境
+## 1. 研究目的と環境
 
-学習目的は以下のとおりである。
+研究目的は以下のとおりである。
 
 - エージェントフレームワークの自作(ReAct、Reflection、Plan-and-Execute)
 - ツール呼び出し(Tool calling)のrawフォーマット理解とパーサー作成
-- DenseとMoEモデルの挙動差の比較学習
+- DenseとMoEモデルの挙動差の比較研究
 - Qwenの`<think>`ブロックを活用したreasoningパターン観察
 
 環境の概要は以下のとおりである。
@@ -58,7 +58,7 @@ Apple Silicon MacBook Pro M5 Pro環境でMLXとQwen 3.6モデルを使ってロ�
 
 - メインモデルは`unsloth/Qwen3.6-27B-UD-MLX-6bit`(Dense、約22GB)である
 - サブモデルは`unsloth/Qwen3.6-35B-A3B-UD-MLX-4bit`(MoE、約19GB)である
-- サーバーはビルトインの`mlx_lm.server`から始め、学習が進んでから`mlx-openai-server`で検証する
+- サーバーはビルトインの`mlx_lm.server`から始め、研究が進んでから`mlx-openai-server`で検証する
 - 量子化は6bitを基本とする。8bitはメモリマージン不足、4bitはノイズリスクがある
 
 ## 2. ハードウェアとユニファイドメモリの分析
@@ -96,7 +96,7 @@ Apple SiliconはCPUとGPUが同じRAMを共有する。NVIDIA環境のように�
 
 ### 2.5. 結論
 
-モデル重みは20〜22GB以下に抑える必要がある。そうすればマルチターンエージェント(8K〜32Kコンテキスト)でもKVキャッシュまで安定して収まる。28GBを超える8bit量子化はswap発生のリスクがあり、学習段階では推奨しない。
+モデル重みは20〜22GB以下に抑える必要がある。そうすればマルチターンエージェント(8K〜32Kコンテキスト)でもKVキャッシュまで安定して収まる。28GBを超える8bit量子化はswap発生のリスクがあり、研究段階では推奨しない。
 
 ## 3. MLXのインストール(mlx-lm＋uv tool)
 
@@ -175,7 +175,7 @@ uv tool run --from mlx-lm python -c \
 
 ## 4. Qwen 3.6モデルの選定(Dense vs MoE)
 
-学習とエージェントフレームワーク実装の目的に合わせ、DenseとMoEの2種類を併用する。
+研究とエージェントフレームワーク実装の目的に合わせ、DenseとMoEの2種類を併用する。
 
 ### 4.1. Qwen 3.6ラインナップ(2026年4月時点)
 
@@ -209,9 +209,9 @@ uv tool run --from mlx-lm python -c \
 
 Denseをメインに選んだ理由は次のとおりである。MoEはexpert routingにより同じ入力でも微妙に異なる応答が出る。エージェントデバッグで「なぜこの判断をしたのか」を追跡する際に、ルーティングの非決定性がノイズとして作用する。
 
-MoEをサブとして残す理由は、同じエージェントコードを2つのモデルで交互に動かすことで、Dense vs MoEの挙動差が最大の学習ポイントになるからである。
+MoEをサブとして残す理由は、同じエージェントコードを2つのモデルで交互に動かすことで、Dense vs MoEの挙動差が最大の研究ポイントになるからである。
 
-### 4.5. Qwen 3.6の学習価値
+### 4.5. Qwen 3.6の研究価値
 
 - Thinking Preservation：マルチターン対話で`<think>`ブロックのreasoning traceを保持する
 - Tool callingの安定性：Hermes-style tool useで学習されており、OpenAI互換の関数呼び出しが安定している
@@ -235,7 +235,7 @@ MoEをサブとして残す理由は、同じエージェントコードを2つ�
 
 ### 5.2. ビット数選択ガイド
 
-- 8bitはフル精度と事実上同等の品質だが、macOS swapが始まるリスクがあり学習サイクルに致命的である
+- 8bitはフル精度と事実上同等の品質だが、macOS swapが始まるリスクがあり研究サイクルに致命的である
 - 4bitは量子化ノイズが計測可能なレベルである。メインで使うと応答品質の低下をモデルの限界と誤解する恐れがある
 - 6bitが最適点である。メモリ22GBで、Unsloth UD 6bitは8bitと事実上意味のない品質差にとどまる
 
@@ -269,11 +269,11 @@ Dynamic量子化の利点が大きい組み合わせは以下のとおりであ�
 
 ### 5.5. 結論
 
-学習とエージェントフレームワーク実装の目的において、最もバランスの取れた選択はunsloth UD-MLX-6bitである。
+研究とエージェントフレームワーク実装の目的において、最もバランスの取れた選択はunsloth UD-MLX-6bitである。
 
 - メモリマージンを確保する(22GBでKVキャッシュに余裕がある)
 - 8bitレベルの品質を維持する(Dynamic量子化)
-- モデル本来のcapabilityを学習材料として活用できる
+- モデル本来のcapabilityを研究材料として活用できる
 
 ## 6. 推論サーバーの選択肢
 
@@ -333,15 +333,15 @@ response = client.chat.completions.create(
 uv tool install mlx-openai-server
 ```
 
-### 6.3. 学習段階別の選択
+### 6.3. 研究段階別の選択
 
-- 初期はビルトインサーバーを使用する。tool callのraw出力が学習材料になる
-- 中期はビルトインサーバーのraw tool callを使って自作パーサーを書く。ReAct、Reflectionパターンの実装を学習する
+- 初期はビルトインサーバーを使用する。tool callのraw出力が研究材料になる
+- 中期はビルトインサーバーのraw tool callを使って自作パーサーを書く。ReAct、Reflectionパターンの実装を研究する
 - 後期はmlx-openai-serverを使い、自作パーサーが標準と一致するかを検証する
 
 ### 6.4. その他の選択肢
 
-| ツール | 特徴 | 学習用適合度 |
+| ツール | 特徴 | 研究用適合度 |
 |--------|------|---------------|
 | `mlx_lm.server`(ビルトイン) | OpenAI互換、単一モデル、標準 | 出発点 |
 | mlx-openai-server | マルチモデル、標準化パーサー、reasoning分離 | 検証用 |
@@ -727,11 +727,11 @@ SSEストリーミング応答を直接パースして、最初のトークン�
 - 量子化比較(4bit vs 6bit vs 8bit)は量子化比較ノートで扱う。
 - 35B-A3B MoE 4bitモデルの同一シナリオ比較は後続として測定予定である。
 
-## 9. 学習ロードマップ
+## 9. 研究ロードマップ
 
 ### 9.1. ステップ別ロードマップ
 
-エージェントフレームワーク学習と実装のためのステップ別ロードマップは以下のとおりである。
+エージェントフレームワーク研究と実装のためのステップ別ロードマップは以下のとおりである。
 
 1. 環境構築
    - uv tool install mlx-lm
@@ -741,7 +741,7 @@ SSEストリーミング応答を直接パースして、最初のトークン�
    - mlx_lm.generateで初回応答を確認
    - mlx_lm.serverを起動
    - curlまたはOpenAI SDKで互換APIを呼び出し
-3. Tool callingの学習
+3. Tool callingの研究
    - 単一tool callの動作確認
    - Hermesフォーマットのraw応答分析
    - 自作tool callパーサーの作成
@@ -749,29 +749,29 @@ SSEストリーミング応答を直接パースして、最初のトークン�
    - ReActループの実装
    - Reflectionパターンの適用
    - Plan-and-Executeパターンの適用
-5. 比較学習
+5. 比較研究
    - 35B-A3Bで同じコードを動かして挙動を確認
    - Dense vs MoEの挙動差を観察
    - mlx-openai-serverで自作パーサーを検証
 
-### 9.2. 学習ポイント
+### 9.2. 研究ポイント
 
-学習ポイントは以下のとおりである。
+研究ポイントは以下のとおりである。
 
 - Qwenの`<think>`ブロックを活用したreasoningの可視化
 - Denseの決定性とMoEのルーティング差の体感
 - Tool callフォーマット(Hermesスタイル)の手動パース経験
 - KVキャッシュの動作とマルチターンのコスト理解
 
-### 9.3. 自作フレームワークMolloの実装 - 設計完了
+### 9.3. 自作フレームワークMolloの実装
 
-この学習ロードマップと並行して、Swift 6ベースのmacOS/iOS/visionOSネイティブエージェントフレームワークMolloを設計した。外部依存ゼロでAppleプラットフォームサービスを第一級市民として扱う。実装予定の核心要素は以下のとおりである。
+この研究ロードマップと並行して、Swift 6ベースのmacOS/iOS/visionOSネイティブエージェントフレームワークMolloを設計した。外部依存ゼロでAppleプラットフォームサービスを第一級市民として扱う。実装予定の核心要素は以下のとおりである。
 
 - StateChannel + Reducerベースのストラテジーグラフ(10種以上のノードタイプ、DFSサイクル検出、`@StrategyBuilder` DSL)
 - 中断後に再開可能な実行(Checkpointerプロトコル、`ChannelSnapshot`状態キャプチャ、OS終了復帰用resume API)
 - インタラプト/コマンドベースのヒューマンインザループ(`Interrupt` enumのuserDecision/approval/custom、`Command`再開セマンティクス)
 - Parallel/Mapノード(Swift 6 TaskGroup並行実行、`maxConcurrency`バックプレッシャ)
-- サブグラフノード(既存`Agent<Output>`の再利用、ガードレール/フック/プラグイン/権限/メモリの保持)
+- サブグラフノード(既に定義した`Agent<Output>`を別グラフのノードとして再利用、ガードレール/フック/プラグイン/権限/メモリの保持)
 - マルチプロバイダーLLM(Anthropic、OpenAI、Google Gemini、DeepSeek、Ollama、OpenAI互換エンドポイント)とルーター(fallback/roundRobin/priority)、デコレーター(レートリミッター、キャッシュ、コストトラッカー)
 - MCPクライアント(JSON-RPC 2.0、stdio/HTTP+SSE/WebSocketトランスポート、サーバー発行リクエスト処理、マルチサーバーライフサイクル)
 - マルチモーダル(Image/Audio/Videoソース抽象化、`SpeechInputTool`、`VisionTool`)
@@ -782,14 +782,18 @@ SSEストリーミング応答を直接パースして、最初のトークン�
 - 可観測性(`TraceSpan` + JSONファイルエクスポーター、`os.Logger`統合ロガー、レートリミッター、コストトラッカー)
 - 権限/ガードレール/プラグイン(3-tier権限モデル、入出力ガードレール、11のライフサイクルフック)
 - Swift 6型付きスロー(`throws(AgentError)`、`@Sendable`クロージャ、アクターベース並行性)
-- 応用(コードレビュー、ドキュメント作成などドメイン特化エージェント構築の支援)
+- 活用方法は以下の3つの側面である
+  - アプリのサービス機能支援 - アプリが提供する機能をエージェントがユーザーの代わりに呼び出し、組み合わせ、拡張する(チャットボット/対話型UIは一つの形)
+  - アプリ内QA自動化 - エージェントが画面遷移、スクロールオフセット調整、ビューキャプチャ、スナップショットテストといったネイティブツールを呼び出し、実際のアプリを動かしながら検証する
+  - ユーティリティエージェント - ファイル整理、データ変換、ローカル自動化のようなツール型エージェントのネイティブ基盤
 
-### 9.4. 比較学習 - 参照フレームワーク
+### 9.4. 比較研究 - 参照フレームワーク
 
 Mollo設計過程で参照したフレームワークと自作実装のトレードオフを比較する。参照対象は以下のとおりである。
 
 - LangGraph(Python) - State Channel + Reducer、Durable Execution、Interrupt/Command、Parallel/Map抽象化の原型
 - LangChain - BaseChatModel、BaseToolインターフェースパターン
+- Koog - JetBrainsのKotlinエージェントフレームワーク。DSLベースのグラフ定義と戦略パターン
 - OpenAI Agents SDK - Handoff、AgentExecutorパターン
 - Pydantic AI - `Agent[Output]`ジェネリック構造化出力パターン
 - MCP(Model Context Protocol) - JSON-RPC 2.0ベースのツールプロトコル
@@ -809,6 +813,7 @@ Mollo設計過程で参照したフレームワークと自作実装のトレー
 - <https://github.com/langchain-ai/langchain>
 - <https://github.com/langchain-ai/langgraph>
 - <https://github.com/ml-explore/mlx>
+- <https://koog.ai/>
 - <https://github.com/ml-explore/mlx-lm>
 - <https://github.com/ml-explore/mlx-swift>
 - <https://github.com/openai/openai-agents-python>

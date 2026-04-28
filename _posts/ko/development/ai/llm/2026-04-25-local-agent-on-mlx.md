@@ -1,7 +1,7 @@
 ---
 title: "[LLM] Apple Silicon에서 MLX로 로컬 LLM 환경 구축하기"
 ref: local-agent-on-mlx
-excerpt: "Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델로 로컬 LLM 환경을 구축하고 에이전트 프레임워크 학습을 위한 사전 준비를 정리한다."
+excerpt: "Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델로 로컬 LLM 환경을 구축하고 에이전트 프레임워크 연구를 위한 사전 준비를 정리한다."
 date: 2026-04-25T15:00+09:00
 last_modified_at: 2026-04-25T15:00+09:00
 published: true
@@ -32,17 +32,17 @@ depth:
 
 # 개요
 
-Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델로 로컬 LLM 환경을 구축하고 에이전트 프레임워크 학습을 위한 사전 준비를 정리한다.
+Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델로 로컬 LLM 환경을 구축하고 에이전트 프레임워크 연구를 위한 사전 준비를 정리한다.
 
 # 정리
 
-## 1. 학습 목적과 환경
+## 1. 연구 목적과 환경
 
-학습 목적은 아래와 같다.
+연구 목적은 아래와 같다.
 
 - 에이전트 프레임워크 직접 구현(ReAct, Reflection, Plan-and-Execute)
 - 툴 호출(Tool calling) raw 포맷 이해와 파서 작성
-- Dense와 MoE 모델의 행동 차이 비교 학습
+- Dense와 MoE 모델의 행동 차이 비교 연구
 - Qwen의 `<think>` 블록을 활용한 reasoning 패턴 관찰
 
 환경 요약은 아래와 같다.
@@ -56,7 +56,7 @@ Apple Silicon MacBook Pro M5 Pro 환경에서 MLX와 Qwen 3.6 모델로 로컬 L
 
 - 메인 모델은 `unsloth/Qwen3.6-27B-UD-MLX-6bit`(Dense, 약 22GB)이다
 - 서브 모델은 `unsloth/Qwen3.6-35B-A3B-UD-MLX-4bit`(MoE, 약 19GB)이다
-- 서버는 빌트인 `mlx_lm.server`로 시작하고 학습 진행 후 `mlx-openai-server`로 검증한다
+- 서버는 빌트인 `mlx_lm.server`로 시작하고 연구 진행 후 `mlx-openai-server`로 검증한다
 - 양자화는 6bit를 기본으로 한다. 8bit는 메모리 마진 부족, 4bit는 노이즈 위험이 있다
 
 ## 2. 하드웨어와 통합 메모리 분석
@@ -94,7 +94,7 @@ Apple Silicon은 CPU와 GPU가 같은 RAM을 공유한다. NVIDIA 환경처럼 �
 
 ### 2.5. 결론
 
-모델 가중치는 20-22GB 이하로 잡아야 멀티턴 에이전트(8K-32K 컨텍스트)에서도 KV 캐시까지 안정적으로 들어간다. 28GB 이상의 8bit 양자화는 swap 발생 위험이 있어 학습 단계에서는 추천하지 않는다.
+모델 가중치는 20-22GB 이하로 잡아야 멀티턴 에이전트(8K-32K 컨텍스트)에서도 KV 캐시까지 안정적으로 들어간다. 28GB 이상의 8bit 양자화는 swap 발생 위험이 있어 연구 단계에서는 추천하지 않는다.
 
 ## 3. MLX 설치(mlx-lm + uv tool)
 
@@ -173,7 +173,7 @@ uv tool run --from mlx-lm python -c \
 
 ## 4. Qwen 3.6 모델 선택(Dense vs MoE)
 
-학습과 에이전트 프레임워크 구현 목적에 맞게 Dense와 MoE를 함께 두 종류 운영한다.
+연구와 에이전트 프레임워크 구현 목적에 맞게 Dense와 MoE를 함께 두 종류 운영한다.
 
 ### 4.1. Qwen 3.6 라인업(2026년 4월 기준)
 
@@ -207,9 +207,9 @@ uv tool run --from mlx-lm python -c \
 
 Dense를 메인으로 선택한 이유는 아래와 같다. MoE는 expert routing 때문에 같은 입력에도 미묘하게 다른 응답이 나온다. 에이전트 디버깅에서 왜 이 결정을 했는지 추적할 때 라우팅 비결정성이 노이즈로 작용한다.
 
-MoE를 서브로 두는 이유는 같은 에이전트 코드를 두 모델에 번갈아 돌려보면 Dense vs MoE의 행동 차이가 가장 큰 학습 포인트가 되기 때문이다.
+MoE를 서브로 두는 이유는 같은 에이전트 코드를 두 모델에 번갈아 돌려보면 Dense vs MoE의 행동 차이가 가장 큰 연구 포인트가 되기 때문이다.
 
-### 4.5. Qwen 3.6의 학습 가치
+### 4.5. Qwen 3.6의 연구 가치
 
 - Thinking Preservation: 멀티턴 대화에서 `<think>` 블록의 reasoning trace를 보존한다
 - Tool calling 안정성: Hermes-style tool use로 학습되어 OpenAI 호환 함수 호출이 안정적이다
@@ -233,7 +233,7 @@ MoE를 서브로 두는 이유는 같은 에이전트 코드를 두 모델에 �
 
 ### 5.2. 비트수 선택 가이드
 
-- 8bit는 풀프리시전과 사실상 동일한 품질이지만 macOS swap이 시작될 위험이 있어 학습 사이클에 치명적이다
+- 8bit는 풀프리시전과 사실상 동일한 품질이지만 macOS swap이 시작될 위험이 있어 연구 사이클에 치명적이다
 - 4bit는 양자화 노이즈가 측정 가능한 수준이다. 메인으로 쓰면 응답 품질 저하를 모델 한계로 오해할 수 있다
 - 6bit가 최적점이다. 메모리 22GB이며 Unsloth UD 6bit는 8bit와 사실상 무의미한 품질 차이를 보인다
 
@@ -267,11 +267,11 @@ Dynamic 양자화 이점이 큰 조합은 아래와 같다.
 
 ### 5.5. 결론
 
-학습과 에이전트 프레임워크 구현 목적에서 가장 균형 잡힌 선택은 unsloth UD-MLX-6bit이다.
+연구와 에이전트 프레임워크 구현 목적에서 가장 균형 잡힌 선택은 unsloth UD-MLX-6bit이다.
 
 - 메모리 마진을 확보한다(22GB로 KV 캐시 여유)
 - 8bit 수준의 품질을 유지한다(Dynamic 양자화)
-- 모델의 실제 capability를 학습 자료로 활용할 수 있다
+- 모델의 실제 capability를 연구 자료로 활용할 수 있다
 
 ## 6. 추론 서버 옵션
 
@@ -331,15 +331,15 @@ response = client.chat.completions.create(
 uv tool install mlx-openai-server
 ```
 
-### 6.3. 학습 단계별 선택
+### 6.3. 연구 단계별 선택
 
-- 초기에는 빌트인 서버를 사용한다. tool call raw 출력이 학습 자료가 된다
-- 중기에는 빌트인 서버 raw tool call로 본인 파서를 작성한다. ReAct, Reflection 패턴 구현을 학습한다
+- 초기에는 빌트인 서버를 사용한다. tool call raw 출력이 연구 자료가 된다
+- 중기에는 빌트인 서버 raw tool call로 본인 파서를 작성한다. ReAct, Reflection 패턴 구현을 연구한다
 - 후기에는 mlx-openai-server로 본인 파서가 표준과 일치하는지 검증한다
 
 ### 6.4. 다른 옵션들
 
-| 도구 | 특징 | 학습용 적합도 |
+| 도구 | 특징 | 연구용 적합도 |
 |------|------|---------------|
 | `mlx_lm.server`(빌트인) | OpenAI 호환, 단일 모델, 표준 | 시작점 |
 | mlx-openai-server | 멀티 모델, 표준화 파서, reasoning 분리 | 검증용 |
@@ -725,11 +725,11 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
 - 양자화 비교(4bit vs 6bit vs 8bit)는 양자화 비교 노트에서 다룬다
 - 35B-A3B MoE 4bit 모델 동일 시나리오 비교는 후속으로 측정할 예정이다
 
-## 9. 학습 로드맵
+## 9. 연구 로드맵
 
 ### 9.1. 단계별 로드맵
 
-에이전트 프레임워크 학습과 구현을 위한 단계별 로드맵은 아래와 같다.
+에이전트 프레임워크 연구와 구현을 위한 단계별 로드맵은 아래와 같다.
 
 1. 환경 구축
    - uv tool install mlx-lm
@@ -739,7 +739,7 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
    - mlx_lm.generate로 첫 응답 확인
    - mlx_lm.server를 띄움
    - curl 또는 OpenAI SDK로 호환 API 호출
-3. Tool calling 학습
+3. Tool calling 연구
    - 단일 tool call 동작 확인
    - Hermes 포맷 raw 응답 분석
    - 직접 tool call 파서 작성
@@ -747,29 +747,29 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
    - ReAct 루프 구현
    - Reflection 패턴 적용
    - Plan-and-Execute 패턴 적용
-5. 비교 학습
+5. 비교 연구
    - 35B-A3B로 같은 코드를 돌려서 동작 확인
    - Dense vs MoE 행동 차이 관찰
    - mlx-openai-server로 본인 파서 검증
 
-### 9.2. 학습 포인트
+### 9.2. 연구 포인트
 
-학습 포인트는 아래와 같다.
+연구 포인트는 아래와 같다.
 
 - Qwen의 `<think>` 블록을 활용한 reasoning 가시화
 - Dense의 결정성과 MoE의 라우팅 차이 체감
 - Tool call 포맷(Hermes 스타일) 직접 파싱 경험
 - KV 캐시 동작과 멀티턴 비용 이해
 
-### 9.3. 자체 프레임워크 Mollo 구현 - 설계 완료
+### 9.3. 자체 프레임워크 Mollo 구현
 
-이 학습 로드맵과 병행하여 Swift 6 기반 macOS/iOS/visionOS 네이티브 에이전트 프레임워크 Mollo를 설계했다. 외부 의존성 없이 Apple 플랫폼 서비스를 1급 시민으로 다룬다. 구현 예정 핵심 요소는 아래와 같다.
+이 연구 로드맵과 병행하여 Swift 6 기반 macOS/iOS/visionOS 네이티브 에이전트 프레임워크 Mollo를 설계했다. 외부 의존성 없이 Apple 플랫폼 서비스를 1급 시민으로 다룬다. 구현 예정 핵심 요소는 아래와 같다.
 
 - StateChannel + Reducer 기반 Strategy Graph(10+ 노드 타입, DFS 사이클 탐지, `@StrategyBuilder` DSL)
 - 중단 후 재개 가능한 실행(Checkpointer 프로토콜, `ChannelSnapshot` 상태 캡처, OS 종료 복구 resume API)
 - 인터럽트/커맨드 기반 휴먼 인 더 루프(`Interrupt` enum의 userDecision/approval/custom, `Command` 재개 시맨틱)
 - Parallel/Map 노드(Swift 6 TaskGroup 동시 실행, `maxConcurrency` 백프레셔)
-- 서브그래프 노드(기존 `Agent<Output>` 재사용, 가드레일/훅/플러그인/권한/메모리 보존)
+- 서브그래프 노드(이미 정의한 `Agent<Output>`을 다른 그래프의 노드로 재사용, 가드레일/훅/플러그인/권한/메모리 보존)
 - 멀티 프로바이더 LLM(Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama, OpenAI 호환 엔드포인트)와 라우터(fallback/roundRobin/priority), 데코레이터(레이트 리미터, 캐시, 코스트 트래커)
 - MCP 클라이언트(JSON-RPC 2.0, stdio/HTTP+SSE/WebSocket 트랜스포트, 서버 발행 요청 처리, 멀티 서버 라이프사이클)
 - 멀티모달(Image/Audio/Video 소스 추상화, `SpeechInputTool`, `VisionTool`)
@@ -780,14 +780,18 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
 - 관찰성(`TraceSpan` + JSON 파일 익스포터, `os.Logger` 통합 로거, 레이트 리미터, 코스트 트래커)
 - 권한/가드레일/플러그인(3-tier 권한 모델, 입출력 가드레일, 11개 라이프사이클 훅)
 - Swift 6 타입드 스로우(`throws(AgentError)`, `@Sendable` 클로저, 액터 기반 동시성)
-- 응용(코드 리뷰, 문서 작성 등 도메인 특화 에이전트 구축 지원)
+- 활용 방안은 아래 세 측면이다
+  - 앱 서비스 기능 지원 - 앱이 제공하는 기능을 에이전트가 사용자 대신 호출하거나 조합하거나 확장(챗봇/대화형 UI는 한 가지 형태)
+  - 앱 내 QA 자동화 - 에이전트가 화면 진입, 스크롤 오프셋 조정, 뷰 캡처, 스냅샷 테스트 같은 네이티브 도구를 호출해 실제 앱을 구동하며 검증
+  - 유틸리티 에이전트 - 파일 정리, 데이터 변환, 로컬 자동화 같은 도구성 에이전트의 네이티브 기반
 
-### 9.4. 비교 학습 - 참조 프레임워크
+### 9.4. 비교 연구 - 참조 프레임워크
 
 Mollo 설계 과정에서 참조한 프레임워크와 본인 구현의 트레이드오프를 비교한다. 참조 대상은 아래와 같다.
 
 - LangGraph(Python) - State Channel + Reducer, Durable Execution, Interrupt/Command, Parallel/Map 추상화의 원형
 - LangChain - BaseChatModel, BaseTool 인터페이스 패턴
+- Koog - JetBrains의 Kotlin 에이전트 프레임워크. DSL 기반 그래프 정의와 전략 패턴
 - OpenAI Agents SDK - Handoff, AgentExecutor 패턴
 - Pydantic AI - `Agent[Output]` 제네릭 구조화 출력 패턴
 - MCP(Model Context Protocol) - JSON-RPC 2.0 기반 도구 프로토콜
@@ -807,6 +811,7 @@ Mollo 설계 과정에서 참조한 프레임워크와 본인 구현의 트레�
 - <https://github.com/langchain-ai/langchain>
 - <https://github.com/langchain-ai/langgraph>
 - <https://github.com/ml-explore/mlx>
+- <https://koog.ai/>
 - <https://github.com/ml-explore/mlx-lm>
 - <https://github.com/ml-explore/mlx-swift>
 - <https://github.com/openai/openai-agents-python>
