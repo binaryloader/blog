@@ -729,6 +729,8 @@ Key observations are below.
 
 ## 9. Learning Roadmap
 
+### 9.1. Step-by-Step Roadmap
+
 A step-by-step roadmap for studying and building an agent framework is below.
 
 1. Environment setup
@@ -752,6 +754,8 @@ A step-by-step roadmap for studying and building an agent framework is below.
    - Observe Dense vs MoE behavioral differences
    - Verify your own parser with mlx-openai-server
 
+### 9.2. Learning Highlights
+
 The learning highlights are below.
 
 - Reasoning visualization through Qwen's `<think>` blocks
@@ -759,19 +763,37 @@ The learning highlights are below.
 - Hands-on parsing of the tool call format (Hermes style)
 - Understanding KV cache behavior and the cost of multi-turn
 
-The next steps after completing the learning roadmap are below.
+### 9.3. Mollo - Custom Framework, Design Complete
 
-- Compare your implementation with existing frameworks such as LangGraph
-- Design guardrails (input/output validation, policy violation blocking, PII masking)
-- Implement a memory system (short-term context, long-term storage, context compression)
-- Apply tool permission management (allowlists, user approval gating)
-- Experiment with multi-agent orchestration patterns (routing, handoff, task decomposition)
-- Build observability infrastructure (tracing, token/cost monitoring, structured logging)
-- Build an evaluation pipeline (automated evaluation, regression testing, human labeling)
-- Integrate human-in-the-loop (approval gates, interrupt handling)
-- Handle state persistence (checkpointing, resumption, session storage)
-- Build domain-specific agents (code review, document writing, etc.)
-- Develop a native agent framework for Apple platforms (macOS, iOS, visionOS) using Swift
+The next step after completing the learning roadmap is to design Mollo, a Swift 6-based native agent framework for macOS, iOS, and visionOS. It has zero external dependencies and treats Apple platform services as first-class citizens. The core elements planned for implementation are below.
+
+- StateChannel + Reducer-based Strategy Graph (10+ node types, DFS cycle detection, `@StrategyBuilder` DSL)
+- Durable execution (Checkpointer protocol, `ChannelSnapshot` state capture, resume API for OS-termination recovery)
+- Interrupt/Command-based human-in-the-loop (`Interrupt` enum with userDecision/approval/custom, `Command` resume semantics)
+- Parallel/Map nodes (Swift 6 TaskGroup concurrent execution, `maxConcurrency` backpressure)
+- Subgraph node (reusing existing `Agent<Output>` while preserving guardrails, hooks, plugins, permissions, and memory)
+- Multi-provider LLM (Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama, OpenAI-compatible endpoints) with router (fallback/roundRobin/priority) and decorators (rate limiter, cache, cost tracker)
+- MCP client (JSON-RPC 2.0 over stdio/HTTP+SSE/WebSocket transports, server-initiated request handling, multi-server lifecycle)
+- Multimodal (Image/Audio/Video source abstraction, `SpeechInputTool`, `VisionTool`)
+- Built-in tools (FileRead/Write/Edit, Grep, Glob, Shell, WebFetch with SSRF and command-injection defenses)
+- Apple platform service integration (AppIntents-based Siri/Shortcuts, CloudKit session sync, Keychain credential store, online/offline hybrid router)
+- OAuth 2.0 PKCE (SHA256 challenge, CSRF guard, automatic refresh)
+- Persistence (InMemory/SQLite/Encrypted sessions, NLEmbedding/SQLite-FTS5 memory, 5 compression strategies)
+- Observability (`TraceSpan` + JSON file exporter, unified `os.Logger`, rate limiter, cost tracker)
+- Permissions/guardrails/plugins (3-tier permission model, input/output guardrails, 11 lifecycle hooks)
+- Swift 6 typed throws (`throws(AgentError)`, `@Sendable` closures, actor-based concurrency)
+- Applications (supporting domain-specific agents such as code review and document writing)
+
+### 9.4. Comparative Study - Reference Frameworks
+
+Compare the trade-offs between the frameworks referenced during Mollo's design and your own implementation. The references are below.
+
+- LangGraph (Python) - the original of the State Channel + Reducer, Durable Execution, Interrupt/Command, and Parallel/Map abstractions
+- LangChain - BaseChatModel and BaseTool interface patterns
+- OpenAI Agents SDK - Handoff and AgentExecutor patterns
+- Pydantic AI - the `Agent[Output]` generic structured-output pattern
+- MCP (Model Context Protocol) - JSON-RPC 2.0-based tool protocol
+- Apple platform - AppIntents, CloudKit, Keychain, BackgroundTasks, Vision, Speech, MLX Swift, Core ML, NLEmbedding
 
 # References
 

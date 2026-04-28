@@ -729,6 +729,8 @@ SSEストリーミング応答を直接パースして、最初のトークン�
 
 ## 9. 学習ロードマップ
 
+### 9.1. ステップ別ロードマップ
+
 エージェントフレームワーク学習と実装のためのステップ別ロードマップは以下のとおりである。
 
 1. 環境構築
@@ -752,6 +754,8 @@ SSEストリーミング応答を直接パースして、最初のトークン�
    - Dense vs MoEの挙動差を観察
    - mlx-openai-serverで自作パーサーを検証
 
+### 9.2. 学習ポイント
+
 学習ポイントは以下のとおりである。
 
 - Qwenの`<think>`ブロックを活用したreasoningの可視化
@@ -759,19 +763,37 @@ SSEストリーミング応答を直接パースして、最初のトークン�
 - Tool callフォーマット(Hermesスタイル)の手動パース経験
 - KVキャッシュの動作とマルチターンのコスト理解
 
-次のステップ(学習ロードマップ完了後)は以下のとおりである。
+### 9.3. 自作フレームワークMollo - 設計完了
 
-- LangGraphなど既存フレームワークと自作実装の比較
-- ガードレール(入出力検証、ポリシー違反ブロック、PIIマスキング)の設計
-- メモリシステム(短期コンテキスト、長期保存、コンテキスト圧縮)の実装
-- ツール権限管理(ホワイトリスト、ユーザー承認ゲーティング)の適用
-- マルチエージェントオーケストレーション(ルーティング、ハンドオフ、タスク分解)パターンの実験
-- 可観測性(トレーシング、トークン/コストモニタリング、構造化ロギング)インフラの構築
-- 評価パイプライン(自動評価、回帰テスト、人手ラベリング)の構築
-- ヒューマンインザループ(承認ゲート、割り込み処理)の統合
-- 状態永続化(チェックポイント、再開、セッション保存)の処理
-- ドメイン特化エージェント(コードレビュー、ドキュメント作成など)の実装
-- Swiftを使ったAppleプラットフォーム(macOS、iOS、visionOS)向けネイティブエージェントフレームワークの開発
+学習ロードマップ完了後の次のステップとして、Swift 6ベースのmacOS/iOS/visionOSネイティブエージェントフレームワークMolloを設計した。外部依存ゼロでAppleプラットフォームサービスを第一級市民として扱う。実装予定の核心要素は以下のとおりである。
+
+- StateChannel + Reducerベースのストラテジーグラフ(10種以上のノードタイプ、DFSサイクル検出、`@StrategyBuilder` DSL)
+- 持続実行(Checkpointerプロトコル、`ChannelSnapshot`状態キャプチャ、OS終了復帰用resume API)
+- インタラプト/コマンドベースのヒューマンインザループ(`Interrupt` enumのuserDecision/approval/custom、`Command`再開セマンティクス)
+- Parallel/Mapノード(Swift 6 TaskGroup並行実行、`maxConcurrency`バックプレッシャ)
+- サブグラフノード(既存`Agent<Output>`の再利用、ガードレール/フック/プラグイン/権限/メモリの保持)
+- マルチプロバイダーLLM(Anthropic、OpenAI、Google Gemini、DeepSeek、Ollama、OpenAI互換エンドポイント)とルーター(fallback/roundRobin/priority)、デコレーター(レートリミッター、キャッシュ、コストトラッカー)
+- MCPクライアント(JSON-RPC 2.0、stdio/HTTP+SSE/WebSocketトランスポート、サーバー発行リクエスト処理、マルチサーバーライフサイクル)
+- マルチモーダル(Image/Audio/Videoソース抽象化、`SpeechInputTool`、`VisionTool`)
+- ビルトインツール(FileRead/Write/Edit、Grep、Glob、Shell、WebFetchとSSRF/Command Injection防御)
+- Appleプラットフォームサービス統合(AppIntentsベースのSiri/Shortcuts、CloudKitセッション同期、Keychain資格情報ストア、オンライン/オフラインハイブリッドルーター)
+- OAuth 2.0 PKCE(SHA256チャレンジ、CSRFガード、自動リフレッシュ)
+- 永続化(InMemory/SQLite/Encryptedセッション、NLEmbedding/SQLite-FTS5メモリ、5種類の圧縮戦略)
+- 可観測性(`TraceSpan` + JSONファイルエクスポーター、`os.Logger`統合ロガー、レートリミッター、コストトラッカー)
+- 権限/ガードレール/プラグイン(3-tier権限モデル、入出力ガードレール、11のライフサイクルフック)
+- Swift 6型付きスロー(`throws(AgentError)`、`@Sendable`クロージャ、アクターベース並行性)
+- 応用(コードレビュー、ドキュメント作成などドメイン特化エージェント構築の支援)
+
+### 9.4. 比較学習 - 参照フレームワーク
+
+Mollo設計過程で参照したフレームワークと自作実装のトレードオフを比較する。参照対象は以下のとおりである。
+
+- LangGraph(Python) - State Channel + Reducer、Durable Execution、Interrupt/Command、Parallel/Map抽象化の原型
+- LangChain - BaseChatModel、BaseToolインターフェースパターン
+- OpenAI Agents SDK - Handoff、AgentExecutorパターン
+- Pydantic AI - `Agent[Output]`ジェネリック構造化出力パターン
+- MCP(Model Context Protocol) - JSON-RPC 2.0ベースのツールプロトコル
+- Appleプラットフォーム - AppIntents、CloudKit、Keychain、BackgroundTasks、Vision、Speech、MLX Swift、Core ML、NLEmbedding
 
 # 参考
 

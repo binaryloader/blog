@@ -727,6 +727,8 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
 
 ## 9. 학습 로드맵
 
+### 9.1. 단계별 로드맵
+
 에이전트 프레임워크 학습과 구현을 위한 단계별 로드맵은 아래와 같다.
 
 1. 환경 구축
@@ -750,6 +752,8 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
    - Dense vs MoE 행동 차이 관찰
    - mlx-openai-server로 본인 파서 검증
 
+### 9.2. 학습 포인트
+
 학습 포인트는 아래와 같다.
 
 - Qwen의 `<think>` 블록을 활용한 reasoning 가시화
@@ -757,19 +761,37 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
 - Tool call 포맷(Hermes 스타일) 직접 파싱 경험
 - KV 캐시 동작과 멀티턴 비용 이해
 
-다음 단계(학습 로드맵 완료 후)는 아래와 같다.
+### 9.3. 자체 프레임워크 Mollo - 설계 완료
 
-- LangGraph 등 기존 프레임워크와 본인 구현 비교
-- 가드레일(입출력 검증, 정책 위반 차단, PII 마스킹) 설계
-- 메모리 시스템(단기 컨텍스트, 장기 저장, 컨텍스트 압축) 구현
-- 도구 권한 관리(화이트리스트, 사용자 승인 게이팅) 적용
-- 멀티 에이전트 오케스트레이션(라우팅, 핸드오프, 작업 분해) 패턴 실험
-- 관찰성(트레이싱, 토큰/비용 모니터링, 구조화 로깅) 인프라 구축
-- 평가 파이프라인(자동 평가, 회귀 테스트, 휴먼 라벨링) 구축
-- 휴먼 인 더 루프(승인 게이트, 인터럽트 처리) 통합
-- 상태 영속화(체크포인트, 재개, 세션 저장) 처리
-- 도메인 특화 에이전트(코드 리뷰, 문서 작성 등) 구현
-- Swift 기반 Apple 플랫폼(macOS, iOS, visionOS) 네이티브 에이전트 프레임워크 개발
+학습 로드맵 완료 후 다음 단계로 Swift 6 기반 macOS/iOS/visionOS 네이티브 에이전트 프레임워크 Mollo를 설계했다. 외부 의존성 없이 Apple 플랫폼 서비스를 1급 시민으로 다룬다. 구현 예정 핵심 요소는 아래와 같다.
+
+- StateChannel + Reducer 기반 Strategy Graph(10+ 노드 타입, DFS 사이클 탐지, `@StrategyBuilder` DSL)
+- 내구 실행(Checkpointer 프로토콜, `ChannelSnapshot` 상태 캡처, OS 종료 복구 resume API)
+- 인터럽트/커맨드 기반 휴먼 인 더 루프(`Interrupt` enum의 userDecision/approval/custom, `Command` 재개 시맨틱)
+- Parallel/Map 노드(Swift 6 TaskGroup 동시 실행, `maxConcurrency` 백프레셔)
+- 서브그래프 노드(기존 `Agent<Output>` 재사용, 가드레일/훅/플러그인/권한/메모리 보존)
+- 멀티 프로바이더 LLM(Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama, OpenAI 호환 엔드포인트)와 라우터(fallback/roundRobin/priority), 데코레이터(레이트 리미터, 캐시, 코스트 트래커)
+- MCP 클라이언트(JSON-RPC 2.0, stdio/HTTP+SSE/WebSocket 트랜스포트, 서버 발행 요청 처리, 멀티 서버 라이프사이클)
+- 멀티모달(Image/Audio/Video 소스 추상화, `SpeechInputTool`, `VisionTool`)
+- 내장 도구(FileRead/Write/Edit, Grep, Glob, Shell, WebFetch와 SSRF/Command Injection 방어)
+- Apple 플랫폼 서비스 통합(AppIntents 기반 Siri/Shortcuts, CloudKit 세션 동기화, Keychain 자격 증명 저장소, 온/오프라인 하이브리드 라우터)
+- OAuth 2.0 PKCE(SHA256 challenge, CSRF 가드, 자동 리프레시)
+- 영속화(InMemory/SQLite/Encrypted 세션, NLEmbedding/SQLite-FTS5 메모리, 5종 압축 전략)
+- 관찰성(`TraceSpan` + JSON 파일 익스포터, `os.Logger` 통합 로거, 레이트 리미터, 코스트 트래커)
+- 권한/가드레일/플러그인(3-tier 권한 모델, 입출력 가드레일, 11개 라이프사이클 훅)
+- Swift 6 타입드 스로우(`throws(AgentError)`, `@Sendable` 클로저, 액터 기반 동시성)
+- 응용(코드 리뷰, 문서 작성 등 도메인 특화 에이전트 구축 지원)
+
+### 9.4. 비교 학습 - 참조 프레임워크
+
+Mollo 설계 과정에서 참조한 프레임워크와 본인 구현의 트레이드오프를 비교한다. 참조 대상은 아래와 같다.
+
+- LangGraph(Python) - State Channel + Reducer, Durable Execution, Interrupt/Command, Parallel/Map 추상화의 원형
+- LangChain - BaseChatModel, BaseTool 인터페이스 패턴
+- OpenAI Agents SDK - Handoff, AgentExecutor 패턴
+- Pydantic AI - `Agent[Output]` 제네릭 구조화 출력 패턴
+- MCP(Model Context Protocol) - JSON-RPC 2.0 기반 도구 프로토콜
+- Apple 플랫폼 - AppIntents, CloudKit, Keychain, BackgroundTasks, Vision, Speech, MLX Swift, Core ML, NLEmbedding
 
 # 참고
 
