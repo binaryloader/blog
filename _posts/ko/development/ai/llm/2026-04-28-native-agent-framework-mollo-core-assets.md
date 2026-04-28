@@ -69,15 +69,15 @@ LangGraph의 시그니처는 다섯 가지다. State Channel + Reducer는 노드
 
 이 다섯 가지는 모두 LangGraph가 "검증한" 추상이다. 모바일 환경에서는 오히려 더 강하게 요구된다. 모바일 OS는 백그라운드 진입과 메모리 압박으로 프로세스를 강제 종료시키며 그 시점에 진행 중이던 도구 호출과 에이전트 사고 흐름을 잃지 않으려면 노드 경계 체크포인트가 필요하다. 사용자에게 결제 승인이나 권한 승인을 받아야 하는 흐름은 곧 HITL 인터럽트다. 즉 LangGraph가 서버용으로 정리해 둔 다섯 자산은 모바일에서 더 절실해진다. Mollo는 이를 그대로 가져오되 채널은 actor 기반 ExecutionContext에 올리고 reducer는 Sendable 타입으로 강제하며 인터럽트는 typed throws 경로로 전파한다.
 
-## 4. Koog - JVM 진영의 동일 포지션
+## 4. Koog - JetBrains의 Kotlin 에이전트 프레임워크
 
 ### 4.1. 핵심 자산
 
 Koog는 JetBrains가 2025-05에 공개한 Kotlin 프레임워크다. 2026-03-26에 0.7.3이 릴리스됐고 1.0 미도달이다. 핵심은 LangGraph 스타일의 그래프 DSL을 Kotlin 네이티브로 제공한다는 점이다. Strategy 그래프, subgraph 공유 상태, `@Tool` DSL, 그래프 내 interrupt 노드, agent persistence 내장, Kotlin Flow 기반 스트리밍, OpenTelemetry 관측성을 갖췄다. 멀티플랫폼 타깃은 JVM, JS, WasmJS, Android, iOS다.
 
-### 4.2. Mollo와 가장 가까운 참조점
+### 4.2. 추상 수준에서 그대로 가져올 부분
 
-Koog는 포지션상 Mollo와 가장 닮은 프레임워크다. 둘 다 LangGraph 스타일 그래프를 가져오면서 iOS 타깃을 함께 본다. 차이는 런타임과 DX다. Koog는 Kotlin Multiplatform이며 iOS 타깃은 Kotlin/Native 빌드와 네트워크 구성 조정을 거쳐 Swift에서 브리징해 사용한다. iOS 지원은 가능하지만 Swift 네이티브 1등 시민 DX는 아니다. Mollo는 Swift 런타임 위에서 동작하고 App Intents, CloudKit, Keychain, NLEmbedding을 직접 다룬다. JetBrains의 엔지니어링 표준에서 배울 점이 많고 Apple 생태계에 깊이 들어갈수록 Swift 네이티브의 자연스러움이 살아난다는 정도의 차이다. Koog의 그래프 DSL과 persistence 모델은 추상 수준에서 그대로 참고하되 구현은 Swift의 actor와 typed throws로 새로 짠다.
+Koog는 LangGraph의 추상을 Kotlin 위에 정성스럽게 옮긴 사례다. Strategy 그래프, agent persistence, interrupt 노드 같은 자리가 Kotlin Multiplatform 안에서 어떻게 구성되는지를 보여주고 그 구성이 그대로 Swift 6 actor 모델 위로 옮겨졌을 때 어떤 부분이 자연스럽게 들어맞고 어떤 부분은 다른 모양으로 다듬어져야 할지를 미리 가늠하게 해준다. Mollo는 Koog의 그래프 DSL과 persistence 모델을 추상 수준에서 그대로 학습 자료로 삼고 구현만 Swift의 actor와 typed throws로 새로 짠다. Koog가 KMP를 통해 iOS까지 빌드할 수 있다는 사실은 인지하고 있고 그 경로가 더 잘 맞는 사람도 있을 수 있다. 그래도 Mollo를 Swift 네이티브로 짜는 이유는 1장에서 적은 학습 동기에서 그치며 Apple 생태계와 직접 부딪혀 보고 싶다는 개인적인 이유 외에 따로 있지 않다.
 
 ## 5. OpenAI Agents SDK - 미니멀리즘과 Handoff
 
@@ -121,7 +121,7 @@ MCP는 Mollo가 그대로 가져오는 표준이다. MolloMCP 모듈은 JSON-RPC
 
 ## 9. Apple 플랫폼 - 네이티브 1등 시민
 
-여기서부터가 Mollo의 진짜 차별점이다. 다른 어떤 프레임워크도 Apple 프레임워크를 일등 시민으로 다루지 않는다. Koog가 KMP를 통해 iOS 타깃을 지원하긴 하지만 Apple 프레임워크 통합은 사용자 책임으로 남긴다.
+여기서부터는 분석한 어떤 프레임워크에서도 채워지지 않은 영역이다. Apple 프레임워크를 일등 시민으로 다룬 사례는 찾기 어려웠고 결국 모바일 OS와 정성스럽게 정합되는 부분은 Swift로 직접 짜야 한다는 결론이 나온다. Mollo가 채워보려는 자리는 바로 이 부분이다.
 
 ### 9.1. AppIntents
 
@@ -169,7 +169,7 @@ MCP는 Mollo가 그대로 가져오는 표준이다. MolloMCP 모듈은 JSON-RPC
 
 분석을 마치고 두 가지가 분명해졌다. 하나는 LangGraph가 정리한 다섯 자산이 더 이상 한 프레임워크의 특이한 추상이 아니라 에이전트 영역의 검증된 표준에 가깝다는 점이다. Koog가 같은 추상을 Kotlin으로 옮겼고 Mastra와 Pydantic AI도 비슷한 기능을 다른 이름으로 풀어내고 있다. Mollo가 이 자산을 Swift로 옮기는 것은 새로운 발명이 아니라 검증된 자리의 정통 이식이다.
 
-다른 하나는 그 자산 위에 Apple 플랫폼 통합을 1등 시민으로 올리는 자리는 여전히 비어 있다는 점이다. Koog가 KMP로 iOS를 지원해도 AppIntents와 CloudKit, Keychain, BackgroundTasks, NLEmbedding을 코어로 끌어안은 프레임워크는 아직 없다. 모바일 OS의 강제 종료와 백그라운드 제약, 음성 인텐트, 멀티 디바이스 동기화 같은 모바일 고유 문제는 Apple 프레임워크와 정합성을 가질 때 비로소 깔끔하게 풀린다. Mollo가 채울 자리는 그 공백이다.
+다른 하나는 그 자산 위에 Apple 플랫폼 통합을 1등 시민으로 올리는 자리는 여전히 비어 있다는 점이다. AppIntents와 CloudKit, Keychain, BackgroundTasks, NLEmbedding을 코어로 끌어안은 프레임워크는 아직 보이지 않는다. 모바일 OS의 강제 종료와 백그라운드 제약, 음성 인텐트, 멀티 디바이스 동기화 같은 모바일 고유 문제는 Apple 프레임워크와 정합성을 가질 때 비로소 깔끔하게 풀린다. Mollo가 채울 자리는 그 공백이다.
 
 여기까지가 구현 들어가기 전에 정리해 둘 자산의 전부다. 다음 단계는 본격 구현이다.
 

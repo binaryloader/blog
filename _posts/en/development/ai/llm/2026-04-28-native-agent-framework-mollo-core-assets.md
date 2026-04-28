@@ -71,15 +71,15 @@ LangGraph has five signatures. State Channel + Reducer models data flow between 
 
 These five are abstractions that LangGraph has already validated. In the mobile environment they are demanded even more strongly. Mobile OSes terminate processes on background entry and memory pressure, and node-boundary checkpoints are the only way to preserve in-flight tool calls and reasoning across that termination. Flows that need user approval for payment or permission are HITL interrupts in disguise. The five assets LangGraph organized for the server become more urgent on mobile, not less. Mollo inherits them as-is, but channels live on an actor-based ExecutionContext, reducers are forced through Sendable types, and interrupts propagate along typed throws paths.
 
-## 4. Koog - The Same Position on the JVM Side
+## 4. Koog - JetBrains' Kotlin Agent Framework
 
 ### 4.1. Core Assets
 
 Koog is a Kotlin framework released by JetBrains in 2025-05. Version 0.7.3 was released on 2026-03-26 and 1.0 has not yet shipped. Its core is providing a LangGraph-style graph DSL natively in Kotlin. It has Strategy graphs, subgraph shared state, a `@Tool` DSL, in-graph interrupt nodes, built-in agent persistence, Kotlin Flow streaming, and OpenTelemetry observability. Multiplatform targets are JVM, JS, WasmJS, Android, and iOS.
 
-### 4.2. The Closest Reference Point to Mollo
+### 4.2. What Carries Over at the Abstraction Level
 
-In terms of positioning, Koog is the framework that resembles Mollo most. Both bring in a LangGraph-style graph while keeping iOS as a target. The difference is runtime and developer experience. Koog runs on Kotlin Multiplatform, and the iOS target requires a Kotlin/Native build with network configuration adjustments and bridging from Swift. iOS support is possible but it is not a Swift-native first-class developer experience. Mollo runs on the Swift runtime and reaches directly into App Intents, CloudKit, Keychain, and NLEmbedding. There is a lot to learn from JetBrains' engineering standard, and the deeper one goes into the Apple ecosystem the more naturally Swift-native fits. Mollo studies Koog's graph DSL and persistence model at the abstraction level but rewrites the implementation in Swift's actors and typed throws.
+Koog is one example of porting LangGraph's abstractions onto Kotlin with care. It shows how Strategy graphs, agent persistence, and interrupt nodes get arranged on top of Kotlin Multiplatform, which makes it easier to anticipate which parts translate naturally onto a Swift 6 actor model and which parts need a different shape. Mollo studies Koog's graph DSL and persistence model at the abstraction level as-is, and rewrites only the implementation in Swift's actors and typed throws. The fact that Koog can also build for iOS through KMP is acknowledged, and that path may suit some people better. The reason Mollo is being written Swift-native anyway is the learning motivation noted in the first section: there is no other reason beyond the personal one of wanting to engage with the Apple ecosystem directly.
 
 ## 5. OpenAI Agents SDK - Minimalism and Handoff
 
@@ -123,7 +123,7 @@ MCP is a standard Mollo brings in directly. The MolloMCP module implements the J
 
 ## 9. Apple Platform - Native First-Class Citizens
 
-This is where Mollo's real differentiator begins. No other framework treats Apple frameworks as first-class citizens. Koog supports an iOS target through KMP, but it leaves Apple framework integration as the user's responsibility.
+This is where none of the analyzed frameworks fill the gap. None of them treat Apple frameworks as first-class citizens, so the parts that integrate carefully with the mobile OS have to be written directly in Swift. That gap is exactly the seat Mollo is trying to fill on its own.
 
 ### 9.1. AppIntents
 
@@ -171,7 +171,7 @@ Here is a single-pass mapping of the analyzed assets onto Mollo's planned module
 
 Two things became clear after the analysis. One is that the five assets LangGraph organized are no longer one framework's peculiar abstractions but something close to a validated standard for the agent space. Koog ported the same abstractions to Kotlin, and Mastra and Pydantic AI also unfold similar functionality under different names. Mollo porting these assets into Swift is not a new invention but a faithful re-implementation in a place that has already been validated.
 
-The other is that the seat for putting Apple-platform integration on top of those assets as a first-class citizen is still open. Even with Koog supporting iOS through KMP, no framework has yet pulled AppIntents, CloudKit, Keychain, BackgroundTasks, and NLEmbedding into the core. Mobile-specific problems such as forced OS termination, background restrictions, voice intents, and multi-device sync are only resolved cleanly when the framework lines up with Apple frameworks. The seat Mollo is going to fill is exactly that gap.
+The other is that the seat for putting Apple-platform integration on top of those assets as a first-class citizen is still open. No framework has yet pulled AppIntents, CloudKit, Keychain, BackgroundTasks, and NLEmbedding into the core. Mobile-specific problems such as forced OS termination, background restrictions, voice intents, and multi-device sync are only resolved cleanly when the framework lines up with Apple frameworks. The seat Mollo is going to fill is exactly that gap.
 
 That covers all the assets I wanted to organize before implementation. The next step is the implementation itself.
 
