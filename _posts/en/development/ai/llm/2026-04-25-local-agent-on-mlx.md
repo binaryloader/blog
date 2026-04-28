@@ -763,7 +763,7 @@ The learning highlights are below.
 - Hands-on parsing of the tool call format (Hermes style)
 - Understanding KV cache behavior and the cost of multi-turn
 
-### 9.3. Mollo - Custom Framework, Design Complete
+### 9.3. Custom Framework Mollo Implementation - Design Complete
 
 The next step after completing the learning roadmap is to design Mollo, a Swift 6-based native agent framework for macOS, iOS, and visionOS. It has zero external dependencies and treats Apple platform services as first-class citizens. The core elements planned for implementation are below.
 
