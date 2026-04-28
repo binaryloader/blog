@@ -49,6 +49,8 @@ I picture three usage tracks. The first embeds an agent inside an app's service 
 
 I deliberately left a step empty before implementation. I read through the frameworks already established in the market and decided what to bring in and what to leave out first. This post is the result of that triage.
 
+To add some context, Mollo is not a project I am building to compete with anyone in the commercial product space. It is a personal research project that started from academic curiosity, simply because building the framework myself sounded like it would be fun. To be honest, by the time I finish polishing this and put it out, another Swift-native framework with a similar concept will likely have appeared first. Even so, the primary motivation is to see the experience of directly handling Swift 6's concurrency model, the mobile lifecycle, and Apple-native assets all the way through to completion. Underneath sits a long-standing conviction that to really use something well you have to dig into how it actually works from the ground up. So the analysis that follows reads less as a comparison of who is better and more as a planning note on how to carefully port already-validated abstractions onto the Apple platform.
+
 ## 2. Targets and Perspective of the Analysis
 
 The analysis covers seven frameworks, one tool protocol, and the Apple platform that sits underneath. Specifically I looked at LangGraph, LangChain, Koog, OpenAI Agents SDK, Pydantic AI, Mastra, and CrewAI, with MCP covered as the tool standard. Numbers and versions follow a separate fact sheet dated 2026-04-18.
@@ -75,9 +77,9 @@ These five are abstractions that LangGraph has already validated. In the mobile 
 
 Koog is a Kotlin framework released by JetBrains in 2025-05. Version 0.7.3 was released on 2026-03-26 and 1.0 has not yet shipped. Its core is providing a LangGraph-style graph DSL natively in Kotlin. It has Strategy graphs, subgraph shared state, a `@Tool` DSL, in-graph interrupt nodes, built-in agent persistence, Kotlin Flow streaming, and OpenTelemetry observability. Multiplatform targets are JVM, JS, WasmJS, Android, and iOS.
 
-### 4.2. The Most Direct Competition With Mollo
+### 4.2. The Closest Reference Point to Mollo
 
-Koog is the framework most directly compared to Mollo. Both pursue a LangGraph-style graph and an iOS target at the same time. The difference is runtime and developer experience. Koog runs on Kotlin Multiplatform, and the iOS target requires a Kotlin/Native build with network configuration adjustments and bridging from Swift. iOS support is possible but it is not a Swift-native first-class developer experience. Mollo runs on the Swift runtime and reaches directly into App Intents, CloudKit, Keychain, and NLEmbedding. JetBrains' engineering standard is well respected, but the deeper one goes into the Apple ecosystem the more value Swift-native gains. Mollo studies Koog's graph DSL and persistence model at the abstraction level but rewrites the implementation in Swift's actors and typed throws.
+In terms of positioning, Koog is the framework that resembles Mollo most. Both bring in a LangGraph-style graph while keeping iOS as a target. The difference is runtime and developer experience. Koog runs on Kotlin Multiplatform, and the iOS target requires a Kotlin/Native build with network configuration adjustments and bridging from Swift. iOS support is possible but it is not a Swift-native first-class developer experience. Mollo runs on the Swift runtime and reaches directly into App Intents, CloudKit, Keychain, and NLEmbedding. There is a lot to learn from JetBrains' engineering standard, and the deeper one goes into the Apple ecosystem the more naturally Swift-native fits. Mollo studies Koog's graph DSL and persistence model at the abstraction level but rewrites the implementation in Swift's actors and typed throws.
 
 ## 5. OpenAI Agents SDK - Minimalism and Handoff
 
@@ -153,7 +155,7 @@ This is where Mollo's real differentiator begins. No other framework treats Appl
 
 ## 10. Synthesis - Mapping to Mollo's Core Modules
 
-Here is a single-pass mapping of the analyzed assets onto Mollo v2.0.2's nine modules.
+Here is a single-pass mapping of the analyzed assets onto Mollo's planned module boundaries.
 
 - `MolloCore` is where LangGraph's five signatures (State Channel + Reducer, Durable Execution interface, Interrupt/Command, Parallel/Map, Subgraph), OpenAI Agents SDK's short Agent constructor, and Pydantic AI's `Agent<Output>` generic come together
 - `MolloPersistence` is where LangGraph's Checkpointer is ported into Swift. SQLite, InMemory, and Encrypted (AES-256-GCM envelope) backends are implemented directly, and memory is split between NLEmbeddingMemory and SQLiteMemory

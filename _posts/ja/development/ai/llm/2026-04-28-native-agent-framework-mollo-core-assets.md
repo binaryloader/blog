@@ -49,6 +49,8 @@ MolloはiOS 15+／macOS 12+で動作するSwift 6ベースのエージェント�
 
 実装に入る前に意図的に一段階を空けておいた。すでに市場で地位を築いているフレームワークを精読し、何を取り込み何を空けておくかから整理した。本記事はその整理の結果である。
 
+付け加えておくと、Molloは商用プロダクトの場で誰かと競うためのプロジェクトではない。フレームワークを自分で作ってみたら面白そうだという学術的な好奇心から始めた個人の研究プロジェクトである。正直なところ、これを最後まで磨いて公開する頃には、似たコンセプトのSwiftネイティブフレームワークが先に出ている確率の方が高い。それでも第一の動機は、Swift 6の並行性モデル、モバイル環境のライフサイクル、Appleネイティブ資産を直接扱う経験を最後までやり遂げてみることである。何であれ本当に使いこなすには、それがどう動いているのかを底から掘り下げて見てみる必要があるという日頃の信念も底に敷かれている。したがって本文の分析は、どのフレームワークがより優れているかという比較ではなく、すでに検証済みの抽象をAppleプラットフォーム上にどう丁寧に移植するかという企画ノートに近い。
+
 ## 2. 分析対象と観点
 
 分析対象は同時代に活発に動いている7つのフレームワークと、ツールプロトコル1つ、そしてその上に載せるAppleプラットフォームである。具体的にはLangGraph、LangChain、Koog、OpenAI Agents SDK、Pydantic AI、Mastra、CrewAIを見ており、ツール標準としてMCPを併せて扱う。数値とバージョンは別途のファクトシートの2026-04-18基準をそのまま用いる。
@@ -75,9 +77,9 @@ LangGraphのシグネチャは5つである。State Channel + Reducerはノー�
 
 KoogはJetBrainsが2025-05に公開したKotlinフレームワークである。2026-03-26に0.7.3がリリースされ、1.0には未到達である。中核はLangGraphスタイルのグラフDSLをKotlinネイティブで提供する点である。Strategyグラフ、subgraph共有状態、`@Tool` DSL、グラフ内interruptノード、agent persistenceの内蔵、Kotlin Flowベースのストリーミング、OpenTelemetry観測性を備える。マルチプラットフォームのターゲットはJVM、JS、WasmJS、Android、iOSである。
 
-### 4.2. Molloとの直接競合構図
+### 4.2. Molloに最も近い参照点
 
-KoogはMolloと最も直接的に比較されるフレームワークである。両者ともLangGraphスタイルのグラフとiOSターゲットを同時に追求している。違いはランタイムと開発者体験である。KoogはKotlin Multiplatformであり、iOSターゲットはKotlin/Nativeビルドとネットワーク構成の調整を経てSwiftからブリッジして用いる。iOS対応は可能であるが、Swiftネイティブ一等市民の開発者体験ではない。MolloはSwiftランタイム上で動作し、App Intents、CloudKit、Keychain、NLEmbeddingを直接扱う。JetBrainsのエンジニアリング水準は十分認めるが、Apple生態系の奥に入るほどSwiftネイティブの価値は高まるという判断である。KoogのグラフDSLとpersistenceモデルは抽象レベルで参考にしつつ、実装はSwiftのactorとtyped throwsで新たに書き直す。
+KoogはポジションとしてMolloに最も近いフレームワークである。両者ともLangGraphスタイルのグラフを取り入れつつiOSターゲットを並べて見ている。違いはランタイムと開発者体験である。KoogはKotlin Multiplatformであり、iOSターゲットはKotlin/Nativeビルドとネットワーク構成の調整を経てSwiftからブリッジして用いる。iOS対応は可能であるが、Swiftネイティブ一等市民の開発者体験ではない。MolloはSwiftランタイム上で動作し、App Intents、CloudKit、Keychain、NLEmbeddingを直接扱う。JetBrainsのエンジニアリング水準には学ぶ点が多く、Apple生態系の奥に入るほどSwiftネイティブの自然さが活きるという程度の違いに過ぎない。KoogのグラフDSLとpersistenceモデルは抽象レベルでそのまま参考にしつつ、実装はSwiftのactorとtyped throwsで新たに書き直す。
 
 ## 5. OpenAI Agents SDK：ミニマリズムとHandoff
 
@@ -153,7 +155,7 @@ MCPはMolloがそのまま取り込む標準である。MolloMCPモジュール�
 
 ## 10. 総合：Mollo中核モジュールへのマッピング
 
-分析した資産を、Mollo v2.0.2の9モジュールにどう落とし込むかを一気に整理する。
+分析した資産を、Molloが計画中のモジュール境界にどうマッピングするかを一気に整理する。
 
 - `MolloCore`はLangGraphの5シグネチャ(State Channel + Reducer、Durable Executionインターフェース、Interrupt／Command、Parallel／Map、Subgraph)とOpenAI Agents SDKの短いAgentコンストラクタ、Pydantic AIの`Agent<Output>`ジェネリックが集まるモジュールである
 - `MolloPersistence`はLangGraphのCheckpointerをSwiftに移した席である。SQLiteとInMemory、Encrypted(AES-256-GCM envelope)バックエンドを直接実装し、メモリはNLEmbeddingMemoryとSQLiteMemoryに分ける

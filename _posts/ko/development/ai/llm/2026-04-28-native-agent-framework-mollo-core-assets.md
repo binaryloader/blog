@@ -47,6 +47,8 @@ Mollo는 iOS 15+/macOS 12+에서 동작하는 Swift 6 기반 에이전트 프레
 
 구현 들어가기 전에 의도적으로 한 단계를 비워뒀다. 이미 시장에 자리 잡은 프레임워크들을 정독하고 무엇을 가져오고 무엇을 비워둘지부터 정리했다. 이 글은 그 정리의 결과다.
 
+덧붙여 두자면 Mollo는 상업 제품을 두고 누구와 경쟁하려는 프로젝트가 아니다. 그냥 직접 프레임워크를 만들어 보면 재미있을 것 같다는 학술적 호기심에서 출발한 개인 연구 프로젝트다. 솔직히 말하면 이 프레임워크를 끝까지 다듬어 공개할 즈음에는 비슷한 컨셉의 다른 Swift 네이티브 프레임워크가 먼저 나와 있을 확률이 더 크다. 그럼에도 1차 동기는 Swift 6의 동시성 모델, 모바일 환경의 라이프사이클, Apple 네이티브 자산을 직접 다루는 경험을 끝까지 완수해 보는 것이다. 무엇이든 제대로 쓰려면 그게 어떻게 돌아가는지 밑바닥부터 파고들어 봐야 한다는 평소 신념도 함께 깔려 있다. 그래서 본문의 분석은 어떤 프레임워크가 더 우월하다는 식의 비교가 아니라 이미 검증된 추상을 Apple 플랫폼 위에 어떻게 정성스럽게 옮길지에 대한 기획 노트에 가깝다.
+
 ## 2. 분석 대상과 관점
 
 분석 대상은 동시대에 활발히 움직이는 7개 프레임워크와 도구 프로토콜 1개, 그리고 그 위에 얹을 Apple 플랫폼이다. 구체적으로는 LangGraph, LangChain, Koog, OpenAI Agents SDK, Pydantic AI, Mastra, CrewAI를 살펴봤고 도구 표준으로 MCP를 함께 다뤘다. 수치와 버전은 별도 팩트시트의 2026-04-18 기준을 그대로 사용한다.
@@ -73,9 +75,9 @@ LangGraph의 시그니처는 다섯 가지다. State Channel + Reducer는 노드
 
 Koog는 JetBrains가 2025-05에 공개한 Kotlin 프레임워크다. 2026-03-26에 0.7.3이 릴리스됐고 1.0 미도달이다. 핵심은 LangGraph 스타일의 그래프 DSL을 Kotlin 네이티브로 제공한다는 점이다. Strategy 그래프, subgraph 공유 상태, `@Tool` DSL, 그래프 내 interrupt 노드, agent persistence 내장, Kotlin Flow 기반 스트리밍, OpenTelemetry 관측성을 갖췄다. 멀티플랫폼 타깃은 JVM, JS, WasmJS, Android, iOS다.
 
-### 4.2. Mollo와의 직접 경쟁 구도
+### 4.2. Mollo와 가장 가까운 참조점
 
-Koog는 Mollo와 가장 직접적으로 비교되는 프레임워크다. 둘 다 LangGraph 스타일 그래프와 iOS 타깃을 동시에 추구한다. 차이는 런타임과 DX다. Koog는 Kotlin Multiplatform이며 iOS 타깃은 Kotlin/Native 빌드와 네트워크 구성 조정을 거쳐 Swift에서 브리징해서 사용한다. iOS 지원은 가능하지만 Swift 네이티브 1등 시민 DX는 아니다. Mollo는 Swift 런타임 위에서 동작하고 App Intents, CloudKit, Keychain, NLEmbedding을 직접 다룬다. JetBrains의 엔지니어링 표준은 인정하되 Apple 생태계에 깊이 들어갈수록 Swift 네이티브의 가치가 커진다는 판단이다. Koog의 그래프 DSL과 persistence 모델은 추상 수준에서 참고하되 구현은 Swift의 actor와 typed throws로 새로 짠다.
+Koog는 포지션상 Mollo와 가장 닮은 프레임워크다. 둘 다 LangGraph 스타일 그래프를 가져오면서 iOS 타깃을 함께 본다. 차이는 런타임과 DX다. Koog는 Kotlin Multiplatform이며 iOS 타깃은 Kotlin/Native 빌드와 네트워크 구성 조정을 거쳐 Swift에서 브리징해 사용한다. iOS 지원은 가능하지만 Swift 네이티브 1등 시민 DX는 아니다. Mollo는 Swift 런타임 위에서 동작하고 App Intents, CloudKit, Keychain, NLEmbedding을 직접 다룬다. JetBrains의 엔지니어링 표준에서 배울 점이 많고 Apple 생태계에 깊이 들어갈수록 Swift 네이티브의 자연스러움이 살아난다는 정도의 차이다. Koog의 그래프 DSL과 persistence 모델은 추상 수준에서 그대로 참고하되 구현은 Swift의 actor와 typed throws로 새로 짠다.
 
 ## 5. OpenAI Agents SDK - 미니멀리즘과 Handoff
 
@@ -151,7 +153,7 @@ MCP는 Mollo가 그대로 가져오는 표준이다. MolloMCP 모듈은 JSON-RPC
 
 ## 10. 종합 - Mollo 핵심 모듈 매핑
 
-분석한 자산을 Mollo v2.0.2의 9개 모듈에 어떻게 떨어뜨리는지 한 번에 정리한다.
+분석한 자산을 Mollo가 기획 중인 모듈 경계에 어떻게 매핑하는지 한 번에 정리한다.
 
 - `MolloCore`는 LangGraph의 다섯 시그니처(State Channel + Reducer, Durable Execution 인터페이스, Interrupt/Command, Parallel/Map, Subgraph)와 OpenAI Agents SDK의 짧은 Agent 생성자, Pydantic AI의 `Agent<Output>` 제네릭이 모이는 모듈이다
 - `MolloPersistence`는 LangGraph의 Checkpointer를 Swift로 옮긴 자리다. SQLite와 InMemory, Encrypted(AES-256-GCM envelope) 백엔드를 직접 구현하며 메모리는 NLEmbeddingMemory와 SQLiteMemory로 가른다
