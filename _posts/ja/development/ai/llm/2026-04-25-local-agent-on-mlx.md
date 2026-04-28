@@ -765,10 +765,10 @@ SSEストリーミング応答を直接パースして、最初のトークン�
 
 ### 9.3. 自作フレームワークMolloの実装 - 設計完了
 
-学習ロードマップ完了後の次のステップとして、Swift 6ベースのmacOS/iOS/visionOSネイティブエージェントフレームワークMolloを設計した。外部依存ゼロでAppleプラットフォームサービスを第一級市民として扱う。実装予定の核心要素は以下のとおりである。
+この学習ロードマップと並行して、Swift 6ベースのmacOS/iOS/visionOSネイティブエージェントフレームワークMolloを設計した。外部依存ゼロでAppleプラットフォームサービスを第一級市民として扱う。実装予定の核心要素は以下のとおりである。
 
 - StateChannel + Reducerベースのストラテジーグラフ(10種以上のノードタイプ、DFSサイクル検出、`@StrategyBuilder` DSL)
-- 持続実行(Checkpointerプロトコル、`ChannelSnapshot`状態キャプチャ、OS終了復帰用resume API)
+- 中断後に再開可能な実行(Checkpointerプロトコル、`ChannelSnapshot`状態キャプチャ、OS終了復帰用resume API)
 - インタラプト/コマンドベースのヒューマンインザループ(`Interrupt` enumのuserDecision/approval/custom、`Command`再開セマンティクス)
 - Parallel/Mapノード(Swift 6 TaskGroup並行実行、`maxConcurrency`バックプレッシャ)
 - サブグラフノード(既存`Agent<Output>`の再利用、ガードレール/フック/プラグイン/権限/メモリの保持)

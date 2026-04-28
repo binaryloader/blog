@@ -763,10 +763,10 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
 
 ### 9.3. 자체 프레임워크 Mollo 구현 - 설계 완료
 
-학습 로드맵 완료 후 다음 단계로 Swift 6 기반 macOS/iOS/visionOS 네이티브 에이전트 프레임워크 Mollo를 설계했다. 외부 의존성 없이 Apple 플랫폼 서비스를 1급 시민으로 다룬다. 구현 예정 핵심 요소는 아래와 같다.
+이 학습 로드맵과 병행하여 Swift 6 기반 macOS/iOS/visionOS 네이티브 에이전트 프레임워크 Mollo를 설계했다. 외부 의존성 없이 Apple 플랫폼 서비스를 1급 시민으로 다룬다. 구현 예정 핵심 요소는 아래와 같다.
 
 - StateChannel + Reducer 기반 Strategy Graph(10+ 노드 타입, DFS 사이클 탐지, `@StrategyBuilder` DSL)
-- 내구 실행(Checkpointer 프로토콜, `ChannelSnapshot` 상태 캡처, OS 종료 복구 resume API)
+- 중단 후 재개 가능한 실행(Checkpointer 프로토콜, `ChannelSnapshot` 상태 캡처, OS 종료 복구 resume API)
 - 인터럽트/커맨드 기반 휴먼 인 더 루프(`Interrupt` enum의 userDecision/approval/custom, `Command` 재개 시맨틱)
 - Parallel/Map 노드(Swift 6 TaskGroup 동시 실행, `maxConcurrency` 백프레셔)
 - 서브그래프 노드(기존 `Agent<Output>` 재사용, 가드레일/훅/플러그인/권한/메모리 보존)

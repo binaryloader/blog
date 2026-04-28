@@ -765,7 +765,7 @@ The learning highlights are below.
 
 ### 9.3. Custom Framework Mollo Implementation - Design Complete
 
-The next step after completing the learning roadmap is to design Mollo, a Swift 6-based native agent framework for macOS, iOS, and visionOS. It has zero external dependencies and treats Apple platform services as first-class citizens. The core elements planned for implementation are below.
+In parallel with this learning roadmap, I designed Mollo, a Swift 6-based native agent framework for macOS, iOS, and visionOS. It has zero external dependencies and treats Apple platform services as first-class citizens. The core elements planned for implementation are below.
 
 - StateChannel + Reducer-based Strategy Graph (10+ node types, DFS cycle detection, `@StrategyBuilder` DSL)
 - Durable execution (Checkpointer protocol, `ChannelSnapshot` state capture, resume API for OS-termination recovery)
