@@ -797,7 +797,21 @@ Compare the trade-offs between the frameworks referenced during Mollo's design a
 
 # References
 
+- <https://ai.pydantic.dev/>
+- <https://developer.apple.com/documentation/appintents>
+- <https://developer.apple.com/documentation/backgroundtasks>
+- <https://developer.apple.com/documentation/cloudkit>
+- <https://developer.apple.com/documentation/coreml>
+- <https://developer.apple.com/documentation/naturallanguage/nlembedding>
+- <https://developer.apple.com/documentation/security/keychain_services>
+- <https://developer.apple.com/documentation/speech>
+- <https://developer.apple.com/documentation/vision>
+- <https://github.com/langchain-ai/langchain>
+- <https://github.com/langchain-ai/langgraph>
 - <https://github.com/ml-explore/mlx>
 - <https://github.com/ml-explore/mlx-lm>
+- <https://github.com/ml-explore/mlx-swift>
+- <https://github.com/openai/openai-agents-python>
 - <https://huggingface.co/Qwen>
 - <https://huggingface.co/unsloth>
+- <https://modelcontextprotocol.io/>
