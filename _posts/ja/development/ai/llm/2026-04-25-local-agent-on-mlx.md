@@ -727,96 +727,21 @@ SSEストリーミング応答を直接パースして、最初のトークン�
 - 量子化比較(4bit vs 6bit vs 8bit)は量子化比較ノートで扱う。
 - 35B-A3B MoE 4bitモデルの同一シナリオ比較は後続として測定予定である。
 
-## 9. 研究ロードマップ
+## 9. おわりに
 
-### 9.1. ステップ別ロードマップ
+今回の環境構築とベンチマークから整理できる結論は明確である。統合メモリ48GBのApple Silicon Macにおいて、6bit量子化された27B Denseモデルは実用水準で常時起動しておける。ただし、どこまで任せられるかには線があり、その線を正確に認識することで失望せずに活用できる。
 
-エージェントフレームワーク研究と実装のためのステップ別ロードマップは以下のとおりである。
+この環境が最も適しているのは、個人ワークフロー内の軽い文書作業である。頭の中に散らばったメモを一ページにまとめる、ざっくり書いた草稿を磨く、議事録から要点だけを抜き出す、韓国語/英語/日本語の段落単位の翻訳、短いメールやREADMEの草稿作成といった作業がここに当てはまる。デコード9 tok/sとITL p50 110msの分布は人が読み下す速度に近く、結果を待ってもどかしくなることはほとんどない。マルチターン累計約1.8Kトークンまでメモリ負担なく自然に会話が続く。
 
-1. 環境構築
-   - uv tool install mlx-lm
-   - Metal GPUの動作確認
-   - Qwen 3.6 27B Dense 6bitのダウンロード
-2. 単一モデルの検証
-   - mlx_lm.generateで初回応答を確認
-   - mlx_lm.serverを起動
-   - curlまたはOpenAI SDKで互換APIを呼び出し
-3. Tool callingの研究
-   - 単一tool callの動作確認
-   - Hermesフォーマットのraw応答分析
-   - 自作tool callパーサーの作成
-4. エージェントパターンの実装
-   - ReActループの実装
-   - Reflectionパターンの適用
-   - Plan-and-Executeパターンの適用
-5. 比較研究
-   - 35B-A3Bで同じコードを動かして挙動を確認
-   - Dense vs MoEの挙動差を観察
-   - mlx-openai-serverで自作パーサーを検証
+クラウドAPIに依存せずローカルで処理するという点は、単なるコスト削減以上の意味を持つ。個人情報を含むメモ、非公開文書、作業中の草稿のように外部に出すのが憚られるテキストを安心して扱える。飛行機の中や回線が不安定な状況でも同じワークフローが途切れないのは、付随する小さな利点である。基本的にノートパソコン1台の中で全処理が完結するため、データ流出経路自体が存在しない。
 
-### 9.2. 研究ポイント
+逆に、この環境に合わない領域も明確である。長い文書を丸ごと読んで分析する作業(prompt 16K以上)は応答が200秒を超え、swapが始まって実用性が急速に低下する。同時に数十人が接続するチャットボットサービス、大規模なコードベースの自動リファクタリング、長いコンテキストベースの重いRAGのようなワークロードは、クラウドAPIの領域として割り切るのが妥当である。エージェントとして自動化するとしても、デコード9 tok/sは対話型ツールには十分だが、バックグラウンドで数万トークンを吐き出さなければならない仕事には遅い。
 
-研究ポイントは以下のとおりである。
-
-- Qwenの`<think>`ブロックを活用したreasoningの可視化
-- Denseの決定性とMoEのルーティング差の体感
-- Tool callフォーマット(Hermesスタイル)の手動パース経験
-- KVキャッシュの動作とマルチターンのコスト理解
-
-### 9.3. 自作フレームワークMolloの実装
-
-この研究ロードマップと並行して、Swift 6ベースのmacOS/iOS/visionOSネイティブエージェントフレームワークMolloを設計した。外部依存ゼロでAppleプラットフォームサービスを第一級市民として扱う。実装予定の核心要素は以下のとおりである。
-
-- StateChannel + Reducerベースのストラテジーグラフ(10種以上のノードタイプ、DFSサイクル検出、`@StrategyBuilder` DSL)
-- 中断後に再開可能な実行(Checkpointerプロトコル、`ChannelSnapshot`状態キャプチャ、OS終了復帰用resume API)
-- インタラプト/コマンドベースのヒューマンインザループ(`Interrupt` enumのuserDecision/approval/custom、`Command`再開セマンティクス)
-- Parallel/Mapノード(Swift 6 TaskGroup並行実行、`maxConcurrency`バックプレッシャ)
-- サブグラフノード(既に定義した`Agent<Output>`を別グラフのノードとして再利用、ガードレール/フック/プラグイン/権限/メモリの保持)
-- マルチプロバイダーLLM(Anthropic、OpenAI、Google Gemini、DeepSeek、Ollama、OpenAI互換エンドポイント)とルーター(fallback/roundRobin/priority)、デコレーター(レートリミッター、キャッシュ、コストトラッカー)
-- MCPクライアント(JSON-RPC 2.0、stdio/HTTP+SSE/WebSocketトランスポート、サーバー発行リクエスト処理、マルチサーバーライフサイクル)
-- マルチモーダル(Image/Audio/Videoソース抽象化、`SpeechInputTool`、`VisionTool`)
-- ビルトインツール(FileRead/Write/Edit、Grep、Glob、Shell、WebFetchとSSRF/Command Injection防御)
-- Appleプラットフォームサービス統合(AppIntentsベースのSiri/Shortcuts、CloudKitセッション同期、Keychain資格情報ストア、オンライン/オフラインハイブリッドルーター)
-- OAuth 2.0 PKCE(SHA256チャレンジ、CSRFガード、自動リフレッシュ)
-- 永続化(InMemory/SQLite/Encryptedセッション、NLEmbedding/SQLite-FTS5メモリ、5種類の圧縮戦略)
-- 可観測性(`TraceSpan` + JSONファイルエクスポーター、`os.Logger`統合ロガー、レートリミッター、コストトラッカー)
-- 権限/ガードレール/プラグイン(3-tier権限モデル、入出力ガードレール、11のライフサイクルフック)
-- Swift 6型付きスロー(`throws(AgentError)`、`@Sendable`クロージャ、アクターベース並行性)
-- 活用方法は以下の3つの側面である
-  - アプリのサービス機能支援 - アプリが提供する機能をエージェントがユーザーの代わりに呼び出し、組み合わせ、拡張する(チャットボット/対話型UIは一つの形)
-  - アプリ内QA自動化 - エージェントが画面遷移、スクロールオフセット調整、ビューキャプチャ、スナップショットテストといったネイティブツールを呼び出し、実際のアプリを動かしながら検証する
-  - ユーティリティエージェント - ファイル整理、データ変換、ローカル自動化のようなツール型エージェントのネイティブ基盤
-
-### 9.4. 比較研究 - 参照フレームワーク
-
-Mollo設計過程で参照したフレームワークと自作実装のトレードオフを比較する。参照対象は以下のとおりである。
-
-- LangGraph(Python) - State Channel + Reducer、Durable Execution、Interrupt/Command、Parallel/Map抽象化の原型
-- LangChain - BaseChatModel、BaseToolインターフェースパターン
-- Koog - JetBrainsのKotlinエージェントフレームワーク。DSLベースのグラフ定義と戦略パターン
-- OpenAI Agents SDK - Handoff、AgentExecutorパターン
-- Pydantic AI - `Agent[Output]`ジェネリック構造化出力パターン
-- MCP(Model Context Protocol) - JSON-RPC 2.0ベースのツールプロトコル
-- Appleプラットフォーム - AppIntents、CloudKit、Keychain、BackgroundTasks、Vision、Speech、MLX Swift、Core ML、NLEmbedding
+要約すれば、この環境の位置づけは個人の文書整理・作成ツールである。すべての作業を押し付けず、最も適した作業だけを任せれば、毎回クラウドに送らなくても十分に滑らかに回る。その程度の期待値から始めれば、6bit量子化27B Denseは思いのほか長く使い続けるツールになるという結論に至る。
 
 # 参考
 
-- <https://ai.pydantic.dev/>
-- <https://developer.apple.com/documentation/appintents>
-- <https://developer.apple.com/documentation/backgroundtasks>
-- <https://developer.apple.com/documentation/cloudkit>
-- <https://developer.apple.com/documentation/coreml>
-- <https://developer.apple.com/documentation/naturallanguage/nlembedding>
-- <https://developer.apple.com/documentation/security/keychain_services>
-- <https://developer.apple.com/documentation/speech>
-- <https://developer.apple.com/documentation/vision>
-- <https://github.com/langchain-ai/langchain>
-- <https://github.com/langchain-ai/langgraph>
 - <https://github.com/ml-explore/mlx>
-- <https://koog.ai/>
 - <https://github.com/ml-explore/mlx-lm>
-- <https://github.com/ml-explore/mlx-swift>
-- <https://github.com/openai/openai-agents-python>
 - <https://huggingface.co/Qwen>
 - <https://huggingface.co/unsloth>
-- <https://modelcontextprotocol.io/>

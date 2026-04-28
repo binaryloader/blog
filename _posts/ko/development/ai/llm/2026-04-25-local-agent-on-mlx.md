@@ -725,96 +725,21 @@ SSE 스트리밍 응답을 직접 파싱해 첫 토큰까지 시간(TTFT)과 토
 - 양자화 비교(4bit vs 6bit vs 8bit)는 양자화 비교 노트에서 다룬다
 - 35B-A3B MoE 4bit 모델 동일 시나리오 비교는 후속으로 측정할 예정이다
 
-## 9. 연구 로드맵
+## 9. 마치며
 
-### 9.1. 단계별 로드맵
+이번 환경 구축과 벤치마크를 거치면서 정리할 수 있는 결론은 분명하다. 통합 메모리 48GB의 Apple Silicon Mac에서 6bit 양자화된 27B Dense 모델은 실용 수준으로 상시 띄워둘 수 있다. 다만 어디까지 맡길 수 있을지에는 선이 있고, 그 선을 정확히 인식해야 실망 없이 활용할 수 있다.
 
-에이전트 프레임워크 연구와 구현을 위한 단계별 로드맵은 아래와 같다.
+이 환경이 가장 잘 맞는 영역은 개인 워크플로 안에서의 가벼운 문서 작업이다. 머릿속에 흩어진 메모를 한 페이지로 정리하기, 거칠게 적어둔 초안을 다듬기, 회의록에서 핵심만 추리기, 한국어/영어/일본어 사이의 단락 단위 번역, 짧은 이메일이나 README 초안 작성 같은 작업이 여기에 해당한다. 디코드 9 tok/s에 ITL p50 110ms 분포는 사람이 읽어 내려가는 속도와 비슷해 결과를 기다리며 답답해질 일이 거의 없고, 멀티턴 누적 약 1.8K 토큰까지는 메모리 부담 없이 자연스럽게 대화가 이어진다.
 
-1. 환경 구축
-   - uv tool install mlx-lm
-   - Metal GPU 동작 확인
-   - Qwen 3.6 27B Dense 6bit 다운로드
-2. 단일 모델 검증
-   - mlx_lm.generate로 첫 응답 확인
-   - mlx_lm.server를 띄움
-   - curl 또는 OpenAI SDK로 호환 API 호출
-3. Tool calling 연구
-   - 단일 tool call 동작 확인
-   - Hermes 포맷 raw 응답 분석
-   - 직접 tool call 파서 작성
-4. 에이전트 패턴 구현
-   - ReAct 루프 구현
-   - Reflection 패턴 적용
-   - Plan-and-Execute 패턴 적용
-5. 비교 연구
-   - 35B-A3B로 같은 코드를 돌려서 동작 확인
-   - Dense vs MoE 행동 차이 관찰
-   - mlx-openai-server로 본인 파서 검증
+클라우드 API에 의존하지 않고 로컬에서 처리한다는 점은 단순한 비용 절감 이상의 의미가 있다. 개인 정보가 들어 있는 메모, 비공개 문서, 작업 중인 글의 초안처럼 외부로 내보내기 부담스러운 텍스트를 안심하고 다룰 수 있다. 항공기 안이나 회선이 불안정한 상황에서도 동일한 워크플로가 끊기지 않는다는 부수적인 장점도 따라온다. 기본적으로 노트북 한 대 안에서 모든 처리가 끝나기 때문에 데이터 유출 경로 자체가 없다.
 
-### 9.2. 연구 포인트
+반대로 이 환경에 맞지 않는 영역도 분명하다. 긴 문서 한 편을 통째로 읽고 분석하는 작업(prompt 16K 이상)은 응답이 200초를 넘어가고 swap이 시작되어 실용성이 빠르게 떨어진다. 동시에 수십 명이 붙는 챗봇 서비스, 대규모 코드베이스 자동 리팩터링, 긴 컨텍스트 기반의 무거운 RAG 같은 워크로드는 클라우드 API의 영역으로 두는 편이 맞다. 에이전트로 자동화한다고 해도 디코드 9 tok/s는 상호작용형 도구로는 충분하지만 백그라운드에서 수만 토큰을 토해내야 하는 일감에는 답답하다.
 
-연구 포인트는 아래와 같다.
-
-- Qwen의 `<think>` 블록을 활용한 reasoning 가시화
-- Dense의 결정성과 MoE의 라우팅 차이 체감
-- Tool call 포맷(Hermes 스타일) 직접 파싱 경험
-- KV 캐시 동작과 멀티턴 비용 이해
-
-### 9.3. 자체 프레임워크 Mollo 구현
-
-이 연구 로드맵과 병행하여 Swift 6 기반 macOS/iOS/visionOS 네이티브 에이전트 프레임워크 Mollo를 설계했다. 외부 의존성 없이 Apple 플랫폼 서비스를 1급 시민으로 다룬다. 구현 예정 핵심 요소는 아래와 같다.
-
-- StateChannel + Reducer 기반 Strategy Graph(10+ 노드 타입, DFS 사이클 탐지, `@StrategyBuilder` DSL)
-- 중단 후 재개 가능한 실행(Checkpointer 프로토콜, `ChannelSnapshot` 상태 캡처, OS 종료 복구 resume API)
-- 인터럽트/커맨드 기반 휴먼 인 더 루프(`Interrupt` enum의 userDecision/approval/custom, `Command` 재개 시맨틱)
-- Parallel/Map 노드(Swift 6 TaskGroup 동시 실행, `maxConcurrency` 백프레셔)
-- 서브그래프 노드(이미 정의한 `Agent<Output>`을 다른 그래프의 노드로 재사용, 가드레일/훅/플러그인/권한/메모리 보존)
-- 멀티 프로바이더 LLM(Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama, OpenAI 호환 엔드포인트)와 라우터(fallback/roundRobin/priority), 데코레이터(레이트 리미터, 캐시, 코스트 트래커)
-- MCP 클라이언트(JSON-RPC 2.0, stdio/HTTP+SSE/WebSocket 트랜스포트, 서버 발행 요청 처리, 멀티 서버 라이프사이클)
-- 멀티모달(Image/Audio/Video 소스 추상화, `SpeechInputTool`, `VisionTool`)
-- 내장 도구(FileRead/Write/Edit, Grep, Glob, Shell, WebFetch와 SSRF/Command Injection 방어)
-- Apple 플랫폼 서비스 통합(AppIntents 기반 Siri/Shortcuts, CloudKit 세션 동기화, Keychain 자격 증명 저장소, 온/오프라인 하이브리드 라우터)
-- OAuth 2.0 PKCE(SHA256 challenge, CSRF 가드, 자동 리프레시)
-- 영속화(InMemory/SQLite/Encrypted 세션, NLEmbedding/SQLite-FTS5 메모리, 5종 압축 전략)
-- 관찰성(`TraceSpan` + JSON 파일 익스포터, `os.Logger` 통합 로거, 레이트 리미터, 코스트 트래커)
-- 권한/가드레일/플러그인(3-tier 권한 모델, 입출력 가드레일, 11개 라이프사이클 훅)
-- Swift 6 타입드 스로우(`throws(AgentError)`, `@Sendable` 클로저, 액터 기반 동시성)
-- 활용 방안은 아래 세 측면이다
-  - 앱 서비스 기능 지원 - 앱이 제공하는 기능을 에이전트가 사용자 대신 호출하거나 조합하거나 확장(챗봇/대화형 UI는 한 가지 형태)
-  - 앱 내 QA 자동화 - 에이전트가 화면 진입, 스크롤 오프셋 조정, 뷰 캡처, 스냅샷 테스트 같은 네이티브 도구를 호출해 실제 앱을 구동하며 검증
-  - 유틸리티 에이전트 - 파일 정리, 데이터 변환, 로컬 자동화 같은 도구성 에이전트의 네이티브 기반
-
-### 9.4. 비교 연구 - 참조 프레임워크
-
-Mollo 설계 과정에서 참조한 프레임워크와 본인 구현의 트레이드오프를 비교한다. 참조 대상은 아래와 같다.
-
-- LangGraph(Python) - State Channel + Reducer, Durable Execution, Interrupt/Command, Parallel/Map 추상화의 원형
-- LangChain - BaseChatModel, BaseTool 인터페이스 패턴
-- Koog - JetBrains의 Kotlin 에이전트 프레임워크. DSL 기반 그래프 정의와 전략 패턴
-- OpenAI Agents SDK - Handoff, AgentExecutor 패턴
-- Pydantic AI - `Agent[Output]` 제네릭 구조화 출력 패턴
-- MCP(Model Context Protocol) - JSON-RPC 2.0 기반 도구 프로토콜
-- Apple 플랫폼 - AppIntents, CloudKit, Keychain, BackgroundTasks, Vision, Speech, MLX Swift, Core ML, NLEmbedding
+요약하자면 이 환경의 자리는 개인의 글 정리/작성 도구다. 모든 작업을 떠넘기지 않고 가장 잘 맞는 작업만 맡기면 클라우드에 매번 보내지 않아도 충분히 매끄럽게 굴러간다. 그 정도 기대치에서 출발하면 6bit 양자화 27B Dense는 의외로 오래 함께 쓰게 되는 도구라는 결론에 도달한다.
 
 # 참고
 
-- <https://ai.pydantic.dev/>
-- <https://developer.apple.com/documentation/appintents>
-- <https://developer.apple.com/documentation/backgroundtasks>
-- <https://developer.apple.com/documentation/cloudkit>
-- <https://developer.apple.com/documentation/coreml>
-- <https://developer.apple.com/documentation/naturallanguage/nlembedding>
-- <https://developer.apple.com/documentation/security/keychain_services>
-- <https://developer.apple.com/documentation/speech>
-- <https://developer.apple.com/documentation/vision>
-- <https://github.com/langchain-ai/langchain>
-- <https://github.com/langchain-ai/langgraph>
 - <https://github.com/ml-explore/mlx>
-- <https://koog.ai/>
 - <https://github.com/ml-explore/mlx-lm>
-- <https://github.com/ml-explore/mlx-swift>
-- <https://github.com/openai/openai-agents-python>
 - <https://huggingface.co/Qwen>
 - <https://huggingface.co/unsloth>
-- <https://modelcontextprotocol.io/>

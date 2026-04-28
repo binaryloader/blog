@@ -727,96 +727,21 @@ Key observations are below.
 - Quantization comparison (4bit vs 6bit vs 8bit) will be covered in a separate quantization comparison note.
 - A comparison of the 35B-A3B MoE 4bit model under the same scenarios is planned as a follow-up.
 
-## 9. Research Roadmap
+## 9. Closing Notes
 
-### 9.1. Step-by-Step Roadmap
+The clearest conclusion from this environment setup and benchmarking is that a 6bit quantized 27B Dense model can be kept running at a practical level on an Apple Silicon Mac with 48GB of unified memory. There are, however, clear limits on what it can take on, and recognizing those limits is what keeps the experience from disappointing.
 
-A step-by-step roadmap for researching and building an agent framework is below.
+This environment fits best with light document work inside a personal workflow. Tidying scattered notes into a single page, polishing a rough draft, pulling the key points out of meeting notes, translating paragraphs between Korean, English, and Japanese, drafting short emails or READMEs - all of these are well within reach. Decode at 9 tok/s with ITL p50 around 110ms feels close to natural reading speed, so waiting on output rarely becomes uncomfortable, and multi-turn conversations up to roughly 1.8K cumulative tokens flow without any memory pressure.
 
-1. Environment setup
-   - Run uv tool install mlx-lm
-   - Confirm Metal GPU works
-   - Download Qwen 3.6 27B Dense 6bit
-2. Single-model verification
-   - Confirm the first response with mlx_lm.generate
-   - Launch mlx_lm.server
-   - Call the compatible API with curl or the OpenAI SDK
-3. Tool calling research
-   - Verify single tool calls
-   - Analyze raw responses in Hermes format
-   - Write a tool call parser by hand
-4. Agent pattern implementation
-   - Build a ReAct loop
-   - Apply the Reflection pattern
-   - Apply the Plan-and-Execute pattern
-5. Comparative research
-   - Run the same code on 35B-A3B and confirm behavior
-   - Observe Dense vs MoE behavioral differences
-   - Verify your own parser with mlx-openai-server
+Running entirely on local hardware rather than a cloud API means more than just cost reduction. Notes containing personal information, private documents, and in-progress drafts that are uncomfortable to send outside can be handled with peace of mind. The same workflow continues uninterrupted on a plane or with an unreliable connection, which is a small but real benefit. Because all processing happens inside a single laptop, there is no data exfiltration path to worry about.
 
-### 9.2. Research Highlights
+The limits are equally clear. Reading a long document end-to-end (prompts of 16K or more) pushes responses past 200 seconds and starts triggering swap, so practicality drops fast. Chatbot services serving dozens of users at once, large-scale codebase refactoring, and heavy long-context RAG workloads belong with cloud APIs. Even as an agent backbone, 9 tok/s decode is fine for interactive tools but becomes slow when a job has to emit tens of thousands of tokens in the background.
 
-The research highlights are below.
-
-- Reasoning visualization through Qwen's `<think>` blocks
-- Feeling the determinism of Dense versus the routing variance of MoE
-- Hands-on parsing of the tool call format (Hermes style)
-- Understanding KV cache behavior and the cost of multi-turn
-
-### 9.3. Custom Framework Mollo Implementation
-
-In parallel with this research roadmap, I designed Mollo, a Swift 6-based native agent framework for macOS, iOS, and visionOS. It has zero external dependencies and treats Apple platform services as first-class citizens. The core elements planned for implementation are below.
-
-- StateChannel + Reducer-based Strategy Graph (10+ node types, DFS cycle detection, `@StrategyBuilder` DSL)
-- Durable execution (Checkpointer protocol, `ChannelSnapshot` state capture, resume API for OS-termination recovery)
-- Interrupt/Command-based human-in-the-loop (`Interrupt` enum with userDecision/approval/custom, `Command` resume semantics)
-- Parallel/Map nodes (Swift 6 TaskGroup concurrent execution, `maxConcurrency` backpressure)
-- Subgraph node (reusing an already-defined `Agent<Output>` as a node in another graph while preserving guardrails, hooks, plugins, permissions, and memory)
-- Multi-provider LLM (Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama, OpenAI-compatible endpoints) with router (fallback/roundRobin/priority) and decorators (rate limiter, cache, cost tracker)
-- MCP client (JSON-RPC 2.0 over stdio/HTTP+SSE/WebSocket transports, server-initiated request handling, multi-server lifecycle)
-- Multimodal (Image/Audio/Video source abstraction, `SpeechInputTool`, `VisionTool`)
-- Built-in tools (FileRead/Write/Edit, Grep, Glob, Shell, WebFetch with SSRF and command-injection defenses)
-- Apple platform service integration (AppIntents-based Siri/Shortcuts, CloudKit session sync, Keychain credential store, online/offline hybrid router)
-- OAuth 2.0 PKCE (SHA256 challenge, CSRF guard, automatic refresh)
-- Persistence (InMemory/SQLite/Encrypted sessions, NLEmbedding/SQLite-FTS5 memory, 5 compression strategies)
-- Observability (`TraceSpan` + JSON file exporter, unified `os.Logger`, rate limiter, cost tracker)
-- Permissions/guardrails/plugins (3-tier permission model, input/output guardrails, 11 lifecycle hooks)
-- Swift 6 typed throws (`throws(AgentError)`, `@Sendable` closures, actor-based concurrency)
-- The framework supports three usage angles
-  - App service support - the agent calls, combines, or extends the app's features on the user's behalf (a chatbot or conversational UI is just one form)
-  - In-app QA automation - the agent invokes native tools such as screen navigation, scroll-offset adjustment, view capture, and snapshot testing to drive the actual app at runtime and verify it
-  - Utility agents - serves as the native foundation for tool-style agents such as file organization, data transformation, and local automation
-
-### 9.4. Comparative Research - Reference Frameworks
-
-Compare the trade-offs between the frameworks referenced during Mollo's design and your own implementation. The references are below.
-
-- LangGraph (Python) - the original of the State Channel + Reducer, Durable Execution, Interrupt/Command, and Parallel/Map abstractions
-- LangChain - BaseChatModel and BaseTool interface patterns
-- Koog - JetBrains' Kotlin agent framework with DSL-based graph definitions and strategy patterns
-- OpenAI Agents SDK - Handoff and AgentExecutor patterns
-- Pydantic AI - the `Agent[Output]` generic structured-output pattern
-- MCP (Model Context Protocol) - JSON-RPC 2.0-based tool protocol
-- Apple platform - AppIntents, CloudKit, Keychain, BackgroundTasks, Vision, Speech, MLX Swift, Core ML, NLEmbedding
+In short, this environment's place is as a personal writing and tidying tool. Without trying to offload everything onto it and only handing it the tasks that fit, it runs smoothly without sending every prompt to a cloud service. Setting expectations at that level, a 6bit quantized 27B Dense model turns out to be the kind of tool that quietly stays in daily use much longer than expected.
 
 # References
 
-- <https://ai.pydantic.dev/>
-- <https://developer.apple.com/documentation/appintents>
-- <https://developer.apple.com/documentation/backgroundtasks>
-- <https://developer.apple.com/documentation/cloudkit>
-- <https://developer.apple.com/documentation/coreml>
-- <https://developer.apple.com/documentation/naturallanguage/nlembedding>
-- <https://developer.apple.com/documentation/security/keychain_services>
-- <https://developer.apple.com/documentation/speech>
-- <https://developer.apple.com/documentation/vision>
-- <https://github.com/langchain-ai/langchain>
-- <https://github.com/langchain-ai/langgraph>
 - <https://github.com/ml-explore/mlx>
-- <https://koog.ai/>
 - <https://github.com/ml-explore/mlx-lm>
-- <https://github.com/ml-explore/mlx-swift>
-- <https://github.com/openai/openai-agents-python>
 - <https://huggingface.co/Qwen>
 - <https://huggingface.co/unsloth>
-- <https://modelcontextprotocol.io/>
