@@ -771,6 +771,7 @@ The next steps after completing the learning roadmap are below.
 - Integrate human-in-the-loop (approval gates, interrupt handling)
 - Handle state persistence (checkpointing, resumption, session storage)
 - Build domain-specific agents (code review, document writing, etc.)
+- Develop a native agent framework for Apple platforms (macOS, iOS, visionOS) using Swift
 
 # References
 
