@@ -171,7 +171,7 @@ Here is a single-pass mapping of the analyzed assets onto Mollo's planned module
 
 Two things became clear after the analysis. One is that the five assets LangGraph organized are no longer one framework's peculiar abstractions but something close to a validated standard for the agent space. Koog ported the same abstractions to Kotlin, and Mastra and Pydantic AI also unfold similar functionality under different names. Mollo porting these assets into Swift is not a new invention but a faithful re-implementation in a place that has already been validated.
 
-The other is that the seat for putting Apple-platform integration on top of those assets as a first-class citizen is still open. No framework has yet pulled AppIntents, CloudKit, Keychain, BackgroundTasks, and NLEmbedding into the core. Mobile-specific problems such as forced OS termination, background restrictions, voice intents, and multi-device sync are only resolved cleanly when the framework lines up with Apple frameworks. The seat Mollo is going to fill is exactly that gap.
+The other is that the seat for putting Apple-platform integration on top of those assets as a first-class citizen looked open. No framework I came across pulled AppIntents, CloudKit, Keychain, BackgroundTasks, and NLEmbedding into the core. Mobile-specific problems such as forced OS termination, background restrictions, voice intents, and multi-device sync land naturally when the framework lines up with Apple frameworks. That space looked personally interesting, and Mollo is the attempt to walk through it on my own as a learning exercise.
 
 That covers all the assets I wanted to organize before implementation. The next step is the implementation itself.
 
