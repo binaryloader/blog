@@ -158,19 +158,19 @@ MCPはMolloがそのまま取り込む標準である。MolloMCPモジュール�
 
 `NLEmbeddingMemory`はAppleのNaturalLanguageフレームワークが提供する単語／文ベクトルをそのまま用いてオンデバイスのセマンティック検索を解く。SQLite FTS5ベースの`SQLiteMemory`と合わせて二系統のメモリバックエンドを構成する。外部のベクトルDBを引き込まず、AppleフレームワークのみでRAGの検索側を埋められるという点に意味がある。
 
-## 10. 総合：Mollo中核モジュールへのマッピング
+## 10. 総合：Mollo中核モジュールへのマッピング(暫定案)
 
-分析した資産を、Molloが計画中のモジュール境界にどうマッピングするかを一気に整理する。
+この領域はまだ確定設計ではなく、現時点での暫定案である。分析した資産を、Molloが計画中のモジュール境界にどうマッピングするかを、いま描いている見取り図として記しておく。モジュール境界と責務は実装を進めるなかで十分に調整される可能性がある。
 
-- `MolloCore`はLangGraphの5シグネチャ(State Channel + Reducer、Durable Executionインターフェース、Interrupt／Command、Parallel／Map、Subgraph)とOpenAI Agents SDKの短いAgentコンストラクタ、Pydantic AIの`Agent<Output>`ジェネリックが集まるモジュールである
-- `MolloPersistence`はLangGraphのCheckpointerをSwiftに移した席である。SQLiteとInMemory、Encrypted(AES-256-GCM envelope)バックエンドを直接実装し、メモリはNLEmbeddingMemoryとSQLiteMemoryに分ける
-- `MolloProviders`はAnthropic、OpenAI、Google Gemini、DeepSeek、OllamaとOpenAI互換エンドポイントを扱うモジュールである。LLMClientRouterのfallback／roundRobin／priority戦略と、RateLimited／Cached／CostTrackedデコレーターが入る。MastraがVercel AI SDKに委譲した領域を直接書く
-- `MolloMCP`はMCP標準が入る席である。JSON-RPC 2.0クライアントとstdio／HTTP+SSE／WebSocketトランスポート、サーバー発信要求ハンドラを直接実装する
-- `MolloTools`はOpenAI Agents SDKの`@function_tool`に相当するツール定義抽象を持ち、FileRead／Write／Edit、GrepSearch、GlobSearch、ShellTool(macOS、Command Injection防御)、WebFetchTool(SSRF防御)を基本提供する
-- `MolloMultimodal`はVisionとSpeech、ImageSource／AudioSource／VideoSourceを束ねる。Pydantic AIがImageUrl／AudioUrl／VideoUrlで解いた席を、Appleフレームワーク直結で解く
-- `MolloApple`はAppIntents、CloudKit、Keychain、HybridRouter、BackgroundExecution、MemoryPressureHandlerが集まるApple一等市民モジュールである。他のフレームワークには事実上対応するモジュールがない
-- `MolloAuth`はOAuth 2.0 PKCEを実装し、`CredentialStore`プロトコルのみを公開して、Keychain実装はMolloApple側から注入する。逆依存が発生しないよう分けた結果である
-- `MolloObservability`は`TraceSpan`と`TraceCollector`、`JSONFileTraceExporter`、`os.Logger`ベースの`AgentLogger`、`RateLimiter`と`CostTracker`が入る。Pydantic AIのLogfireの席を、OS標準のツールのみで埋める
+- `MolloCore`はLangGraphの5シグネチャ(State Channel + Reducer、Durable Executionインターフェース、Interrupt／Command、Parallel／Map、Subgraph)とOpenAI Agents SDKの短いAgentコンストラクタ、Pydantic AIの`Agent<Output>`ジェネリックを集める席として置こうとしている
+- `MolloPersistence`はLangGraphのCheckpointerをSwiftに移す席として想定している。SQLiteとInMemory、Encrypted(AES-256-GCM envelope)バックエンドを直接実装し、メモリはNLEmbeddingMemoryとSQLiteMemoryに分ける方向で検討している
+- `MolloProviders`はAnthropic、OpenAI、Google Gemini、DeepSeek、OllamaとOpenAI互換エンドポイントを扱うモジュールとして想定している。LLMClientRouterのfallback／roundRobin／priority戦略と、RateLimited／Cached／CostTrackedデコレーターをここに置く構想である。MastraがVercel AI SDKに委譲した領域を直接書く見取り図である
+- `MolloMCP`はMCP標準が入る席として置いている。JSON-RPC 2.0クライアントとstdio／HTTP+SSE／WebSocketトランスポート、サーバー発信要求ハンドラを直接実装する計画である
+- `MolloTools`はOpenAI Agents SDKの`@function_tool`に相当するツール定義抽象を持ち、FileRead／Write／Edit、GrepSearch、GlobSearch、ShellTool(macOS、Command Injection防御)、WebFetchTool(SSRF防御)を基本提供する想定である
+- `MolloMultimodal`はVisionとSpeech、ImageSource／AudioSource／VideoSourceを束ねる席として見ている。Pydantic AIがImageUrl／AudioUrl／VideoUrlで解いた席を、Appleフレームワーク直結で解く方向を考えている
+- `MolloApple`はAppIntents、CloudKit、Keychain、HybridRouter、BackgroundExecution、MemoryPressureHandlerを集めるApple一等市民の席として置こうとしている。他のフレームワークには事実上対応するモジュールがない
+- `MolloAuth`はOAuth 2.0 PKCEを実装し、`CredentialStore`プロトコルのみを公開し、Keychain実装はMolloApple側から注入する構造で考えている。逆依存が発生しないよう分けようという意図である
+- `MolloObservability`は`TraceSpan`と`TraceCollector`、`JSONFileTraceExporter`、`os.Logger`ベースの`AgentLogger`、`RateLimiter`と`CostTracker`を集める席として見ている。Pydantic AIのLogfireの席を、OS標準のツールのみで埋めようという構想である
 
 ## 11. おわりに
 

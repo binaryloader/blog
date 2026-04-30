@@ -156,19 +156,19 @@ MCP는 Mollo가 그대로 가져오는 표준이다. MolloMCP 모듈은 JSON-RPC
 
 `NLEmbeddingMemory`는 Apple의 NaturalLanguage 프레임워크가 제공하는 단어/문장 임베딩을 그대로 사용해 온디바이스 시맨틱 검색을 푼다. SQLite FTS5 기반의 `SQLiteMemory`와 함께 두 갈래의 메모리 백엔드를 구성한다. 외부 벡터 DB를 끌어들이지 않고 Apple 프레임워크만으로 RAG의 검색 측을 채울 수 있다는 점이 의미다.
 
-## 10. 종합 - Mollo 핵심 모듈 매핑
+## 10. 종합 - Mollo 핵심 모듈 매핑(가안)
 
-분석한 자산을 Mollo가 기획 중인 모듈 경계에 어떻게 매핑하는지 한 번에 정리한다.
+이 영역은 아직 확정 설계가 아니라 현 시점의 가안이다. 분석한 자산을 Mollo가 기획 중인 모듈 경계에 어떻게 매핑할지 지금 그려보고 있는 그림으로 정리해둔다. 모듈 경계와 책임은 구현을 진행하면서 충분히 조정될 수 있다.
 
-- `MolloCore`는 LangGraph의 다섯 시그니처(State Channel + Reducer, Durable Execution 인터페이스, Interrupt/Command, Parallel/Map, Subgraph)와 OpenAI Agents SDK의 짧은 Agent 생성자, Pydantic AI의 `Agent<Output>` 제네릭이 모이는 모듈이다
-- `MolloPersistence`는 LangGraph의 Checkpointer를 Swift로 옮긴 자리다. SQLite와 InMemory, Encrypted(AES-256-GCM envelope) 백엔드를 직접 구현하며 메모리는 NLEmbeddingMemory와 SQLiteMemory로 가른다
-- `MolloProviders`는 Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama와 OpenAI 호환 엔드포인트를 다루는 모듈이다. LLMClientRouter의 fallback/roundRobin/priority 전략과 RateLimited/Cached/CostTracked 데코레이터가 들어간다. Mastra가 Vercel AI SDK에 위임한 영역을 직접 짠다
-- `MolloMCP`는 MCP 표준이 들어오는 자리다. JSON-RPC 2.0 클라이언트와 stdio/HTTP+SSE/WebSocket 트랜스포트, 서버 발신 요청 핸들러를 직접 구현한다
-- `MolloTools`는 OpenAI Agents SDK의 `@function_tool`과 같은 도구 정의 추상을 두고 FileRead/Write/Edit, GrepSearch, GlobSearch, ShellTool(macOS, Command Injection 방어), WebFetchTool(SSRF 방어)을 기본 제공한다
-- `MolloMultimodal`은 Vision과 Speech, ImageSource/AudioSource/VideoSource를 묶는다. Pydantic AI가 ImageUrl/AudioUrl/VideoUrl로 풀어둔 자리를 Apple 프레임워크 직결로 푼다
-- `MolloApple`은 AppIntents, CloudKit, Keychain, HybridRouter, BackgroundExecution, MemoryPressureHandler가 모이는 Apple 1등 시민 모듈이다. 다른 프레임워크에는 사실상 대응되는 모듈이 없다
-- `MolloAuth`는 OAuth 2.0 PKCE를 구현하며 `CredentialStore` 프로토콜만 노출하고 Keychain 구현은 MolloApple 쪽에서 주입받는다. 역의존이 발생하지 않도록 가른 결과다
-- `MolloObservability`는 `TraceSpan`과 `TraceCollector`, `JSONFileTraceExporter`, `os.Logger` 기반 `AgentLogger`, `RateLimiter`와 `CostTracker`가 들어간다. Pydantic AI의 Logfire 자리를 OS 표준 도구만으로 채운다
+- `MolloCore`는 LangGraph의 다섯 시그니처(State Channel + Reducer, Durable Execution 인터페이스, Interrupt/Command, Parallel/Map, Subgraph)와 OpenAI Agents SDK의 짧은 Agent 생성자, Pydantic AI의 `Agent<Output>` 제네릭을 모을 자리로 두고 있다
+- `MolloPersistence`는 LangGraph의 Checkpointer를 Swift로 옮길 자리로 잡고 있다. SQLite와 InMemory, Encrypted(AES-256-GCM envelope) 백엔드를 직접 구현하고 메모리는 NLEmbeddingMemory와 SQLiteMemory로 가르는 방향을 검토하고 있다
+- `MolloProviders`는 Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama와 OpenAI 호환 엔드포인트를 다룰 모듈로 보고 있다. LLMClientRouter의 fallback/roundRobin/priority 전략과 RateLimited/Cached/CostTracked 데코레이터를 여기에 둘 생각이다. Mastra가 Vercel AI SDK에 위임한 영역을 직접 짜는 그림이다
+- `MolloMCP`는 MCP 표준이 들어올 자리로 잡고 있다. JSON-RPC 2.0 클라이언트와 stdio/HTTP+SSE/WebSocket 트랜스포트, 서버 발신 요청 핸들러를 직접 구현할 계획이다
+- `MolloTools`는 OpenAI Agents SDK의 `@function_tool`과 같은 도구 정의 추상을 두고 FileRead/Write/Edit, GrepSearch, GlobSearch, ShellTool(macOS, Command Injection 방어), WebFetchTool(SSRF 방어)을 기본 제공할 생각이다
+- `MolloMultimodal`은 Vision과 Speech, ImageSource/AudioSource/VideoSource를 묶을 자리로 보고 있다. Pydantic AI가 ImageUrl/AudioUrl/VideoUrl로 풀어둔 자리를 Apple 프레임워크 직결로 푸는 방향을 생각하고 있다
+- `MolloApple`은 AppIntents, CloudKit, Keychain, HybridRouter, BackgroundExecution, MemoryPressureHandler를 모을 Apple 1등 시민 자리로 두고 있다. 다른 프레임워크에는 사실상 대응되는 모듈이 없다
+- `MolloAuth`는 OAuth 2.0 PKCE를 구현하고 `CredentialStore` 프로토콜만 노출하며 Keychain 구현은 MolloApple 쪽에서 주입받는 구조로 잡고 있다. 역의존이 발생하지 않도록 가르려는 의도다
+- `MolloObservability`는 `TraceSpan`과 `TraceCollector`, `JSONFileTraceExporter`, `os.Logger` 기반 `AgentLogger`, `RateLimiter`와 `CostTracker`를 모을 자리로 보고 있다. Pydantic AI의 Logfire 자리를 OS 표준 도구만으로 채워볼 생각이다
 
 ## 11. 마치며
 

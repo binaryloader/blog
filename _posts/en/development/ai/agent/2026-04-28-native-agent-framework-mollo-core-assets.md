@@ -158,19 +158,19 @@ This is where none of the analyzed frameworks fill the gap. None of them treat A
 
 `NLEmbeddingMemory` uses the word/sentence embeddings provided by Apple's NaturalLanguage framework to solve on-device semantic search. Together with `SQLiteMemory` based on SQLite FTS5 it forms a two-track memory backend. The point is that the search side of RAG can be filled using only Apple frameworks without pulling in an external vector DB.
 
-## 10. Synthesis - Mapping to Mollo's Core Modules
+## 10. Synthesis - Mapping to Mollo's Core Modules (Tentative)
 
-Here is a single-pass mapping of the analyzed assets onto Mollo's planned module boundaries.
+This section is not a finalized design but a tentative draft at this point in time. It captures how the analyzed assets are currently being mapped onto Mollo's planned module boundaries. The module boundaries and responsibilities may well shift as implementation proceeds.
 
-- `MolloCore` is where LangGraph's five signatures (State Channel + Reducer, Durable Execution interface, Interrupt/Command, Parallel/Map, Subgraph), OpenAI Agents SDK's short Agent constructor, and Pydantic AI's `Agent<Output>` generic come together
-- `MolloPersistence` is where LangGraph's Checkpointer is ported into Swift. SQLite, InMemory, and Encrypted (AES-256-GCM envelope) backends are implemented directly, and memory is split between NLEmbeddingMemory and SQLiteMemory
-- `MolloProviders` is the module that handles Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama, and OpenAI-compatible endpoints. It contains LLMClientRouter's fallback / roundRobin / priority strategies and RateLimited / Cached / CostTracked decorators. The area Mastra delegates to the Vercel AI SDK is written directly here
-- `MolloMCP` is where the MCP standard lands. It implements the JSON-RPC 2.0 client, the stdio / HTTP+SSE / WebSocket transports, and server-initiated request handlers directly
-- `MolloTools` carries a tool-definition abstraction equivalent to OpenAI Agents SDK's `@function_tool` and ships FileRead/Write/Edit, GrepSearch, GlobSearch, ShellTool (macOS, with Command Injection defense), and WebFetchTool (with SSRF defense) as built-ins
-- `MolloMultimodal` bundles Vision, Speech, and ImageSource/AudioSource/VideoSource. The territory Pydantic AI covers through ImageUrl/AudioUrl/VideoUrl is solved here through direct Apple framework wiring
-- `MolloApple` is the Apple first-class-citizen module where AppIntents, CloudKit, Keychain, HybridRouter, BackgroundExecution, and MemoryPressureHandler come together. Other frameworks effectively have no equivalent module
-- `MolloAuth` implements OAuth 2.0 PKCE, exposes only the `CredentialStore` protocol, and receives the Keychain implementation injected from the MolloApple side. It is split this way to avoid reverse dependency
-- `MolloObservability` carries `TraceSpan`, `TraceCollector`, `JSONFileTraceExporter`, `AgentLogger` on top of `os.Logger`, `RateLimiter`, and `CostTracker`. The seat Pydantic AI fills with Logfire is filled here using only OS standard tools
+- `MolloCore` is being treated as the place to gather LangGraph's five signatures (State Channel + Reducer, Durable Execution interface, Interrupt/Command, Parallel/Map, Subgraph), OpenAI Agents SDK's short Agent constructor, and Pydantic AI's `Agent<Output>` generic
+- `MolloPersistence` is being shaped as the seat where LangGraph's Checkpointer is ported into Swift. The current direction is to implement SQLite, InMemory, and Encrypted (AES-256-GCM envelope) backends directly, and to split memory between NLEmbeddingMemory and SQLiteMemory
+- `MolloProviders` is currently seen as the module to handle Anthropic, OpenAI, Google Gemini, DeepSeek, Ollama, and OpenAI-compatible endpoints. The plan is to place LLMClientRouter's fallback / roundRobin / priority strategies and RateLimited / Cached / CostTracked decorators here. The area Mastra delegates to the Vercel AI SDK is the area we expect to write directly
+- `MolloMCP` is being kept as the seat where the MCP standard lands. The plan is to implement the JSON-RPC 2.0 client, the stdio / HTTP+SSE / WebSocket transports, and server-initiated request handlers directly
+- `MolloTools` is intended to carry a tool-definition abstraction equivalent to OpenAI Agents SDK's `@function_tool` and to ship FileRead/Write/Edit, GrepSearch, GlobSearch, ShellTool (macOS, with Command Injection defense), and WebFetchTool (with SSRF defense) as built-ins
+- `MolloMultimodal` is being shaped as the seat that bundles Vision, Speech, and ImageSource/AudioSource/VideoSource. The territory Pydantic AI covers through ImageUrl/AudioUrl/VideoUrl is the area we expect to solve through direct Apple framework wiring
+- `MolloApple` is being treated as the Apple first-class-citizen seat that gathers AppIntents, CloudKit, Keychain, HybridRouter, BackgroundExecution, and MemoryPressureHandler. Other frameworks effectively have no equivalent module
+- `MolloAuth` is being shaped to implement OAuth 2.0 PKCE, expose only the `CredentialStore` protocol, and receive the Keychain implementation injected from the MolloApple side. The intent of splitting it this way is to avoid a reverse dependency
+- `MolloObservability` is being seen as the seat that gathers `TraceSpan`, `TraceCollector`, `JSONFileTraceExporter`, `AgentLogger` on top of `os.Logger`, `RateLimiter`, and `CostTracker`. The plan is to fill the seat Pydantic AI fills with Logfire using only OS standard tools
 
 ## 11. Closing
 
