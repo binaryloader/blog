@@ -247,9 +247,32 @@ html {
 }
 
 /* Masthead */
+/* Sticky masthead so the top bar follows the sidebar on scroll.
+   Only applied on $large and above where the sidebar is also sticky
+   (see _main.js stickySideBar() which gates the .sticky class behind width > 1024). */
+.masthead {
+  background-color: var(--bg-color);
+
+  @include breakpoint($large) {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+}
+
 [data-theme="dark"] .masthead {
   background-color: var(--bg-color);
   border-bottom-color: var(--border-color);
+}
+
+/* Pull the sticky sidebar down so it sits flush under the sticky masthead.
+   Masthead inner-wrap padding (1em top + 1em bottom) plus logo max-height (2rem)
+   plus the 1px bottom border lands around 4em. Add a little breathing room. */
+.sidebar.sticky {
+  @include breakpoint($large) {
+    top: 4.5em;
+    max-height: calc(100vh - 4.5em - 1em);
+  }
 }
 
 [data-theme="dark"] .greedy-nav {
