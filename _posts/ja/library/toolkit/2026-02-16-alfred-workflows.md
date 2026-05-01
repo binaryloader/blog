@@ -34,8 +34,8 @@ alfred-workflowsは、macOSのAlfredランチャー用カスタムワークフ�
 
 ## 3. 含まれるワークフロー
 
-- Jekyll Time Format: Jekyll投稿の`date`/`last_modified_at`に入る韓国標準時(KST)形式の文字列を即時生成
+- **[Jekyll Time Format](https://github.com/binaryloader/alfred-workflows/tree/main/jekyll-time-format)** - キーワード`jt`で起動すると、現在時刻を`YYYY-MM-DDTHH:MM+09:00`(KST)形式のタイムスタンプとしてクリップボードにコピーする。Jekyll投稿frontmatterの`last_modified_at`更新用
 
 ## 4. インストール
 
-リポジトリ内の各ワークフローフォルダにある`.alfredworkflow`ファイルをダブルクリックすると、Alfredに自動インポートされる。
+各ワークフローフォルダ内の`.alfredworkflow`ファイルをダブルクリックするとAlfredに自動インポートされる。

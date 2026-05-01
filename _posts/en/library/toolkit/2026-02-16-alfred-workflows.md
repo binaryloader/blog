@@ -34,8 +34,8 @@ alfred-workflows is a custom workflow collection for the Alfred launcher on macO
 
 ## 3. Included Workflows
 
-- Jekyll Time Format: Instantly generates Korean Standard Time (KST) strings for the `date`/`last_modified_at` fields in Jekyll posts
+- **[Jekyll Time Format](https://github.com/binaryloader/alfred-workflows/tree/main/jekyll-time-format)** - Trigger with keyword `jt` to copy the current time as a `YYYY-MM-DDTHH:MM+09:00` (KST) timestamp to your clipboard. Designed for updating the `last_modified_at` field in Jekyll post frontmatter
 
 ## 4. Install
 
-Double-click the `.alfredworkflow` file inside each workflow folder in the repository to auto-import into Alfred.
+Double-click the `.alfredworkflow` file inside each workflow folder to auto-import into Alfred.
