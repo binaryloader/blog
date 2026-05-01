@@ -1,0 +1,25 @@
+{% assign library_lang = page.lang | default: "ko" %}
+{% if library_lang == "ko-KR" %}{% assign library_lang = "ko" %}{% endif %}
+{% assign library_labels = site.data.i18n[library_lang] %}
+{% assign library_count = 0 %}
+{%- for post in site.categories[include.taxonomy] -%}
+  {%- unless post.hidden -%}
+    {% if include.parent %}
+      {% unless post.categories contains include.parent %}{% continue %}{% endunless %}
+    {% endif %}
+    {% if library_lang == "ko" %}
+      {% unless post.lang %}
+        {% include library-card.html post=post labels=library_labels %}
+        {% assign library_count = library_count | plus: 1 %}
+      {% endunless %}
+    {% else %}
+      {% if post.lang == library_lang %}
+        {% include library-card.html post=post labels=library_labels %}
+        {% assign library_count = library_count | plus: 1 %}
+      {% endif %}
+    {% endif %}
+  {%- endunless -%}
+{%- endfor -%}
+{% if library_count == 0 %}
+<p class="library-empty">{{ library_labels.library_empty }}</p>
+{% endif %}

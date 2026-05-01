@@ -6,6 +6,10 @@ ko:
   next_post: "다음 글"
   no_prev_post: "이전 글 없음"
   no_next_post: "다음 글 없음"
+  library_creator: "개발"
+  library_designer: "디자인"
+  library_github: "GitHub →"
+  library_empty: "아직 등록된 항목이 없습니다."
 
 en:
   subtitle: "Recording diverse experiences"
@@ -15,6 +19,10 @@ en:
   next_post: "Next"
   no_prev_post: "No previous post"
   no_next_post: "No next post"
+  library_creator: "Developed by"
+  library_designer: "Designed by"
+  library_github: "GitHub →"
+  library_empty: "No entries yet."
 
 ja:
   subtitle: "多様な経験を記録します"
@@ -24,3 +32,7 @@ ja:
   next_post: "次の記事"
   no_prev_post: "前の記事なし"
   no_next_post: "次の記事なし"
+  library_creator: "開発"
+  library_designer: "デザイン"
+  library_github: "GitHub →"
+  library_empty: "まだ登録された項目がありません。"
