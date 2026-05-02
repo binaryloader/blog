@@ -157,19 +157,6 @@ menu:
       - title: "Synology"
         url: /ko/playground/synology/
         category: "Synology"
-  - title: "Library"
-    url: /ko/library/
-    category: "Library"
-    children:
-      - title: "App"
-        url: /ko/library/app/
-        category: "App"
-      - title: "MCP"
-        url: /ko/library/mcp/
-        category: "MCP"
-      - title: "Toolkit"
-        url: /ko/library/toolkit/
-        category: "Toolkit"
   - title: "Writing"
     url: /ko/writing/
     category: "Writing"
@@ -312,19 +299,6 @@ menu-en:
       - title: "Synology"
         url: /en/playground/synology/
         category: "Synology"
-  - title: "Library"
-    url: /en/library/
-    category: "Library"
-    children:
-      - title: "App"
-        url: /en/library/app/
-        category: "App"
-      - title: "MCP"
-        url: /en/library/mcp/
-        category: "MCP"
-      - title: "Toolkit"
-        url: /en/library/toolkit/
-        category: "Toolkit"
   - title: "Writing"
     url: /en/writing/
     category: "Writing"
@@ -467,19 +441,6 @@ menu-ja:
       - title: "Synology"
         url: /ja/playground/synology/
         category: "Synology"
-  - title: "Library"
-    url: /ja/library/
-    category: "Library"
-    children:
-      - title: "App"
-        url: /ja/library/app/
-        category: "App"
-      - title: "MCP"
-        url: /ja/library/mcp/
-        category: "MCP"
-      - title: "Toolkit"
-        url: /ja/library/toolkit/
-        category: "Toolkit"
   - title: "Writing"
     url: /ja/writing/
     category: "Writing"
