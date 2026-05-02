@@ -28,6 +28,15 @@ depth:
     url: /ko/development/ai/agentic-coding-assistant/
   - title: "Claude Code"
     url: /ko/development/ai/agentic-coding-assistant/claude-code/
+credits:
+  planning: binaryloader
+  research: [binaryloader, Claude]
+  drafting: binaryloader
+  editing: binaryloader
+  review: [binaryloader, Claude]
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 개요

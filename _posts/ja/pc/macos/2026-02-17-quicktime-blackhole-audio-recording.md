@@ -24,6 +24,15 @@ depth:
     url: /ja/pc/
   - title: "macOS"
     url: /ja/pc/macos/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 {% assign img_path = "/assets/image/post/pc/macos/quicktime-blackhole-audio-recording" %}

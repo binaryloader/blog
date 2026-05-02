@@ -34,6 +34,15 @@ depth:
     url: /ja/development/ai/agentic-coding-assistant/terminal/
 sidebar:
   nav: "menu-ja"
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 概要

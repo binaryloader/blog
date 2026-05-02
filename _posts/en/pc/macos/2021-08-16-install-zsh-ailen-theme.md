@@ -26,6 +26,15 @@ depth:
     url: /en/pc/
   - title: "macOS"
     url: /en/pc/macos/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

@@ -28,6 +28,15 @@ depth:
     url: /ko/development/apple/
   - title: "macOS"
     url: /ko/development/apple/macos/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 {% assign img_path = "/assets/image/post/development/apple/macos/building-claude-usage-meter-with-claude-code" %}

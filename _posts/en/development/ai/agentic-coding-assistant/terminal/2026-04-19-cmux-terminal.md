@@ -34,6 +34,15 @@ depth:
     url: /en/development/ai/agentic-coding-assistant/terminal/
 sidebar:
   nav: "menu-en"
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

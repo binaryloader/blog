@@ -25,6 +25,15 @@ depth:
     url: /ko/pc/
   - title: "macOS"
     url: /ko/pc/macos/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 개요

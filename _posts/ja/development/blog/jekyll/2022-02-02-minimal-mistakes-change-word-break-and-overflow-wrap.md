@@ -35,6 +35,15 @@ gallery_result:
   - url: /assets/image/post/development/blog/jekyll/minimal-mistakes-change-word-break-and-overflow-wrap/after.png
     image_path: /assets/image/post/development/blog/jekyll/minimal-mistakes-change-word-break-and-overflow-wrap/after.png
     title: "word-breakプロパティおよびoverflow-wrapプロパティ指定後"
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 概要

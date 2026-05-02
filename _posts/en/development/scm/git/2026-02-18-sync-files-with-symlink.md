@@ -26,6 +26,15 @@ depth:
     url: /en/development/scm/
   - title: "Git"
     url: /en/development/scm/git/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

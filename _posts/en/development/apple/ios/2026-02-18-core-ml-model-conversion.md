@@ -29,6 +29,15 @@ depth:
     url: /en/development/apple/
   - title: "iOS"
     url: /en/development/apple/ios/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

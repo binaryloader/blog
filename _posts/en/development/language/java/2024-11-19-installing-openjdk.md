@@ -30,6 +30,15 @@ depth:
     url: /en/development/language/
   - title: "Java"
     url: /en/development/language/java/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

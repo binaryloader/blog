@@ -27,6 +27,15 @@ depth:
     url: /ko/development/blog/
   - title: "Jekyll"
     url: /ko/development/blog/jekyll/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 개요

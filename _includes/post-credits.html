@@ -1,0 +1,75 @@
+{%- comment -%}
+  Post Credits Card
+  --------------------------------------------------------------------
+  Renders the per-post collaboration credits when `page.credits` is set.
+
+  Each step value can be:
+    - a single string (e.g. "binaryloader" or "Claude")
+    - an array (e.g. ["Claude", "binaryloader"])
+
+  Variables here use `pc_` prefix to avoid Liquid scope pollution.
+{%- endcomment -%}
+
+{%- if page.credits -%}
+  {%- assign pc_lang = page.lang | default: "ko" -%}
+  {%- assign pc_i18n = site.data.i18n[pc_lang] -%}
+  {%- assign pc_credits_i18n = pc_i18n.credits -%}
+  {%- assign pc_steps = "planning,research,drafting,editing,review,translation,thumbnail,publishing" | split: "," -%}
+
+  <section class="post-credits" lang="{{ pc_lang }}" aria-label="{{ pc_credits_i18n.heading | default: 'Credits' }}">
+    <p class="post-credits__header"><strong><i class="fas fa-fw fa-user-tag" aria-hidden="true"></i> {{ pc_credits_i18n.heading | default: "Owners" }}</strong></p>
+    <dl class="post-credits__list">
+      {%- for pc_step in pc_steps -%}
+        {%- assign pc_value = page.credits[pc_step] -%}
+        {%- if pc_value -%}
+          {%- comment -%} Normalize single string to array. Arrays respond to `.first`; strings do not. {%- endcomment -%}
+          {%- assign pc_people = "" | split: "" -%}
+          {%- if pc_value.first -%}
+            {%- assign pc_people = pc_value -%}
+          {%- else -%}
+            {%- assign pc_people = pc_value | split: "|" -%}
+          {%- endif -%}
+
+          {%- assign pc_step_label = pc_credits_i18n.steps[pc_step] | default: pc_step -%}
+
+          {%- comment -%} Sort: binaryloader (human) first, then everyone else. {%- endcomment -%}
+          {%- assign pc_others = "" | split: "" -%}
+          {%- assign pc_has_human = false -%}
+          {%- for pc_person in pc_people -%}
+            {%- if pc_person == "binaryloader" -%}
+              {%- assign pc_has_human = true -%}
+            {%- else -%}
+              {%- assign pc_others = pc_others | push: pc_person -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if pc_has_human -%}
+            {%- assign pc_humans = "binaryloader" | split: "," -%}
+            {%- assign pc_sorted = pc_humans | concat: pc_others -%}
+          {%- else -%}
+            {%- assign pc_sorted = pc_others -%}
+          {%- endif -%}
+
+          <div class="post-credits__row">
+            <dt class="post-credits__step">{{ pc_step_label }}</dt>
+            <dd class="post-credits__owner">
+              {%- for pc_person in pc_sorted -%}
+                <span class="post-credits__person">
+                  {%- if pc_person == "Claude" -%}
+                    <span class="post-credits__avatar post-credits__avatar--claude" aria-hidden="true">
+                      <img src="{{ '/assets/image/icons/claudecode-color.svg' | relative_url }}" alt="" loading="lazy" />
+                    </span>
+                  {%- elsif pc_person == "binaryloader" -%}
+                    <span class="post-credits__avatar post-credits__avatar--binaryloader" aria-hidden="true">
+                      <img src="{{ '/assets/image/logo/logo.png' | relative_url }}" alt="" loading="lazy" />
+                    </span>
+                  {%- endif -%}
+                  <span class="post-credits__name">{{ pc_person }}</span>
+                </span>
+              {%- endfor -%}
+            </dd>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </dl>
+  </section>
+{%- endif -%}

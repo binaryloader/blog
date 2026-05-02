@@ -28,6 +28,15 @@ depth:
     url: /ko/development/scm/
   - title: "Git"
     url: /ko/development/scm/git/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 개요

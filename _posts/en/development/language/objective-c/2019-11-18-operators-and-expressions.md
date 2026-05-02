@@ -26,6 +26,15 @@ depth:
     url: /en/development/language/
   - title: "Objective-C"
     url: /en/development/language/objective-c/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

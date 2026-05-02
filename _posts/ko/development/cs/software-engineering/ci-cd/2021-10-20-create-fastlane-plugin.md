@@ -37,6 +37,15 @@ depth:
 gallery_plugin-folder-structure:
   - url: /assets/image/post/development/cs/software-engineering/ci-cd/create-fastlane-plugin/plugin-folder-structure.png
     image_path: /assets/image/post/development/cs/software-engineering/ci-cd/create-fastlane-plugin/plugin-folder-structure.png
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 개요

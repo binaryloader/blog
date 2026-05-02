@@ -30,6 +30,15 @@ depth:
     url: /ko/development/ai/agentic-coding-assistant/
   - title: "Terminal"
     url: /ko/development/ai/agentic-coding-assistant/terminal/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 개요

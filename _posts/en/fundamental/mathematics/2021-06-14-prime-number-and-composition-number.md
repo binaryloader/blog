@@ -23,6 +23,15 @@ depth:
     url: /en/fundamental/
   - title: "Mathematics"
     url: /en/fundamental/mathematics/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

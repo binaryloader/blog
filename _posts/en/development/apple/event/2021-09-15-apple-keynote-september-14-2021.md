@@ -31,6 +31,15 @@ depth:
     url: /en/development/apple/
   - title: "Event"
     url: /en/development/apple/event/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

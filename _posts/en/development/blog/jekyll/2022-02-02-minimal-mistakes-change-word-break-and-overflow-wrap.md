@@ -35,6 +35,15 @@ gallery_result:
   - url: /assets/image/post/development/blog/jekyll/minimal-mistakes-change-word-break-and-overflow-wrap/after.png
     image_path: /assets/image/post/development/blog/jekyll/minimal-mistakes-change-word-break-and-overflow-wrap/after.png
     title: "After applying word-break and overflow-wrap properties"
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

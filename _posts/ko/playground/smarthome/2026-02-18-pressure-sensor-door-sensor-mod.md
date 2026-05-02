@@ -45,6 +45,15 @@ depth:
     url: /ko/playground/
   - title: "SmartHome"
     url: /ko/playground/smarthome/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 개요

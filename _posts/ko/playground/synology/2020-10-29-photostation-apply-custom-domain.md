@@ -24,6 +24,15 @@ depth:
     url: /ko/playground/
   - title: "Synology"
     url: /ko/playground/synology/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 개요

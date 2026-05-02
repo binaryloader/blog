@@ -47,6 +47,15 @@ depth:
     url: /ja/playground/
   - title: "SmartHome"
     url: /ja/playground/smarthome/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 概要

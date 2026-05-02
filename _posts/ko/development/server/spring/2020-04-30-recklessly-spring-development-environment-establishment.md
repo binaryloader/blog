@@ -31,6 +31,15 @@ depth:
 gallery_eclipse:
   - url: /assets/image/post/development/server/spring/recklessly-spring-development-environment-establishment/eclipse.png
     image_path: /assets/image/post/development/server/spring/recklessly-spring-development-environment-establishment/eclipse.png
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 개요

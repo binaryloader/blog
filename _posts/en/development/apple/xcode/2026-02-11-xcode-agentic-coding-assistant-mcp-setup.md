@@ -29,6 +29,15 @@ depth:
     url: /en/development/apple/
   - title: "Xcode"
     url: /en/development/apple/xcode/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

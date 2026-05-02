@@ -45,6 +45,15 @@ gallery_components:
     image_path: /assets/image/post/playground/smarthome/smartthings-hub-v3-purchase-review/st-hub-package-guide.png
   - url: /assets/image/post/playground/smarthome/smartthings-hub-v3-purchase-review/st-hub-package-components.png
     image_path: /assets/image/post/playground/smarthome/smartthings-hub-v3-purchase-review/st-hub-package-components.png
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 개요

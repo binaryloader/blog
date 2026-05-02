@@ -6,6 +6,17 @@ ko:
   next_post: "다음 글"
   no_prev_post: "이전 글 없음"
   no_next_post: "다음 글 없음"
+  credits:
+    heading: "담당자:"
+    steps:
+      planning: "기획"
+      research: "리서치"
+      drafting: "초안"
+      editing: "편집"
+      review: "리뷰"
+      translation: "번역"
+      thumbnail: "썸네일"
+      publishing: "발행"
 
 en:
   subtitle: "Recording diverse experiences"
@@ -15,6 +26,17 @@ en:
   next_post: "Next"
   no_prev_post: "No previous post"
   no_next_post: "No next post"
+  credits:
+    heading: "Owners:"
+    steps:
+      planning: "Planning"
+      research: "Research"
+      drafting: "Drafting"
+      editing: "Editing"
+      review: "Review"
+      translation: "Translation"
+      thumbnail: "Thumbnail"
+      publishing: "Publishing"
 
 ja:
   subtitle: "多様な経験を記録します"
@@ -24,3 +46,14 @@ ja:
   next_post: "次の記事"
   no_prev_post: "前の記事なし"
   no_next_post: "次の記事なし"
+  credits:
+    heading: "担当者:"
+    steps:
+      planning: "企画"
+      research: "リサーチ"
+      drafting: "下書き"
+      editing: "編集"
+      review: "レビュー"
+      translation: "翻訳"
+      thumbnail: "サムネイル"
+      publishing: "公開"

@@ -27,6 +27,15 @@ depth:
     url: /en/development/blog/
   - title: "Jekyll"
     url: /en/development/blog/jekyll/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

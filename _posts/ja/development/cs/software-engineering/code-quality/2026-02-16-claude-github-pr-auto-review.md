@@ -33,6 +33,15 @@ depth:
     url: /ja/development/cs/software-engineering/
   - title: "Code Quality"
     url: /ja/development/cs/software-engineering/code-quality/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 概要

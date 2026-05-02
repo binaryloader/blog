@@ -33,6 +33,15 @@ depth:
     url: /en/development/cs/software-engineering/
   - title: "CI/CD"
     url: /en/development/cs/software-engineering/ci-cd/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

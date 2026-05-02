@@ -30,6 +30,15 @@ depth:
     url: /ja/development/ai/agentic-coding-assistant/
   - title: "MCP"
     url: /ja/development/ai/agentic-coding-assistant/mcp/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 概要

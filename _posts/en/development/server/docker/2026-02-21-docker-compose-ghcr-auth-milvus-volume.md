@@ -28,6 +28,15 @@ depth:
     url: /en/development/server/
   - title: "Docker"
     url: /en/development/server/docker/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

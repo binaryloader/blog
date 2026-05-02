@@ -60,6 +60,15 @@ gallery_dashboard:
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-room.jpg
     alt: "Home Assistantダッシュボード：部屋"
     title: "Home Assistantダッシュボード：部屋"
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 概要

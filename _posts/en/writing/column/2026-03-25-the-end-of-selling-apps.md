@@ -24,6 +24,15 @@ depth:
     url: /en/writing/
   - title: "Column"
     url: /en/writing/column/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

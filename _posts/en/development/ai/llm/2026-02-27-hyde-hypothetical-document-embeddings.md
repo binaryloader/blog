@@ -28,6 +28,15 @@ depth:
     url: /en/development/ai/
   - title: "LLM"
     url: /en/development/ai/llm/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

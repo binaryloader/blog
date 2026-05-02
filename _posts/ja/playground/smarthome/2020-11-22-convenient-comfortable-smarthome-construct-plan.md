@@ -27,6 +27,15 @@ depth:
 gallery_infra:
   - url: /assets/image/post/playground/smarthome/convenient-comfortable-smarthome-construct-plan/infra.png
     image_path: /assets/image/post/playground/smarthome/convenient-comfortable-smarthome-construct-plan/infra.png
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 概要

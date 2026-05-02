@@ -32,6 +32,15 @@ gallery_local_access_settings:
 gallery_trust_certificate:
   - url: /assets/image/post/playground/router/asus-router-settings-page-enable-https/trust-certificate.png
     image_path: /assets/image/post/playground/router/asus-router-settings-page-enable-https/trust-certificate.png
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 개요

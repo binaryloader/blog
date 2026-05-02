@@ -26,6 +26,15 @@ depth:
     url: /en/development/server/
   - title: "Swagger"
     url: /en/development/server/swagger/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

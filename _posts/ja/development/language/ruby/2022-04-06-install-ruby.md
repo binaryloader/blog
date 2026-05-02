@@ -27,6 +27,15 @@ depth:
     url: /ja/development/language/
   - title: "Ruby"
     url: /ja/development/language/ruby/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 概要

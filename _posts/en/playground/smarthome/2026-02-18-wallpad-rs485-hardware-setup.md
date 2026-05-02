@@ -60,6 +60,15 @@ gallery_dashboard:
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-room.jpg
     alt: "Home Assistant Dashboard - Room"
     title: "Home Assistant Dashboard - Room"
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

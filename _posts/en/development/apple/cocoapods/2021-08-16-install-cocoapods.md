@@ -29,6 +29,15 @@ depth:
     url: /en/development/apple/
   - title: "CocoaPods"
     url: /en/development/apple/cocoapods/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

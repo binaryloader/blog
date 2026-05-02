@@ -27,6 +27,15 @@ depth:
     url: /ja/development/language/
   - title: "Python"
     url: /ja/development/language/python/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 概要

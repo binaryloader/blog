@@ -25,6 +25,15 @@ depth:
     url: /en/playground/
   - title: "Synology"
     url: /en/playground/synology/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # Overview

@@ -22,6 +22,15 @@ depth:
     url: /ko/fundamental/
   - title: "Mathematics"
     url: /ko/fundamental/mathematics/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 개요

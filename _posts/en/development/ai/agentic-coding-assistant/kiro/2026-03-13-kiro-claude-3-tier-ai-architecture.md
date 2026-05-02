@@ -30,6 +30,15 @@ depth:
     url: /en/development/ai/agentic-coding-assistant/
   - title: "Kiro"
     url: /en/development/ai/agentic-coding-assistant/kiro/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

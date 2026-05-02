@@ -26,6 +26,15 @@ depth:
     url: /ko/development/ai/
   - title: "LLM"
     url: /ko/development/ai/llm/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 개요

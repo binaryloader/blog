@@ -58,6 +58,15 @@ gallery_dashboard:
     image_path: /assets/image/post/playground/smarthome/wallpad-rs485-hardware-setup/ha-dashboard-room.jpg
     alt: "Home Assistant 대시보드 - 방"
     title: "Home Assistant 대시보드 - 방"
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # 개요

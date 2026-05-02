@@ -32,6 +32,15 @@ depth:
     url: /en/development/ai/agentic-coding-assistant/claude-code/
 sidebar:
   nav: "menu-en"
+credits:
+  planning: binaryloader
+  research: [binaryloader, Claude]
+  drafting: binaryloader
+  editing: binaryloader
+  review: [binaryloader, Claude]
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

@@ -34,6 +34,15 @@ depth:
     url: /en/development/ai/
   - title: "Agent"
     url: /en/development/ai/agent/
+credits:
+  planning: binaryloader
+  research: [binaryloader, Claude]
+  drafting: binaryloader
+  editing: binaryloader
+  review: [binaryloader, Claude]
+  translation: Claude
+  thumbnail: Claude
+  publishing: Claude
 ---
 
 # Overview

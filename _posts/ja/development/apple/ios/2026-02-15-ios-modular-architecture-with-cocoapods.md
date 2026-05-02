@@ -32,6 +32,15 @@ depth:
     url: /ja/development/apple/
   - title: "iOS"
     url: /ja/development/apple/ios/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 概要

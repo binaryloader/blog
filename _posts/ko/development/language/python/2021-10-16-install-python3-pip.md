@@ -27,6 +27,15 @@ depth:
     url: /ko/development/language/
   - title: "Python"
     url: /ko/development/language/python/
+credits:
+  planning: binaryloader
+  research: binaryloader
+  drafting: binaryloader
+  editing: binaryloader
+  review: binaryloader
+  translation: Claude
+  thumbnail: Claude
+  publishing: binaryloader
 ---
 
 # 개요
