@@ -3923,6 +3923,234 @@ function illustrationYangsiljangRealEstateRagChatbot() {
   `;
 }
 
+// korea-persona-interview: NVIDIA Nemotron-Personas-Korea 위에 멀티턴 인터뷰 + auto follow-up + drift 감지를 얹은 도구
+// 좌측 페르소나 격자, 중앙 인터뷰 파이프라인 코어, 우측 멀티턴 말풍선 + drift 표시, 하단 CLI/MCP server/MCP orchestrator fan-in
+function drawKoreaPersonaInterview() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+
+    <!-- LEFT: Persona grid (5x4 = 20 simplified person icons) -->
+    <g transform="translate(60, 90)">
+      <!-- Frame -->
+      <rect x="-10" y="-26" width="280" height="320" rx="10" fill="none" stroke="#888" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.45"/>
+      <text x="130" y="-10" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#888" opacity="0.85">NEMOTRON-PERSONAS-KOREA</text>
+
+      <!-- 5 columns x 4 rows of persona avatars (head circle + shoulders arc) -->
+      <!-- Row 1 -->
+      <g transform="translate(20, 22)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#00e5ff" stroke-width="1.6" opacity="0.85"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#00e5ff" stroke-width="1.6" opacity="0.85"/>
+      </g>
+      <g transform="translate(75, 22)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#ff6b9d" stroke-width="1.6" opacity="0.85"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#ff6b9d" stroke-width="1.6" opacity="0.85"/>
+      </g>
+      <g transform="translate(130, 22)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#4ecdc4" stroke-width="1.6" opacity="0.85"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#4ecdc4" stroke-width="1.6" opacity="0.85"/>
+      </g>
+      <g transform="translate(185, 22)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#ffe66d" stroke-width="1.6" opacity="0.85"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#ffe66d" stroke-width="1.6" opacity="0.85"/>
+      </g>
+      <g transform="translate(240, 22)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#a78bfa" stroke-width="1.6" opacity="0.85"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#a78bfa" stroke-width="1.6" opacity="0.85"/>
+      </g>
+      <!-- Row 2 -->
+      <g transform="translate(20, 92)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#ff6b9d" stroke-width="1.6" opacity="0.7"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#ff6b9d" stroke-width="1.6" opacity="0.7"/>
+      </g>
+      <g transform="translate(75, 92)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#4ecdc4" stroke-width="1.6" opacity="0.7"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#4ecdc4" stroke-width="1.6" opacity="0.7"/>
+      </g>
+      <g transform="translate(130, 92)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#ffe66d" stroke-width="1.6" opacity="0.7"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#ffe66d" stroke-width="1.6" opacity="0.7"/>
+      </g>
+      <g transform="translate(185, 92)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#a78bfa" stroke-width="1.6" opacity="0.7"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#a78bfa" stroke-width="1.6" opacity="0.7"/>
+      </g>
+      <g transform="translate(240, 92)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#00e5ff" stroke-width="1.6" opacity="0.7"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#00e5ff" stroke-width="1.6" opacity="0.7"/>
+      </g>
+      <!-- Row 3 -->
+      <g transform="translate(20, 162)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#4ecdc4" stroke-width="1.6" opacity="0.55"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#4ecdc4" stroke-width="1.6" opacity="0.55"/>
+      </g>
+      <g transform="translate(75, 162)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#ffe66d" stroke-width="1.6" opacity="0.55"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#ffe66d" stroke-width="1.6" opacity="0.55"/>
+      </g>
+      <g transform="translate(130, 162)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#a78bfa" stroke-width="1.6" opacity="0.55"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#a78bfa" stroke-width="1.6" opacity="0.55"/>
+      </g>
+      <g transform="translate(185, 162)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#00e5ff" stroke-width="1.6" opacity="0.55"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#00e5ff" stroke-width="1.6" opacity="0.55"/>
+      </g>
+      <g transform="translate(240, 162)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#ff6b9d" stroke-width="1.6" opacity="0.55"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#ff6b9d" stroke-width="1.6" opacity="0.55"/>
+      </g>
+      <!-- Row 4 (faded out, ellipsis suggestion) -->
+      <g transform="translate(20, 232)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#666" stroke-width="1.4" opacity="0.45"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#666" stroke-width="1.4" opacity="0.45"/>
+      </g>
+      <g transform="translate(75, 232)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#666" stroke-width="1.4" opacity="0.4"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#666" stroke-width="1.4" opacity="0.4"/>
+      </g>
+      <g transform="translate(130, 232)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#666" stroke-width="1.4" opacity="0.35"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#666" stroke-width="1.4" opacity="0.35"/>
+      </g>
+      <g transform="translate(185, 232)">
+        <circle cx="0" cy="0" r="11" fill="none" stroke="#666" stroke-width="1.4" opacity="0.3"/>
+        <path d="M -16 22 Q 0 8 16 22" fill="none" stroke="#666" stroke-width="1.4" opacity="0.3"/>
+      </g>
+      <g transform="translate(240, 232)">
+        <text x="0" y="6" text-anchor="middle" font-family="monospace" font-size="14" fill="#666" opacity="0.6">...</text>
+      </g>
+
+      <!-- N=1M label -->
+      <text x="130" y="290" text-anchor="middle" font-family="monospace" font-size="9" fill="#888" opacity="0.7">1M records · CC BY 4.0</text>
+    </g>
+
+    <!-- ARROW: persona grid -> sample -->
+    <line x1="345" y1="180" x2="395" y2="180" stroke="#888" stroke-width="1.5" opacity="0.55"/>
+    <polygon points="390,175 402,180 390,185" fill="#888" opacity="0.6"/>
+
+    <!-- CENTER PIPELINE: SAMPLE -> INTERVIEW -> AGGREGATE -->
+    <!-- SAMPLE -->
+    <g transform="translate(465, 180)">
+      <rect x="-65" y="-28" width="130" height="56" rx="10" fill="none" stroke="#a78bfa" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#a78bfa" opacity="0.9">SAMPLE</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#a78bfa" opacity="0.55">filter DSL · seed</text>
+    </g>
+
+    <!-- Arrow SAMPLE -> INTERVIEW (down) -->
+    <line x1="465" y1="210" x2="465" y2="282" stroke="#a78bfa" stroke-width="1.5" opacity="0.55"/>
+    <polygon points="459,278 465,292 471,278" fill="#a78bfa" opacity="0.6"/>
+
+    <!-- INTERVIEW core (ring, central) -->
+    <g transform="translate(465, 360)">
+      <circle cx="0" cy="0" r="78" fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.85"/>
+      <circle cx="0" cy="0" r="54" fill="none" stroke="#00e5ff" stroke-width="1.4" opacity="0.45"/>
+      <circle cx="0" cy="0" r="50" fill="#00e5ff" fill-opacity="0.06"/>
+      <text x="0" y="-6" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#00e5ff" opacity="0.95">INTERVIEW</text>
+      <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.6">multi-turn · N=20</text>
+      <text x="0" y="28" text-anchor="middle" font-family="monospace" font-size="8" fill="#00e5ff" opacity="0.5">Q1..Q5 + follow-up</text>
+      <!-- subtle dots inside -->
+      <circle cx="-26" cy="-26" r="2.4" fill="#00e5ff" opacity="0.35"/>
+      <circle cx="26" cy="-26" r="2.4" fill="#00e5ff" opacity="0.35"/>
+      <circle cx="-26" cy="38" r="2.4" fill="#00e5ff" opacity="0.35"/>
+      <circle cx="26" cy="38" r="2.4" fill="#00e5ff" opacity="0.35"/>
+    </g>
+
+    <!-- Arrow INTERVIEW -> AGGREGATE (down) -->
+    <line x1="465" y1="442" x2="465" y2="498" stroke="#4ecdc4" stroke-width="1.5" opacity="0.55"/>
+    <polygon points="459,494 465,508 471,494" fill="#4ecdc4" opacity="0.6"/>
+
+    <!-- AGGREGATE -->
+    <g transform="translate(465, 532)">
+      <rect x="-72" y="-24" width="144" height="50" rx="10" fill="none" stroke="#4ecdc4" stroke-width="1.8" opacity="0.85"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#4ecdc4" opacity="0.9">AGGREGATE</text>
+      <text x="0" y="14" text-anchor="middle" font-family="monospace" font-size="9" fill="#4ecdc4" opacity="0.55">JSON + report.md</text>
+    </g>
+
+    <!-- RIGHT: Multi-turn chat bubbles -->
+    <!-- Q1 (interviewer) -->
+    <g transform="translate(800, 130)">
+      <rect x="-110" y="-22" width="220" height="44" rx="14" fill="none" stroke="#ffe66d" stroke-width="1.5" opacity="0.7"/>
+      <polygon points="-90,18 -108,30 -82,22" fill="none" stroke="#ffe66d" stroke-width="1.2" opacity="0.5"/>
+      <text x="-95" y="-4" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.85">Q1: would you pay 9,900 KRW/mo?</text>
+      <text x="-95" y="12" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.5">turn · interviewer</text>
+    </g>
+
+    <!-- A1 (persona) -->
+    <g transform="translate(820, 210)">
+      <rect x="-120" y="-22" width="240" height="44" rx="14" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.7"/>
+      <polygon points="100,18 118,30 92,22" fill="none" stroke="#00e5ff" stroke-width="1.2" opacity="0.5"/>
+      <text x="-105" y="-4" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.85">A1: it depends on the features...</text>
+      <text x="-105" y="12" font-family="monospace" font-size="8" fill="#00e5ff" opacity="0.5">turn · persona</text>
+    </g>
+
+    <!-- Follow-up arrow loop (auto follow-up indicator) -->
+    <g transform="translate(740, 270)">
+      <path d="M 0 0 Q -22 14 0 28" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+      <polygon points="-2,24 6,30 -3,32" fill="#a78bfa" opacity="0.7"/>
+      <text x="-90" y="20" font-family="monospace" font-size="9" font-weight="bold" fill="#a78bfa" opacity="0.85">auto follow-up</text>
+    </g>
+
+    <!-- Q1.1 (follow-up) -->
+    <g transform="translate(800, 308)">
+      <rect x="-110" y="-22" width="220" height="44" rx="14" fill="none" stroke="#ffe66d" stroke-width="1.4" opacity="0.6"/>
+      <polygon points="-90,18 -108,30 -82,22" fill="none" stroke="#ffe66d" stroke-width="1.2" opacity="0.45"/>
+      <text x="-95" y="-4" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.75">Q1.1: which feature matters most?</text>
+      <text x="-95" y="12" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.4">turn · follow-up</text>
+    </g>
+
+    <!-- Persona drift detector card -->
+    <g transform="translate(820, 408)">
+      <rect x="-128" y="-30" width="256" height="78" rx="10" fill="none" stroke="#ff6b9d" stroke-width="1.6" opacity="0.75"/>
+      <!-- diamond warn icon -->
+      <polygon points="-110,-2 -100,-12 -90,-2 -100,8" fill="none" stroke="#ff6b9d" stroke-width="1.4" opacity="0.85"/>
+      <text x="-100" y="2" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#ff6b9d" opacity="0.95">!</text>
+      <text x="-78" y="-10" font-family="monospace" font-size="10" font-weight="bold" fill="#ff6b9d" opacity="0.9">PERSONA DRIFT DETECTED</text>
+      <text x="-78" y="6" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.6">profession token mismatch</text>
+      <text x="-78" y="22" font-family="monospace" font-size="8" fill="#ff6b9d" opacity="0.5">retry · fallback prompt</text>
+      <!-- meter bar -->
+      <rect x="-118" y="32" width="236" height="4" rx="2" fill="#333" opacity="0.6"/>
+      <rect x="-118" y="32" width="78" height="4" rx="2" fill="#ff6b9d" opacity="0.7"/>
+    </g>
+
+    <!-- Connection: INTERVIEW core -> chat bubbles cluster -->
+    <line x1="540" y1="338" x2="690" y2="220" stroke="#00e5ff" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.35"/>
+    <line x1="540" y1="380" x2="690" y2="408" stroke="#ff6b9d" stroke-width="1.2" stroke-dasharray="5,4" opacity="0.35"/>
+
+    <!-- BOTTOM: 3 entry points fan-in to AGGREGATE/CORE -->
+    <!-- CLI -->
+    <g transform="translate(245, 605)">
+      <rect x="-72" y="-22" width="144" height="44" rx="8" fill="none" stroke="#ffe66d" stroke-width="1.6" opacity="0.85"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#ffe66d" opacity="0.9">CLI</text>
+      <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffe66d" opacity="0.55">$ run interview</text>
+    </g>
+
+    <!-- MCP server -->
+    <g transform="translate(540, 605)">
+      <rect x="-78" y="-22" width="156" height="44" rx="8" fill="none" stroke="#a78bfa" stroke-width="1.6" opacity="0.85"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#a78bfa" opacity="0.9">MCP SERVER</text>
+      <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="8" fill="#a78bfa" opacity="0.55">stdio · 12 tools</text>
+    </g>
+
+    <!-- MCP orchestrator -->
+    <g transform="translate(835, 605)">
+      <rect x="-86" y="-22" width="172" height="44" rx="8" fill="none" stroke="#4ecdc4" stroke-width="1.6" opacity="0.85"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#4ecdc4" opacity="0.9">MCP ORCHESTRATOR</text>
+      <text x="0" y="12" text-anchor="middle" font-family="monospace" font-size="8" fill="#4ecdc4" opacity="0.55">multi-tool plan</text>
+    </g>
+
+    <!-- Fan-in lines from 3 entry points to AGGREGATE box -->
+    <line x1="245" y1="583" x2="420" y2="552" stroke="#ffe66d" stroke-width="1.3" stroke-dasharray="5,4" opacity="0.5"/>
+    <polygon points="416,548 428,550 422,558" fill="#ffe66d" opacity="0.55"/>
+    <line x1="540" y1="583" x2="500" y2="558" stroke="#a78bfa" stroke-width="1.3" stroke-dasharray="5,4" opacity="0.5"/>
+    <polygon points="503,553 495,560 506,562" fill="#a78bfa" opacity="0.55"/>
+    <line x1="835" y1="583" x2="540" y2="552" stroke="#4ecdc4" stroke-width="1.3" stroke-dasharray="5,4" opacity="0.5"/>
+    <polygon points="544,548 536,556 547,558" fill="#4ecdc4" opacity="0.55"/>
+
+    <!-- Bottom label -->
+    <text x="540" y="678" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">KOREA PERSONA INTERVIEW</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -4011,6 +4239,7 @@ const ILLUSTRATION_MAP = {
   'local-agent-on-mlx': illustrationLocalAgentOnMlx,
   'native-agent-framework-mollo-core-assets': illustrationNativeAgentFrameworkMolloCoreAssets,
   'yangsiljang-real-estate-rag-chatbot': illustrationYangsiljangRealEstateRagChatbot,
+  'korea-persona-interview': drawKoreaPersonaInterview,
 };
 
 function getIllustration(ref) {

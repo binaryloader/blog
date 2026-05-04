@@ -27,9 +27,14 @@ function findPosts(lang) {
 }
 
 function detectLang(filePath) {
-  const rel = path.relative(path.join(ROOT, '_posts'), filePath);
-  const first = rel.split(path.sep)[0];
-  return LANGS.includes(first) ? first : 'ko';
+  // _posts 또는 _draft 두 디렉토리 모두에서 언어를 감지한다
+  for (const base of ['_posts', '_draft']) {
+    const rel = path.relative(path.join(ROOT, base), filePath);
+    if (rel.startsWith('..')) continue;
+    const first = rel.split(path.sep)[0];
+    if (LANGS.includes(first)) return first;
+  }
+  return 'ko';
 }
 
 function parseArgs() {
