@@ -1,5 +1,5 @@
 ---
-title: "[LLM] HyDE：Hypothetical Document Embeddings"
+title: "[LLM] HyDE(Hypothetical Document Embeddings)"
 ref: hyde-hypothetical-document-embeddings
 excerpt: "RAGにおける検索品質を向上させるHyDE（Hypothetical Document Embeddings）手法を整理する。"
 date: 2026-02-27T18:00+09:00

@@ -1,6 +1,6 @@
 ---
 date: 2019-11-18T00:00+09:00
-title: "[Objective-C] 演算子と式 - Operators and Expressions"
+title: "[Objective-C] 演算子と式(Operators and Expressions)"
 ref: objective-c-operators-and-expressions
 lang: ja
 excerpt: "Objective-Cの演算子と式をまとめる。"

@@ -1,5 +1,5 @@
 ---
-title: "[Agent] Yangsiljang - A Real Estate Law & Precedent RAG Chatbot Built as a Side Project"
+title: "[Agent] Yangsiljang, a Real Estate Law & Precedent RAG Chatbot Built as a Side Project"
 ref: yangsiljang-real-estate-rag-chatbot
 lang: en
 permalink: /en/:categories/:title/

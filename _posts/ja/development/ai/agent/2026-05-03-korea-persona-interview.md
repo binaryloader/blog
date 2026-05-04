@@ -1,5 +1,5 @@
 ---
-title: "[Agent] korea-persona-interview - 韓国人合成ペルソナインタビューをCLI / MCPで自動化する"
+title: "[Agent] CLI / MCPで動く韓国人合成ペルソナインタビューツールkorea-persona-interview"
 ref: korea-persona-interview
 excerpt: "サイドプロジェクトとして作った韓国人合成ペルソナインタビュー自動化ツールkorea-persona-interviewをまとめる。NVIDIA Nemotron-Personas-Koreaデータセットの上にマルチターンインタビューと自動follow-up、ペルソナ崩れ検出を載せて事業仮説を素早く検証する。CLI / MCP server / MCP orchestratorの3つの入口が同じコアを共有するよう設計したパターンも併せて扱う。"
 date: 2026-05-03T00:00+09:00

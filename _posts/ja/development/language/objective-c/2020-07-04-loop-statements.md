@@ -1,6 +1,6 @@
 ---
 date: 2020-07-04T00:00+09:00
-title: "[Objective-C] ループ文 - Loop Statements"
+title: "[Objective-C] ループ文(Loop Statements)"
 ref: objective-c-loop-statements
 lang: ja
 excerpt: "Objective-Cのループ文をまとめる。"

@@ -1,5 +1,5 @@
 ---
-title: "[LLM] LangChain核心概念：LCEL、プロンプトテンプレート、メッセージクラス"
+title: "[LLM] LCEL、プロンプトテンプレート、メッセージクラスから見るLangChain核心概念"
 ref: langchain-core-concepts
 excerpt: "LangChainのLCEL、プロンプトテンプレート、メッセージクラス、MessagesPlaceholder、RunnableGeneratorを整理する。"
 date: 2026-02-27T17:40+09:00

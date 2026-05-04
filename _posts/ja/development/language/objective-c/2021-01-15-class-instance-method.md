@@ -1,6 +1,6 @@
 ---
 date: 2021-01-15T00:00+09:00
-title: "[Objective-C] クラスとメソッド、インスタンス - Class and Method, Instance"
+title: "[Objective-C] クラスとメソッド、インスタンス(Class and Method, Instance)"
 ref: objective-c-class-instance-method
 lang: ja
 excerpt: "Objective-Cのクラスとメソッドそしてインスタンスをまとめる。"

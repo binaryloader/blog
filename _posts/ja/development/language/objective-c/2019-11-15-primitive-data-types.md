@@ -1,6 +1,6 @@
 ---
 date: 2019-11-15T00:00+09:00
-title: "[Objective-C] プリミティブデータ型 - Primitive Data Types"
+title: "[Objective-C] プリミティブデータ型(Primitive Data Types)"
 ref: objective-c-primitive-data-types
 lang: ja
 excerpt: "Objective-Cのプリミティブデータ型をまとめる。"

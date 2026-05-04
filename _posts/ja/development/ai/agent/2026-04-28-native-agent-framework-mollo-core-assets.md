@@ -1,5 +1,5 @@
 ---
-title: "[Agent] ネイティブエージェントフレームワークMolloの企画 - 既存フレームワークの中核資産分析"
+title: "[Agent] Mollo企画のための既存エージェントフレームワーク中核資産分析"
 ref: native-agent-framework-mollo-core-assets
 lang: ja
 permalink: /ja/:categories/:title/

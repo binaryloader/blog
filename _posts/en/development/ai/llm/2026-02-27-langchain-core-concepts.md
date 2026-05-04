@@ -1,5 +1,5 @@
 ---
-title: "[LLM] LangChain Core Concepts - LCEL, Prompt Templates, Message Classes"
+title: "[LLM] LangChain Core Concepts via LCEL, Prompt Templates, and Message Classes"
 ref: langchain-core-concepts
 excerpt: "An overview of LangChain's LCEL, prompt templates, message classes, MessagesPlaceholder, and RunnableGenerator."
 date: 2026-02-27T17:40+09:00

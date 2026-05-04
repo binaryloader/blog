@@ -1,5 +1,5 @@
 ---
-title: "[Agent] 네이티브 에이전트 프레임워크 Mollo 기획 - 기존 프레임워크 핵심 자산 분석"
+title: "[Agent] Mollo 기획을 위한 기존 에이전트 프레임워크 핵심 자산 분석"
 ref: native-agent-framework-mollo-core-assets
 excerpt: "Apple 플랫폼 네이티브 에이전트 프레임워크 Mollo 구현에 들어가기 전에 LangGraph, Koog, OpenAI Agents SDK, Pydantic AI, Mastra, MCP, Apple 프레임워크의 핵심 자산을 정리한다."
 date: 2026-04-28T22:00+09:00

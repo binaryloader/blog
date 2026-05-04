@@ -1,6 +1,6 @@
 ---
 date: 2021-01-15T00:00+09:00
-title: "[Objective-C] 클래스와 메서드, 인스턴스 - Class and Method, Instance"
+title: "[Objective-C] 클래스와 메서드, 인스턴스(Class and Method, Instance)"
 ref: objective-c-class-instance-method
 excerpt: "Objective-C의 클래스와 메서드 그리고 인스턴스를 정리한다."
 last_modified_at: 2021-01-15T18:31+09:00

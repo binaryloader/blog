@@ -1,5 +1,5 @@
 ---
-title: "[Agent] korea-persona-interview - Automating Korean Synthetic Persona Interviews via CLI / MCP"
+title: "[Agent] korea-persona-interview, a Korean Synthetic Persona Interview Tool Powered by CLI / MCP"
 ref: korea-persona-interview
 excerpt: "A writeup of korea-persona-interview, a side project that automates Korean synthetic persona interviews. It layers multi-turn interviews, automatic follow-ups, and persona drift detection on top of NVIDIA's Nemotron-Personas-Korea dataset to validate business hypotheses quickly. The post also covers the design pattern that lets three entry points (CLI / MCP server / MCP orchestrator) share a single core."
 date: 2026-05-03T00:00+09:00

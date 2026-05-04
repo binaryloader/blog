@@ -1,6 +1,6 @@
 ---
 date: 2019-11-18T00:00+09:00
-title: "[Objective-C] 연산자와 표현식 - Operators and Expressions"
+title: "[Objective-C] 연산자와 표현식(Operators and Expressions)"
 ref: objective-c-operators-and-expressions
 excerpt: "Objective-C의 연산자와 표현식을 정리한다."
 last_modified_at: 2019-11-18T13:12+09:00

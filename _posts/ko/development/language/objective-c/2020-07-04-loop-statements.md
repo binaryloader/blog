@@ -1,6 +1,6 @@
 ---
 date: 2020-07-04T00:00+09:00
-title: "[Objective-C] 반복문 - Loop Statements"
+title: "[Objective-C] 반복문(Loop Statements)"
 ref: objective-c-loop-statements
 excerpt: "Objective-C의 반복문을 정리한다."
 last_modified_at: 2020-07-04T11:39+09:00

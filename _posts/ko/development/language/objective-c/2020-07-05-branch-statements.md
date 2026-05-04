@@ -1,6 +1,6 @@
 ---
 date: 2020-07-05T00:00+09:00
-title: "[Objective-C] 조건문 - Branch Statements"
+title: "[Objective-C] 조건문(Branch Statements)"
 ref: objective-c-branch-statements
 excerpt: "Objective-C의 조건문을 정리한다."
 last_modified_at: 2020-07-05T12:39+09:00

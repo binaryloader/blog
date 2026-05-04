@@ -1,5 +1,5 @@
 ---
-title: "[Agent] Planning a Native Agent Framework Mollo - Analyzing Core Assets of Existing Frameworks"
+title: "[Agent] Analyzing Core Assets of Existing Agent Frameworks for Planning Native Agent Framework Mollo"
 ref: native-agent-framework-mollo-core-assets
 lang: en
 permalink: /en/:categories/:title/

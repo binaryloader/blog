@@ -1,6 +1,6 @@
 ---
 date: 2021-09-15T00:00+09:00
-title: "[Apple] Keynote - September 14, 2021"
+title: "[Apple] 2021년 9월 14일 Keynote"
 ref: apple-keynote-september-14-2021
 excerpt: "Apple September 2021 키노트에서 발표된 새로운 기기와 서비스를 정리한다."
 last_modified_at: 2021-09-15T19:17+09:00

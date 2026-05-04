@@ -1,5 +1,5 @@
 ---
-title: "[LLM] LangChain 핵심 개념 - LCEL, 프롬프트 템플릿, 메시지 클래스"
+title: "[LLM] LCEL과 프롬프트 템플릿, 메시지 클래스로 보는 LangChain 핵심 개념"
 ref: langchain-core-concepts
 excerpt: "LangChain의 LCEL, 프롬프트 템플릿, 메시지 클래스, MessagesPlaceholder, RunnableGenerator를 정리한다."
 date: 2026-02-27T17:40+09:00

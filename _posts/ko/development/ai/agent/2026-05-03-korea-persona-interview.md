@@ -1,5 +1,5 @@
 ---
-title: "[Agent] korea-persona-interview - 한국인 합성 페르소나 인터뷰를 CLI / MCP로 자동화하기"
+title: "[Agent] CLI / MCP로 동작하는 한국인 합성 페르소나 인터뷰 도구 korea-persona-interview"
 ref: korea-persona-interview
 excerpt: "사이드 프로젝트로 만든 한국인 합성 페르소나 인터뷰 자동화 도구 korea-persona-interview를 정리한다. NVIDIA Nemotron-Personas-Korea 데이터셋 위에 멀티턴 인터뷰와 자동 follow-up 페르소나 깨짐 감지를 얹어 사업 가설을 빠르게 검증한다. CLI / MCP server / MCP orchestrator 3개 진입점이 동일한 코어를 공유하도록 설계한 패턴도 함께 다룬다."
 date: 2026-05-03T00:00+09:00

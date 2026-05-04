@@ -1,5 +1,5 @@
 ---
-title: "[Agent] ヤン室長 - サイドプロジェクトで作った不動産法令・判例RAGチャットボット"
+title: "[Agent] サイドプロジェクトで作った不動産法令・判例RAGチャットボット ヤン室長"
 ref: yangsiljang-real-estate-rag-chatbot
 lang: ja
 permalink: /ja/:categories/:title/

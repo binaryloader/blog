@@ -1,5 +1,5 @@
 ---
-title: "[Agent] 양실장 - 사이드 프로젝트로 만든 부동산 법령·판례 RAG 챗봇"
+title: "[Agent] 사이드 프로젝트로 만든 부동산 법령·판례 RAG 챗봇 양실장"
 ref: yangsiljang-real-estate-rag-chatbot
 excerpt: "사이드 프로젝트로 진행한 부동산 법령·판례 RAG 챗봇 양실장의 아키텍처와 구현 디테일을 정리한다. 프론트는 Claude Code의 도움을 받아 짜고 백엔드는 직접 구현. Milvus 한국어 토크나이저 커스텀 빌드, Qwen3 임베딩/리랭커, HyDE, SSE 스트리밍, 법제처 데이터 인제스트까지 다룬다."
 date: 2026-04-28T21:00+09:00
