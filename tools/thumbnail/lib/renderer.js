@@ -7,8 +7,8 @@ let browser = null;
 async function launch() {
   if (!browser) {
     browser = await puppeteer.launch({
-      headless: true,
-      protocolTimeout: 120000,
+      headless: 'shell',
+      protocolTimeout: 600000,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
