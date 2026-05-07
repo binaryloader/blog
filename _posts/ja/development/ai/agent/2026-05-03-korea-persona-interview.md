@@ -1,7 +1,7 @@
 ---
-title: "[Agent] CLI / MCPで動く韓国人合成ペルソナインタビューツールkorea-persona-interview"
+title: "[Agent] CLIとMCPで動く韓国人合成ペルソナインタビューツールkorea-persona-interview"
 ref: korea-persona-interview
-excerpt: "サイドプロジェクトとして作った韓国人合成ペルソナインタビュー自動化ツールkorea-persona-interviewをまとめる。NVIDIA Nemotron-Personas-Koreaデータセットの上にマルチターンインタビューと自動follow-up、ペルソナ崩れ検出を載せて事業仮説を素早く検証する。CLI / MCP server / MCP orchestratorの3つの入口が同じコアを共有するよう設計したパターンも併せて扱う。"
+excerpt: "サイドプロジェクトとして作った韓国人合成ペルソナインタビュー自動化ツールkorea-persona-interviewをまとめる。NVIDIA Nemotron-Personas-Koreaデータセットの上にマルチターンインタビューと自動follow-up、ペルソナ崩れ検出を載せて事業仮説を素早く検証する。CLI、MCP server、MCP orchestratorの3つの入口が同じコアを共有するよう設計したパターンも併せて扱う。"
 date: 2026-05-03T00:00+09:00
 last_modified_at: 2026-05-04T19:26+09:00
 published: true
@@ -47,7 +47,7 @@ credits:
 
 # 概要
 
-サイドプロジェクトとして作った韓国人合成ペルソナインタビュー自動化ツールkorea-persona-interviewをまとめる。NVIDIA Nemotron-Personas-Koreaデータセットの上にマルチターンインタビューと自動follow-up、ペルソナ崩れ検出を載せて事業仮説を素早く検証する。CLI / MCP server / MCP orchestratorの3つの入口が同じコアを共有するよう設計したパターンも併せて扱う。
+サイドプロジェクトとして作った韓国人合成ペルソナインタビュー自動化ツールkorea-persona-interviewをまとめる。NVIDIA Nemotron-Personas-Koreaデータセットの上にマルチターンインタビューと自動follow-up、ペルソナ崩れ検出を載せて事業仮説を素早く検証する。CLI、MCP server、MCP orchestratorの3つの入口が同じコアを共有するよう設計したパターンも併せて扱う。
 
 # まとめ
 
@@ -122,7 +122,7 @@ follow-upを1回に制限した理由は二つである。一つ目は、追跡�
 
 ## 5. multi-providerなLLMバックエンド
 
-### 5.1. OpenAI / Anthropic / ローカルOpenAI互換サーバ
+### 5.1. OpenAI、Anthropic、ローカルOpenAI互換サーバ
 
 LLMバックエンドは`LLMBackend` Protocolで抽象化されている。実装は`OpenAIBackend`と`AnthropicBackend`の2つである。providerトグルは`LlmConfig.provider`で決まる。`provider=openai`(デフォルト)はOpenAI Chat CompletionsとOpenAI互換エンドポイントであるmlx_lm.server, vLLM, llama.cppを扱う。`base_url`を`http://localhost:PORT/v1`に変えればそのままローカルサーバに接続できる。`provider=anthropic`はAnthropic Messages APIを直接呼び出す。
 
@@ -132,7 +132,7 @@ LLMバックエンドは`LLMBackend` Protocolで抽象化されている。実�
 
 OpenAIのprompt cachingは自動である。クライアントコードに別途annotationを差し込まなくてよい。ただしprefixが1024トークン以上でなければキャッシュが有効化されず、それ以上は128トークン刻みでcache prefixが伸びる。マッチはexact prefix matchのみhitなので、`messages[0]`のsystem prompt+ペルソナ補強が可変部分(質問や回答の蓄積)よりも前に来る必要がある。本ツールはsystemを常にmessages[0]に置くので、一人のペルソナ内のマルチターン呼び出しは自然にprefixの繰り返しが発生する。
 
-Anthropicのprompt cachingは自動ではなく`cache_control`の明示が必要である。block単位またはrequest単位で表記し、1リクエストあたり最大4個のbreakpointを置ける。モデル別の最小prefix長も異なる。Sonnet 4.5 / Opus 4.1 / Sonnet 3.7は1024 tokens、Sonnet 4.6は2048、Opus 4.7 / 4.6 / 4.5とHaiku 4.5は4096 tokensである。TTLはデフォルトで5分、`cache_control.ttl: "1h"`で1時間を選択できる。価格倍率は5分のcache writeがbase inputの1.25倍、1時間writeが2倍、cache readが0.1倍である。本ツールの`AnthropicBackend`はsystemブロックに`cache_control: ephemeral`マーカーを差し込む構造になっている。
+Anthropicのprompt cachingは自動ではなく`cache_control`の明示が必要である。block単位またはrequest単位で表記し、1リクエストあたり最大4個のbreakpointを置ける。モデル別の最小prefix長も異なる。Sonnet 4.5、Opus 4.1、Sonnet 3.7は1024 tokens、Sonnet 4.6は2048、Opus 4.7、4.6、4.5とHaiku 4.5は4096 tokensである。TTLはデフォルトで5分、`cache_control.ttl: "1h"`で1時間を選択できる。価格倍率は5分のcache writeがbase inputの1.25倍、1時間writeが2倍、cache readが0.1倍である。本ツールの`AnthropicBackend`はsystemブロックに`cache_control: ephemeral`マーカーを差し込む構造になっている。
 
 両providerの挙動が異なるため、本ツールでの適用結果も違ってくる。OpenAI側はprefixを分離しておけば別作業なしに効果が出る。Anthropic側は`cache_control`マーカーが正確に置かれている必要があり、5分TTLの内に次の呼び出しが来てこそreadが活性化する。100人を同時実行数4でバッチすると同じprefixが5分以内に繰り返され、readのヒット頻度が十分に上がる。
 
@@ -152,9 +152,9 @@ Anthropicのprompt cachingは自動ではなく`cache_control`の明示が必要
 
 候補Aはマルチターンインタビュー+インタビュー終了後の単発構造化要約である。質問を1ターンずつ送ってmessages履歴に蓄積し、別途のsystemプロンプトでmessages全体を入力してJSONの構造化要約を単発で生成する。候補Bは単発バンドルなので、質問N個を一度に束ねて送りモデルが一つの応答に回答をすべて返す。候補Cは候補Bと同様に一度で回答を受け取りつつ、定性インサイトだけ別の単発で生成する。
 
-表では候補Aがトークン使用量と処理時間の面で約1.8〜2.5倍高くつくものの、ペルソナの一貫性、自動follow-upの統合、drift / refusalの隔離、デバッグの容易さの4軸ですべて最も優位に立つ。このツールの中核ガードレールが自動follow-upとペルソナ崩れ検出なので、回答単位の隔離が本質的に必要である。一つの回答が汚染されても残り4つを生かせるかが決定基準であり、候補B/Cは一つの応答に回答が混在していてこのガードレールと両立しない。
+表では候補Aがトークン使用量と処理時間の面で約1.8〜2.5倍高くつくものの、ペルソナの一貫性、自動follow-upの統合、driftとrefusalの隔離、デバッグの容易さの4軸ですべて最も優位に立つ。このツールの中核ガードレールが自動follow-upとペルソナ崩れ検出なので、回答単位の隔離が本質的に必要である。一つの回答が汚染されても残り4つを生かせるかが決定基準であり、候補B/Cは一つの応答に回答が混在していてこのガードレールと両立しない。
 
-そこで候補Aを採用し、詳細ポリシー3つを併せて固定した。systemメッセージはmessages[0]にtruncateなしで保存し、累積トークンの閾値超過時に最古のuser/assistantペアから順に削除する。トークン推定は韓国語1文字=1、英文1文字=0.25、その他0.5のヒューリスティックで、標準ライブラリのみで一貫したトリガーを作る。単発モードは`--single-turn`フラグでのみdry-run / トークン節約用に開いておき、v1のデフォルトはマルチターンとした。
+そこで候補Aを採用し、詳細ポリシー3つを併せて固定した。systemメッセージはmessages[0]にtruncateなしで保存し、累積トークンの閾値超過時に最古のuser/assistantペアから順に削除する。トークン推定は韓国語1文字=1、英文1文字=0.25、その他0.5のヒューリスティックで、標準ライブラリのみで一貫したトリガーを作る。単発モードは`--single-turn`フラグでのみdry-runとトークン節約用に開いておき、v1のデフォルトはマルチターンとした。
 
 ### 6.2. ローカルMLXからOpenAIバックエンドへ
 
@@ -174,15 +174,15 @@ OpenAI単一バックエンド決定の直後に2つのユーザー要求が積�
 
 ADR-003はこの2つの要求を吸収するため、`LLMBackend` Protocolを導入し入口を`LlmConfig.provider`で分岐させた。`provider=openai`(デフォルト)は`OpenAIBackend`であり、OpenAI Chat Completions APIとOpenAI互換ローカルサーバの両方を扱う。base_urlを`http://localhost:PORT/v1`に変えればそのままローカルサーバに接続できる。`provider=anthropic`は`AnthropicBackend`であり、Anthropic Messages APIに直接httpxで呼び出す。anthropic SDK依存は追加していない。
 
-base_urlマッチングだけで分岐するヒューリスティックは安定しないので却下された。AnthropicはOpenAI Chat Completionsと互換のないMessages APIスキーマを使う。top-levelの`system`フィールド、`x-api-key`ヘッダ、必須の`max_tokens`まで差が積み重なれば、base_urlパターンマッチで分岐するコードが頻繁に壊れる。別アダプタに分離しておくほうがよい。anthropic SDK導入も却下された。dependency.md §1のleftpad回避原則とトランジティブツリー最小化の観点から、httpx直接呼び出しでretry / timeout / loggingを単一モジュールに統一するほうが制御コストが低い。
+base_urlマッチングだけで分岐するヒューリスティックは安定しないので却下された。AnthropicはOpenAI Chat Completionsと互換のないMessages APIスキーマを使う。top-levelの`system`フィールド、`x-api-key`ヘッダ、必須の`max_tokens`まで差が積み重なれば、base_urlパターンマッチで分岐するコードが頻繁に壊れる。別アダプタに分離しておくほうがよい。anthropic SDK導入も却下された。dependency.md §1のleftpad回避原則とトランジティブツリー最小化の観点から、httpx直接呼び出しでretry、timeout、loggingを単一モジュールに統一するほうが制御コストが低い。
 
 このラウンドでtoken使用量の追跡も正規化された。OpenAIは`cached_tokens`、Anthropicは`cache_read_input_tokens`とフィールド名は異なるが、両方とも`TokenUsage.cached_tokens`にまとめてツール全体が同じインターフェースで集計する。Anthropic側はprompt cachingが自動ではなく`cache_control`マーカーが明示的に置かれる必要があり、OpenAIとは異なる。systemブロックに`cache_control: ephemeral`マーカーを差し込む構造で持っていった。
 
 ADR-002のOpenAI単一バックエンド決定はADR-003でsupersedeされた。ただしADR-003自体も、ADR-003 §2(決定セクション)に置かれていたMCP入口に関する一つの決定が次のラウンドで部分的にsupersedeされる経緯を抱えていた。その部分が§6.4で扱うMCP mode導入の出発点である。
 
-### 6.4. MCP modeの導入(server / sampling)
+### 6.4. MCP modeの導入(serverとsampling)
 
-ADR-003でMCPサーバの入口はsampling専用として単純化していた。推論は常にホストエージェントの`sampling/createMessage`に委任し、server-sideにはOpenAI / Anthropicの鍵を置かないというポリシーだった。MCPが本質的にホストLLMを活用するためのプロトコルであるという観点から見れば、清潔な決定である。
+ADR-003でMCPサーバの入口はsampling専用として単純化していた。推論は常にホストエージェントの`sampling/createMessage`に委任し、server-sideにはOpenAIとAnthropicの鍵を置かないというポリシーだった。MCPが本質的にホストLLMを活用するためのプロトコルであるという観点から見れば、清潔な決定である。
 
 ただし運用上の摩擦が二方向に積み重なった。一つ目は、2026年4月時点でsampling capabilityを標準で公開するMCPクライアントが極めて少なかった点である。cmuxビルドはsampling非対応、Claude Code Desktopの正式ビルドもsampling公開が未確定の状態、Cursorの一部ビルドだけ部分対応という状況だった。二つ目は、結果として一般ユーザーがmcp.jsonにこのツールを登録して自然言語で呼び出すとConfigErrorが必ず発生したことである。ツールが起動すらしないので実用価値が消えた。
 
@@ -194,17 +194,17 @@ ADR-004はこの運用摩擦を解消するために`mcp.mode`トグルを導入
 
 ### 6.5. samplingの削除とorchestratorモードの導入
 
-server / samplingの2モードトグルでonboarding摩擦は解消されたが、v1.1.1の運用データでsamplingモードは事実上使われていないという事実が明らかになった。ADR-004に置いていたsupersede閾値はsampling互換クライアントの普及率50%以上であり、2026-05現在の推定は10%未満で、近い時期に閾値に到達する兆しはない。
+serverとsamplingの2モードトグルでonboarding摩擦は解消されたが、v1.1.1の運用データでsamplingモードは事実上使われていないという事実が明らかになった。ADR-004に置いていたsupersede閾値はsampling互換クライアントの普及率50%以上であり、2026-05現在の推定は10%未満で、近い時期に閾値に到達する兆しはない。
 
 一方、ホストsub-agentツール(Claude CodeのTask tool、Cursorのsub-agentパターン)はmainstreamで安定的にサポートされており、ホストが直接sub-agentを起動して自分のLLMでインタビューを行えば、sampling依存なしに同じ価値(server-side鍵不要+ホストLLMの活用)を提供できるという迂回路が見えた。普及率の数値は公式統計ではなくADR-005 §1の自前推定であることを併記しておく。
 
-ADR-005は2つの決定を一度にまとめた。一つ目は、`mcp.mode: "sampling"`をホワイトリストとコードの両方から削除した。`McpSamplingBackend`クラス、sampling capabilityチェック、`_convert_to_sampling_messages`、`_extract_sampling_text`ヘルパーも併せて整理された。二つ目は、`mcp.mode: "orchestrator"`を新規デフォルトとして導入した。server-sideではLLMを呼び出さず、ホストsub-agentが自分のLLMでインタビューを行い、このツールはデータ / プロンプトhelperのみ公開する。応答ラベルは`"mcp_orchestrator"`である。ADR-004のserver-default決定もこのラウンドで併せてsupersedeされた。鍵設定なしで即時動作する点が新規ユーザーの摩擦を最小にするという判断である。
+ADR-005は2つの決定を一度にまとめた。一つ目は、`mcp.mode: "sampling"`をホワイトリストとコードの両方から削除した。`McpSamplingBackend`クラス、sampling capabilityチェック、`_convert_to_sampling_messages`、`_extract_sampling_text`ヘルパーも併せて整理された。二つ目は、`mcp.mode: "orchestrator"`を新規デフォルトとして導入した。server-sideではLLMを呼び出さず、ホストsub-agentが自分のLLMでインタビューを行い、このツールはデータとプロンプトhelperのみ公開する。応答ラベルは`"mcp_orchestrator"`である。ADR-004のserver-default決定もこのラウンドで併せてsupersedeされた。鍵設定なしで即時動作する点が新規ユーザーの摩擦を最小にするという判断である。
 
-この変更はBREAKINGなので、`mcp.mode: "sampling"`を使っていたユーザーはyamlを`"orchestrator"`または`"server"`にマイグレーションする必要がある。orchestratorモードはヒューリスティックの自動適用が抜けるので、ホストがhelperツール(`detect_persona_drift`、`should_auto_follow_up`、`parse_structured_summary`、`interview_record_schema`)を明示的に呼ばなければserverモードと同じ閾値でdrift / follow-upを判定できない。ヒューリスティックをホスト側で再実装する必要がないように同じ閾値とキーワードをhelperツールとして公開したのが、このラウンドの副次的決定である。自動fallbackはADR-004と同じ理由で置かない。ユーザーがmodeを明示トグルで選び、動作経路と費用主体を明確にする。
+この変更はBREAKINGなので、`mcp.mode: "sampling"`を使っていたユーザーはyamlを`"orchestrator"`または`"server"`にマイグレーションする必要がある。orchestratorモードはヒューリスティックの自動適用が抜けるので、ホストがhelperツール(`detect_persona_drift`、`should_auto_follow_up`、`parse_structured_summary`、`interview_record_schema`)を明示的に呼ばなければserverモードと同じ閾値でdriftとfollow-upを判定できない。ヒューリスティックをホスト側で再実装する必要がないように同じ閾値とキーワードをhelperツールとして公開したのが、このラウンドの副次的決定である。自動fallbackはADR-004と同じ理由で置かない。ユーザーがmodeを明示トグルで選び、動作経路と費用主体を明確にする。
 
 5回の決定を経て、ツールの推論経路は単一のローカルMLXからmulti-provider+2つの入口モードへと進化した。決定の流れ自体を回顧的に見れば一つのパターンに従う。最初に定めた清潔なポリシーが運用データで摩擦を起こすと、明示トグルで経路を分離し、自動fallbackの代わりに応答ラベルで追跡性を確保した上で、普及率や価値が0に収束したオプションをsupersede ADRで整理する流れである。このパターンは§7と§8の静的設計の説明で動作の結果としてもう一度確認できる。
 
-## 7. 一つのコアでCLI / MCP server / MCP orchestratorを同時にサポート
+## 7. 一つのコアでCLI、MCP server、MCP orchestratorを同時にサポート
 
 ### 7.1. 入口別の責務分離
 
@@ -212,11 +212,11 @@ ADR-005は2つの決定を一度にまとめた。一つ目は、`mcp.mode: "sam
 
 各入口は入出力とdispatchのみ担当し、ビジネスロジックは持たない。CLIはclickのオプションパースと終了コードのマッピングに、MCPの入口はMCPツールの引数検証と応答エンベロープ生成のみに集中する。実際のインタビューフローは共通モジュールに置く。
 
-### 7.2. 共通モジュール - load_personas / build_system_prompt / run_batch / report
+### 7.2. 共通モジュール load_personas、build_system_prompt、run_batch、report
 
 CLIとMCP serverは両方とも`from src.batch import run_batch`、`from src.llm_backend import build_cli_backend`、`from src.load_personas import load_and_sample`をimportする。`run_batch`は`from .interview import run_interview`で進入し、`run_interview`は`build_system_prompt`でシステムプロンプトを作ったあとマルチターン呼び出しを実行する。つまりCLIとMCP serverは同じ関数コールグラフを通る。
 
-MCP orchestratorは`build_system_prompt`を直接呼び、ホストsub-agentに渡すプロンプトのみ作る。インタビュー自体はホストLLMが実行するので、`run_batch`/`run_interview`の経路は通らない。ただしペルソナ読み込み関数の`load_and_sample`とレポート生成関数の`report.generate_report`は同一モジュールをそのまま使う。ペルソナ決定とコホート集計のロジックが入口ごとに違う理由はないからである。
+MCP orchestratorは`build_system_prompt`を直接呼び、ホストsub-agentに渡すプロンプトのみ作る。インタビュー自体はホストLLMが実行するので、`run_batch`と`run_interview`の経路は通らない。ただしペルソナ読み込み関数の`load_and_sample`とレポート生成関数の`report.generate_report`は同一モジュールをそのまま使う。ペルソナ決定とコホート集計のロジックが入口ごとに違う理由はないからである。
 
 | 入口 | LLM呼び出し経路 | 共通コアの呼び出し |
 | --- | --- | --- |

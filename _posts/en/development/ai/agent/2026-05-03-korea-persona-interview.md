@@ -1,7 +1,7 @@
 ---
-title: "[Agent] korea-persona-interview, a Korean Synthetic Persona Interview Tool Powered by CLI / MCP"
+title: "[Agent] korea-persona-interview, a Korean Synthetic Persona Interview Tool Powered by CLI and MCP"
 ref: korea-persona-interview
-excerpt: "A writeup of korea-persona-interview, a side project that automates Korean synthetic persona interviews. It layers multi-turn interviews, automatic follow-ups, and persona drift detection on top of NVIDIA's Nemotron-Personas-Korea dataset to validate business hypotheses quickly. The post also covers the design pattern that lets three entry points (CLI / MCP server / MCP orchestrator) share a single core."
+excerpt: "A writeup of korea-persona-interview, a side project that automates Korean synthetic persona interviews. It layers multi-turn interviews, automatic follow-ups, and persona drift detection on top of NVIDIA's Nemotron-Personas-Korea dataset to validate business hypotheses quickly. The post also covers the design pattern that lets three entry points (CLI, MCP server, and MCP orchestrator) share a single core."
 date: 2026-05-03T00:00+09:00
 last_modified_at: 2026-05-04T19:26+09:00
 published: true
@@ -47,7 +47,7 @@ credits:
 
 # Overview
 
-This post is a writeup of korea-persona-interview, a side project that automates Korean synthetic persona interviews. It layers multi-turn interviews, automatic follow-ups, and persona drift detection on top of NVIDIA's Nemotron-Personas-Korea dataset to validate business hypotheses quickly. The post also covers the design pattern that lets three entry points (CLI / MCP server / MCP orchestrator) share a single core.
+This post is a writeup of korea-persona-interview, a side project that automates Korean synthetic persona interviews. It layers multi-turn interviews, automatic follow-ups, and persona drift detection on top of NVIDIA's Nemotron-Personas-Korea dataset to validate business hypotheses quickly. The post also covers the design pattern that lets three entry points (CLI, MCP server, and MCP orchestrator) share a single core.
 
 # Summary
 
@@ -100,7 +100,7 @@ The detailed policy keeps the system message at `messages[0]` without truncation
 
 ### 4.2. Automatic follow-up - detecting short answers and ambiguous keywords
 
-`should_auto_follow_up` in `src/interview.py` decides whether to follow up on two axes: answer length and ambiguous keywords. If the character count after stripping whitespace falls below the threshold (`heuristics.short_answer_threshold`, default 20 characters), it returns True. Otherwise, it checks whether any of the six evasive expressions defined in `heuristics.ambiguous_keywords` ("글쎄요" (well...), "잘 모르겠습니다" / "잘 모르겠어요" (I'm not sure), "딱히" (not really), "별로 생각 안 해봤" (haven't thought about it much), "모르겠" (don't know)) appears as a substring. If either fires, one more follow-up question is sent in the same turn flow.
+`should_auto_follow_up` in `src/interview.py` decides whether to follow up on two axes: answer length and ambiguous keywords. If the character count after stripping whitespace falls below the threshold (`heuristics.short_answer_threshold`, default 20 characters), it returns True. Otherwise, it checks whether any of the six evasive expressions defined in `heuristics.ambiguous_keywords` ("글쎄요" (well...), "잘 모르겠습니다" or "잘 모르겠어요" (I'm not sure), "딱히" (not really), "별로 생각 안 해봤" (haven't thought about it much), "모르겠" (don't know)) appears as a substring. If either fires, one more follow-up question is sent in the same turn flow.
 
 Limiting follow-ups to one round was a deliberate choice for two reasons. First, if you keep firing follow-ups indefinitely, the persona drifts toward the model's base voice during the interview. Second, if tokens and time vary unevenly across personas, cost estimation breaks down. A single follow-up is enough to fortify short answers while keeping cost variance within a predictable range.
 
@@ -122,7 +122,7 @@ The reason `family_type` and `housing_type` are explicitly exposed in the system
 
 ## 5. Multi-provider LLM backend
 
-### 5.1. OpenAI / Anthropic / local OpenAI-compatible servers
+### 5.1. OpenAI, Anthropic, and local OpenAI-compatible servers
 
 The LLM backend is abstracted behind an `LLMBackend` Protocol. The implementations are `OpenAIBackend` and `AnthropicBackend`. The provider toggle is determined by `LlmConfig.provider`. `provider=openai` (default) handles OpenAI Chat Completions and OpenAI-compatible endpoints like mlx_lm.server, vLLM, and llama.cpp. Pointing `base_url` at `http://localhost:PORT/v1` plugs straight into a local server. `provider=anthropic` calls the Anthropic Messages API directly.
 
@@ -132,7 +132,7 @@ Both the official `openai` and `anthropic` packages were dropped from the depend
 
 OpenAI's prompt caching is automatic. No extra annotation in client code is required. That said, the prefix must be at least 1024 tokens for the cache to activate, and beyond that the cache prefix grows in 128-token increments. Matching only counts as a hit on exact prefix match, so the system prompt + persona reinforcement at `messages[0]` must come before the variable parts (the question and accumulated answers). This tool always keeps system at messages[0], so multi-turn calls within one persona naturally produce repeated prefixes.
 
-Anthropic's prompt caching is not automatic - it requires explicit `cache_control` markers. You annotate at the block or request level, with up to four breakpoints per request. The minimum prefix length also varies by model. Sonnet 4.5 / Opus 4.1 / Sonnet 3.7 require 1024 tokens, Sonnet 4.6 requires 2048, and Opus 4.7 / 4.6 / 4.5 plus Haiku 4.5 require 4096 tokens. The default TTL is 5 minutes, and you can opt for 1 hour with `cache_control.ttl: "1h"`. Pricing multipliers are 1.25x base input for a 5-minute cache write, 2x for a 1-hour write, and 0.1x for cache reads. This tool's `AnthropicBackend` puts a `cache_control: ephemeral` marker on the system block.
+Anthropic's prompt caching is not automatic - it requires explicit `cache_control` markers. You annotate at the block or request level, with up to four breakpoints per request. The minimum prefix length also varies by model. Sonnet 4.5, Opus 4.1, and Sonnet 3.7 require 1024 tokens, Sonnet 4.6 requires 2048, and Opus 4.7, 4.6, and 4.5 plus Haiku 4.5 require 4096 tokens. The default TTL is 5 minutes, and you can opt for 1 hour with `cache_control.ttl: "1h"`. Pricing multipliers are 1.25x base input for a 5-minute cache write, 2x for a 1-hour write, and 0.1x for cache reads. This tool's `AnthropicBackend` puts a `cache_control: ephemeral` marker on the system block.
 
 Because the two providers behave differently, the impact on this tool also differs. On the OpenAI side, simply isolating the prefix is enough to gain the benefit. On the Anthropic side, the `cache_control` markers must be placed precisely, and the next call has to arrive within the 5-minute TTL for the read to activate. Running 100 personas with concurrency 4 means the same prefix repeats within 5 minutes often enough for the read hit rate to climb meaningfully.
 
@@ -152,9 +152,9 @@ The first thing to settle was how to bundle N questions when sending them to the
 
 Candidate A is multi-turn interviews plus a post-interview single-turn structured summary. Each question goes one turn at a time and accumulates in the messages history, then a separate system prompt feeds the entire messages into the model to produce a structured JSON summary in a single turn. Candidate B is single-turn bundled, where N questions go in one request and the model returns every answer in one response. Candidate C is the same as B in that all answers come in one response, but qualitative insights are generated through a separate single-turn call.
 
-In the table, Candidate A costs roughly 1.8 to 2.5 times more in tokens and processing time, but it wins on all four axes - persona consistency, automatic follow-up integration, drift / refusal isolation, and debugging ergonomics. Because the core guardrails of this tool are automatic follow-up and persona drift detection, per-answer isolation is fundamentally required. The decision criterion was whether the other four answers can survive when one is contaminated, and Candidates B and C mix all the answers into a single response, which is incompatible with these guardrails.
+In the table, Candidate A costs roughly 1.8 to 2.5 times more in tokens and processing time, but it wins on all four axes - persona consistency, automatic follow-up integration, drift and refusal isolation, and debugging ergonomics. Because the core guardrails of this tool are automatic follow-up and persona drift detection, per-answer isolation is fundamentally required. The decision criterion was whether the other four answers can survive when one is contaminated, and Candidates B and C mix all the answers into a single response, which is incompatible with these guardrails.
 
-So Candidate A was adopted along with three detailed policies. The system message is preserved at messages[0] without truncation, and when accumulated tokens exceed the threshold, the oldest user/assistant pair is removed first. Token estimation uses a heuristic of 1 character of Korean = 1, 1 character of English = 0.25, and other characters = 0.5, which gives a consistent trigger using only the standard library. Single-turn mode is opened only via the `--single-turn` flag for dry-run / token-saving purposes, and the v1 default stays multi-turn.
+So Candidate A was adopted along with three detailed policies. The system message is preserved at messages[0] without truncation, and when accumulated tokens exceed the threshold, the oldest user/assistant pair is removed first. Token estimation uses a heuristic of 1 character of Korean = 1, 1 character of English = 0.25, and other characters = 0.5, which gives a consistent trigger using only the standard library. Single-turn mode is opened only via the `--single-turn` flag for dry-run and token-saving purposes, and the v1 default stays multi-turn.
 
 ### 6.2. From local MLX to the OpenAI backend
 
@@ -174,15 +174,15 @@ Right after the OpenAI single-backend decision, two user requests piled up. One 
 
 ADR-003 absorbed both requests by introducing the `LLMBackend` Protocol and branching the entry point on `LlmConfig.provider`. `provider=openai` (default) maps to `OpenAIBackend`, which handles both the OpenAI Chat Completions API and OpenAI-compatible local servers. Pointing base_url at `http://localhost:PORT/v1` plugs straight into a local server. `provider=anthropic` maps to `AnthropicBackend`, which calls the Anthropic Messages API directly via httpx. The anthropic SDK dependency was not added.
 
-The heuristic of branching by base_url match alone was rejected as not stable enough. Anthropic uses a Messages API schema that is not compatible with OpenAI Chat Completions. With a top-level `system` field, an `x-api-key` header, and required `max_tokens`, the differences pile up to the point where a base_url pattern-matching branch breaks frequently. Splitting it into a separate adapter is better. Adopting the anthropic SDK was also rejected. From the leftpad-avoidance principle in dependency.md section 1 and minimizing the transitive tree, unifying retry / timeout / logging in a single module via direct httpx calls keeps the control cost lower.
+The heuristic of branching by base_url match alone was rejected as not stable enough. Anthropic uses a Messages API schema that is not compatible with OpenAI Chat Completions. With a top-level `system` field, an `x-api-key` header, and required `max_tokens`, the differences pile up to the point where a base_url pattern-matching branch breaks frequently. Splitting it into a separate adapter is better. Adopting the anthropic SDK was also rejected. From the leftpad-avoidance principle in dependency.md section 1 and minimizing the transitive tree, unifying retry, timeout, and logging in a single module via direct httpx calls keeps the control cost lower.
 
 Token usage tracking was also normalized in this round. OpenAI uses `cached_tokens` and Anthropic uses `cache_read_input_tokens`, and even though the field names differ, both are merged into `TokenUsage.cached_tokens` so the whole tool aggregates through the same interface. On the Anthropic side, prompt caching is not automatic and requires explicit `cache_control` markers, which differs from OpenAI. The structure puts a `cache_control: ephemeral` marker on the system block.
 
 ADR-002's OpenAI single-backend decision was superseded by ADR-003. That said, ADR-003 itself carried a story where one decision about the MCP entry point inside ADR-003 section 2 (the decision section) would be partly superseded in the next round. That is the starting point of the MCP mode introduction covered in section 6.4.
 
-### 6.4. Introducing the MCP mode (server / sampling)
+### 6.4. Introducing the MCP mode (server and sampling)
 
-In ADR-003, the MCP server entry point was simplified to be sampling-only. The policy was to always delegate inference to the host agent's `sampling/createMessage` and not place any OpenAI / Anthropic keys server-side. From the perspective that MCP is fundamentally a protocol for leveraging the host LLM, that is a clean decision.
+In ADR-003, the MCP server entry point was simplified to be sampling-only. The policy was to always delegate inference to the host agent's `sampling/createMessage` and not place any OpenAI or Anthropic keys server-side. From the perspective that MCP is fundamentally a protocol for leveraging the host LLM, that is a clean decision.
 
 That said, operational friction piled up on two fronts. First, as of April 2026, MCP clients exposing the sampling capability as a standard were extremely scarce. The cmux build did not support sampling, the official Claude Code Desktop build had not finalized sampling exposure, and only some Cursor builds offered partial support. Second, as a result, when a typical user registered the tool in mcp.json and called it via natural language, they always got a ConfigError. The tool failed to boot at all, so its real-world utility evaporated.
 
@@ -194,17 +194,17 @@ The reason automatic fallback was rejected is surprise behavior and debugging di
 
 ### 6.5. Removing sampling and introducing orchestrator mode
 
-The two-mode (server / sampling) toggle resolved the onboarding friction, but the v1.1.1 operational data made it clear that sampling mode was effectively unused. The supersede threshold pinned in ADR-004 was 50%+ adoption among sampling-compatible clients, and as of 2026-05 the estimate is below 10%, with no signal that the threshold will be reached anytime soon.
+The two-mode (server and sampling) toggle resolved the onboarding friction, but the v1.1.1 operational data made it clear that sampling mode was effectively unused. The supersede threshold pinned in ADR-004 was 50%+ adoption among sampling-compatible clients, and as of 2026-05 the estimate is below 10%, with no signal that the threshold will be reached anytime soon.
 
 Meanwhile, host sub-agent tools (Claude Code's Task tool, Cursor's sub-agent pattern) had stable mainstream support, so an alternative path opened up: if the host directly spawns a sub-agent to run the interview with its own LLM, the same value (no server-side keys + use of the host LLM) can be delivered without any sampling dependency. To be transparent, the adoption number is not from official statistics but is the project's own estimate from ADR-005 section 1.
 
-ADR-005 bundled two decisions in one round. First, `mcp.mode: "sampling"` was removed from both the whitelist and the code. The `McpSamplingBackend` class, the sampling capability check, and the `_convert_to_sampling_messages` and `_extract_sampling_text` helpers were also cleaned up. Second, `mcp.mode: "orchestrator"` was introduced as the new default. The server-side does not call any LLM; the host sub-agent runs the interview with its own LLM, and this tool exposes only data / prompt helpers. The response label is `"mcp_orchestrator"`. ADR-004's server-default decision was also superseded in this round. The judgment was that working immediately without any key configuration minimizes friction for new users.
+ADR-005 bundled two decisions in one round. First, `mcp.mode: "sampling"` was removed from both the whitelist and the code. The `McpSamplingBackend` class, the sampling capability check, and the `_convert_to_sampling_messages` and `_extract_sampling_text` helpers were also cleaned up. Second, `mcp.mode: "orchestrator"` was introduced as the new default. The server-side does not call any LLM; the host sub-agent runs the interview with its own LLM, and this tool exposes only data and prompt helpers. The response label is `"mcp_orchestrator"`. ADR-004's server-default decision was also superseded in this round. The judgment was that working immediately without any key configuration minimizes friction for new users.
 
-This change is BREAKING, so users who had been using `mcp.mode: "sampling"` need to migrate the yaml to `"orchestrator"` or `"server"`. Orchestrator mode loses automatic application of heuristics, so the host has to call helper tools (`detect_persona_drift`, `should_auto_follow_up`, `parse_structured_summary`, `interview_record_schema`) explicitly to apply the same thresholds for drift / follow-up as in server mode. A side decision in this round was to expose the same thresholds and keywords as helper tools so that the host does not need to reimplement the heuristics. There is no automatic fallback for the same reasons as ADR-004. The user picks a mode through an explicit toggle to make the runtime path and the cost-attribution owner clear.
+This change is BREAKING, so users who had been using `mcp.mode: "sampling"` need to migrate the yaml to `"orchestrator"` or `"server"`. Orchestrator mode loses automatic application of heuristics, so the host has to call helper tools (`detect_persona_drift`, `should_auto_follow_up`, `parse_structured_summary`, `interview_record_schema`) explicitly to apply the same thresholds for drift and follow-up as in server mode. A side decision in this round was to expose the same thresholds and keywords as helper tools so that the host does not need to reimplement the heuristics. There is no automatic fallback for the same reasons as ADR-004. The user picks a mode through an explicit toggle to make the runtime path and the cost-attribution owner clear.
 
 Across these five decisions, the tool's inference path evolved from a single local MLX into multi-provider plus two entry-point modes. Looking back, the decision flow itself follows one pattern: when a clean initial policy generates friction in operational data, separate the paths through explicit toggles, secure traceability via response labels instead of automatic fallback, and consolidate options whose adoption or value converges to zero through a supersede ADR. This pattern shows up once more as a runtime outcome in the static design discussions in sections 7 and 8.
 
-## 7. One core, three entry points - CLI / MCP server / MCP orchestrator
+## 7. One core supporting CLI, MCP server, and MCP orchestrator
 
 ### 7.1. Per-entry-point separation of concerns
 
@@ -212,11 +212,11 @@ There are three entry points. The CLI, `main.py`, exposes four `click` subcomman
 
 Each entry point handles only I/O and dispatch and carries no business logic. The CLI focuses on click option parsing and exit-code mapping, and the MCP entry points focus on MCP tool argument validation and response envelope generation. The actual interview flow lives in shared modules.
 
-### 7.2. Shared modules - load_personas / build_system_prompt / run_batch / report
+### 7.2. Shared modules load_personas, build_system_prompt, run_batch, and report
 
 Both the CLI and the MCP server import `from src.batch import run_batch`, `from src.llm_backend import build_cli_backend`, and `from src.load_personas import load_and_sample`. `run_batch` enters via `from .interview import run_interview`, and `run_interview` builds the system prompt with `build_system_prompt` and then runs the multi-turn calls. In other words, the CLI and the MCP server traverse the same function call graph.
 
-The MCP orchestrator calls `build_system_prompt` directly to produce the prompt that gets handed to the host's sub-agent. Because the host LLM runs the actual interview, the orchestrator does not pass through `run_batch` / `run_interview`. The persona-loading function `load_and_sample` and the report-generation function `report.generate_report`, however, reuse the same modules as-is. There is no reason for persona selection or per-cohort aggregation logic to differ across entry points.
+The MCP orchestrator calls `build_system_prompt` directly to produce the prompt that gets handed to the host's sub-agent. Because the host LLM runs the actual interview, the orchestrator does not pass through `run_batch` and `run_interview`. The persona-loading function `load_and_sample` and the report-generation function `report.generate_report`, however, reuse the same modules as-is. There is no reason for persona selection or per-cohort aggregation logic to differ across entry points.
 
 | Entry point | LLM call path | Shared core invocation |
 | --- | --- | --- |

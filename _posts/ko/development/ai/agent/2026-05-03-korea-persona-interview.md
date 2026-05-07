@@ -1,7 +1,7 @@
 ---
-title: "[Agent] CLI / MCP로 동작하는 한국인 합성 페르소나 인터뷰 도구 korea-persona-interview"
+title: "[Agent] CLI와 MCP로 동작하는 한국인 합성 페르소나 인터뷰 도구 korea-persona-interview"
 ref: korea-persona-interview
-excerpt: "사이드 프로젝트로 만든 한국인 합성 페르소나 인터뷰 자동화 도구 korea-persona-interview를 정리한다. NVIDIA Nemotron-Personas-Korea 데이터셋 위에 멀티턴 인터뷰와 자동 follow-up 페르소나 깨짐 감지를 얹어 사업 가설을 빠르게 검증한다. CLI / MCP server / MCP orchestrator 3개 진입점이 동일한 코어를 공유하도록 설계한 패턴도 함께 다룬다."
+excerpt: "사이드 프로젝트로 만든 한국인 합성 페르소나 인터뷰 자동화 도구 korea-persona-interview를 정리한다. NVIDIA Nemotron-Personas-Korea 데이터셋 위에 멀티턴 인터뷰와 자동 follow-up 페르소나 깨짐 감지를 얹어 사업 가설을 빠르게 검증한다. CLI, MCP server, MCP orchestrator 3개 진입점이 동일한 코어를 공유하도록 설계한 패턴도 함께 다룬다."
 date: 2026-05-03T00:00+09:00
 last_modified_at: 2026-05-04T19:26+09:00
 published: true
@@ -45,7 +45,7 @@ credits:
 
 # 개요
 
-사이드 프로젝트로 만든 한국인 합성 페르소나 인터뷰 자동화 도구 korea-persona-interview를 정리한다. NVIDIA Nemotron-Personas-Korea 데이터셋 위에 멀티턴 인터뷰와 자동 follow-up 페르소나 깨짐 감지를 얹어 사업 가설을 빠르게 검증한다. CLI / MCP server / MCP orchestrator 3개 진입점이 동일한 코어를 공유하도록 설계한 패턴도 함께 다룬다.
+사이드 프로젝트로 만든 한국인 합성 페르소나 인터뷰 자동화 도구 korea-persona-interview를 정리한다. NVIDIA Nemotron-Personas-Korea 데이터셋 위에 멀티턴 인터뷰와 자동 follow-up 페르소나 깨짐 감지를 얹어 사업 가설을 빠르게 검증한다. CLI, MCP server, MCP orchestrator 3개 진입점이 동일한 코어를 공유하도록 설계한 패턴도 함께 다룬다.
 
 # 정리
 
@@ -120,7 +120,7 @@ follow-up 1회로 제한한 이유는 두 가지다. 첫째, 후속 질문을 �
 
 ## 5. multi-provider LLM 백엔드
 
-### 5.1. OpenAI / Anthropic / 로컬 OpenAI 호환 서버
+### 5.1. OpenAI, Anthropic, 로컬 OpenAI 호환 서버
 
 LLM 백엔드는 `LLMBackend` Protocol로 추상화되어 있다. 구현은 `OpenAIBackend`와 `AnthropicBackend` 두 가지다. provider 토글은 `LlmConfig.provider`로 결정한다. `provider=openai`(기본)는 OpenAI Chat Completions와 OpenAI 호환 엔드포인트인 mlx_lm.server, vLLM, llama.cpp를 다룬다. `base_url`을 `http://localhost:PORT/v1`로 바꾸면 그대로 로컬 서버에 붙는다. `provider=anthropic`은 Anthropic Messages API를 직접 호출한다.
 
@@ -178,7 +178,7 @@ base_url 매칭만으로 분기하는 휴리스틱은 안정적이지 않아 거
 
 ADR-002의 OpenAI 단일 백엔드 결정은 ADR-003으로 supersede됐다. 다만 ADR-003 자체도 ADR-003 §2(결정 섹션)에 박혀 있던 MCP 진입점에 대한 한 가지 결정이 다음 라운드에서 부분 supersede될 사연을 안고 있었다. 그 부분이 §6.4에서 다룰 MCP mode 도입의 출발점이다.
 
-### 6.4. MCP mode 도입(server / sampling)
+### 6.4. MCP mode 도입(server와 sampling)
 
 ADR-003에서 MCP 서버 진입점은 sampling 전용으로 단순화했었다. 추론은 항상 호스트 에이전트의 `sampling/createMessage`로 위임하고 server-side에는 OpenAI/Anthropic 키를 두지 않는다는 정책이었다. MCP가 본질적으로 호스트 LLM을 활용하기 위한 프로토콜이라는 관점에서 보면 깔끔한 결정이다.
 
@@ -202,7 +202,7 @@ ADR-005는 두 결정을 한 번에 묶었다. 첫째, `mcp.mode: "sampling"`을
 
 다섯 번의 결정을 거치며 도구의 추론 경로는 단일 로컬 MLX에서 multi-provider + 두 진입점 모드로 진화했다. 결정 흐름 자체는 회고적으로 보면 한 가지 패턴을 따른다. 처음에 정한 깔끔한 정책이 운영 데이터에서 마찰을 일으키면 명시 토글로 경로를 분리하고 자동 fallback 대신 응답 라벨로 추적성을 확보한 뒤 보급률이나 가치가 0에 수렴한 옵션은 supersede ADR로 정리하는 흐름이다. 이 패턴은 §7과 §8의 정적 설계 설명에서 동작 결과로 한 번 더 확인할 수 있다.
 
-## 7. 한 코어로 CLI / MCP server / MCP orchestrator 동시 지원
+## 7. 한 코어로 CLI, MCP server, MCP orchestrator 동시 지원
 
 ### 7.1. 진입점별 책임 분리
 
@@ -210,7 +210,7 @@ ADR-005는 두 결정을 한 번에 묶었다. 첫째, `mcp.mode: "sampling"`을
 
 각 진입점은 입출력과 dispatch만 담당하고 비즈니스 로직은 가지지 않는다. CLI는 click 옵션 파싱과 종료 코드 매핑에, MCP 진입점은 MCP 도구 인자 검증과 응답 봉투 생성에만 집중한다. 실제 인터뷰 흐름은 공통 모듈에 둔다.
 
-### 7.2. 공통 모듈 - load_personas / build_system_prompt / run_batch / report
+### 7.2. 공통 모듈 load_personas, build_system_prompt, run_batch, report
 
 CLI와 MCP server는 모두 `from src.batch import run_batch`, `from src.llm_backend import build_cli_backend`, `from src.load_personas import load_and_sample`을 import한다. `run_batch`는 `from .interview import run_interview`로 진입하고 `run_interview`는 `build_system_prompt`로 시스템 프롬프트를 만든 뒤 멀티턴 호출을 수행한다. 즉 CLI와 MCP server는 같은 함수 콜 그래프를 거친다.
 
