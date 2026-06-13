@@ -6,7 +6,7 @@ date: 2026-06-13T16:00+09:00
 last_modified_at: 2026-06-13T16:00+09:00
 published: true
 credits:
-  planning: Claude
+  planning: binaryloader
   research: Claude
   drafting: Claude
   editing: Claude
