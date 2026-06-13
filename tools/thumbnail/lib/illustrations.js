@@ -4151,6 +4151,141 @@ function drawKoreaPersonaInterview() {
   `;
 }
 
+// claude-for-foundation-models: Apple Foundation Models framework의 LanguageModelSession API를 통해
+// 온디바이스 모델과 클라우드 Claude를 동일 인터페이스로 라우팅하는 Swift 패키지
+function drawClaudeForFoundationModels() {
+  return `
+    <rect x="0" y="0" width="1080" height="700" fill="none"/>
+
+    <!-- CENTER: LanguageModelSession router hub -->
+    <g transform="translate(540, 310)">
+      <!-- Outer hexagon ring (routing hub) -->
+      <polygon points="0,-90 78,-45 78,45 0,90 -78,45 -78,-45"
+        fill="none" stroke="#00e5ff" stroke-width="2.5" opacity="0.85"/>
+      <!-- Inner hexagon -->
+      <polygon points="0,-60 52,-30 52,30 0,60 -52,30 -52,-30"
+        fill="none" stroke="#00e5ff" stroke-width="1.2" opacity="0.35"/>
+      <!-- Fill hint -->
+      <polygon points="0,-60 52,-30 52,30 0,60 -52,30 -52,-30"
+        fill="#00e5ff" fill-opacity="0.05"/>
+      <!-- API label -->
+      <text x="0" y="-12" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff" opacity="0.9">LanguageModel</text>
+      <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#00e5ff" opacity="0.9">Session</text>
+      <text x="0" y="32" text-anchor="middle" font-family="monospace" font-size="9" fill="#00e5ff" opacity="0.5">API</text>
+      <!-- Corner dots -->
+      <circle cx="0"   cy="-90" r="4" fill="#00e5ff" opacity="0.6"/>
+      <circle cx="78"  cy="-45" r="4" fill="#00e5ff" opacity="0.6"/>
+      <circle cx="78"  cy="45"  r="4" fill="#00e5ff" opacity="0.6"/>
+      <circle cx="0"   cy="90"  r="4" fill="#00e5ff" opacity="0.6"/>
+      <circle cx="-78" cy="45"  r="4" fill="#00e5ff" opacity="0.6"/>
+      <circle cx="-78" cy="-45" r="4" fill="#00e5ff" opacity="0.6"/>
+    </g>
+
+    <!-- LEFT: Apple on-device model (Apple Silicon chip) -->
+    <g transform="translate(185, 310)">
+      <!-- Chip outer package -->
+      <rect x="-90" y="-90" width="180" height="180" rx="16" fill="none" stroke="#60a5fa" stroke-width="2.2" opacity="0.85"/>
+      <!-- Chip inner die -->
+      <rect x="-60" y="-60" width="120" height="120" rx="8" fill="none" stroke="#60a5fa" stroke-width="1.2" opacity="0.4"/>
+      <!-- 3x3 core grid -->
+      <rect x="-48" y="-48" width="28" height="28" rx="3" fill="none" stroke="#60a5fa" stroke-width="1" opacity="0.6"/>
+      <rect x="-14" y="-48" width="28" height="28" rx="3" fill="#60a5fa" fill-opacity="0.12" stroke="#60a5fa" stroke-width="1" opacity="0.75"/>
+      <rect x="20"  y="-48" width="28" height="28" rx="3" fill="none" stroke="#60a5fa" stroke-width="1" opacity="0.6"/>
+      <rect x="-48" y="-14" width="28" height="28" rx="3" fill="#60a5fa" fill-opacity="0.12" stroke="#60a5fa" stroke-width="1" opacity="0.75"/>
+      <rect x="-14" y="-14" width="28" height="28" rx="3" fill="#60a5fa" fill-opacity="0.18" stroke="#60a5fa" stroke-width="1.2" opacity="0.9"/>
+      <rect x="20"  y="-14" width="28" height="28" rx="3" fill="#60a5fa" fill-opacity="0.12" stroke="#60a5fa" stroke-width="1" opacity="0.75"/>
+      <rect x="-48" y="20"  width="28" height="28" rx="3" fill="none" stroke="#60a5fa" stroke-width="1" opacity="0.5"/>
+      <rect x="-14" y="20"  width="28" height="28" rx="3" fill="none" stroke="#60a5fa" stroke-width="1" opacity="0.5"/>
+      <rect x="20"  y="20"  width="28" height="28" rx="3" fill="none" stroke="#60a5fa" stroke-width="1" opacity="0.4"/>
+      <!-- Chip pins left -->
+      <line x1="-90" y1="-52" x2="-108" y2="-52" stroke="#60a5fa" stroke-width="1.8" opacity="0.45"/>
+      <line x1="-90" y1="-20" x2="-108" y2="-20" stroke="#60a5fa" stroke-width="1.8" opacity="0.45"/>
+      <line x1="-90" y1="12"  x2="-108" y2="12"  stroke="#60a5fa" stroke-width="1.8" opacity="0.45"/>
+      <line x1="-90" y1="44"  x2="-108" y2="44"  stroke="#60a5fa" stroke-width="1.8" opacity="0.45"/>
+      <!-- Chip pins right -->
+      <line x1="90"  y1="-52" x2="108"  y2="-52" stroke="#60a5fa" stroke-width="1.8" opacity="0.45"/>
+      <line x1="90"  y1="-20" x2="108"  y2="-20" stroke="#60a5fa" stroke-width="1.8" opacity="0.45"/>
+      <line x1="90"  y1="12"  x2="108"  y2="12"  stroke="#60a5fa" stroke-width="1.8" opacity="0.45"/>
+      <line x1="90"  y1="44"  x2="108"  y2="44"  stroke="#60a5fa" stroke-width="1.8" opacity="0.45"/>
+      <!-- Label -->
+      <text x="0" y="78" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#60a5fa" opacity="0.9">On-Device</text>
+    </g>
+    <!-- Badge: lightweight tasks -->
+    <g transform="translate(185, 440)">
+      <rect x="-68" y="-18" width="136" height="36" rx="8" fill="none" stroke="#60a5fa" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.5"/>
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="9" fill="#60a5fa" opacity="0.65">light tasks</text>
+    </g>
+
+    <!-- RIGHT: Claude cloud model -->
+    <g transform="translate(895, 280)">
+      <!-- Cloud outline (3-circle approximation) -->
+      <circle cx="-30" cy="20" r="42" fill="none" stroke="#ff6b9d" stroke-width="0" opacity="0"/>
+      <circle cx="30"  cy="20" r="42" fill="none" stroke="#ff6b9d" stroke-width="0" opacity="0"/>
+      <circle cx="0"   cy="-5" r="52" fill="none" stroke="#ff6b9d" stroke-width="0" opacity="0"/>
+      <!-- Cloud shape path -->
+      <path d="M -70,38 Q -80,38 -80,22 Q -80,4 -62,2 Q -60,-30 -28,-34 Q -12,-52 16,-42 Q 38,-60 62,-38 Q 86,-34 84,2 Q 100,6 98,28 Q 96,44 76,44 Z"
+        fill="none" stroke="#ff6b9d" stroke-width="2" opacity="0.7"/>
+      <path d="M -70,38 Q -80,38 -80,22 Q -80,4 -62,2 Q -60,-30 -28,-34 Q -12,-52 16,-42 Q 38,-60 62,-38 Q 86,-34 84,2 Q 100,6 98,28 Q 96,44 76,44 Z"
+        fill="#ff6b9d" fill-opacity="0.05"/>
+      <!-- Claude label inside cloud -->
+      <text x="10" y="8" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#ff6b9d" opacity="0.9">Claude</text>
+      <text x="10" y="28" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.55">Anthropic API</text>
+    </g>
+    <!-- Badge: heavy inference + tools -->
+    <g transform="translate(895, 390)">
+      <rect x="-82" y="-18" width="164" height="36" rx="8" fill="none" stroke="#ff6b9d" stroke-width="1.2" stroke-dasharray="4,3" opacity="0.5"/>
+      <text x="0" y="5" text-anchor="middle" font-family="monospace" font-size="9" fill="#ff6b9d" opacity="0.65">heavy reasoning + tools</text>
+    </g>
+
+    <!-- ESCALATION arrow: on-device -> session hub (solid, left to right) -->
+    <line x1="295" y1="280" x2="445" y2="256" stroke="#60a5fa" stroke-width="1.8" opacity="0.6"/>
+    <polygon points="441,250 457,252 446,264" fill="#60a5fa" opacity="0.65"/>
+
+    <!-- NORMAL arrow: on-device -> session hub (return path, dashed) -->
+    <line x1="297" y1="340" x2="447" y2="330" stroke="#60a5fa" stroke-width="1.4" stroke-dasharray="6,4" opacity="0.4"/>
+
+    <!-- ESCALATION arrow: session hub -> Claude cloud (solid) -->
+    <line x1="622" y1="258" x2="782" y2="258" stroke="#ff6b9d" stroke-width="1.8" opacity="0.6"/>
+    <polygon points="778,252 794,258 778,264" fill="#ff6b9d" opacity="0.65"/>
+    <!-- Label over escalation arrow -->
+    <text x="702" y="246" text-anchor="middle" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.75">escalate</text>
+
+    <!-- RETURN arrow: Claude -> session hub (dashed) -->
+    <line x1="794" y1="296" x2="624" y2="334" stroke="#ff6b9d" stroke-width="1.4" stroke-dasharray="6,4" opacity="0.4"/>
+
+    <!-- TOP: Swift package badge -->
+    <g transform="translate(540, 120)">
+      <rect x="-130" y="-26" width="260" height="52" rx="10" fill="none" stroke="#ffe66d" stroke-width="1.8" opacity="0.8"/>
+      <!-- Swift bird simplified (small triangle motif) -->
+      <polygon points="-106,2 -96,-14 -86,2" fill="none" stroke="#ffe66d" stroke-width="1.4" opacity="0.7"/>
+      <text x="-68" y="7" font-family="monospace" font-size="12" font-weight="bold" fill="#ffe66d" opacity="0.9">Swift Package</text>
+      <text x="94" y="7" text-anchor="end" font-family="monospace" font-size="9" fill="#ffe66d" opacity="0.55">ClaudeForFM</text>
+    </g>
+    <!-- Arrow: package -> hub top -->
+    <line x1="540" y1="146" x2="540" y2="218" stroke="#ffe66d" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+    <polygon points="534,216 540,230 546,216" fill="#ffe66d" opacity="0.55"/>
+
+    <!-- BOTTOM: code snippet -->
+    <g transform="translate(540, 570)">
+      <rect x="-280" y="-46" width="560" height="92" rx="9" fill="#111" stroke="#2a2a2a" stroke-width="1.5"/>
+      <!-- Traffic light dots -->
+      <circle cx="-260" cy="-30" r="5" fill="#ff6b6b" opacity="0.65"/>
+      <circle cx="-242" cy="-30" r="5" fill="#ffe66d" opacity="0.65"/>
+      <circle cx="-224" cy="-30" r="5" fill="#4ecdc4" opacity="0.65"/>
+      <!-- Code lines -->
+      <text x="-260" y="-6" font-family="monospace" font-size="11" fill="#a78bfa" opacity="0.85">let</text>
+      <text x="-234" y="-6" font-family="monospace" font-size="11" fill="#e0e0e0" opacity="0.9">session = LanguageModelSession(model:</text>
+      <text x="-260" y="14" font-family="monospace" font-size="11" fill="#888" opacity="0.65">    .claude  </text>
+      <text x="-170" y="14" font-family="monospace" font-size="11" fill="#555" opacity="0.5">// or .default</text>
+      <text x="-260" y="36" font-family="monospace" font-size="11" fill="#4ecdc4" opacity="0.75">let</text>
+      <text x="-234" y="36" font-family="monospace" font-size="11" fill="#888" opacity="0.65">reply = try await session.respond(to: prompt)</text>
+    </g>
+
+    <!-- Bottom label -->
+    <text x="540" y="665" text-anchor="middle" font-family="monospace" font-size="13" fill="#555">CLAUDE FOR FOUNDATION MODELS</text>
+  `;
+}
+
 const ILLUSTRATION_MAP = {
   'the-end-of-developer-scarcity': illustrationTheEndOfDeveloperScarcity,
   'running-a-tech-blog-in-the-ai-era': illustrationRunningATechBlogInTheAiEra,
@@ -4240,6 +4375,7 @@ const ILLUSTRATION_MAP = {
   'native-agent-framework-mollo-core-assets': illustrationNativeAgentFrameworkMolloCoreAssets,
   'yangsiljang-real-estate-rag-chatbot': illustrationYangsiljangRealEstateRagChatbot,
   'korea-persona-interview': drawKoreaPersonaInterview,
+  'claude-for-foundation-models': drawClaudeForFoundationModels,
 };
 
 function getIllustration(ref) {
