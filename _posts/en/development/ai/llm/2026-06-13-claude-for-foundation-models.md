@@ -10,7 +10,7 @@ credits:
   research: Claude
   drafting: Claude
   editing: Claude
-  review: binaryloader
+  review: [Claude, binaryloader]
   translation: Claude
   thumbnail: Claude
   publishing: Claude
